@@ -1,0 +1,21 @@
+{
+    "author": "zdm <zdm@softvisio.net>",
+    "bugs": {
+        "email": "zdm@softvisio.net",
+        "url": "https://bitbucket.org/softvisio/softvisio-web-components/issues"
+    },
+    "description": "Softisio WebComponents",
+    "homepage": "https://bitbucket.org/softvisio/softvisio-web-components",
+    "keywords": [
+        "softvisio",
+        "web components"
+    ],
+    "name": "@softvisio/web-components",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://bitbucket.org/softvisio/softvisio-web-components.git"
+    },
+    "type": "module",
+    "version": "0.1.0"
+}
