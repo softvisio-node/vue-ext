@@ -13,9 +13,8 @@ afterPdfLoad(error);
 </template>
 
 <script>
-import pdfjsLib from "pdfjs-dist/webpack";
-
 import Vue from "vue";
+import pdfjs from "pdfjs-dist/webpack";
 
 export default Vue.component( "SwcPdf", {
     "props": {
@@ -81,7 +80,7 @@ export default Vue.component( "SwcPdf", {
             var me = this,
                 cmp = this.cmp;
 
-            pdfjsLib
+            pdfjs
                 .getDocument( this.lastSrc )
                 .promise.then( function ( pdf ) {
                     var numPages = pdf.numPages,
