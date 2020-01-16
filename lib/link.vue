@@ -5,7 +5,7 @@
 <script>
 import Vue from "vue";
 
-export default Vue.component( "swc-link", {
+export default Vue.component( "SwcLink", {
     "name": "SwcLink",
 
     "props": ["text"],

@@ -1,10 +1,11 @@
 <!--
-yarn add pdfjs-dist
+yarn add worker-loader pdfjs-dist
 
 <swc-pdf src="" scale="1">
 
 Events:
-ready
+ready(this);
+afterPdfLoad(error);
 -->
 
 <template>
@@ -12,15 +13,11 @@ ready
 </template>
 
 <script>
-import pdfjsLib from "pdfjs-dist";
-// import pdfjsWorker from "pdfjs-dist/build/pdf.worker.js";
-import pdfjsWorker from "pdfjs-dist/build/pdf.worker.entry.js";
+import pdfjsLib from "pdfjs-dist/webpack";
 
 import Vue from "vue";
 
-export default Vue.component( "swc-pdf", {
-    "name": "SwcPdf",
-
+export default Vue.component( "SwcPdf", {
     "props": {
         "src": {
             "type": String,
@@ -40,20 +37,16 @@ export default Vue.component( "swc-pdf", {
     },
 
     "methods": {
-        // TODO global worker
         ready ( e ) {
-            var cmp = ( this.cmp = e.detail.cmp );
+            this.cmp = e.detail.cmp;
 
             this.$watch( "src", this._load.bind( this ) );
-
-            pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
             if ( this.src ) this._load();
 
             this.$emit( "ready", this );
         },
 
-        // TODO events
         _load () {
             var me = this,
                 cmp = this.cmp;
@@ -98,10 +91,10 @@ export default Vue.component( "swc-pdf", {
                         } );
                     }
 
-                    // view.fireEvent( "afterPdfLoad", false );
+                    me.$emit( "afterPdfLoad", false );
                 } )
                 .catch( function ( error ) {
-                    // view.fireEvent( "afterPdfLoad", error.message );
+                    me.$emit( "afterPdfLoad", error.message );
                 } );
         },
 
@@ -117,14 +110,3 @@ export default Vue.component( "swc-pdf", {
     },
 } );
 </script>
-<!-- -----SOURCE FILTER LOG BEGIN----- -->
-<!-- -->
-<!-- +-------+---------------+------------------------------+--------------------------------------------------------------------------------+ -->
-<!-- | Sev.  | Line:Col      | Rule                         | Description                                                                    | -->
-<!-- |=======+===============+==============================+================================================================================| -->
-<!-- |  WARN | 45:17         | no-unused-vars               | 'cmp' is assigned a value but never used.                                      | -->
-<!-- |-------+---------------+------------------------------+--------------------------------------------------------------------------------| -->
-<!-- |  WARN | 103:36        | no-unused-vars               | 'error' is defined but never used.                                             | -->
-<!-- +-------+---------------+------------------------------+--------------------------------------------------------------------------------+ -->
-<!-- -->
-<!-- -----SOURCE FILTER LOG END----- -->

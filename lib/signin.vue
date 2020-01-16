@@ -7,7 +7,7 @@
 
                 <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
                     <ext-spacer/>
-                    <swc-link text="Forot password?" @tap="showForgotPassword"/>
+                    <SwcLink text="Forot password?" @tap="showForgotPassword"/>
                     <ext-spacer/>
                     <ext-button ref="signinButton" text="Sign in" @tap="signin"/>
                 </ext-toolbar>
@@ -20,7 +20,7 @@
 
                 <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
                     <ext-spacer/>
-                    <swc-link text="Sign In" @tap="showSignin"/>
+                    <SwcLink text="Sign In" @tap="showSignin"/>
                     <ext-spacer/>
                     <ext-button ref="recoverButton" text="Recover Password" @tap="recover"/>
                 </ext-toolbar>
@@ -33,9 +33,7 @@
 import Vue from "vue";
 import SwcLink from "./link";
 
-export default Vue.component( "swc-signin", {
-    "name": "SwcSignin",
-
+export default Vue.component( "SwcSignin", {
     "methods": {
         ready ( e ) {
             this.cmp = e.detail.cmp;
