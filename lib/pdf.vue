@@ -33,6 +33,7 @@ export default Vue.component( "SwcPdf", {
         return {
             "cmp": null,
             "pdf": null,
+            "lastSrc": null,
         };
     },
 
@@ -42,17 +43,46 @@ export default Vue.component( "SwcPdf", {
 
             this.$watch( "src", this._load.bind( this ) );
 
-            if ( this.src ) this._load();
-
             this.$emit( "ready", this );
+
+            if ( this.src ) this.setSrc( this.src );
+        },
+
+        getSrc () {
+            return this.lastSrc;
+        },
+
+        setSrc ( src ) {
+            if ( !src ) {
+                this.clear();
+            }
+            else {
+                this.lastSrc = src;
+
+                this._load();
+            }
+        },
+
+        clear () {
+            this.cmp.setHtml( "" );
+
+            this.pdf = null;
+
+            this.lastSrc = null;
+        },
+
+        reload () {
+            this._load();
         },
 
         _load () {
+            if ( !this.lastSrc ) return;
+
             var me = this,
                 cmp = this.cmp;
 
             pdfjsLib
-                .getDocument( this.src )
+                .getDocument( this.lastSrc )
                 .promise.then( function ( pdf ) {
                     var numPages = pdf.numPages,
                         container = document.createElement( "div" );
@@ -96,16 +126,6 @@ export default Vue.component( "SwcPdf", {
                 .catch( function ( error ) {
                     me.$emit( "afterPdfLoad", error.message );
                 } );
-        },
-
-        clear () {
-            this.cmp.setHtml( "" );
-
-            this.pdf = null;
-        },
-
-        reload () {
-            if ( this.src ) this._load();
         },
     },
 } );
