@@ -9,7 +9,7 @@ afterPdfLoad(error);
 -->
 
 <template>
-    <ext-panel layout="fit" scrollable="true" @ready="ready"/>
+    <ext-panel layout="center" scrollable="true" @ready="ready"/>
 </template>
 
 <script>
