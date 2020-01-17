@@ -10,6 +10,8 @@ export default {
 
     "data": () => {
         return {
+            "pushNotifications": null,
+
             "viewport": null,
             "view": null,
 
@@ -26,6 +28,8 @@ export default {
     },
 
     mounted () {
+        document.addEventListener( "deviceready", this._onCordovaDeviceReady.bind( this ), false );
+
         this.$watch( "sessionIsAuthenticated", function ( isAuthenticated ) {
             // authentication status is unknown
             if ( isAuthenticated === null ) return;
@@ -79,6 +83,93 @@ export default {
 
             initApp();
         },
+
+        _onCordovaDeviceReady () {
+            this.registerPushNotifications();
+
+            this.onCordovaDeviceReady();
+        },
+
+        registerPushNotifications () {
+            const me = this;
+
+            // push notification plugin is not present
+            if ( !window.PushNotification ) return;
+
+            this.pushNotifications = window.PushNotification.init( {
+                "android": {
+                    "sound": true,
+                    "vibration": true,
+                    "forceShow": true, // show notification, if app is in foreground mode
+                    // topics: ['all-devel'],
+                },
+                "ios": {
+                    "fcmSandbox": false, // set to true, if app is signed with the development certificate
+                    "alert": true,
+                    "sound": true,
+                    "badge": true,
+                },
+                "browser": {},
+                "windows": {},
+            } );
+
+            this.pushNotifications.on( "registration", function ( data ) {
+                // var oldRegId = localStorage.getItem('registrationId');
+
+                // if (oldRegId !== data.registrationId) {
+
+                // save new registration ID
+                // localStorage.setItem('registrationId', data.registrationId);
+
+                // Post registrationId to your app server as the value has changed
+                // }
+
+                // unsubscribe from the topic
+                me.pushNotifications.unsubscribe( "all", function () {
+                    // subscribe to the topic
+                    me.pushNotifications.subscribe( "all",
+                        function () {
+                            // subscribed
+                        },
+                        function ( error ) {
+                            // subscription error
+                            alert( "push error: " + error );
+                        } );
+                } );
+            } );
+
+            this.pushNotifications.on( "error", function ( e ) {
+                alert( "push error: " + e.message );
+            } );
+
+            this.pushNotifications.on( "notification", function ( data ) {
+                me.onPushNotification( data );
+
+                // navigator.notification.alert(
+                // data.message, // message
+                // null, // callback
+                // data.title, // title
+                // 'Ok' // buttonName
+                // );
+            } );
+        },
+
+        // template method
+        onCordovaDeviceReady () {},
+
+        // template methof
+        onPushNotification ( data ) {},
     },
 };
 </script>
+<!-- -----SOURCE FILTER LOG BEGIN----- -->
+<!-- -->
+<!-- +-------+---------------+------------------------------+--------------------------------------------------------------------------------+ -->
+<!-- | Sev.  | Line:Col      | Rule                         | Description                                                                    | -->
+<!-- |=======+===============+==============================+================================================================================| -->
+<!-- |  WARN | 116:67        | no-unused-vars               | 'data' is defined but never used.                                              | -->
+<!-- |-------+---------------+------------------------------+--------------------------------------------------------------------------------| -->
+<!-- |  WARN | 161:30        | no-unused-vars               | 'data' is defined but never used.                                              | -->
+<!-- +-------+---------------+------------------------------+--------------------------------------------------------------------------------+ -->
+<!-- -->
+<!-- -----SOURCE FILTER LOG END----- -->
