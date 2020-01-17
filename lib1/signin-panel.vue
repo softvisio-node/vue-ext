@@ -7,7 +7,7 @@
 
                 <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
                     <ext-spacer/>
-                    <SwcLink text="Forot password?" @tap="showForgotPassword"/>
+                    <swc-link text="Forot password?" @tap="showForgotPassword"/>
                     <ext-spacer/>
                     <ext-button ref="signinButton" text="Sign in" @tap="signin"/>
                 </ext-toolbar>
@@ -20,7 +20,7 @@
 
                 <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
                     <ext-spacer/>
-                    <SwcLink text="Sign In" @tap="showSignin"/>
+                    <swc-link text="Sign In" @tap="showSignin"/>
                     <ext-spacer/>
                     <ext-button ref="recoverButton" text="Recover Password" @tap="recover"/>
                 </ext-toolbar>
@@ -31,9 +31,9 @@
 
 <script>
 import Vue from "vue";
-import SwcLink from "./link";
+import( "./link" );
 
-export default Vue.component( "SwcSignin", {
+export default Vue.component( "swc-signin-panel", {
     "methods": {
         ready ( e ) {
             this.cmp = e.detail.cmp;
@@ -89,12 +89,3 @@ export default Vue.component( "SwcSignin", {
     },
 } );
 </script>
-<!-- -----SOURCE FILTER LOG BEGIN----- -->
-<!-- -->
-<!-- +-------+---------------+------------------------------+--------------------------------------------------------------------------------+ -->
-<!-- | Sev.  | Line:Col      | Rule                         | Description                                                                    | -->
-<!-- |=======+===============+==============================+================================================================================| -->
-<!-- |  WARN | 34:8          | no-unused-vars               | 'SwcLink' is defined but never used.                                           | -->
-<!-- +-------+---------------+------------------------------+--------------------------------------------------------------------------------+ -->
-<!-- -->
-<!-- -----SOURCE FILTER LOG END----- -->

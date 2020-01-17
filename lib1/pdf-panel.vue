@@ -16,7 +16,7 @@ afterPdfLoad(error);
 import Vue from "vue";
 import pdfjs from "pdfjs-dist/webpack";
 
-export default Vue.component( "SwcPdf", {
+export default Vue.component( "swc-pdf-panel", {
     "props": {
         "src": {
             "type": String,
