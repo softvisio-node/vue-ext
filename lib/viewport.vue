@@ -4,6 +4,7 @@
 
 <script>
 import extAdd from "./mixins/ext-add";
+import RecoverPasswordDialog from "./recover-password-dialog";
 
 export default {
     "mixins": [extAdd],
@@ -29,24 +30,6 @@ export default {
 
     mounted () {
         document.addEventListener( "deviceready", this._onCordovaDeviceReady.bind( this ), false );
-
-        this.$watch( "sessionIsAuthenticated", function ( isAuthenticated ) {
-            // authentication status is unknown
-            if ( isAuthenticated === null ) return;
-
-            var view;
-
-            if ( isAuthenticated ) {
-                view = this.privateView;
-            }
-            else {
-                view = this.publicView;
-            }
-
-            if ( this.view ) this.view.$destroy();
-
-            this.view = this.extAddVueComponent( view, this.viewport );
-        } );
     },
 
     "methods": {
@@ -79,9 +62,60 @@ export default {
 
                         dialog.show();
                     }
+                    else {
+                        me.route();
+                    }
                 };
 
             initApp();
+        },
+
+        route () {
+            var me = this;
+
+            this.$global.$on( "goto", function ( location ) {
+                window.location.replace( location );
+
+                me.route();
+            } );
+
+            const hash = window.location.hash;
+
+            if ( hash ) {
+                const found = hash.match( /^#[/]recover-password(?:(\/|$))/ );
+
+                if ( found ) {
+                    new RecoverPasswordDialog();
+
+                    return;
+                }
+            }
+
+            // window.onhashchange = this.route.bind( this );
+
+            this.$watch( "sessionIsAuthenticated", this.watch.bind( this ) );
+
+            this.watch();
+        },
+
+        watch () {
+            const isAuthenticated = this.sessionIsAuthenticated;
+
+            // authentication status is unknown
+            if ( isAuthenticated === null ) return;
+
+            var view;
+
+            if ( isAuthenticated ) {
+                view = this.privateView;
+            }
+            else {
+                view = this.publicView;
+            }
+
+            if ( this.view ) this.view.$destroy();
+
+            this.view = this.extAddVueComponent( view, this.viewport );
         },
 
         _onCordovaDeviceReady () {
@@ -167,9 +201,9 @@ export default {
 <!-- +-------+---------------+------------------------------+--------------------------------------------------------------------------------+ -->
 <!-- | Sev.  | Line:Col      | Rule                         | Description                                                                    | -->
 <!-- |=======+===============+==============================+================================================================================| -->
-<!-- |  WARN | 116:67        | no-unused-vars               | 'data' is defined but never used.                                              | -->
+<!-- |  WARN | 150:67        | no-unused-vars               | 'data' is defined but never used.                                              | -->
 <!-- |-------+---------------+------------------------------+--------------------------------------------------------------------------------| -->
-<!-- |  WARN | 161:30        | no-unused-vars               | 'data' is defined but never used.                                              | -->
+<!-- |  WARN | 195:30        | no-unused-vars               | 'data' is defined but never used.                                              | -->
 <!-- +-------+---------------+------------------------------+--------------------------------------------------------------------------------+ -->
 <!-- -->
 <!-- -----SOURCE FILTER LOG END----- -->
