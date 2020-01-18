@@ -16,7 +16,7 @@
 
             <ext-button iconCls="fas fa-sign-out-alt" text="Sign Out" textAlign="left" @tap="signout"/>
 
-            <ext-togglefield label="DARK MODE" labelAlign="right" :value="darkMode" width="150" @change="darkMode = $event"/>
+            <ext-togglefield label="DARK MODE" labelAlign="right" width="170" :value="darkMode" @change="darkMode = $event"/>
         </ext-panel>
     </ext-sheet>
 </template>
@@ -43,12 +43,14 @@ export default {
         },
     },
 
+    created () {
+        // disable viewport gestures, menu can be opened only by button click
+        Ext.Viewport.addedSwipeListener = true;
+    },
+
     "methods": {
         ready ( e ) {
             this.cmp = e.detail.cmp;
-
-            // disable viewport gestures, menu can be opened only by button click
-            Ext.Viewport.addedSwipeListener = true;
         },
 
         show () {
