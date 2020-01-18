@@ -1,12 +1,12 @@
 <template>
     <ext-panel layout="center">
-        <ext-formpanel ref="recoverForm" title="Recover Password" width="300" height="350" shadow="true" scrollable="true">
-            <ext-textfield name="username1" label="User Name or Email" required="true" allowBlank="false"/>
+        <ext-formpanel ref="form" title="Recover Password" width="300" height="350" shadow="true" scrollable="true">
+            <ext-textfield name="username" label="User Name or Email" required="true" allowBlank="false"/>
 
             <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
                 <ext-button iconCls="fas fa-arrow-left" text="Sign In" ui="back" @tap="showSignin"/>
                 <ext-spacer/>
-                <ext-button ref="recoverButton" text="Recover" ui="action" @tap="submit"/>
+                <ext-button text="Recover" ui="action" @tap="submit"/>
             </ext-toolbar>
         </ext-formpanel>
     </ext-panel>
@@ -20,18 +20,17 @@ export default {
         },
 
         async submit () {
-            var form = this.$refs.recoverForm.ext,
-                submitButton = this.$refs.recoverButton.ext;
+            var form = this.$refs.form.ext;
 
             if ( form.validate() ) {
-                submitButton.setDisabled( true );
+                var vals = form.getValues();
 
-                var res = await this.$store.dispatch( "session/recoverPassword", form.getFields( "username1" ).getValue() );
+                var res = await this.$store.dispatch( "session/recoverPassword", vals.username );
+
+                form.unmask();
 
                 if ( !res.isSuccess() ) {
                     Ext.toast( res.toString() );
-
-                    submitButton.setDisabled( false );
                 }
                 else {
                     Ext.toast( "Password change instructions was sent to the email address, associated with your account.", 5000 );

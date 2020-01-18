@@ -1,19 +1,22 @@
 <template>
     <ext-panel layout="center">
-        <ext-formpanel ref="signinForm" title="Sign Up" width="300" height="350" shadow="true" scrollable="true">
-            <ext-textfield name="username" label="User Name or Email" required="true" allowBlank="false"/>
-            <ext-passwordfield name="password" label="Password" required="true"/>
+        <ext-formpanel ref="form" title="Sign Up" width="300" height="350" shadow="true" scrollable="true">
+            <ext-emailfield name="username" label="Email" required="true" allowBlank="false"/>
+            <ext-passwordfield name="password" label="Password" allowBlank="false" required="true"/>
+            <ext-passwordfield ref="passwordConfirm" label="Confirm Password" allowBlank="false" required="true"/>
 
             <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
                 <ext-button iconCls="fas fa-arrow-left" text="Sign In" ui="back" @tap="showSignin"/>
                 <ext-spacer/>
-                <ext-button ref="signinButton" text="Sign Up" ui="action" @tap="submit"/>
+                <ext-button text="Sign Up" ui="action" @tap="submit"/>
             </ext-toolbar>
         </ext-formpanel>
     </ext-panel>
 </template>
 
 <script>
+import( "#ewc/ext-emailfield.component" );
+
 export default {
     "methods": {
         showSignin () {
@@ -21,22 +24,32 @@ export default {
         },
 
         async submit () {
-            var form = this.$refs.signinForm.ext,
-                submitButton = this.$refs.signinButton.ext;
+            var form = this.$refs.form.ext,
+                passwordCondirm = this.$refs.passwordConfirm.ext;
 
-            if ( form.validate() ) {
-                submitButton.setDisabled( true );
+            if ( !form.validate() ) return;
 
-                var res = await this.$store.dispatch( "session/signin", {
-                    "username": form.getFields( "username" ).getValue(),
-                    "password": form.getFields( "password" ).getValue(),
-                } );
+            var vals = form.getValues();
 
-                if ( !res.isSuccess() ) {
-                    Ext.toast( res.toString() );
+            if ( vals.password !== passwordCondirm.getValue() ) {
+                passwordCondirm.setError( "Passwords are not match" );
 
-                    submitButton.setDisabled( false );
-                }
+                return;
+            }
+
+            form.mask();
+
+            const res = await this.$store.dispatch( "session/signup", vals );
+
+            form.unmask();
+
+            if ( res.isSuccess() ) {
+                Ext.toast( "You were registered." );
+
+                this.showSignin();
+            }
+            else {
+                Ext.toast( res.toString() );
             }
         },
     },
