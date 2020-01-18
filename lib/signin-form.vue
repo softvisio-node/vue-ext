@@ -4,9 +4,10 @@
             <ext-textfield name="username" label="User Name or Email" required="true" allowBlank="false"/>
             <ext-passwordfield name="password" label="Password" required="true"/>
 
+            <ext-button text="Do not have account? Sign up" :hidden="!signup" width="100%" @tap="showSignup"/>
+
             <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-                <ext-spacer/>
-                <ext-button text="Forgot password?" ui="plain" @tap="forgotPassword"/>
+                <ext-button text="Forgot password?" ui="plain" :hidden="!recover" @tap="showRecover"/>
                 <ext-spacer/>
                 <ext-button ref="signinButton" text="Sign in" ui="action" @tap="submit"/>
             </ext-toolbar>
@@ -16,9 +17,24 @@
 
 <script>
 export default {
+    "props": {
+        "signup": {
+            "type": Boolean,
+            "default": false,
+        },
+        "recover": {
+            "type": Boolean,
+            "default": false,
+        },
+    },
+
     "methods": {
-        forgotPassword () {
-            this.$emit( "forgotPassword" );
+        showRecover () {
+            this.$emit( "recover" );
+        },
+
+        showSignup () {
+            this.$emit( "signup" );
         },
 
         async submit () {

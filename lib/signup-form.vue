@@ -1,12 +1,11 @@
 <template>
     <ext-panel layout="center">
-        <ext-formpanel ref="signinForm" title="Sign In" width="300" height="350" shadow="true" scrollable="true">
+        <ext-formpanel ref="signinForm" title="Sign Up" width="300" height="350" shadow="true" scrollable="true">
             <ext-textfield name="username" label="User Name or Email" required="true" allowBlank="false"/>
             <ext-passwordfield name="password" label="Password" required="true"/>
 
             <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-                <ext-spacer/>
-                <ext-button text="Forgot password?" ui="plain" @tap="forgotPassword"/>
+                <ext-button iconCls="fas fa-arrow-left" text="Sign In" ui="plain" @tap="showSignin"/>
                 <ext-spacer/>
                 <ext-button ref="signinButton" text="Sign Up" ui="action" @tap="submit"/>
             </ext-toolbar>
@@ -17,8 +16,8 @@
 <script>
 export default {
     "methods": {
-        forgotPassword () {
-            this.$emit( "forgotPassword" );
+        showSignin () {
+            this.$emit( "signin" );
         },
 
         async submit () {

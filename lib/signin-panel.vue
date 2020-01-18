@@ -1,10 +1,10 @@
 <template>
     <ext-panel layout='{"type":"card","animation":"slide"}' fullscreen="true" @ready="ready">
-        <SigninForm @forgotPassword="forgotPassword"/>
+        <SigninForm :signup="signup" :recover="recover" @recover="showRecover" @signup="showSignup"/>
 
-        <RecoverPasswordForm @signin="signin"/>
+        <RecoverPasswordForm @signin="showSignin"/>
 
-        <SignupForm @signin="signin"/>
+        <SignupForm @signin="showSignin"/>
     </ext-panel>
 </template>
 
@@ -16,20 +16,31 @@ import SignupForm from "./signup-form";
 export default {
     "components": { SigninForm, RecoverPasswordForm, SignupForm },
 
+    "props": {
+        "signup": {
+            "type": Boolean,
+            "default": false,
+        },
+        "recover": {
+            "type": Boolean,
+            "default": false,
+        },
+    },
+
     "methods": {
         ready ( e ) {
             this.cmp = e.detail.cmp;
         },
 
-        signin () {
+        showSignin () {
             this.cmp.setActiveItem( 0 );
         },
 
-        forgotPassword () {
+        showRecover () {
             this.cmp.setActiveItem( 1 );
         },
 
-        signup () {
+        showSignup () {
             this.cmp.setActiveItem( 2 );
         },
     },

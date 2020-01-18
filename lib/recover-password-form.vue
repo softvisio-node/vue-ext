@@ -4,8 +4,7 @@
             <ext-textfield name="username1" label="User Name or Email" required="true" allowBlank="false"/>
 
             <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-                <ext-spacer/>
-                <ext-button text="Sign In" ui="plain" @tap="signin"/>
+                <ext-button iconCls="fas fa-arrow-left" text="Sign In" ui="plain" @tap="showSignin"/>
                 <ext-spacer/>
                 <ext-button ref="recoverButton" text="Recover Password" ui="action" @tap="submit"/>
             </ext-toolbar>
@@ -16,7 +15,7 @@
 <script>
 export default {
     "methods": {
-        signin () {
+        showSignin () {
             this.$emit( "signin" );
         },
 
