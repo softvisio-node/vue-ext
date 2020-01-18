@@ -4,9 +4,9 @@
             <ext-textfield name="username1" label="User Name or Email" required="true" allowBlank="false"/>
 
             <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-                <ext-button iconCls="fas fa-arrow-left" text="Sign In" ui="plain" @tap="showSignin"/>
+                <ext-button iconCls="fas fa-arrow-left" text="Sign In" ui="back" @tap="showSignin"/>
                 <ext-spacer/>
-                <ext-button ref="recoverButton" text="Recover Password" ui="action" @tap="submit"/>
+                <ext-button ref="recoverButton" text="Recover" ui="action" @tap="submit"/>
             </ext-toolbar>
         </ext-formpanel>
     </ext-panel>

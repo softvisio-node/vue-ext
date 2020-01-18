@@ -7,7 +7,7 @@
             <ext-button text="Do not have account? Sign up" :hidden="!signup" width="100%" @tap="showSignup"/>
 
             <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-                <ext-button text="Forgot password?" ui="plain" :hidden="!recover" @tap="showRecover"/>
+                <ext-button text="Forgot password?" ui="forward" :hidden="!recover" @tap="showRecover"/>
                 <ext-spacer/>
                 <ext-button ref="signinButton" text="Sign in" ui="action" @tap="submit"/>
             </ext-toolbar>

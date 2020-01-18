@@ -7,9 +7,9 @@
             </ext-fieldpanel>
 
             <ext-toolbar docked="bottom">
+                <ext-button text="Cancel" ui="decline" @tap="cancel"/>
                 <ext-spacer/>
-                <ext-button text="Cancel" @tap="cancel"/>
-                <ext-button text="Submit" @tap="submit"/>
+                <ext-button text="Submit" ui="action" @tap="submit"/>
             </ext-toolbar>
         </ext-dialog>
     </ext-component>

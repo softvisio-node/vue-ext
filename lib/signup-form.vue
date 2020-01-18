@@ -5,7 +5,7 @@
             <ext-passwordfield name="password" label="Password" required="true"/>
 
             <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-                <ext-button iconCls="fas fa-arrow-left" text="Sign In" ui="plain" @tap="showSignin"/>
+                <ext-button iconCls="fas fa-arrow-left" text="Sign In" ui="back" @tap="showSignin"/>
                 <ext-spacer/>
                 <ext-button ref="signinButton" text="Sign Up" ui="action" @tap="submit"/>
             </ext-toolbar>
