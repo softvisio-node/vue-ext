@@ -7,9 +7,9 @@
 
                 <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
                     <ext-spacer/>
-                    <swc-link text="Forot password?" @tap="showForgotPassword"/>
+                    <ext-button text="Forgot password?" ui="plain" @tap="showForgotPassword"/>
                     <ext-spacer/>
-                    <ext-button ref="signinButton" text="Sign in" @tap="signin"/>
+                    <ext-button ref="signinButton" text="Sign in" ui="action" @tap="signin"/>
                 </ext-toolbar>
             </ext-formpanel>
         </ext-panel>
@@ -20,9 +20,9 @@
 
                 <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
                     <ext-spacer/>
-                    <swc-link text="Sign In" @tap="showSignin"/>
+                    <ext-button text="Sign In" ui="plain" @tap="showSignin"/>
                     <ext-spacer/>
-                    <ext-button ref="recoverButton" text="Recover Password" @tap="recover"/>
+                    <ext-button ref="recoverButton" text="Recover Password" ui="action" @tap="recover"/>
                 </ext-toolbar>
             </ext-formpanel>
         </ext-panel>
@@ -30,10 +30,7 @@
 </template>
 
 <script>
-import Vue from "vue";
-import( "./link" );
-
-export default Vue.component( "swc-signin-panel", {
+export default {
     "methods": {
         ready ( e ) {
             this.cmp = e.detail.cmp;
@@ -87,5 +84,5 @@ export default Vue.component( "swc-signin-panel", {
             }
         },
     },
-} );
+};
 </script>

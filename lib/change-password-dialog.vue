@@ -20,7 +20,7 @@ import Vue from "vue";
 
 import DialogBase from "./dialog-base";
 
-export default Vue.extend( {
+const component = {
     "extends": DialogBase,
 
     "methods": {
@@ -53,5 +53,7 @@ export default Vue.extend( {
             }
         },
     },
-} );
+};
+
+export default Vue.extend( component );
 </script>

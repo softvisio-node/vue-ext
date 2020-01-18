@@ -13,10 +13,9 @@ afterPdfLoad(error);
 </template>
 
 <script>
-import Vue from "vue";
 import pdfjs from "pdfjs-dist/webpack";
 
-export default Vue.component( "swc-pdf-panel", {
+export default {
     "props": {
         "src": {
             "type": String,
@@ -127,5 +126,5 @@ export default Vue.component( "swc-pdf-panel", {
                 } );
         },
     },
-} );
+};
 </script>

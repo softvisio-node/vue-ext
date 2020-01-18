@@ -1,11 +1,9 @@
 <template>
-    <ext-panel @ready="ready"/>
+    <ext-container @ready="ready"/>
 </template>
 
 <script>
-import Vue from "vue";
-
-export default Vue.component( "swc-link", {
+export default {
     "props": ["text"],
 
     "methods": {
@@ -24,5 +22,5 @@ export default Vue.component( "swc-link", {
             this.$emit( "tap" );
         },
     },
-} );
+};
 </script>
