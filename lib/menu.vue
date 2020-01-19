@@ -2,11 +2,7 @@
     <ext-sheet layout="vbox" side="right" modal="true" displayed="false" cover="true" reveal="false" width="300" @ready="ready">
         <ext-panel layout="vbox" height="130" padding="30 10 10 30" innerCls="x-tabbar">
             <ext-image :src="avatar" width="60" height="60"/>
-            <!-- <ext&#45;container> -->
-            <!--     <div class="username"> -->
-            <!--         {{ userName }} -->
-            <!--     </div> -->
-            <!-- </ext&#45;container> -->
+            <ext-container :html="userName"/>
         </ext-panel>
 
         <ext-panel layout="vbox" flex="1" padding="10 10 10 30">
@@ -16,7 +12,9 @@
 
             <ext-button iconCls="fas fa-sign-out-alt" text="Sign Out" textAlign="left" @tap="signout"/>
 
-            <ext-togglefield label="DARK MODE" labelAlign="right" width="170" :value="darkMode" @change="darkMode = $event"/>
+            <ext-container layout="hbox">
+                <ext-togglefield label="DARK MODE" labelAlign="right" :value="darkMode" @change="darkMode = $event"/>
+            </ext-container>
         </ext-panel>
     </ext-sheet>
 </template>
@@ -32,7 +30,7 @@ export default {
         },
 
         userName () {
-            return this.$store.getters["session/userName"];
+            return '<div class="username">' + this.$store.getters["session/userName"] + "</div>";
         },
 
         "darkMode": {
