@@ -9,7 +9,6 @@
 
             <ext-toolbar docked="bottom">
                 <ext-button text="Cancel" ui="decline" @tap="cancel"/>
-                <ext-spacer/>
                 <ext-button text="Submit" ui="action" @tap="submit"/>
             </ext-toolbar>
         </ext-dialog>
