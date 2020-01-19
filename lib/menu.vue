@@ -22,6 +22,9 @@
 </template>
 
 <script>
+import( "#ewc/ext-sheet.component" );
+import( "#ewc/ext-togglefield.component" );
+
 export default {
     "computed": {
         avatar () {
@@ -69,3 +72,10 @@ export default {
     },
 };
 </script>
+
+<style>
+    .username {
+        color: white;
+        font-size: 1.3em;
+    }
+</style>
