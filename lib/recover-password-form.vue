@@ -1,6 +1,6 @@
 <template>
     <ext-panel layout="center">
-        <ext-formpanel ref="form" title="Recover Password" width="300" height="350" shadow="true" scrollable="true">
+        <ext-formpanel ref="form" width="300" minHeight="350" title="Recover Password" shadow="true" scrollable="true">
             <ext-textfield name="username" label="User Name or Email" required="true" allowBlank="false"/>
 
             <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>

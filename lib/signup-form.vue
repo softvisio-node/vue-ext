@@ -1,6 +1,6 @@
 <template>
     <ext-panel layout="center">
-        <ext-formpanel ref="form" title="Sign Up" width="300" height="350" shadow="true" scrollable="true">
+        <ext-formpanel ref="form" title="Sign Up" width="300" minHeight="350" shadow="true" scrollable="true">
             <ext-emailfield name="username" label="Email" required="true" allowBlank="false"/>
             <ext-passwordfield name="password" label="Password" allowBlank="false" required="true"/>
             <ext-passwordfield ref="passwordConfirm" label="Confirm Password" allowBlank="false" required="true"/>

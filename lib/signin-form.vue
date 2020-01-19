@@ -1,10 +1,10 @@
 <template>
     <ext-panel layout="center">
-        <ext-formpanel ref="form" title="Sign In" width="300" height="350" shadow="true" scrollable="true">
+        <ext-formpanel ref="form" width="300" minHeight="350" title="Sign In" shadow="true" scrollable="true">
             <ext-textfield name="username" label="User Name or Email" required="true" allowBlank="false"/>
             <ext-passwordfield name="password" label="Password" required="true"/>
 
-            <ext-button text="Do not have account? Sign up" :hidden="!signup" width="100%" @tap="showSignup"/>
+            <ext-button text="Do not have account? Sign up" :hidden="!signup" width="100%" margin="30 0 0 0" @tap="showSignup"/>
 
             <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
                 <ext-button text="Forgot password?" ui="forward" :hidden="!recover" @tap="showRecover"/>
