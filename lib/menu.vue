@@ -75,5 +75,6 @@ export default {
     .username {
         color: white;
         font-size: 1.3em;
+        margin-top: 5px;
     }
 </style>
