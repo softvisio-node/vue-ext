@@ -37,11 +37,11 @@ export default {
                 return;
             }
 
-            form.mask();
+            Ext.Viewport.mask();
 
             const res = await this.$store.dispatch( "session/signup", vals );
 
-            form.unmask();
+            Ext.Viewport.unmask();
 
             if ( res.isSuccess() ) {
                 Ext.toast( "You were registered." );

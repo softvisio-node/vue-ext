@@ -25,9 +25,11 @@ export default {
             if ( form.validate() ) {
                 var vals = form.getValues();
 
+                Ext.Viewport.mask();
+
                 var res = await this.$store.dispatch( "session/recoverPassword", vals.username );
 
-                form.unmask();
+                Ext.Viewport.unmask();
 
                 if ( !res.isSuccess() ) {
                     Ext.toast( res.toString() );

@@ -43,11 +43,11 @@ export default {
             if ( form.validate() ) {
                 var vals = form.getValues();
 
-                form.mask();
+                Ext.Viewport.mask();
 
                 var res = await this.$store.dispatch( "session/signin", vals );
 
-                form.unmask();
+                Ext.Viewport.unmask();
 
                 if ( !res.isSuccess() ) {
                     Ext.toast( res.toString() );
