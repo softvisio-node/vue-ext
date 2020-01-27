@@ -5,6 +5,7 @@
 <script>
 import extAdd from "./mixins/ext-add";
 import RecoverPasswordDialog from "./recover-password-dialog";
+import AppConnectFailureDialog from "./app-connect-failure-dialog";
 
 export default {
     "mixins": [extAdd],
@@ -44,20 +45,8 @@ export default {
                     viewport.unmask();
 
                     if ( !res.isSuccess() ) {
-                        const dialog = Ext.create( "Ext.Dialog", {
-                            "title": "Server Connection Error",
-                            "draggable": false,
-                            "html": `Unable to connect to the API server.`,
-                            "buttons": {
-                                "ok": {
-                                    "text": "try again",
-                                    "handler": function () {
-                                        dialog.destroy();
-
-                                        initApp();
-                                    },
-                                },
-                            },
+                        const dialog = Ext.create( AppConnectFailureDialog, {
+                            "onClose": initApp,
                         } );
 
                         dialog.show();
@@ -201,9 +190,9 @@ export default {
 <!-- +-------+---------------+------------------------------+--------------------------------------------------------------------------------+ -->
 <!-- | Sev.  | Line:Col      | Rule                         | Description                                                                    | -->
 <!-- |=======+===============+==============================+================================================================================| -->
-<!-- |  WARN | 150:67        | no-unused-vars               | 'data' is defined but never used.                                              | -->
+<!-- |  WARN | 139:67        | no-unused-vars               | 'data' is defined but never used.                                              | -->
 <!-- |-------+---------------+------------------------------+--------------------------------------------------------------------------------| -->
-<!-- |  WARN | 195:30        | no-unused-vars               | 'data' is defined but never used.                                              | -->
+<!-- |  WARN | 184:30        | no-unused-vars               | 'data' is defined but never used.                                              | -->
 <!-- +-------+---------------+------------------------------+--------------------------------------------------------------------------------+ -->
 <!-- -->
 <!-- -----SOURCE FILTER LOG END----- -->
