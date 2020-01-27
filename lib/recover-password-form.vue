@@ -1,6 +1,6 @@
 <template>
     <ext-panel layout="center">
-        <ext-formpanel ref="form" width="300" minHeight="350" title="Recover Password" shadow="true" scrollable="true">
+        <ext-formpanel ref="form" width="300" minHeight="350" title="Recover Password" shadow="true" scrollable="true" @ready="formReady">
             <ext-textfield name="username" label="User Name or Email" required="true" allowBlank="false"/>
 
             <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
@@ -15,6 +15,12 @@
 <script>
 export default {
     "methods": {
+        formReady ( e ) {
+            var cmp = e.detail.cmp;
+
+            cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+        },
+
         showSignin () {
             this.$emit( "signin" );
         },

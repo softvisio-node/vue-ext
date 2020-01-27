@@ -1,6 +1,6 @@
 <template>
     <ext-panel layout="center">
-        <ext-formpanel ref="form" width="300" minHeight="350" title="Sign In" shadow="true" scrollable="true">
+        <ext-formpanel ref="form" width="300" minHeight="350" title="Sign In" shadow="true" scrollable="true" @ready="formReady">
             <ext-textfield name="username" label="User Name or Email" required="true" allowBlank="false"/>
             <ext-passwordfield name="password" label="Password" required="true"/>
 
@@ -29,6 +29,12 @@ export default {
     },
 
     "methods": {
+        formReady ( e ) {
+            var cmp = e.detail.cmp;
+
+            cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+        },
+
         showRecover () {
             this.$emit( "recover" );
         },
