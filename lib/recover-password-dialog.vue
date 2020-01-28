@@ -66,12 +66,12 @@ const component = {
             form.unmask();
 
             if ( res.isSuccess() ) {
-                Ext.toast( "Password changed." );
+                this.$toast( "Password changed." );
 
                 this.cancel();
             }
             else {
-                Ext.toast( res.toString() );
+                this.$toast( res );
             }
         },
     },

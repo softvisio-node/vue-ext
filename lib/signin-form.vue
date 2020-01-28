@@ -56,7 +56,7 @@ export default {
                 Ext.Viewport.unmask();
 
                 if ( !res.isSuccess() ) {
-                    Ext.toast( res.toString() );
+                    this.$toast( res );
                 }
             }
         },

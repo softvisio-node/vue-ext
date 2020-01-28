@@ -50,12 +50,12 @@ export default {
             Ext.Viewport.unmask();
 
             if ( res.isSuccess() ) {
-                Ext.toast( "You were registered." );
+                this.$toast( "You were registered." );
 
                 this.showSignin();
             }
             else {
-                Ext.toast( res.toString() );
+                this.$toast( res );
             }
         },
     },

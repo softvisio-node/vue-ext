@@ -38,10 +38,10 @@ export default {
                 Ext.Viewport.unmask();
 
                 if ( !res.isSuccess() ) {
-                    Ext.toast( res.toString() );
+                    this.$toast( res );
                 }
                 else {
-                    Ext.toast( "Password change instructions was sent to the email address, associated with your account.", 5000 );
+                    this.$toast( "Password change instructions was sent to the email address, associated with your account.", 5000 );
                 }
             }
         },
