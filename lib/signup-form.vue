@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import( "#ewc/ext-emailfield.component" );
+import "#ewc/ext-emailfield.component";
 
 export default {
     "methods": {
