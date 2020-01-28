@@ -1,17 +1,15 @@
 <template>
-    <ext-component>
-        <ext-dialog title="Change Password" width="300" height="300" displayed="true" closable="true" draggable="false" closeAction="destroy" @ready="ready">
-            <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}'>
-                <ext-passwordfield name="password" label="Password" allowBlank="false" required="true"/>
-                <ext-passwordfield ref="passwordConfirm" label="Confirm Password" allowBlank="false" required="true"/>
-            </ext-fieldpanel>
+    <ext-dialog title="Change Password" width="300" height="300" displayed="true" closable="true" draggable="false" closeAction="destroy" @ready="ready">
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}'>
+            <ext-passwordfield name="password" label="Password" allowBlank="false" required="true"/>
+            <ext-passwordfield ref="passwordConfirm" label="Confirm Password" allowBlank="false" required="true"/>
+        </ext-fieldpanel>
 
-            <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-                <ext-button text="Cancel" ui="decline" @tap="cancel"/>
-                <ext-button text="Submit" ui="action" @tap="submit"/>
-            </ext-toolbar>
-        </ext-dialog>
-    </ext-component>
+        <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
+            <ext-button text="Cancel" ui="decline" @tap="cancel"/>
+            <ext-button text="Submit" ui="action" @tap="submit"/>
+        </ext-toolbar>
+    </ext-dialog>
 </template>
 
 <script>
