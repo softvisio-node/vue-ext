@@ -3,6 +3,7 @@
         <ext-searchfield placeholder="search users" width="200" @change="search"/>
         <ext-spacer/>
         <ext-button iconCls="fas fa-user-plus" text="Create User" @tap="create"/>
+        <ext-button iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
     </ext-toolbar>
 </template>
 
@@ -32,6 +33,10 @@ export default {
             else {
                 this.store.removeFilter( "search" );
             }
+        },
+
+        refresh () {
+            this.store.reload();
         },
 
         create () {
