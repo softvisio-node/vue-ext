@@ -1,0 +1,65 @@
+<template>
+    <ext-dialog title="Create User" width="300" height="300" displayed="true" closable="true" draggable="false" closeAction="destroy" @ready="ready">
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
+            <ext-emailfield name="username" label="Email" allowBlank="false" required="true"/>
+            <ext-passwordfield name="password" label="Password" allowBlank="false" required="true"/>
+            <ext-passwordfield name="password1" label="Confirm Password" allowBlank="false" required="true"/>
+        </ext-fieldpanel>
+
+        <ext-toolbar docked="bottom">
+            <ext-spacer/>
+            <ext-button text="Cancel" ui="decline" @tap="cancel"/>
+            <ext-button text="Create User" ui="action" @tap="submit"/>
+        </ext-toolbar>
+    </ext-dialog>
+</template>
+
+<script>
+import Vue from "vue";
+import Dialog from "#swc/dialog-base.js";
+import "#ewc/ext-emailfield.component";
+import "#ewc/ext-togglefield.component";
+
+export default Vue.extend( {
+    "extends": Dialog,
+
+    "methods": {
+        formReady ( e ) {
+            var cmp = e.detail.cmp;
+
+            cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+        },
+
+        cancel () {
+            this.$destroy();
+        },
+
+        async submit () {
+            var form = this.$refs.form.ext;
+
+            if ( !form.validate() ) return;
+
+            var vals = form.getValues();
+
+            if ( vals.password !== vals.password1 ) {
+                form.getFields( "password1" ).setError( "Passwords are not match" );
+
+                return;
+            }
+
+            var res = await this.$api.call( "admin/users/create", vals );
+
+            if ( res.isSuccess() ) {
+                this.$toast( "User created" );
+
+                this.$store.state.userStore.reload();
+
+                this.cancel();
+            }
+            else {
+                this.$toast( res );
+            }
+        },
+    },
+} );
+</script>
