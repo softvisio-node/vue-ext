@@ -2,7 +2,7 @@
     <ext-toolbar docked="top">
         <ext-searchfield placeholder="search users" width="200" @change="search"/>
         <ext-spacer/>
-        <ext-button text="Create User" @tap="create"/>
+        <ext-button iconCls="fas fa-user-plus" text="Create User" @tap="create"/>
     </ext-toolbar>
 </template>
 
