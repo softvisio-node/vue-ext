@@ -39,11 +39,11 @@ const component = {
                 return;
             }
 
-            form.mask();
+            Ext.Viewport.mask();
 
             const res = await this.$store.dispatch( "session/changePassword", vals.password );
 
-            form.unmask();
+            Ext.Viewport.unmask();
 
             if ( res.isSuccess() ) {
                 this.$toast( "Password changed." );
