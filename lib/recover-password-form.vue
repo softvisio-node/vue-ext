@@ -23,6 +23,8 @@ export default {
 
         showSignin () {
             this.$emit( "signin" );
+
+            this.$refs.form.ext.reset();
         },
 
         async submit () {
@@ -41,6 +43,8 @@ export default {
                     this.$toast( res );
                 }
                 else {
+                    form.reset();
+
                     this.$toast( "Password change instructions was sent to the email address, associated with your account.", 5000 );
                 }
             }

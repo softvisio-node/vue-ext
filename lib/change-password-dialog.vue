@@ -1,6 +1,6 @@
 <template>
     <ext-dialog title="Change Password" width="300" height="300" displayed="true" closable="true" draggable="false" closeAction="destroy" @ready="ready">
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}'>
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
             <ext-passwordfield name="password" label="Password" allowBlank="false" required="true"/>
             <ext-passwordfield ref="passwordConfirm" label="Confirm Password" allowBlank="false" required="true"/>
         </ext-fieldpanel>
@@ -21,6 +21,12 @@ const component = {
     "extends": DialogBase,
 
     "methods": {
+        formReady ( e ) {
+            var cmp = e.detail.cmp;
+
+            cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+        },
+
         cancel () {
             this.$destroy();
         },

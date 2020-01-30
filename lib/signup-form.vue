@@ -27,6 +27,8 @@ export default {
 
         showSignin () {
             this.$emit( "signin" );
+
+            this.$refs.form.ext.reset();
         },
 
         async submit () {
@@ -51,6 +53,8 @@ export default {
 
             if ( res.isSuccess() ) {
                 this.$toast( "You were registered." );
+
+                form.reset();
 
                 this.showSignin();
             }
