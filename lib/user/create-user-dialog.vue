@@ -1,9 +1,11 @@
 <template>
-    <ext-dialog title="Create User" width="300" height="300" displayed="true" closable="true" draggable="false" closeAction="destroy" @ready="ready">
+    <ext-dialog title="Create User" width="350" height="400" displayed="true" closable="true" draggable="false" closeAction="destroy" @ready="ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
             <ext-emailfield name="username" label="Email" allowBlank="false" required="true"/>
             <ext-passwordfield name="password" label="Password" allowBlank="false" required="true"/>
             <ext-passwordfield name="password1" label="Confirm Password" allowBlank="false" required="true"/>
+            <ext-togglefield name="enabled" label="Enabled" value="true"/>
+            <ext-togglefield name="admin" label="Admin" value="false"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
@@ -46,6 +48,14 @@ export default Vue.extend( {
 
                 return;
             }
+
+            if ( vals.admin ) {
+                vals.permissions = {
+                    "admin": true,
+                };
+            }
+
+            delete vals.admin;
 
             var res = await this.$api.call( "admin/users/create", vals );
 
