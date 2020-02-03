@@ -16,6 +16,9 @@
         "type": "git",
         "url": "https://bitbucket.org/softvisio/softvisio-web-components.git"
     },
+    "scripts": {
+        "lint": "eslint --fix --ext=.js,.vue *.js lib"
+    },
     "type": "module",
     "version": "0.1.0"
 }
