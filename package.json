@@ -4,6 +4,13 @@
         "email": "zdm@softvisio.net",
         "url": "https://bitbucket.org/softvisio/softvisio-web-components/issues"
     },
+    "dependencies": {
+        "@softvisio/eslint-plugin": "workspace:softvisio-eslint-plugin",
+        "babel-eslint": ">=10.0.3",
+        "eslint": ">=6.8.0",
+        "eslint-plugin-babel": ">=5.3.0",
+        "eslint-plugin-vue": ">=6.1.2"
+    },
     "description": "Softisio WebComponents",
     "homepage": "https://bitbucket.org/softvisio/softvisio-web-components",
     "keywords": [
@@ -17,7 +24,7 @@
         "url": "https://bitbucket.org/softvisio/softvisio-web-components.git"
     },
     "scripts": {
-        "lint": "eslint --fix --ext=.js,.vue *.js lib"
+        "lint": "eslint --fix --ext=.js,.vue lib"
     },
     "type": "module",
     "version": "0.1.0"
