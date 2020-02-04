@@ -136,7 +136,8 @@ export default {
                 "windows": {},
             } );
 
-            this.pushNotifications.on( "registration", function ( data ) {
+            // eslint-disable-next-line
+                this.pushNotifications.on('registration', function(data) {
                 // var oldRegId = localStorage.getItem('registrationId');
 
                 // if (oldRegId !== data.registrationId) {
@@ -180,8 +181,9 @@ export default {
         // template method
         onCordovaDeviceReady () {},
 
-        // template methof
-        onPushNotification ( data ) {},
+        // template method
+        // eslint-disable-next-line
+            onPushNotification(data) {},
     },
 };
 </script>
