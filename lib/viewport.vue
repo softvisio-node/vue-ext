@@ -52,14 +52,14 @@ export default {
                         dialog.show();
                     }
                     else {
-                        me.route();
+                        me._route();
                     }
                 };
 
             initApp();
         },
 
-        route () {
+        async _route () {
             var me = this;
 
             this.$global.$on( "goto", function ( location ) {
@@ -84,7 +84,11 @@ export default {
 
             this.$watch( "sessionIsAuthenticated", this.watch.bind( this ) );
 
-            this.watch();
+            if ( await this.route() ) this.watch();
+        },
+
+        async route () {
+            return true;
         },
 
         watch () {
