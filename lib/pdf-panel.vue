@@ -49,8 +49,9 @@ export default {
         _afterRender () {
             this.cmp.afterRender = null;
 
-            this.cmp.on( {
+            this.cmp.el.on( {
                 "scope": this,
+                "buffer": 300,
                 "pinch": this.onPinch,
             } );
 
@@ -96,7 +97,13 @@ export default {
 
             cmp.mask();
 
-            const pdf = await pdfjs.getDocument( this.lastSrc );
+            const loadingTask = pdfjs.getDocument( this.lastSrc );
+
+            // loadingTask.onProgress = function ( progress ) {
+            //     var percent = parseInt( ( progress.loaded / progress.total ) * 100 );
+            // };
+
+            const pdf = await loadingTask.promise;
 
             const numPages = pdf.numPages,
                 container = document.createElement( "div" );
