@@ -26,7 +26,7 @@ export default {
                 this.store.addFilter( {
                     "property": "search",
                     "operator": "like",
-                    "value": val,
+                    "value": "%" + val + "%",
                 },
                 false );
             }
