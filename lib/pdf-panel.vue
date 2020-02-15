@@ -206,7 +206,7 @@ export default {
                 // fetch page
                 const page = await pdfDoc.getPage( i );
 
-                await this._renderPdfPage( container, page );
+                this._renderPdfPage( container, page );
             }
 
             cmp.unmask();
@@ -233,6 +233,9 @@ export default {
                 viewport = page.getViewport( { "scale": scale } );
             }
 
+            var placeholder = document.createElement( "div" );
+            container.appendChild( placeholder );
+
             // create canvas
             var canvas = document.createElement( "canvas" );
 
@@ -242,16 +245,17 @@ export default {
 
             canvas.style = this._getCanvasStyle( viewport, scale );
 
-            container.appendChild( canvas );
-
             // Render PDF page into canvas context
             var renderContext = {
                 "canvasContext": context,
                 "viewport": viewport,
             };
 
-            // var renderTask =
-            await page.render( renderContext ).promise;
+            var renderTask = page.render( renderContext );
+
+            renderTask.promise.then( function () {
+                placeholder.appendChild( canvas );
+            } );
 
             this.pdfPages.push( {
                 "canvas": canvas,
