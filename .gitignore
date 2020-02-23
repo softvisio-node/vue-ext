@@ -1,20 +1,20 @@
 # common
-data/
-wiki/
+/data/
+/wiki/
 
 # cordova
-hooks/
-platforms/
-plugins/
+/hooks/
+/platforms/
+/plugins/
 
 # node
-node_modules/
+/node_modules/
 
 # vue
-.env.local
-.env.*.local
-# www/
+/.env.local
+/.env.*.local
+# /www/
 
 # yarn
-.yarn/
-.pnp.*
+/.yarn/
+/.pnp.*
