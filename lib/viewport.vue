@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import "./assets/scrollbars.css";
 import extAdd from "./mixins/ext-add";
 import RecoverPasswordDialog from "./recover-password-dialog";
 import AppConnectFailureDialog from "./app-connect-failure-dialog";
