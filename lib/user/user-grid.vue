@@ -36,7 +36,7 @@ export default {
                 { "type": "listpaging", "noMoreRecordsText": "", "autoPaging": false },
             ] );
 
-            grid.setColumnMenu( null );
+            // grid.setColumnMenu( null );
 
             grid.setItemConfig( { "viewModel": true } );
 
