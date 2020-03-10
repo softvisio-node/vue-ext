@@ -28,13 +28,21 @@ export default {
         gridReady ( e ) {
             var grid = e.detail.cmp;
 
-            grid.setStore( this.store );
+            grid.setMultiColumnSort( true );
 
-            this.store.load();
+            grid.setPlugins( [
+                //
+                { "type": "gridviewoptions" },
+                { "type": "listpaging", "noMoreRecordsText": "", "autoPaging": false },
+            ] );
 
             grid.setColumnMenu( null );
 
             grid.setItemConfig( { "viewModel": true } );
+
+            grid.setStore( this.store );
+
+            this.store.load();
         },
 
         avatarColReady ( e ) {
