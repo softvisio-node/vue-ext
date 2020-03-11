@@ -16,6 +16,7 @@
 import "#ewc/ext-grid.component";
 import "#ewc/ext-image.component";
 import "#ewc/ext-column.component";
+import { confirm, sleep } from "#swc/util";
 
 export default {
     data () {
@@ -120,12 +121,12 @@ export default {
             if ( !res.isSuccess() ) {
                 this.$toast( res );
 
-                setTimeout( function () {
-                    button.suspendEvent( "change" );
-                    record.set( "enabled", oldVal );
-                    button.enable();
-                    button.resumeEvent( "change" );
-                }, 1000 );
+                await sleep( 1000 );
+
+                button.suspendEvent( "change" );
+                record.set( "enabled", oldVal );
+                button.enable();
+                button.resumeEvent( "change" );
             }
             else {
                 button.enable();
@@ -138,15 +139,7 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            var confirm = async function () {
-                return new Promise( ( resolve ) => {
-                    Ext.Msg.confirm( "Confirmation", "Are you sure you want to do that?", function ( buttonId ) {
-                        resolve( buttonId === "yes" ? true : false );
-                    } );
-                } );
-            };
-
-            if ( !( await confirm() ) ) return;
+            if ( !( await confirm( "Confirmation", "Are you sure you want to do that?" ) ) ) return;
 
             var res = await this.$api.call( "admin/users/delete", record.getId() );
 
