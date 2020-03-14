@@ -30,6 +30,9 @@ export default {
     "methods": {
         ready ( e ) {
             this.cmp = e.detail.cmp;
+
+            // TODO fix for forms switch, remove
+            this.cmp.setActiveItem( 0 );
         },
 
         showSignin () {
