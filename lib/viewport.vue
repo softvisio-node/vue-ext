@@ -99,7 +99,7 @@ export default {
                 if ( view ) {
                     if ( this.view ) this.view.$destroy();
 
-                    this.view = this.extAddVueComponent( view, Ext.Viewport );
+                    this.view = await this.extAddVueComponent( view, Ext.Viewport );
                 }
             }
         },
