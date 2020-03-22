@@ -1,5 +1,5 @@
 <template>
-    <ext-panel viewport="true" layout="card" @ready="viewportReady"/>
+    <div/>
 </template>
 
 <script>
@@ -13,14 +13,12 @@ export default {
 
     "data": () => {
         return {
-            "pushNotifications": null,
-
-            "viewport": null,
-            "view": null,
-
+            "connectionFailureDialog": AppConnectFailureDialog,
             "defaultMask": null,
             "privateView": null,
             "publicView": null,
+
+            "pushNotifications": null,
         };
     },
 
@@ -31,85 +29,79 @@ export default {
     },
 
     mounted () {
+        Ext.application( {
+            "name": "app",
+            "launch": this.ready.bind( this ),
+        } );
+
         document.addEventListener( "deviceready", this._onCordovaDeviceReady.bind( this ), false );
     },
 
     "methods": {
-        async viewportReady ( e ) {
-            var me = this,
-                viewport = ( this.viewport = e.detail.cmp ),
-                initApp = async function () {
-                    viewport.mask( me.defaultMask );
+        async ready () {
+            var viewport = Ext.Viewport;
 
-                    var res = await me.$store.dispatch( "session/signin" );
+            while ( 1 ) {
+                viewport.mask( this.defaultMask );
 
-                    viewport.unmask();
+                var res = await this.$store.dispatch( "session/signin" );
 
-                    if ( !res.isSuccess() ) {
-                        const dialog = Ext.create( AppConnectFailureDialog, {
-                            "onClose": initApp,
-                        } );
+                viewport.unmask();
+
+                if ( res.isSuccess() ) break;
+
+                const connectionFailureDialog = this.connectionFailureDialog;
+
+                const wait = async function () {
+                    return new Promise( function ( resolve ) {
+                        const dialog = Ext.create( connectionFailureDialog );
 
                         dialog.show();
-                    }
-                    else {
-                        me._route();
-                    }
+
+                        dialog.onClose = resolve;
+                    } );
                 };
 
-            initApp();
-        },
-
-        async _route () {
-            var me = this;
-
-            this.$global.$on( "goto", function ( location ) {
-                window.location.replace( location );
-
-                me.route();
-            } );
-
-            const hash = window.location.hash;
-
-            if ( hash ) {
-                const found = hash.match( /^#[/]recover-password(?:(\/|$))/ );
-
-                if ( found ) {
-                    new RecoverPasswordDialog();
-
-                    return;
-                }
+                await wait();
             }
 
-            // window.onhashchange = this.route.bind( this );
+            this.$router.init( this );
 
-            this.$watch( "sessionIsAuthenticated", this.watch.bind( this ) );
+            this.$router.route( this );
 
-            if ( await this.route() ) this.watch();
+			this.$watch( "sessionIsAuthenticated", this.onAuthChange.bind( this ) );
         },
 
-        async route () {
-            return true;
+        onAuthChange () {
+            this.$router.routeTo( "/", true );
         },
 
-        watch () {
-            const isAuthenticated = this.sessionIsAuthenticated;
-
-            // authentication status is unknown
-            if ( isAuthenticated === null ) return;
-
-            var view;
-
-            if ( isAuthenticated ) {
-                view = this.privateView;
+        async onRoute ( route ) {
+            if ( route === "recover-password" ) {
+                new RecoverPasswordDialog();
             }
             else {
-                view = this.publicView;
+                let view;
+
+                if ( this.sessionIsAuthenticated ) {
+                    if ( this.currentView === "private" ) return;
+
+                    this.currentView = "private";
+                    view = this.privateView;
+                }
+                else {
+                    if ( this.currentView === "public" ) return;
+
+                    this.currentView = "public";
+                    view = this.publicView;
+                }
+
+                if ( view ) {
+                    if ( this.view ) this.view.$destroy();
+
+                    this.view = this.extAddVueComponent( view, Ext.Viewport );
+                }
             }
-
-            if ( this.view ) this.view.$destroy();
-
-            this.view = this.extAddVueComponent( view, this.viewport );
         },
 
         _onCordovaDeviceReady () {
