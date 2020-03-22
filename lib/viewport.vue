@@ -4,13 +4,10 @@
 
 <script>
 import "./assets/scrollbars.css";
-import extAdd from "./mixins/ext-add";
 import RecoverPasswordDialog from "./recover-password-dialog";
 import AppConnectFailureDialog from "./app-connect-failure-dialog";
 
 export default {
-    "mixins": [extAdd],
-
     "data": () => {
         return {
             "connectionFailureDialog": AppConnectFailureDialog,
@@ -99,7 +96,7 @@ export default {
                 if ( view ) {
                     if ( this.view ) this.view.$destroy();
 
-                    this.view = await this.extAddVueComponent( view, Ext.Viewport );
+                    this.view = await Ext.Viewport.addComponent( view );
                 }
             }
         },
