@@ -69,7 +69,7 @@ export default {
 
             this.$router.route( this );
 
-			this.$watch( "sessionIsAuthenticated", this.onAuthChange.bind( this ) );
+            this.$watch( "sessionIsAuthenticated", this.onAuthChange.bind( this ) );
         },
 
         onAuthChange () {
