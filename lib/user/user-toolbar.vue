@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import "#ewc/ext-searchfield.component";
 import CreateUserDialog from "./create-user-dialog";
 
 export default {

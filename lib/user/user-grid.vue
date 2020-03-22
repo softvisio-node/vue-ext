@@ -13,9 +13,6 @@
 </template>
 
 <script>
-import "#ewc/ext-grid.component";
-import "#ewc/ext-image.component";
-import "#ewc/ext-column.component";
 import { confirm, sleep } from "#swc/util";
 
 export default {

@@ -20,9 +20,6 @@
 </template>
 
 <script>
-import "#ewc/ext-sheet.component";
-import "#ewc/ext-togglefield.component";
-
 export default {
     "computed": {
         avatar () {

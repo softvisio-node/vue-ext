@@ -19,8 +19,6 @@
 <script>
 import Vue from "vue";
 import Dialog from "#swc/dialog-base.js";
-import "#ewc/ext-emailfield.component";
-import "#ewc/ext-togglefield.component";
 
 export default Vue.extend( {
     "extends": Dialog,
