@@ -5,12 +5,13 @@
 <script>
 import "./assets/scrollbars.css";
 import RecoverPasswordDialog from "./recover-password-dialog";
-import AppConnectFailureDialog from "./app-connect-failure-dialog";
+import AppInitFailureDialog from "./app-init-failure-dialog";
 
 export default {
     "data": () => {
         return {
-            "connectionFailureDialog": AppConnectFailureDialog,
+            "appInitFailureDialog": AppInitFailureDialog,
+            "recoverPasswordDialog": RecoverPasswordDialog,
             "defaultMask": null,
             "privateView": null,
             "publicView": null,
@@ -47,15 +48,11 @@ export default {
 
                 if ( res.isSuccess() ) break;
 
-                const connectionFailureDialog = this.connectionFailureDialog;
+                const dialog = new this.appInitFailureDialog();
 
                 const wait = async function () {
                     return new Promise( function ( resolve ) {
-                        const dialog = Ext.create( connectionFailureDialog );
-
-                        dialog.show();
-
-                        dialog.onClose = resolve;
+                        dialog.onDestroy = resolve;
                     } );
                 };
 
@@ -75,7 +72,7 @@ export default {
 
         async onRoute ( route ) {
             if ( route === "recover-password" ) {
-                new RecoverPasswordDialog();
+                new this.recoverPasswordDialog();
             }
             else {
                 let view;
