@@ -5,6 +5,7 @@
         "url": "https://bitbucket.org/softvisio/softvisio-web-components/issues"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": ">=5.12.1",
         "@softvisio/eslint-plugin": "workspace:softvisio-eslint-plugin",
         "babel-eslint": ">=10.0.3",
         "eslint": ">=6.8.0",
