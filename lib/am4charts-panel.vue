@@ -26,7 +26,6 @@ chartsReady (chart) {
 <script>
 import * as am4core from "@amcharts/amcharts4/core";
     import * as am4charts from '@amcharts/amcharts4/charts'; // eslint-disable-line
-
 import chartThemeAnimated from "@amcharts/amcharts4/themes/animated";
 import chartThemeLight from "@amcharts/amcharts4/themes/material";
 import chartThemeDark from "@amcharts/amcharts4/themes/amchartsdark";
