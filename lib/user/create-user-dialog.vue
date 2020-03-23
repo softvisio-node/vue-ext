@@ -18,7 +18,7 @@
 
 <script>
 import Vue from "vue";
-import Dialog from "#swc/dialog-base.js";
+import Dialog from "#swc/dialog";
 
 export default Vue.extend( {
     "extends": Dialog,

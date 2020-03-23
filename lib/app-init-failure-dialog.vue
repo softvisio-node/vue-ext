@@ -10,11 +10,10 @@
 
 <script>
 import Vue from "vue";
-
-import DialogBase from "./dialog-base";
+import Dialog from "./dialog";
 
 export default Vue.extend( {
-    "extends": DialogBase,
+    "extends": Dialog,
 
     "methods": {
         reconnect () {

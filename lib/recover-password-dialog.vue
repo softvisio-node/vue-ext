@@ -15,11 +15,10 @@
 
 <script>
 import Vue from "vue";
-
-import DialogBase from "./dialog-base";
+import Dialog from "./dialog";
 
 const component = {
-    "extends": DialogBase,
+    "extends": Dialog,
 
     "computed": {
         token () {
