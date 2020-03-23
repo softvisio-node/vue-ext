@@ -4,6 +4,7 @@
 
 <script>
 import "./assets/scrollbars.css";
+import defaultMask from "./load-mask";
 import RecoverPasswordDialog from "./recover-password-dialog";
 import AppInitFailureDialog from "./app-init-failure-dialog";
 
@@ -12,7 +13,7 @@ export default {
         return {
             "appInitFailureDialog": AppInitFailureDialog,
             "recoverPasswordDialog": RecoverPasswordDialog,
-            "defaultMask": null,
+            "defaultMask": defaultMask,
             "privateView": null,
             "publicView": null,
 
