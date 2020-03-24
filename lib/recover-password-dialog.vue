@@ -14,12 +14,7 @@
 </template>
 
 <script>
-import Vue from "vue";
-import Dialog from "./dialog";
-
-const component = {
-    "extends": Dialog,
-
+export default {
     "computed": {
         token () {
             const hash = window.location.hash;
@@ -73,6 +68,4 @@ const component = {
         },
     },
 };
-
-export default Vue.extend( component );
 </script>

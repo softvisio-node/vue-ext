@@ -13,12 +13,7 @@
 </template>
 
 <script>
-import Vue from "vue";
-import Dialog from "./dialog";
-
-const component = {
-    "extends": Dialog,
-
+export default {
     "methods": {
         formReady ( e ) {
             var cmp = e.detail.cmp;
@@ -61,6 +56,4 @@ const component = {
         },
     },
 };
-
-export default Vue.extend( component );
 </script>

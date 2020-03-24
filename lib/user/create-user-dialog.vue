@@ -17,12 +17,7 @@
 </template>
 
 <script>
-import Vue from "vue";
-import Dialog from "#swc/dialog";
-
-export default Vue.extend( {
-    "extends": Dialog,
-
+export default {
     "methods": {
         formReady ( e ) {
             var cmp = e.detail.cmp;
@@ -69,5 +64,5 @@ export default Vue.extend( {
             }
         },
     },
-} );
+};
 </script>

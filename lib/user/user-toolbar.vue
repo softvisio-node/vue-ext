@@ -39,7 +39,7 @@ export default {
         },
 
         create () {
-            new CreateUserDialog();
+            this.$dialog( CreateUserDialog );
         },
     },
 };

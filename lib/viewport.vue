@@ -49,7 +49,7 @@ export default {
 
                 if ( res.isSuccess() ) break;
 
-                const dialog = new this.appInitFailureDialog();
+                const dialog = await this.$dialog( this.appInitFailureDialog );
 
                 const wait = async function () {
                     return new Promise( function ( resolve ) {
@@ -73,7 +73,7 @@ export default {
 
         async onRoute ( route ) {
             if ( route === "recover-password" ) {
-                new this.recoverPasswordDialog();
+                this.$dialog( this.recoverPasswordDialog );
             }
             else {
                 let view;
