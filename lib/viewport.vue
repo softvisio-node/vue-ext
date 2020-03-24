@@ -51,13 +51,9 @@ export default {
 
                 const dialog = await this.$dialog( this.appInitFailureDialog );
 
-                const wait = async function () {
-                    return new Promise( function ( resolve ) {
-                        dialog.onDestroy = resolve;
-                    } );
-                };
-
-                await wait();
+                await new Promise( ( resolve ) => {
+                    dialog.$once( "destroy", resolve );
+                } );
             }
 
             this.$router.init( this );
