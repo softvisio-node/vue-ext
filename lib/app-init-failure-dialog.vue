@@ -9,16 +9,11 @@
 </template>
 
 <script>
-import Vue from "vue";
-import Dialog from "./dialog";
-
-export default Vue.extend( {
-    "extends": Dialog,
-
+export default {
     "methods": {
         reconnect () {
             this.$destroy();
         },
     },
-} );
+};
 </script>
