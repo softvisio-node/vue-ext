@@ -156,6 +156,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@softvisio/core@portal:../softvisio-core?locator=%40softvisio%2Fweb-components%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@softvisio/core@portal:../softvisio-core?locator=%40softvisio%2Fweb-components%40workspace%3A."
+  dependencies:
+    "@softvisio/eslint-plugin": "portal:../softvisio-eslint-plugin?locator=%40softvisio%2Fweb-components%40workspace%3A."
+    babel-eslint: ^10.0.3
+    callable-instance: ">=1.0.1"
+    eslint: ">=6.8.0"
+    eslint-plugin-babel: ">=5.3.0"
+    eslint-plugin-vue: ">=6.1.2"
+    json5: ">=2.1.1"
+    jssha: ">=2.3.1"
+    prettier: ">=1.19.1"
+    terser: ">=4.4.3"
+    uuid: ">=3.3.3"
+  bin:
+    softvisio-cli: ./bin/cli.js
+  languageName: node
+  linkType: soft
+
 "@softvisio/eslint-plugin@portal:../softvisio-eslint-plugin?locator=%40softvisio%2Fweb-components%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@softvisio/eslint-plugin@portal:../softvisio-eslint-plugin?locator=%40softvisio%2Fweb-components%40workspace%3A."
@@ -179,6 +199,7 @@ __metadata:
   dependencies:
     "@amcharts/amcharts4": ">=4.9.10"
     "@fortawesome/fontawesome-free": ">=5.12.1"
+    "@softvisio/core": "portal:../softvisio-core?locator=%40softvisio%2Fweb-components%40workspace%3A."
     "@softvisio/eslint-plugin": "portal:../softvisio-eslint-plugin?locator=%40softvisio%2Fweb-components%40workspace%3A."
     babel-eslint: ">=10.0.3"
     eslint: ">=6.8.0"
@@ -387,7 +408,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-eslint@npm:>=10.0.3":
+"babel-eslint@npm:>=10.0.3, babel-eslint@npm:^10.0.3":
   version: 10.1.0
   resolution: "babel-eslint@npm:10.1.0"
   dependencies:
@@ -512,6 +533,13 @@ __metadata:
   version: 1.1.1
   resolution: "buffer-from@npm:1.1.1"
   checksum: b34c802232998fe342f64398c6bfbcd74c7e3d8115513ccc1c932c8ea0e0a205293847bc69be4c32ed9388ca151f635b005019e0bddbd80a5df34da537d722d6
+  languageName: node
+  linkType: hard
+
+"callable-instance@npm:>=1.0.1":
+  version: 1.0.1
+  resolution: "callable-instance@npm:1.0.1"
+  checksum: 6fa077c7a42e95391a2a2cc7d7bb2ea546f88abbf0439635524229630ba267b22394710fd4fc3be6a98a112edb40dea994463d14cc62f50be19477622f7c2ffa
   languageName: node
   linkType: hard
 
@@ -686,7 +714,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:2, commander@npm:^2.16.0":
+"commander@npm:2, commander@npm:^2.16.0, commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: eae98d97c0a3a59096be01418e7d882978bbc0c9b8921db75e9907a738dd764ecca833950a883fa1a81d9149e7492bc65af0adaef17f5b112558c176089062bd
@@ -1914,6 +1942,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jssha@npm:>=2.3.1":
+  version: 2.3.1
+  resolution: "jssha@npm:2.3.1"
+  checksum: c62ecc52024d0a993d54b7a049943117d6b95db3921d266e527b664bd5ad4ce8b13405daf44cbc4d38c8c07868fadb95527c7aab0310c7a7d9d42d2bd870bd33
+  languageName: node
+  linkType: hard
+
 "kind-of@npm:^3.0.2":
   version: 3.2.2
   resolution: "kind-of@npm:3.2.2"
@@ -2226,6 +2261,15 @@ __metadata:
   version: 1.1.2
   resolution: "prelude-ls@npm:1.1.2"
   checksum: 28f121cf8ac4b4b7b61f2bca9c1f63edd61250e4186c75fc3d05762ba090f13f45baf092aa10a4a16a42167884cad6ce40ff819692ad8d8060a0d4ed7bf45899
+  languageName: node
+  linkType: hard
+
+"prettier@npm:>=1.19.1":
+  version: 2.0.2
+  resolution: "prettier@npm:2.0.2"
+  bin:
+    prettier: bin-prettier.js
+  checksum: 5eaa36cd3ed2b0d46586e786c99bf63cb7a0e1ee9950c52d580e8fc03400bd2d36fb098b4c5033ec4d95a0c90e5ec6a1cd54c8027d5d3809fd2103f497fc2723
   languageName: node
   linkType: hard
 
@@ -2554,6 +2598,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"source-map-support@npm:~0.5.12":
+  version: 0.5.16
+  resolution: "source-map-support@npm:0.5.16"
+  dependencies:
+    buffer-from: ^1.0.0
+    source-map: ^0.6.0
+  checksum: 8cbb70583ff6b74dabf1a37ffca840aed7e419e21fad3803485d4ac79af7cdb36819b271dc1a5703a4ee615487a03b2a13a052681d5d9d9050eda33b835e214c
+  languageName: node
+  linkType: hard
+
 "source-map@npm:0.1.32, source-map@npm:~0.1.30":
   version: 0.1.32
   resolution: "source-map@npm:0.1.32"
@@ -2570,7 +2624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map@npm:~0.6.1":
+"source-map@npm:^0.6.0, source-map@npm:~0.6.1":
   version: 0.6.1
   resolution: "source-map@npm:0.6.1"
   checksum: fa17f30e37dfa8d8065fc98e8c51ae80d7050055f90dbd40e8644269bda04707386180c4c43af7104a29af56109663e994ccbc2cf766af01e915285c7f93cc40
@@ -2822,6 +2876,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"terser@npm:>=4.4.3":
+  version: 4.6.7
+  resolution: "terser@npm:4.6.7"
+  dependencies:
+    commander: ^2.20.0
+    source-map: ~0.6.1
+    source-map-support: ~0.5.12
+  bin:
+    terser: bin/terser
+  checksum: 62cd446ec3bcd335186fa0207f5e0fd3641a8bd1d5dd4257bedeb2b869d592bb888636f0b4d0fb2cda64355fa0e682d1c08c07ce5edbae0710a3977c376511f1
+  languageName: node
+  linkType: hard
+
 "text-table@npm:^0.2.0":
   version: 0.2.0
   resolution: "text-table@npm:0.2.0"
@@ -3003,6 +3070,15 @@ __metadata:
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
   checksum: 7bd691844e8e12f228777c3c718efaee35284c4422cf215f394fc2b56b5bbc8fef979fc1ab086e66f195227941270d7267c8105e871617f27fa292ec9fa83933
+  languageName: node
+  linkType: hard
+
+"uuid@npm:>=3.3.3":
+  version: 7.0.2
+  resolution: "uuid@npm:7.0.2"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: b4aae8493abce43a4175bc5cb3723597327dab8fa1564743bc1f7ac57f3895124cfcdbf5856506c4e29b23a41269bed8c85769fcac7b3b8f4351435a236e5189
   languageName: node
   linkType: hard
 
