@@ -14,7 +14,10 @@ https://rossta.net/blog/building-a-pdf-viewer-with-vue-part-1.html
 </template>
 
 <script>
-import pdfjs from "pdfjs-dist/webpack";
+import pdfjs from "pdfjs-dist/build/pdf.js";
+import PdfjsWorker from "pdfjs-dist/build/pdf.worker.js";
+
+pdfjs.GlobalWorkerOptions.workerPort = new PdfjsWorker();
 
 const pixelRatio = window.devicePixelRatio || 1;
 
