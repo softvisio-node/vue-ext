@@ -32,7 +32,7 @@ export default {
 
     "methods": {
         cancel () {
-            this.$router.redirectTo( "/" );
+            this.$router.redirectTo( "/", { "replace": true } );
 
             this.$destroy();
         },
