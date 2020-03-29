@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog bodyPadding="0" displayed="true" :closable="closable" draggable="false" closeAction="destroy" :hideOnMaskTap="closable" @ready="ready">
+    <ext-dialog bodyPadding="0" displayed="true" draggable="false" closeAction="destroy" :hideOnMaskTap="closable" @ready="ready">
         <AuthPanel :signup="signup" :recover="recover" :closable="closable" @close="onClose"/>
     </ext-dialog>
 </template>
@@ -9,6 +9,7 @@ import AuthPanel from "./auth-panel";
 
 export default {
     "components": { AuthPanel },
+
     "props": {
         "signup": {
             "type": Boolean,
