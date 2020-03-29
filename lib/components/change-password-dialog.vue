@@ -1,17 +1,15 @@
 <template>
-    <ext-panel layout="center">
-        <ext-formpanel ref="form" title="Sign Up" width="300" minHeight="350" shadow="true" scrollable="true" @ready="formReady">
-            <ext-emailfield name="username" label="Email" required="true" allowBlank="false"/>
+    <ext-dialog title="Change Password" width="300" height="300" displayed="true" closable="true" draggable="false" closeAction="destroy" hideOnMaskTap="true" @ready="ready">
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
             <ext-passwordfield name="password" label="Password" allowBlank="false" required="true"/>
             <ext-passwordfield ref="passwordConfirm" label="Confirm Password" allowBlank="false" required="true"/>
+        </ext-fieldpanel>
 
-            <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-                <ext-button iconCls="fas fa-arrow-left" text="Sign In" ui="back" @tap="showSignin"/>
-                <ext-spacer/>
-                <ext-button text="Sign Up" ui="action" @tap="submit"/>
-            </ext-toolbar>
-        </ext-formpanel>
-    </ext-panel>
+        <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
+            <ext-button text="Cancel" ui="decline" @tap="cancel"/>
+            <ext-button text="Submit" ui="action" @tap="submit"/>
+        </ext-toolbar>
+    </ext-dialog>
 </template>
 
 <script>
@@ -23,10 +21,8 @@ export default {
             cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
         },
 
-        showSignin () {
-            this.$emit( "signin" );
-
-            this.$refs.form.ext.reset();
+        cancel () {
+            this.$destroy();
         },
 
         async submit () {
@@ -45,16 +41,14 @@ export default {
 
             Ext.Viewport.mask();
 
-            const res = await this.$store.dispatch( "session/signup", vals );
+            const res = await this.$store.dispatch( "session/changePassword", vals.password );
 
             Ext.Viewport.unmask();
 
             if ( res.isSuccess() ) {
-                this.$toast( "You were registered." );
+                this.$toast( "Password changed." );
 
-                form.reset();
-
-                this.showSignin();
+                this.cancel();
             }
             else {
                 this.$toast( res );

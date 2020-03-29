@@ -5,8 +5,8 @@
 <script>
 import "./assets/scrollbars.css";
 import defaultMask from "./load-mask";
-import RecoverPasswordDialog from "./recover-password-dialog";
-import AppInitFailureDialog from "./app-init-failure-dialog";
+import RecoverPasswordDialog from "./components/recover-password-dialog";
+import AppInitFailureDialog from "./components/app-init-failure-dialog";
 
 export default {
     "data": () => {

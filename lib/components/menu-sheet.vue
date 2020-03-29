@@ -10,6 +10,7 @@
 
             <ext-spacer/>
 
+            <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" @tap="changePassword"/>
             <ext-button iconCls="fas fa-sign-out-alt" text="Sign Out" textAlign="left" @tap="signout"/>
 
             <ext-container layout="hbox">
@@ -20,6 +21,8 @@
 </template>
 
 <script>
+import ChangePasswordDialog from "./change-password-dialog";
+
 export default {
     "computed": {
         avatar () {
@@ -57,6 +60,12 @@ export default {
 
         hide () {
             this.cmp.hide();
+        },
+
+        changePassword () {
+            this.hide();
+
+            this.$dialog( ChangePasswordDialog );
         },
 
         signout () {
