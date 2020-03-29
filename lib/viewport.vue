@@ -58,41 +58,65 @@ export default {
 
             this.$router.init( this );
 
-            this.$router.route( this );
+            this.$router.reload();
 
             this.$watch( "sessionIsAuthenticated", this.onAuthChange.bind( this ) );
         },
 
         onAuthChange () {
-            this.$router.routeTo( "/", true );
+            this.$router.relod();
         },
 
         async onRoute ( route ) {
-            if ( route === "recover-password" ) {
-                this.$dialog( this.recoverPasswordDialog );
+            if ( route.get() === "recover-password" ) {
+                this.routeRecoverPasword();
+            }
+            else if ( route === "confirm-email" ) {
+                this.routeConfirmEmail();
             }
             else {
-                let view;
-
                 if ( this.sessionIsAuthenticated ) {
-                    if ( this.currentView === "private" ) return;
-
-                    this.currentView = "private";
-                    view = this.privateView;
+                    this.routePrivate( route );
                 }
                 else {
-                    if ( this.currentView === "public" ) return;
-
-                    this.currentView = "public";
-                    view = this.publicView;
-                }
-
-                if ( view ) {
-                    if ( this.view ) this.view.$destroy();
-
-                    this.view = await Ext.Viewport.addComponent( view );
+                    this.routePublic( route );
                 }
             }
+        },
+
+        async routeRecoverPasword () {
+            this.$dialog( this.recoverPasswordDialog );
+        },
+
+        // TODO
+        async routeConfirmEmail () {},
+
+        async routePublic ( route ) {
+            if ( !this.publicView ) return;
+
+            if ( this.currentView !== "public" ) {
+                this.currentView = "public";
+
+                if ( this.view ) this.view.$destroy();
+
+                this.view = await Ext.Viewport.addComponent( this.publicView );
+            }
+
+            route.forward( this.view );
+        },
+
+        async routePrivate ( route ) {
+            if ( !this.privateView ) return;
+
+            if ( this.currentView !== "private" ) {
+                this.currentView = "private";
+
+                if ( this.view ) this.view.$destroy();
+
+                this.view = await Ext.Viewport.addComponent( this.privateView );
+            }
+
+            route.forward( this.view );
         },
 
         _onCordovaDeviceReady () {
