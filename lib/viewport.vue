@@ -64,7 +64,7 @@ export default {
         },
 
         onAuthChange () {
-            this.$router.relod();
+            this.$router.reload();
         },
 
         async onRoute ( route ) {
