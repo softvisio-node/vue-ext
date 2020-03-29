@@ -1,6 +1,6 @@
 <template>
     <ext-dialog bodyPadding="0" displayed="true" draggable="false" closeAction="destroy" :hideOnMaskTap="closable" @ready="ready">
-        <AuthPanel :signup="signup" :recover="recover" :closable="closable" @close="onClose"/>
+        <AuthPanel :signup="signup" :recover="recover" :closable="closable" :shadow="shadow" @close="onClose"/>
     </ext-dialog>
 </template>
 
@@ -20,6 +20,10 @@ export default {
             "default": false,
         },
         "closable": {
+            "type": Boolean,
+            "default": false,
+        },
+        "shadow": {
             "type": Boolean,
             "default": false,
         },
