@@ -14,8 +14,9 @@ https://rossta.net/blog/building-a-pdf-viewer-with-vue-part-1.html
 </template>
 
 <script>
-import pdfjs from "pdfjs-dist/build/pdf.js";
-import PdfjsWorker from "pdfjs-dist/build/pdf.worker.js";
+import pdfjs from "pdfjs-dist/build/pdf";
+import PdfjsWorker from "pdfjs-dist/build/pdf.worker";
+const PdfDialog = () => import( "./pdf-dialog" );
 
 pdfjs.GlobalWorkerOptions.workerPort = new PdfjsWorker();
 
@@ -47,6 +48,10 @@ export default {
             "type": Number,
             "default": 2,
         },
+        "maximizable": {
+            "type": Boolean,
+            "default": false,
+        },
     },
 
     data () {
@@ -69,6 +74,15 @@ export default {
         ready ( e ) {
             this.cmp = e.detail.cmp;
 
+            var maximize = [];
+
+            if ( this.maximizable ) {
+                maximize = [
+                    { "xtype": "button", "iconCls": "fas fa-compress", "ui": "action", "handler": this.maximize.bind( this, null ) },
+                    { "xtype": "container", "height": "10" },
+                ];
+            }
+
             Ext.widget( "container", {
                 "floating": true,
                 "renderTo": this.cmp,
@@ -77,13 +91,7 @@ export default {
                     "type": "vbox",
                 },
 
-                "items": [
-                    { "xtype": "button", "iconCls": "fas fa-search-plus", "ui": "action", "handler": this.zoomIn.bind( this, null ) },
-                    { "xtype": "container", "height": "10" },
-                    { "xtype": "button", "iconCls": "fas fa-arrows-alt", "ui": "action", "handler": this.resetZoom.bind( this ) },
-                    { "xtype": "container", "height": "10" },
-                    { "xtype": "button", "iconCls": "fas fa-search-minus", "ui": "action", "handler": this.zoomOut.bind( this, null ) },
-                ],
+                "items": [...maximize, { "xtype": "button", "iconCls": "fas fa-search-plus", "ui": "action", "handler": this.zoomIn.bind( this, null ) }, { "xtype": "container", "height": "10" }, { "xtype": "button", "iconCls": "fas fa-arrows-alt", "ui": "action", "handler": this.resetZoom.bind( this ) }, { "xtype": "container", "height": "10" }, { "xtype": "button", "iconCls": "fas fa-search-minus", "ui": "action", "handler": this.zoomOut.bind( this, null ) }],
             } );
 
             if ( this.src ) this.setSrc( this.src );
@@ -111,6 +119,10 @@ export default {
         },
 
         // zoom
+        maximize () {
+            this.$dialog( PdfDialog, { "src": this.currentSrc } );
+        },
+
         zoomIn ( zoomStep ) {
             var newZoom = this.currentZoom + ( zoomStep || this.zoomStep );
 
