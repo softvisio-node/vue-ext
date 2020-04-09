@@ -1,9 +1,9 @@
 <template>
     <ext-dialog title="Create User" width="350" height="400" displayed="true" closable="true" draggable="false" closeAction="destroy" @ready="ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
-            <ext-emailfield name="username" label="Email" allowBlank="false" required="true"/>
-            <ext-passwordfield name="password" label="Password" allowBlank="false" required="true"/>
-            <ext-passwordfield name="password1" label="Confirm Password" allowBlank="false" required="true"/>
+            <ext-emailfield name="username" label="Email" required="true"/>
+            <ext-passwordfield name="password" label="Password" required="true"/>
+            <ext-passwordfield name="password1" label="Confirm Password" required="true"/>
             <ext-togglefield name="enabled" label="Enabled" value="true"/>
             <ext-togglefield name="admin" label="Admin" value="false"/>
         </ext-fieldpanel>

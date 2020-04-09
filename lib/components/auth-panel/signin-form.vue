@@ -1,6 +1,6 @@
 <template>
     <ext-formpanel ref="form" title="Sign In" @ready="ready">
-        <ext-textfield name="username" label="User Name or Email" required="true" allowBlank="false"/>
+        <ext-textfield name="username" label="User Name or Email" required="true"/>
         <ext-passwordfield name="password" label="Password" required="true"/>
 
         <ext-button text="Do not have account? Sign up" :hidden="!signup" width="100%" margin="30 0 0 0" @tap="showSignup"/>

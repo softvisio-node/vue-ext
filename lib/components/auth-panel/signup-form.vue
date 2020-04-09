@@ -1,8 +1,8 @@
 <template>
     <ext-formpanel ref="form" title="Sign Up" @ready="ready">
-        <ext-emailfield name="username" label="Email" required="true" allowBlank="false"/>
-        <ext-passwordfield name="password" label="Password" allowBlank="false" required="true"/>
-        <ext-passwordfield ref="passwordConfirm" label="Confirm Password" allowBlank="false" required="true"/>
+        <ext-emailfield name="username" label="Email" required="true"/>
+        <ext-passwordfield name="password" label="Password" required="true"/>
+        <ext-passwordfield ref="passwordConfirm" label="Confirm Password" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
             <ext-button iconCls="fas fa-arrow-left" text="Sign In" ui="back" @tap="showSignin"/>

@@ -1,6 +1,6 @@
 <template>
     <ext-formpanel ref="form" title="Recover Password" @ready="ready">
-        <ext-textfield name="username" label="User Name or Email" required="true" allowBlank="false"/>
+        <ext-textfield name="username" label="User Name or Email" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
             <ext-button iconCls="fas fa-arrow-left" text="Sign In" ui="back" @tap="showSignin"/>
