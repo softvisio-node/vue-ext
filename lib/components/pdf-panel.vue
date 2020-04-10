@@ -72,7 +72,7 @@ export default {
 
     "methods": {
         ready ( e ) {
-            this.cmp = e.detail.cmp;
+            this.$ext = e.detail.cmp;
 
             var maximize = [];
 
@@ -85,7 +85,7 @@ export default {
 
             Ext.widget( "container", {
                 "floating": true,
-                "renderTo": this.cmp,
+                "renderTo": this.$ext,
                 "style": "position: absolute; bottom: 20px; right: 20px;",
                 "layout": {
                     "type": "vbox",
@@ -96,18 +96,18 @@ export default {
 
             if ( this.src ) this.setSrc( this.src );
 
-            if ( this.cmp.rendered ) {
+            if ( this.$ext.rendered ) {
                 this._afterRender();
             }
             else {
-                this.cmp.afterRender = this._afterRender.bind( this );
+                this.$ext.afterRender = this._afterRender.bind( this );
             }
         },
 
         async _afterRender () {
-            this.cmp.afterRender = null;
+            this.$ext.afterRender = null;
 
-            // this.cmp.el.on( {
+            // this.$ext.el.on( {
             //     "scope": this,
             //     "buffer": 300,
             //     "pinch": this._onPinch,
@@ -120,7 +120,7 @@ export default {
 
         // zoom
         maximize () {
-            this.$dialog( PdfDialog, { "src": this.currentSrc } );
+            Ext.Viewport.addComponent( PdfDialog, { "src": this.currentSrc } );
         },
 
         zoomIn ( zoomStep ) {
@@ -174,7 +174,7 @@ export default {
         },
 
         clear () {
-            this.cmp.setHtml( "" );
+            this.$ext.setHtml( "" );
 
             this.pdfDoc = null;
             this.pdfPages = [];
@@ -188,13 +188,13 @@ export default {
         },
 
         async _renderPdfDoc () {
-            if ( !this.cmp.rendered ) return;
+            if ( !this.$ext.rendered ) return;
 
             if ( !this.currentSrc ) return;
 
             if ( this.resetZoomOnLoad ) this.currentZoom = 1;
 
-            var cmp = this.cmp;
+            var cmp = this.$ext;
 
             cmp.mask();
 
@@ -228,7 +228,7 @@ export default {
         },
 
         async _renderPdfPage ( container, page ) {
-            var cmp = this.cmp,
+            var cmp = this.$ext,
                 scale = this.scale,
                 viewport;
 

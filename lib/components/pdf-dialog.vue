@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog bodyPadding="0" width="90%" height="90%" displayed="true" draggable="false" closeAction="destroy" closable="true" hideOnMaskTap="true" layout="fit" @ready="ready">
+    <ext-dialog bodyPadding="0" width="90%" height="90%" displayed="true" draggable="false" closeAction="destroy" closable="true" hideOnMaskTap="true" layout="fit">
         <PdfPanel :src="src"/>
     </ext-dialog>
 </template>

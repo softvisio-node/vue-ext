@@ -49,10 +49,10 @@ export default {
 
                 if ( res.isSuccess() ) break;
 
-                const dialog = await this.$dialog( this.appInitFailureDialog );
+                const dialog = await Ext.Viewport.addComponent( this.appInitFailureDialog );
 
                 await new Promise( ( resolve ) => {
-                    dialog.$once( "destroy", resolve );
+                    dialog.$once( "hook:beforeDestroy", resolve );
                 } );
             }
 
@@ -85,7 +85,7 @@ export default {
         },
 
         async routeRecoverPasword () {
-            this.$dialog( this.recoverPasswordDialog );
+            Ext.Viewport.addComponent( this.recoverPasswordDialog );
         },
 
         // TODO

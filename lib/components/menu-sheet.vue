@@ -51,21 +51,21 @@ export default {
 
     "methods": {
         ready ( e ) {
-            this.cmp = e.detail.cmp;
+            this.$ext = e.detail.cmp;
         },
 
         show () {
-            this.cmp.show();
+            this.$ext.show();
         },
 
         hide () {
-            this.cmp.hide();
+            this.$ext.hide();
         },
 
         changePassword () {
             this.hide();
 
-            this.$dialog( ChangePasswordDialog );
+            Ext.Viewport.addComponent( ChangePasswordDialog );
         },
 
         signout () {

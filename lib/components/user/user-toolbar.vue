@@ -39,7 +39,7 @@ export default {
         },
 
         create () {
-            this.$dialog( CreateUserDialog );
+            Ext.Viewport.addComponent( CreateUserDialog );
         },
     },
 };

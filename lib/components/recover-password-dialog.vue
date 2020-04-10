@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Recover Password" width="300" height="300" displayed="true" closable="true" draggable="false" closeAction="destroy" @ready="ready" @destroy="cancel">
+    <ext-dialog title="Recover Password" width="300" height="300" displayed="true" closable="true" draggable="false" closeAction="destroy" @destroy="cancel">
         <ext-fieldpanel ref="form" defaults1='{"labelAlign":"left","labelWidth":120}'>
             <ext-textfield name="token" label="Token" required="true" :value="token"/>
             <ext-passwordfield name="password" label="New Password" required="true"/>

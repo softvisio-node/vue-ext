@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Change Password" width="300" height="300" displayed="true" closable="true" draggable="false" closeAction="destroy" hideOnMaskTap="true" @ready="ready">
+    <ext-dialog title="Change Password" width="300" height="300" displayed="true" closable="true" draggable="false" closeAction="destroy" hideOnMaskTap="true">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
             <ext-passwordfield name="password" label="Password" required="true"/>
             <ext-passwordfield ref="passwordConfirm" label="Confirm Password" required="true"/>

@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog bodyPadding="0" :displayed="displayed" draggable="false" closeAction="destroy" :hideOnMaskTap="closable" @ready="ready">
+    <ext-dialog bodyPadding="0" :displayed="displayed" draggable="false" closeAction="destroy" :hideOnMaskTap="closable">
         <AuthPanel :signup="signup" :recover="recover" :closable="closable" :shadow="shadow" @close="onClose"/>
     </ext-dialog>
 </template>
