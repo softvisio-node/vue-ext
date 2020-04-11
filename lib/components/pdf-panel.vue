@@ -120,7 +120,7 @@ export default {
 
         // zoom
         maximize () {
-            Ext.Viewport.addComponent( PdfDialog, { "src": this.currentSrc } );
+            Ext.Viewport.addVue( PdfDialog, { "src": this.currentSrc } );
         },
 
         zoomIn ( zoomStep ) {

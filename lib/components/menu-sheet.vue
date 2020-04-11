@@ -65,7 +65,7 @@ export default {
         changePassword () {
             this.hide();
 
-            Ext.Viewport.addComponent( ChangePasswordDialog );
+            Ext.Viewport.addVue( ChangePasswordDialog );
         },
 
         signout () {

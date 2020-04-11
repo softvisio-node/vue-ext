@@ -49,7 +49,7 @@ export default {
 
                 if ( res.isSuccess() ) break;
 
-                const dialog = await Ext.Viewport.addComponent( this.appInitFailureDialog );
+                const dialog = await Ext.Viewport.addVue( this.appInitFailureDialog );
 
                 await new Promise( ( resolve ) => {
                     dialog.$once( "hook:beforeDestroy", resolve );
@@ -85,7 +85,7 @@ export default {
         },
 
         async routeRecoverPasword () {
-            Ext.Viewport.addComponent( this.recoverPasswordDialog );
+            Ext.Viewport.addVue( this.recoverPasswordDialog );
         },
 
         // TODO
@@ -99,7 +99,7 @@ export default {
 
                 if ( this.view ) this.view.$destroy();
 
-                this.view = await Ext.Viewport.addComponent( this.publicView );
+                this.view = await Ext.Viewport.addVue( this.publicView );
             }
 
             route.forward( this.view );
@@ -113,7 +113,7 @@ export default {
 
                 if ( this.view ) this.view.$destroy();
 
-                this.view = await Ext.Viewport.addComponent( this.privateView );
+                this.view = await Ext.Viewport.addVue( this.privateView );
             }
 
             route.forward( this.view );
