@@ -28,15 +28,30 @@ export default {
     },
 
     mounted () {
-        Ext.application( {
-            "name": "app",
-            "launch": this.ready.bind( this ),
-        } );
-
-        document.addEventListener( "deviceready", this._onCordovaDeviceReady.bind( this ), false );
+        if ( window.cordova ) {
+            document.addEventListener( "deviceready", this._onCordovaDeviceReady.bind( this ), false );
+        }
+        else {
+            this.createViewport();
+        }
     },
 
     "methods": {
+        _onCordovaDeviceReady () {
+            this.registerPushNotifications();
+
+            this.onCordovaDeviceReady();
+
+            this.createViewport();
+        },
+
+        async createViewport () {
+            Ext.application( {
+                "name": "app",
+                "launch": this.ready.bind( this ),
+            } );
+        },
+
         async ready () {
             var viewport = Ext.Viewport;
 
@@ -119,12 +134,7 @@ export default {
             route.forward( this.view );
         },
 
-        _onCordovaDeviceReady () {
-            this.registerPushNotifications();
-
-            this.onCordovaDeviceReady();
-        },
-
+        // CORDOVA TEMPLATES
         registerPushNotifications () {
             const me = this;
 
@@ -189,10 +199,7 @@ export default {
             } );
         },
 
-        // template method
         onCordovaDeviceReady () {},
-
-        // template method
         onPushNotification ( data ) {},
     },
 };
