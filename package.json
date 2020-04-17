@@ -18,7 +18,8 @@
         "pdfjs-dist": ">=2.3.200"
     },
     "exports": {
-        "./": "./lib/"
+        "./": "./lib/",
+        "./resources/": "./resources/"
     },
     "homepage": "https://bitbucket.org/softvisio/softvisio-vue-ext",
     "keywords": [
