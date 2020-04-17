@@ -64,6 +64,7 @@ export default {
             this.$router.reload();
         },
 
+        // ROUTER
         async onRoute ( route ) {
             if ( route.get() === "recover-password" ) {
                 this.routeRecoverPasword();
