@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { confirm, sleep } from "#swc/util";
+import { confirm, sleep } from "../../util";
 
 export default {
     data () {
