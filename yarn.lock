@@ -156,9 +156,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@softvisio/core@portal:../softvisio-core::locator=%40softvisio%2Fweb-components%40workspace%3A.":
+"@softvisio/core@portal:../softvisio-core::locator=%40softvisio%2Fvue-ext%40workspace%3A.":
   version: 0.0.0-use.local
-  resolution: "@softvisio/core@portal:../softvisio-core::locator=%40softvisio%2Fweb-components%40workspace%3A."
+  resolution: "@softvisio/core@portal:../softvisio-core::locator=%40softvisio%2Fvue-ext%40workspace%3A."
   dependencies:
     "@softvisio/eslint-plugin": ">=0.4.0"
     babel-eslint: ^10.0.3
@@ -176,9 +176,9 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@softvisio/eslint-plugin@portal:../softvisio-eslint-plugin::locator=%40softvisio%2Fweb-components%40workspace%3A.":
+"@softvisio/eslint-plugin@portal:../softvisio-eslint-plugin::locator=%40softvisio%2Fvue-ext%40workspace%3A.":
   version: 0.0.0-use.local
-  resolution: "@softvisio/eslint-plugin@portal:../softvisio-eslint-plugin::locator=%40softvisio%2Fweb-components%40workspace%3A."
+  resolution: "@softvisio/eslint-plugin@portal:../softvisio-eslint-plugin::locator=%40softvisio%2Fvue-ext%40workspace%3A."
   dependencies:
     babel-eslint: ">=10.0.3"
     eslint: ">=6.8.0"
@@ -193,14 +193,15 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@softvisio/web-components@workspace:.":
+"@softvisio/vue-ext@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@softvisio/web-components@workspace:."
+  resolution: "@softvisio/vue-ext@workspace:."
   dependencies:
     "@amcharts/amcharts4": ">=4.9.10"
     "@fortawesome/fontawesome-free": ">=5.12.1"
     "@softvisio/core": ">=0.7.0"
     "@softvisio/eslint-plugin": ">=0.4.0"
+    "@softvisio/vue": ">=0.1.0"
     babel-eslint: ">=10.0.3"
     eslint: ">=6.8.0"
     eslint-plugin-babel: ">=5.3.0"
@@ -208,8 +209,23 @@ __metadata:
     pdfjs-dist: ">=2.3.200"
   peerDependencies:
     vue: ">=2.6.11"
-    worker-loader: ">=2.0.0"
   languageName: unknown
+  linkType: soft
+
+"@softvisio/vue@portal:../softvisio-vue::locator=%40softvisio%2Fvue-ext%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@softvisio/vue@portal:../softvisio-vue::locator=%40softvisio%2Fvue-ext%40workspace%3A."
+  dependencies:
+    "@softvisio/core": ">=0.7.0"
+    "@softvisio/eslint-plugin": ">=0.4.0"
+    babel-eslint: ">=10.0.3"
+    eslint: ">=6.8.0"
+    eslint-plugin-babel: ">=5.3.0"
+    eslint-plugin-vue: ">=6.1.2"
+  peerDependencies:
+    vue: ">=2.6.11"
+    worker-loader: ">=2.0.0"
+  languageName: node
   linkType: soft
 
 "@types/color-name@npm:^1.1.1":
