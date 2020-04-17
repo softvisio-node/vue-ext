@@ -13,7 +13,8 @@
 </template>
 
 <script>
-import { confirm, sleep } from "../../util";
+import { confirm } from "../../util";
+import { sleep } from "@softvisio/core/util";
 
 export default {
     data () {
