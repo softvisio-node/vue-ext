@@ -42,7 +42,19 @@ export default {
 
     "computed": {
         darkMode () {
-            return this.$store.getters["session/darkMode"];
+            return this.$store.getters["theme/darkMode"];
+        },
+    },
+
+    "watch": {
+        darkMode () {
+            if ( !this.chart ) return;
+
+            this.chart.dispose();
+
+            this.chart = null;
+
+            this.$emit( "ready", this );
         },
     },
 
@@ -72,16 +84,6 @@ export default {
 
         _afterRender () {
             this.cmp.afterRender = null;
-
-            this.$watch( "darkMode", this._onDarkModeChange.bind( this ) );
-
-            this.$emit( "ready", this );
-        },
-
-        _onDarkModeChange () {
-            this.chart.dispose();
-
-            this.chart = null;
 
             this.$emit( "ready", this );
         },

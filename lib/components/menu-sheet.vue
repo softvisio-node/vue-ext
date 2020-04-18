@@ -35,11 +35,11 @@ export default {
 
         "darkMode": {
             get () {
-                return this.$store.getters["session/darkMode"];
+                return this.$store.getters["theme/darkMode"];
             },
 
             set ( ev ) {
-                this.$store.commit( "session/darkMode", ev.detail.newValue );
+                this.$store.commit( "theme/darkMode", ev.detail.newValue );
             },
         },
     },
