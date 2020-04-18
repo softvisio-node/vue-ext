@@ -39,7 +39,7 @@ export default {
             },
 
             set ( ev ) {
-                this.$store.commit( "theme/darkMode", ev.detail.newValue );
+                this.$store.dispatch( "theme/setDarkMode", ev.detail.newValue );
             },
         },
     },
