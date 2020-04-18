@@ -68,14 +68,14 @@ export default {
             Ext.Viewport.unmask();
 
             if ( res.isSuccess() ) {
-                this.$toast( "You were registered." );
+                this.$.toast( "You were registered." );
 
                 form.reset();
 
                 this.showSignin();
             }
             else {
-                this.$toast( res );
+                this.$.toast( res );
             }
         },
     },

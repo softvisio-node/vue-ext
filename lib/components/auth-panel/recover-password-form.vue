@@ -58,12 +58,12 @@ export default {
                 Ext.Viewport.unmask();
 
                 if ( !res.isSuccess() ) {
-                    this.$toast( res );
+                    this.$.toast( res );
                 }
                 else {
                     form.reset();
 
-                    this.$toast( "Password change instructions was sent to the email address, associated with your account.", 5000 );
+                    this.$.toast( "Password change instructions was sent to the email address, associated with your account.", 5000 );
                 }
             }
         },

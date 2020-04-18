@@ -53,14 +53,14 @@ export default {
             var res = await this.$api.call( "admin/users/create", vals );
 
             if ( res.isSuccess() ) {
-                this.$toast( "User created" );
+                this.$.toast( "User created" );
 
                 this.$store.state.userStore.reload();
 
                 this.cancel();
             }
             else {
-                this.$toast( res );
+                this.$.toast( res );
             }
         },
     },

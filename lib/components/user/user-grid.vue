@@ -13,9 +13,6 @@
 </template>
 
 <script>
-import { confirm } from "../../util";
-import { sleep } from "@softvisio/core/util";
-
 export default {
     data () {
         return {
@@ -117,9 +114,9 @@ export default {
             var res = await this.$api.call( "admin/users/set-enabled", record.get( "id" ), newVal );
 
             if ( !res.isSuccess() ) {
-                this.$toast( res );
+                this.$.toast( res );
 
-                await sleep( 1000 );
+                await this.$.sleep( 1000 );
 
                 button.suspendEvent( "change" );
                 record.set( "enabled", oldVal );
@@ -137,17 +134,17 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await confirm( "Confirmation", "Are you sure you want to do that?" ) ) ) return;
+            if ( !( await this.$.confirm( "Confirmation", "Are you sure you want to do that?" ) ) ) return;
 
             var res = await this.$api.call( "admin/users/delete", record.getId() );
 
             if ( res.isSuccess() ) {
-                this.$toast( "User deleted" );
+                this.$.toast( "User deleted" );
 
                 this.store.remove( record );
             }
             else {
-                this.$toast( res );
+                this.$.toast( res );
             }
         },
     },

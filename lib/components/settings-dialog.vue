@@ -53,7 +53,7 @@ export default {
                         ext.getViewModel().set( "record", record );
                     }
                     else {
-                        this.$toast( operation );
+                        this.$.toast( operation );
 
                         ext.hide();
                     }
@@ -80,7 +80,7 @@ export default {
 
             button.enable();
 
-            this.$toast( res );
+            this.$.toast( res );
         },
 
         cancel () {
@@ -92,7 +92,7 @@ export default {
                 form = this.$refs.form.ext;
 
             if ( !form.validate() ) {
-                this.$toast( "Please, fill all required fields" );
+                this.$.toast( "Please, fill all required fields" );
 
                 return;
             }
@@ -100,7 +100,7 @@ export default {
             record.save( {
                 "scope": this,
                 callback ( record, operation, success ) {
-                    this.$toast( operation );
+                    this.$.toast( operation );
 
                     if ( success ) {
                         this.$ext.hide();
