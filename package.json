@@ -41,7 +41,7 @@
         "@softvisio/vue": "portal:../softvisio-vue"
     },
     "scripts": {
-        "lint": "eslint --fix --ext=.js,.vue lib",
+        "lint": "eslint --fix --ext=.js,.vue lib resources",
         "publish": "yarn lint && yarn npm publish"
     },
     "type": "commonjs",
