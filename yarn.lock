@@ -2426,17 +2426,17 @@ resolve@1.1.7:
 
 "resolve@patch:resolve@1.1.7#builtin<compat/resolve>":
   version: 1.1.7
-  resolution: "resolve@patch:resolve@npm%3A1.1.7#builtin<compat/resolve>::version=1.1.7&hash=8fccd0"
-  checksum: 2/e075aab2cddac6ed0bdb8ccabe11bacd65a9861aec8c91d468a9c9acb1b5b21f557892ba5dd19fc7b81e4c78493b768a9d798a8e6b607c36d34f677508b4f41f
+  resolution: "resolve@patch:resolve@npm%3A1.1.7#builtin<compat/resolve>::version=1.1.7&hash=e7677c"
+  checksum: 2/5238277188664a6948dd7288d16f1a09e098fb36d4f9b2c749130969c998faa9bccefd30fd618073af5210fdc768730cadfc15588bbee4fc64b257f20cab6783
   languageName: node
   linkType: hard
 
 "resolve@patch:resolve@^1.1.10#builtin<compat/resolve>, resolve@patch:resolve@^1.1.5#builtin<compat/resolve>, resolve@patch:resolve@^1.12.0#builtin<compat/resolve>, resolve@patch:resolve@~1.15.1#builtin<compat/resolve>":
   version: 1.15.1
-  resolution: "resolve@patch:resolve@npm%3A1.15.1#builtin<compat/resolve>::version=1.15.1&hash=8fccd0"
+  resolution: "resolve@patch:resolve@npm%3A1.15.1#builtin<compat/resolve>::version=1.15.1&hash=e7677c"
   dependencies:
     path-parse: ^1.0.6
-  checksum: 2/b980a7cc2f29ec4732fec90b599d71806a0e3caf84ff32b9bd5fc679318ba141c02e1144dcee30755a76ddabdbd05235d136adef052dc66a8dca5ed92b74c9c9
+  checksum: 2/fe7e72ddef33d5c157991b824ba2d439cafcd386cb4b26d86c32e77fea442bdd9a93c6cdd93ab90f87a29449008df64b53a8310dd89ebe88ea87fb5db09c03aa
   languageName: node
   linkType: hard
 
