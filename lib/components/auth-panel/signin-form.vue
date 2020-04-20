@@ -3,7 +3,7 @@
         <ext-textfield name="username" label="User Name or Email" required="true"/>
         <ext-passwordfield name="password" label="Password" required="true"/>
 
-        <ext-button text="Do not have account? Sign up" :hidden="!signup" width="100%" margin="30 0 0 0" @tap="showSignup"/>
+        <ext-button text="Do not have account? Sign up" :hidden="!signup" width="100%" margin="10 0 0 0" @tap="showSignup"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
             <ext-button text="Forgot password?" ui="forward" :hidden="!recover" @tap="showRecover"/>
