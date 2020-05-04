@@ -31,15 +31,13 @@ export default {
         async ready ( e ) {
             this.$ext = e.detail.cmp;
 
-            this.$ext.on( "show", this.load, this );
-
-            this.load();
+            this.$ext.on( "beforeshow", this.load, this );
         },
 
         load () {
-            var ext = this.$ext;
+            var dialog = this.$ext;
 
-            ext.mask( {
+            dialog.mask( {
                 "xtype": "loadmask",
                 "message": `<div style="color:white;">Loading<br/>please wait...</div>`,
             } );
@@ -47,15 +45,15 @@ export default {
             Model.load( 1, {
                 "scope": this,
                 callback ( record, operation, success ) {
-                    ext.unmask();
+                    dialog.unmask();
 
                     if ( success ) {
-                        ext.getViewModel().set( "record", record );
+                        dialog.getViewModel().set( "record", record );
                     }
                     else {
                         this.$.toast( operation );
 
-                        ext.hide();
+                        dialog.hide();
                     }
                 },
             } );
