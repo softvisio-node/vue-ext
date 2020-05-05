@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Settings" width="90%" height="90%" displayed="true" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" bodyPaddign="10" layout="center" viewModel="true" @ready="ready">
+    <ext-dialog :title="title" :width="width" :height="height" displayed="true" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" bodyPaddign="10" layout="center" viewModel="true" @ready="ready">
         <ext-panel scrollable="true" width="500" layout="fit">
             <ext-fieldpanel ref="form" modelValidation="true" layout="vbox" defaults='{"defaults":{"labelAlign":"left","labelWidth":250}}'>
                 <!-- SMTP -->
@@ -15,6 +15,8 @@
                     </ext-toolbar>
                 </ext-fieldset>
             </ext-fieldpanel>
+
+            <slot/>
         </ext-panel>
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
             <ext-button text="Cancel" ui="decline" @tap="cancel"/>
@@ -27,6 +29,21 @@
 import Model from "@/models/settings";
 
 export default {
+    "props": {
+        "title": {
+            "type": String,
+            "default": "Settings",
+        },
+        "width": {
+            "type": String,
+            "default": "90%",
+        },
+        "height": {
+            "type": String,
+            "default": "90%",
+        },
+    },
+
     "methods": {
         async ready ( e ) {
             this.$ext = e.detail.cmp;
