@@ -6,7 +6,7 @@
     },
     "dependencies": {
         "@amcharts/amcharts4": ">=4.9.10",
-        "@fortawesome/fontawesome-free": ">=5.12.1",
+        "@fontawesome/fontawesome-free": ">=5.12.1",
         "@softvisio/core": ">=0.7.0",
         "@softvisio/vue": ">=0.1.0",
         "pdfjs-dist": ">=2.3.200"
