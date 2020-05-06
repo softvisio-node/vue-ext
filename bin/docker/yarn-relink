@@ -5,4 +5,4 @@ set -e
 
 yarn-unlink
 
-yarn link --all --relative --private /var/local/node
+yarn link --all --relative --private $NODE_BUILD_DIR

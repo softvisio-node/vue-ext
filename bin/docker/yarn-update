@@ -3,12 +3,7 @@
 set -u
 set -e
 
-# update workspace
-pushd /var/local/node
-yarn
-popd
-
-pushd /var/local/node/workspace
+pushd $NODE_WORKSPACE
 
 # update @softvisio/core
 pushd softvisio-core

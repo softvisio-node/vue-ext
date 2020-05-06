@@ -3,6 +3,10 @@
 set -u
 set -e
 
+pushd $1
+
 yarn-install
 
 yarn build
+
+popd

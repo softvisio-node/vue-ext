@@ -1,13 +1,10 @@
 #!/bin/bash
 
-# curl -fsSL https://bitbucket.org/softvisio/node/raw/master/yarn-build > /usr/local/bin/yarn-build && chmod +x /usr/local/bin/yarn-build
-# curl -fsSL https://bitbucket.org/softvisio/node/raw/master/yarn-install > /usr/local/bin/yarn-install && chmod +x /usr/local/bin/yarn-install
-# curl -fsSL https://bitbucket.org/softvisio/node/raw/master/yarn-relink > /usr/local/bin/yarn-relink && chmod +x /usr/local/bin/yarn-relink
-# curl -fsSL https://bitbucket.org/softvisio/node/raw/master/yarn-unlink > /usr/local/bin/yarn-unlink && chmod +x /usr/local/bin/yarn-unlink
-# curl -fsSL https://bitbucket.org/softvisio/node/raw/master/yarn-update > /usr/local/bin/yarn-update && chmod +x /usr/local/bin/yarn-update
-
 set -u
 set -e
+
+# setup host
+source <( curl -fsSL https://bitbucket.org/softvisio/scripts/raw/master/setup-host.sh ) \
 
 # install commands
 chmod +x yarn-build && cp yarn-build /usr/local/bin
@@ -36,11 +33,18 @@ yarnPath: '.yarn/releases/yarn-berry.js'
 checksumBehavior: 'ignore'
 EOF
 
-# fill yarn cache
-yarn
+cat <<EOF > $WORKSPACE/package.json
+{
+    "name": "@softvisio/node-build-workspace",
+    "private": true,
+    "version": "0.1.0",
+    "workspaces": [
+        "*"
+    ]
+}
+EOF
 
-mkdir -p workspace
-pushd workspace
+pushd $NODE_WORKSPACE
 
 # pre-install @softvisio/core
 git clone https://bitbucket.org/softvisio/softvisio-core.git
@@ -68,4 +72,6 @@ git clone https://bitbucket.org/softvisio/softvisio-vue-ext.git
 pushd softvisio-vue-ext
 yarn-unlink
 yarn install
+popd
+
 popd
