@@ -1,0 +1,45 @@
+#!/bin/bash
+
+set -u
+set -e
+
+# update workspace
+pushd /var/local/node
+yarn
+popd
+
+pushd /var/local/node/workspace
+
+# update @softvisio/core
+pushd softvisio-core
+git reset --hard
+git pull
+yarn-unlink
+yarn install
+popd
+
+# update @softvisio/ext
+pushd softvisio-ext
+git reset --hard
+git pull
+yarn-unlink
+yarn install
+popd
+
+# update @softvisio/vue
+pushd softvisio-vue
+git reset --hard
+git pull
+yarn-unlink
+yarn install
+popd
+
+# update @softvisio/vue-ext
+pushd softvisio-vue-ext
+git reset --hard
+git pull
+yarn-unlink
+yarn install
+popd
+
+popd

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -u
+set -e
+
+yarn-unlink
+
+yarn link --all --relative --private /var/local/node

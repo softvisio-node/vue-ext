@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -u
+set -e
+
+yarn-relink
+
+yarn install

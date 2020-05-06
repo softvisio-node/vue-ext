@@ -1,0 +1,19 @@
+#!/usr/bin/env perl
+
+package main v0.1.0;
+
+use Pcore;
+
+my $json = P->cfg->read('package.json');
+
+delete $json->{resolutions};
+
+P->cfg->write( 'package.json', $json, readable => 1 );
+
+1;
+__END__
+=pod
+
+=encoding utf8
+
+=cut
