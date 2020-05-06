@@ -20,8 +20,8 @@ n latest
 
 curl -fsSL https://bitbucket.org/softvisio/scripts/raw/master/setup-node.sh | /bin/bash
 
-node --version
-yarn --version
+echo node: `node --version`
+echo yarn: `yarn --version`
 
 cat <<EOF > ~/.yarnrc.yml
 defaultSemverRangePrefix: '>='
