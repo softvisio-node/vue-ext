@@ -13,8 +13,8 @@ WORKDIR /var/local/softvisio-vue-ext/bin/docker
 
 RUN \
     mkdir -p $NODE_WORKSPACE \
-    mkdir -p $NODE_BUILD_DIR \
-    chmod +x init.sh \
+    && mkdir -p $NODE_BUILD_DIR \
+    && chmod +x init.sh \
     && ./init.sh
 
 ENTRYPOINT [ "/bin/bash", "-l" ]
