@@ -33,7 +33,7 @@ yarnPath: '.yarn/releases/yarn-berry.js'
 checksumBehavior: 'ignore'
 EOF
 
-cat <<EOF > $WORKSPACE/package.json
+cat <<EOF > $NODE_WORKSPACE/package.json
 {
     "name": "@softvisio/node-build-workspace",
     "private": true,
