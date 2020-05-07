@@ -1,9 +1,0 @@
-#!/usr/bin/env node
-
-const fs = require( "fs" );
-
-var json = JSON.parse( fs.readFileSync( "package.json" ) );
-
-delete json.resolutions;
-
-fs.writeFileSync( "package.json", JSON.stringify( json, null, 4 ) );

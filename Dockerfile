@@ -9,16 +9,18 @@ ENV NODE_WORKSPACE="/var/local/node-workspace" \
 
 ADD . /var/local/softvisio-vue-ext
 
-WORKDIR /var/local/softvisio-vue-ext/bin/docker
+WORKDIR $NODE_WORKSPACE
+
+SHELL [ "/bin/bash", "-l", "-c" ]
 
 RUN \
     mkdir -p $NODE_WORKSPACE \
     && mkdir -p $NODE_BUILD_DIR \
-    && chmod +x init.sh \
-    && ./init.sh
+    && curl -fsSL https://bitbucket.org/softvisio/scripts/raw/master/node-docker/init.sh | /bin/bash -s
 
 ENTRYPOINT [ "/bin/bash", "-l" ]
 
+ONBUILD SHELL [ "/bin/bash", "-l", "-c" ]
 ONBUILD WORKDIR $NODE_BUILD_DIR
 ONBUILD ADD . $NODE_BUILD_DIR
 ONBUILD RUN yarn-update

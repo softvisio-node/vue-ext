@@ -1,8 +1,0 @@
-#!/bin/bash
-
-set -u
-set -e
-
-yarn-unlink
-
-yarn link --all --relative --private $NODE_BUILD_DIR
