@@ -113,7 +113,7 @@ export default {
 
             var res = await this.$api.call( "admin/users/set-enabled", record.get( "id" ), newVal );
 
-            if ( !res.isSuccess() ) {
+            if ( !res.isOk() ) {
                 this.$.toast( res );
 
                 await this.$.sleep( 1000 );
@@ -138,7 +138,7 @@ export default {
 
             var res = await this.$api.call( "admin/users/delete", record.getId() );
 
-            if ( res.isSuccess() ) {
+            if ( res.isOk() ) {
                 this.$.toast( "User deleted" );
 
                 this.store.remove( record );

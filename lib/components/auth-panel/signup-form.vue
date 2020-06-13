@@ -67,7 +67,7 @@ export default {
 
             Ext.Viewport.unmask();
 
-            if ( res.isSuccess() ) {
+            if ( res.isOk() ) {
                 this.$.toast( "You were registered." );
 
                 form.reset();

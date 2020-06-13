@@ -57,7 +57,7 @@ export default {
 
             form.unmask();
 
-            if ( res.isSuccess() ) {
+            if ( res.isOk() ) {
                 this.$.toast( "Password changed." );
 
                 this.cancel();
