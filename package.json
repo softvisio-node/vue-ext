@@ -5,11 +5,9 @@
         "url": "https://bitbucket.org/softvisio/softvisio-vue-ext/issues"
     },
     "dependencies": {
-        "@amcharts/amcharts4": ">=4.9.10",
         "@fortawesome/fontawesome-free": ">=5.12.1",
         "@softvisio/core": ">=0.7.0",
-        "@softvisio/vue": ">=0.1.0",
-        "pdfjs-dist": ">=2.3.200"
+        "@softvisio/vue": ">=0.1.0"
     },
     "description": "Softisio Vue Ext",
     "devDependencies": {
@@ -28,21 +26,17 @@
     "main": "./lib/index.js",
     "name": "@softvisio/vue-ext",
     "peerDependencies": {
+        "@amcharts/amcharts4": ">=4.9.10",
+        "pdfjs-dist": ">=2.3.200",
         "vue": ">=2.6.11"
     },
     "repository": {
         "type": "git",
         "url": "https://bitbucket.org/softvisio/softvisio-vue-ext.git"
     },
-    "resolutions": {
-        "@softvisio/core": "portal:../softvisio-core",
-        "@softvisio/eslint-plugin": "portal:../softvisio-eslint-plugin",
-        "@softvisio/vue": "portal:../softvisio-vue"
-    },
     "scripts": {
-        "lint": "eslint --fix --ext=.js,.vue lib resources",
-        "publish": "yarn npm publish"
+        "lint": "eslint --fix --ext=.js,.vue lib resources"
     },
     "type": "commonjs",
-    "version": "0.5.0"
+    "version": "0.6.0"
 }
