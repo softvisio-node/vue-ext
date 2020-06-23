@@ -218,6 +218,7 @@ export default {
             container.style = "display:flex;flex-direction:column;justify-content:flex-start;text-align:center;width:100%;height:100%;";
 
             for ( var i = 1; i <= numPages; i++ ) {
+
                 // fetch page
                 const page = await pdfDoc.getPage( i );
 
@@ -234,6 +235,7 @@ export default {
 
             if ( scale === "auto" ) {
                 var parentWidth = cmp.element.getWidth() - 30;
+
                 // var parentHeight = cmp.element.getHeight();
 
                 viewport = page.getViewport( { "scale": 1 } );

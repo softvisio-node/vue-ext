@@ -60,6 +60,7 @@ export default {
 
     mounted () {
         this.$once( "hook:beforeDestroy", () => {
+
             // destroy chart
             if ( this.chart ) this.chart.dispose();
             this.chart = null;
@@ -89,6 +90,7 @@ export default {
         },
 
         create ( config ) {
+
             // theme
             am4core.unuseAllThemes();
             if ( this.animated ) am4core.useTheme( chartThemeAnimated );

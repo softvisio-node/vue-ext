@@ -45,6 +45,7 @@ export default {
     },
 
     created () {
+
         // disable viewport gestures, menu can be opened only by button click
         Ext.Viewport.addedSwipeListener = true;
     },

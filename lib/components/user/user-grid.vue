@@ -27,6 +27,7 @@ export default {
             grid.setMultiColumnSort( true );
 
             grid.setPlugins( [
+
                 //
                 { "type": "gridviewoptions" },
                 { "type": "listpaging", "noMoreRecordsText": "", "autoPaging": false },
