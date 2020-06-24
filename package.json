@@ -41,6 +41,6 @@
     "scripts": {
         "lint": "eslint --fix --ext=.js,.vue lib resources"
     },
-    "type": "commonjs",
-    "version": "0.8.0"
+    "type": "module",
+    "version": "0.9.0"
 }
