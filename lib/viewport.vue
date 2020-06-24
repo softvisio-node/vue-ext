@@ -4,7 +4,7 @@
 
 <script>
 import "./assets/scrollbars.css";
-import Viewport from "@softvisio/vue/lib/viewport.vue";
+import Viewport from "@softvisio/vue/viewport.vue";
 import defaultMask from "./load-mask";
 import RecoverPasswordDialog from "./components/recover-password-dialog";
 import AppInitFailureDialog from "./components/app-init-failure-dialog";
