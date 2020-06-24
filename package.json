@@ -42,5 +42,5 @@
         "lint": "eslint --fix --ext=.js,.vue lib resources"
     },
     "type": "commonjs",
-    "version": "0.7.0"
+    "version": "0.8.0"
 }
