@@ -6,6 +6,8 @@
 
         <ext-column text="Created" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
 
+        <ext-column text="Admin" width="95" @ready="adminColReady"/>
+
         <ext-column text="Enabled" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
 
         <ext-column width="40" @ready="actionColReady"/>
@@ -65,6 +67,25 @@ export default {
             } );
         },
 
+        adminColReady ( e ) {
+            var cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "layout": { "type": "hbox", "pack": "center" },
+                    "items": [
+                        {
+                            "xtype": "togglefield",
+                            "bind": { "value": "{record.permissions.admin}" },
+                            "listeners": { "change": this.setUserAdmin.bind( this ) },
+                        },
+                    ],
+                },
+            } );
+        },
+
         enabledColReady ( e ) {
             var cmp = e.detail.cmp;
 
@@ -101,6 +122,34 @@ export default {
                     ],
                 },
             } );
+        },
+
+        async setUserAdmin ( button, newVal, oldVal ) {
+            const gridrow = button.up( "gridrow" ),
+                record = gridrow.getRecord(),
+                curVal = record.get( "enabled" );
+
+            if ( newVal === curVal ) return;
+
+            button.disable();
+
+            var res = await this.$api.call( "admin/users/update-permissions", record.get( "id" ), { "admin": newVal } );
+
+            if ( !res.isOk() ) {
+                this.$.toast( res );
+
+                await this.$.sleep( 1000 );
+
+                button.suspendEvent( "change" );
+                record.set( "enabled", oldVal );
+                button.enable();
+                button.resumeEvent( "change" );
+            }
+            else {
+                button.enable();
+            }
+
+            return;
         },
 
         async setUserEnabled ( button, newVal, oldVal ) {
