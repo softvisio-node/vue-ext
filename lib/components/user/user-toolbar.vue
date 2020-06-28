@@ -38,8 +38,10 @@ export default {
             this.store.reload();
         },
 
-        create () {
-            Ext.Viewport.addVue( CreateUserDialog );
+        async create () {
+            if ( !this.createUserDialog ) this.createUserDialog = await Ext.Viewport.addVue( CreateUserDialog );
+
+            this.createUserDialog.$ext.show();
         },
     },
 };
