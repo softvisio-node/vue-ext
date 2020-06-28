@@ -68,9 +68,10 @@ export default {
             Ext.Viewport.unmask();
 
             if ( res.isOk() ) {
-                this.$.toast( "You were registered." );
+                this.$.toast( res );
 
                 form.reset();
+                this.$refs.passwordConfirm.ext.clearValue();
 
                 this.showSignin();
             }
