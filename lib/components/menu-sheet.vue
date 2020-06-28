@@ -63,10 +63,12 @@ export default {
             this.$ext.hide();
         },
 
-        changePassword () {
+        async changePassword () {
             this.hide();
 
-            Ext.Viewport.addVue( ChangePasswordDialog );
+            if ( !this.changePasswwordDialog ) this.changePasswwordDialog = await Ext.Viewport.addVue( ChangePasswordDialog );
+
+            this.changePasswwordDialog.$ext.show();
         },
 
         signout () {
