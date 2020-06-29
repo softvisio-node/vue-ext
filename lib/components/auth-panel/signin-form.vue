@@ -70,7 +70,7 @@ export default {
 
                 Ext.Viewport.unmask();
 
-                if ( !res.isOk() ) {
+                if ( !res.ok ) {
                     this.$.toast( res );
                 }
                 else {

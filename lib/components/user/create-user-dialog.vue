@@ -59,7 +59,7 @@ export default {
 
             var res = await this.$api.call( "admin/users/create", vals );
 
-            if ( res.isOk() ) {
+            if ( res.ok ) {
                 this.$.toast( "User created" );
 
                 this.$store.state.userStore.reload();

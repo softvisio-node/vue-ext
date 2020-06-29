@@ -40,7 +40,7 @@ export default {
 
                 viewport.unmask();
 
-                if ( res.isOk() ) break;
+                if ( res.ok ) break;
 
                 await this.onAppInitFailure();
             }

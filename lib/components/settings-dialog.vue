@@ -69,7 +69,7 @@ export default {
 
             dialog.unmask();
 
-            if ( !res.isOk() ) {
+            if ( !res.ok ) {
                 this.$.toast( res );
 
                 dialog.hide();
@@ -133,7 +133,7 @@ export default {
 
             dialog.unmask();
 
-            if ( res.isOk() ) {
+            if ( res.ok ) {
                 record.commit();
 
                 this.$.toast( "Settings updated" );
