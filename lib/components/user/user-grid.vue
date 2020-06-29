@@ -78,7 +78,7 @@ export default {
                     "items": [
                         {
                             "xtype": "togglefield",
-                            "bind": { "value": "{record.permissions.admin}" },
+                            "bind": { "value": { "bindTo": "{!!record.permissions.admin}", "deep": true } },
                             "listeners": { "change": this.setUserAdmin.bind( this ) },
                         },
                     ],
@@ -127,7 +127,8 @@ export default {
         async setUserAdmin ( button, newVal, oldVal ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord(),
-                curVal = record.get( "enabled" );
+                userPermissions = record.get( "permissions" ),
+                curVal = !!userPermissions.admin;
 
             if ( newVal === curVal ) return;
 
@@ -141,13 +142,15 @@ export default {
                 await this.$.sleep( 1000 );
 
                 button.suspendEvent( "change" );
-                record.set( "enabled", oldVal );
-                button.enable();
+                userPermissions.admin = curVal;
+                button.setValue( curVal );
                 button.resumeEvent( "change" );
             }
             else {
-                button.enable();
+                userPermissions.admin = newVal;
             }
+
+            button.enable();
 
             return;
         },
