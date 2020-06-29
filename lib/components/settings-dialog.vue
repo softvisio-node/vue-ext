@@ -48,10 +48,12 @@ export default {
         async ready ( e ) {
             this.$ext = e.detail.cmp;
 
+            this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+
             this.$ext.on( "beforeshow", this.load, this );
         },
 
-        load () {
+        async load () {
             var dialog = this.$ext;
 
             dialog.mask( {
@@ -59,28 +61,32 @@ export default {
                 "message": `<div style="color:white;">Loading<br/>please wait...</div>`,
             } );
 
-            Model.load( 1, {
-                "scope": this,
-                callback ( record, operation, success ) {
-                    dialog.unmask();
+            var res = await this.$api.call( "admin/settings/read" );
 
-                    if ( success ) {
-                        dialog.getViewModel().set( "record", record );
-                    }
-                    else {
-                        this.$.toast( operation );
+            dialog.unmask();
 
-                        dialog.hide();
-                    }
-                },
-            } );
+            if ( !res.isOk() ) {
+                this.$.toast( res );
+
+                dialog.hide();
+            }
+            else {
+                const record = Ext.create( Model, res.data );
+
+                dialog.getViewModel().set( "record", record );
+            }
         },
 
         async testSmtp ( e ) {
-            var button = e.detail.sender,
-                record = this.$ext.getViewModel().get( "record" );
+            var record = this.$ext.getViewModel().get( "record" ),
+                dialog = this.$ext;
 
-            button.disable();
+            // button = e.detail.sender;
+
+            dialog.mask( {
+                "xtype": "loadmask",
+                "message": `<div style="color:white;">Testing SMTP<br/>please wait...</div>`,
+            } );
 
             var values = {
 
@@ -94,7 +100,7 @@ export default {
 
             var res = await this.$api.call( "admin/settings/test-smtp", values );
 
-            button.enable();
+            dialog.unmask();
 
             this.$.toast( res );
         },
@@ -105,7 +111,8 @@ export default {
 
         async submit ( e ) {
             var record = this.$ext.getViewModel().get( "record" ),
-                form = this.$refs.form.ext;
+                form = this.$refs.form.ext,
+                dialog = this.$ext;
 
             if ( !form.validate() ) {
                 this.$.toast( "Please, fill all required fields" );
@@ -113,16 +120,25 @@ export default {
                 return;
             }
 
-            record.save( {
-                "scope": this,
-                callback ( record, operation, success ) {
-                    this.$.toast( operation );
-
-                    if ( success ) {
-                        this.$ext.hide();
-                    }
-                },
+            dialog.mask( {
+                "xtype": "loadmask",
+                "message": `<div style="color:white;">Updating<br/>please wait...</div>`,
             } );
+
+            var res = await this.$api.call( "admin/settings/update", record.getChanges() );
+
+            dialog.unmask();
+
+            if ( res.isOk() ) {
+                record.commit();
+
+                this.$.toast( "Settings updated" );
+
+                this.$ext.hide();
+            }
+            else {
+                this.$.toast( res );
+            }
         },
     },
 };
