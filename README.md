@@ -1,7 +1,8 @@
-# INSTALL
+# OPTIONAL DEPENDENCIES
 
-## YARN
+Optional dependencies, that may be required for your project
+
 ```
-# TODO not work for yarn v2
-yarn add --dev ssh://git@bitbucket.org/softvisio/softvisio-web-components
+npm i "@amcharts/amcharts4@>=4.9.28" --save-dev
+npm i "pdfjs-dist@>=2.4.456" --save-dev
 ```

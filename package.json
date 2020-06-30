@@ -18,11 +18,9 @@
     ],
     "name": "@softvisio/vue-ext",
     "peerDependencies": {
-        "@amcharts/amcharts4": ">=4.9.28",
         "@fortawesome/fontawesome-free": ">=5.13.1",
-        "@softvisio/core": ">=0.22.0",
+        "@softvisio/ext": "https://bitbucket.org/softvisio/softvisio-ext.git#master",
         "@softvisio/vue": ">=0.13.0",
-        "pdfjs-dist": ">=2.4.456",
         "vue": ">=2.6.11"
     },
     "repository": {
@@ -33,5 +31,5 @@
         "lint": "eslint --fix --ext=.js,.vue lib resources"
     },
     "type": "commonjs",
-    "version": "0.11.0"
+    "version": "0.12.0"
 }
