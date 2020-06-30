@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :title="title" :width="width" :height="height" displayed="true" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" bodyPaddign="10" layout="center" viewModel="true" @ready="ready">
+    <ext-dialog :title="title" :width="width" :height="height" displayed="true" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" bodyPaddign="10" :layout="layout" viewModel="true" @ready="ready">
         <ext-panel scrollable="true" width="500" layout="fit">
             <ext-fieldpanel ref="form" modelValidation="true" layout="vbox" defaults='{"defaults":{"labelAlign":"left","labelWidth":250}}'>
                 <ext-fieldset>
@@ -45,6 +45,10 @@ export default {
         "height": {
             "type": String,
             "default": "90%",
+        },
+        "layout": {
+            "type": String,
+            "default": "center",
         },
     },
 
