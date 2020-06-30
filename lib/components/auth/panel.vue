@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import SigninForm from "./auth-panel/signin-form";
-import RecoverPasswordForm from "./auth-panel/recover-password-form";
-import SignupForm from "./auth-panel/signup-form";
+import SigninForm from "./signin-form";
+import RecoverPasswordForm from "./recover-password-form";
+import SignupForm from "./signup-form";
 
 export default {
     "components": { SigninForm, RecoverPasswordForm, SignupForm },

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import AuthPanel from "./auth-panel";
+import AuthPanel from "./panel";
 
 export default {
     "components": { AuthPanel },
