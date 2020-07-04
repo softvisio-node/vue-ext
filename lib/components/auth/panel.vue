@@ -1,8 +1,8 @@
 <template>
     <ext-panel width="300" minHeight="450" layout='{"type":"card","animation":"slide"}' :shadow="shadow" @ready="ready">
-        <SigninForm :closable="closable" :signup="signup" :recover="recover" @close="close" @recover="showRecover" @signup="showSignup"/>
+        <SigninForm :closable="closable" :signup="signup" :reset="reset" @close="close" @reset="showReset" @signup="showSignup"/>
 
-        <RecoverPasswordForm :closable="closable" @signin="showSignin" @close="close"/>
+        <ResetPasswordForm :closable="closable" @signin="showSignin" @close="close"/>
 
         <SignupForm :closable="closable" @signin="showSignin" @close="close"/>
     </ext-panel>
@@ -10,18 +10,18 @@
 
 <script>
 import SigninForm from "./signin-form";
-import RecoverPasswordForm from "./recover-password-form";
+import ResetPasswordForm from "./reset-password-form";
 import SignupForm from "./signup-form";
 
 export default {
-    "components": { SigninForm, RecoverPasswordForm, SignupForm },
+    "components": { SigninForm, ResetPasswordForm, SignupForm },
 
     "props": {
         "signup": {
             "type": Boolean,
             "default": false,
         },
-        "recover": {
+        "reset": {
             "type": Boolean,
             "default": false,
         },
@@ -51,7 +51,7 @@ export default {
             this.cmp.setActiveItem( 0 );
         },
 
-        showRecover () {
+        showReset () {
             this.cmp.setActiveItem( 1 );
         },
 

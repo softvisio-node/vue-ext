@@ -6,7 +6,7 @@
 import "./assets/scrollbars.css";
 import Viewport from "@softvisio/vue/viewport.vue";
 import defaultMask from "./load-mask";
-import RecoverPasswordDialog from "./components/recover-password-dialog";
+import ResetPasswordDialog from "./components/reset-password-dialog";
 import AppInitFailureDialog from "./components/app-init-failure-dialog";
 
 export default {
@@ -15,7 +15,7 @@ export default {
     "data": () => {
         return {
             "appInitFailureDialog": AppInitFailureDialog,
-            "recoverPasswordDialog": RecoverPasswordDialog,
+            "resetPasswordDialog": ResetPasswordDialog,
             "defaultMask": defaultMask,
             "privateView": null,
             "publicView": null,
@@ -66,8 +66,8 @@ export default {
 
         // ROUTER
         async onRoute ( route ) {
-            if ( route.get() === "recover-password" ) {
-                this.routeRecoverPasword();
+            if ( route.get() === "reset-password" ) {
+                this.routeResetPasword();
             }
             else if ( route === "confirm-email" ) {
                 this.routeConfirmEmail();
@@ -82,8 +82,8 @@ export default {
             }
         },
 
-        async routeRecoverPasword () {
-            Ext.Viewport.addVue( this.recoverPasswordDialog );
+        async routeResetPasword () {
+            Ext.Viewport.addVue( this.resetPasswordDialog );
         },
 
         // TODO

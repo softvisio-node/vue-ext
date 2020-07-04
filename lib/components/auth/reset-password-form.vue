@@ -1,11 +1,11 @@
 <template>
-    <ext-formpanel ref="form" title="Recover Password" @ready="ready">
+    <ext-formpanel ref="form" title="Reset Password" @ready="ready">
         <ext-textfield name="username" label="User Name or Email" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
             <ext-button iconCls="fas fa-arrow-left" text="Sign In" ui="back" @tap="showSignin"/>
             <ext-spacer/>
-            <ext-button text="Recover" ui="action" @tap="submit"/>
+            <ext-button text="Reset" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-formpanel>
 </template>
@@ -53,7 +53,7 @@ export default {
 
                 Ext.Viewport.mask();
 
-                var res = await this.$store.dispatch( "session/recoverPassword", vals.username );
+                var res = await this.$store.dispatch( "session/sendPasswordResetEmail", vals.username );
 
                 Ext.Viewport.unmask();
 
