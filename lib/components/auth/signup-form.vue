@@ -68,8 +68,9 @@ export default {
             Ext.Viewport.unmask();
 
             if ( res.ok ) {
-                this.$.toast( res );
+                this.$.toast( res, 5000 );
 
+                // reset form
                 form.reset();
                 this.$refs.passwordConfirm.ext.clearValue();
 
