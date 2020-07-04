@@ -69,7 +69,7 @@ export default {
             if ( route.get() === "reset-password" ) {
                 this.routeResetPasword();
             }
-            else if ( route === "confirm-email" ) {
+            else if ( route.get() === "confirm-email" ) {
                 this.routeConfirmEmail();
             }
             else {
@@ -86,8 +86,33 @@ export default {
             Ext.Viewport.addVue( this.resetPasswordDialog );
         },
 
-        // TODO
-        async routeConfirmEmail () {},
+        async routeConfirmEmail () {
+
+            // parse toke
+            var token = window.location.hash.match( /^#[/]confirm-email[/]?(.*)/ );
+
+            if ( token ) token = token[1];
+
+            if ( !token ) {
+                this.$.toast( "Email confirmation token is invalid." );
+            }
+            else {
+                Ext.Viewport.mask();
+
+                const res = await this.$store.dispatch( "session/confirmEmailByToken", token );
+
+                Ext.Viewport.unmask();
+
+                if ( res.ok ) {
+                    this.$.toast( "Email confirmed successfully." );
+                }
+                else {
+                    this.$.toast( res );
+                }
+            }
+
+            this.$router.redirectTo( "/", { "replace": true } );
+        },
 
         async routePublic ( route ) {
             if ( !this.publicView ) return;
