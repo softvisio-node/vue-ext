@@ -2,7 +2,7 @@ const config = require( "@softvisio/vue/resources/vue.config.js" );
 
 const baseConfigureWebpack = config.configureWebpack;
 
-config.configureWebpack = ( config ) => {
+config.configureWebpack = config => {
 
     // call base method
     baseConfigureWebpack( config );
