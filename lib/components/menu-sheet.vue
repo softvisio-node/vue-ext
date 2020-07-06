@@ -10,6 +10,7 @@
 
             <ext-spacer/>
 
+            <ext-button iconCls="fas fa-user" text="Profile" textAlign="left" @tap="showProfile"/>
             <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" @tap="changePassword"/>
             <ext-button iconCls="fas fa-sign-out-alt" text="Sign Out" textAlign="left" @tap="signout"/>
 
@@ -22,6 +23,7 @@
 
 <script>
 import ChangePasswordDialog from "./change-password-dialog";
+import ProfileDialog from "./profile/dialog";
 
 export default {
     "computed": {
@@ -63,12 +65,20 @@ export default {
             this.$ext.hide();
         },
 
+        async showProfile () {
+            this.hide();
+
+            if ( !this.profileDialog ) this.profileDialog = await Ext.Viewport.addVue( ProfileDialog );
+
+            this.profileDialog.$ext.show();
+        },
+
         async changePassword () {
             this.hide();
 
-            if ( !this.changePasswwordDialog ) this.changePasswwordDialog = await Ext.Viewport.addVue( ChangePasswordDialog );
+            if ( !this.changePasswordDialog ) this.changePasswordDialog = await Ext.Viewport.addVue( ChangePasswordDialog );
 
-            this.changePasswwordDialog.$ext.show();
+            this.changePasswordDialog.$ext.show();
         },
 
         signout () {
