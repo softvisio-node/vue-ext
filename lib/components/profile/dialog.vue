@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="User Profile" :width="width" :height="height" displayed="true" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" bodyPaddign="10" :layout="fit" viewModel="true" @ready="ready">
+    <ext-dialog title="User Profile" :width="width" :height="height" displayed="true" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" bodyPaddign="10" layout="fit" viewModel="true" @ready="ready">
         <ext-panel scrollable="true" layout="fit">
             <ext-fieldpanel ref="form" modelValidation="true" layout="vbox" defaults='{"defaults":{"labelAlign":"left","labelWidth":250}}'>
                 <ext-fieldset>
