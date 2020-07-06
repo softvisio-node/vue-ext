@@ -1,35 +1,35 @@
 {
-    "author": "zdm <zdm@softvisio.net>",
-    "bugs": {
-        "email": "zdm@softvisio.net",
-        "url": "https://bitbucket.org/softvisio/softvisio-vue-ext/issues"
-    },
+    "name": "@softvisio/vue-ext",
+    "version": "0.13.3",
     "description": "Softisio Vue Ext",
-    "exports": {
-        ".": "./lib/index.js",
-        "./": "./lib/",
-        "./resources/": "./resources/"
-    },
-    "homepage": "https://bitbucket.org/softvisio/softvisio-vue-ext",
     "keywords": [
         "softvisio",
         "vue",
         "extjs"
     ],
-    "name": "@softvisio/vue-ext",
-    "peerDependencies": {
-        "@fortawesome/fontawesome-free": ">=5.13.1",
-        "@softvisio/ext": "https://bitbucket.org/softvisio/softvisio-ext.git#master",
-        "@softvisio/vue": ">=0.13.0",
-        "vue": ">=2.6.11"
+    "homepage": "https://bitbucket.org/softvisio/softvisio-vue-ext",
+    "bugs": {
+        "url": "https://bitbucket.org/softvisio/softvisio-vue-ext/issues",
+        "email": "zdm@softvisio.net"
     },
     "repository": {
         "type": "git",
         "url": "https://bitbucket.org/softvisio/softvisio-vue-ext.git"
     },
+    "author": "zdm <zdm@softvisio.net>",
+    "type": "commonjs",
+    "exports": {
+        ".": "./lib/index.js",
+        "./": "./lib/",
+        "./resources/": "./resources/"
+    },
     "scripts": {
         "lint": "eslint --fix --ext=.js,.vue lib resources"
     },
-    "type": "commonjs",
-    "version": "0.13.2"
+    "peerDependencies": {
+        "@fortawesome/fontawesome-free": ">=5.13.1",
+        "@softvisio/ext": "https://bitbucket.org/softvisio/softvisio-ext.git#master",
+        "@softvisio/vue": ">=0.13.0",
+        "vue": ">=2.6.11"
+    }
 }
