@@ -55,7 +55,7 @@ export default {
         async onAppInitFailure () {
             const dialog = await Ext.Viewport.addVue( this.appInitFailureDialog );
 
-            return new Promise( ( resolve ) => {
+            return new Promise( resolve => {
                 dialog.$once( "hook:beforeDestroy", resolve );
             } );
         },

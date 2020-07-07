@@ -1,6 +1,6 @@
 {
     "name": "@softvisio/vue-ext",
-    "version": "0.13.5",
+    "version": "0.14.0",
     "description": "Softisio Vue Ext",
     "keywords": [
         "softvisio",
@@ -24,7 +24,7 @@
         "./resources/": "./resources/"
     },
     "scripts": {
-        "lint": "eslint --fix --ext=.js,.vue lib resources"
+        "lint": "softvisio-cli lint *.* lib resources"
     },
     "peerDependencies": {
         "@fortawesome/fontawesome-free": ">=5.13.1",
