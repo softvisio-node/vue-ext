@@ -24,12 +24,17 @@
         "./resources/": "./resources/"
     },
     "scripts": {
-        "lint": "softvisio-cli lint *.* lib resources"
+        "lint": "softvisio-cli lint"
     },
     "peerDependencies": {
         "@fortawesome/fontawesome-free": ">=5.13.1",
         "@softvisio/ext": "https://bitbucket.org/softvisio/softvisio-ext.git#master",
         "@softvisio/vue": ">=0.13.0",
         "vue": ">=2.6.11"
-    }
+    },
+    "lint": [
+        "*.*",
+        "lib",
+        "resources"
+    ]
 }
