@@ -10,7 +10,7 @@
 
             <ext-spacer/>
 
-            <ext-button iconCls="fas fa-user" text="Profile" textAlign="left" @tap="showProfile"/>
+            <!-- <ext&#45;button iconCls="fas fa&#45;user" text="Profile" textAlign="left" @tap="showProfile"/> -->
             <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" @tap="changePassword"/>
             <ext-button iconCls="fas fa-sign-out-alt" text="Sign Out" textAlign="left" @tap="signout"/>
 
