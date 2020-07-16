@@ -1,3 +1,7 @@
+## 0.15.3 (2020-07-16)
+
+-   user profile disabled in menu
+
 ## 0.15.2 (2020-07-12)
 
 -   changelog format updated
