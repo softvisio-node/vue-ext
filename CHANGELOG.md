@@ -1,3 +1,7 @@
+## 0.16.0 (2020-07-17)
+
+-   userName -> username
+
 ## 0.15.5 (2020-07-17)
 
 -   softvisio-ext.git#master -> #latest
