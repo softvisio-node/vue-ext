@@ -2,7 +2,7 @@
     <ext-sheet layout="vbox" side="right" modal="true" displayed="false" cover="true" reveal="false" width="300" @ready="ready">
         <ext-panel layout="vbox" height="130" padding="30 10 10 30" innerCls="x-tabbar">
             <ext-image :src="avatar" width="60" height="60"/>
-            <ext-container :html="userName"/>
+            <ext-container :html="username"/>
         </ext-panel>
 
         <ext-panel layout="vbox" flex="1" padding="10 10 10 30">
@@ -31,8 +31,8 @@ export default {
             return this.$store.getters["session/avatar"];
         },
 
-        userName () {
-            return '<div class="username">' + this.$store.getters["session/userName"] + "</div>";
+        username () {
+            return '<div class="username">' + this.$store.getters["session/username"] + "</div>";
         },
 
         "darkMode": {
