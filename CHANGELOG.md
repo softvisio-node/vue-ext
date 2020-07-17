@@ -1,3 +1,7 @@
+## 0.15.4 (2020-07-17)
+
+-   lint patterns updated
+
 ## 0.15.3 (2020-07-16)
 
 -   user profile disabled in menu
