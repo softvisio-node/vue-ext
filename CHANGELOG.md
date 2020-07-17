@@ -1,3 +1,7 @@
+## 0.15.5 (2020-07-17)
+
+-   softvisio-ext.git#master -> #latest
+
 ## 0.15.4 (2020-07-17)
 
 -   lint patterns updated
