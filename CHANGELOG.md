@@ -1,3 +1,7 @@
+## 0.16.1 (2020-07-18)
+
+-   require syntax fixed
+
 ## 0.16.0 (2020-07-17)
 
 -   userName -> username
