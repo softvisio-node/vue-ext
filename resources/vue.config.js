@@ -1,4 +1,4 @@
-const config = require( "@softvisio/vue/resources/vue.config.js" );
+const config = require( "@softvisio/vue/resources/vue.config" );
 
 const baseConfigureWebpack = config.configureWebpack;
 
