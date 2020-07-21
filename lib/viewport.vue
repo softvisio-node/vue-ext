@@ -33,6 +33,7 @@ export default {
         async ready () {
             var viewport = Ext.Viewport;
 
+            // init session
             while ( 1 ) {
                 viewport.mask( this.defaultMask );
 
@@ -40,7 +41,11 @@ export default {
 
                 viewport.unmask();
 
-                if ( res.ok ) break;
+                // connection ok
+                if ( res.ok || res.status === 401 || res.status === 403 ) break;
+
+                // connection error
+                this.$.toast( res );
 
                 await this.onAppInitFailure();
             }
