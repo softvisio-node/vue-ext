@@ -1,3 +1,7 @@
+## 0.16.2 (2020-07-21)
+
+-   double pdf rendering bug fixed
+
 ## 0.16.1 (2020-07-18)
 
 -   require syntax fixed
