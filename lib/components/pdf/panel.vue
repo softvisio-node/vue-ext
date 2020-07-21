@@ -94,7 +94,7 @@ export default {
                 "items": [...maximize, { "xtype": "button", "iconCls": "fas fa-search-plus", "ui": "action", "handler": this.zoomIn.bind( this, null ) }, { "xtype": "container", "height": "10" }, { "xtype": "button", "iconCls": "fas fa-arrows-alt", "ui": "action", "handler": this.resetZoom.bind( this ) }, { "xtype": "container", "height": "10" }, { "xtype": "button", "iconCls": "fas fa-search-minus", "ui": "action", "handler": this.zoomOut.bind( this, null ) }],
             } );
 
-            if ( this.src ) this.setSrc( this.src );
+            if ( this.src ) this.currentSrc = this.src;
 
             if ( this.$ext.rendered ) {
                 this._afterRender();
