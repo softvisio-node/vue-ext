@@ -1,3 +1,7 @@
+## 0.17.0 (2020-07-21)
+
+-   session signin statuses added
+
 ## 0.16.2 (2020-07-21)
 
 -   double pdf rendering bug fixed
