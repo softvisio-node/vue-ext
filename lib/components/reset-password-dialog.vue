@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Reset Password" width="300" height="300" displayed="true" closable="true" draggable="false" closeAction="destroy" hideOnMaskTap="true" @destroy="cancel" @ready="ready">
+    <ext-dialog title="Reset Password" layout="fit" width="300" minHeight="450" displayed="true" closable="true" draggable="false" closeAction="destroy" hideOnMaskTap="true" @destroy="cancel" @ready="ready">
         <ext-fieldpanel ref="form" defaults1='{"labelAlign":"left","labelWidth":120}'>
             <ext-hiddenfield name="token" :value="token"/>
             <ext-passwordfield name="password" label="New Password" required="true"/>
