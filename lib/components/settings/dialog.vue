@@ -8,6 +8,7 @@
 
                 <!-- SMTP -->
                 <ext-fieldset title="SMTP Settings">
+                    <ext-textfield label="From <i class='far fa-question-circle'></i>" bind="{record.smtp_from}" tooltip='Format: "name" &amp;lt;email@address>.<br/>For google SMTP service "email@address" part should be equal to the SMTP username.'/>
                     <ext-textfield label="SMTP Host" bind="{record.smtp_host}"/>
                     <ext-spinnerfield label="SMTP Port" decimals="0" minValue="1" maxValue="65535" bind="{record.smtp_port}"/>
                     <ext-textfield label="SMTP Username" bind="{record.smtp_username}"/>
