@@ -1,3 +1,7 @@
+## 0.18.0 (2020-07-22)
+
+-   settings smtp from field added
+
 ## 0.17.0 (2020-07-21)
 
 -   session signin statuses added
