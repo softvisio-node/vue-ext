@@ -1,3 +1,7 @@
+## 0.18.1 (2020-07-22)
+
+-   reset password form adopted for mobile
+
 ## 0.18.0 (2020-07-22)
 
 -   settings smtp from field added
