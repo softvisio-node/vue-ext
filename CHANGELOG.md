@@ -1,3 +1,7 @@
+## 0.18.2 (2020-07-24)
+
+-   npm git links changed to git+https
+
 ## 0.18.1 (2020-07-22)
 
 -   reset password form adopted for mobile
