@@ -1,3 +1,7 @@
+## 0.19.0 (2020-07-30)
+
+-   session store action changePassword renamed to setPassword
+
 ## 0.18.2 (2020-07-24)
 
 -   npm git links changed to git+https
