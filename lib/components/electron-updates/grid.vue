@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import CreateDialog from "./create-dialog";
+
 export default {
     data () {
         return {
@@ -130,7 +132,11 @@ export default {
             }
         },
 
-        async create () {},
+        async create () {
+            if ( !this.createDialog ) this.createDialog = await Ext.Viewport.addVue( CreateDialog );
+
+            this.createDialog.$ext.show();
+        },
     },
 };
 </script>

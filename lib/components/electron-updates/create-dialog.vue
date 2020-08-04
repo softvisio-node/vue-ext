@@ -1,17 +1,26 @@
 <template>
-    <ext-dialog title="Create User" width="350" height="400" displayed="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" @ready="ready">
+    <ext-dialog title="Upload Release" width="350" height="400" displayed="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" @ready="ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
-            <ext-emailfield name="username" label="Email" required="true"/>
-            <ext-passwordfield name="password" label="Password" required="true"/>
-            <ext-passwordfield name="password1" label="Confirm Password" required="true"/>
-            <ext-togglefield name="enabled" label="Enabled" value="true"/>
-            <ext-togglefield name="admin" label="Admin" value="false"/>
+            <ext-radiogroup name="platform" label="Platform" defaults='{"labelAlign":"right"}' vertical="true">
+                <ext-radiofield value="win32" label="Windows" checked="true"/>
+                <ext-radiofield value="linux" label="Linux"/>
+                <ext-radiofield value="darwin" label="MacOS"/>
+            </ext-radiogroup>
+
+            <ext-radiogroup name="arch" label="Arch" defaults='{"labelAlign":"right"}' vertical="true">
+                <ext-radiofield value="x64" label="x64" checked="true"/>
+                <ext-radiofield value="x32" label="x32"/>
+            </ext-radiogroup>
+
+            <ext-emailfield name="version" label="Version" placeholder="semantic version 1.2.3" required="true"/>
+
+            <ext-filefield ref="file" placeholder="Choose Update" required="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
             <ext-button text="Cancel" ui="decline" @tap="cancel"/>
-            <ext-button text="Create User" ui="action" @tap="submit"/>
+            <ext-button text="Upload" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -36,33 +45,26 @@ export default {
         },
 
         async submit () {
-            var form = this.$refs.form.ext;
+            var form = this.$refs.form.ext,
+                file = this.$refs.file.ext.getFiles()[0];
 
             if ( !form.validate() ) return;
 
             var vals = form.getValues();
 
-            if ( vals.password !== vals.password1 ) {
-                form.getFields( "password1" ).setError( "Passwords are not match" );
+            this.$ext.mask( {
+                "xtype": "loadmask",
+                "message": `<div style="color:white;">Uploading<br/>please wait...</div>`,
+            } );
 
-                return;
-            }
+            const res = await this.$api.upload( "electron-updates/create", file, vals );
 
-            if ( vals.admin ) {
-                vals.permissions = {
-                    "admin": true,
-                };
-            }
-
-            delete vals.admin;
-            delete vals.password1;
-
-            var res = await this.$api.call( "admin/users/create", vals );
+            this.$ext.unmask();
 
             if ( res.ok ) {
-                this.$.toast( "User created" );
+                this.$.toast( "Release created." );
 
-                this.$store.state.userStore.reload();
+                this.$store.state.electronUpdatesStore.loadPage( 1 );
 
                 this.cancel();
             }
