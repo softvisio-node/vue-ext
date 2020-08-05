@@ -8,9 +8,8 @@
         <ext-column text="Plaform" dataIndex="platform" flex="1"/>
         <ext-column text="Arch" dataIndex="arch" flex="1"/>
         <ext-column text="Version" dataIndex="version" sorter='{"property":"version_sort"}' flex="1"/>
-        <ext-column text="Created" dataIndex="uploaded" width="150" formatter="date('Y-m-d H:i')"/>
-
-        <ext-column text="Published" width="95" sorter='{"property":"published"}' summaryDataIndex="-" @ready="publishedColReady"/>
+        <ext-column text="Created" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
+        <ext-column text="Published" width="110" sorter='{"property":"published"}' summaryDataIndex="-" @ready="publishedColReady"/>
 
         <ext-column width="40" @ready="actionColReady"/>
     </ext-grid>
