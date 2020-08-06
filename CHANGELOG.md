@@ -1,3 +1,7 @@
+## 0.20.0 (2020-08-06)
+
+-   electron updates
+
 ## 0.19.2 (2020-08-03)
 
 -   npm-shrinkwrap.json version updated
