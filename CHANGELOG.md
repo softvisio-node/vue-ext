@@ -1,3 +1,7 @@
+## 0.20.1 (2020-08-07)
+
+-   .eslintrc.yaml removed
+
 ## 0.20.0 (2020-08-06)
 
 -   electron updates
