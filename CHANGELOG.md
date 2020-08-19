@@ -1,3 +1,7 @@
+## 0.22.0 (2020-08-19)
+
+-   api tokens
+
 ## 0.21.0 (2020-08-19)
 
 -   loader.gif moved to assets
