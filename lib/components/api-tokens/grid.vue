@@ -5,7 +5,6 @@
             <ext-button iconCls="fas fa-plus" text="Create API Token" @tap="create"/>
         </ext-toolbar>
 
-        <ext-column text="ID" dataIndex="id" width="290" cell='{"encodeHtml":false}'/>
         <ext-column text="Name" dataIndex="name" flex="1"/>
         <ext-column text="Created" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
         <ext-column text="Enabled" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
