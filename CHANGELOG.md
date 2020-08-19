@@ -1,3 +1,7 @@
+## 0.21.0 (2020-08-19)
+
+-   loader.gif moved to assets
+
 ## 0.20.1 (2020-08-07)
 
 -   .eslintrc.yaml removed
