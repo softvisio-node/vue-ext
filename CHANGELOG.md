@@ -1,3 +1,7 @@
+## 0.24.1 (2020-08-19)
+
+-   menu sheet props
+
 ## 0.24.0 (2020-08-19)
 
 -   menu sheet props
