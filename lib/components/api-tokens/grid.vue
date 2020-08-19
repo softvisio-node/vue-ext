@@ -1,8 +1,10 @@
 <template>
     <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":"true"}' multicolumnSort="true" @ready="gridReady">
         <ext-toolbar docked="top">
+            <ext-searchfield placeholder="search tokens by name" width="200" @change="search"/>
             <ext-spacer/>
             <ext-button iconCls="fas fa-plus" text="Create API Token" @tap="create"/>
+            <ext-button iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
         </ext-toolbar>
 
         <ext-column text="Name" dataIndex="name" flex="1"/>
@@ -80,6 +82,26 @@ export default {
                     ],
                 },
             } );
+        },
+
+        search ( e ) {
+            var val = e.detail.newValue.trim();
+
+            if ( val !== "" ) {
+                this.store.addFilter( {
+                    "property": "search",
+                    "operator": "like",
+                    "value": val,
+                },
+                false );
+            }
+            else {
+                this.store.removeFilter( "search" );
+            }
+        },
+
+        refresh () {
+            this.store.loadPage( 1 );
         },
 
         async setEnabled ( button, newVal, oldVal ) {
