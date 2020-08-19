@@ -28,9 +28,5 @@ export default {
             "default": "fit",
         },
     },
-
-    mounted () {
-        this.$store.state.userStore.reload();
-    },
 };
 </script>

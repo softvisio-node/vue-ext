@@ -12,9 +12,5 @@ import UsersGrid from "./grid";
 
 export default {
     "components": { UsersToolbar, UsersGrid },
-
-    mounted () {
-        this.$store.state.userStore.reload();
-    },
 };
 </script>

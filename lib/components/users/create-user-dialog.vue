@@ -62,7 +62,7 @@ export default {
             if ( res.ok ) {
                 this.$.toast( "User created" );
 
-                this.$store.state.userStore.reload();
+                this.$store.state["users"].store.reload();
 
                 this.cancel();
             }

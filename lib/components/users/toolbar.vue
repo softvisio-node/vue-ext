@@ -13,7 +13,7 @@ import CreateUserDialog from "./create-user-dialog";
 export default {
     data () {
         return {
-            "store": this.$store.state.userStore,
+            "store": this.$store.state["users"].store,
         };
     },
 
