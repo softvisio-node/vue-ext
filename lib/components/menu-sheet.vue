@@ -11,7 +11,7 @@
             <ext-spacer/>
 
             <!-- <ext&#45;button iconCls="fas fa&#45;user" text="Profile" textAlign="left" @tap="showProfile"/> -->
-            <ext-button iconCls="fas fa-key" text="API Access Tokens" textAlign="left" :hidden="!apiTokens" @tap="showApiTokens"/>
+            <ext-button iconCls="fas fa-key" text="API Access Tokens" textAlign="left" :hidden="noApiTokens" @tap="showApiTokens"/>
             <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" @tap="changePassword"/>
             <ext-button iconCls="fas fa-sign-out-alt" text="Sign Out" textAlign="left" @tap="signout"/>
 
@@ -29,9 +29,9 @@ import ApiTokensDialog from "./api-tokens/dialog";
 
 export default {
     "props": {
-        "apiTokens": {
-            "type": String,
-            "default": "true",
+        "noApiTokens": {
+            "type": Boolean,
+            "default": false,
         },
     },
 
