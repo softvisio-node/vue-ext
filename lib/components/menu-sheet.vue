@@ -11,6 +11,7 @@
             <ext-spacer/>
 
             <!-- <ext&#45;button iconCls="fas fa&#45;user" text="Profile" textAlign="left" @tap="showProfile"/> -->
+            <ext-button iconCls="fas fa-key" text="API Access Tokens" textAlign="left" @tap="showApiTokens"/>
             <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" @tap="changePassword"/>
             <ext-button iconCls="fas fa-sign-out-alt" text="Sign Out" textAlign="left" @tap="signout"/>
 
@@ -24,6 +25,7 @@
 <script>
 import ChangePasswordDialog from "./change-password-dialog";
 import ProfileDialog from "./profile/dialog";
+import ApiTokensDialog from "./api-tokens/dialog";
 
 export default {
     "computed": {
@@ -71,6 +73,14 @@ export default {
             if ( !this.profileDialog ) this.profileDialog = await Ext.Viewport.addVue( ProfileDialog );
 
             this.profileDialog.$ext.show();
+        },
+
+        async showApiTokens () {
+            this.hide();
+
+            if ( !this.apiTokensDialog ) this.apiTokensDialog = await Ext.Viewport.addVue( ApiTokensDialog );
+
+            this.apiTokensDialog.$ext.show();
         },
 
         async changePassword () {
