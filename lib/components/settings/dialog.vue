@@ -41,7 +41,7 @@ export default {
         },
         "width": {
             "type": String,
-            "default": "90%",
+            "default": "800",
         },
         "height": {
             "type": String,
@@ -49,7 +49,7 @@ export default {
         },
         "layout": {
             "type": String,
-            "default": "center",
+            "default": "fit",
         },
     },
 
