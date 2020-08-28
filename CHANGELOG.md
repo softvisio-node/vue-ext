@@ -1,3 +1,7 @@
+## 0.25.0 (2020-08-28)
+
+-   settings dialog default size updated
+
 ## 0.24.1 (2020-08-19)
 
 -   menu sheet props
