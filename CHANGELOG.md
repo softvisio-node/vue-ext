@@ -1,3 +1,7 @@
+## 0.25.1 (2020-09-05)
+
+-   settings smtp tooltip updated
+
 ## 0.25.0 (2020-08-28)
 
 -   settings dialog default size updated
