@@ -1,3 +1,7 @@
+## 0.26.0 (2020-09-11)
+
+-   conditional store modules config
+
 ## 0.25.1 (2020-09-05)
 
 -   settings smtp tooltip updated
