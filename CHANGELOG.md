@@ -1,3 +1,7 @@
+## 0.26.1 (2020-09-18)
+
+-   pdfjs import updated
+
 ## 0.26.0 (2020-09-11)
 
 -   conditional store modules config
