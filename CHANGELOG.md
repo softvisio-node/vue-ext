@@ -1,3 +1,7 @@
+## 0.26.2 (2020-09-19)
+
+-   css linted
+
 ## 0.26.1 (2020-09-18)
 
 -   pdfjs import updated
