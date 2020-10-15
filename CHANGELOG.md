@@ -1,3 +1,7 @@
+## 0.27.0 (2020-10-15)
+
+-   webpack aliases from ext resources created
+
 ## 0.26.3 (2020-10-15)
 
 -   linted
