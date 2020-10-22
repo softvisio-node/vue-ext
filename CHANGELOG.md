@@ -1,3 +1,8 @@
+## 0.27.1 (2020-10-22)
+
+-   npm 7 reverted to 6
+-   deps updated
+
 ## 0.27.0 (2020-10-15)
 
 -   webpack aliases from ext resources created
