@@ -27,7 +27,7 @@
     },
     "peerDependencies": {
         "@fortawesome/fontawesome-free": ">=5.13.1",
-        "@softvisio/ext": "git+https://bitbucket.org/softvisio/softvisio-ext.git#latest",
+        "@softvisio/ext": "bitbucket:softvisio/softvisio-ext#latest",
         "@softvisio/vue": ">=0.13.0",
         "vue": ">=2.6.11"
     },
