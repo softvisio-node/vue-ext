@@ -1,3 +1,7 @@
+## 0.28.0 (2020-10-23)
+
+-   google maps loaded
+
 ## 0.27.1 (2020-10-22)
 
 -   npm 7 reverted to 6
