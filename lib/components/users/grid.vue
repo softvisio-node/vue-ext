@@ -116,7 +116,7 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "fas fa-trash-alt",
+                            "iconCls": "far fa-trash-alt",
                             "handler": this.delete.bind( this ),
                         },
                     ],
