@@ -1,3 +1,7 @@
+## 0.28.1 (2020-10-23)
+
+-   trash icon changed
+
 ## 0.28.0 (2020-10-23)
 
 -   google maps loaded
