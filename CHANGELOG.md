@@ -1,3 +1,7 @@
+## 0.28.2 (2020-11-08)
+
+-   gmaps loader typo fixed
+
 ## 0.28.1 (2020-10-23)
 
 -   trash icon changed
