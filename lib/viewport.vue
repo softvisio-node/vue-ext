@@ -26,6 +26,7 @@ export default {
         async createViewport () {
             Ext.application( {
                 "name": "app",
+                "quickTips": true,
                 "launch": this.ready.bind( this ),
             } );
         },
