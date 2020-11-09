@@ -1,3 +1,7 @@
+## 0.29.0 (2020-11-09)
+
+-   qtips enabled
+
 ## 0.28.2 (2020-11-08)
 
 -   gmaps loader typo fixed
