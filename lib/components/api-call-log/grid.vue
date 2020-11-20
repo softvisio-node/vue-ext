@@ -7,16 +7,21 @@
         </ext-toolbar>
 
         <ext-column text="Method ID" dataIndex="id" width="300"/>
+        <ext-column text="Total Limit" dataIndex="max_running_requests" width="100"/>
+        <ext-column text="User Limit" dataIndex="max_running_requests_user" width="100"/>
         <ext-column text="Requests Rate" width="150" flex="1" @ready="requestsRateColReady"/>
         <ext-column text="Average Request Runtime" width="150" flex="1" @ready="avgRuntimeColReady"/>
-        <!-- <ext&#45;column width="40" @ready="actionColReady"/> -->
+        <ext-column width="40" @ready="actionColReady"/>
     </ext-grid>
 </template>
 
 <script>
+import AmchartsPanel from "#softvisio/components/am4charts/panel";
 import ApiCallLogTotalsModel from "#softvisio/models/api-call-log-totals";
 
 export default {
+    "components": { AmchartsPanel },
+
     mounted () {
         this.store = new Ext.data.Store( {
             "model": ApiCallLogTotalsModel,
@@ -75,21 +80,31 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "end", "align": "end" },
-                    "items": [
-                        {
-                            "xtype": "button",
-                            "iconCls": "far fa-trash-alt",
-                            "handler": this.delete.bind( this ),
-                        },
-                    ],
+                    "height": 130,
+                    "bind": { "stat": "{record.stat}" },
+                    "listeners": { "initialize": this.requestRateChartReady.bind( this ) },
+                    setStat ( stat ) {
+                        this.chart.setData( stat );
+                    },
                 },
             } );
         },
 
-        // XXX
         avgRuntimeColReady ( e ) {
-            this.requestsRateColReady( e );
+            var cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "height": 130,
+                    "bind": { "stat": "{record.stat}" },
+                    "listeners": { "initialize": this.avgRuntimeChartReady.bind( this ) },
+                    setStat ( stat ) {
+                        this.chart.setData( stat );
+                    },
+                },
+            } );
         },
 
         // XXX
@@ -109,6 +124,161 @@ export default {
                         },
                     ],
                 },
+            } );
+        },
+
+        // XXX
+        async requestRateChartReady ( cmp ) {
+            var chart = await cmp.addVue( AmchartsPanel );
+
+            cmp.chart = chart;
+
+            chart.create( {
+                "type": "XYChart",
+
+                "dateFormatter": {
+                    "inputDateFormat": "yyyy-MM-dd HH:mm:ss",
+                },
+
+                // "responsive": { "enabled": true },
+                "cursor": { "type": "XYCursor", "behavior": "zoomX" },
+
+                "scrollbarX": {
+                    "type": "XYChartScrollbar",
+                    "series": ["accepted_requests", "declined_requests"],
+                    "minHeight": 20,
+                    "startGrip": { "icon": { "disabled": true } },
+                    "endGrip": { "icon": { "disabled": true } },
+                },
+
+                "xAxes": [
+                    {
+                        "type": "DateAxis",
+
+                        // grouping
+                        "groupData": true,
+                        "groupCount": 30,
+
+                        // pre-zoom
+                        "start": 0.75,
+                        "end": 1,
+                        "keepSelection": true,
+                        "renderer": {
+                            "inside": true, // render labels inside chart
+                        },
+                    },
+                ],
+                "yAxes": [
+                    {
+                        "id": "requests",
+                        "type": "ValueAxis",
+                        "title": { "text": "Requests" },
+                        "min": 0,
+                    },
+                ],
+
+                "series": [
+                    {
+                        "id": "accepted_requests",
+                        "type": "ColumnSeries",
+                        "name": "Accepted",
+                        "yAxis": "requests",
+                        "dataFields": {
+                            "dateX": "date",
+                            "valueY": "total_accepted_requests",
+                        },
+                        "tooltipText": "Accepted: {valueY.value}",
+                        "stacked": true,
+                        "fill": "blue",
+                        "stroke": "blue",
+                        "columns": {
+                            "maxWidth": 30,
+                        },
+                    },
+                    {
+                        "id": "declined_requests",
+                        "type": "ColumnSeries",
+                        "name": "Declined",
+                        "yAxis": "requests",
+                        "dataFields": {
+                            "dateX": "date",
+                            "valueY": "total_declined_requests",
+                        },
+                        "tooltipText": "Declined: {valueY.value}",
+                        "stacked": true,
+                        "fill": "red",
+                        "stroke": "red",
+                        "columns": {
+                            "maxWidth": 30,
+                        },
+                    },
+                ],
+            } );
+        },
+
+        async avgRuntimeChartReady ( cmp ) {
+            var chart = await cmp.addVue( AmchartsPanel );
+
+            cmp.chart = chart;
+
+            chart.create( {
+                "type": "XYChart",
+
+                "dateFormatter": {
+                    "inputDateFormat": "yyyy-MM-dd HH:mm:ss",
+                },
+
+                // "responsive": { "enabled": true },
+                "cursor": { "type": "XYCursor", "behavior": "zoomX" },
+
+                "xAxes": [
+                    {
+                        "type": "DateAxis",
+
+                        // grouping
+                        // "groupData": true,
+                        // "groupCount": 24 * 31,
+
+                        // pre-zoom
+                        // "start": 0.75,
+                        // "end": 1,
+                        // "keepSelection": true,
+
+                        // "cursorTooltipEnabled": false,
+
+                        // "renderer": {
+                        //     "inside": true, // render labels inside chart
+                        // },
+                    },
+                ],
+                "yAxes": [
+                    {
+                        "id": "seconds",
+                        "type": "ValueAxis",
+                        "title": { "text": "Seconds" },
+                        "min": 0,
+                    },
+                ],
+
+                "series": [
+                    {
+                        "id": "avg_runtime",
+                        "type": "ColumnSeries",
+                        "name": "Avg. Runtime",
+                        "yAxis": "seconds",
+                        "dataFields": {
+                            "dateX": "date",
+                            "valueY": "avg_runtime",
+                        },
+                        "tooltipText": "Avg. runtime: {valueY.value} sec.",
+                        "stacked": true,
+                        "fill": "blue",
+                        "stroke": "blue",
+                        "columns": {
+                            "maxWidth": 30,
+                        },
+                    },
+                ],
             } );
         },
 
@@ -132,35 +302,6 @@ export default {
             const res = await this.$api.call( "admin/api-call-log/read-totals" );
 
             this.store.setData( res.data );
-        },
-
-        // XXX
-        async setEnabled ( button, newVal, oldVal ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord(),
-                curVal = record.get( "enabled" );
-
-            if ( newVal === curVal ) return;
-
-            button.disable();
-
-            var res = await this.$api.call( "api-tokens/set-enabled", record.get( "id" ), newVal );
-
-            if ( !res.ok ) {
-                this.$.toast( res );
-
-                await this.$.sleep( 1000 );
-
-                button.suspendEvent( "change" );
-                record.set( "enabled", oldVal );
-                button.enable();
-                button.resumeEvent( "change" );
-            }
-            else {
-                button.enable();
-            }
-
-            return;
         },
 
         // XXX
