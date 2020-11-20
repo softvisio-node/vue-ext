@@ -11,7 +11,7 @@
         <ext-column text="User Limit" dataIndex="max_running_requests_user" width="100"/>
         <ext-column text="Requests Rate" width="150" flex="1" @ready="requestsRateColReady"/>
         <ext-column text="Average Request Runtime" width="150" flex="1" @ready="avgRuntimeColReady"/>
-        <ext-column width="40" @ready="actionColReady"/>
+        <!-- <ext&#45;column width="40" @ready="actionColReady"/> -->
     </ext-grid>
 </template>
 
@@ -143,26 +143,9 @@ export default {
                 // "responsive": { "enabled": true },
                 "cursor": { "type": "XYCursor", "behavior": "zoomX" },
 
-                "scrollbarX": {
-                    "type": "XYChartScrollbar",
-                    "series": ["accepted_requests", "declined_requests"],
-                    "minHeight": 20,
-                    "startGrip": { "icon": { "disabled": true } },
-                    "endGrip": { "icon": { "disabled": true } },
-                },
-
                 "xAxes": [
                     {
                         "type": "DateAxis",
-
-                        // grouping
-                        "groupData": true,
-                        "groupCount": 30,
-
-                        // pre-zoom
-                        "start": 0.75,
-                        "end": 1,
-                        "keepSelection": true,
                         "renderer": {
                             "inside": true, // render labels inside chart
                         },
@@ -187,10 +170,10 @@ export default {
                             "dateX": "date",
                             "valueY": "total_accepted_requests",
                         },
-                        "tooltipText": "Accepted: {valueY.value}",
+                        "tooltipText": "Accepted: {valueY.value} requests",
                         "stacked": true,
-                        "fill": "blue",
-                        "stroke": "blue",
+                        "fill": "green",
+                        "stroke": "green",
                         "columns": {
                             "maxWidth": 30,
                         },
@@ -204,7 +187,7 @@ export default {
                             "dateX": "date",
                             "valueY": "total_declined_requests",
                         },
-                        "tooltipText": "Declined: {valueY.value}",
+                        "tooltipText": "Declined: {valueY.value} requests",
                         "stacked": true,
                         "fill": "red",
                         "stroke": "red",
@@ -221,6 +204,8 @@ export default {
 
             cmp.chart = chart;
 
+            cmp.chart = chart;
+
             chart.create( {
                 "type": "XYChart",
 
@@ -234,21 +219,7 @@ export default {
                 "xAxes": [
                     {
                         "type": "DateAxis",
-
-                        // grouping
-                        // "groupData": true,
-                        // "groupCount": 24 * 31,
-
-                        // pre-zoom
-                        // "start": 0.75,
-                        // "end": 1,
-                        // "keepSelection": true,
-
-                        // "cursorTooltipEnabled": false,
-
-                        // "renderer": {
-                        //     "inside": true, // render labels inside chart
-                        // },
+                        "renderer": { "inside": true }, // render labels inside chart
                     },
                 ],
                 "yAxes": [
@@ -264,7 +235,7 @@ export default {
                     {
                         "id": "avg_runtime",
                         "type": "ColumnSeries",
-                        "name": "Avg. Runtime",
+                        "name": "Avg. runtime",
                         "yAxis": "seconds",
                         "dataFields": {
                             "dateX": "date",
@@ -272,8 +243,8 @@ export default {
                         },
                         "tooltipText": "Avg. runtime: {valueY.value} sec.",
                         "stacked": true,
-                        "fill": "blue",
-                        "stroke": "blue",
+                        "fill": "green",
+                        "stroke": "green",
                         "columns": {
                             "maxWidth": 30,
                         },
