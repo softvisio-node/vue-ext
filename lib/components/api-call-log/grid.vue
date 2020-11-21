@@ -8,9 +8,9 @@
         </ext-toolbar>
 
         <ext-column text="Method ID" dataIndex="name" width="300" sorter='{"property":"id"}' cell='{"encodeHtml":false}'/>
-        <ext-column text="Requests for Last 30 Minutes" flex="1" align="center" @ready="requestsRateColReady"/>
-        <ext-column text="Average Request Runtime for Last 30 Minutes" flex="1" align="center" @ready="avgRuntimeColReady"/>
-        <ext-column text="Exceptions for Last 30 Minutes (%)" flex="1" align="center" @ready="exceptionsColReady"/>
+        <ext-column text="Requests for Last 45 Minutes" flex="1" align="center" @ready="requestsRateColReady"/>
+        <ext-column text="Average Request Runtime for Last 45 Minutes" flex="1" align="center" @ready="avgRuntimeColReady"/>
+        <ext-column text="Exceptions for Last 45 Minutes (%)" flex="1" align="center" @ready="exceptionsColReady"/>
         <!-- <ext&#45;column width="40" @ready="actionColReady"/> -->
     </ext-grid>
 </template>
