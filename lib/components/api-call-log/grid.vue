@@ -80,7 +80,7 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "height": 130,
+                    "height": 150,
                     "bind": { "stat": "{record.stat}" },
                     "listeners": { "initialize": this.requestRateChartReady.bind( this ) },
                     setStat ( stat ) {
@@ -97,7 +97,7 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "height": 130,
+                    "height": 150,
                     "bind": { "stat": "{record.stat}" },
                     "listeners": { "initialize": this.avgRuntimeChartReady.bind( this ) },
                     setStat ( stat ) {
@@ -114,7 +114,7 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "height": 130,
+                    "height": 150,
                     "bind": { "stat": "{record.stat}" },
                     "listeners": { "initialize": this.exceptionsChartReady.bind( this ) },
                     setStat ( stat ) {
@@ -162,9 +162,7 @@ export default {
                 "xAxes": [
                     {
                         "type": "DateAxis",
-                        "renderer": {
-                            "inside": true, // render labels inside chart
-                        },
+                        "renderer": { "inside": true }, // render labels inside chart
                     },
                 ],
                 "yAxes": [
