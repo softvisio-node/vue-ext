@@ -303,13 +303,13 @@ export default {
 
                 "series": [
                     {
-                        "id": "total_exceptions",
+                        "id": "exceptions_percent",
                         "type": "ColumnSeries",
                         "name": "Exceptions",
                         "yAxis": "exceptions",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "total_exceptions",
+                            "valueY": "exceptions_percent",
                         },
                         "tooltipText": "Exceptions: {valueY.value}%",
                         "stacked": true,
