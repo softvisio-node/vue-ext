@@ -7,7 +7,7 @@
             <ext-button ref="refreshButton" iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
         </ext-toolbar>
 
-        <ext-column text="Method ID" dataIndex="name" width="300" sorter='{"property":"id"}' cell='{"encodeHtml":false}'/>
+        <ext-column text="API Method ID" dataIndex="name" width="300" sorter='{"property":"id"}' cell='{"encodeHtml":false}'/>
         <ext-column text="Requests for Last 45 Minutes" flex="1" align="center" @ready="requestsRateColReady"/>
         <ext-column text="Average Request Runtime for Last 45 Minutes" flex="1" align="center" @ready="avgRuntimeColReady"/>
         <ext-column text="Exceptions for Last 45 Minutes (%)" flex="1" align="center" @ready="exceptionsColReady"/>
