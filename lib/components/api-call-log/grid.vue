@@ -3,14 +3,14 @@
         <ext-toolbar docked="top">
             <ext-searchfield placeholder="search tokens by name" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
+            <ext-togglefield label="AUTO REFRESH" labelAlign="right" @change="autoRefreshChange"/>
+            <ext-button ref="refreshButton" iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
         </ext-toolbar>
 
-        <ext-column text="Method ID" dataIndex="id" width="300"/>
-        <ext-column text="Total Limit" dataIndex="max_running_requests" width="100"/>
-        <ext-column text="User Limit" dataIndex="max_running_requests_user" width="100"/>
-        <ext-column text="Requests Rate" width="150" flex="1" @ready="requestsRateColReady"/>
-        <ext-column text="Average Request Runtime" width="150" flex="1" @ready="avgRuntimeColReady"/>
+        <ext-column text="Method ID" dataIndex="name" width="300" sorter='{"property":"id"}' cell='{"encodeHtml":false}'/>
+        <ext-column text="Requests for Last 30 Minutes" flex="1" align="center" @ready="requestsRateColReady"/>
+        <ext-column text="Average Request Runtime for Last 30 Minutes" flex="1" align="center" @ready="avgRuntimeColReady"/>
+        <ext-column text="Exceptions for Last 30 Minutes (%)" flex="1" align="center" @ready="exceptionsColReady"/>
         <!-- <ext&#45;column width="40" @ready="actionColReady"/> -->
     </ext-grid>
 </template>
@@ -107,6 +107,23 @@ export default {
             } );
         },
 
+        exceptionsColReady ( e ) {
+            var cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "height": 130,
+                    "bind": { "stat": "{record.stat}" },
+                    "listeners": { "initialize": this.exceptionsChartReady.bind( this ) },
+                    setStat ( stat ) {
+                        this.chart.setData( stat );
+                    },
+                },
+            } );
+        },
+
         // XXX
         actionColReady ( e ) {
             var cmp = e.detail.cmp;
@@ -127,7 +144,6 @@ export default {
             } );
         },
 
-        // XXX
         async requestRateChartReady ( cmp ) {
             var chart = await cmp.addVue( AmchartsPanel );
 
@@ -168,7 +184,7 @@ export default {
                         "yAxis": "requests",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "total_accepted_requests",
+                            "valueY": "total_accepted",
                         },
                         "tooltipText": "Accepted: {valueY.value} requests",
                         "stacked": true,
@@ -185,7 +201,7 @@ export default {
                         "yAxis": "requests",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "total_declined_requests",
+                            "valueY": "total_declined",
                         },
                         "tooltipText": "Declined: {valueY.value} requests",
                         "stacked": true,
@@ -253,6 +269,62 @@ export default {
             } );
         },
 
+        async exceptionsChartReady ( cmp ) {
+            var chart = await cmp.addVue( AmchartsPanel );
+
+            cmp.chart = chart;
+
+            cmp.chart = chart;
+
+            chart.create( {
+                "type": "XYChart",
+
+                "dateFormatter": {
+                    "inputDateFormat": "yyyy-MM-dd HH:mm:ss",
+                },
+
+                // "responsive": { "enabled": true },
+                "cursor": { "type": "XYCursor", "behavior": "zoomX" },
+
+                "xAxes": [
+                    {
+                        "type": "DateAxis",
+                        "renderer": { "inside": true }, // render labels inside chart
+                    },
+                ],
+                "yAxes": [
+                    {
+                        "id": "exceptions",
+                        "type": "ValueAxis",
+                        "title": { "text": "Exceptions (%)" },
+                        "min": 0,
+                        "max": 100,
+                        "strictMinMax": true,
+                    },
+                ],
+
+                "series": [
+                    {
+                        "id": "total_exceptions",
+                        "type": "ColumnSeries",
+                        "name": "Exceptions",
+                        "yAxis": "exceptions",
+                        "dataFields": {
+                            "dateX": "date",
+                            "valueY": "total_exceptions",
+                        },
+                        "tooltipText": "Exceptions: {valueY.value}%",
+                        "stacked": true,
+                        "fill": "red",
+                        "stroke": "red",
+                        "columns": {
+                            "maxWidth": 30,
+                        },
+                    },
+                ],
+            } );
+        },
+
         search ( e ) {
             var val = e.detail.newValue.trim();
 
@@ -269,8 +341,29 @@ export default {
             }
         },
 
+        autoRefreshChange ( e ) {
+            const val = e.detail.newValue;
+
+            if ( this.autoRefreshInterval ) {
+                clearInterval( this.autoRefreshInterval );
+                this.autoRefreshInterval = null;
+            }
+
+            if ( val ) this.autoRefreshInterval = setInterval( () => this.refresh(), 60000 );
+        },
+
         async refresh () {
+            if ( this.refreshing ) return;
+
+            this.refreshing = true;
+            this.$refs.refreshButton.ext.setDisabled( true );
+
             const res = await this.$api.call( "admin/api-call-log/read-totals" );
+
+            this.refreshing = false;
+            this.$refs.refreshButton.ext.setDisabled( false );
+
+            if ( !res.ok ) return;
 
             this.store.setData( res.data );
         },
