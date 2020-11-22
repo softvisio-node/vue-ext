@@ -216,7 +216,8 @@ export default {
                 "xAxes": [
                     {
                         "type": "DateAxis",
-                        "renderer": { "inside": true }, // render labels inside chart
+
+                        // "renderer": { "inside": true }, // render labels inside chart
                     },
                 ],
                 "yAxes": [
@@ -287,7 +288,8 @@ export default {
                 "xAxes": [
                     {
                         "type": "DateAxis",
-                        "renderer": { "inside": true }, // render labels inside chart
+
+                        // "renderer": { "inside": true }, // render labels inside chart
                     },
                 ],
                 "yAxes": [
@@ -341,7 +343,8 @@ export default {
                 "xAxes": [
                     {
                         "type": "DateAxis",
-                        "renderer": { "inside": true }, // render labels inside chart
+
+                        // "renderer": { "inside": true }, // render labels inside chart
                     },
                 ],
                 "yAxes": [
