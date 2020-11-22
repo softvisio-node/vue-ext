@@ -8,7 +8,7 @@
         </ext-toolbar>
 
         <ext-column text="API Method ID" dataIndex="name" width="300" sorter='{"property":"id"}' cell='{"encodeHtml":false}'/>
-        <ext-column text="Requests for Last 45 Minutes" flex="1" align="center" @ready="requestsRateColReady"/>
+        <ext-column text="Load for Last 45 Minutes" flex="1" align="center" @ready="loadColReady"/>
         <ext-column text="Average Request Runtime for Last 45 Minutes" flex="1" align="center" @ready="avgRuntimeColReady"/>
         <ext-column text="Exceptions for Last 45 Minutes (%)" flex="1" align="center" @ready="exceptionsColReady"/>
         <!-- <ext&#45;column width="40" @ready="actionColReady"/> -->
@@ -73,7 +73,7 @@ export default {
             } );
         },
 
-        requestsRateColReady ( e ) {
+        loadColReady ( e ) {
             var cmp = e.detail.cmp;
 
             cmp.setCell( {
@@ -81,10 +81,10 @@ export default {
                 "widget": {
                     "xtype": "container",
                     "height": 150,
-                    "bind": { "stat": "{record.stat}" },
-                    "listeners": { "initialize": this.requestRateChartReady.bind( this ) },
-                    setStat ( stat ) {
-                        this.chart.setData( stat );
+                    "bind": { "chartData": "{record.load}" },
+                    "listeners": { "initialize": this.loadChartReady.bind( this ) },
+                    setChartData ( data ) {
+                        this.chart.setData( data );
                     },
                 },
             } );
@@ -98,10 +98,10 @@ export default {
                 "widget": {
                     "xtype": "container",
                     "height": 150,
-                    "bind": { "stat": "{record.stat}" },
+                    "bind": { "chartData": "{record.requests}" },
                     "listeners": { "initialize": this.avgRuntimeChartReady.bind( this ) },
-                    setStat ( stat ) {
-                        this.chart.setData( stat );
+                    setChartData ( data ) {
+                        this.chart.setData( data );
                     },
                 },
             } );
@@ -115,10 +115,10 @@ export default {
                 "widget": {
                     "xtype": "container",
                     "height": 150,
-                    "bind": { "stat": "{record.stat}" },
+                    "bind": { "chartData": "{record.requests}" },
                     "listeners": { "initialize": this.exceptionsChartReady.bind( this ) },
-                    setStat ( stat ) {
-                        this.chart.setData( stat );
+                    setChartData ( data ) {
+                        this.chart.setData( data );
                     },
                 },
             } );
@@ -144,7 +144,7 @@ export default {
             } );
         },
 
-        async requestRateChartReady ( cmp ) {
+        async loadChartReady ( cmp ) {
             var chart = await cmp.addVue( AmchartsPanel );
 
             cmp.chart = chart;
