@@ -7,7 +7,7 @@
             <ext-button ref="refreshButton" iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
         </ext-toolbar>
 
-        <ext-column text="API Method ID" dataIndex="name" width="300" sorter='{"property":"id"}' cell='{"encodeHtml":false}'/>
+        <ext-column text="API Method ID" width="300" sorter='{"property":"id"}' @ready="idColReady"/>
         <ext-column text="Load for Last 45 Minutes" flex="1" align="center" @ready="loadColReady"/>
         <ext-column text="Average Request Runtime for Last 45 Minutes" flex="1" align="center" @ready="avgRuntimeColReady"/>
         <ext-column text="Exceptions for Last 45 Minutes (%)" flex="1" align="center" @ready="exceptionsColReady"/>
@@ -54,19 +54,47 @@ export default {
             this.refresh();
         },
 
-        enabledColReady ( e ) {
+        idColReady ( e ) {
             var cmp = e.detail.cmp;
 
             cmp.setCell( {
                 "xtype": "widgetcell",
+                "layout": "fit",
                 "widget": {
                     "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "center" },
+                    "layout": { "type": "vbox", "pack": "start", "align": "start" },
+                    "padding": "0 10 0 10",
                     "items": [
                         {
-                            "xtype": "togglefield",
-                            "bind": { "value": "{record.enabled}" },
-                            "listeners": { "change": this.setEnabled.bind( this ) },
+                            "xtype": "displayfield",
+                            "encodeHtml": false,
+                            "bind": "{record.id_text}",
+                        },
+                        {
+                            "xtype": "fieldcontainer",
+                            "width": "100%",
+                            "labelCls": "label-no-padding",
+                            "label": "Active Requests",
+                            "items": [
+                                {
+                                    "xtype": "progress",
+                                    "width": "100%",
+                                    "bind": {
+                                        "text": "{record.active_requests_text}",
+                                        "value": "{record.active_requests_value}",
+                                    },
+                                },
+                            ],
+                        },
+                        {
+                            "xtype": "displayfield",
+                            "padding": 0,
+                            "margin": 0,
+                            "label": "Active Requests Limit per User",
+                            "labelAlign": "left",
+                            "labelWidth": 180,
+                            "encodeHtml": false,
+                            "bind": "{record.active_requests_user_limit_text}",
                         },
                     ],
                 },
@@ -387,3 +415,10 @@ export default {
     },
 };
 </script>
+
+<style>
+    .label-no-padding {
+        padding-top: 4px !important;
+        padding-bottom: 0px !important;
+    }
+</style>
