@@ -82,9 +82,17 @@ export default {
                                 {
                                     "xtype": "progress",
                                     "width": "100%",
+                                    "animate": true,
                                     "bind": {
                                         "text": "{record.active_requests_text}",
                                         "value": "{record.active_requests_value}",
+                                    },
+                                    "listeners": {
+                                        change ( progress, newValue, oldValue ) {
+                                            if ( newValue === 1 ) progress.setColor( "red" );
+                                            else if ( newValue >= 0.7 ) progress.setColor( "salmon" );
+                                            else progress.setColor();
+                                        },
                                     },
                                 },
                             ],
@@ -433,5 +441,8 @@ export default {
     .no-padding {
         padding-top: 0px !important;
         padding-bottom: 0px !important;
+    }
+    .progress-full {
+        backgroundcolor: red;
     }
 </style>
