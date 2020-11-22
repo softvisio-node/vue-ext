@@ -8,10 +8,10 @@
         </ext-toolbar>
 
         <ext-column text="API Method ID" width="300" sorter='{"property":"id"}' @ready="idColReady"/>
-        <ext-column text="Load for Last 45 Minutes" flex="1" align="center" @ready="loadColReady"/>
-        <ext-column text="Average Request Runtime for Last 45 Minutes" flex="1" align="center" @ready="avgRuntimeColReady"/>
-        <ext-column text="Exceptions for Last 45 Minutes (%)" flex="1" align="center" @ready="exceptionsColReady"/>
-        <!-- <ext&#45;column width="40" @ready="actionColReady"/> -->
+        <ext-column text="Load for Last 60 Minutes" flex="1" align="center" @ready="loadColReady"/>
+        <ext-column text="Average Request Runtime for Last 60 Minutes" flex="1" align="center" @ready="avgRuntimeColReady"/>
+        <ext-column text="Exceptions for Last 60 Minutes (%)" flex="1" align="center" @ready="exceptionsColReady"/>
+        <ext-column width="40" @ready="actionColReady"/>
     </ext-grid>
 </template>
 
@@ -173,7 +173,6 @@ export default {
             } );
         },
 
-        // XXX
         actionColReady ( e ) {
             var cmp = e.detail.cmp;
 
@@ -181,12 +180,17 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "end", "align": "end" },
+                    "layout": { "type": "vbox", "pack": "start", "align": "start" },
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "far fa-trash-alt",
-                            "handler": this.delete.bind( this ),
+                            "iconCls": "fas fa-chart-line",
+                            "handler": this.showStats.bind( this ),
+                        },
+                        {
+                            "xtype": "button",
+                            "iconCls": "fas fa-list",
+                            "handler": this.showLog.bind( this ),
                         },
                     ],
                 },
@@ -206,7 +210,7 @@ export default {
                 },
 
                 // "responsive": { "enabled": true },
-                "cursor": { "type": "XYCursor", "behavior": "zoomX" },
+                "cursor": { "type": "XYCursor", "behavior": "none" },
 
                 "xAxes": [
                     {
@@ -277,7 +281,7 @@ export default {
                 },
 
                 // "responsive": { "enabled": true },
-                "cursor": { "type": "XYCursor", "behavior": "zoomX" },
+                "cursor": { "type": "XYCursor", "behavior": "none" },
 
                 "xAxes": [
                     {
@@ -331,7 +335,7 @@ export default {
                 },
 
                 // "responsive": { "enabled": true },
-                "cursor": { "type": "XYCursor", "behavior": "zoomX" },
+                "cursor": { "type": "XYCursor", "behavior": "none" },
 
                 "xAxes": [
                     {
@@ -416,22 +420,17 @@ export default {
         },
 
         // XXX
-        async delete ( button ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord();
+        async showStats ( button ) {
 
-            if ( !( await this.$.confirm( "Confirmation", "Are you sure you want to do that?" ) ) ) return;
+            // const gridrow = button.up( "gridrow" ),
+            //     record = gridrow.getRecord();
+        },
 
-            var res = await this.$api.call( "api-tokens/delete", record.getId() );
+        // XXX
+        async showLog ( button ) {
 
-            if ( res.ok ) {
-                this.$.toast( "API token deleted" );
-
-                this.store.remove( record );
-            }
-            else {
-                this.$.toast( res );
-            }
+            // const gridrow = button.up( "gridrow" ),
+            //     record = gridrow.getRecord();
         },
     },
 };
