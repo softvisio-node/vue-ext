@@ -180,7 +180,7 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "layout": { "type": "vbox", "pack": "start", "align": "start" },
+                    "layout": { "type": "vbox", "pack": "start", "align": "center" },
                     "items": [
                         {
                             "xtype": "button",
@@ -192,6 +192,7 @@ export default {
                             "iconCls": "fas fa-list",
                             "handler": this.showLog.bind( this ),
                         },
+                        { "xtype": "container", "height": 80 },
                     ],
                 },
             } );
