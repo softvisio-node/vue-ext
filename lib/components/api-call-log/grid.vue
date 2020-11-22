@@ -73,8 +73,11 @@ export default {
                         {
                             "xtype": "fieldcontainer",
                             "width": "100%",
-                            "labelCls": "label-no-padding",
+                            "labelCls": "no-padding",
                             "label": "Active Requests",
+
+                            // "labelAlign": "left",
+                            // "labelWidth": 180,
                             "items": [
                                 {
                                     "xtype": "progress",
@@ -88,11 +91,21 @@ export default {
                         },
                         {
                             "xtype": "displayfield",
-                            "padding": 0,
-                            "margin": 0,
+                            "label": "Active Requests Limit",
+                            "labelAlign": "left",
+                            "labelWidth": 180,
+                            "height": 18,
+                            "labelCls": "no-padding",
+                            "encodeHtml": false,
+                            "bind": "{record.active_requests_limit_text}",
+                        },
+                        {
+                            "xtype": "displayfield",
                             "label": "Active Requests Limit per User",
                             "labelAlign": "left",
                             "labelWidth": 180,
+                            "height": 18,
+                            "labelCls": "no-padding",
                             "encodeHtml": false,
                             "bind": "{record.active_requests_user_limit_text}",
                         },
@@ -417,8 +430,8 @@ export default {
 </script>
 
 <style>
-    .label-no-padding {
-        padding-top: 4px !important;
+    .no-padding {
+        padding-top: 0px !important;
         padding-bottom: 0px !important;
     }
 </style>
