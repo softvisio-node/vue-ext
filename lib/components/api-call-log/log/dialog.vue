@@ -1,294 +1,76 @@
 <template>
-    <ext-dialog title="Dashboard" width="1000" height="600" displayed="true" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="vbox" viewModel="true" @ready="ready">
+    <ext-dialog :title="title" width="95%" height="95%" displayed="true" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="fit" viewModel="true" @ready="ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
             <ext-button iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
         </ext-toolbar>
 
-        <ext-container layout="vbox" height="100">
-            <ext-progress ref="running-threads" text="Running Threads" height="20"/>
-            <ext-spacer height="5"/>
-            <ext-progress ref="queue-length" text="Queue Length" height="20"/>
-            <ext-spacer flex="1"/>
-        </ext-container>
+        <ext-grid ref="grid" layout="fit" multicolumnSort="true" @ready="gridReady">
+            <ext-column text="Started" dataIndex="started" width="150" formatter="date('Y-m-d H:i:s')"/>
+            <ext-column text="Finished" dataIndex="finished" width="150" formatter="date('Y-m-d H:i:s')"/>
+            <ext-column text="Runtime" dataIndex="runtime" width="150"/>
 
-        <AmchartsPanel height="400" @ready="trafficChartReady"/>
+            <ext-column text="Exception" dataIndex="is_exception" sorter='{"property":"is_exception"}' cell='{"encodeHtml":false}' width="120"/>
 
-        <AmchartsPanel height="300" @ready="errorsChartReady"/>
+            <ext-column text="Status" dataIndex="status" width="150"/>
+            <ext-column text="Reason" dataIndex="reason" flex="1"/>
+        </ext-grid>
     </ext-dialog>
 </template>
 
 <script>
-import AmchartsPanel from "#softvisio/components/am4charts/panel";
+import ApiCallLogEntryModel from "#softvisio/models/api-call-log-entry";
 
 export default {
-    "components": { AmchartsPanel },
+    data () {
+        return {
+            "title": "API Call Log",
+        };
+    },
+
+    mounted () {
+        this.store = Ext.create( "Ext.data.Store", {
+            "model": ApiCallLogEntryModel,
+            "autoLoad": false,
+            "pageSize": 50,
+        } );
+    },
 
     "methods": {
         async ready ( e ) {
             this.$ext = e.detail.cmp;
         },
 
+        gridReady ( e ) {
+            var grid = ( this.grid = e.detail.cmp );
+
+            grid.setMultiColumnSort( true );
+
+            grid.setPlugins( [
+
+                //
+                { "type": "gridviewoptions" },
+                { "type": "listpaging", "noMoreRecordsText": "", "autoPaging": true },
+            ] );
+
+            // grid.setColumnMenu( null );
+
+            this.grid.setStore( this.store );
+        },
+
         setRecord ( record ) {
-            this.record = record;
-
-            this.refresh();
-        },
-
-        trafficChartReady ( chart ) {
-            this.trafficChart = chart;
-
-            chart.create( {
-                "titles": [{ "text": "Traffic for Last 30 Days", "fontSize": 12 }],
-                "type": "XYChart",
-
-                "dateFormatter": {
-                    "inputDateFormat": "yyyy-MM-dd HH:mm:ss",
-                },
-
-                // "responsive": { "enabled": true },
-                "cursor": { "type": "XYCursor", "behavior": "zoomX" },
-
-                "scrollbarX": {
-                    "type": "XYChartScrollbar",
-                    "series": ["traffic_successful", "traffic_errors"],
-                },
-
-                "legend": {},
-
-                "xAxes": [
-                    {
-                        "type": "DateAxis",
-
-                        // grouping
-                        "groupData": true,
-                        "groupCount": 24 * 31,
-
-                        // pre-zoom
-                        "start": 0.75,
-                        "end": 1,
-                        "keepSelection": true,
-
-                        // "cursorTooltipEnabled": false,
-
-                        // "renderer": {
-
-                        // "inside": true, // render labels inside chart
-                        // },
-                    },
-                ],
-                "yAxes": [
-                    {
-                        "type": "ValueAxis",
-                        "id": "traffic",
-
-                        "title": { "text": "Traffic" },
-
-                        "min": 0,
-
-                        // "max": 100,
-
-                        // "logarithmic": true,
-
-                        // "cursorTooltipEnabled": false,
-                        // "numberFormatter": { "type": "NumberFormatter", "numberFormat": "#" },
-                    },
-                ],
-
-                "series": [
-                    {
-                        "type": "ColumnSeries",
-
-                        // "type": "LineSeries",
-                        "id": "traffic_successful",
-                        "name": "Successful",
-
-                        "columns": {
-                            "maxWidth": 30,
-                        },
-
-                        "yAxis": "traffic",
-
-                        "dataFields": {
-                            "dateX": "date",
-                            "valueY": "successful",
-                        },
-
-                        "tooltipText": "Successful: {valueY.value}",
-
-                        "fill": "blue",
-                        "stroke": "blue",
-
-                        // "strokeWidth": 2,
-                        "tensionX": 0.8,
-                        "connect": false,
-
-                        // "numberFormatter": { "numberFormat": "#,###" },
-
-                        // "fillOpacity": 0.3,
-                        "stacked": true,
-
-                        // "bullets": [{ "type": "CircleBullet", "circle": { "radius": 1 } }],
-                    },
-                    {
-                        "type": "ColumnSeries",
-
-                        // "type": "LineSeries",
-                        "id": "traffic_errors",
-                        "name": "Error",
-
-                        "columns": {
-                            "maxWidth": 30,
-                        },
-
-                        "yAxis": "traffic",
-
-                        "dataFields": {
-                            "dateX": "date",
-                            "valueY": "errors",
-                        },
-
-                        "tooltipText": "Errors: {valueY.value}",
-
-                        "fill": "red",
-                        "stroke": "red",
-
-                        "stacked": true,
-
-                        // "strokeWidth": 2,
-                        "tensionX": 0.8,
-                        "connect": false,
-
-                        // "numberFormatter": { "numberFormat": "#,###" },
-
-                        // "fillOpacity": 0.3,
-
-                        // "bullets": [{ "type": "CircleBullet", "circle": { "radius": 1 } }],
-                    },
-                ],
-            } );
-
-            this.refresh();
-        },
-
-        errorsChartReady ( chart ) {
-            this.errorsChart = chart;
-
-            chart.create( {
-                "titles": [{ "text": "Errors Percent for Last 30 Days", "fontSize": 12 }],
-                "type": "XYChart",
-
-                "dateFormatter": {
-                    "inputDateFormat": "yyyy-MM-dd HH:mm:ss",
-                },
-
-                // "responsive": { "enabled": true },
-                "cursor": { "type": "XYCursor", "behavior": "zoomX" },
-
-                "scrollbarX": {
-                    "type": "XYChartScrollbar",
-                    "series": ["errors_percent"],
-                },
-
-                "xAxes": [
-                    {
-                        "type": "DateAxis",
-
-                        // grouping
-                        "groupData": true,
-                        "groupCount": 24 * 31,
-
-                        // pre-zoom
-                        "start": 0.75,
-                        "end": 1,
-                        "keepSelection": true,
-
-                        // "cursorTooltipEnabled": false,
-
-                        // "renderer": {
-
-                        // "inside": true, // render labels inside chart
-                        // },
-                    },
-                ],
-                "yAxes": [
-                    {
-                        "type": "ValueAxis",
-                        "id": "volume",
-
-                        "title": { "text": "Errors (%)" },
-
-                        // "calculateTotals": true,
-                        "min": 0,
-                        "max": 100,
-                        "strictMinMax": true,
-
-                        // "logarithmic": true,
-
-                        // "cursorTooltipEnabled": false,
-                        // "numberFormatter": { "type": "NumberFormatter", "numberFormat": "#" },
-                    },
-                ],
-
-                "series": [
-                    {
-                        "type": "ColumnSeries",
-
-                        // "type": "LineSeries",
-
-                        "id": "errors_percent",
-                        "name": "Error",
-
-                        "columns": {
-                            "maxWidth": 30,
-                        },
-
-                        "yAxis": "volume",
-
-                        "dataFields": {
-                            "dateX": "date",
-                            "valueY": "errors_percent",
-                        },
-
-                        "tooltipText": "Errors: {valueY.value}%",
-
-                        "fill": "red",
-                        "stroke": "red",
-
-                        // "stacked": true,
-
-                        // "strokeWidth": 2,
-                        "tensionX": 0.8,
-                        "connect": false,
-
-                        // "numberFormatter": { "numberFormat": "#,###" },
-
-                        // "fillOpacity": 0.6,
-
-                        // "bullets": [{ "type": "CircleBullet", "circle": { "radius": 1 } }],
-                    },
-                ],
-            } );
-
-            this.refresh();
+            this.title = `API Call Log for Method "${record.id}"`;
+
+            this.store.addFilter( {
+                "property": "method_id",
+                "operator": "=",
+                "value": record.getId(),
+            },
+            false );
         },
 
         async refresh () {
-            if ( !this.trafficChart || !this.errorsChart ) return;
-
-            this.$ext.mask();
-
-            const res = await this.$api.call( "admin/api-call-log/read-stat-30-days" );
-
-            this.$ext.unmask();
-
-            if ( !res.ok ) {
-                this.$.toast( res );
-
-                this.$ext.hide();
-            }
-
-            this.trafficChart.setData( res.data.traffic );
+            this.store.loadPage( 1 );
         },
     },
 };
