@@ -8,13 +8,13 @@
         <ext-grid ref="grid" layout="fit" multicolumnSort="true" @ready="gridReady">
             <ext-column text="Started" dataIndex="started" width="150" formatter="date('Y-m-d H:i:s')"/>
             <ext-column text="Finished" dataIndex="finished" width="150" formatter="date('Y-m-d H:i:s')"/>
-            <ext-column text="Runtime (sec.)" dataIndex="runtime_text" sorter='{"property":"runtime"}' width="150" align="right"/>
+            <ext-column text="Runtime (sec.)" dataIndex="runtime_text" sortable="false" width="150" align="right"/>
 
             <ext-column text="Exception" dataIndex="is_exception_text" sorter='{"property":"is_exception"}' cell='{"encodeHtml":false}' width="100" align="center"/>
 
-            <ext-column text="Status" dataIndex="status_text" sorter='{"property":"status"}' cell='{"encodeHtml":false}' width="100" align="center"/>
+            <ext-column text="Status" dataIndex="status_text" sortable="false" cell='{"encodeHtml":false}' width="100" align="center"/>
 
-            <ext-column text="Reason" dataIndex="reason" flex="1"/>
+            <ext-column text="Reason" dataIndex="reason" sortable="false" flex="1"/>
         </ext-grid>
     </ext-dialog>
 </template>
