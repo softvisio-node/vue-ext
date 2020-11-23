@@ -399,12 +399,34 @@ export default {
         autoRefreshChange ( e ) {
             const val = e.detail.newValue;
 
-            if ( this.autoRefreshInterval ) {
-                clearInterval( this.autoRefreshInterval );
-                this.autoRefreshInterval = null;
+            if ( val ) {
+                this._setAutoRefreshInterval( 60000 );
             }
+            else {
+                this._setAutoRefreshInterval( 0 );
+            }
+        },
 
-            if ( val ) this.autoRefreshInterval = setInterval( () => this.refresh(), 60000 );
+        _setAutoRefreshInterval ( interval ) {
+            this.autoRefreshInterval = interval;
+
+            this._resumeAutoRefresh();
+        },
+
+        _pauseAutoRefresh () {
+            if ( this.autoRefreshIntervalClean ) {
+                clearInterval( this.autoRefreshIntervalClean );
+
+                this.autoRefreshIntervalClean = null;
+            }
+        },
+
+        _resumeAutoRefresh () {
+            this._pauseAutoRefresh();
+
+            if ( !this.autoRefreshInterval ) return;
+
+            this.autoRefreshIntervalClean = setInterval( () => this.refresh(), this.autoRefreshInterval );
         },
 
         async refresh () {
@@ -412,11 +434,13 @@ export default {
 
             this.refreshing = true;
             this.$refs.refreshButton.ext.setDisabled( true );
+            this._pauseAutoRefresh();
 
             const res = await this.$api.call( "admin/api-call-log/read-totals" );
 
             this.refreshing = false;
             this.$refs.refreshButton.ext.setDisabled( false );
+            this._resumeAutoRefresh();
 
             if ( !res.ok ) return;
 
