@@ -18,6 +18,8 @@
 <script>
 import AmchartsPanel from "#softvisio/components/am4charts/panel";
 import ApiCallLogStatModel from "#softvisio/models/api-call-log-stat";
+import HistoryDialog from "./history/dialog";
+import LogDialog from "./log/dialog";
 
 export default {
     "components": { AmchartsPanel },
@@ -185,7 +187,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fas fa-chart-line",
-                            "handler": this.showStats.bind( this ),
+                            "handler": this.showHistory.bind( this ),
                         },
                         {
                             "xtype": "button",
@@ -206,9 +208,7 @@ export default {
             chart.create( {
                 "type": "XYChart",
 
-                "dateFormatter": {
-                    "inputDateFormat": "yyyy-MM-dd HH:mm:ss",
-                },
+                "dateFormatter": { "inputDateFormat": "yyyy-MM-dd HH:mm:ss" },
 
                 // "responsive": { "enabled": true },
                 "cursor": { "type": "XYCursor", "behavior": "none" },
@@ -222,7 +222,7 @@ export default {
                 ],
                 "yAxes": [
                     {
-                        "id": "requests",
+                        "id": "value",
                         "type": "ValueAxis",
                         "title": { "text": "Requests" },
                         "min": 0,
@@ -234,12 +234,12 @@ export default {
                         "id": "accepted_requests",
                         "type": "ColumnSeries",
                         "name": "Accepted",
-                        "yAxis": "requests",
+                        "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
                             "valueY": "total_accepted",
                         },
-                        "tooltipText": "Accepted: {valueY.value} requests",
+                        "tooltipText": "Accepted requests: {valueY.value}",
                         "stacked": true,
                         "fill": "green",
                         "stroke": "green",
@@ -251,12 +251,12 @@ export default {
                         "id": "declined_requests",
                         "type": "ColumnSeries",
                         "name": "Declined",
-                        "yAxis": "requests",
+                        "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
                             "valueY": "total_declined",
                         },
-                        "tooltipText": "Declined: {valueY.value} requests",
+                        "tooltipText": "Declined requests: {valueY.value}",
                         "stacked": true,
                         "fill": "red",
                         "stroke": "red",
@@ -278,9 +278,7 @@ export default {
             chart.create( {
                 "type": "XYChart",
 
-                "dateFormatter": {
-                    "inputDateFormat": "yyyy-MM-dd HH:mm:ss",
-                },
+                "dateFormatter": { "inputDateFormat": "yyyy-MM-dd HH:mm:ss" },
 
                 // "responsive": { "enabled": true },
                 "cursor": { "type": "XYCursor", "behavior": "none" },
@@ -294,7 +292,7 @@ export default {
                 ],
                 "yAxes": [
                     {
-                        "id": "seconds",
+                        "id": "value",
                         "type": "ValueAxis",
                         "title": { "text": "Seconds" },
                         "min": 0,
@@ -306,7 +304,7 @@ export default {
                         "id": "avg_runtime",
                         "type": "ColumnSeries",
                         "name": "Avg. runtime",
-                        "yAxis": "seconds",
+                        "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
                             "valueY": "avg_runtime",
@@ -333,9 +331,7 @@ export default {
             chart.create( {
                 "type": "XYChart",
 
-                "dateFormatter": {
-                    "inputDateFormat": "yyyy-MM-dd HH:mm:ss",
-                },
+                "dateFormatter": { "inputDateFormat": "yyyy-MM-dd HH:mm:ss" },
 
                 // "responsive": { "enabled": true },
                 "cursor": { "type": "XYCursor", "behavior": "none" },
@@ -349,7 +345,7 @@ export default {
                 ],
                 "yAxes": [
                     {
-                        "id": "exceptions",
+                        "id": "value",
                         "type": "ValueAxis",
                         "title": { "text": "Exceptions (%)" },
                         "min": 0,
@@ -363,7 +359,7 @@ export default {
                         "id": "exceptions_percent",
                         "type": "ColumnSeries",
                         "name": "Exceptions",
-                        "yAxis": "exceptions",
+                        "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
                             "valueY": "exceptions_percent",
@@ -436,7 +432,7 @@ export default {
             this.$refs.refreshButton.ext.setDisabled( true );
             this._pauseAutoRefresh();
 
-            const res = await this.$api.call( "admin/api-call-log/read-stat-60-min" );
+            const res = await this.$api.call( "admin/api-call-log/read-latest-stat" );
 
             this.refreshing = false;
             this.$refs.refreshButton.ext.setDisabled( false );
@@ -447,18 +443,30 @@ export default {
             this.store.setData( res.data );
         },
 
-        // XXX
-        async showStats ( button ) {
+        async showHistory ( button ) {
+            const gridrow = button.up( "gridrow" ),
+                record = gridrow.getRecord();
 
-            // const gridrow = button.up( "gridrow" ),
-            //     record = gridrow.getRecord();
+            if ( !this.historyDialog ) {
+                this.historyDialog = await Ext.Viewport.addVue( HistoryDialog );
+            }
+
+            this.historyDialog.setRecord( record );
+
+            this.historyDialog.$ext.show();
         },
 
-        // XXX
         async showLog ( button ) {
+            const gridrow = button.up( "gridrow" ),
+                record = gridrow.getRecord();
 
-            // const gridrow = button.up( "gridrow" ),
-            //     record = gridrow.getRecord();
+            if ( !this.logDialog ) {
+                this.logDialog = await Ext.Viewport.addVue( LogDialog );
+            }
+
+            this.logDialog.setRecord( record );
+
+            this.logDialog.$ext.show();
         },
     },
 };
