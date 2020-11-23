@@ -17,14 +17,14 @@
 
 <script>
 import AmchartsPanel from "#softvisio/components/am4charts/panel";
-import ApiCallLogTotalsModel from "#softvisio/models/api-call-log-totals";
+import ApiCallLogStatModel from "#softvisio/models/api-call-log-stat";
 
 export default {
     "components": { AmchartsPanel },
 
     mounted () {
         this.store = new Ext.data.Store( {
-            "model": ApiCallLogTotalsModel,
+            "model": ApiCallLogStatModel,
             "autoLoad": false,
             "pageSize": null,
             "remoteSort": false,
