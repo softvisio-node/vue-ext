@@ -156,6 +156,7 @@ export default {
                         "type": "ValueAxis",
                         "title": { "text": "Seconds" },
                         "min": 0,
+                        "numberFormatter": { "type": "NumberFormatter", "numberFormat": "#.##" },
                     },
                 ],
 
@@ -222,6 +223,7 @@ export default {
                         "min": 0,
                         "max": 100,
                         "strictMinMax": true,
+                        "numberFormatter": { "type": "NumberFormatter", "numberFormat": "#.##" },
                     },
                 ],
 
