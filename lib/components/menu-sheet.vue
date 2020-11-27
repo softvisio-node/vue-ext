@@ -63,15 +63,15 @@ export default {
 
     "methods": {
         ready ( e ) {
-            this.$ext = e.detail.cmp;
+            this.ext = e.detail.cmp;
         },
 
         show () {
-            this.$ext.show();
+            this.ext.show();
         },
 
         hide () {
-            this.$ext.hide();
+            this.ext.hide();
         },
 
         async showProfile () {
@@ -79,7 +79,7 @@ export default {
 
             if ( !this.profileDialog ) this.profileDialog = await Ext.Viewport.addVue( ProfileDialog );
 
-            this.profileDialog.$ext.show();
+            this.profileDialog.ext.show();
         },
 
         async showApiTokens () {
@@ -87,7 +87,7 @@ export default {
 
             if ( !this.apiTokensDialog ) this.apiTokensDialog = await Ext.Viewport.addVue( ApiTokensDialog );
 
-            this.apiTokensDialog.$ext.show();
+            this.apiTokensDialog.ext.show();
         },
 
         async changePassword () {
@@ -95,7 +95,7 @@ export default {
 
             if ( !this.changePasswordDialog ) this.changePasswordDialog = await Ext.Viewport.addVue( ChangePasswordDialog );
 
-            this.changePasswordDialog.$ext.show();
+            this.changePasswordDialog.ext.show();
         },
 
         signout () {

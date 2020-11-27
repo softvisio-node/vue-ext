@@ -153,7 +153,7 @@ export default {
         async create () {
             if ( !this.createDialog ) this.createDialog = await Ext.Viewport.addVue( CreateDialog );
 
-            this.createDialog.$ext.show();
+            this.createDialog.ext.show();
         },
     },
 };

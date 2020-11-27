@@ -74,7 +74,7 @@ export default {
 
     "methods": {
         ready ( e ) {
-            this.$ext = e.detail.cmp;
+            this.ext = e.detail.cmp;
 
             var maximize = [];
 
@@ -87,7 +87,7 @@ export default {
 
             Ext.widget( "container", {
                 "floating": true,
-                "renderTo": this.$ext,
+                "renderTo": this.ext,
                 "style": "position: absolute; bottom: 20px; right: 20px;",
                 "layout": {
                     "type": "vbox",
@@ -98,18 +98,18 @@ export default {
 
             if ( this.src ) this.currentSrc = this.src;
 
-            if ( this.$ext.rendered ) {
+            if ( this.ext.rendered ) {
                 this._afterRender();
             }
             else {
-                this.$ext.afterRender = this._afterRender.bind( this );
+                this.ext.afterRender = this._afterRender.bind( this );
             }
         },
 
         async _afterRender () {
-            this.$ext.afterRender = null;
+            this.ext.afterRender = null;
 
-            // this.$ext.el.on( {
+            // this.ext.el.on( {
             //     "scope": this,
             //     "buffer": 300,
             //     "pinch": this._onPinch,
@@ -176,7 +176,7 @@ export default {
         },
 
         clear () {
-            this.$ext.setHtml( "" );
+            this.ext.setHtml( "" );
 
             this.pdfDoc = null;
             this.pdfPages = [];
@@ -190,13 +190,13 @@ export default {
         },
 
         async _renderPdfDoc () {
-            if ( !this.$ext.rendered ) return;
+            if ( !this.ext.rendered ) return;
 
             if ( !this.currentSrc ) return;
 
             if ( this.resetZoomOnLoad ) this.currentZoom = 1;
 
-            var cmp = this.$ext;
+            var cmp = this.ext;
 
             cmp.mask();
 
@@ -231,7 +231,7 @@ export default {
         },
 
         async _renderPdfPage ( container, page ) {
-            var cmp = this.$ext,
+            var cmp = this.ext,
                 scale = this.scale,
                 viewport;
 

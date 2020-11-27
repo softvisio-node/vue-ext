@@ -29,9 +29,9 @@
 export default {
     "methods": {
         async ready ( e ) {
-            this.$ext = e.detail.cmp;
+            this.ext = e.detail.cmp;
 
-            this.$ext.on( "hide", () => {
+            this.ext.on( "hide", () => {
                 this.$refs.form.ext.reset();
 
                 this.$refs.token.ext.setValue( null );
@@ -52,7 +52,7 @@ export default {
         },
 
         cancel () {
-            this.$ext.hide();
+            this.ext.hide();
         },
 
         async submit () {
@@ -62,14 +62,14 @@ export default {
 
             var vals = form.getValues();
 
-            this.$ext.mask( {
+            this.ext.mask( {
                 "xtype": "loadmask",
                 "message": `<div style="color:white;">Generating<br/>please wait...</div>`,
             } );
 
             const res = await this.$api.call( "api-tokens/create", vals.name );
 
-            this.$ext.unmask();
+            this.ext.unmask();
 
             if ( res.ok ) {
                 this.$refs.token.ext.setValue( res.data.token );

@@ -453,7 +453,7 @@ export default {
 
             this.historyDialog.setRecord( record );
 
-            this.historyDialog.$ext.show();
+            this.historyDialog.ext.show();
         },
 
         async showLog ( button ) {
@@ -466,7 +466,7 @@ export default {
 
             this.logDialog.setRecord( record );
 
-            this.logDialog.$ext.show();
+            this.logDialog.ext.show();
         },
     },
 };

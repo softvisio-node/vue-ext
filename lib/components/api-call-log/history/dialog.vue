@@ -25,7 +25,7 @@ export default {
 
     "methods": {
         async ready ( e ) {
-            this.$ext = e.detail.cmp;
+            this.ext = e.detail.cmp;
         },
 
         setRecord ( record ) {
@@ -255,16 +255,16 @@ export default {
         async refresh () {
             if ( !this.record || !this.loadChart || !this.runtimeChart || !this.exceptionsChart ) return;
 
-            this.$ext.mask();
+            this.ext.mask();
 
             const res = await this.$api.call( "admin/api-call-log/read-history-stat", this.record.id );
 
-            this.$ext.unmask();
+            this.ext.unmask();
 
             if ( !res.ok ) {
                 this.$.toast( res );
 
-                this.$ext.hide();
+                this.ext.hide();
             }
 
             this.loadChart.setData( res.data.load );

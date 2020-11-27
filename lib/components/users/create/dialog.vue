@@ -20,9 +20,9 @@
 export default {
     "methods": {
         async ready ( e ) {
-            this.$ext = e.detail.cmp;
+            this.ext = e.detail.cmp;
 
-            this.$ext.on( "hide", () => this.$refs.form.ext.reset() );
+            this.ext.on( "hide", () => this.$refs.form.ext.reset() );
         },
 
         formReady ( e ) {
@@ -32,7 +32,7 @@ export default {
         },
 
         cancel () {
-            this.$ext.hide();
+            this.ext.hide();
         },
 
         async submit () {

@@ -39,7 +39,7 @@ export default {
 
     "methods": {
         async ready ( e ) {
-            this.$ext = e.detail.cmp;
+            this.ext = e.detail.cmp;
         },
 
         gridReady ( e ) {

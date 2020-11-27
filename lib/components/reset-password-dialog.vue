@@ -32,7 +32,7 @@ export default {
 
     "methods": {
         ready ( e ) {
-            this.$ext = e.detail.cmp;
+            this.ext = e.detail.cmp;
 
             if ( !this.token ) {
                 this.$.toast( "Password reset token was not found.", 5000 );
@@ -42,7 +42,7 @@ export default {
                 return;
             }
 
-            this.$ext.on( "hide", () => {
+            this.ext.on( "hide", () => {
                 this.cancel();
             } );
 

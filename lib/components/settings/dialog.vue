@@ -55,15 +55,15 @@ export default {
 
     "methods": {
         async ready ( e ) {
-            this.$ext = e.detail.cmp;
+            this.ext = e.detail.cmp;
 
             this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
 
-            this.$ext.on( "beforeshow", this.load, this );
+            this.ext.on( "beforeshow", this.load, this );
         },
 
         async load () {
-            var dialog = this.$ext;
+            var dialog = this.ext;
 
             dialog.mask( {
                 "xtype": "loadmask",
@@ -87,8 +87,8 @@ export default {
         },
 
         async testSmtp ( e ) {
-            var record = this.$ext.getViewModel().get( "record" ),
-                dialog = this.$ext;
+            var record = this.ext.getViewModel().get( "record" ),
+                dialog = this.ext;
 
             // button = e.detail.sender;
 
@@ -115,13 +115,13 @@ export default {
         },
 
         cancel () {
-            this.$ext.hide();
+            this.ext.hide();
         },
 
         async submit ( e ) {
-            var record = this.$ext.getViewModel().get( "record" ),
+            var record = this.ext.getViewModel().get( "record" ),
                 form = this.$refs.form.ext,
-                dialog = this.$ext;
+                dialog = this.ext;
 
             if ( !form.validate() ) {
                 this.$.toast( "Please, fill all required fields" );
@@ -143,7 +143,7 @@ export default {
 
                 this.$.toast( "Settings updated" );
 
-                this.$ext.hide();
+                this.ext.hide();
             }
             else {
                 this.$.toast( res );
