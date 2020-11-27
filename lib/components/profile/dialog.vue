@@ -2,22 +2,7 @@
     <ext-dialog title="User Profile" :width="width" :height="height" displayed="true" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" bodyPaddign="10" layout="fit" viewModel="true" @ready="ready">
         <ext-panel scrollable="true" layout="fit">
             <ext-fieldpanel ref="form" modelValidation="true" layout="vbox" defaults='{"defaults":{"labelAlign":"left","labelWidth":250}}'>
-                <ext-fieldset>
-                    <ext-textfield label="App URL" bind="{record.app_url}"/>
-                </ext-fieldset>
-
-                <!-- SMTP -->
-                <ext-fieldset title="SMTP Settings">
-                    <ext-textfield label="SMTP Host" bind="{record.smtp_host}"/>
-                    <ext-spinnerfield label="SMTP Port" decimals="0" minValue="1" maxValue="65535" bind="{record.smtp_port}"/>
-                    <ext-textfield label="SMTP Username" bind="{record.smtp_username}"/>
-                    <ext-passwordfield label="SMTP Password" bind="{record.smtp_password}"/>
-                    <ext-togglefield label="SMTP TLS" bind="{record.smtp_tls}"/>
-
-                    <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end","required":true}'>
-                        <ext-button text="Test SMTP" bind='{"disabled":"{!record.smtp_can_test}"}' @tap="testSmtp"/>
-                    </ext-toolbar>
-                </ext-fieldset>
+                <ext-combobox label="Theme" @ready="themeFieldReady" @change="themeChanged"/>
             </ext-fieldpanel>
 
             <slot/>
@@ -31,6 +16,7 @@
 
 <script>
 import Model from "@/models/settings";
+import themes from "../../../resources/material-themes.json";
 
 export default {
     "props": {
@@ -77,32 +63,26 @@ export default {
             }
         },
 
-        async testSmtp ( e ) {
-            var record = this.$ext.getViewModel().get( "record" ),
-                dialog = this.$ext;
+        themeFieldReady ( e ) {
+            const cmp = e.detail.cmp;
 
-            // button = e.detail.sender;
-
-            dialog.mask( {
-                "xtype": "loadmask",
-                "message": `<div style="color:white;">Testing SMTP<br/>please wait...</div>`,
+            const store = new Ext.data.Store( {
+                "data": Object.keys( themes ).map( name => {
+                    return {
+                        "value": name,
+                        "text": name,
+                    };
+                } ),
             } );
 
-            var values = {
+            cmp.setStore( store );
+        },
 
-                //
-                "smtp_host": record.get( "smtp_host" ),
-                "smtp_port": record.get( "smtp_port" ),
-                "smtp_username": record.get( "smtp_username" ),
-                "smtp_password": record.get( "smtp_password" ),
-                "smtp_tls": record.get( "smtp_tls" ),
-            };
+        themeChanged ( e ) {
+            const id = e.detail.newValue,
+                theme = themes[id];
 
-            var res = await this.$api.call( "admin/settings/test-smtp", values );
-
-            dialog.unmask();
-
-            this.$.toast( res );
+            this.$store.dispatch( "theme/setTheme", theme );
         },
 
         cancel () {
