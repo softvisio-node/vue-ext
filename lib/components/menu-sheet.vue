@@ -49,8 +49,8 @@ export default {
                 return this.$store.getters["theme/darkMode"];
             },
 
-            set ( ev ) {
-                this.$store.dispatch( "theme/setDarkMode", ev.detail.newValue );
+            set ( e ) {
+                this.$store.dispatch( "theme/setDarkMode", e.detail.newValue );
             },
         },
     },
