@@ -4,7 +4,9 @@
 
         <ext-fieldpanel>
             <ext-togglefield label="Dark Mode" labelAlign="left" :value="darkMode" @change="darkMode = $event"/>
-            <ext-combobox label='<i class="fas fa-palette"></i> Theme' labelAlign="left" editable="false" forceSelection="true" @ready="themeFieldReady" @change="themeChanged"/>
+            <ext-fieldcontainer label='<i class="fas fa-palette"></i> Theme' labelAlign="left">
+                <ext-dataview inline="true" @ready="themesViewReady" @childtap="themeChanged"/>
+            </ext-fieldcontainer>
         </ext-fieldpanel>
 
         <!-- <ext&#45;toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'> -->
@@ -64,14 +66,22 @@ export default {
             }
         },
 
-        themeFieldReady ( e ) {
+        themesViewReady ( e ) {
             const cmp = e.detail.cmp;
+
+            cmp.setItemTpl( `
+                <div style="cursor:pointer;margin:5px 5px 5px 5px;border:1px dotted">
+                    <div style="width:20px;height:20px;background-color:{base}"></div>
+                    <div style="width:20px;height:20px;background-color:{accent}"></div>
+                </div>
+            ` );
 
             const store = new Ext.data.Store( {
                 "data": Object.keys( themes ).map( name => {
                     return {
-                        "value": name,
-                        "text": name,
+                        "id": name,
+                        "base": themes[name].base,
+                        "accent": themes[name].accent,
                     };
                 } ),
             } );
@@ -80,7 +90,7 @@ export default {
         },
 
         themeChanged ( e ) {
-            const id = e.detail.newValue,
+            const id = e.detail.location.record.id,
                 theme = themes[id];
 
             this.$store.dispatch( "theme/setTheme", theme );
@@ -88,6 +98,14 @@ export default {
 
         cancel () {
             this.ext.hide();
+        },
+
+        // XXX
+        themeChanged1 ( e ) {
+            const id = e.detail.newValue,
+                theme = themes[id];
+
+            this.$store.dispatch( "theme/setTheme", theme );
         },
 
         async submit ( e ) {
