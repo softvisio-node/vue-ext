@@ -1,6 +1,7 @@
 [
     {
         "accent": "deep-purple",
+        "accentHex": "#673AB7",
         "base": "green"
     },
     {
@@ -9,7 +10,9 @@
     },
     {
         "accent": "light-blue",
-        "base": "pink"
+        "accentHex": "#03A9F4",
+        "base": "pink",
+        "baseHex": "#e91e63"
     },
     {
         "accent": "grey",

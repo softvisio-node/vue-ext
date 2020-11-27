@@ -70,18 +70,19 @@ export default {
             const cmp = e.detail.cmp;
 
             cmp.setItemTpl( `
-                <div style="cursor:pointer;margin:5px 5px 5px 5px;border:1px dotted">
-                    <div style="width:20px;height:20px;background-color:{base}"></div>
-                    <div style="width:20px;height:20px;background-color:{accent}"></div>
-                </div>
-            ` );
+                    <div style="cursor:pointer;margin:5px 5px 5px 5px;border:1px dotted">
+                        <div style="width:20px;height:20px;background-color:{baseColor}"></div>
+                        <div style="width:20px;height:20px;background-color:{accentColor}"></div>
+                    </div>
+                ` );
 
             const store = new Ext.data.Store( {
-                "data": Object.keys( themes ).map( name => {
+                "data": themes.map( theme => {
                     return {
-                        "id": name,
-                        "base": themes[name].base,
-                        "accent": themes[name].accent,
+                        "accent": theme.accent,
+                        "base": theme.base,
+                        "accentColor": theme.accentHex || theme.accent,
+                        "baseColor": theme.baseHex || theme.base,
                     };
                 } ),
             } );
@@ -90,10 +91,9 @@ export default {
         },
 
         themeChanged ( e ) {
-            const id = e.detail.location.record.id,
-                theme = themes[id];
+            const record = e.detail.location.record;
 
-            this.$store.dispatch( "theme/setTheme", theme );
+            this.$store.dispatch( "theme/setTheme", { "accent": record.get( "accent" ), "base": record.get( "base" ) } );
         },
 
         cancel () {
