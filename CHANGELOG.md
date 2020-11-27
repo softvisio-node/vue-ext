@@ -1,3 +1,7 @@
+## 0.32.0 (2020-11-27)
+
+-   profile component
+
 ## 0.31.0 (2020-11-25)
 
 -   components moved
