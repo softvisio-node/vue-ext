@@ -4,8 +4,13 @@
 
         <ext-fieldpanel>
             <ext-togglefield label="Dark Mode" labelAlign="left" :value="darkMode" @change="darkMode = $event"/>
-            <ext-fieldcontainer label='<i class="fas fa-palette"></i> Theme' labelAlign="left">
-                <ext-dataview inline="true" @ready="themesViewReady" @childtap="themeChanged"/>
+
+            <ext-fieldcontainer label='<i class="fas fa-palette"></i> Theme Base Color' labelAlign="top" layout="fit">
+                <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeBaseChanged"/>
+            </ext-fieldcontainer>
+
+            <ext-fieldcontainer label='<i class="fas fa-palette"></i> Theme Accent Color' labelAlign="top" layout="fit">
+                <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeAccentChanged"/>
             </ext-fieldcontainer>
         </ext-fieldpanel>
 
@@ -18,7 +23,6 @@
 
 <script>
 import Model from "@/models/settings";
-import themes from "../../../resources/material-themes.json";
 
 export default {
     "computed": {
@@ -66,48 +70,45 @@ export default {
             }
         },
 
-        themesViewReady ( e ) {
+        themesColorsViewReady ( e ) {
             const cmp = e.detail.cmp;
 
             cmp.setItemTpl( `
-                    <div style="cursor:pointer;margin:5px 5px 5px 5px;border:1px dotted">
-                        <div style="width:20px;height:20px;background-color:{baseColor}"></div>
-                        <div style="width:20px;height:20px;background-color:{accentColor}"></div>
-                    </div>
-                ` );
+                        <div style="cursor:pointer;margin:5px 5px 5px 5px;border:1px dotted">
+                            <div style="width:20px;height:20px;background-color:{color}"></div>
+                        </div>
+                    ` );
 
             const colors = Ext.theme.Material.getColors();
 
             const store = new Ext.data.Store( {
-                "data": themes.map( theme => {
-                    return {
-                        "accent": theme.accent,
-                        "base": theme.base,
-                        "accentColor": colors[theme.accent][500],
-                        "baseColor": colors[theme.base][500],
-                    };
-                } ),
+                "data": Object.keys( colors )
+                    .sort()
+                    .map( name => {
+                        return {
+                            "name": name,
+                            "color": colors[name][500],
+                        };
+                    } ),
             } );
 
             cmp.setStore( store );
         },
 
-        themeChanged ( e ) {
+        themeBaseChanged ( e ) {
             const record = e.detail.location.record;
 
-            this.$store.dispatch( "theme/setTheme", { "accent": record.get( "accent" ), "base": record.get( "base" ) } );
+            this.$store.dispatch( "theme/setTheme", { "base": record.get( "name" ) } );
+        },
+
+        themeAccentChanged ( e ) {
+            const record = e.detail.location.record;
+
+            this.$store.dispatch( "theme/setTheme", { "accent": record.get( "name" ) } );
         },
 
         cancel () {
             this.ext.hide();
-        },
-
-        // XXX
-        themeChanged1 ( e ) {
-            const id = e.detail.newValue,
-                theme = themes[id];
-
-            this.$store.dispatch( "theme/setTheme", theme );
         },
 
         async submit ( e ) {
