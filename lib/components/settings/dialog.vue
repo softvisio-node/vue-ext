@@ -1,7 +1,8 @@
 <template>
-    <ext-dialog :title="title" :width="width" :height="height" displayed="true" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" bodyPaddign="10" :layout="layout" viewModel="true" @ready="ready">
+    <ext-dialog :title="title" :width="width" :height="height" displayed="true" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" :layout="layout" viewModel="true" @ready="ready">
         <ext-fieldpanel ref="form" modelValidation="true" defaults='{"defaults":{"labelAlign":"left","labelWidth":250}}'>
-            <ext-fieldset>
+            <!-- GENERAL -->
+            <ext-fieldset title="General Settings">
                 <ext-textfield label="App URL" bind="{record.app_url}"/>
             </ext-fieldset>
 
@@ -17,8 +18,6 @@
             <ext-container layout='{"type":"hbox","pack":"end"}'>
                 <ext-button text="Test SMTP" bind='{"disabled":"{!record.smtp_can_test}"}' ui="action" @tap="testSmtp"/>
             </ext-container>
-
-            <slot/>
         </ext-fieldpanel>
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
             <ext-button text="Cancel" ui="decline" @tap="cancel"/>
