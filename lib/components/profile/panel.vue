@@ -76,13 +76,15 @@ export default {
                     </div>
                 ` );
 
+            const colors = Ext.theme.Material.getColors();
+
             const store = new Ext.data.Store( {
                 "data": themes.map( theme => {
                     return {
                         "accent": theme.accent,
                         "base": theme.base,
-                        "accentColor": theme.accentHex || theme.accent,
-                        "baseColor": theme.baseHex || theme.base,
+                        "accentColor": colors[theme.accent][500],
+                        "baseColor": colors[theme.base][500],
                     };
                 } ),
             } );
