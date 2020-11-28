@@ -2,17 +2,24 @@
     <ext-panel scrollable="true" layout="vbox" viewModel="true">
         <!-- <ext&#45;fieldpanel ref="form" modelValidation="true" layout="vbox" defaults='{"defaults":{"labelAlign":"left","labelWidth":250}}'/> -->
 
-        <ext-fieldpanel>
-            <ext-togglefield label="Dark Mode" labelAlign="left" :value="darkMode" @change="darkMode = $event"/>
+        <ext-fieldset title='<i class="fas fa-palette"></i> Application Interface Theme' layout='{"type":"hbox","pack":"start","align":"start"}'>
+            <ext-fieldset layout="vbox" width="100">
+                <ext-label html="Dark Mode"/>
+                <ext-togglefield :value="darkMode" @change="darkMode = $event"/>
+            </ext-fieldset>
 
-            <ext-fieldcontainer label='<i class="fas fa-palette"></i> Theme Base Color' labelAlign="top" layout="fit">
+            <ext-spacer width="20"/>
+
+            <ext-fieldset layout="vbox" flex="1">
+                <ext-label html="Base Color"/>
                 <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeBaseChanged"/>
-            </ext-fieldcontainer>
+            </ext-fieldset>
 
-            <ext-fieldcontainer label='<i class="fas fa-palette"></i> Theme Accent Color' labelAlign="top" layout="fit">
+            <ext-fieldset layout="vbox" flex="1">
+                <ext-label html="Accent Color"/>
                 <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeAccentChanged"/>
-            </ext-fieldcontainer>
-        </ext-fieldpanel>
+            </ext-fieldset>
+        </ext-fieldset>
 
         <!-- <ext&#45;toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'> -->
         <!--     <ext&#45;button text="Cancel" ui="decline" @tap="cancel"/> -->
