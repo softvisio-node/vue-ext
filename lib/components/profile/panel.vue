@@ -75,7 +75,7 @@ export default {
 
             cmp.setItemTpl( `
                         <div style="cursor:pointer;margin:5px 5px 5px 5px;border:1px dotted">
-                            <div style="width:20px;height:20px;background-color:{color}"></div>
+                            <div style="width:20px;height:20px;background-color:{color}" data-qtip="{title}"></div>
                         </div>
                     ` );
 
@@ -87,6 +87,7 @@ export default {
                     .map( name => {
                         return {
                             "name": name,
+                            "title": name.replace( /(-.)/g, match => match.replace( "-", " " ).toUpperCase() ).replace( /^./, match => match.toUpperCase() ),
                             "color": colors[name][500],
                         };
                     } ),
