@@ -28,7 +28,7 @@ export default {
     "computed": {
         "darkMode": {
             get () {
-                return this.$store.getters["theme/darkMode"];
+                return this.$store.getters["theme/darkMode"] + "";
             },
 
             set ( e ) {
