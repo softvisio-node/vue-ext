@@ -1,13 +1,11 @@
 <template>
     <ext-dialog :title="title" :width="width" :height="height" displayed="true" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" :layout="layout" viewModel="true" @ready="ready">
-        <ext-fieldpanel ref="form" modelValidation="true" defaults='{"defaults":{"labelAlign":"left","labelWidth":250}}'>
-            <!-- GENERAL -->
-            <ext-fieldset title="General Settings">
-                <ext-textfield label="App URL" bind="{record.app_url}"/>
-            </ext-fieldset>
+        <ext-fieldpanel ref="form" modelValidation="true">
+            <slot name="top"/>
 
             <!-- SMTP -->
-            <ext-fieldset title="SMTP Settings">
+            <ext-fieldset title="SMTP Settings" :hidden="hideSmtpSettings" defaults='{"labelAlign":"left","labelWidth":250}'>
+                <ext-textfield label="App URL" bind="{record.app_url}"/>
                 <ext-textfield label="From <i class='far fa-question-circle'></i>" bind="{record.smtp_from}" placeholder="User Name <email@address>" tooltip="Format: User Name &amp;lt;email@address>."/>
                 <ext-textfield label="SMTP Host" bind="{record.smtp_host}"/>
                 <ext-spinnerfield label="SMTP Port" decimals="0" minValue="1" maxValue="65535" bind="{record.smtp_port}"/>
@@ -15,10 +13,13 @@
                 <ext-passwordfield label="SMTP Password" bind="{record.smtp_password}"/>
                 <ext-togglefield label="SMTP TLS" bind="{record.smtp_tls}"/>
             </ext-fieldset>
-            <ext-container layout='{"type":"hbox","pack":"end"}'>
+            <ext-container layout='{"type":"hbox","pack":"end"}' :hidden="hideSmtpSettings">
                 <ext-button text="Test SMTP" bind='{"disabled":"{!record.smtp_can_test}"}' ui="action" @tap="testSmtp"/>
             </ext-container>
+
+            <slot name="bottom"/>
         </ext-fieldpanel>
+
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
             <ext-button text="Cancel" ui="decline" @tap="cancel"/>
             <ext-button text="Submit" ui="action" bind='{"disabled":"{!record.dirty}"}' @tap="submit"/>
@@ -47,6 +48,9 @@ export default {
             "type": String,
             "default": "fit",
         },
+        "hideSmtpSettings": {
+            "type": Boolean,
+        },
     },
 
     "methods": {
@@ -55,10 +59,10 @@ export default {
 
             this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
 
-            this.ext.on( "beforeshow", this.load, this );
+            this.ext.on( "beforeshow", this.reload, this );
         },
 
-        async load () {
+        async reload () {
             var dialog = this.ext;
 
             dialog.mask( {
@@ -73,7 +77,7 @@ export default {
             if ( !res.ok ) {
                 this.$.toast( res );
 
-                dialog.hide();
+                this.cancel();
             }
             else {
                 const record = Ext.create( Model, res.data );
@@ -139,7 +143,7 @@ export default {
 
                 this.$.toast( "Settings updated" );
 
-                this.ext.hide();
+                this.cancel();
             }
             else {
                 this.$.toast( res );
