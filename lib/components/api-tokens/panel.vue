@@ -20,7 +20,7 @@ import CreateDialog from "./create/dialog";
 export default {
     data () {
         return {
-            "store": this.$store.state["api-tokens"].store,
+            "store": this.$store.getters["api-tokens/store"],
         };
     },
 
