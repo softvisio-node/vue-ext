@@ -37,11 +37,11 @@ export default {
 
     "computed": {
         avatar () {
-            return this.$store.getters["session/avatar"];
+            return this.$store.state.session.avatar;
         },
 
         username () {
-            return '<div class="username">' + this.$store.getters["session/username"] + "</div>";
+            return '<div class="username">' + this.$store.state.session.username + "</div>";
         },
 
         "darkMode": {

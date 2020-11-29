@@ -26,7 +26,7 @@ import CreateDialog from "./create/dialog";
 
 export default {
     mounted () {
-        this.store = this.$store.state["users"].store;
+        this.store = this.$store.state.users.store;
     },
 
     "methods": {
