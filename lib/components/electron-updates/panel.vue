@@ -21,7 +21,7 @@ import CreateDialog from "./create/dialog";
 export default {
     data () {
         return {
-            "store": this.$store.state.electronUpdatesStore,
+            "store": this.$store.state["electron-updates"].store,
         };
     },
 

@@ -64,7 +64,7 @@ export default {
             if ( res.ok ) {
                 this.$.toast( "Release created." );
 
-                this.$store.state.electronUpdatesStore.loadPage( 1 );
+                this.$store.state["electron-updates"].store.loadPage( 1 );
 
                 this.cancel();
             }
