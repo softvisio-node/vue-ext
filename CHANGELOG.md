@@ -1,3 +1,9 @@
+## 0.34.0 (2020-11-29)
+
+-   settings panel
+-   theme store refactored
+-   profile panel
+
 ## 0.33.0 (2020-11-27)
 
 -   .$ext property renamed to .ext
