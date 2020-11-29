@@ -50,7 +50,7 @@ export default {
             },
 
             set ( e ) {
-                this.$store.dispatch( "theme/setDarkMode", e.detail.newValue );
+                this.$store.commit( "theme/darkMode", e.detail.newValue );
             },
         },
     },
