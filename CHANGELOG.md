@@ -1,3 +1,7 @@
+## 0.35.0 (2020-11-30)
+
+-   vuex store refactored
+
 ## 0.34.0 (2020-11-29)
 
 -   settings panel
