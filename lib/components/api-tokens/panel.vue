@@ -18,10 +18,8 @@
 import CreateDialog from "./create/dialog";
 
 export default {
-    data () {
-        return {
-            "store": this.$store.getters["api-tokens/store"],
-        };
+    mounted () {
+        this.store = Ext.getStore( "api-tokens" );
     },
 
     "methods": {

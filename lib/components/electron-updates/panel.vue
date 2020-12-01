@@ -19,10 +19,8 @@
 import CreateDialog from "./create/dialog";
 
 export default {
-    data () {
-        return {
-            "store": this.$store.state["electron-updates"].store,
-        };
+    mounted () {
+        this.store = Ext.getStore( "electron-updates" );
     },
 
     "methods": {

@@ -27,6 +27,10 @@
 
 <script>
 export default {
+    mounted () {
+        this.store = Ext.getStore( "api-tokens" );
+    },
+
     "methods": {
         async ready ( e ) {
             this.ext = e.detail.cmp;
@@ -83,7 +87,7 @@ export default {
 
                 this.$.toast( "API token created" );
 
-                this.$store.getters["api-tokens/store"].loadPage( 1 );
+                this.store.loadPage( 1 );
             }
             else {
                 this.$.toast( res );

@@ -26,7 +26,7 @@ import CreateDialog from "./create/dialog";
 
 export default {
     mounted () {
-        this.store = this.$store.getters["users/store"];
+        this.store = Ext.getStore( "users" );
     },
 
     "methods": {

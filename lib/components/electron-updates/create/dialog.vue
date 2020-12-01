@@ -27,6 +27,10 @@
 
 <script>
 export default {
+    mounted () {
+        this.store = Ext.getStore( "electron-updates" );
+    },
+
     "methods": {
         async ready ( e ) {
             this.ext = e.detail.cmp;
@@ -64,7 +68,7 @@ export default {
             if ( res.ok ) {
                 this.$.toast( "Release created." );
 
-                this.$store.state["electron-updates"].store.loadPage( 1 );
+                this.store.loadPage( 1 );
 
                 this.cancel();
             }
