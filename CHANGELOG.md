@@ -1,3 +1,7 @@
+## 0.36.0 (2020-12-01)
+
+-   ext store refactored
+
 ## 0.35.0 (2020-11-30)
 
 -   vuex store refactored
