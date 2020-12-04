@@ -1,3 +1,7 @@
+## 0.37.0 (2020-12-04)
+
+-   menu sheet refactored
+
 ## 0.36.0 (2020-12-01)
 
 -   ext store refactored
