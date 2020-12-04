@@ -1,7 +1,7 @@
 <template>
     <ext-sheet layout="vbox" side="right" modal="true" displayed="false" cover="true" reveal="false" width="300" @ready="ready">
         <ext-panel layout="vbox" height="130" padding="30 10 10 30" innerCls="x-tabbar">
-            <ext-image :src="avatar" width="60" height="60"/>
+            <Avatar width="60" height="60"/>
             <ext-container :html="username"/>
         </ext-panel>
 
@@ -16,18 +16,21 @@
             <ext-button iconCls="fas fa-sign-out-alt" text="Sign Out" textAlign="left" @tap="signout"/>
 
             <ext-container layout="hbox">
-                <ext-togglefield label="DARK MODE" labelAlign="right" :value="darkMode" @change="darkMode = $event"/>
+                <ext-togglefield boxLabel='<i class="fas fa-adjust"></i> DARK MODE' :value="darkMode" @change="darkMode = $event"/>
             </ext-container>
         </ext-panel>
     </ext-sheet>
 </template>
 
 <script>
-import ChangePasswordDialog from "./change-password-dialog";
-import ProfileDialog from "./profile/dialog";
-import ApiTokensDialog from "./api-tokens/dialog";
+import Avatar from "./avatar";
+import ChangePasswordDialog from "../change-password-dialog";
+import ProfileDialog from "../profile/dialog";
+import ApiTokensDialog from "../api-tokens/dialog";
 
 export default {
+    "components": { Avatar },
+
     "props": {
         "noApiTokens": {
             "type": Boolean,

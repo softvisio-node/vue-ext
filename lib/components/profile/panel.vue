@@ -2,7 +2,7 @@
     <ext-panel scrollable="true" layout="vbox" viewModel="true">
         <ext-fieldset title='<i class="fas fa-palette"></i> Application Interface Theme' layout='{"type":"hbox","pack":"start","align":"start"}'>
             <ext-fieldset layout="vbox" width="100">
-                <ext-label html="Dark Mode"/>
+                <ext-label html='<i class="fas fa-adjust"></i> Dark Mode'/>
                 <ext-togglefield :value="darkMode" @change="darkMode = $event"/>
             </ext-fieldset>
 
