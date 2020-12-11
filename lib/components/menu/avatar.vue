@@ -20,7 +20,7 @@ export default {
 
     "computed": {
         avatar () {
-            return this.$store.state.session.avatar;
+            return this.$store.session.avatar;
         },
     },
 };

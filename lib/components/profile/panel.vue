@@ -26,11 +26,11 @@ export default {
     "computed": {
         "darkMode": {
             get () {
-                return this.$store.state.theme.darkMode + "";
+                return this.$store.theme.darkMode + "";
             },
 
             set ( e ) {
-                this.$store.commit( "theme/darkMode", e.detail.newValue );
+                this.$store.theme.setDarkMode( e.detail.newValue );
             },
         },
     },
@@ -65,13 +65,13 @@ export default {
         themeBaseChanged ( e ) {
             const record = e.detail.location.record;
 
-            this.$store.commit( "theme/theme", { "base": record.get( "name" ) } );
+            this.$store.theme.setTheme( { "base": record.get( "name" ) } );
         },
 
         themeAccentChanged ( e ) {
             const record = e.detail.location.record;
 
-            this.$store.commit( "theme/theme", { "accent": record.get( "name" ) } );
+            this.$store.theme.setTheme( { "accent": record.get( "name" ) } );
         },
     },
 };

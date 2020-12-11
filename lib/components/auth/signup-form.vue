@@ -63,7 +63,7 @@ export default {
 
             Ext.Viewport.mask();
 
-            const res = await this.$store.dispatch( "session/signup", vals );
+            const res = await this.$store.session.signup( vals );
 
             Ext.Viewport.unmask();
 

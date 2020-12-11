@@ -40,20 +40,20 @@ export default {
 
     "computed": {
         avatar () {
-            return this.$store.state.session.avatar;
+            return this.$store.session.avatar;
         },
 
         username () {
-            return '<div class="username">' + this.$store.state.session.username + "</div>";
+            return '<div class="username">' + this.$store.session.username + "</div>";
         },
 
         "darkMode": {
             get () {
-                return this.$store.state.theme.darkMode + "";
+                return this.$store.theme.darkMode + "";
             },
 
             set ( e ) {
-                this.$store.commit( "theme/darkMode", e.detail.newValue );
+                this.$store.theme.setDarkMode( e.detail.newValue );
             },
         },
     },
@@ -104,7 +104,7 @@ export default {
         signout () {
             this.hide();
 
-            this.$store.dispatch( "session/signout" );
+            this.$store.session.signout();
         },
     },
 };

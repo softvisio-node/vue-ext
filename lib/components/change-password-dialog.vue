@@ -51,7 +51,7 @@ export default {
 
             Ext.Viewport.mask();
 
-            const res = await this.$store.dispatch( "session/setPassword", vals.password );
+            const res = await this.$store.session.setPassword( vals.password );
 
             Ext.Viewport.unmask();
 

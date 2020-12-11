@@ -53,7 +53,7 @@ export default {
 
                 Ext.Viewport.mask();
 
-                var res = await this.$store.dispatch( "session/sendPasswordResetEmail", vals.username );
+                var res = await this.$store.session.sendPasswordResetEmail( vals.username );
 
                 Ext.Viewport.unmask();
 

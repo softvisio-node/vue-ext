@@ -38,7 +38,7 @@ export default {
             while ( 1 ) {
                 viewport.mask( this.defaultMask );
 
-                var res = await this.$store.dispatch( "session/signin" );
+                var res = await this.$store.session.signin();
 
                 viewport.unmask();
 
@@ -105,7 +105,7 @@ export default {
             else {
                 Ext.Viewport.mask();
 
-                const res = await this.$store.dispatch( "session/confirmEmailByToken", token );
+                const res = await this.$store.session.confirmEmailByToken( token );
 
                 Ext.Viewport.unmask();
 

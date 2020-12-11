@@ -42,7 +42,7 @@ export default {
 
     "computed": {
         darkMode () {
-            return this.$store.state.theme.darkMode;
+            return this.$store.theme.darkMode;
         },
     },
 

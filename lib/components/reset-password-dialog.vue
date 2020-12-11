@@ -71,7 +71,7 @@ export default {
 
             form.mask();
 
-            const res = await this.$store.dispatch( "session/setPasswordByToken", [vals.token, vals.password] );
+            const res = await this.$store.session.setPasswordByToken( [vals.token, vals.password] );
 
             form.unmask();
 
