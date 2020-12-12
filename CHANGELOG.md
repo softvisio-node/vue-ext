@@ -1,3 +1,7 @@
+## 0.38.0 (2020-12-12)
+
+-   vuew store refactored
+
 ## 0.37.0 (2020-12-04)
 
 -   menu sheet refactored
