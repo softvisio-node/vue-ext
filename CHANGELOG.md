@@ -1,3 +1,8 @@
+## 0.39.0 (2020-12-13)
+
+-   export default from reverted
+-   re-export store
+
 ## 0.38.0 (2020-12-12)
 
 -   vuew store refactored
