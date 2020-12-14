@@ -1,3 +1,7 @@
+## 0.40.0 (2020-12-14)
+
+-   main store updated
+
 ## 0.39.0 (2020-12-13)
 
 -   export default from reverted
