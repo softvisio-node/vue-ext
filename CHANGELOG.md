@@ -1,3 +1,7 @@
+## 0.41.0 (2020-12-17)
+
+-   default stores refactored
+
 ## 0.40.0 (2020-12-14)
 
 -   main store updated
