@@ -4,7 +4,7 @@
             <ext-searchfield placeholder="search tokens by name" width="200" @change="search"/>
             <ext-spacer/>
             <ext-button iconCls="fas fa-plus" text="Create API Token" @tap="create"/>
-            <ext-button iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
+            <ext-button iconCls="fas fa-redo" text="Refresh" @tap="reload"/>
         </ext-toolbar>
 
         <ext-column text="Name" dataIndex="name" flex="1"/>
@@ -41,7 +41,7 @@ export default {
 
             grid.setStore( this.store );
 
-            this.store.load();
+            this.$store["api-tokens"].reload();
         },
 
         enabledColReady ( e ) {
@@ -98,8 +98,8 @@ export default {
             }
         },
 
-        refresh () {
-            this.store.loadPage( 1 );
+        reload () {
+            this.$store["api-tokens"].reload();
         },
 
         async setEnabled ( button, newVal, oldVal ) {

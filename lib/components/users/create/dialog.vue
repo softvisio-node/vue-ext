@@ -18,10 +18,6 @@
 
 <script>
 export default {
-    mounted () {
-        this.store = Ext.getStore( "users" );
-    },
-
     "methods": {
         async ready ( e ) {
             this.ext = e.detail.cmp;
@@ -66,7 +62,7 @@ export default {
             if ( res.ok ) {
                 this.$.toast( "User created" );
 
-                this.store.reload();
+                this.$store.users.reload();
 
                 this.cancel();
             }

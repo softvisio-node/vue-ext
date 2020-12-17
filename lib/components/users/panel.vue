@@ -4,7 +4,7 @@
             <ext-searchfield placeholder="search users" width="200" @change="search"/>
             <ext-spacer/>
             <ext-button iconCls="fas fa-user-plus" text="Create User" @tap="create"/>
-            <ext-button iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
+            <ext-button iconCls="fas fa-redo" text="Refresh" @tap="reload"/>
         </ext-toolbar>
 
         <ext-column width="40" @ready="avatarColReady"/>
@@ -224,8 +224,8 @@ export default {
             }
         },
 
-        refresh () {
-            this.store.reload();
+        reload () {
+            this.$store.users.reload();
         },
 
         async create () {
