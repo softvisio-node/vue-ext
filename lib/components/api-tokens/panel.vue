@@ -19,7 +19,7 @@ import CreateDialog from "./create/dialog";
 
 export default {
     mounted () {
-        this.store = Ext.getStore( "api-tokens" );
+        this.store = this.$store["api-tokens"].store;
     },
 
     "methods": {
@@ -41,7 +41,7 @@ export default {
 
             grid.setStore( this.store );
 
-            this.$store["api-tokens"].reload();
+            this.reload();
         },
 
         enabledColReady ( e ) {

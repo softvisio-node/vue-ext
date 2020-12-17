@@ -83,7 +83,7 @@ export default {
 
                 this.$.toast( "API token created" );
 
-                this.$store["api-tokens"].reloadPage( 1 );
+                this.$store["api-tokens"].reload();
             }
             else {
                 this.$.toast( res );

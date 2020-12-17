@@ -26,7 +26,7 @@ import CreateDialog from "./create/dialog";
 
 export default {
     mounted () {
-        this.store = Ext.getStore( "users" );
+        this.store = this.$store.users.store;
     },
 
     "methods": {
@@ -48,7 +48,7 @@ export default {
 
             grid.setStore( this.store );
 
-            this.store.load();
+            this.reload();
         },
 
         avatarColReady ( e ) {

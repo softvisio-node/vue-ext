@@ -20,7 +20,7 @@ import CreateDialog from "./create/dialog";
 
 export default {
     mounted () {
-        this.store = Ext.getStore( "electron-updates" );
+        this.store = this.$store["electron-updates"].store;
     },
 
     "methods": {
@@ -42,7 +42,7 @@ export default {
 
             grid.setStore( this.store );
 
-            this.store.load();
+            this.reload();
         },
 
         publishedColReady ( e ) {
@@ -81,6 +81,10 @@ export default {
                     ],
                 },
             } );
+        },
+
+        reload () {
+            this.$store["electron-updates"].reload();
         },
 
         async setPublished ( button, newVal, oldVal ) {
