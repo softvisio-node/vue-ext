@@ -28,8 +28,6 @@
 </template>
 
 <script>
-import Model from "@/models/settings";
-
 export default {
     "props": {
         "title": {
@@ -70,7 +68,7 @@ export default {
                 "message": `<div style="color:white;">Loading<br/>please wait...</div>`,
             } );
 
-            var res = await this.$api.call( "admin/settings/read" );
+            var res = await this.$store.settings.reload();
 
             dialog.unmask();
 
@@ -80,15 +78,12 @@ export default {
                 this.cancel();
             }
             else {
-                const record = Ext.create( Model, res.data );
-
-                dialog.getViewModel().set( "record", record );
+                dialog.getViewModel().set( "record", res.data );
             }
         },
 
         async testSmtp ( e ) {
-            var record = this.ext.getViewModel().get( "record" ),
-                dialog = this.ext;
+            var dialog = this.ext;
 
             // button = e.detail.sender;
 
@@ -97,17 +92,7 @@ export default {
                 "message": `<div style="color:white;">Testing SMTP<br/>please wait...</div>`,
             } );
 
-            var values = {
-
-                //
-                "smtp_host": record.get( "smtp_host" ),
-                "smtp_port": record.get( "smtp_port" ),
-                "smtp_username": record.get( "smtp_username" ),
-                "smtp_password": record.get( "smtp_password" ),
-                "smtp_tls": record.get( "smtp_tls" ),
-            };
-
-            var res = await this.$api.call( "admin/settings/test-smtp", values );
+            var res = await this.$store.settings.testSmtp();
 
             dialog.unmask();
 
