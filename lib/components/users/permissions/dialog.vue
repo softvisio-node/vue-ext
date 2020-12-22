@@ -9,7 +9,7 @@
         </ext-grid>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button text="Cancel" ui="decline" @tap="cancel"/>
+            <ext-button text="Cancel" ui="decline" @tap="close"/>
             <ext-button text="Submit" ui="action" bind='{"disabled":"{!dirty}"}' @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
@@ -66,57 +66,44 @@ export default {
 
             this.ext.mask();
 
-            const res = await this.$api.call( "admin/users/get-permissions", this.record.id );
+            const res = await this.$api.call( "admin/users/get-permissions", record.id );
 
             this.ext.unmask();
 
             if ( !res.ok ) {
                 this.$.toast( res );
 
-                this.cancel();
+                this.close();
             }
             else {
                 this.store.setData( res.data );
             }
         },
 
-        cancel () {
+        close () {
             this.ext.hide();
         },
 
         async submit () {
-            var form = this.$refs.form.ext;
+            const permissions = {};
 
-            if ( !form.validate() ) return;
+            this.store.each( record => {
+                if ( record.get( "readonly" ) ) return;
 
-            var vals = form.getValues();
+                permissions[record.id] = record.get( "enabled" );
+            } );
 
-            if ( vals.password !== vals.password1 ) {
-                form.getFields( "password1" ).setError( "Passwords are not match" );
+            const res = await this.$api.call( "admin/users/update-permissions", this.record.id, permissions );
 
-                return;
-            }
-
-            if ( vals.admin ) {
-                vals.permissions = {
-                    "admin": true,
-                };
-            }
-
-            delete vals.admin;
-            delete vals.password1;
-
-            var res = await this.$api.call( "admin/users/create", vals );
-
-            if ( res.ok ) {
-                this.$.toast( "User created" );
-
-                this.$store.users.reload();
-
-                this.cancel();
+            if ( !res.ok ) {
+                this.$.toast( res );
             }
             else {
-                this.$.toast( res );
+                this.$.toast( "User permissions updated" );
+
+                this.record.set( "permissions", permissions );
+
+                this.close();
             }
         },
     },
