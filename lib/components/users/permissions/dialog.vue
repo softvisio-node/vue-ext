@@ -1,41 +1,84 @@
 <template>
-    <ext-dialog title="Create User" width="350" height="400" displayed="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" @ready="ready">
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
-            <ext-emailfield name="username" label="Email" required="true"/>
-            <ext-passwordfield name="password" label="Password" required="true"/>
-            <ext-passwordfield name="password1" label="Confirm Password" required="true"/>
-            <ext-togglefield name="enabled" label="Enabled" value="true"/>
-            <ext-togglefield name="admin" label="Admin" value="false"/>
-        </ext-fieldpanel>
+    <ext-dialog title="Edit User Permissions" width="800" height="400" displayed="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="fit" viewModel="true">
+        <ext-grid plugins='{"gridsummaryrow":"true"}' multicolumnSort="true" @ready="gridReady">
+            <ext-column text="Name" dataIndex="name" width="150"/>
 
-        <ext-toolbar docked="bottom">
-            <ext-spacer/>
+            <ext-column text="Description" dataIndex="description" flex="1"/>
+
+            <ext-column text="Enabled" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
+        </ext-grid>
+
+        <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
             <ext-button text="Cancel" ui="decline" @tap="cancel"/>
-            <ext-button text="Create User" ui="action" @tap="submit"/>
+            <ext-button text="Submit" ui="action" bind='{"disabled":"{!dirty}"}' @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
 
 <script>
-
-// import CONST from "@/const";
+import UserPermissionsModel from "../../../models/user/permissions";
 
 export default {
-    "methods": {
-        async ready ( e ) {
-            this.ext = e.detail.cmp;
+    mounted () {
+        this.store = new Ext.data.Store( {
+            "model": UserPermissionsModel,
+            "autoLoad": false,
+            "remoteSort": false,
+            "remoteFilter": false,
+        } );
 
-            this.ext.on( "hide", () => this.$refs.form.ext.reset() );
+        this.store.on( "datachanged", store => this.ext.getViewModel().set( "dirty", !!store.getUpdatedRecords().length ) );
+    },
+
+    "methods": {
+        gridReady ( e ) {
+            var grid = e.detail.cmp;
+
+            grid.setMultiColumnSort( true );
+
+            // grid.setColumnMenu( null );
+
+            grid.setItemConfig( { "viewModel": true } );
+
+            grid.setStore( this.store );
         },
 
-        formReady ( e ) {
+        enabledColReady ( e ) {
             var cmp = e.detail.cmp;
 
-            cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "layout": { "type": "hbox", "pack": "center" },
+                    "items": [
+                        {
+                            "xtype": "togglefield",
+                            "bind": { "value": "{record.enabled}", "disabled": "{record.readonly}" },
+                        },
+                    ],
+                },
+            } );
         },
 
-        // XXX
-        async setRecord ( record ) {},
+        async setRecord ( record ) {
+            this.record = record;
+
+            this.ext.mask();
+
+            const res = await this.$api.call( "admin/users/get-permissions", this.record.id );
+
+            this.ext.unmask();
+
+            if ( !res.ok ) {
+                this.$.toast( res );
+
+                this.cancel();
+            }
+            else {
+                this.store.setData( res.data );
+            }
+        },
 
         cancel () {
             this.ext.hide();
