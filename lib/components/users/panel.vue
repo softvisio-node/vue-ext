@@ -3,7 +3,7 @@
         <ext-toolbar docked="top">
             <ext-searchfield placeholder="search users" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fas fa-user-plus" text="Create User" @tap="create"/>
+            <ext-button iconCls="fas fa-user-plus" text="Create User" @tap="showCreateUserDialog"/>
             <ext-button iconCls="fas fa-redo" text="Refresh" @tap="reload"/>
         </ext-toolbar>
 
@@ -23,6 +23,7 @@
 
 <script>
 import CreateDialog from "./create/dialog";
+import PermissionsDialog from "./permissions/dialog";
 
 // import CONST from "@/const";
 
@@ -126,11 +127,13 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fas fa-unlock-alt",
+                            "tooltip": "Edit user permissions",
                             "handler": this.showUserPermissionsDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "far fa-trash-alt",
+                            "tooltip": "Delete user",
                             "handler": this.deleteUser.bind( this ),
                         },
                     ],
@@ -235,17 +238,21 @@ export default {
             this.$store.users.reload();
         },
 
-        async create () {
+        async showCreateUserDialog () {
             if ( !this.createDialog ) this.createDialog = await Ext.Viewport.addVue( CreateDialog );
 
             this.createDialog.ext.show();
         },
 
-        // XXX
         async showUserPermissionsDialog ( button ) {
+            const gridrow = button.up( "gridrow" ),
+                record = gridrow.getRecord();
 
-            // const gridrow = button.up( "gridrow" ),
-            //     record = gridrow.getRecord();
+            if ( !this.permissionsDialog ) this.permissionsDialog = await Ext.Viewport.addVue( PermissionsDialog );
+
+            this.permissionsDialog.ext.show();
+
+            this.permissionsDialog.setRecord( record );
         },
     },
 };
