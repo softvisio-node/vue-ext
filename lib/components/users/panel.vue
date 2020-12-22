@@ -17,12 +17,14 @@
 
         <ext-column text="Enabled" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
 
-        <ext-column width="40" @ready="actionColReady"/>
+        <ext-column width="80" @ready="actionColReady"/>
     </ext-grid>
 </template>
 
 <script>
 import CreateDialog from "./create/dialog";
+
+import CONST from "@/const";
 
 export default {
     mounted () {
@@ -85,7 +87,7 @@ export default {
                     "items": [
                         {
                             "xtype": "togglefield",
-                            "bind": { "value": { "bindTo": "{!!record.permissions.admin}", "deep": true } },
+                            "bind": { "value": { "bindTo": `{!!record.permissions.${CONST.PERMISSIONS.ADMIN}}`, "deep": true } },
                             "listeners": { "change": this.setUserAdmin.bind( this ) },
                         },
                     ],
@@ -119,12 +121,17 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "end", "align": "end" },
+                    "layout": { "type": "hbox", "pack": "center", "align": "center" },
                     "items": [
                         {
                             "xtype": "button",
+                            "iconCls": "fas fa-unlock-alt",
+                            "handler": this.showUserPermissionsDialog.bind( this ),
+                        },
+                        {
+                            "xtype": "button",
                             "iconCls": "far fa-trash-alt",
-                            "handler": this.delete.bind( this ),
+                            "handler": this.deleteUser.bind( this ),
                         },
                     ],
                 },
@@ -141,7 +148,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "admin/users/update-permissions", record.get( "id" ), { "admin": newVal } );
+            var res = await this.$api.call( "admin/users/update-permissions", record.get( "id" ), { [CONST.PERMISSIONS.ADMIN]: newVal } );
 
             if ( !res.ok ) {
                 this.$.toast( res );
@@ -190,7 +197,7 @@ export default {
             return;
         },
 
-        async delete ( button ) {
+        async deleteUser ( button ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
@@ -232,6 +239,13 @@ export default {
             if ( !this.createDialog ) this.createDialog = await Ext.Viewport.addVue( CreateDialog );
 
             this.createDialog.ext.show();
+        },
+
+        // XXX
+        async showUserPermissionsDialog ( button ) {
+
+            // const gridrow = button.up( "gridrow" ),
+            //     record = gridrow.getRecord();
         },
     },
 };
