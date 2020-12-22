@@ -87,7 +87,7 @@ export default {
                     "items": [
                         {
                             "xtype": "togglefield",
-                            "bind": { "value": { "bindTo": "{!!record.permissions.ADMIN}", "deep": true } },
+                            "bind": { "value": { "bindTo": "{!!record.permissions.admin}", "deep": true } },
                             "listeners": { "change": this.setUserAdmin.bind( this ) },
                         },
                     ],
@@ -148,7 +148,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "admin/users/update-permissions", record.get( "id" ), { "ADMIN": newVal } );
+            var res = await this.$api.call( "admin/users/update-permissions", record.get( "id" ), { "admin": newVal } );
 
             if ( !res.ok ) {
                 this.$.toast( res );

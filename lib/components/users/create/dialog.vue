@@ -53,7 +53,7 @@ export default {
 
             if ( vals.admin ) {
                 vals.permissions = {
-                    "ADMIN": true,
+                    "admin": true,
                 };
             }
 
