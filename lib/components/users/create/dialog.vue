@@ -17,7 +17,8 @@
 </template>
 
 <script>
-import CONST from "@/const";
+
+// import CONST from "@/const";
 
 export default {
     "methods": {
@@ -52,7 +53,7 @@ export default {
 
             if ( vals.admin ) {
                 vals.permissions = {
-                    [CONST.PERMISSIONS.ADMIN]: true,
+                    "ADMIN": true,
                 };
             }
 

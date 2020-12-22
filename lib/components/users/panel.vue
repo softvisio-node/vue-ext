@@ -24,7 +24,7 @@
 <script>
 import CreateDialog from "./create/dialog";
 
-import CONST from "@/const";
+// import CONST from "@/const";
 
 export default {
     mounted () {
@@ -87,7 +87,7 @@ export default {
                     "items": [
                         {
                             "xtype": "togglefield",
-                            "bind": { "value": { "bindTo": `{!!record.permissions.${CONST.PERMISSIONS.ADMIN}}`, "deep": true } },
+                            "bind": { "value": { "bindTo": "{!!record.permissions.ADMIN}", "deep": true } },
                             "listeners": { "change": this.setUserAdmin.bind( this ) },
                         },
                     ],
@@ -148,7 +148,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "admin/users/update-permissions", record.get( "id" ), { [CONST.PERMISSIONS.ADMIN]: newVal } );
+            var res = await this.$api.call( "admin/users/update-permissions", record.get( "id" ), { "ADMIN": newVal } );
 
             if ( !res.ok ) {
                 this.$.toast( res );
