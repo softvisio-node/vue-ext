@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Reset Password" layout="fit" width="300" minHeight="450" displayed="true" closable="true" draggable="false" closeAction="destroy" hideOnMaskTap="true" @destroy="cancel" @ready="ready">
+    <ext-dialog title="Reset Password" layout="fit" width="300" minHeight="450" displayed="true" closable="true" draggable="false" closeAction="destroy" hideOnMaskTap="true" @destroy="close" @ready="ready">
         <ext-fieldpanel ref="form" defaults1='{"labelAlign":"left","labelWidth":120}'>
             <ext-hiddenfield name="token" :value="token"/>
             <ext-passwordfield name="password" label="New Password" required="true"/>
@@ -7,7 +7,7 @@
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button text="Cancel" ui="decline" @tap="cancel"/>
+            <ext-button text="Cancel" ui="decline" @tap="close"/>
             <ext-button text="Reset Password" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
@@ -37,19 +37,19 @@ export default {
             if ( !this.token ) {
                 this.$.toast( "Password reset token was not found.", 5000 );
 
-                this.cancel();
+                this.close();
 
                 return;
             }
 
             this.ext.on( "hide", () => {
-                this.cancel();
+                this.close();
             } );
 
             this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
         },
 
-        cancel () {
+        close () {
             this.$router.redirectTo( "/", { "replace": true } );
 
             this.$destroy();
@@ -78,7 +78,7 @@ export default {
             if ( res.ok ) {
                 this.$.toast( "Password changed." );
 
-                this.cancel();
+                this.close();
             }
             else {
                 this.$.toast( res );

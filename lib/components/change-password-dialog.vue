@@ -6,7 +6,7 @@
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button text="Cancel" ui="decline" @tap="cancel"/>
+            <ext-button text="Cancel" ui="decline" @tap="close"/>
             <ext-button text="Submit" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
@@ -31,7 +31,7 @@ export default {
             cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
         },
 
-        cancel () {
+        close () {
             this.ext.hide();
         },
 
@@ -58,7 +58,7 @@ export default {
             if ( res.ok ) {
                 this.$.toast( "Password changed." );
 
-                this.cancel();
+                this.close();
             }
             else {
                 this.$.toast( res );

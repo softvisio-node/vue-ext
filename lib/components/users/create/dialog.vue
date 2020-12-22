@@ -10,7 +10,7 @@
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button text="Cancel" ui="decline" @tap="cancel"/>
+            <ext-button text="Cancel" ui="decline" @tap="close"/>
             <ext-button text="Create User" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
@@ -34,7 +34,7 @@ export default {
             cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
         },
 
-        cancel () {
+        close () {
             this.ext.hide();
         },
 
@@ -67,7 +67,7 @@ export default {
 
                 this.$store.users.reload();
 
-                this.cancel();
+                this.close();
             }
             else {
                 this.$.toast( res );

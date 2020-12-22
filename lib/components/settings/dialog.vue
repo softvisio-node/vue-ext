@@ -21,7 +21,7 @@
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button text="Cancel" ui="decline" @tap="cancel"/>
+            <ext-button text="Cancel" ui="decline" @tap="close"/>
             <ext-button text="Submit" ui="action" bind='{"disabled":"{!record.dirty}"}' @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
@@ -75,7 +75,7 @@ export default {
             if ( !res.ok ) {
                 this.$.toast( res );
 
-                this.cancel();
+                this.close();
             }
             else {
                 dialog.getViewModel().set( "record", res.data );
@@ -99,7 +99,7 @@ export default {
             this.$.toast( res );
         },
 
-        cancel () {
+        close () {
             this.ext.hide();
         },
 
@@ -128,7 +128,7 @@ export default {
 
                 this.$.toast( "Settings updated" );
 
-                this.cancel();
+                this.close();
             }
             else {
                 this.$.toast( res );

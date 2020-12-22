@@ -18,9 +18,9 @@
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button ref="cancel" text="Cancel" ui="decline" @tap="cancel"/>
+            <ext-button ref="cancel" text="Cancel" ui="decline" @tap="close"/>
             <ext-button ref="submit" text="Create" ui="action" @tap="submit"/>
-            <ext-button ref="close" text="Close" ui="action" hidden="true" @tap="cancel"/>
+            <ext-button ref="close" text="Close" ui="action" hidden="true" @tap="close"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -51,7 +51,7 @@ export default {
             cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
         },
 
-        cancel () {
+        close () {
             this.ext.hide();
         },
 
