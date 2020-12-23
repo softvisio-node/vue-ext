@@ -76,6 +76,7 @@ export default {
                 this.close();
             }
             else {
+                this.store.setData( [] );
                 this.store.setData( res.data );
             }
         },
