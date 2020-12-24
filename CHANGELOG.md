@@ -1,3 +1,7 @@
+## 0.43.0 (2020-12-24)
+
+-   app permissions
+
 ## 0.42.0 (2020-12-19)
 
 -   default stores refactored
