@@ -3,19 +3,20 @@
         <ext-toolbar docked="top">
             <ext-searchfield placeholder="search tokens by name" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fas fa-plus" text="Create API Token" @tap="create"/>
+            <ext-button iconCls="fas fa-plus" text="Create API Token" @tap="showCreateTokenDialog"/>
             <ext-button iconCls="fas fa-redo" text="Refresh" @tap="reload"/>
         </ext-toolbar>
 
         <ext-column text="Name" dataIndex="name" flex="1"/>
         <ext-column text="Created" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
         <ext-column text="Enabled" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
-        <ext-column width="40" @ready="actionColReady"/>
+        <ext-column width="80" @ready="actionColReady"/>
     </ext-grid>
 </template>
 
 <script>
 import CreateDialog from "./create/dialog";
+import PermissionsDialog from "./permissions/dialog";
 
 export default {
     mounted () {
@@ -70,8 +71,14 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "end", "align": "end" },
+                    "layout": { "type": "hbox", "pack": "center", "align": "center" },
                     "items": [
+                        {
+                            "xtype": "button",
+                            "iconCls": "fas fa-unlock-alt",
+                            "tooltip": "Edit token permissions",
+                            "handler": this.showTokenPermissionsDialog.bind( this ),
+                        },
                         {
                             "xtype": "button",
                             "iconCls": "far fa-trash-alt",
@@ -148,10 +155,21 @@ export default {
             }
         },
 
-        async create () {
+        async showCreateTokenDialog () {
             if ( !this.createDialog ) this.createDialog = await Ext.Viewport.addVue( CreateDialog );
 
             this.createDialog.ext.show();
+        },
+
+        async showTokenPermissionsDialog ( button ) {
+            const gridrow = button.up( "gridrow" ),
+                record = gridrow.getRecord();
+
+            if ( !this.permissionsDialog ) this.permissionsDialog = await Ext.Viewport.addVue( PermissionsDialog );
+
+            this.permissionsDialog.ext.show();
+
+            this.permissionsDialog.setRecord( record );
         },
     },
 };
