@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import UserPermissionsModel from "../../../models/user/permissions";
+import UserPermissionsModel from "../../../models/permissions";
 
 export default {
     mounted () {
@@ -102,7 +102,7 @@ export default {
             else {
                 this.$.toast( "User permissions updated" );
 
-                this.record.set( "permissions", permissions );
+                this.record.set( "permissions", Ext.apply( {}, permissions, this.record.get( "permissions" ) ) );
 
                 this.close();
             }

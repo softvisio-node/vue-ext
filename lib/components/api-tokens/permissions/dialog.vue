@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import UserPermissionsModel from "../../../models/user/permissions";
+import UserPermissionsModel from "../../../models/permissions";
 
 export default {
     mounted () {
@@ -94,15 +94,15 @@ export default {
                 permissions[record.id] = record.get( "enabled" );
             } );
 
-            const res = await this.$api.call( "admin/users/update-permissions", this.record.id, permissions );
+            const res = await this.$api.call( "api-tokens/update-permissions", this.record.id, permissions );
 
             if ( !res.ok ) {
                 this.$.toast( res );
             }
             else {
-                this.$.toast( "User permissions updated" );
+                this.$.toast( "Token permissions updated" );
 
-                this.record.set( "permissions", permissions );
+                this.record.set( "permissions", Ext.apply( {}, permissions, this.record.get( "permissions" ) ) );
 
                 this.close();
             }
