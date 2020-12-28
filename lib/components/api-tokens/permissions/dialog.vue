@@ -54,7 +54,7 @@ export default {
                     "items": [
                         {
                             "xtype": "togglefield",
-                            "bind": { "value": "{record.enabled}", "disabled": "{record.readonly}" },
+                            "bind": { "value": "{record.enabled}" },
                         },
                     ],
                 },
@@ -89,7 +89,7 @@ export default {
             const permissions = {};
 
             this.store.each( record => {
-                if ( record.get( "readonly" ) ) return;
+                if ( !record.dirty ) return;
 
                 permissions[record.id] = record.get( "enabled" );
             } );
