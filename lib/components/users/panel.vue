@@ -3,7 +3,7 @@
         <ext-toolbar docked="top">
             <ext-searchfield placeholder="search users" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fas fa-user-plus" text="Create User" @tap="showCreateUserDialog"/>
+            <ext-button iconCls="fas fa-user-plus" text="Create User" padding="0 0 0 5" @tap="showCreateUserDialog"/>
             <ext-button iconCls="fas fa-redo" text="Refresh" @tap="reload"/>
         </ext-toolbar>
 
