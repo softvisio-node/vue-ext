@@ -164,6 +164,8 @@ export default {
                 button.resumeEvent( "change" );
             }
             else {
+                this.$.toast( "User permissions updated" );
+
                 userPermissions.admin = newVal;
             }
 
@@ -194,6 +196,8 @@ export default {
                 button.resumeEvent( "change" );
             }
             else {
+                this.$.toast( `User ${newVal ? "enabled" : "disabled"}` );
+
                 button.enable();
             }
 
