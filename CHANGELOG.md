@@ -1,3 +1,7 @@
+## 0.44.0 (2021-01-02)
+
+-   token permissions
+
 ## 0.43.0 (2020-12-24)
 
 -   app permissions
