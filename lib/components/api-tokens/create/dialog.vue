@@ -6,7 +6,7 @@
 
         <ext-container ref="done" defaults='{"labelAlign":"top"}' hidden="true">
             <ext-spacer height="10"/>
-            <ext-textareafield ref="token" label="Your API Access Token:" readOnly="true" height="90"/>
+            <ext-textareafield ref="token" label="Your API Access Token:" textAlign="center" readOnly="true" height="90"/>
             <ext-container>
                 <div>Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again.</div>
             </ext-container>
