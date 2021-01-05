@@ -1,3 +1,7 @@
+## 0.45.0 (2021-01-05)
+
+-   user model fields updated
+
 ## 0.44.0 (2021-01-02)
 
 -   token permissions
