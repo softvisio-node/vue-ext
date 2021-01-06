@@ -1,3 +1,7 @@
+## 0.46.0 (2021-01-06)
+
+-   api token align center
+
 ## 0.45.0 (2021-01-05)
 
 -   user model fields updated
