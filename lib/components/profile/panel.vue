@@ -1,9 +1,9 @@
 <template>
     <ext-panel scrollable="true" layout="vbox" viewModel="true">
         <ext-fieldset title='<i class="fas fa-palette"></i> Application Interface Theme' layout='{"type":"hbox","pack":"start","align":"start"}'>
-            <ext-fieldset layout="vbox" width="100">
-                <ext-label html='<i class="fas fa-adjust"></i> Dark Mode'/>
-                <ext-togglefield :value="darkMode" @change="darkMode = $event"/>
+            <ext-fieldset layout="vbox" width="120">
+                <ext-togglefield label="Follow OS Theme" :value="systemDarkMode" @change="systemDarkMode = $event"/>
+                <ext-togglefield label='<i class="fas fa-adjust"></i> Dark Mode' :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
             </ext-fieldset>
 
             <ext-spacer width="20"/>
@@ -24,6 +24,16 @@
 <script>
 export default {
     "computed": {
+        "systemDarkMode": {
+            get () {
+                return this.$store.theme.systemDarkMode + "";
+            },
+
+            set ( e ) {
+                this.$store.theme.setSystemDarkMode( e.detail.newValue );
+            },
+        },
+
         "darkMode": {
             get () {
                 return this.$store.theme.darkMode + "";
