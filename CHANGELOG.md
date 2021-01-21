@@ -1,3 +1,7 @@
+## 0.47.0 (2021-01-21)
+
+-   system theme integrated
+
 ## 0.46.0 (2021-01-06)
 
 -   api token align center
