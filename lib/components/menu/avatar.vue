@@ -15,6 +15,7 @@ export default {
         },
         "align": {
             "type": String,
+            "default": "center",
         },
     },
 
@@ -27,8 +28,8 @@ export default {
 </script>
 
 <style>
-    .avatar {
-        border: 1px dashed;
-        /* border-radius: 100px; */
-    }
+.avatar {
+    border: 1px dashed;
+    /* border-radius: 100px; */
+}
 </style>

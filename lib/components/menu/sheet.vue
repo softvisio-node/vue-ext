@@ -111,9 +111,9 @@ export default {
 </script>
 
 <style>
-    .username {
-        color: white;
-        font-size: 1.3em;
-        margin-top: 5px;
-    }
+.username {
+    color: white;
+    font-size: 1.3em;
+    margin-top: 5px;
+}
 </style>

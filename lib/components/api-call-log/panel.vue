@@ -22,8 +22,6 @@ import HistoryDialog from "./history/dialog";
 import LogDialog from "./log/dialog";
 
 export default {
-    "components": { AmchartsPanel },
-
     mounted () {
         this.store = new Ext.data.Store( {
             "model": ApiCallLogStatModel,
@@ -473,11 +471,11 @@ export default {
 </script>
 
 <style>
-    .no-padding {
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-    }
-    .progress-full {
-        backgroundcolor: red;
-    }
+.no-padding {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+.progress-full {
+    backgroundcolor: red;
+}
 </style>

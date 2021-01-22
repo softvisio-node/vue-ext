@@ -48,6 +48,7 @@ export default {
         },
         "hideSmtpSettings": {
             "type": Boolean,
+            "default": false,
         },
     },
 
