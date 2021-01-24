@@ -1,5 +1,5 @@
 <template>
-    <ext-image :src="avatar" :width="width" :align="align" :height="height" cls="avatar"/>
+    <ext-image :src="avatar" :width="width" :height="height" cls="avatar"/>
 </template>
 
 <script>
@@ -12,10 +12,6 @@ export default {
         "height": {
             "type": String,
             "default": "32",
-        },
-        "align": {
-            "type": String,
-            "default": "center",
         },
     },
 
