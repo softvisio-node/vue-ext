@@ -1,3 +1,7 @@
+## 0.47.2 (2021-01-25)
+
+-   menu avatar align removed
+
 ## 0.47.1 (2021-01-22)
 
 -   linted
