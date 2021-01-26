@@ -1,3 +1,7 @@
+## 0.48.0 (2021-01-26)
+
+-   migrated to node v15
+
 ## 0.47.2 (2021-01-25)
 
 -   menu avatar align removed
