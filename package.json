@@ -25,11 +25,12 @@
     "scripts": {
         "lint": "softvisio-cli lint"
     },
-    "peerDependencies": {
-        "@fortawesome/fontawesome-free": ">=5.13.1",
+    "dependencies": {
+        "@amcharts/amcharts4": "^4.10.13",
+        "@fortawesome/fontawesome-free": "^5.15.2",
         "@softvisio/ext": "bitbucket:softvisio/softvisio-ext#latest",
-        "@softvisio/vue": ">=0.13.0",
-        "vue": ">=2.6.11"
+        "@softvisio/vue": "^0.40.0",
+        "pdfjs-dist": "^2.6.347"
     },
     "lint": [
         "*.*",
