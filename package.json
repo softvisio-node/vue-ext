@@ -25,7 +25,7 @@
     "scripts": {
         "lint": "softvisio-cli lint"
     },
-    "dependencies": {
+    "peerDependencies": {
         "@amcharts/amcharts4": "^4.10.13",
         "@fortawesome/fontawesome-free": "^5.15.2",
         "@softvisio/ext": "bitbucket:softvisio/softvisio-ext#latest",
