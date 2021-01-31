@@ -28,7 +28,7 @@
     "peerDependencies": {
         "@amcharts/amcharts4": "^4.10.13",
         "@fortawesome/fontawesome-free": "^5.15.2",
-        "@softvisio/ext": "bitbucket:softvisio/softvisio-ext#latest",
+        "@softvisio/ext": "bitbucket:softvisio/softvisio-ext#semver:^1.0.0",
         "@softvisio/vue": "^1.0.0",
         "pdfjs-dist": "^2.6.347"
     },
