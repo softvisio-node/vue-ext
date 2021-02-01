@@ -50,13 +50,17 @@ export default {
             "type": Boolean,
             "default": false,
         },
+        "noSubmitOnEnter": {
+            "type": Boolean,
+            "default": false,
+        },
     },
 
     "methods": {
         async ready ( e ) {
             this.ext = e.detail.cmp;
 
-            this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+            if ( !this.noSubmitOnEnter ) this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
 
             this.ext.on( "beforeshow", this.reload, this );
         },
@@ -120,7 +124,12 @@ export default {
                 "message": `<div style="color:white;">Updating<br/>please wait...</div>`,
             } );
 
-            var res = await this.$api.call( "admin/settings/update", record.getChanges() );
+            var res = await this.$api.call( "admin/settings/update",
+                record.getData( {
+                    "changes": true,
+                    "critical": true,
+                    "serialize": true,
+                } ) );
 
             dialog.unmask();
 
