@@ -1,3 +1,7 @@
+## 1.1.0 (2021-02-01)
+
+-   settings dialog props added
+
 ## 1.0.3 (2021-01-31)
 
 -   package-lock disabled
