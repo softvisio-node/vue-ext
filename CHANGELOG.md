@@ -1,3 +1,9 @@
+## 2.0.0-beta.0 (2021-02-09)
+
+### Raw commits log
+
+-   softvisio/vue update to v2;
+
 ## 1.1.0 (2021-02-01)
 
 -   settings dialog props added
