@@ -68,7 +68,7 @@ export default {
             Ext.Viewport.unmask();
 
             if ( res.ok ) {
-                this.$.toast( res, 5000 );
+                this.$util.toast( res, 5000 );
 
                 // reset form
                 form.reset();
@@ -77,7 +77,7 @@ export default {
                 this.showSignin();
             }
             else {
-                this.$.toast( res );
+                this.$util.toast( res );
             }
         },
     },

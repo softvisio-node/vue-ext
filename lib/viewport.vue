@@ -46,7 +46,7 @@ export default {
                 if ( res.ok || res.status === 401 || res.status === 403 ) break;
 
                 // connection error
-                this.$.toast( res );
+                this.$util.toast( res );
 
                 await this.onAppInitFailure();
             }
@@ -100,7 +100,7 @@ export default {
             if ( token ) token = token[1];
 
             if ( !token ) {
-                this.$.toast( "Email confirmation token is invalid." );
+                this.$util.toast( "Email confirmation token is invalid." );
             }
             else {
                 Ext.Viewport.mask();
@@ -110,10 +110,10 @@ export default {
                 Ext.Viewport.unmask();
 
                 if ( res.ok ) {
-                    this.$.toast( "Email confirmed successfully." );
+                    this.$util.toast( "Email confirmed successfully." );
                 }
                 else {
-                    this.$.toast( res );
+                    this.$util.toast( res );
                 }
             }
 

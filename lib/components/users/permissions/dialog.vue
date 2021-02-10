@@ -71,7 +71,7 @@ export default {
             this.ext.unmask();
 
             if ( !res.ok ) {
-                this.$.toast( res );
+                this.$util.toast( res );
 
                 this.close();
             }
@@ -97,10 +97,10 @@ export default {
             const res = await this.$api.call( "admin/users/update-permissions", this.record.id, permissions );
 
             if ( !res.ok ) {
-                this.$.toast( res );
+                this.$util.toast( res );
             }
             else {
-                this.$.toast( "User permissions updated" );
+                this.$util.toast( "User permissions updated" );
 
                 this.record.set( "permissions", Ext.apply( {}, permissions, this.record.get( "permissions" ) ) );
 

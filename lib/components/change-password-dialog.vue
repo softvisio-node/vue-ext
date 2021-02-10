@@ -56,12 +56,12 @@ export default {
             Ext.Viewport.unmask();
 
             if ( res.ok ) {
-                this.$.toast( "Password changed." );
+                this.$util.toast( "Password changed." );
 
                 this.close();
             }
             else {
-                this.$.toast( res );
+                this.$util.toast( res );
             }
         },
     },

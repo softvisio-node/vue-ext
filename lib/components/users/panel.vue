@@ -154,9 +154,9 @@ export default {
             var res = await this.$api.call( "admin/users/update-permissions", record.get( "id" ), { "admin": newVal } );
 
             if ( !res.ok ) {
-                this.$.toast( res );
+                this.$util.toast( res );
 
-                await this.$.sleep( 1000 );
+                await this.$util.sleep( 1000 );
 
                 button.suspendEvent( "change" );
                 userPermissions.admin = curVal;
@@ -164,7 +164,7 @@ export default {
                 button.resumeEvent( "change" );
             }
             else {
-                this.$.toast( "User permissions updated" );
+                this.$util.toast( "User permissions updated" );
 
                 userPermissions.admin = newVal;
             }
@@ -186,9 +186,9 @@ export default {
             var res = await this.$api.call( "admin/users/set-enabled", record.get( "id" ), newVal );
 
             if ( !res.ok ) {
-                this.$.toast( res );
+                this.$util.toast( res );
 
-                await this.$.sleep( 1000 );
+                await this.$util.sleep( 1000 );
 
                 button.suspendEvent( "change" );
                 record.set( "enabled", oldVal );
@@ -196,7 +196,7 @@ export default {
                 button.resumeEvent( "change" );
             }
             else {
-                this.$.toast( `User ${newVal ? "enabled" : "disabled"}` );
+                this.$util.toast( `User ${newVal ? "enabled" : "disabled"}` );
 
                 button.enable();
             }
@@ -208,17 +208,17 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$.confirm( "Confirmation", "Are you sure you want to do that?" ) ) ) return;
+            if ( !( await this.$util.confirm( "Confirmation", "Are you sure you want to do that?" ) ) ) return;
 
             var res = await this.$api.call( "admin/users/delete", record.getId() );
 
             if ( res.ok ) {
-                this.$.toast( "User deleted" );
+                this.$util.toast( "User deleted" );
 
                 this.store.remove( record );
             }
             else {
-                this.$.toast( res );
+                this.$util.toast( res );
             }
         },
 

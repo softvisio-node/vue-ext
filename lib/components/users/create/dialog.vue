@@ -63,14 +63,14 @@ export default {
             var res = await this.$api.call( "admin/users/create", vals );
 
             if ( res.ok ) {
-                this.$.toast( "User created" );
+                this.$util.toast( "User created" );
 
                 this.$store.users.reload();
 
                 this.close();
             }
             else {
-                this.$.toast( res );
+                this.$util.toast( res );
             }
         },
     },

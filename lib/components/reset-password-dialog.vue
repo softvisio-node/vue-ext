@@ -35,7 +35,7 @@ export default {
             this.ext = e.detail.cmp;
 
             if ( !this.token ) {
-                this.$.toast( "Password reset token was not found.", 5000 );
+                this.$util.toast( "Password reset token was not found.", 5000 );
 
                 this.close();
 
@@ -76,12 +76,12 @@ export default {
             form.unmask();
 
             if ( res.ok ) {
-                this.$.toast( "Password changed." );
+                this.$util.toast( "Password changed." );
 
                 this.close();
             }
             else {
-                this.$.toast( res );
+                this.$util.toast( res );
             }
         },
     },

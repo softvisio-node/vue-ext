@@ -78,7 +78,7 @@ export default {
             dialog.unmask();
 
             if ( !res.ok ) {
-                this.$.toast( res );
+                this.$util.toast( res );
 
                 this.close();
             }
@@ -101,7 +101,7 @@ export default {
 
             dialog.unmask();
 
-            this.$.toast( res );
+            this.$util.toast( res );
         },
 
         close () {
@@ -114,7 +114,7 @@ export default {
                 dialog = this.ext;
 
             if ( !form.validate() ) {
-                this.$.toast( "Please, fill all required fields" );
+                this.$util.toast( "Please, fill all required fields" );
 
                 return;
             }
@@ -136,12 +136,12 @@ export default {
             if ( res.ok ) {
                 record.commit();
 
-                this.$.toast( "Settings updated" );
+                this.$util.toast( "Settings updated" );
 
                 this.close();
             }
             else {
-                this.$.toast( res );
+                this.$util.toast( res );
             }
         },
     },
