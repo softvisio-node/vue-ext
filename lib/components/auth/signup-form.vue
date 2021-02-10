@@ -21,6 +21,8 @@ export default {
         },
     },
 
+    "emits": ["close", "signin"],
+
     "methods": {
         ready ( e ) {
             var cmp = e.detail.cmp;

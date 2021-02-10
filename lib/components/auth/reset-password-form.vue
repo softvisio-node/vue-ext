@@ -18,6 +18,7 @@ export default {
             "default": false,
         },
     },
+    "emits": ["close", "signin"],
 
     "methods": {
         ready ( e ) {

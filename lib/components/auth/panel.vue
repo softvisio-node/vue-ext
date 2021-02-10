@@ -35,6 +35,8 @@ export default {
         },
     },
 
+    "emits": ["close"],
+
     "methods": {
         ready ( e ) {
             this.cmp = e.detail.cmp;

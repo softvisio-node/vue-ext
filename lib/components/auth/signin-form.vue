@@ -29,6 +29,7 @@ export default {
             "default": false,
         },
     },
+    "emits": ["close", "reset", "signup"],
 
     "methods": {
         ready ( e ) {
