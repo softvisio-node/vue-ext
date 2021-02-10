@@ -20,7 +20,7 @@ chartsReady (chart) {
 -->
 
 <template>
-    <ext-panel layout="fit" @ready="_ready"/>
+    <ext-panel layout="fit" @ready="ready"/>
 </template>
 
 <script>
@@ -39,6 +39,7 @@ export default {
             "default": true,
         },
     },
+    "emits": ["ready"],
 
     "computed": {
         darkMode () {
@@ -58,33 +59,31 @@ export default {
         },
     },
 
-    mounted () {
-        this.$once( "hook:beforeDestroy", () => {
+    beforeUnmount () {
 
-            // destroy chart
-            if ( this.chart ) this.chart.dispose();
-            this.chart = null;
+        // destroy chart
+        if ( this.chart ) this.chart.dispose();
+        this.chart = null;
 
-            // destroy ext component
-            if ( this.cmp ) this.cmp.destroy();
-            this.cmp = null;
-        } );
+        // destroy ext component
+        if ( this.ext ) this.ext.destroy();
+        this.ext = null;
     },
 
     "methods": {
-        _ready ( e ) {
-            this.cmp = e.detail.cmp;
+        ready ( e ) {
+            this.ext = e.detail.cmp;
 
-            if ( this.cmp.rendered ) {
+            if ( this.ext.rendered ) {
                 this._afterRender();
             }
             else {
-                this.cmp.afterRender = this._afterRender.bind( this );
+                this.ext.afterRender = this._afterRender.bind( this );
             }
         },
 
         _afterRender () {
-            this.cmp.afterRender = null;
+            this.ext.afterRender = null;
 
             this.$emit( "ready", this );
         },
@@ -96,7 +95,7 @@ export default {
             if ( this.animated ) am4core.useTheme( chartThemeAnimated );
             am4core.useTheme( this.darkMode ? chartThemeDark : chartThemeLight );
 
-            this.chart = am4core.createFromConfig( JSON.parse( JSON.stringify( config ) ), this.cmp.innerElement.dom );
+            this.chart = am4core.createFromConfig( JSON.parse( JSON.stringify( config ) ), this.ext.innerElement.dom );
         },
 
         setData ( data ) {
