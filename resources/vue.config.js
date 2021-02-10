@@ -28,9 +28,9 @@ config.chainWebpack = config => {
     config.module
         .rule( "vue" )
         .use( "vue-loader" )
-        .loader( "vue-loader" )
 
-        // .loader( require.resolve( "vue-loader-v16" ) ) // XXX remove
+        // .loader( "vue-loader" )
+        .loader( require.resolve( "vue-loader-v16" ) ) // XXX remove
         .tap( options => {
             options.compilerOptions = {
                 ...( options.compilerOptions || {} ),
