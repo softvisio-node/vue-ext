@@ -12,14 +12,12 @@ import AppInitFailureDialog from "./components/app-init-failure-dialog";
 export default {
     "extends": Viewport,
 
-    "data": () => {
-        return {
-            "appInitFailureDialog": AppInitFailureDialog,
-            "resetPasswordDialog": ResetPasswordDialog,
-            "defaultMask": defaultMask,
-            "privateView": null,
-            "publicView": null,
-        };
+    created () {
+        this.appInitFailureDialog = AppInitFailureDialog;
+        this.resetPasswordDialog = ResetPasswordDialog;
+        this.defaultMask = defaultMask;
+        this.privateView = null;
+        this.publicView = null;
     },
 
     "methods": {
