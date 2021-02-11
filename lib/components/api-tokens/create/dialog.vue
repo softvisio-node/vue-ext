@@ -46,7 +46,7 @@ export default {
         },
 
         formReady ( e ) {
-            var cmp = e.detail.cmp;
+            const cmp = e.detail.cmp;
 
             cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
         },
