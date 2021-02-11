@@ -39,10 +39,10 @@ export default {
 
     "methods": {
         ready ( e ) {
-            this.cmp = e.detail.cmp;
+            this.ext = e.detail.cmp;
 
             // TODO fix for forms switch, remove
-            this.cmp.setActiveItem( 0 );
+            this.ext.setActiveItem( 0 );
         },
 
         close () {
@@ -50,15 +50,15 @@ export default {
         },
 
         showSignin () {
-            this.cmp.setActiveItem( 0 );
+            this.ext.setActiveItem( 0 );
         },
 
         showReset () {
-            this.cmp.setActiveItem( 1 );
+            this.ext.setActiveItem( 1 );
         },
 
         showSignup () {
-            this.cmp.setActiveItem( 2 );
+            this.ext.setActiveItem( 2 );
         },
 
         onSignin () {
