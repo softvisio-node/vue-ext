@@ -72,7 +72,7 @@ export default {
                 Ext.Viewport.unmask();
 
                 if ( !res.ok ) {
-                    this.$util.toast( res );
+                    this.$utils.toast( res );
                 }
                 else {
                     if ( this.closable ) this.close();

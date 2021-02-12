@@ -81,19 +81,19 @@ export default {
                 this.$refs.submit.ext.setHidden( true );
                 this.$refs.close.ext.setHidden( false );
 
-                this.$util.toast( "API token created" );
+                this.$utils.toast( "API token created" );
 
                 this.$store["api-tokens"].reload();
             }
             else {
-                this.$util.toast( res );
+                this.$utils.toast( res );
             }
         },
 
         copyToClipboard () {
-            this.$util.copyToClipboard( this.$refs.token.ext.getValue() );
+            this.$utils.copyToClipboard( this.$refs.token.ext.getValue() );
 
-            this.$util.toast( "Token copied to clipboard" );
+            this.$utils.toast( "Token copied to clipboard" );
         },
     },
 };

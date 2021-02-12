@@ -262,7 +262,7 @@ export default {
             this.ext.unmask();
 
             if ( !res.ok ) {
-                this.$util.toast( res );
+                this.$utils.toast( res );
 
                 this.ext.hide();
             }

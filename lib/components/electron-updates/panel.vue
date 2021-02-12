@@ -99,9 +99,9 @@ export default {
             var res = await this.$api.call( "electron-updates/set-published", record.get( "id" ), newVal );
 
             if ( !res.ok ) {
-                this.$util.toast( res );
+                this.$utils.toast( res );
 
-                await this.$util.sleep( 1000 );
+                await this.$utils.sleep( 1000 );
 
                 button.suspendEvent( "change" );
                 record.set( "published", oldVal );
@@ -119,17 +119,17 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$util.confirm( "Confirmation", "Are you sure you want to do that?" ) ) ) return;
+            if ( !( await this.$utils.confirm( "Confirmation", "Are you sure you want to do that?" ) ) ) return;
 
             var res = await this.$api.call( "electron-updates/delete", record.getId() );
 
             if ( res.ok ) {
-                this.$util.toast( "Update deleted" );
+                this.$utils.toast( "Update deleted" );
 
                 this.store.remove( record );
             }
             else {
-                this.$util.toast( res );
+                this.$utils.toast( res );
             }
         },
 

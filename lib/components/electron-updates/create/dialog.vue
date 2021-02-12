@@ -62,14 +62,14 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$util.toast( "Release created." );
+                this.$utils.toast( "Release created." );
 
                 this.$store["electron-updates"].reload();
 
                 this.close();
             }
             else {
-                this.$util.toast( res );
+                this.$utils.toast( res );
             }
         },
     },
