@@ -1,3 +1,9 @@
+## 2.0.0-beta.5 (2021-02-12)
+
+### Raw commits log
+
+-   utils resolution updated;
+
 ## 2.0.0-beta.4 (2021-02-12)
 
 ### Raw commits log
