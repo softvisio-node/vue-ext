@@ -1,3 +1,10 @@
+## 2.0.0-beta.9 (2021-02-13)
+
+### Raw commits log
+
+-   mount plugin refactored;
+-   vuex store init process refactored;
+
 ## 2.0.0-beta.8 (2021-02-13)
 
 ### Raw commits log
