@@ -52,7 +52,7 @@ export default {
         close () {
             this.$router.redirectTo( "/", { "replace": true } );
 
-            this.$destroy();
+            this.$unmount();
         },
 
         async submit () {

@@ -124,7 +124,7 @@ export default {
             if ( this.currentView !== "public" ) {
                 this.currentView = "public";
 
-                if ( this.view ) this.view.$destroy();
+                if ( this.view ) this.view.$unmount();
 
                 this.view = await Ext.Viewport.addVue( this.publicView );
             }
@@ -138,7 +138,7 @@ export default {
             if ( this.currentView !== "private" ) {
                 this.currentView = "private";
 
-                if ( this.view ) this.view.$destroy();
+                if ( this.view ) this.view.$unmount();
 
                 this.view = await Ext.Viewport.addVue( this.privateView );
             }

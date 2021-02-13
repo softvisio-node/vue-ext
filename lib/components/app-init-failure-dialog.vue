@@ -18,7 +18,7 @@ export default {
 
     "methods": {
         reconnect () {
-            this.$destroy();
+            this.$unmount();
         },
     },
 };

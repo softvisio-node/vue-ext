@@ -35,7 +35,7 @@ export default {
 
     "methods": {
         onClose () {
-            this.$destroy();
+            this.$unmount();
         },
     },
 };
