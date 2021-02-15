@@ -1,3 +1,10 @@
+## 2.0.0-beta.10 (2021-02-15)
+
+### Raw commits log
+
+-   mount plugin refactored;
+-   addVue method removed;
+
 ## 2.0.0-beta.9 (2021-02-13)
 
 ### Raw commits log
