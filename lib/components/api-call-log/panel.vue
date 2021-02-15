@@ -199,7 +199,7 @@ export default {
         },
 
         async loadChartReady ( cmp ) {
-            var chart = await cmp.addVue( AmchartsPanel );
+            var chart = await this.$mount( AmchartsPanel, cmp );
 
             cmp.chart = chart;
 
@@ -267,7 +267,7 @@ export default {
         },
 
         async avgRuntimeChartReady ( cmp ) {
-            var chart = await cmp.addVue( AmchartsPanel );
+            var chart = await this.$mount( AmchartsPanel, cmp );
 
             cmp.chart = chart;
 
@@ -320,7 +320,7 @@ export default {
         },
 
         async exceptionsChartReady ( cmp ) {
-            var chart = await cmp.addVue( AmchartsPanel );
+            var chart = await this.$mount( AmchartsPanel, cmp );
 
             cmp.chart = chart;
 
@@ -446,7 +446,7 @@ export default {
                 record = gridrow.getRecord();
 
             if ( !this.historyDialog ) {
-                this.historyDialog = await Ext.Viewport.addVue( HistoryDialog );
+                this.historyDialog = await this.$mount( HistoryDialog, Ext.Viewport );
             }
 
             this.historyDialog.setRecord( record );
@@ -459,7 +459,7 @@ export default {
                 record = gridrow.getRecord();
 
             if ( !this.logDialog ) {
-                this.logDialog = await Ext.Viewport.addVue( LogDialog );
+                this.logDialog = await this.$mount( LogDialog, Ext.Viewport );
             }
 
             this.logDialog.setRecord( record );

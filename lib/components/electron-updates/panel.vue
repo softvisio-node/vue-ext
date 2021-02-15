@@ -134,7 +134,7 @@ export default {
         },
 
         async create () {
-            if ( !this.createDialog ) this.createDialog = await Ext.Viewport.addVue( CreateDialog );
+            if ( !this.createDialog ) this.createDialog = await this.$mount( CreateDialog, Ext.Viewport );
 
             this.createDialog.ext.show();
         },

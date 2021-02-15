@@ -124,7 +124,7 @@ export default {
 
         // zoom
         maximize () {
-            Ext.Viewport.addVue( PdfDialog, { "src": this.currentSrc } );
+            this.$mount( PdfDialog, Ext.Viewport, { "src": this.currentSrc } );
         },
 
         zoomIn ( zoomStep ) {

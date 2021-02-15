@@ -58,7 +58,7 @@ export default {
 
         async onAppInitFailure () {
             return new Promise( resolve => {
-                Ext.Viewport.addVue( this.appInitFailureDialog, {
+                this.$mount( this.appInitFailureDialog, Ext.Viewport, {
                     "onClose": resolve,
                 } );
             } );
@@ -87,7 +87,7 @@ export default {
         },
 
         async routeResetPasword () {
-            Ext.Viewport.addVue( this.resetPasswordDialog );
+            this.$mount( this.resetPasswordDialog, Ext.Viewport );
         },
 
         async routeConfirmEmail () {
@@ -126,7 +126,7 @@ export default {
 
                 if ( this.view ) this.view.$unmount();
 
-                this.view = await Ext.Viewport.addVue( this.publicView );
+                this.view = await this.$mount( this.publicView, Ext.Viewport );
             }
 
             route.forward( this.view );
@@ -140,7 +140,7 @@ export default {
 
                 if ( this.view ) this.view.$unmount();
 
-                this.view = await Ext.Viewport.addVue( this.privateView );
+                this.view = await this.$mount( this.privateView, Ext.Viewport );
             }
 
             route.forward( this.view );
