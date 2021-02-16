@@ -10,12 +10,6 @@
 
 <script>
 export default {
-    "emits": ["close"],
-
-    unmounted () {
-        this.$emit( "close" );
-    },
-
     "methods": {
         reconnect () {
             this.$unmount();

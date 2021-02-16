@@ -80,7 +80,7 @@ export default {
         async showProfile () {
             this.hide();
 
-            if ( !this.profileDialog ) this.profileDialog = await this.$mount( ProfileDialog, Ext.Viewport );
+            if ( !this.profileDialog ) this.profileDialog = await this.$mount( ProfileDialog );
 
             this.profileDialog.ext.show();
         },
@@ -88,7 +88,7 @@ export default {
         async showApiTokens () {
             this.hide();
 
-            if ( !this.apiTokensDialog ) this.apiTokensDialog = await this.$mount( ApiTokensDialog, Ext.Viewport );
+            if ( !this.apiTokensDialog ) this.apiTokensDialog = await this.$mount( ApiTokensDialog );
 
             this.apiTokensDialog.ext.show();
         },
@@ -96,7 +96,7 @@ export default {
         async changePassword () {
             this.hide();
 
-            if ( !this.changePasswordDialog ) this.changePasswordDialog = await this.$mount( ChangePasswordDialog, Ext.Viewport );
+            if ( !this.changePasswordDialog ) this.changePasswordDialog = await this.$mount( ChangePasswordDialog );
 
             this.changePasswordDialog.ext.show();
         },

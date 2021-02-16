@@ -243,7 +243,7 @@ export default {
         },
 
         async showCreateUserDialog () {
-            if ( !this.createDialog ) this.createDialog = await this.$mount( CreateDialog, Ext.Viewport );
+            if ( !this.createDialog ) this.createDialog = await this.$mount( CreateDialog );
 
             this.createDialog.ext.show();
         },
@@ -252,7 +252,7 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !this.permissionsDialog ) this.permissionsDialog = await this.$mount( PermissionsDialog, Ext.Viewport );
+            if ( !this.permissionsDialog ) this.permissionsDialog = await this.$mount( PermissionsDialog );
 
             this.permissionsDialog.ext.show();
 

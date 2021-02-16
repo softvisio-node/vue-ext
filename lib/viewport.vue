@@ -58,8 +58,10 @@ export default {
 
         async onAppInitFailure () {
             return new Promise( resolve => {
-                this.$mount( this.appInitFailureDialog, Ext.Viewport, {
-                    "onClose": resolve,
+                this.$mount( this.appInitFailureDialog, {
+                    "props": {
+                        "onVnodeUnmounted": resolve,
+                    },
                 } );
             } );
         },
@@ -87,7 +89,7 @@ export default {
         },
 
         async routeResetPasword () {
-            this.$mount( this.resetPasswordDialog, Ext.Viewport );
+            this.$mount( this.resetPasswordDialog );
         },
 
         async routeConfirmEmail () {
@@ -126,7 +128,7 @@ export default {
 
                 if ( this.view ) this.view.$unmount();
 
-                this.view = await this.$mount( this.publicView, Ext.Viewport );
+                this.view = await this.$mount( this.publicView );
             }
 
             route.forward( this.view );
@@ -140,7 +142,7 @@ export default {
 
                 if ( this.view ) this.view.$unmount();
 
-                this.view = await this.$mount( this.privateView, Ext.Viewport );
+                this.view = await this.$mount( this.privateView );
             }
 
             route.forward( this.view );
