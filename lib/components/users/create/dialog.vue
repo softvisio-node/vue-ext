@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Create User" width="350" height="400" displayed="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" @ready="ready">
+    <ext-dialog title="Create User" width="350" height="400" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" @ready="ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
             <ext-emailfield name="username" label="Email" required="true"/>
             <ext-passwordfield name="password" label="Password" required="true"/>

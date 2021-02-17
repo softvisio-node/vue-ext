@@ -243,20 +243,18 @@ export default {
         },
 
         async showCreateUserDialog () {
-            if ( !this.createDialog ) this.createDialog = await this.$mount( CreateDialog );
-
-            this.createDialog.ext.show();
+            ( await this.$mount( CreateDialog ) ).ext.show();
         },
 
         async showUserPermissionsDialog ( button ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !this.permissionsDialog ) this.permissionsDialog = await this.$mount( PermissionsDialog );
+            const cmp = await this.$mount( PermissionsDialog );
 
-            this.permissionsDialog.ext.show();
+            cmp.setRecord( record );
 
-            this.permissionsDialog.setRecord( record );
+            cmp.ext.show();
         },
     },
 };
