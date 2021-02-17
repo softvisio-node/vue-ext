@@ -128,7 +128,7 @@ export default {
 
                 if ( this.view ) this.view.$unmount();
 
-                this.view = await this.$mount( this.publicView );
+                this.view = await this.$mount( this.publicView, { "el": Ext.Viewport } );
             }
 
             route.forward( this.view );
@@ -142,7 +142,7 @@ export default {
 
                 if ( this.view ) this.view.$unmount();
 
-                this.view = await this.$mount( this.privateView );
+                this.view = await this.$mount( this.privateView, { "el": Ext.Viewport } );
             }
 
             route.forward( this.view );
