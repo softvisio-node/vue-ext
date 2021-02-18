@@ -1,5 +1,5 @@
 <template>
-    <div/>
+    <ext-panel fullscreen="true" layout="card" scrollable="true"/>
 </template>
 
 <script>
@@ -21,37 +21,6 @@ export default {
     },
 
     "methods": {
-        async createViewport () {
-            return new Promise( resolve => {
-                Ext.application( {
-                    "name": "app",
-                    "quickTips": true,
-                    "launch": () => {
-
-                        // XXX
-                        // This is related to issue, when first displayed floated dialog is despalyed without animation.
-                        // And cant' be closed, because animation is on unfinished state.
-                        // As workaround we can call cmp.activeAnimation.stop() before hide() call;
-                        const dialog = Ext.Viewport.add( {
-                            "xtype": "dialog",
-                            "modal": false,
-                            "width": 1000,
-                            "height": 11000,
-                        } );
-
-                        dialog.show( null );
-                        if ( dialog.activeAnimation ) dialog.activeAnimation.stop();
-                        dialog.hide( { "type": "slide", "duration": 1, "easing": "ease-out" } );
-                        dialog.destroy();
-
-                        this.ready();
-
-                        resolve();
-                    },
-                } );
-            } );
-        },
-
         async ready () {
             var viewport = Ext.Viewport;
 
@@ -154,7 +123,7 @@ export default {
 
                 if ( this.view ) this.view.$unmount();
 
-                this.view = await this.$mount( this.publicView, { "el": Ext.Viewport } );
+                this.view = await this.$mount( this.publicView );
             }
 
             route.forward( this.view );
@@ -168,7 +137,7 @@ export default {
 
                 if ( this.view ) this.view.$unmount();
 
-                this.view = await this.$mount( this.privateView, { "el": Ext.Viewport } );
+                this.view = await this.$mount( this.privateView );
             }
 
             route.forward( this.view );
