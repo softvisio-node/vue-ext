@@ -22,10 +22,33 @@ export default {
 
     "methods": {
         async createViewport () {
-            Ext.application( {
-                "name": "app",
-                "quickTips": true,
-                "launch": this.ready.bind( this ),
+            return new Promise( resolve => {
+                Ext.application( {
+                    "name": "app",
+                    "quickTips": true,
+                    "launch": () => {
+
+                        // XXX
+                        // This is related to issue, when first displayed floated dialog is despalyed without animation.
+                        // And cant' be closed, because animation is on unfinished state.
+                        // As workaround we can call cmp.activeAnimation.stop() before hide() call;
+                        const dialog = Ext.Viewport.add( {
+                            "xtype": "dialog",
+                            "modal": false,
+                            "width": 1000,
+                            "height": 11000,
+                        } );
+
+                        dialog.show( null );
+                        if ( dialog.activeAnimation ) dialog.activeAnimation.stop();
+                        dialog.hide( { "type": "slide", "duration": 1, "easing": "ease-out" } );
+                        dialog.destroy();
+
+                        this.ready();
+
+                        resolve();
+                    },
+                } );
             } );
         },
 
