@@ -134,9 +134,9 @@ export default {
         },
 
         async create () {
-            if ( !this.createDialog ) this.createDialog = await this.$mount( CreateDialog );
+            const cmp = await this.$mount( CreateDialog );
 
-            this.createDialog.ext.show();
+            cmp.ext.show();
         },
     },
 };

@@ -80,25 +80,25 @@ export default {
         async showProfile () {
             this.hide();
 
-            if ( !this.profileDialog ) this.profileDialog = await this.$mount( ProfileDialog );
+            const cmp = await this.$mount( ProfileDialog );
 
-            this.profileDialog.ext.show();
+            cmp.ext.show();
         },
 
         async showApiTokens () {
             this.hide();
 
-            if ( !this.apiTokensDialog ) this.apiTokensDialog = await this.$mount( ApiTokensDialog );
+            const cmp = await this.$mount( ApiTokensDialog );
 
-            this.apiTokensDialog.ext.show();
+            cmp.ext.show();
         },
 
         async changePassword () {
             this.hide();
 
-            if ( !this.changePasswordDialog ) this.changePasswordDialog = await this.$mount( ChangePasswordDialog );
+            const cmp = await this.$mount( ChangePasswordDialog );
 
-            this.changePasswordDialog.ext.show();
+            cmp.ext.show();
         },
 
         signout () {

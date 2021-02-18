@@ -243,7 +243,9 @@ export default {
         },
 
         async showCreateUserDialog () {
-            ( await this.$mount( CreateDialog ) ).ext.show();
+            const cmp = await this.$mount( CreateDialog );
+
+            cmp.ext.show();
         },
 
         async showUserPermissionsDialog ( button ) {

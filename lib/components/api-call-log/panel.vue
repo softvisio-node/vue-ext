@@ -199,7 +199,7 @@ export default {
         },
 
         async loadChartReady ( cmp ) {
-            var chart = await this.$mount( AmchartsPanel, { "el": cmp } );
+            var chart = await this.$mount( AmchartsPanel, { "el": cmp, "noCache": true } );
 
             cmp.chart = chart;
 
@@ -267,7 +267,7 @@ export default {
         },
 
         async avgRuntimeChartReady ( cmp ) {
-            var chart = await this.$mount( AmchartsPanel, { "el": cmp } );
+            var chart = await this.$mount( AmchartsPanel, { "el": cmp, "noCache": true } );
 
             cmp.chart = chart;
 
@@ -320,7 +320,7 @@ export default {
         },
 
         async exceptionsChartReady ( cmp ) {
-            var chart = await this.$mount( AmchartsPanel, { "el": cmp } );
+            var chart = await this.$mount( AmchartsPanel, { "el": cmp, "noCache": true } );
 
             cmp.chart = chart;
 
@@ -445,26 +445,22 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !this.historyDialog ) {
-                this.historyDialog = await this.$mount( HistoryDialog );
-            }
+            const cmp = await this.$mount( HistoryDialog );
 
-            this.historyDialog.setRecord( record );
+            cmp.setRecord( record );
 
-            this.historyDialog.ext.show();
+            cmp.ext.show();
         },
 
         async showLog ( button ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !this.logDialog ) {
-                this.logDialog = await this.$mount( LogDialog );
-            }
+            const cmp = await this.$mount( LogDialog );
 
-            this.logDialog.setRecord( record );
+            cmp.setRecord( record );
 
-            this.logDialog.ext.show();
+            cmp.ext.show();
         },
     },
 };

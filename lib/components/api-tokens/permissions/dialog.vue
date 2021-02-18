@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Edit Token Permissions" width="800" height="90%" displayed="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="fit" viewModel="true">
+    <ext-dialog title="Edit Token Permissions" width="800" height="90%" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="fit" viewModel="true">
         <ext-grid plugins='{"gridsummaryrow":"true"}' multicolumnSort="true" @ready="gridReady">
             <ext-column text="Name" dataIndex="name" width="150"/>
 

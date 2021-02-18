@@ -156,19 +156,20 @@ export default {
         },
 
         async showCreateTokenDialog () {
-            if ( !this.createDialog ) this.createDialog = await this.$mount( CreateDialog );
+            const cmp = await this.$mount( CreateDialog );
 
-            this.createDialog.ext.show();
+            cmp.ext.show();
         },
 
         async showTokenPermissionsDialog ( button ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !this.permissionsDialog ) this.permissionsDialog = await this.$mount( PermissionsDialog );
-            this.permissionsDialog.ext.show();
+            const cmp = await this.$mount( PermissionsDialog );
 
-            this.permissionsDialog.setRecord( record );
+            cmp.setRecord( record );
+
+            cmp.ext.show();
         },
     },
 };

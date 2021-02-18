@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog bodyPadding="0" :displayed="displayed" draggable="false" closeAction="destroy" :hideOnMaskTap="closable">
+    <ext-dialog bodyPadding="0" draggable="false" closeAction="destroy" :hideOnMaskTap="closable">
         <AuthPanel :signup="signup" :reset="reset" :closable="closable" :shadow="shadow" @close="onClose"/>
     </ext-dialog>
 </template>
@@ -18,10 +18,6 @@ export default {
         "reset": {
             "type": Boolean,
             "default": false,
-        },
-        "displayed": {
-            "type": Boolean,
-            "default": true,
         },
         "closable": {
             "type": Boolean,

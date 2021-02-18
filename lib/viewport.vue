@@ -83,9 +83,10 @@ export default {
             return new Promise( resolve => {
                 this.$mount( this.appInitFailureDialog, {
                     "props": {
-                        "onVnodeUnmounted": resolve,
+                        "onReconnect": resolve,
                     },
-                } );
+                    "noCache": true,
+                } ).then( cmp => cmp.ext.show() );
             } );
         },
 
@@ -112,7 +113,9 @@ export default {
         },
 
         async routeResetPasword () {
-            this.$mount( this.resetPasswordDialog );
+            const cmp = await this.$mount( this.resetPasswordDialog );
+
+            cmp.ext.show();
         },
 
         async routeConfirmEmail () {

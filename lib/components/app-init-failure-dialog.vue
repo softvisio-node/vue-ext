@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Server Connection Error" width="250" height="300" displayed="true" closable="false" draggable="false" closeAction="destroy" shadow="true">
+    <ext-dialog title="Server Connection Error" width="250" height="300" closable="false" draggable="false" closeAction="hide" shadow="true">
         <ext-panel layout="center" html="Unable to connect to the API server."/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"center"}'>
@@ -10,9 +10,13 @@
 
 <script>
 export default {
+    "emits": ["reconnect"],
+
     "methods": {
         reconnect () {
-            this.$unmount();
+            this.ext.hide();
+
+            this.$emit( "reconnect" );
         },
     },
 };
