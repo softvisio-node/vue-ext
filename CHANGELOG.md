@@ -1,3 +1,13 @@
+## 2.0.0-beta.12 (2021-02-18)
+
+### Raw commits log
+
+-   use defineAsyncComponent;
+-   app init refactored;
+-   dialogs updated;
+-   workaround for issue with floated dialogs;
+-   mount main views to viewport by default;
+
 ## 2.0.0-beta.11 (2021-02-16)
 
 ### Raw commits log
