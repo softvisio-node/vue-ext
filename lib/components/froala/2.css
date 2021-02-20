@@ -1,0 +1,7 @@
+div.fr-wrapper > div:first-child {
+    display: none;
+}
+
+div.fr-second-toolbar {
+    display: none;
+}
