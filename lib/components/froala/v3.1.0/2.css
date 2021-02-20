@@ -2,6 +2,6 @@ div.fr-wrapper > div:first-child {
     display: none;
 }
 
-div.fr-second-toolbar > #fr-logo {
+div.second-toolbar > #logo {
     display: none;
 }
