@@ -5,3 +5,7 @@ div.fr-wrapper > div:first-child {
 div.fr-second-toolbar {
     display: none;
 }
+
+p[data-f-id="pbf"] {
+    display: none;
+}
