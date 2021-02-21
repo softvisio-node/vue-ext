@@ -1,3 +1,9 @@
+## 2.0.0-beta.14 (2021-02-21)
+
+### Raw commits log
+
+-   froala;
+
 ## 2.0.0-beta.13 (2021-02-20)
 
 ### Raw commits log
