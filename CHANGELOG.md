@@ -1,3 +1,9 @@
+## 2.0.0-beta.15 (2021-02-22)
+
+### Raw commits log
+
+-   smtp hostname;
+
 ## 2.0.0-beta.14 (2021-02-21)
 
 ### Raw commits log
