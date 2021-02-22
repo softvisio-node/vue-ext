@@ -7,7 +7,7 @@
             <ext-fieldset title="SMTP Settings" :hidden="hideSmtpSettings" defaults='{"labelAlign":"left","labelWidth":250}'>
                 <ext-textfield label="App URL" bind="{record.app_url}"/>
                 <ext-textfield label="From <i class='far fa-question-circle'></i>" bind="{record.smtp_from}" placeholder="User Name <email@address>" tooltip="Format: User Name &amp;lt;email@address>."/>
-                <ext-textfield label="SMTP Host" bind="{record.smtp_host}"/>
+                <ext-textfield label="SMTP Host" bind="{record.smtp_hostname}"/>
                 <ext-spinnerfield label="SMTP Port" decimals="0" minValue="1" maxValue="65535" bind="{record.smtp_port}"/>
                 <ext-textfield label="SMTP Username" bind="{record.smtp_username}"/>
                 <ext-passwordfield label="SMTP Password" bind="{record.smtp_password}"/>
