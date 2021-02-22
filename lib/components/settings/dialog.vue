@@ -11,7 +11,6 @@
                 <ext-spinnerfield label="SMTP Port" decimals="0" minValue="1" maxValue="65535" bind="{record.smtp_port}"/>
                 <ext-textfield label="SMTP Username" bind="{record.smtp_username}"/>
                 <ext-passwordfield label="SMTP Password" bind="{record.smtp_password}"/>
-                <ext-togglefield label="SMTP TLS" bind="{record.smtp_tls}"/>
             </ext-fieldset>
             <ext-container layout='{"type":"hbox","pack":"end"}' :hidden="hideSmtpSettings">
                 <ext-button text="Test SMTP" bind='{"disabled":"{!record.smtp_can_test}"}' ui="action" @tap="testSmtp"/>
