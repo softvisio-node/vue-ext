@@ -1,3 +1,9 @@
+## 2.0.0-rc.1 (2021-03-02)
+
+### Raw commits log
+
+-   runtime vue compiler options disabled;
+
 ## 2.0.0-rc.0 (2021-03-01)
 
 ### Raw commits log
