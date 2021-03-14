@@ -1,3 +1,9 @@
+## 2.0.1 (2021-03-14)
+
+### Raw commits log
+
+-   getEnvBool -> env.getBool;
+
 ## 2.0.0 (2021-03-03)
 
 ### Raw commits log
