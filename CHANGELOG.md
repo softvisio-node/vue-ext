@@ -1,3 +1,9 @@
+## 2.2.0 (2021-04-01)
+
+### Raw commits log
+
+-   user profile tab panel;
+
 ## 2.1.0 (2021-04-01)
 
 ### Raw commits log
