@@ -1,22 +1,26 @@
 <template>
     <ext-dialog :title="title" :width="width" :height="height" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" :layout="layout" viewModel="true" @ready="ready">
-        <ext-fieldpanel ref="form" modelValidation="true">
-            <slot name="top"/>
+        <ext-fieldpanel ref="form" layout="fit" modelValidation="true">
+            <ext-tabpanel tabBarPosition="left" tabRotation="none" tabBar='{"layout":{"type":"vbox","pack":"start","align":"start"},"defaults":{"padding":"0 10 0 10","width":250,"height":50,"flex":null,"textAlign":"right"}}' layout='{"animation":{"type":"slide","direction":"vertical"}}' padding="0 10 0 10">
+                <slot name="top"/>
 
-            <!-- SMTP -->
-            <ext-fieldset title="SMTP Settings" :hidden="hideSmtpSettings" defaults='{"labelAlign":"left","labelWidth":250}'>
-                <ext-textfield label="App URL" bind="{record.app_url}"/>
-                <ext-textfield label="From <i class='far fa-question-circle'></i>" bind="{record.smtp_from}" placeholder="User Name <email@address>" tooltip="Format: User Name &amp;lt;email@address>."/>
-                <ext-textfield label="SMTP Host" bind="{record.smtp_hostname}"/>
-                <ext-spinnerfield label="SMTP Port" decimals="0" minValue="1" maxValue="65535" bind="{record.smtp_port}"/>
-                <ext-textfield label="SMTP Username" bind="{record.smtp_username}"/>
-                <ext-passwordfield label="SMTP Password" bind="{record.smtp_password}"/>
-            </ext-fieldset>
-            <ext-container layout='{"type":"hbox","pack":"end"}' :hidden="hideSmtpSettings">
-                <ext-button text="Test SMTP" bind='{"disabled":"{!record.smtp_can_test}"}' ui="action" @tap="testSmtp"/>
-            </ext-container>
+                <!-- SMTP -->
+                <ext-panel title="SMTP Settings">
+                    <ext-fieldset title="SMTP Settings" :hidden="hideSmtpSettings" defaults='{"labelAlign":"left","labelWidth":250}'>
+                        <ext-textfield label="App URL" bind="{record.app_url}"/>
+                        <ext-textfield label="From <i class='far fa-question-circle'></i>" bind="{record.smtp_from}" placeholder="User Name <email@address>" tooltip="Format: User Name &amp;lt;email@address>."/>
+                        <ext-textfield label="SMTP Host" bind="{record.smtp_hostname}"/>
+                        <ext-spinnerfield label="SMTP Port" decimals="0" minValue="1" maxValue="65535" bind="{record.smtp_port}"/>
+                        <ext-textfield label="SMTP Username" bind="{record.smtp_username}"/>
+                        <ext-passwordfield label="SMTP Password" bind="{record.smtp_password}"/>
+                    </ext-fieldset>
+                    <ext-container layout='{"type":"hbox","pack":"end"}' :hidden="hideSmtpSettings">
+                        <ext-button text="Test SMTP" bind='{"disabled":"{!record.smtp_can_test}"}' ui="action" @tap="testSmtp"/>
+                    </ext-container>
+                </ext-panel>
 
-            <slot name="bottom"/>
+                <slot name="bottom"/>
+            </ext-tabpanel>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
@@ -35,7 +39,7 @@ export default {
         },
         "width": {
             "type": String,
-            "default": "800",
+            "default": "90%",
         },
         "height": {
             "type": String,
