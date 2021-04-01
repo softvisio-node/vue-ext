@@ -1,24 +1,33 @@
 <template>
-    <ext-panel scrollable="true" layout="vbox" viewModel="true">
-        <ext-fieldset title='<i class="fas fa-palette"></i> Application Interface Theme' layout='{"type":"hbox","pack":"start","align":"start"}'>
-            <ext-fieldset layout="vbox" width="120">
-                <ext-togglefield label="Follow OS Theme" :value="systemDarkMode" @change="systemDarkMode = $event"/>
-                <ext-togglefield label='<i class="fas fa-adjust"></i> Dark Mode' :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
-            </ext-fieldset>
+    <ext-tabpanel tabBarPosition="left" tabRotation="none" tabBar='{"layout":{"type":"vbox","pack":"start","align":"start"},"defaults":{"padding":"0 10 0 10","width":250,"height":50,"flex":null,"textAlign":"right"}}' layout='{"animation":{"type":"slide","direction":"vertical"}}' padding="0 10 0 10">
+        <slot name="top"/>
 
-            <ext-spacer width="20"/>
+        <!-- Theme -->
+        <ext-panel title="Interface Theme" iconCls="fas fa-palette" iconAlign="left">
+            <ext-panel scrollable="true" layout="vbox" viewModel="true">
+                <ext-fieldset title='<i class="fas fa-palette"></i> Application Interface Theme' layout='{"type":"hbox","pack":"start","align":"start"}'>
+                    <ext-fieldset layout="vbox" width="120">
+                        <ext-togglefield label="Follow OS Theme" :value="systemDarkMode" @change="systemDarkMode = $event"/>
+                        <ext-togglefield label='<i class="fas fa-adjust"></i> Dark Mode' :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
+                    </ext-fieldset>
 
-            <ext-fieldset layout="vbox" flex="1">
-                <ext-label html="Base Color"/>
-                <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeBaseChanged"/>
-            </ext-fieldset>
+                    <ext-spacer width="20"/>
 
-            <ext-fieldset layout="vbox" flex="1">
-                <ext-label html="Accent Color"/>
-                <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeAccentChanged"/>
-            </ext-fieldset>
-        </ext-fieldset>
-    </ext-panel>
+                    <ext-fieldset layout="vbox" flex="1">
+                        <ext-label html="Base Color"/>
+                        <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeBaseChanged"/>
+                    </ext-fieldset>
+
+                    <ext-fieldset layout="vbox" flex="1">
+                        <ext-label html="Accent Color"/>
+                        <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeAccentChanged"/>
+                    </ext-fieldset>
+                </ext-fieldset>
+            </ext-panel>
+        </ext-panel>
+
+        <slot name="bottom"/>
+    </ext-tabpanel>
 </template>
 
 <script>

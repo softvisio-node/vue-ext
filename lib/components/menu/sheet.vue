@@ -6,12 +6,13 @@
         </ext-panel>
 
         <ext-panel layout="vbox" flex="1" padding="10 10 10 30">
-            <slot/>
+            <slot name="top"/>
 
             <ext-spacer/>
 
+            <slot name="bottom"/>
             <ext-button iconCls="fas fa-key" text="API Access Tokens" textAlign="left" :hidden="noApiTokens" @tap="showApiTokens"/>
-            <ext-button iconCls="fas fa-user" text="Profile" textAlign="left" @tap="showProfile"/>
+            <ext-button iconCls="fas fa-user" text="Your Profile" textAlign="left" @tap="showProfile"/>
             <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" @tap="changePassword"/>
             <ext-button iconCls="fas fa-sign-out-alt" text="Sign Out" textAlign="left" @tap="signout"/>
 
@@ -25,7 +26,6 @@
 <script>
 import Avatar from "./avatar";
 import ChangePasswordDialog from "../change-password-dialog";
-import ProfileDialog from "../profile/dialog";
 import ApiTokensDialog from "../api-tokens/dialog";
 
 export default {
@@ -37,6 +37,8 @@ export default {
             "default": false,
         },
     },
+
+    "emits": ["showProfileDialog"],
 
     "computed": {
         avatar () {
@@ -78,11 +80,7 @@ export default {
         },
 
         async showProfile () {
-            this.hide();
-
-            const cmp = await this.$mount( ProfileDialog );
-
-            cmp.ext.show();
+            this.$emit( "showProfileDialog" );
         },
 
         async showApiTokens () {

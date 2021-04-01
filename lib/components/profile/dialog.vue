@@ -1,6 +1,14 @@
 <template>
-    <ext-dialog title="User Profile" :width="width" :height="height" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="fit">
-        <Panel/>
+    <ext-dialog title="Your Profile" :width="width" :height="height" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="fit">
+        <Panel>
+            <template #top>
+                <slot name="top"/>
+            </template>
+
+            <template #bottom>
+                <slot name="bottom"/>
+            </template>
+        </Panel>
     </ext-dialog>
 </template>
 
@@ -13,11 +21,11 @@ export default {
     "props": {
         "width": {
             "type": String,
-            "default": "500",
+            "default": "90%",
         },
         "height": {
             "type": String,
-            "default": "400",
+            "default": "90%",
         },
     },
 };
