@@ -1,3 +1,9 @@
+## 2.2.1 (2021-04-01)
+
+### Raw commits log
+
+-   menu slots added;
+
 ## 2.2.0 (2021-04-01)
 
 ### Raw commits log
