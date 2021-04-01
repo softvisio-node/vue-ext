@@ -1,3 +1,9 @@
+## 2.1.0 (2021-04-01)
+
+### Raw commits log
+
+-   app settings dialog updated;
+
 ## 2.0.2 (2021-03-25)
 
 ### Raw commits log
