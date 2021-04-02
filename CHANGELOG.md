@@ -1,3 +1,9 @@
+## 2.2.2 (2021-04-02)
+
+### Raw commits log
+
+-   settings updated;
+
 ## 2.2.1 (2021-04-01)
 
 ### Raw commits log
