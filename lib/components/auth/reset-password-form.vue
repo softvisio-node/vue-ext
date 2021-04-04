@@ -14,8 +14,8 @@
 export default {
     "props": {
         "closable": {
-            "type": Boolean,
-            "default": false,
+            "type": String,
+            "default": "false",
         },
     },
     "emits": ["close", "signin"],
@@ -26,7 +26,7 @@ export default {
 
             cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
 
-            if ( this.closable ) {
+            if ( this.closable === "true" ) {
                 cmp.setTools( [
                     {
                         "type": "close",

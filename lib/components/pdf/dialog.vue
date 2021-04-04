@@ -20,8 +20,8 @@ export default {
             "default": "auto",
         },
         "resetZoomOnLoad": {
-            "type": Boolean,
-            "default": true,
+            "type": String,
+            "default": "true",
         },
         "zoomStep": {
             "type": Number,

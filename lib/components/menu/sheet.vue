@@ -11,7 +11,7 @@
             <ext-spacer/>
 
             <slot name="bottom-up"/>
-            <ext-button iconCls="fas fa-key" text="API Access Tokens" textAlign="left" :hidden="noApiTokens" @tap="showApiTokens"/>
+            <ext-button iconCls="fas fa-key" text="API Access Tokens" textAlign="left" :hidden="apiTokens !== 'true'" @tap="showApiTokens"/>
             <ext-button iconCls="fas fa-user" text="Your Profile" textAlign="left" @tap="showProfile"/>
             <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" @tap="changePassword"/>
             <slot name="bottom-down"/>
@@ -33,9 +33,9 @@ export default {
     "components": { Avatar },
 
     "props": {
-        "noApiTokens": {
-            "type": Boolean,
-            "default": false,
+        "apiTokens": {
+            "type": String,
+            "default": "true",
         },
     },
 

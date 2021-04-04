@@ -18,20 +18,20 @@ export default {
 
     "props": {
         "signup": {
-            "type": Boolean,
-            "default": false,
+            "type": String,
+            "default": "false",
         },
         "reset": {
-            "type": Boolean,
-            "default": false,
+            "type": String,
+            "default": "true",
         },
         "closable": {
-            "type": Boolean,
-            "default": false,
+            "type": String,
+            "default": "false",
         },
         "shadow": {
-            "type": Boolean,
-            "default": false,
+            "type": String,
+            "default": "true",
         },
     },
 
@@ -62,7 +62,7 @@ export default {
         },
 
         onSignin () {
-            if ( this.closable ) this.close();
+            if ( this.closable === "true" ) this.close();
         },
     },
 };

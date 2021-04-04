@@ -3,10 +3,10 @@
         <ext-textfield name="username" label="User Name or Email" required="true"/>
         <ext-passwordfield name="password" label="Password" required="true"/>
 
-        <ext-button text="Do not have account? Sign up" :hidden="!signup" width="100%" margin="10 0 0 0" @tap="showSignup"/>
+        <ext-button text="Do not have account? Sign up" :hidden="signup !== 'true'" width="100%" margin="10 0 0 0" @tap="showSignup"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-            <ext-button text="Forgot password?" ui="forward" :hidden="!reset" @tap="showReset"/>
+            <ext-button text="Forgot password?" ui="forward" :hidden="reset !== 'true'" @tap="showReset"/>
             <ext-spacer/>
             <ext-button text="Sign in" ui="action" @tap="submit"/>
         </ext-toolbar>
@@ -17,16 +17,16 @@
 export default {
     "props": {
         "closable": {
-            "type": Boolean,
-            "default": false,
+            "type": String,
+            "default": "false",
         },
         "signup": {
-            "type": Boolean,
-            "default": false,
+            "type": String,
+            "default": "false",
         },
         "reset": {
-            "type": Boolean,
-            "default": false,
+            "type": String,
+            "default": "false",
         },
     },
     "emits": ["close", "reset", "signup"],
@@ -37,7 +37,7 @@ export default {
 
             cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
 
-            if ( this.closable ) {
+            if ( this.closable === "true" ) {
                 cmp.setTools( [
                     {
                         "type": "close",
@@ -75,7 +75,7 @@ export default {
                     this.$utils.toast( res );
                 }
                 else {
-                    if ( this.closable ) this.close();
+                    if ( this.closable === "true" ) this.close();
                 }
             }
         },

@@ -35,8 +35,8 @@ am4core.options.commercialLicense = true;
 export default {
     "props": {
         "animated": {
-            "type": Boolean,
-            "default": true,
+            "type": String,
+            "default": "true",
         },
     },
     "emits": ["ready"],
@@ -92,7 +92,7 @@ export default {
 
             // theme
             am4core.unuseAllThemes();
-            if ( this.animated ) am4core.useTheme( chartThemeAnimated );
+            if ( this.animated === "true" ) am4core.useTheme( chartThemeAnimated );
             am4core.useTheme( this.darkMode ? chartThemeDark : chartThemeLight );
 
             this.chart = am4core.createFromConfig( JSON.parse( JSON.stringify( config ) ), this.ext.innerElement.dom );

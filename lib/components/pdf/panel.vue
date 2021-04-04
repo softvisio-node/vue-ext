@@ -36,8 +36,8 @@ export default {
             "default": "auto",
         },
         "resetZoomOnLoad": {
-            "type": Boolean,
-            "default": true,
+            "type": String,
+            "default": "true",
         },
         "zoomStep": {
             "type": Number,
@@ -52,8 +52,8 @@ export default {
             "default": 2,
         },
         "maximizable": {
-            "type": Boolean,
-            "default": false,
+            "type": String,
+            "default": "false",
         },
     },
 
@@ -81,7 +81,7 @@ export default {
 
             var maximize = [];
 
-            if ( this.maximizable ) {
+            if ( this.maximizable === "true" ) {
                 maximize = [
                     { "xtype": "button", "iconCls": "fas fa-compress", "ui": "action", "handler": this.maximize.bind( this, null ) },
                     { "xtype": "container", "height": "10" },
@@ -197,7 +197,7 @@ export default {
 
             if ( !this.currentSrc ) return;
 
-            if ( this.resetZoomOnLoad ) this.currentZoom = 1;
+            if ( this.resetZoomOnLoad === "true" ) this.currentZoom = 1;
 
             var cmp = this.ext;
 
