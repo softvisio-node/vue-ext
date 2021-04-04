@@ -1,3 +1,9 @@
+## 2.2.3 (2021-04-04)
+
+### Raw commits log
+
+-   vertical tab props added;
+
 ## 2.2.2 (2021-04-02)
 
 ### Raw commits log
