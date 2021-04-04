@@ -4,7 +4,7 @@
 
         <!-- Theme -->
         <ext-panel title="Interface Theme" layout="vbox" viewModel="true">
-            <ext-fieldset :title="interfaceThemeTitle" layout='{"type":"vbox","pack":"start","align":"start"}' defaults='{"labelAlign":"left","labelWidth":150}'>
+            <ext-fieldset :title="titles === 'true' ? 'Interface Theme' : ''" layout='{"type":"vbox","pack":"start","align":"start"}' defaults='{"labelAlign":"left","labelWidth":150}'>
                 <ext-togglefield label="Follow OS Theme" :value="systemDarkMode" @change="systemDarkMode = $event"/>
                 <ext-togglefield label='<i class="fas fa-adjust"></i> Dark Mode' :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
                 <ext-fieldcontainer label="Base Color" container='{"defaults":null}'>
@@ -25,8 +25,8 @@
 export default {
     "props": {
         "titles": {
-            "type": Boolean,
-            "default": true,
+            "type": String,
+            "default": "true",
         },
     },
 

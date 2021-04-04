@@ -28,8 +28,8 @@ export default {
             "default": "90%",
         },
         "titles": {
-            "type": Boolean,
-            "default": true,
+            "type": String,
+            "default": "true",
         },
     },
 };

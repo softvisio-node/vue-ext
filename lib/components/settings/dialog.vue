@@ -5,8 +5,8 @@
                 <slot name="top"/>
 
                 <!-- SMTP -->
-                <ext-panel title="SMTP Settings" :hidden="!smtpSettings">
-                    <ext-fieldset :title="smtpSettingsTitle" defaults='{"labelAlign":"left","labelWidth":250}'>
+                <ext-panel title="SMTP Settings" :hidden="smtpSettings !== 'true'">
+                    <ext-fieldset :title="titles === 'true' ? 'SMTP Settings' : ''" defaults='{"labelAlign":"left","labelWidth":250}'>
                         <ext-textfield label="App URL" bind="{record.app_url}"/>
                         <ext-textfield label="From <i class='far fa-question-circle'></i>" bind="{record.smtp_from}" placeholder="User Name <email@address>" tooltip="Format: User Name &amp;lt;email@address>."/>
                         <ext-textfield label="SMTP Host" bind="{record.smtp_hostname}"/>
@@ -45,23 +45,17 @@ export default {
             "type": String,
             "default": "90%",
         },
-        "smtpSettings": {
-            "type": Boolean,
-            "default": true,
-        },
         "titles": {
-            "type": Boolean,
-            "default": true,
+            "type": String,
+            "default": "true",
+        },
+        "smtpSettings": {
+            "type": String,
+            "default": "true",
         },
         "submitOnEnter": {
-            "type": Boolean,
-            "default": true,
-        },
-    },
-
-    "computed": {
-        smtpSettingsTitle () {
-            return this.titles ? "SMTP Settings" : "";
+            "type": String,
+            "default": "true",
         },
     },
 
@@ -69,7 +63,7 @@ export default {
         async ready ( e ) {
             this.ext = e.detail.cmp;
 
-            if ( this.submitOnEnter ) this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+            if ( this.submitOnEnter === "true" ) this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
 
             this.ext.on( "beforeshow", this.reload, this );
         },
