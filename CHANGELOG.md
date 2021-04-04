@@ -1,3 +1,9 @@
+## 2.3.0 (2021-04-04)
+
+### Raw commits log
+
+-   props boolean updated to strings true / false;
+
 ## 2.2.3 (2021-04-04)
 
 ### Raw commits log
