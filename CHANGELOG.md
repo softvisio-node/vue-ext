@@ -1,3 +1,9 @@
+## 2.3.1 (2021-04-04)
+
+### Raw commits log
+
+-   tab views titles updated;
+
 ## 2.3.0 (2021-04-04)
 
 ### Raw commits log
