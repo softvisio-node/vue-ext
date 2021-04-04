@@ -1,12 +1,12 @@
 <template>
-    <ext-dialog :title="title" :width="width" :height="height" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" :layout="layout" viewModel="true" @ready="ready">
+    <ext-dialog :title="title" :width="width" :height="height" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="fit" viewModel="true" @ready="ready">
         <ext-fieldpanel ref="form" layout="fit" modelValidation="true">
             <ext-tabpanel tabBarPosition="left" tabRotation="none" tabBar='{"layout":{"type":"vbox","pack":"start","align":"start"},"defaults":{"padding":"0 10 0 10","width":250,"height":50,"flex":null,"textAlign":"right"}}' layout='{"animation":{"type":"slide","direction":"vertical"}}' padding="0 10 0 10">
                 <slot name="top"/>
 
                 <!-- SMTP -->
-                <ext-panel title="SMTP Settings">
-                    <ext-fieldset :hidden="hideSmtpSettings" defaults='{"labelAlign":"left","labelWidth":250}'>
+                <ext-panel title="SMTP Settings" :hidden="!smtpSettings">
+                    <ext-fieldset :title="smtpSettingsTitle" defaults='{"labelAlign":"left","labelWidth":250}'>
                         <ext-textfield label="App URL" bind="{record.app_url}"/>
                         <ext-textfield label="From <i class='far fa-question-circle'></i>" bind="{record.smtp_from}" placeholder="User Name <email@address>" tooltip="Format: User Name &amp;lt;email@address>."/>
                         <ext-textfield label="SMTP Host" bind="{record.smtp_hostname}"/>
@@ -14,7 +14,7 @@
                         <ext-textfield label="SMTP Username" bind="{record.smtp_username}"/>
                         <ext-passwordfield label="SMTP Password" bind="{record.smtp_password}"/>
                     </ext-fieldset>
-                    <ext-container layout='{"type":"hbox","pack":"end"}' :hidden="hideSmtpSettings">
+                    <ext-container layout='{"type":"hbox","pack":"end"}'>
                         <ext-button text="Test SMTP" bind='{"disabled":"{!record.smtp_can_test}"}' ui="action" @tap="testSmtp"/>
                     </ext-container>
                 </ext-panel>
@@ -45,17 +45,23 @@ export default {
             "type": String,
             "default": "90%",
         },
-        "layout": {
-            "type": String,
-            "default": "fit",
-        },
-        "hideSmtpSettings": {
+        "smtpSettings": {
             "type": Boolean,
-            "default": false,
+            "default": true,
         },
-        "noSubmitOnEnter": {
+        "titles": {
             "type": Boolean,
-            "default": false,
+            "default": true,
+        },
+        "submitOnEnter": {
+            "type": Boolean,
+            "default": true,
+        },
+    },
+
+    "computed": {
+        smtpSettingsTitle () {
+            return this.titles ? "SMTP Settings" : "";
         },
     },
 
@@ -63,7 +69,7 @@ export default {
         async ready ( e ) {
             this.ext = e.detail.cmp;
 
-            if ( !this.noSubmitOnEnter ) this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+            if ( this.submitOnEnter ) this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
 
             this.ext.on( "beforeshow", this.reload, this );
         },

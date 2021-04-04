@@ -1,6 +1,6 @@
 <template>
     <ext-dialog title="Your Profile" :width="width" :height="height" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="fit">
-        <Panel>
+        <Panel :titles="titles">
             <template #top>
                 <slot name="top"/>
             </template>
@@ -26,6 +26,10 @@ export default {
         "height": {
             "type": String,
             "default": "90%",
+        },
+        "titles": {
+            "type": Boolean,
+            "default": true,
         },
     },
 };
