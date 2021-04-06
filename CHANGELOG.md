@@ -1,3 +1,9 @@
+## 2.3.2 (2021-04-06)
+
+### Raw commits log
+
+-   settings deferRender false;
+
 ## 2.3.1 (2021-04-04)
 
 ### Raw commits log
