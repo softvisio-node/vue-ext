@@ -1,7 +1,7 @@
 <template>
     <ext-dialog :title="title" :width="width" :height="height" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="fit" viewModel="true" @ready="ready">
         <ext-fieldpanel ref="form" layout="fit" modelValidation="true">
-            <ext-tabpanel tabBarPosition="left" tabRotation="none" tabBar='{"layout":{"type":"vbox","pack":"start","align":"start"},"defaults":{"padding":"0 10 0 10","width":250,"height":50,"flex":null,"textAlign":"right"}}' layout='{"animation":{"type":"slide","direction":"vertical"}}' padding="0 10 0 10">
+            <ext-tabpanel tabBarPosition="left" tabRotation="none" tabBar='{"layout":{"type":"vbox","pack":"start","align":"start"},"defaults":{"padding":"0 10 0 10","width":250,"height":50,"flex":null,"textAlign":"right"}}' layout='{"deferRender":false,"animation":{"type":"slide","direction":"vertical"}}' padding="0 10 0 10">
                 <slot name="top"/>
 
                 <!-- SMTP -->
