@@ -17,10 +17,11 @@
         "url": "https://bitbucket.org/softvisio/softvisio-vue-ext.git"
     },
     "author": "zdm <zdm@softvisio.net>",
+    "type": "module",
     "exports": {
         ".": "./lib/index.js",
         "./*": "./lib/*.js",
-        "./resources/vue.config": "./resources/vue.config.js"
+        "./resources/*": "./resources/*"
     },
     "scripts": {
         "lint": "softvisio-cli lint"
