@@ -17,7 +17,7 @@ https://rossta.net/blog/building-a-pdf-viewer-with-vue-part-1.html
 import { defineAsyncComponent } from "vue";
 
 // import pdfjs from "pdfjs-dist/build/pdf";
-const pdfjs = require( "pdfjs-dist/build/pdf" );
+import { default as pdfjs } from "pdfjs-dist/build/pdf";
 import PdfjsWorker from "pdfjs-dist/build/pdf.worker";
 const PdfDialog = defineAsyncComponent( () => import( "./dialog" ) );
 
