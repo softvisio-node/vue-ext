@@ -8,13 +8,13 @@ config.configureWebpack = config => {
     _configureWebpack( config );
 
     // aliases
-    config.resolve.alias["#ext.js"] = "@softvisio/ext/lib/ext-" + process.env.EXT_VERSION + ".js";
-    config.resolve.alias["#ext-resources"] = "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION;
+    config.resolve.alias[":ext"] = "@softvisio/ext/lib/ext-" + process.env.EXT_VERSION + ".js";
+    config.resolve.alias[":ext-resources"] = "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION;
 
-    config.resolve.alias["#ewc.js"] = "@softvisio/ext/lib/ewc-" + process.env.EWC_VERSION + ".js";
-    config.resolve.alias["#ewc-resources"] = "@softvisio/ext/resources/ewc-" + process.env.EWC_VERSION;
+    config.resolve.alias[":ewc"] = "@softvisio/ext/lib/ewc-" + process.env.EWC_VERSION + ".js";
+    config.resolve.alias[":ewc-resources"] = "@softvisio/ext/resources/ewc-" + process.env.EWC_VERSION;
 
-    config.resolve.alias["#softvisio"] = "@softvisio/vue-ext/lib";
+    config.resolve.alias[":softvisio"] = "@softvisio/vue-ext";
 };
 
 const _chainWebpack = config.chainWebpack;
@@ -28,9 +28,7 @@ config.chainWebpack = config => {
     config.module
         .rule( "vue" )
         .use( "vue-loader" )
-
-        // .loader( "vue-loader" )
-        .loader( require.resolve( "vue-loader-v16" ) ) // XXX remove
+        .loader( "vue-loader" )
         .tap( options => {
             options.compilerOptions = {
                 ...( options.compilerOptions || {} ),

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import AmchartsPanel from "#softvisio/components/am4charts/panel";
+import AmchartsPanel from ":softvisio/components/am4charts/panel";
 
 export default {
     "components": { AmchartsPanel },

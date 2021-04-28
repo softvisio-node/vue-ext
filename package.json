@@ -22,7 +22,9 @@
         ".": "./lib/index.js",
         "./*": [
             "./lib/*.js",
-            "./lib/*.vue"
+            "./lib/*.vue",
+            "./lib/*/index.js",
+            "./lib/*/index.vue"
         ],
         "./resources/*": "./resources/*"
     },
@@ -32,7 +34,7 @@
     "peerDependencies": {
         "@amcharts/amcharts4": "^4.10.13",
         "@fortawesome/fontawesome-free": "^5.15.2",
-        "@softvisio/ext": "bitbucket:softvisio/softvisio-ext#semver:^2.0.0",
+        "@softvisio/ext": "bitbucket:softvisio/softvisio-ext#semver:^3.0.0-alpha.0",
         "@softvisio/vue": "^3.0.0-alpha.4",
         "froala-editor": "^3.2.6",
         "pdfjs-dist": "^2.6.347"
