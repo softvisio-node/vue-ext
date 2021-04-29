@@ -36,8 +36,6 @@ export default {
         gridReady ( e ) {
             var grid = e.detail.cmp;
 
-            grid.setMultiColumnSort( true );
-
             grid.setPlugins( [
 
                 //
