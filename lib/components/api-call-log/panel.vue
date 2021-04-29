@@ -1,5 +1,5 @@
 <template>
-    <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":"true"}' multicolumnSort="true" @ready="gridReady">
+    <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
         <ext-toolbar docked="top">
             <ext-searchfield placeholder="search tokens by name" width="200" @change="search"/>
             <ext-spacer/>

@@ -1,5 +1,5 @@
 <template>
-    <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":"true"}' multicolumnSort="true" @ready="gridReady">
+    <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
         <ext-toolbar docked="top">
             <ext-spacer/>
             <ext-button iconCls="fas fa-upload" text="Upload Release" @tap="create"/>
