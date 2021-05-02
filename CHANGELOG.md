@@ -1,3 +1,11 @@
+## 3.0.0-alpha.4 (2021-05-02)
+
+### Raw commits log
+
+-   deps updated;
+-   duplicated setMultiColumnSort removed;
+-   ext grid attrs fixed;
+
 ## 3.0.0-alpha.3 (2021-04-28)
 
 ### Raw commits log
