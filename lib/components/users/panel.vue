@@ -25,8 +25,6 @@
 import CreateDialog from "./create/dialog";
 import PermissionsDialog from "./permissions/dialog";
 
-// import CONST from "@/const";
-
 export default {
     mounted () {
         this.store = this.$store.users.store;

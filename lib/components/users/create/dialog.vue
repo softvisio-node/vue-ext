@@ -17,9 +17,6 @@
 </template>
 
 <script>
-
-// import CONST from "@/const";
-
 export default {
     "methods": {
         async ready ( e ) {
