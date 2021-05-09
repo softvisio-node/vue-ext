@@ -18,6 +18,9 @@
     },
     "author": "zdm <zdm@softvisio.net>",
     "type": "module",
+    "imports": {
+        "#core/*": "@softvisio/core/*"
+    },
     "exports": {
         ".": "./lib/index.js",
         "./*": [
