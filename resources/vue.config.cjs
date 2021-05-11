@@ -11,7 +11,9 @@ config.configureWebpack = config => {
     config.resolve.alias[":softvisio"] = "@softvisio/vue-ext";
 
     config.resolve.alias[":ext$"] = "@softvisio/ext/ext-" + process.env.EXT_VERSION;
+    config.resolve.alias[":ext-resources"] = "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION;
     config.resolve.alias[":ewc$"] = "@softvisio/ext/ewc-" + process.env.EWC_VERSION;
+    config.resolve.alias[":ewc-resources"] = "@softvisio/ext/resources/ewc-" + process.env.EWC_VERSION;
 };
 
 const _chainWebpack = config.chainWebpack;
