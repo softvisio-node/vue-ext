@@ -1,3 +1,9 @@
+## 3.0.0-beta.4 (2021-05-11)
+
+### Raw commits log
+
+-   :ext-resources alias restored;
+
 ## 3.0.0-beta.3 (2021-05-11)
 
 ### Raw commits log
