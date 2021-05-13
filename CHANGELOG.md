@@ -1,3 +1,10 @@
+## 3.0.0-beta.5 (2021-05-13)
+
+### Raw commits log
+
+-   env mode accessors added;
+-   utls/env moved to env;
+
 ## 3.0.0-beta.4 (2021-05-11)
 
 ### Raw commits log
