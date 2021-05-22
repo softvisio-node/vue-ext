@@ -14,6 +14,12 @@ config.configureWebpack = config => {
     config.resolve.alias[":ext-resources"] = "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION;
     config.resolve.alias[":ewc$"] = "@softvisio/ext/ewc-" + process.env.EWC_VERSION;
     config.resolve.alias[":ewc-resources"] = "@softvisio/ext/resources/ewc-" + process.env.EWC_VERSION;
+
+    // node polyfills
+    config.resolve.fallback ||= {};
+
+    // required by froala, can be replaced with crypto-browserify
+    config.resolve.fallback.crypto = false;
 };
 
 const _chainWebpack = config.chainWebpack;
