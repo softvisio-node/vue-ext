@@ -1,3 +1,10 @@
+## 3.0.0-beta.6 (2021-05-22)
+
+### Raw commits log
+
+-   froala patch;
+-   lint script removed;
+
 ## 3.0.0-beta.5 (2021-05-13)
 
 ### Raw commits log
