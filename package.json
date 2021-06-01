@@ -36,7 +36,7 @@
         "@fortawesome/fontawesome-free": "^5.15.3",
         "@softvisio/ext": "bitbucket:softvisio/softvisio-ext#semver:^3.1.0-beta.0",
         "@softvisio/vue": "^3.0.0-alpha.4",
-        "froala-editor": "^3.2.7",
+        "froala-editor": "^4.0.0",
         "pdfjs-dist": "^2.8.335"
     },
     "lint": [
