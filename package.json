@@ -38,10 +38,5 @@
         "@softvisio/vue": "^3.0.0-alpha.4",
         "froala-editor": "^4.0.0",
         "pdfjs-dist": "^2.9.359"
-    },
-    "lint": [
-        "*.*",
-        "lib/**",
-        "resources/**"
-    ]
+    }
 }
