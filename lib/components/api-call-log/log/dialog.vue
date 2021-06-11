@@ -14,7 +14,7 @@
 
             <ext-column text="Status" dataIndex="status_text" sortable="false" cell='{"encodeHtml":false}' width="100" align="center"/>
 
-            <ext-column text="Reason" dataIndex="reason" sortable="false" flex="1"/>
+            <ext-column text="Status Text" dataIndex="status_text" sortable="false" flex="1"/>
         </ext-grid>
     </ext-dialog>
 </template>
