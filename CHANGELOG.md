@@ -1,5 +1,23 @@
 # Changelog
 
+### 3.0.0-beta.11 (2021-06-17)
+
+Changed:
+
+-   result .reason renamed to .statusText;
+-   moved to github;
+-   deps updated;
+-   froala v4;
+
+Removed:
+
+-   lint config removed;
+
+Fixed:
+
+-   minor code improvements;
+-   api classes return result parser updated;
+
 ### 3.0.0-beta.10 (2021-05-29)
 
 Changed:
