@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.0.0-beta.12 (2021-06-18)
+
+Changed:
+
+-   vue.$app events;
+
 ### 3.0.0-beta.11 (2021-06-17)
 
 Changed:
