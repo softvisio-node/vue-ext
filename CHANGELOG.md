@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.0.0-beta.13 (2021-07-07)
+
+Changed:
+
+-   app settings feature removed
+
 ### 3.0.0-beta.12 (2021-06-18)
 
 Changed:
