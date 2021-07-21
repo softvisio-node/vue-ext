@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.0.0-beta.14 (2021-07-21)
+
+Changed:
+
+-   env.getBoolValue removed
+
 ### 3.0.0-beta.13 (2021-07-07)
 
 Changed:
