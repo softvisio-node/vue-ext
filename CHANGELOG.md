@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.0.0-rc.0 (2021-07-29)
+
+Changed:
+
+-   release candidate
+
 ### 3.0.0-beta.16 (2021-07-29)
 
 Changed:
