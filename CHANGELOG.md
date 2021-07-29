@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.0.0-rc.2 (2021-07-29)
+
+Changed:
+
+-   charts registry added
+
 ### 3.0.0-rc.1 (2021-07-29)
 
 Changed:
