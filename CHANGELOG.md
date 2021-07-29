@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.0.0-rc.1 (2021-07-29)
+
+Changed:
+
+-   :ext-charts alias updated
+
 ### 3.0.0-rc.0 (2021-07-29)
 
 Changed:
