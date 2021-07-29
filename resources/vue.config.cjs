@@ -12,6 +12,7 @@ config.configureWebpack = config => {
 
     config.resolve.alias[":ext$"] = "@softvisio/ext/ext-" + process.env.EXT_VERSION;
     config.resolve.alias[":ext-resources"] = "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION;
+    config.resolve.alias[":ext-charts$"] = "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION + "/charts.js";
     config.resolve.alias[":ewc$"] = "@softvisio/ext/ewc-" + process.env.EWC_VERSION;
     config.resolve.alias[":ewc-resources"] = "@softvisio/ext/resources/ewc-" + process.env.EWC_VERSION;
 
