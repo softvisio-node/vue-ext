@@ -1,5 +1,13 @@
 # Changelog
 
+### 3.0.0-rc.5 (2021-07-30)
+
+Changed:
+
+-   charts DownloadServerUrl disabled
+-   extjs components renamed to cjs
+-   charts override as cjs
+
 ### 3.0.0-rc.4 (2021-07-30)
 
 Changed:
