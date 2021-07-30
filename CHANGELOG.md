@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.0.0-rc.7 (2021-07-30)
+
+Changed:
+
+-   change password moved to profile
+
 ### 3.0.0-rc.6 (2021-07-30)
 
 Changed:
