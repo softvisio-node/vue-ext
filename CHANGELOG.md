@@ -1,5 +1,12 @@
 # Changelog
 
+### 3.0.0-rc.4 (2021-07-30)
+
+Changed:
+
+-   theme registry updated
+-   charts component added
+
 ### 3.0.0-rc.3 (2021-07-29)
 
 Changed:
