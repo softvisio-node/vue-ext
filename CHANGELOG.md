@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.0.0-rc.8 (2021-07-30)
+
+Changed:
+
+-   typo fixed
+
 ### 3.0.0-rc.7 (2021-07-30)
 
 Changed:
