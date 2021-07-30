@@ -2,7 +2,21 @@
     <ext-tabpanel tabBarPosition="left" tabRotation="none" tabBar='{"layout":{"type":"vbox","pack":"start","align":"start"},"defaults":{"padding":"0 10 0 10","width":250,"height":50,"flex":null,"textAlign":"right"}}' layout='{"animation":{"type":"slide","direction":"vertical"}}' padding="0 10 0 10">
         <slot name="top"/>
 
-        <!-- Theme -->
+        <!-- security -->
+        <ext-panel title="Security" layout="vbox" viewModel="true" padding="0 10 0 10">
+            <ext-toolbar docked="top" :hidden="titles !== 'true'">
+                <ext-container html="Security"/>
+            </ext-toolbar>
+            <ext-fieldpanel ref="changePasswordForm" defaults='{"labelAlign":"left","labelWidth":150}'>
+                <ext-passwordfield name="password" label="Mew Password" required="true"/>
+                <ext-passwordfield ref="passwordConfirm" label="Confirm New Password" required="true"/>
+                <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
+                    <ext-button text="Change Password" ui="action" @tap="changePassword"/>
+                </ext-toolbar>
+            </ext-fieldpanel>
+        </ext-panel>
+
+        <!-- theme -->
         <ext-panel title="Interface Theme" layout="vbox" viewModel="true">
             <ext-toolbar docked="top" :hidden="titles !== 'true'">
                 <ext-container html="Interface Theme"/>
@@ -96,6 +110,36 @@ export default {
             const record = e.detail.location.record;
 
             this.$store.theme.setTheme( { "accent": record.get( "name" ) } );
+        },
+
+        async changePassword () {
+            var form = this.$refs.changePasswordForm.ext,
+                passwordCondirm = this.$refs.passwordConfirm.ext;
+
+            if ( !form.validate() ) return;
+
+            var vals = form.getValues();
+
+            if ( vals.password !== passwordCondirm.getValue() ) {
+                passwordCondirm.setError( "Passwords are not match" );
+
+                return;
+            }
+
+            Ext.Viewport.mask();
+
+            const res = await this.$store.session.setPassword( vals.password );
+
+            Ext.Viewport.unmask();
+
+            if ( res.ok ) {
+                form.reset( true );
+
+                this.$utils.toast( "Password changed." );
+            }
+            else {
+                this.$utils.toast( res );
+            }
         },
     },
 };
