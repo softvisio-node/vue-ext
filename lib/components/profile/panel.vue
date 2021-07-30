@@ -8,7 +8,7 @@
                 <ext-container html="Security"/>
             </ext-toolbar>
             <ext-fieldpanel ref="changePasswordForm" defaults='{"labelAlign":"left","labelWidth":150}'>
-                <ext-passwordfield name="password" label="Mew Password" required="true"/>
+                <ext-passwordfield name="password" label="New Password" required="true"/>
                 <ext-passwordfield ref="passwordConfirm" label="Confirm New Password" required="true"/>
                 <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
                     <ext-button text="Change Password" ui="action" @tap="changePassword"/>
