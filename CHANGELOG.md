@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.0.0-rc.6 (2021-07-30)
+
+Changed:
+
+-   theme registry refactored
+
 ### 3.0.0-rc.5 (2021-07-30)
 
 Changed:
