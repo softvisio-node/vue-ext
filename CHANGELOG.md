@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.0.0-rc.9 (2021-07-31)
+
+Changed:
+
+-   charts themes mapping added
+
 ### 3.0.0-rc.8 (2021-07-30)
 
 Changed:
