@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.0.0-rc.10 (2021-07-31)
+
+Changed:
+
+-   profile ui updated
+
 ### 3.0.0-rc.9 (2021-07-31)
 
 Changed:
