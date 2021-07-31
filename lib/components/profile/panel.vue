@@ -4,21 +4,21 @@
 
         <!-- security -->
         <ext-panel title="Security" layout="vbox" viewModel="true" padding="0 10 0 10">
-            <ext-toolbar docked="top" :hidden="titles !== 'true'">
-                <ext-container html="Security"/>
+            <ext-toolbar docked="top">
+                <ext-container html="Change Password"/>
             </ext-toolbar>
             <ext-fieldpanel ref="changePasswordForm" defaults='{"labelAlign":"left","labelWidth":150}'>
                 <ext-passwordfield name="password" label="New Password" required="true"/>
                 <ext-passwordfield ref="passwordConfirm" label="Confirm New Password" required="true"/>
                 <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-                    <ext-button text="Change Password" ui="action" @tap="changePassword"/>
+                    <ext-button text="Update Password" ui="action" @tap="changePassword"/>
                 </ext-toolbar>
             </ext-fieldpanel>
         </ext-panel>
 
         <!-- theme -->
         <ext-panel title="Interface Theme" layout="vbox" viewModel="true">
-            <ext-toolbar docked="top" :hidden="titles !== 'true'">
+            <ext-toolbar docked="top">
                 <ext-container html="Interface Theme"/>
             </ext-toolbar>
             <ext-fieldset layout='{"type":"vbox","pack":"start","align":"start"}' defaults='{"labelAlign":"left","labelWidth":150}'>
@@ -40,18 +40,7 @@
 
 <script>
 export default {
-    "props": {
-        "titles": {
-            "type": String,
-            "default": "true",
-        },
-    },
-
     "computed": {
-        interfaceThemeTitle () {
-            return this.titles ? "Interface Theme" : "";
-        },
-
         "systemDarkMode": {
             get () {
                 return this.$store.theme.systemDarkMode + "";
