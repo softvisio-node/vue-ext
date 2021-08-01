@@ -25,7 +25,7 @@ export default {
             var viewport = Ext.Viewport;
 
             // init session
-            while ( 1 ) {
+            while ( true ) {
                 viewport.mask( this.defaultMask );
 
                 var res = await this.$store.session.signin();
@@ -45,7 +45,7 @@ export default {
 
             this.$router.reload();
 
-            this.$watch( "sessionIsAuthenticated", this.onAuthChange.bind( this ) );
+            this.$watch( "isAuthenticated", this.onAuthChange.bind( this ) );
         },
 
         async onAppInitFailure () {
@@ -72,7 +72,7 @@ export default {
                 this.routeConfirmEmail();
             }
             else {
-                if ( this.sessionIsAuthenticated ) {
+                if ( this.isAuthenticated ) {
                     this.routePrivate( route );
                 }
                 else {
