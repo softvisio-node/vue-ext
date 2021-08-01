@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.0.0-rc.11 (2021-08-01)
+
+Changed:
+
+-   viewport auth refactored
+
 ### 3.0.0-rc.10 (2021-07-31)
 
 Changed:
