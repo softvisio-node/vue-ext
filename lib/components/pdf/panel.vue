@@ -15,13 +15,11 @@ https://rossta.net/blog/building-a-pdf-viewer-with-vue-part-1.html
 
 <script>
 import { defineAsyncComponent } from "vue";
+import * as pdfJS from "pdfjs-dist/build/pdf";
+import PDFJSWorker from "pdfjs-dist/build/pdf.worker";
+const PDFDialog = defineAsyncComponent( () => import( "./dialog" ) );
 
-// import pdfjs from "pdfjs-dist/build/pdf";
-import { default as pdfjs } from "pdfjs-dist/build/pdf";
-import PdfjsWorker from "pdfjs-dist/build/pdf.worker";
-const PdfDialog = defineAsyncComponent( () => import( "./dialog" ) );
-
-pdfjs.GlobalWorkerOptions.workerPort = new PdfjsWorker();
+pdfJS.GlobalWorkerOptions.workerPort = new PDFJSWorker();
 
 const pixelRatio = window.devicePixelRatio || 1;
 
@@ -125,7 +123,7 @@ export default {
 
         // zoom
         maximize () {
-            this.$mount( PdfDialog, { "props": { "src": this.currentSrc }, "noCache": true } );
+            this.$mount( PDFDialog, { "props": { "src": this.currentSrc }, "noCache": true } );
         },
 
         zoomIn ( zoomStep ) {
@@ -203,7 +201,7 @@ export default {
 
             cmp.mask();
 
-            const loadingTask = pdfjs.getDocument( this.currentSrc );
+            const loadingTask = pdfJS.getDocument( this.currentSrc );
 
             // loadingTask.onProgress = function ( progress ) {
             //     var percent = parseInt( ( progress.loaded / progress.total ) * 100 );
