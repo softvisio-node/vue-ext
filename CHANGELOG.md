@@ -1,5 +1,15 @@
 # Changelog
 
+### 3.1.0 (2021-09-05)
+
+Features:
+
+-   feat: createApp global properties
+
+Fixes:
+
+-   fix: pdfjs imports
+
 ### 3.0.0 (2021-09-04)
 
 No significant changes since the previous release
