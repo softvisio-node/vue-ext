@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.2.0 (2021-09-06)
+
+Features:
+
+-   feat: menu sheep profile property
+
 ### 3.1.0 (2021-09-05)
 
 Features:
