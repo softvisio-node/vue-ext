@@ -12,7 +12,7 @@
 
             <slot name="bottom-up"/>
             <ext-button iconCls="fas fa-key" text="API Access Tokens" textAlign="left" :hidden="apiTokens !== 'true'" @tap="showApiTokens"/>
-            <ext-button iconCls="fas fa-user" text="Your Profile" textAlign="left" @tap="showProfile"/>
+            <ext-button iconCls="fas fa-user" text="Your Profile" textAlign="left" :hidden="profile !== 'true'" @tap="showProfile"/>
             <!-- <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" @tap="changePassword"/> -->
             <slot name="bottom-down"/>
             <ext-button iconCls="fas fa-sign-out-alt" text="Sign Out" textAlign="left" @tap="signout"/>
@@ -35,6 +35,10 @@ export default {
 
     "props": {
         "apiTokens": {
+            "type": String,
+            "default": "true",
+        },
+        "profile": {
             "type": String,
             "default": "true",
         },
