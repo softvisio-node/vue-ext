@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.3.0 (2021-09-09)
+
+Features:
+
+-   feat: babel.config.cjs
+
 ### 3.2.0 (2021-09-06)
 
 Features:
