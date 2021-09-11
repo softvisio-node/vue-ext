@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import ApiCallLogEntryModel from "#softvisio/models/api-call-log/entry";
+import ApiCallLogEntryModel from "#vue/models/api-call-log/entry";
 
 export default {
     data () {
