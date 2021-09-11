@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.3.1 (2021-09-11)
+
+Fixes:
+
+-   fix: package imports
+
 ### 3.3.0 (2021-09-09)
 
 Features:
