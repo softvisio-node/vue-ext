@@ -20,7 +20,7 @@
     "type": "module",
     "imports": {
         "#core/*": "@softvisio/core/*",
-        "#lib/*": "lib/*.js"
+        "#lib/*": "./lib/*.js"
     },
     "exports": {
         ".": "./lib/index.js",
