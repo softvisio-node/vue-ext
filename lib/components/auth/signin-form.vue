@@ -1,5 +1,10 @@
 <template>
-    <ext-formpanel ref="form" title="Sign In" @ready="ready">
+    <ext-formpanel ref="form" @ready="ready">
+        <ext-toolbar docked="top">
+            <ext-spacer/>
+            <ext-container html="Sign In"/>
+            <ext-spacer/>
+        </ext-toolbar>
         <ext-textfield name="username" label="User Name or Email" required="true"/>
         <ext-passwordfield name="password" label="Password" required="true"/>
 

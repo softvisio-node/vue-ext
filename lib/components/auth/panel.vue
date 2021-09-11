@@ -1,5 +1,5 @@
 <template>
-    <ext-panel width="300" minHeight="450" layout='{"type":"card","animation":"slide"}' :shadow="shadow" @ready="ready">
+    <ext-panel :title="title" width="300" minHeight="380" layout='{"type":"card","animation":"slide"}' :shadow="shadow" @ready="ready">
         <SigninForm :closable="closable" :signup="signup" :reset="reset" @close="close" @reset="showReset" @signup="showSignup"/>
 
         <ResetPasswordForm :closable="closable" @signin="showSignin" @close="close"/>

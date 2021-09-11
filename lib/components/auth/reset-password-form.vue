@@ -1,5 +1,10 @@
 <template>
-    <ext-formpanel ref="form" title="Reset Password" @ready="ready">
+    <ext-formpanel ref="form" @ready="ready">
+        <ext-toolbar docked="top">
+            <ext-spacer/>
+            <ext-container html="Reset Password"/>
+            <ext-spacer/>
+        </ext-toolbar>
         <ext-textfield name="username" label="User Name or Email" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>

@@ -1,5 +1,10 @@
 <template>
-    <ext-formpanel ref="form" title="Sign Up" @ready="ready">
+    <ext-formpanel ref="form" @ready="ready">
+        <ext-toolbar docked="top">
+            <ext-spacer/>
+            <ext-container html="Sign Up"/>
+            <ext-spacer/>
+        </ext-toolbar>
         <ext-emailfield name="username" label="Email" required="true"/>
         <ext-passwordfield name="password" label="Password" required="true"/>
         <ext-passwordfield ref="passwordConfirm" label="Confirm Password" required="true"/>
