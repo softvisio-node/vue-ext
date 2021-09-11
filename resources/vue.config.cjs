@@ -11,9 +11,9 @@ config.configureWebpack = config => {
     config.resolve.alias["#vue"] = "@softvisio/vue-ext";
 
     config.resolve.alias["#ext$"] = "@softvisio/ext/ext-" + process.env.EXT_VERSION;
-    config.resolve.alias["#ext/"] = "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION + "/";
+    config.resolve.alias["#ext"] = "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION;
     config.resolve.alias["#ewc$"] = "@softvisio/ext/ewc-" + process.env.EWC_VERSION;
-    config.resolve.alias["#ewc/"] = "@softvisio/ext/resources/ewc-" + process.env.EWC_VERSION + "/";
+    config.resolve.alias["#ewc"] = "@softvisio/ext/resources/ewc-" + process.env.EWC_VERSION;
 
     // node polyfills
     config.resolve.fallback ||= {};
