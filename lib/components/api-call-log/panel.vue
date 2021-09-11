@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import AmchartsPanel from ":softvisio/components/am4charts/panel";
-import ApiCallLogStatModel from ":softvisio/models/api-call-log/stat";
+import AmchartsPanel from "#softvisio/components/am4charts/panel";
+import ApiCallLogStatModel from "#softvisio/models/api-call-log/stat";
 import HistoryDialog from "./history/dialog";
 import LogDialog from "./log/dialog";
 

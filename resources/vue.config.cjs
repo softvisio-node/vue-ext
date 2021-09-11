@@ -8,7 +8,7 @@ config.configureWebpack = config => {
     _configureWebpack( config );
 
     // aliases
-    config.resolve.alias[":softvisio"] = "@softvisio/vue-ext";
+    config.resolve.alias["#softvisio"] = "@softvisio/vue-ext";
 
     config.resolve.alias[":ext$"] = "@softvisio/ext/ext-" + process.env.EXT_VERSION;
     config.resolve.alias[":ext-resources"] = "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION;
