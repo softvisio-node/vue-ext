@@ -20,34 +20,34 @@ export default {
         this.publicView = null;
     },
 
+    async mounted () {
+        var viewport = Ext.Viewport;
+
+        // init session
+        while ( true ) {
+            viewport.mask( this.defaultMask );
+
+            var res = await this.$store.session.signin();
+
+            viewport.unmask();
+
+            // connection ok
+            if ( res.ok || res.status === 401 || res.status === 403 ) break;
+
+            // connection error
+            this.$utils.toast( res );
+
+            await this.onAppInitFailure();
+        }
+
+        this.$router.init( this );
+
+        this.$router.reload();
+
+        this.$watch( "isAuthenticated", this.onAuthChange.bind( this ) );
+    },
+
     "methods": {
-        async ready () {
-            var viewport = Ext.Viewport;
-
-            // init session
-            while ( true ) {
-                viewport.mask( this.defaultMask );
-
-                var res = await this.$store.session.signin();
-
-                viewport.unmask();
-
-                // connection ok
-                if ( res.ok || res.status === 401 || res.status === 403 ) break;
-
-                // connection error
-                this.$utils.toast( res );
-
-                await this.onAppInitFailure();
-            }
-
-            this.$router.init( this );
-
-            this.$router.reload();
-
-            this.$watch( "isAuthenticated", this.onAuthChange.bind( this ) );
-        },
-
         async onAppInitFailure () {
             return new Promise( resolve => {
                 this.$mount( this.appInitFailureDialog, {
@@ -63,7 +63,7 @@ export default {
             this.$router.reload();
         },
 
-        // ROUTER
+        // router
         async onRoute ( route ) {
             if ( route.get() === "reset-password" ) {
                 this.routeResetPasword();
