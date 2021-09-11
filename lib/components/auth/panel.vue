@@ -37,6 +37,12 @@ export default {
 
     "emits": ["close"],
 
+    "computed": {
+        title () {
+            return this.$store.session.title;
+        },
+    },
+
     "methods": {
         ready ( e ) {
             this.ext = e.detail.cmp;
