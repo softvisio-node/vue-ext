@@ -37,8 +37,8 @@
     "peerDependencies": {
         "@amcharts/amcharts4": "^4.10.18",
         "@fortawesome/fontawesome-free": "^5.15.3",
-        "@softvisio/ext": "github:softvisio/ext#semver:^3.1.0",
-        "@softvisio/vue": "^3.0.0",
+        "@softvisio/ext": "github:softvisio/ext#semver:^4.0.0-alpha.0",
+        "@softvisio/vue": "^4.0.0-alpha.0",
         "froala-editor": "^4.0.0",
         "pdfjs-dist": "^2.9.359"
     }
