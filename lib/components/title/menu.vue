@@ -10,11 +10,14 @@
 
             <ext-spacer/>
 
-            <slot name="bottom-up"/>
+            <slot name="bottomUp"/>
+
             <ext-button iconCls="fas fa-key" text="API Access Tokens" textAlign="left" :hidden="apiTokens !== 'true'" @tap="showApiTokens"/>
             <ext-button iconCls="fas fa-user" text="Your Profile" textAlign="left" :hidden="profile !== 'true'" @tap="showProfile"/>
             <!-- <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" @tap="changePassword"/> -->
-            <slot name="bottom-down"/>
+
+            <slot name="bottomDown"/>
+
             <ext-button iconCls="fas fa-sign-out-alt" text="Sign Out" textAlign="left" @tap="signout"/>
 
             <ext-container layout="hbox">
