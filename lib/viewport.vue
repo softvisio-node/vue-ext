@@ -60,9 +60,9 @@ export default {
         },
 
         onAuthChange () {
-            window.location.reload();
 
-            // this.$router.reload();
+            // window.location.reload();
+            this.$router.reload();
         },
 
         // router
