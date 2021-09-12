@@ -197,7 +197,7 @@ export default {
         },
 
         async loadChartReady ( cmp ) {
-            var chart = await this.$mount( AmchartsPanel, { "el": cmp, "noCache": true } );
+            var chart = await this.$mount( AmchartsPanel, { "el": cmp, "cache": false } );
 
             cmp.chart = chart;
 
@@ -265,7 +265,7 @@ export default {
         },
 
         async avgRuntimeChartReady ( cmp ) {
-            var chart = await this.$mount( AmchartsPanel, { "el": cmp, "noCache": true } );
+            var chart = await this.$mount( AmchartsPanel, { "el": cmp, "cache": false } );
 
             cmp.chart = chart;
 
@@ -318,7 +318,7 @@ export default {
         },
 
         async exceptionsChartReady ( cmp ) {
-            var chart = await this.$mount( AmchartsPanel, { "el": cmp, "noCache": true } );
+            var chart = await this.$mount( AmchartsPanel, { "el": cmp, "cache": false } );
 
             cmp.chart = chart;
 

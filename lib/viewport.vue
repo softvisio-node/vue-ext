@@ -54,13 +54,15 @@ export default {
                     "props": {
                         "onReconnect": resolve,
                     },
-                    "noCache": true,
+                    "cache": false,
                 } ).then( cmp => cmp.ext.show() );
             } );
         },
 
         onAuthChange () {
-            this.$router.reload();
+            window.location.reload();
+
+            // this.$router.reload();
         },
 
         // router

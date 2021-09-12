@@ -123,7 +123,7 @@ export default {
 
         // zoom
         maximize () {
-            this.$mount( PDFDialog, { "props": { "src": this.currentSrc }, "noCache": true } );
+            this.$mount( PDFDialog, { "props": { "src": this.currentSrc }, "cache": false } );
         },
 
         zoomIn ( zoomStep ) {
