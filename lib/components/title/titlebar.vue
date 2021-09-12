@@ -11,7 +11,7 @@
         <Avatar align="right" width="40" height="40"/>
         <ext-button align="right" iconCls="fas fa-bars" width="40" height="50" margin="0 0 0 5" @tap="showMenu"/>
 
-        <Menu ref="menu" :apiTokens="apiTokens" :profile="profile" @showProfileDialog="showProfileDialog">
+        <Menu ref="menu" :apiTokens="apiTokens" :profile="profile" :changePassword="changePassword" @showProfileDialog="showProfileDialog">
             <template #top>
                 <slot name="menuTop"/>
             </template>
@@ -47,6 +47,10 @@ export default {
         "profile": {
             "type": String,
             "default": "true",
+        },
+        "changePassword": {
+            "type": String,
+            "default": "false",
         },
     },
 

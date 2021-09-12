@@ -14,7 +14,7 @@
 
             <ext-button iconCls="fas fa-key" text="API Access Tokens" textAlign="left" :hidden="apiTokens !== 'true'" @tap="showApiTokens"/>
             <ext-button iconCls="fas fa-user" text="Your Profile" textAlign="left" :hidden="profile !== 'true'" @tap="showProfile"/>
-            <!-- <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" @tap="changePassword"/> -->
+            <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" :hidden="changePassword !== 'true'" @tap="showChangePasswordDialog"/>
 
             <slot name="bottomDown"/>
 
@@ -29,8 +29,7 @@
 
 <script>
 import Avatar from "./avatar";
-
-// import ChangePasswordDialog from "../change-password-dialog";
+import ChangePasswordDialog from "../change-password-dialog";
 import ApiTokensDialog from "../api-tokens/dialog";
 
 export default {
@@ -44,6 +43,10 @@ export default {
         "profile": {
             "type": String,
             "default": "true",
+        },
+        "changePassword": {
+            "type": String,
+            "default": "false",
         },
     },
 
@@ -100,13 +103,13 @@ export default {
             cmp.ext.show();
         },
 
-        // async changePassword () {
-        //     this.hide();
+        async showChangePasswordDialog () {
+            this.hide();
 
-        //     const cmp = await this.$mount( ChangePasswordDialog );
+            const cmp = await this.$mount( ChangePasswordDialog );
 
-        //     cmp.ext.show();
-        // },
+            cmp.ext.show();
+        },
 
         signout () {
             this.hide();
