@@ -11,6 +11,8 @@
         <Avatar align="right" width="40" height="40"/>
         <ext-button align="right" iconCls="fas fa-bars" width="40" height="50" margin="0 0 0 5" @tap="showMenu"/>
 
+        <Notifications ref="notifications"/>
+
         <Menu ref="menu" :apiTokens="apiTokens" :profile="profile" :changePassword="changePassword" @showProfileDialog="showProfileDialog">
             <template #top>
                 <slot name="menuTop"/>
@@ -30,10 +32,12 @@
 <script>
 import Avatar from "./avatar";
 import Menu from "./menu";
-import NotificationsDialog from "./notifications";
+
+// import NotificationsDialog from "./notifications";
+import Notifications from "./notifications";
 
 export default {
-    "components": { Avatar, Menu },
+    "components": { Avatar, Menu, Notifications },
 
     "props": {
         "notifications": {
@@ -63,14 +67,8 @@ export default {
     },
 
     "methods": {
-
-        // XXX
         async showNotificationsDialog ( e ) {
-            const cmp = await this.$mount( NotificationsDialog );
-
-            cmp.ext.showBy( this.$refs.notificationsButton.ext, "tr-bc" );
-
-            // cmp.ext.showAt( ...this.$refs.notificationsButton.ext.el.getXY() );
+            this.$refs.notifications.show();
         },
 
         showMenu () {
@@ -79,6 +77,14 @@ export default {
 
         hideMenu () {
             this.$refs.menu.hide();
+        },
+
+        showNotifications () {
+            this.$refs.notifications.show();
+        },
+
+        hideNotifications () {
+            this.$refs.notifications.hide();
         },
 
         showProfileDialog () {

@@ -1,7 +1,9 @@
 <template>
-    <ext-dialog iconCls="far fa-bell" title="Notifications" width="400" height="90%" draggable="false" closeAction="hide" hideOnMaskTap="true" @ready="ready">
-        <!-- - -->
-    </ext-dialog>
+    <ext-sheet layout="fit" side="right" modal="true" displayed="false" width="300" @ready="ready">
+        <ext-panel iconCls="far fa-bell" title="Notifications" layout="center">
+            <ext-container html='<div style="font-size:1.5em;">You have no notifications</div>'/>
+        </ext-panel>
+    </ext-sheet>
 </template>
 
 <script>
@@ -9,11 +11,13 @@ export default {
     "methods": {
         ready ( e ) {
             this.ext = e.detail.cmp;
-
-            this.ext.on( "hide", () => {} );
         },
 
-        close () {
+        show () {
+            this.ext.show();
+        },
+
+        hide () {
             this.ext.hide();
         },
     },
