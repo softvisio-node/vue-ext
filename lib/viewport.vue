@@ -43,8 +43,6 @@ export default {
         this.$router.init( this );
 
         this.$router.reload();
-
-        this.$watch( "isAuthenticated", this.onAuthChange.bind( this ) );
     },
 
     "methods": {
@@ -57,12 +55,6 @@ export default {
                     "cache": false,
                 } ).then( cmp => cmp.ext.show() );
             } );
-        },
-
-        onAuthChange () {
-
-            // window.location.reload();
-            this.$router.reload();
         },
 
         // router
