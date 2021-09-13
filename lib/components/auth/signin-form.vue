@@ -74,13 +74,17 @@ export default {
 
                 var res = await this.$store.session.signin( vals );
 
-                Ext.Viewport.unmask();
-
                 if ( !res.ok ) {
+                    Ext.Viewport.unmask();
+
                     this.$utils.toast( res );
                 }
                 else {
-                    if ( this.closable === "true" ) this.close();
+                    if ( this.closable === "true" ) {
+                        this.close();
+
+                        Ext.Viewport.unmask();
+                    }
                 }
             }
         },
