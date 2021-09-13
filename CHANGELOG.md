@@ -1,5 +1,20 @@
 # Changelog
 
+### 4.1.0 (2021-09-13)
+
+Features:
+
+-   feat: auth form updated
+-   feat: menu changePassword
+-   feat: notifications panel
+-   feat: reload on auth change
+-   feat: titlebar component
+
+Fixes:
+
+-   fix: mount noCache option renamed to cache
+-   fix: mount viewport to the Ext.Viewport
+
 ### 4.0.2 (2021-09-11)
 
 Fixes:
