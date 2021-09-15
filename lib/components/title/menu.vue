@@ -91,6 +91,10 @@ export default {
             this.ext.hide();
         },
 
+        close () {
+            this.ext.hide( false );
+        },
+
         async showProfile () {
             this.$emit( "showProfileDialog" );
         },
@@ -112,7 +116,7 @@ export default {
         },
 
         signout () {
-            this.hide();
+            this.close();
 
             this.$store.session.signout();
         },
