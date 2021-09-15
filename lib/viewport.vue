@@ -50,7 +50,7 @@ export default {
             return new Promise( resolve => {
                 this.$mount( this.appInitFailureDialog, {
                     "props": {
-                        "onReconnect": resolve,
+                        "onClose": resolve,
                     },
                     "cache": false,
                 } ).then( cmp => cmp.ext.show() );
