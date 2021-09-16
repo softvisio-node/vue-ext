@@ -34,7 +34,7 @@
         "./vue.config.cjs": "./resources/vue.config.cjs",
         "./babel.config.cjs": "./resources/babel.config.cjs"
     },
-    "devDependencies": {
+    "dependencies": {
         "@amcharts/amcharts4": "^4.10.18",
         "@fortawesome/fontawesome-free": "^5.15.3",
         "@softvisio/ext": "github:softvisio/ext#semver:^4.0.0",
