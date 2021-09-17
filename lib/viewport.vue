@@ -7,48 +7,48 @@ import "./assets/scrollbars.css";
 import Viewport from "@softvisio/vue/viewport";
 import defaultMask from "./load-mask";
 import ResetPasswordDialog from "./components/reset-password-dialog";
-import AppInitFailureDialog from "./components/app-init-failure-dialog";
+import InitFailureDialog from "./components/init-failure-dialog";
 
 export default {
     "extends": Viewport,
 
     created () {
-        this.appInitFailureDialog = AppInitFailureDialog;
+        this.initFailureDialog = InitFailureDialog;
         this.resetPasswordDialog = ResetPasswordDialog;
         this.defaultMask = defaultMask;
         this.privateView = null;
         this.publicView = null;
     },
 
-    async mounted () {
-        var viewport = Ext.Viewport;
-
-        // init session
-        while ( true ) {
-            viewport.mask( this.defaultMask );
-
-            var res = await this.$store.session.signin();
-
-            viewport.unmask();
-
-            // connection ok
-            if ( res.ok || res.status === 401 || res.status === 403 ) break;
-
-            // connection error
-            this.$utils.toast( res );
-
-            await this.onAppInitFailure();
-        }
-
-        this.$router.init( this );
-
-        this.$router.reload();
-    },
-
     "methods": {
-        async onAppInitFailure () {
+        async init () {
+            var viewport = Ext.Viewport;
+
+            // init session
+            while ( true ) {
+                viewport.mask( this.defaultMask );
+
+                var res = await this.$store.session.signin();
+
+                viewport.unmask();
+
+                // connection ok
+                if ( res.ok || res.status === 401 || res.status === 403 ) break;
+
+                // connection error
+                this.$utils.toast( res );
+
+                await this.onInitFailure();
+            }
+
+            this.$router.init( this );
+
+            this.$router.reload();
+        },
+
+        async onInitFailure () {
             return new Promise( resolve => {
-                this.$mount( this.appInitFailureDialog, {
+                this.$mount( this.initFailureDialog, {
                     "props": {
                         "onClose": resolve,
                     },

@@ -3,20 +3,20 @@
         <ext-panel layout="center" html='Unable to connect to the API server. Check, that you have internet connection and press "Try Again" button below.'/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"center"}'>
-            <ext-button iconCls="fas fa-redo" text="Try Again" ui="action" @tap="reconnect"/>
+            <ext-button iconCls="fas fa-redo" text="Try Again" ui="action" @tap="close"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
 
 <script>
 export default {
-    "emits": ["reconnect"],
+    "emits": ["close"],
 
     "methods": {
-        reconnect () {
+        close () {
             this.ext.hide();
 
-            this.$emit( "reconnect" );
+            this.$emit( "close" );
         },
     },
 };
