@@ -31,7 +31,7 @@ export default {
         listReady ( e ) {
             const ext = e.detail.cmp;
 
-            ext.setItemTpl( `<div><b>{title}</b><br/>{body}</b><br/>{date}</div>` );
+            ext.setItemTpl( `<div><b>{subject}</b><br/>{body}</b><br/>{relative_date}</div>` );
 
             ext.setStore( this.store );
         },
