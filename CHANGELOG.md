@@ -1,5 +1,16 @@
 # Changelog
 
+### 4.2.0 (2021-09-17)
+
+Features:
+
+-   feat: auto signout dialog
+
+Fixes:
+
+-   fix: app init failure dialog emits close event
+-   fix: close menu on signout
+
 ### 4.1.0 (2021-09-13)
 
 Features:
