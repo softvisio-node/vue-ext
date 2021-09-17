@@ -17,7 +17,7 @@
 
         <ext-column text="Enabled" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
 
-        <ext-column width="80" @ready="actionColReady"/>
+        <ext-column width="100" @ready="actionColReady"/>
     </ext-grid>
 </template>
 
@@ -132,6 +132,22 @@ export default {
                             "tooltip": "Delete user",
                             "handler": this.deleteUser.bind( this ),
                         },
+                        {
+                            "xtype": "button",
+                            "iconCls": "fas fa-ellipsis-v",
+                            "tooltip": "Actions",
+                            "arrow": false,
+                            "menu": {
+                                "items": [
+                                    {
+                                        "xtype": "button",
+                                        "iconCls": "fas fa-sign-out-alt",
+                                        "text": "Drop Sessions",
+                                        "handler": this.deleteUserSessions.bind( this ),
+                                    },
+                                ],
+                            },
+                        },
                     ],
                 },
             } );
@@ -212,6 +228,20 @@ export default {
                 this.$utils.toast( "User deleted" );
 
                 this.store.remove( record );
+            }
+            else {
+                this.$utils.toast( res );
+            }
+        },
+
+        async deleteUserSessions ( button ) {
+            const gridrow = button.up( "gridrow" ),
+                record = gridrow.getRecord();
+
+            var res = await this.$api.call( "admin/users/delete-sessions", record.getId() );
+
+            if ( res.ok ) {
+                this.$utils.toast( "Sessions were deleted" );
             }
             else {
                 this.$utils.toast( res );
