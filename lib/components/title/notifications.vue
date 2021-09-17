@@ -4,8 +4,8 @@
             <ext-panel layout="center">
                 <ext-container html='<div style="font-size:1.5em;">You have no notifications</div>'/>
             </ext-panel>
-            <ext-panel layout="center">
-                <ext-container html='<div style="font-size:1.5em;">You have notifications!!!</div>'/>
+            <ext-panel layout="fit">
+                <ext-list layout="vbox" scrollable="true" @ready="listReady"/>
             </ext-panel>
         </ext-panel>
     </ext-sheet>
@@ -24,6 +24,14 @@ export default {
             this.ext = e.detail.cmp;
 
             this._onNotificationsLoad();
+        },
+
+        listReady ( e ) {
+            const ext = e.detail.cmp;
+
+            ext.setItemTpl( `<div><b>{title}</b><br/>{body}</b><br/>{date}</div>` );
+
+            ext.setStore( this.store );
         },
 
         show () {
