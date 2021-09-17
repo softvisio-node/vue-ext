@@ -11,7 +11,7 @@
         <Avatar align="right" width="40" height="40"/>
         <ext-button align="right" iconCls="fas fa-bars" width="40" height="50" margin="0 0 0 5" @tap="showMenu"/>
 
-        <Notifications ref="notifications"/>
+        <Notifications ref="notifications" @notificationsBadgeText="setNotificationsBadgeText"/>
 
         <Menu ref="menu" :apiTokens="apiTokens" :profile="profile" :changePassword="changePassword" @showProfileDialog="showProfileDialog">
             <template #top>
@@ -91,6 +91,10 @@ export default {
             this.hideMenu();
 
             this.$emit( "showProfileDialog" );
+        },
+
+        setNotificationsBadgeText ( text ) {
+            this.$refs.notificationsButton.ext.setBadgeText( text );
         },
     },
 };

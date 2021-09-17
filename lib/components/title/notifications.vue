@@ -13,6 +13,8 @@
 
 <script>
 export default {
+    "emits": ["notificationsBadgeText"],
+
     mounted () {
         this.store = this.$store.notifications.store;
 
@@ -44,11 +46,17 @@ export default {
 
         // protected
         _onNotificationsLoad () {
-            if ( !this.store.count() ) {
+            const count = this.store.count();
+
+            if ( !count ) {
                 this.$refs.card.ext.setActiveItem( 0 );
+
+                this.$emit( "notificationsBadgeText", "" );
             }
             else {
                 this.$refs.card.ext.setActiveItem( 1 );
+
+                this.$emit( "notificationsBadgeText", count );
             }
         },
     },
