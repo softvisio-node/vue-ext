@@ -1,16 +1,29 @@
 <template>
     <ext-sheet layout="fit" side="right" modal="true" displayed="false" width="300" @ready="ready">
-        <ext-panel iconCls="far fa-bell" title="Notifications" layout="center">
-            <ext-container html='<div style="font-size:1.5em;">You have no notifications</div>'/>
+        <ext-panel ref="card" iconCls="far fa-bell" title="Notifications" layout="card">
+            <ext-panel layout="center">
+                <ext-container html='<div style="font-size:1.5em;">You have no notifications</div>'/>
+            </ext-panel>
+            <ext-panel layout="center">
+                <ext-container html='<div style="font-size:1.5em;">You have notifications!!!</div>'/>
+            </ext-panel>
         </ext-panel>
     </ext-sheet>
 </template>
 
 <script>
 export default {
+    mounted () {
+        this.store = this.$store.notifications.store;
+
+        this.store.on( "datachanged", this._onNotificationsLoad, this );
+    },
+
     "methods": {
         ready ( e ) {
             this.ext = e.detail.cmp;
+
+            this._onNotificationsLoad();
         },
 
         show () {
@@ -19,6 +32,16 @@ export default {
 
         hide () {
             this.ext.hide();
+        },
+
+        // protected
+        _onNotificationsLoad () {
+            if ( !this.store.count() ) {
+                this.$refs.card.ext.setActiveItem( 0 );
+            }
+            else {
+                this.$refs.card.ext.setActiveItem( 1 );
+            }
         },
     },
 };
