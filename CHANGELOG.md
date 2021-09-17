@@ -1,5 +1,15 @@
 # Changelog
 
+### 4.3.0 (2021-09-17)
+
+Features:
+
+-   feat: drop user sessions
+
+Fixes:
+
+-   fix: viewport init
+
 ### 4.2.0 (2021-09-17)
 
 Features:
