@@ -222,7 +222,11 @@ export default {
 
             if ( !( await this.$utils.confirm( "Confirmation", "Are you sure you want to do that?" ) ) ) return;
 
+            button.disable();
+
             var res = await this.$api.call( "admin/users/delete", record.getId() );
+
+            button.enable();
 
             if ( res.ok ) {
                 this.$utils.toast( "User deleted" );
@@ -238,7 +242,11 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
+            button.disable();
+
             var res = await this.$api.call( "admin/users/delete-sessions", record.getId() );
+
+            button.enable();
 
             if ( res.ok ) {
                 this.$utils.toast( "Sessions were deleted" );
