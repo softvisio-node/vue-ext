@@ -42,7 +42,7 @@ export default {
     "props": {
         "notifications": {
             "type": String,
-            "default": "false",
+            "default": "true",
         },
         "apiTokens": {
             "type": String,
