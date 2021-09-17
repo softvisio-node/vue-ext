@@ -74,6 +74,7 @@ Migration:
 -   Update `vue.config.js` and `babel.config.js`.
 -   Replace `noCache` option in the `$mount` call with the `cache`.
 -   Update app title to the new `title/titlebar component`.
+-   Update npm scripts in the `package.json`.
 
 ### 4.0.0-alpha.1 (2021-09-11)
 
