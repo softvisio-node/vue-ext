@@ -1,5 +1,12 @@
 # Changelog
 
+### 4.3.1 (2021-09-17)
+
+Fixes:
+
+-   fix: notifications on be default
+-   fix: store init
+
 ### 4.3.0 (2021-09-17)
 
 Features:
