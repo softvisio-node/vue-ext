@@ -7,8 +7,10 @@
 
         <slot name="title"/>
 
-        <ext-button ref="notificationsButton" align="right" iconCls="far fa-bell" width="55" padding="0 0 10 0" margin="10 20 0 0" :hidden="notifications !== 'true'" @tap="showNotificationsDialog"/>
+        <ext-button ref="notificationsButton" align="right" iconCls="far fa-bell" width="55" padding="0 0 10 0" margin="10 20 0 0" :hidden="notifications !== 'true'" :badgeText="notificationsBadgeText" @tap="showNotifications"/>
+
         <Avatar align="right" width="40" height="40"/>
+
         <ext-button align="right" iconCls="fas fa-bars" width="40" height="50" margin="0 0 0 5" @tap="showMenu"/>
 
         <Notifications ref="notifications" @notificationsBadgeText="setNotificationsBadgeText"/>
@@ -64,13 +66,13 @@ export default {
         title () {
             return this.$store.session.title;
         },
+
+        notificationsBadgeText () {
+            return this.$store.notifications.newNotifications || "";
+        },
     },
 
     "methods": {
-        async showNotificationsDialog ( e ) {
-            this.$refs.notifications.show();
-        },
-
         showMenu () {
             this.$refs.menu.show();
         },
@@ -91,10 +93,6 @@ export default {
             this.hideMenu();
 
             this.$emit( "showProfileDialog" );
-        },
-
-        setNotificationsBadgeText ( text ) {
-            this.$refs.notificationsButton.ext.setBadgeText( text );
         },
     },
 };

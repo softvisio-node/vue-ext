@@ -13,8 +13,6 @@
 
 <script>
 export default {
-    "emits": ["notificationsBadgeText"],
-
     mounted () {
         this.store = this.$store.notifications.store;
 
@@ -45,7 +43,7 @@ export default {
         },
 
         show () {
-            this.store.each( record => record.refreshRelativeTime() );
+            this.$store.notifications.refreshRelativeTime();
 
             this.ext.show();
         },
@@ -60,13 +58,9 @@ export default {
 
             if ( !count ) {
                 this.$refs.card.ext.setActiveItem( 0 );
-
-                this.$emit( "notificationsBadgeText", "" );
             }
             else {
                 this.$refs.card.ext.setActiveItem( 1 );
-
-                this.$emit( "notificationsBadgeText", count );
             }
         },
     },
