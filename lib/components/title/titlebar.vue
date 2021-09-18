@@ -1,5 +1,5 @@
 <template>
-    <ext-titlebar docked="top" titleAlign="left" :title="title" padding="0 0 0 10">
+    <ext-titlebar docked="top" titleAlign="left" :title="title" padding="0 0 0 10" @ready="ready">
         <slot name="logo"/>
 
         <!-- XXX this div is required to align components in slot after title -->
@@ -7,13 +7,13 @@
 
         <slot name="title"/>
 
-        <ext-button ref="notificationsButton" align="right" iconCls="far fa-bell" width="55" padding="0 0 10 0" margin="10 20 0 0" :hidden="notifications !== 'true'" :badgeText="notificationsBadgeText" @tap="showNotifications"/>
+        <ext-button ref="notificationsButton" align="right" iconCls="far fa-bell" width="55" padding="0 0 10 0" margin="10 20 0 0" :hidden="notifications !== 'true'" @tap="showNotifications"/>
 
         <Avatar align="right" width="40" height="40"/>
 
         <ext-button align="right" iconCls="fas fa-bars" width="40" height="50" margin="0 0 0 5" @tap="showMenu"/>
 
-        <Notifications ref="notifications" @notificationsBadgeText="setNotificationsBadgeText"/>
+        <Notifications ref="notifications"/>
 
         <Menu ref="menu" :apiTokens="apiTokens" :profile="profile" :changePassword="changePassword" @showProfileDialog="showProfileDialog">
             <template #top>
@@ -68,11 +68,19 @@ export default {
         },
 
         notificationsBadgeText () {
-            return this.$store.notifications.newNotifications || "";
+            return this.$store.notifications.unreadCount;
         },
     },
 
+    "watch": {
+        "notificationsBadgeText": "_setNotificationsBadgeText",
+    },
+
     "methods": {
+        ready ( e ) {
+            this._setNotificationsBadgeText();
+        },
+
         showMenu () {
             this.$refs.menu.show();
         },
@@ -93,6 +101,10 @@ export default {
             this.hideMenu();
 
             this.$emit( "showProfileDialog" );
+        },
+
+        _setNotificationsBadgeText () {
+            this.$refs.notificationsButton.ext.setBadgeText( this.$store.notifications.unreadCount || "" );
         },
     },
 };
