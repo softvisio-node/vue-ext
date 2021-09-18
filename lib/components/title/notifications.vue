@@ -36,7 +36,7 @@ export default {
     <b>{subject}</b><br/>
     {body}<br/>
     <div style="text-align:right">
-        {relative_date}
+        {relative_time}
     </div
 </div>
 ` );
@@ -45,6 +45,8 @@ export default {
         },
 
         show () {
+            this.store.each( record => record.refreshRelativeTime() );
+
             this.ext.show();
         },
 
