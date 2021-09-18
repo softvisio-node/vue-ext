@@ -45,7 +45,7 @@ export default {
         show () {
             this.$store.notifications.refreshRelativeTime();
 
-            this.$store.notifications.readAll();
+            this.$store.notifications.markAllRead();
 
             this.ext.show();
         },
