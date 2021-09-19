@@ -89,11 +89,11 @@ export default {
 
             this.$store.notifications.markAllRead();
 
-            this.ext.show();
+            this.ext.show( { "type": "slideIn" } );
         },
 
         hide () {
-            this.ext.hide();
+            this.ext.hide( { "type": "slideOut" } );
         },
 
         async deleteNotification ( button ) {
