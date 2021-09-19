@@ -56,6 +56,15 @@ export default {
                             {
                                 "xtype": "button",
                                 "iconCls": "fas fa-ellipsis-v",
+                                "arrow": false,
+                                "menu": [
+                                    {
+                                        "xtype": "button",
+                                        "iconCls": "far fa-trash-alt",
+                                        "text": "Delete",
+                                        "handler": this.deleteNotification.bind( this ),
+                                    },
+                                ],
                             },
                         ],
                     },
@@ -73,6 +82,16 @@ export default {
 
         hide () {
             this.ext.hide();
+        },
+
+        async deleteNotification ( button ) {
+            const record = button.lookupViewModel().get( "record" );
+
+            button.disable();
+
+            await this.$store.notifications.delete( record.id );
+
+            button.enable();
         },
 
         // protected
