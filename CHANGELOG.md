@@ -1,5 +1,12 @@
 # Changelog
 
+### 4.4.0 (2021-09-19)
+
+Features:
+
+-   feat: api profile delete sessions
+-   feat: notifications
+
 ### 4.3.1 (2021-09-17)
 
 Fixes:
