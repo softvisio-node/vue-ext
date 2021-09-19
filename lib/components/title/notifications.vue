@@ -1,6 +1,6 @@
 <template>
     <ext-sheet layout="fit" side="right" modal="true" width="300" @ready="ready">
-        <ext-panel ref="card" layout="card">
+        <ext-panel ref="card" layout='{"type":"card","animation":"fade"}'>
             <ext-titlebar docked="top" iconCls="far fa-bell" title="Notifications">
                 <ext-button ref="deleteAllButton" align="right" iconCls="far fa-trash-alt" tooltip="Delete all notifications" @tap="deleteAll"/>
                 <ext-button align="right" iconCls="fas fa-redo" tooltip="Refresh notifications" @tap="reload"/>

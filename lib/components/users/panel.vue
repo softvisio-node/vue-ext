@@ -220,7 +220,7 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( "Confirmation", "Are you sure you want to do that?" ) ) ) return;
+            if ( !( await this.$utils.confirm( "Confirmation", "Are you sure you want to delete user?" ) ) ) return;
 
             button.disable();
 
