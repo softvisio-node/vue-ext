@@ -44,7 +44,7 @@ export default {
                             {
                                 "xtype": "component",
                                 "flex": 1,
-                                "bind": `<i class="notification-subject">{record.subject}</i>`,
+                                "bind": `<span class="notification-subject">{record.subject}</span>`,
                             },
                             {
                                 "xtype": "button",
