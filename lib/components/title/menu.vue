@@ -1,5 +1,5 @@
 <template>
-    <ext-sheet layout="vbox" side="right" modal="true" displayed="false" width="300" @ready="ready">
+    <ext-sheet layout="vbox" side="right" modal="true" width="300" @ready="ready">
         <ext-panel layout="vbox" height="130" padding="30 10 10 30" innerCls="x-tabbar">
             <Avatar width="60" height="60"/>
             <ext-container :html="username"/>

@@ -1,11 +1,11 @@
 <template>
-    <ext-sheet layout="fit" side="right" modal="true" displayed="false" width="300" @ready="ready">
+    <ext-sheet layout="fit" side="right" modal="true" width="300" @ready="ready">
         <ext-panel ref="card" iconCls="far fa-bell" title="Notifications" layout="card">
             <ext-panel layout="center">
                 <ext-container html='<div style="font-size:1.5em;">You have no notifications</div>'/>
             </ext-panel>
             <ext-panel layout="fit">
-                <ext-list layout="vbox" scrollable="true" @ready="listReady"/>
+                <ext-componentdataview layout="vbox" scrollable="true" itemCls="x-listitem" @ready="listReady"/>
             </ext-panel>
         </ext-panel>
     </ext-sheet>
@@ -29,17 +29,47 @@ export default {
         listReady ( e ) {
             const ext = e.detail.cmp;
 
-            ext.setItemTpl( `
-<div>
-    <b>{subject}</b><br/>
-    {body}<br/>
-    <div style="text-align:right">
-        {relative_time}
-    </div
-</div>
-` );
-
             ext.setStore( this.store );
+
+            ext.setItemConfig( {
+                "xtype": "container",
+                "viewModel": true,
+                "layout": "vbox",
+                "padding": "5 10 5 10",
+                "items": [
+                    {
+                        "xtype": "container",
+                        "layout": "hbox",
+                        "items": [
+                            {
+                                "xtype": "component",
+                                "flex": 1,
+                                "bind": `<i class="notification-subject">{record.subject}</i>`,
+                            },
+                            {
+                                "xtype": "button",
+                                "iconCls": "fas fa-ellipsis-v",
+                            },
+                        ],
+                    },
+                    {
+                        "xtype": "component",
+                        "bind": "{record.body}",
+                    },
+                    {
+                        "xtype": "container",
+                        "layout": "hbox",
+                        "padding": "5 0 0 0",
+                        "items": [
+                            { "xtype": "spacer" },
+                            {
+                                "xtype": "component",
+                                "bind": `<i class="far fa-clock"></i> {record.relative_time}`,
+                            },
+                        ],
+                    },
+                ],
+            } );
         },
 
         show () {
@@ -68,3 +98,10 @@ export default {
     },
 };
 </script>
+
+<style>
+.notification-subject {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+</style>
