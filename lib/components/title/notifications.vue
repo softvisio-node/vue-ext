@@ -1,6 +1,10 @@
 <template>
     <ext-sheet layout="fit" side="right" modal="true" width="300" @ready="ready">
-        <ext-panel ref="card" iconCls="far fa-bell" title="Notifications" layout="card">
+        <ext-panel ref="card" layout="card">
+            <ext-titlebar docked="top" iconCls="far fa-bell" title="Notifications">
+                <ext-button ref="deleteAllButton" align="right" iconCls="far fa-trash-alt" tooltip="Delete all notifications" @tap="deleteAll"/>
+                <ext-button align="right" iconCls="fas fa-redo" tooltip="Refresh notifications" @tap="reload"/>
+            </ext-titlebar>
             <ext-panel layout="center">
                 <ext-container html='<div style="font-size:1.5em;">You have no notifications</div>'/>
             </ext-panel>
@@ -13,17 +17,25 @@
 
 <script>
 export default {
+    "computed": {
+        totalNotifications () {
+            return this.$store.notifications.totalCount;
+        },
+    },
+
+    "watch": {
+        "totalNotifications": "onUpdate",
+    },
+
     mounted () {
         this.store = this.$store.notifications.store;
-
-        this.store.on( "datachanged", this._onNotificationsLoad, this );
     },
 
     "methods": {
         ready ( e ) {
             this.ext = e.detail.cmp;
 
-            this._onNotificationsLoad();
+            this.onUpdate();
         },
 
         listReady ( e ) {
@@ -94,15 +106,40 @@ export default {
             button.enable();
         },
 
-        // protected
-        _onNotificationsLoad () {
-            const count = this.store.count();
+        async deleteAll ( e ) {
+            if ( !( await this.$utils.confirm( "Confirmation", "Are you sure you want to delete all notifications?" ) ) ) return;
 
-            if ( !count ) {
+            const button = e.detail.sender;
+
+            button.disable();
+
+            await this.$store.notifications.deleteAll();
+
+            button.enable();
+        },
+
+        async reload ( e ) {
+            const button = e.detail.sender;
+
+            button.disable();
+
+            await this.$store.notifications.reload();
+
+            button.enable();
+        },
+
+        onUpdate () {
+            const value = this.totalNotifications;
+
+            if ( !value ) {
                 this.$refs.card.ext.setActiveItem( 0 );
+
+                this.$refs.deleteAllButton.ext.hide();
             }
             else {
                 this.$refs.card.ext.setActiveItem( 1 );
+
+                this.$refs.deleteAllButton.ext.show();
             }
         },
     },
