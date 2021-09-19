@@ -4,16 +4,32 @@
 
         <!-- security -->
         <ext-panel title="Security" layout="vbox" viewModel="true" padding="0 10 0 10">
-            <ext-toolbar docked="top">
-                <ext-container html="Change Password"/>
-            </ext-toolbar>
-            <ext-fieldpanel ref="changePasswordForm" defaults='{"labelAlign":"left","labelWidth":150}'>
-                <ext-passwordfield name="password" label="New Password" required="true"/>
-                <ext-passwordfield ref="passwordConfirm" label="Confirm New Password" required="true"/>
-                <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-                    <ext-button text="Update Password" ui="action" @tap="changePassword"/>
+            <ext-panel>
+                <ext-toolbar docked="top">
+                    <ext-container html="Delete Sessions"/>
                 </ext-toolbar>
-            </ext-fieldpanel>
+
+                <ext-container layout="hbox">
+                    <ext-container flex="1">
+                        <div>Sign out from all sessions, except this session.</div>
+                    </ext-container>
+                    <ext-button text="Delete Sessions" ui="action" @tap="deleteSessions"/>
+                </ext-container>
+            </ext-panel>
+
+            <ext-panel>
+                <ext-toolbar docked="top">
+                    <ext-container html="Change Password"/>
+                </ext-toolbar>
+                <ext-fieldpanel ref="changePasswordForm" defaults='{"labelAlign":"left","labelWidth":150}'>
+                    <ext-passwordfield name="password" label="New Password" required="true"/>
+                    <ext-passwordfield ref="passwordConfirm" label="Confirm New Password" required="true"/>
+                </ext-fieldpanel>
+                <ext-container layout="hbox" padding="10 0 0 0">
+                    <ext-spacer/>
+                    <ext-button text="Update Password" ui="action" @tap="changePassword"/>
+                </ext-container>
+            </ext-panel>
         </ext-panel>
 
         <!-- theme -->
@@ -128,6 +144,23 @@ export default {
             }
             else {
                 this.$utils.toast( res );
+            }
+        },
+
+        async deleteSessions ( e ) {
+            const button = e.detail.sender;
+
+            button.disable();
+
+            const res = await this.$api.call( "profile/delete-sessions" );
+
+            button.enable();
+
+            if ( !res.ok ) {
+                this.$utils.toast( res );
+            }
+            else {
+                this.$utils.toast( "Sessions deleted" );
             }
         },
     },
