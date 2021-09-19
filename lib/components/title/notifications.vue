@@ -35,22 +35,11 @@ export default {
                 "xtype": "container",
                 "viewModel": true,
                 "layout": "vbox",
-                "padding": "5 10 5 10",
+                "padding": "5 10 0 10",
                 "items": [
                     {
-                        "xtype": "container",
-                        "layout": "hbox",
-                        "items": [
-                            {
-                                "xtype": "component",
-                                "flex": 1,
-                                "bind": `<span class="notification-subject">{record.subject}</span>`,
-                            },
-                            {
-                                "xtype": "button",
-                                "iconCls": "fas fa-ellipsis-v",
-                            },
-                        ],
+                        "xtype": "component",
+                        "bind": `<span class="notification-subject">{record.subject}</span>`,
                     },
                     {
                         "xtype": "component",
@@ -58,13 +47,15 @@ export default {
                     },
                     {
                         "xtype": "container",
-                        "layout": "hbox",
-                        "padding": "5 0 0 0",
+                        "layout": { "type": "hbox", "pack": "end", "align": "center" },
                         "items": [
-                            { "xtype": "spacer" },
                             {
                                 "xtype": "component",
                                 "bind": `<i class="far fa-clock"></i> {record.relative_time}`,
+                            },
+                            {
+                                "xtype": "button",
+                                "iconCls": "fas fa-ellipsis-v",
                             },
                         ],
                     },
