@@ -2,7 +2,7 @@
     <ext-sheet layout="fit" side="right" modal="true" width="300" @ready="ready">
         <ext-panel ref="card" layout='{"type":"card","animation":"fade"}'>
             <ext-titlebar docked="top" iconCls="far fa-bell" title="Notifications">
-                <ext-button ref="deleteAllButton" align="right" iconCls="far fa-trash-alt" tooltip="Delete all notifications" @tap="deleteAll"/>
+                <ext-button align="right" iconCls="far fa-trash-alt" tooltip="Delete all notifications" :hidden="!hasNotifications" @tap="deleteAll"/>
                 <ext-button align="right" iconCls="fas fa-redo" tooltip="Refresh notifications" @tap="reload"/>
             </ext-titlebar>
             <ext-panel layout="center">
@@ -18,13 +18,13 @@
 <script>
 export default {
     "computed": {
-        totalNotifications () {
-            return this.$store.notifications.totalCount;
+        hasNotifications () {
+            return !!this.$store.notifications.totalCount;
         },
     },
 
     "watch": {
-        "totalNotifications": "onUpdate",
+        "hasNotifications": "onUpdate",
     },
 
     mounted () {
@@ -32,6 +32,12 @@ export default {
     },
 
     "methods": {
+        deleteAll1 () {
+            const v = this.$store.notifications.totalCount ? 0 : 100;
+            this.$store.notifications.totalCount = v;
+            this.$store.notifications.totalCount = v;
+        },
+
         ready ( e ) {
             this.ext = e.detail.cmp;
 
@@ -129,17 +135,13 @@ export default {
         },
 
         onUpdate () {
-            const value = this.totalNotifications;
+            const value = this.hasNotifications;
 
             if ( !value ) {
                 this.$refs.card.ext.setActiveItem( 0 );
-
-                this.$refs.deleteAllButton.ext.hide();
             }
             else {
                 this.$refs.card.ext.setActiveItem( 1 );
-
-                this.$refs.deleteAllButton.ext.show();
             }
         },
     },
