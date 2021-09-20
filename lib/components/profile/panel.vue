@@ -59,7 +59,7 @@ export default {
     "computed": {
         "systemDarkMode": {
             get () {
-                return this.$store.theme.systemDarkMode + "";
+                return this.$store.theme.systemDarkMode;
             },
 
             set ( e ) {
