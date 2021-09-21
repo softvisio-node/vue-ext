@@ -82,6 +82,7 @@ Migration:
 -   Replace `noCache` option in the `$mount` call with the `cache`.
 -   Update app title to the new `title/titlebar component`.
 -   Update npm scripts in the `package.json`.
+-   Update boolean attributes binding. For static attributes use `:hidden="true"`.
 
 ### 4.0.0-alpha.1 (2021-09-11)
 
