@@ -78,6 +78,12 @@ export default {
                                 "menu": [
                                     {
                                         "xtype": "button",
+                                        "iconCls": "far fa-eye-slash",
+                                        "text": "Mark as unread",
+                                        "handler": this.unreadNotification.bind( this ),
+                                    },
+                                    {
+                                        "xtype": "button",
                                         "iconCls": "far fa-trash-alt",
                                         "text": "Delete",
                                         "handler": this.deleteNotification.bind( this ),
@@ -100,6 +106,16 @@ export default {
 
         hide () {
             this.ext.hide( { "type": "slideOut" } );
+        },
+
+        async unreadNotification ( button ) {
+            const record = button.lookupViewModel().get( "record" );
+
+            button.disable();
+
+            await this.$store.notifications.markUnread( record.id );
+
+            button.enable();
         },
 
         async deleteNotification ( button ) {
