@@ -77,24 +77,30 @@ export default {
                                 "arrow": false,
                                 "menu": [
                                     {
-                                        "xtype": "button",
-                                        "iconCls": "far fa-eye",
-                                        "text": "Mark as read",
-                                        "bind": { "hidden": "{record.read}" },
-                                        "handler": this.readNotification.bind( this ),
-                                    },
-                                    {
-                                        "xtype": "button",
-                                        "iconCls": "far fa-eye-slash",
-                                        "text": "Mark as unread",
-                                        "bind": { "hidden": "{!record.read}" },
-                                        "handler": this.unreadNotification.bind( this ),
-                                    },
-                                    {
-                                        "xtype": "button",
-                                        "iconCls": "far fa-trash-alt",
-                                        "text": "Delete",
-                                        "handler": this.deleteNotification.bind( this ),
+                                        "xtype": "container",
+                                        "layout": { "type": "vbox", "align": "start" },
+                                        "items": [
+                                            {
+                                                "xtype": "button",
+                                                "iconCls": "far fa-eye",
+                                                "text": "Mark as read",
+                                                "bind": { "hidden": "{record.read}" },
+                                                "handler": this.readNotification.bind( this ),
+                                            },
+                                            {
+                                                "xtype": "button",
+                                                "iconCls": "far fa-eye-slash",
+                                                "text": "Mark as unread",
+                                                "bind": { "hidden": "{!record.read}" },
+                                                "handler": this.unreadNotification.bind( this ),
+                                            },
+                                            {
+                                                "xtype": "button",
+                                                "iconCls": "far fa-trash-alt",
+                                                "text": "Delete",
+                                                "handler": this.deleteNotification.bind( this ),
+                                            },
+                                        ],
                                     },
                                 ],
                             },
