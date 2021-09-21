@@ -1,10 +1,10 @@
 <template>
     <ext-panel :title="title" width="300" minHeight="380" layout='{"type":"card","animation":"slide"}' :shadow="shadow" @ready="ready">
-        <SigninForm :closable="closable" :signup="signup" :reset="reset" @close="close" @reset="showReset" @signup="showSignup"/>
+        <SigninForm :signup="signup" :reset="reset" @reset="showReset" @signup="showSignup"/>
 
-        <ResetPasswordForm :closable="closable" @signin="showSignin" @close="close"/>
+        <ResetPasswordForm @signin="showSignin"/>
 
-        <SignupForm :closable="closable" @signin="showSignin" @close="close"/>
+        <SignupForm @signin="showSignin"/>
     </ext-panel>
 </template>
 
@@ -18,20 +18,20 @@ export default {
 
     "props": {
         "signup": {
-            "type": String,
-            "default": "false",
+            "type": Boolean,
+            "default": false,
         },
         "reset": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
         "closable": {
-            "type": String,
-            "default": "false",
+            "type": Boolean,
+            "default": false,
         },
         "shadow": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
     },
 
@@ -49,6 +49,15 @@ export default {
 
             // TODO fix for forms switch, remove
             this.ext.setActiveItem( 0 );
+
+            if ( this.closable ) {
+                this.ext.setTools( [
+                    {
+                        "type": "close",
+                        "handler": this.close.bind( this ),
+                    },
+                ] );
+            }
         },
 
         close () {
@@ -65,10 +74,6 @@ export default {
 
         showSignup () {
             this.ext.setActiveItem( 2 );
-        },
-
-        onSignin () {
-            if ( this.closable === "true" ) this.close();
         },
     },
 };

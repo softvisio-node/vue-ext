@@ -8,10 +8,10 @@
         <ext-textfield name="username" label="User Name or Email" required="true"/>
         <ext-passwordfield name="password" label="Password" required="true"/>
 
-        <ext-button text="Do not have account? Sign up" :hidden="signup !== 'true'" width="100%" margin="10 0 0 0" @tap="showSignup"/>
+        <ext-button text="Do not have account? Sign up" :hidden="!signup" width="100%" margin="10 0 0 0" @tap="showSignup"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-            <ext-button text="Forgot password?" ui="forward" :hidden="reset !== 'true'" @tap="showReset"/>
+            <ext-button text="Forgot password?" ui="forward" :hidden="!reset" @tap="showReset"/>
             <ext-spacer/>
             <ext-button text="Sign in" ui="action" @tap="submit"/>
         </ext-toolbar>
@@ -21,39 +21,23 @@
 <script>
 export default {
     "props": {
-        "closable": {
-            "type": String,
-            "default": "false",
-        },
         "signup": {
-            "type": String,
-            "default": "false",
+            "type": Boolean,
+            "default": false,
         },
         "reset": {
-            "type": String,
-            "default": "false",
+            "type": Boolean,
+            "default": false,
         },
     },
-    "emits": ["close", "reset", "signup"],
+
+    "emits": ["reset", "signup"],
 
     "methods": {
         ready ( e ) {
             var cmp = e.detail.cmp;
 
             cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
-
-            if ( this.closable === "true" ) {
-                cmp.setTools( [
-                    {
-                        "type": "close",
-                        "handler": this.close.bind( this ),
-                    },
-                ] );
-            }
-        },
-
-        close () {
-            this.$emit( "close" );
         },
 
         showReset () {
@@ -78,13 +62,6 @@ export default {
                     Ext.Viewport.unmask();
 
                     this.$utils.toast( res );
-                }
-                else {
-                    if ( this.closable === "true" ) {
-                        this.close();
-
-                        Ext.Viewport.unmask();
-                    }
                 }
             }
         },

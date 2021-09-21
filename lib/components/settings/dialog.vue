@@ -5,8 +5,8 @@
                 <slot name="top"/>
 
                 <!-- SMTP -->
-                <ext-panel title="SMTP Settings" :hidden="smtpSettings !== 'true'">
-                    <ext-toolbar docked="top" :hidden="titles !== 'true'">
+                <ext-panel title="SMTP Settings" :hidden="!smtpSettings">
+                    <ext-toolbar docked="top" :hidden="!titles">
                         <ext-container html="SMTP Settings"/>
                     </ext-toolbar>
                     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":250}'>
@@ -49,16 +49,16 @@ export default {
             "default": "90%",
         },
         "titles": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
         "smtpSettings": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
         "submitOnEnter": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
     },
 
@@ -66,7 +66,7 @@ export default {
         async ready ( e ) {
             this.ext = e.detail.cmp;
 
-            if ( this.submitOnEnter === "true" ) this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+            if ( this.submitOnEnter ) this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
 
             this.ext.on( "beforeshow", this.reload, this );
         },

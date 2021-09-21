@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog bodyPadding="0" draggable="false" closeAction="destroy" :hideOnMaskTap="closable">
+    <ext-dialog ref="dialog" bodyPadding="0" draggable="false" closeAction="destroy" :hideOnMaskTap="closable">
         <AuthPanel :signup="signup" :reset="reset" :closable="closable" :shadow="shadow" @close="onClose"/>
     </ext-dialog>
 </template>
@@ -12,26 +12,28 @@ export default {
 
     "props": {
         "signup": {
-            "type": String,
-            "default": "false",
+            "type": Boolean,
+            "default": false,
         },
         "reset": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
         "closable": {
-            "type": String,
-            "default": "false",
+            "type": Boolean,
+            "default": false,
         },
         "shadow": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
     },
 
     "methods": {
         onClose () {
-            this.$unmount();
+
+            // this.$unmount();
+            this.$refs.dialog.ext.destroy();
         },
     },
 };

@@ -19,33 +19,13 @@
 
 <script>
 export default {
-    "props": {
-        "closable": {
-            "type": String,
-            "default": "false",
-        },
-    },
-
-    "emits": ["close", "signin"],
+    "emits": ["signin"],
 
     "methods": {
         ready ( e ) {
             var cmp = e.detail.cmp;
 
             cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
-
-            if ( this.closable === "true" ) {
-                cmp.setTools( [
-                    {
-                        "type": "close",
-                        "handler": this.close.bind( this ),
-                    },
-                ] );
-            }
-        },
-
-        close () {
-            this.$emit( "close" );
         },
 
         showSignin () {
