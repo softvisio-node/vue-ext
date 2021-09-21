@@ -7,7 +7,7 @@
 
         <slot name="title"/>
 
-        <ext-button ref="notificationsButton" align="right" iconCls="far fa-bell" width="55" padding="0 0 10 0" margin="10 20 0 0" :hidden="notifications !== 'true'" @tap="showNotifications"/>
+        <ext-button ref="notificationsButton" align="right" iconCls="far fa-bell" width="55" padding="0 0 10 0" margin="10 20 0 0" :hidden="!notifications" @tap="showNotifications"/>
 
         <Avatar align="right" width="40" height="40"/>
 
@@ -43,20 +43,20 @@ export default {
 
     "props": {
         "notifications": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
         "apiTokens": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
         "profile": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
         "changePassword": {
-            "type": String,
-            "default": "false",
+            "type": Boolean,
+            "default": false,
         },
     },
 

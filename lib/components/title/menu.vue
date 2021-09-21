@@ -12,9 +12,9 @@
 
             <slot name="bottomUp"/>
 
-            <ext-button iconCls="fas fa-key" text="API Access Tokens" textAlign="left" :hidden="apiTokens !== 'true'" @tap="showApiTokens"/>
-            <ext-button iconCls="fas fa-user" text="Your Profile" textAlign="left" :hidden="profile !== 'true'" @tap="showProfile"/>
-            <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" :hidden="changePassword !== 'true'" @tap="showChangePasswordDialog"/>
+            <ext-button iconCls="fas fa-key" text="API Access Tokens" textAlign="left" :hidden="!apiTokens" @tap="showApiTokens"/>
+            <ext-button iconCls="fas fa-user" text="Your Profile" textAlign="left" :hidden="!profile" @tap="showProfile"/>
+            <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" :hidden="!changePassword" @tap="showChangePasswordDialog"/>
 
             <slot name="bottomDown"/>
 
@@ -37,33 +37,29 @@ export default {
 
     "props": {
         "apiTokens": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
         "profile": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
         "changePassword": {
-            "type": String,
-            "default": "false",
+            "type": Boolean,
+            "default": false,
         },
     },
 
     "emits": ["showProfileDialog"],
 
     "computed": {
-        avatar () {
-            return this.$store.session.avatar;
-        },
-
         username () {
             return '<div class="username">' + this.$store.session.username + "</div>";
         },
 
         "darkMode": {
             get () {
-                return this.$store.theme.darkMode + "";
+                return this.$store.theme.darkMode;
             },
 
             set ( e ) {
