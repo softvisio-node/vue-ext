@@ -19,5 +19,5 @@ Need to use expression:
 
 When updating bound attribute `vue` at first tries to set element property (if exists, checked with the `in` operator), if property is not exists it will update attribute.
 
--   When updating attribute, `vue` stringifies the value. For `boolean` attributes, if value is truthy or `""` - attribute will be set with the `""` value, otherwise attribute will be removed.
+-   When updating attribute, `vue` stringifies the value. For `boolean` attributes, if value is truthy or `""` - attribute will be set with the `""` value, otherwise (`undefined`, `null`, `false`, `0`) attribute will be removed.
 -   When updating property `vue` will set the value as is, without any coercion.
