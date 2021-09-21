@@ -1,13 +1,4 @@
-<!--
-yarn add worker-loader pdfjs-dist
-
-<swc-pdf src="" scale="1">
-
-Events:
-ready(this);
-
-https://rossta.net/blog/building-a-pdf-viewer-with-vue-part-1.html
--->
+<!-- https://rossta.net/blog/building-a-pdf-viewer-with-vue-part-1.html -->
 
 <template>
     <ext-container layout="center" scrollable="true" @ready="ready"/>
@@ -15,11 +6,9 @@ https://rossta.net/blog/building-a-pdf-viewer-with-vue-part-1.html
 
 <script>
 import { defineAsyncComponent } from "vue";
-import * as pdfJS from "pdfjs-dist/build/pdf";
-import PDFJSWorker from "pdfjs-dist/build/pdf.worker";
-const PDFDialog = defineAsyncComponent( () => import( "./dialog" ) );
 
-pdfJS.GlobalWorkerOptions.workerPort = new PDFJSWorker();
+const pdfJS = await import( /* webpackChunkName: "pdfjs" */ "./loader.js" );
+const PDFDialog = defineAsyncComponent( () => import( "./dialog" ) );
 
 const pixelRatio = window.devicePixelRatio || 1;
 
@@ -34,8 +23,8 @@ export default {
             "default": "auto",
         },
         "resetZoomOnLoad": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
         "zoomStep": {
             "type": Number,
@@ -50,8 +39,8 @@ export default {
             "default": 2,
         },
         "maximizable": {
-            "type": String,
-            "default": "false",
+            "type": Boolean,
+            "default": false,
         },
     },
 
@@ -79,7 +68,7 @@ export default {
 
             var maximize = [];
 
-            if ( this.maximizable === "true" ) {
+            if ( this.maximizable ) {
                 maximize = [
                     { "xtype": "button", "iconCls": "fas fa-compress", "ui": "action", "handler": this.maximize.bind( this, null ) },
                     { "xtype": "container", "height": "10" },
@@ -195,7 +184,7 @@ export default {
 
             if ( !this.currentSrc ) return;
 
-            if ( this.resetZoomOnLoad === "true" ) this.currentZoom = 1;
+            if ( this.resetZoomOnLoad ) this.currentZoom = 1;
 
             var cmp = this.ext;
 
