@@ -78,8 +78,16 @@ export default {
                                 "menu": [
                                     {
                                         "xtype": "button",
+                                        "iconCls": "far fa-eye",
+                                        "text": "Mark as read",
+                                        "bind": { "hidden": "{record.read}" },
+                                        "handler": this.readNotification.bind( this ),
+                                    },
+                                    {
+                                        "xtype": "button",
                                         "iconCls": "far fa-eye-slash",
                                         "text": "Mark as unread",
+                                        "bind": { "hidden": "{!record.read}" },
                                         "handler": this.unreadNotification.bind( this ),
                                     },
                                     {
@@ -106,6 +114,16 @@ export default {
 
         hide () {
             this.ext.hide( { "type": "slideOut" } );
+        },
+
+        async readNotification ( button ) {
+            const record = button.lookupViewModel().get( "record" );
+
+            button.disable();
+
+            await this.$store.notifications.markRead( record.id );
+
+            button.enable();
         },
 
         async unreadNotification ( button ) {
