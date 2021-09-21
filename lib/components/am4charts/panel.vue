@@ -5,7 +5,7 @@ yarn add @amcharts/amcharts4
 
 import AmchartsPanel from "#vue/components/am4charts-panel";
 
-<AmchartsPanel animated="false" @ready="chartsReady"/>
+<AmchartsPanel :animated="false" @ready="chartsReady"/>
 
 chartsReady (chart) {
     chart.create( amChartsConfig );
@@ -24,21 +24,16 @@ chartsReady (chart) {
 </template>
 
 <script>
-import * as am4core from "@amcharts/amcharts4/core";
-import * as am4charts from "@amcharts/amcharts4/charts"; // eslint-disable-line no-unused-vars
-import chartThemeAnimated from "@amcharts/amcharts4/themes/animated";
-import chartThemeLight from "@amcharts/amcharts4/themes/material";
-import chartThemeDark from "@amcharts/amcharts4/themes/amchartsdark";
-
-am4core.options.commercialLicense = true;
+const am4charts = await import( /* webpackChunkName: "amcharts" */ "./loader.js" );
 
 export default {
     "props": {
         "animated": {
-            "type": String,
-            "default": "true",
+            "type": Boolean,
+            "default": true,
         },
     },
+
     "emits": ["ready"],
 
     "computed": {
@@ -88,14 +83,14 @@ export default {
             this.$emit( "ready", this );
         },
 
-        create ( config ) {
+        async create ( config ) {
 
             // theme
-            am4core.unuseAllThemes();
-            if ( this.animated === "true" ) am4core.useTheme( chartThemeAnimated );
-            am4core.useTheme( this.darkMode ? chartThemeDark : chartThemeLight );
+            am4charts.am4core.unuseAllThemes();
+            if ( this.animated ) am4charts.am4core.useTheme( am4charts.chartThemeAnimated );
+            am4charts.am4core.useTheme( this.darkMode ? am4charts.chartThemeDark : am4charts.chartThemeLight );
 
-            this.chart = am4core.createFromConfig( JSON.parse( JSON.stringify( config ) ), this.ext.innerElement.dom );
+            this.chart = am4charts.am4core.createFromConfig( JSON.parse( JSON.stringify( config ) ), this.ext.innerElement.dom );
         },
 
         setData ( data ) {
