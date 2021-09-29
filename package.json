@@ -31,9 +31,8 @@
             "./lib/*/index.vue"
         ],
         "./resources/*": "./resources/*",
-        "./vue.config.cjs": "./resources/vue.config.cjs",
         "./babel.config.cjs": "./resources/babel.config.cjs",
-        "./webpack.config.cjs": "./resources/webpack.config.cjs"
+        "./webpack.config.js": "./resources/webpack.config.js"
     },
     "dependencies": {
         "@amcharts/amcharts4": "^4.10.18",
