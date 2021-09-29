@@ -32,7 +32,8 @@
         ],
         "./resources/*": "./resources/*",
         "./vue.config.cjs": "./resources/vue.config.cjs",
-        "./babel.config.cjs": "./resources/babel.config.cjs"
+        "./babel.config.cjs": "./resources/babel.config.cjs",
+        "./webpack.config.cjs": "./resources/webpack.config.cjs"
     },
     "dependencies": {
         "@amcharts/amcharts4": "^4.10.18",
@@ -42,6 +43,6 @@
         "pdfjs-dist": "^2.9.359"
     },
     "peerDependencies": {
-        "@softvisio/vue": "^5.0.0"
+        "@softvisio/vue": "github:softvisio/vue"
     }
 }
