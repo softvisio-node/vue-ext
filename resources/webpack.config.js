@@ -1,3 +1,3 @@
-const config = require( "@softvisio/vue/resources/webpack.config.cjs" );
+import config from "@softvisio/vue/resources/webpack.config.js";
 
-module.exports = config;
+export default config;
