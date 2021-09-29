@@ -43,6 +43,6 @@
         "pdfjs-dist": "^2.9.359"
     },
     "peerDependencies": {
-        "@softvisio/vue": "github:softvisio/vue"
+        "@softvisio/vue": "github:softvisio/vue#main"
     }
 }
