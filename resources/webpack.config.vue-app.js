@@ -6,8 +6,8 @@ config.resolve.alias["#vue"] = "@softvisio/vue-ext";
 
 config.optimization.splitChunks.cacheGroups["ext"] = {
     "name": "ext",
-    "test": /[\\/]softvisio-ext[\\/]/,
-    "priority": -10,
+    "test": /@softvisio[\\/]ext[\\/]/,
+    "priority": -9,
     "chunks": "initial",
 };
 
