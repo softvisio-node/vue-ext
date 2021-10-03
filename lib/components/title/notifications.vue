@@ -69,7 +69,7 @@ export default {
                         "items": [
                             {
                                 "xtype": "component",
-                                "bind": `<i class="far fa-clock"></i> {record.relative_time}`,
+                                "bind": `<i class="far fa-clock"></i> {record.relativeTime}`,
                             },
                             {
                                 "xtype": "button",

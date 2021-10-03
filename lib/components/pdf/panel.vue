@@ -7,8 +7,8 @@
 <script>
 import { defineAsyncComponent } from "vue";
 
-const pdfJS = await import( /* webpackChunkName: "pdfjs" */ "./loader.js" );
-const PDFDialog = defineAsyncComponent( () => import( "./dialog" ) );
+const pdfJs = await import( /* webpackChunkName: "pdfjs" */ "./loader.js" );
+const PdfDialog = defineAsyncComponent( () => import( "./dialog" ) );
 
 const pixelRatio = window.devicePixelRatio || 1;
 
@@ -112,7 +112,7 @@ export default {
 
         // zoom
         maximize () {
-            this.$mount( PDFDialog, { "props": { "src": this.currentSrc }, "cache": false } );
+            this.$mount( PdfDialog, { "props": { "src": this.currentSrc }, "cache": false } );
         },
 
         zoomIn ( zoomStep ) {
@@ -190,7 +190,7 @@ export default {
 
             cmp.mask();
 
-            const loadingTask = pdfJS.getDocument( this.currentSrc );
+            const loadingTask = pdfJs.getDocument( this.currentSrc );
 
             // loadingTask.onProgress = function ( progress ) {
             //     var percent = parseInt( ( progress.loaded / progress.total ) * 100 );
