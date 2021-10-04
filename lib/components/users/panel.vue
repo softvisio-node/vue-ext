@@ -163,7 +163,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "admin/users/update-permissions", record.get( "id" ), { "admin": newVal } );
+            var res = await this.$api.call( "admin/users/updatePermissions", record.get( "id" ), { "admin": newVal } );
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
@@ -195,7 +195,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "admin/users/set-enabled", record.get( "id" ), newVal );
+            var res = await this.$api.call( "admin/users/setEnabled", record.get( "id" ), newVal );
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
@@ -244,7 +244,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "admin/users/delete-sessions", record.getId() );
+            var res = await this.$api.call( "admin/users/deleteSessions", record.getId() );
 
             button.enable();
 

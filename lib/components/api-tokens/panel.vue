@@ -116,7 +116,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "api-tokens/set-enabled", record.get( "id" ), newVal );
+            var res = await this.$api.call( "apiTokens/setEnabled", record.get( "id" ), newVal );
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
