@@ -5,7 +5,7 @@
             <ext-button iconCls="fas fa-upload" text="Upload Release" @tap="create"/>
         </ext-toolbar>
 
-        <ext-column text="Plaform" dataIndex="platform_name" sorter='{"property":"platform"}' flex="1" cell='{"encodeHtml":false}'/>
+        <ext-column text="Plaform" dataIndex="platformName" sorter='{"property":"platform"}' flex="1" cell='{"encodeHtml":false}'/>
         <ext-column text="Arch" dataIndex="arch" flex="1"/>
         <ext-column text="Version" dataIndex="version" sorter='{"property":"version_sort"}' flex="1"/>
         <ext-column text="Created" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
