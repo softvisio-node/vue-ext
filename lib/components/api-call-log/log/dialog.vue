@@ -8,13 +8,13 @@
         <ext-grid ref="grid" layout="fit" multicolumnSort="true" @ready="gridReady">
             <ext-column text="Started" dataIndex="started" width="150" formatter="date('Y-m-d H:i:s')"/>
             <ext-column text="Finished" dataIndex="finished" width="150" formatter="date('Y-m-d H:i:s')"/>
-            <ext-column text="Runtime (sec.)" dataIndex="runtime_text" sortable="false" width="150" align="right"/>
+            <ext-column text="Runtime (sec.)" dataIndex="runtimeText" sortable="false" width="150" align="right"/>
 
-            <ext-column text="Exception" dataIndex="is_exception_text" sorter='{"property":"is_exception"}' cell='{"encodeHtml":false}' width="100" align="center"/>
+            <ext-column text="Exception" dataIndex="isExceptionText" sorter='{"property":"isException"}' cell='{"encodeHtml":false}' width="100" align="center"/>
 
-            <ext-column text="Status" dataIndex="status_text" sortable="false" cell='{"encodeHtml":false}' width="100" align="center"/>
+            <ext-column text="Status" dataIndex="statusLabel" sortable="false" cell='{"encodeHtml":false}' width="100" align="center"/>
 
-            <ext-column text="Status Text" dataIndex="status_text" sortable="false" flex="1"/>
+            <ext-column text="Status Text" dataIndex="statusText" sortable="false" flex="1"/>
         </ext-grid>
     </ext-dialog>
 </template>
