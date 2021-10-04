@@ -257,7 +257,7 @@ export default {
 
             this.ext.mask();
 
-            const res = await this.$api.call( "admin/api-call-log/read-history-stat", this.record.id );
+            const res = await this.$api.call( "admin/apiCallLog/readHistoryStat", this.record.id );
 
             this.ext.unmask();
 
