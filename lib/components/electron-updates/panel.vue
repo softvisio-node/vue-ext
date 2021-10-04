@@ -94,7 +94,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "electron-updates/set-published", record.get( "id" ), newVal );
+            var res = await this.$api.call( "electronUpdates/setPublished", record.get( "id" ), newVal );
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
@@ -119,7 +119,7 @@ export default {
 
             if ( !( await this.$utils.confirm( "Confirmation", "Are you sure you want to delete release?" ) ) ) return;
 
-            var res = await this.$api.call( "electron-updates/delete", record.getId() );
+            var res = await this.$api.call( "electronUpdates/delete", record.getId() );
 
             if ( res.ok ) {
                 this.$utils.toast( "Update deleted" );
