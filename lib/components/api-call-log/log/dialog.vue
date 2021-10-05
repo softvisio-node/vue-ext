@@ -61,7 +61,7 @@ export default {
             this.title = `API Call Log for Method "${record.id}"`;
 
             this.store.addFilter( {
-                "property": "method_id",
+                "property": "methodId",
                 "operator": "=",
                 "value": record.getId(),
             },

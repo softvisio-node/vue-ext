@@ -85,7 +85,7 @@ export default {
                         "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "total_accepted",
+                            "valueY": "totalAccepted",
                         },
                         "groupFields": { "valueY": "sum" },
                         "tooltipText": "Accepted requests: {valueY.value}",
@@ -103,7 +103,7 @@ export default {
                         "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "total_declined",
+                            "valueY": "totalDeclined",
                         },
                         "groupFields": { "valueY": "sum" },
                         "tooltipText": "Declined requests: {valueY.value}",
@@ -168,7 +168,7 @@ export default {
                         "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "avg_runtime",
+                            "valueY": "avgRuntime",
                         },
                         "groupFields": { "valueY": "average" },
                         "tooltipText": "Average runtime: {valueY.value} sec.",
@@ -235,7 +235,7 @@ export default {
                         "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "exceptions_percent",
+                            "valueY": "exceptionsPercent",
                         },
                         "groupFields": { "valueY": "average" },
                         "tooltipText": "Exceptions: {valueY.value}%",

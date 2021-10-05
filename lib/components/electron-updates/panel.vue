@@ -7,7 +7,7 @@
 
         <ext-column text="Plaform" dataIndex="platformName" sorter='{"property":"platform"}' flex="1" cell='{"encodeHtml":false}'/>
         <ext-column text="Arch" dataIndex="arch" flex="1"/>
-        <ext-column text="Version" dataIndex="version" sorter='{"property":"version_sort"}' flex="1"/>
+        <ext-column text="Version" dataIndex="version" sorter='{"property":"versionSort"}' flex="1"/>
         <ext-column text="Created" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
         <ext-column text="Published" width="110" sorter='{"property":"published"}' summaryDataIndex="-" @ready="publishedColReady"/>
 
