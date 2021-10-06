@@ -85,7 +85,7 @@ export default {
                         "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "totalAccepted",
+                            "valueY": "total_accepted",
                         },
                         "groupFields": { "valueY": "sum" },
                         "tooltipText": "Accepted requests: {valueY.value}",
@@ -103,7 +103,7 @@ export default {
                         "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "totalDeclined",
+                            "valueY": "total_declined",
                         },
                         "groupFields": { "valueY": "sum" },
                         "tooltipText": "Declined requests: {valueY.value}",
@@ -168,7 +168,7 @@ export default {
                         "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "avgRuntime",
+                            "valueY": "avg_runtime",
                         },
                         "groupFields": { "valueY": "average" },
                         "tooltipText": "Average runtime: {valueY.value} sec.",
@@ -235,7 +235,7 @@ export default {
                         "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "exceptionsPercent",
+                            "valueY": "exceptions_percent",
                         },
                         "groupFields": { "valueY": "average" },
                         "tooltipText": "Exceptions: {valueY.value}%",
@@ -257,7 +257,7 @@ export default {
 
             this.ext.mask();
 
-            const res = await this.$api.call( "admin/apiCallLog/readHistoryStat", this.record.id );
+            const res = await this.$api.call( "admin/api-call-log/read-history-stat", this.record.id );
 
             this.ext.unmask();
 

@@ -5,9 +5,9 @@
             <ext-button iconCls="fas fa-upload" text="Upload Release" @tap="create"/>
         </ext-toolbar>
 
-        <ext-column text="Plaform" dataIndex="platformName" sorter='{"property":"platform"}' flex="1" cell='{"encodeHtml":false}'/>
+        <ext-column text="Plaform" dataIndex="platform_name" sorter='{"property":"platform"}' flex="1" cell='{"encodeHtml":false}'/>
         <ext-column text="Arch" dataIndex="arch" flex="1"/>
-        <ext-column text="Version" dataIndex="version" sorter='{"property":"versionSort"}' flex="1"/>
+        <ext-column text="Version" dataIndex="version" sorter='{"property":"version_sort"}' flex="1"/>
         <ext-column text="Created" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
         <ext-column text="Published" width="110" sorter='{"property":"published"}' summaryDataIndex="-" @ready="publishedColReady"/>
 
@@ -94,7 +94,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "electronUpdates/setPublished", record.get( "id" ), newVal );
+            var res = await this.$api.call( "electron-updates/set-published", record.get( "id" ), newVal );
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
@@ -119,7 +119,7 @@ export default {
 
             if ( !( await this.$utils.confirm( "Confirmation", "Are you sure you want to delete release?" ) ) ) return;
 
-            var res = await this.$api.call( "electronUpdates/delete", record.getId() );
+            var res = await this.$api.call( "electron-updates/delete", record.getId() );
 
             if ( res.ok ) {
                 this.$utils.toast( "Update deleted" );

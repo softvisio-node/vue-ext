@@ -152,7 +152,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "profile/deleteSessions" );
+            const res = await this.$api.call( "profile/delete-sessions" );
 
             button.enable();
 

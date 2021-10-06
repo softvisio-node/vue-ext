@@ -66,7 +66,7 @@ export default {
                         {
                             "xtype": "displayfield",
                             "encodeHtml": false,
-                            "bind": "{record.idText}",
+                            "bind": "{record.id_text}",
                         },
                         {
                             "xtype": "fieldcontainer",
@@ -82,8 +82,8 @@ export default {
                                     "width": "100%",
                                     "animate": true,
                                     "bind": {
-                                        "text": "{record.activeRequestsText}",
-                                        "value": "{record.activeRequestsValue}",
+                                        "text": "{record.active_requests_text}",
+                                        "value": "{record.active_requests_value}",
                                     },
                                     "listeners": {
                                         change ( progress, newValue, oldValue ) {
@@ -103,7 +103,7 @@ export default {
                             "height": 18,
                             "labelCls": "no-padding",
                             "encodeHtml": false,
-                            "bind": "{record.ActiveRequestsLimitText}",
+                            "bind": "{record.active_requests_limit_text}",
                         },
                         {
                             "xtype": "displayfield",
@@ -113,7 +113,7 @@ export default {
                             "height": 18,
                             "labelCls": "no-padding",
                             "encodeHtml": false,
-                            "bind": "{record.activeRequestsUserLimitText}",
+                            "bind": "{record.active_requests_user_limit_text}",
                         },
                     ],
                 },
@@ -227,13 +227,13 @@ export default {
 
                 "series": [
                     {
-                        "id": "acceptedRequests",
+                        "id": "accepted_requests",
                         "type": "ColumnSeries",
                         "name": "Accepted",
                         "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "totalAccepted",
+                            "valueY": "total_accepted",
                         },
                         "tooltipText": "Accepted requests: {valueY.value}",
                         "stacked": true,
@@ -244,13 +244,13 @@ export default {
                         },
                     },
                     {
-                        "id": "declinedRequests",
+                        "id": "declined_requests",
                         "type": "ColumnSeries",
                         "name": "Declined",
                         "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "totalDeclined",
+                            "valueY": "total_declined",
                         },
                         "tooltipText": "Declined requests: {valueY.value}",
                         "stacked": true,
@@ -297,13 +297,13 @@ export default {
 
                 "series": [
                     {
-                        "id": "avgRuntime",
+                        "id": "avg_runtime",
                         "type": "ColumnSeries",
                         "name": "Avg. runtime",
                         "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "avgRuntime",
+                            "valueY": "avg_runtime",
                         },
                         "tooltipText": "Avg. runtime: {valueY.value} sec.",
                         "stacked": true,
@@ -352,13 +352,13 @@ export default {
 
                 "series": [
                     {
-                        "id": "exceptionsPercent",
+                        "id": "exceptions_percent",
                         "type": "ColumnSeries",
                         "name": "Exceptions",
                         "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "exceptionsPercent",
+                            "valueY": "exceptions_percent",
                         },
                         "tooltipText": "Exceptions: {valueY.value}%",
                         "stacked": true,
@@ -428,7 +428,7 @@ export default {
             this.$refs.refreshButton.ext.setDisabled( true );
             this._pauseAutoRefresh();
 
-            const res = await this.$api.call( "admin/apiCallLog/readLatestStat" );
+            const res = await this.$api.call( "admin/api-call-log/read-latest-stat" );
 
             this.refreshing = false;
             this.$refs.refreshButton.ext.setDisabled( false );

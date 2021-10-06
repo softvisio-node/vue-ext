@@ -116,7 +116,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "apiTokens/setEnabled", record.get( "id" ), newVal );
+            var res = await this.$api.call( "api-tokens/set-enabled", record.get( "id" ), newVal );
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
@@ -141,7 +141,7 @@ export default {
 
             if ( !( await this.$utils.confirm( "Confirmation", "Are you sure you want to delete this token?" ) ) ) return;
 
-            var res = await this.$api.call( "apiTokens/delete", record.getId() );
+            var res = await this.$api.call( "api-tokens/delete", record.getId() );
 
             if ( res.ok ) {
                 this.$utils.toast( "API token deleted" );
