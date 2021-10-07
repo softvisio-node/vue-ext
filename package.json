@@ -31,7 +31,6 @@
             "./lib/*/index.vue"
         ],
         "./resources/*": "./resources/*",
-        "./babel.config": "./resources/babel.config.cjs",
         "./webpack.config.*": "./resources/webpack.config.*.js"
     },
     "dependencies": {
