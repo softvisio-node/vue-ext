@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.0.2 (2021-10-11)
+
+Fixes:
+
+-   fix: firease removed
+
 ### 6.0.1 (2021-10-07)
 
 Fixes:
