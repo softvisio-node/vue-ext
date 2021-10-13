@@ -1,5 +1,12 @@
 # Changelog
 
+### 6.0.3 (2021-10-13)
+
+Fixes:
+
+-   fix: aliases
+-   fix: webpack aliases
+
 ### 6.0.2 (2021-10-11)
 
 Fixes:
