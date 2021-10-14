@@ -49,6 +49,8 @@ export default {
 
             ext.setStore( this.store );
 
+            const tapHandler = this.onNotificationClick.bind( this );
+
             ext.setItemConfig( {
                 "xtype": "container",
                 "viewModel": true,
@@ -58,10 +60,24 @@ export default {
                     {
                         "xtype": "component",
                         "bind": `<span class="notification-subject">{record.subject}</span>`,
+                        "style": "cursor:pointer",
+                        "listeners": {
+                            "tap": function () {
+                                tapHandler( this.component.lookupViewModel().get( "record" ) );
+                            },
+                            "element": "element",
+                        },
                     },
                     {
                         "xtype": "component",
+                        "style": "cursor:pointer",
                         "bind": "{record.body}",
+                        "listeners": {
+                            "tap": function () {
+                                tapHandler( this.component.lookupViewModel().get( "record" ) );
+                            },
+                            "element": "element",
+                        },
                     },
                     {
                         "xtype": "container",
@@ -183,6 +199,10 @@ export default {
             else {
                 this.$refs.card.ext.setActiveItem( 1 );
             }
+        },
+
+        onNotificationClick ( record ) {
+            console.log( record );
         },
     },
 };
