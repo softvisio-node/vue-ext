@@ -13,7 +13,7 @@
 
         <ext-button align="right" iconCls="fas fa-bars" width="40" height="50" margin="0 0 0 5" @tap="showMenu"/>
 
-        <Notifications ref="notifications"/>
+        <Notifications ref="notifications" :markAllReadOnShow="notificationsMarkAllReadOnShow"/>
 
         <Menu ref="menu" :apiTokens="apiTokens" :profile="profile" :changePassword="changePassword" @showProfileDialog="showProfileDialog">
             <template #top>
@@ -45,6 +45,10 @@ export default {
         "notifications": {
             "type": Boolean,
             "default": true,
+        },
+        "notificationsMarkAllReadOnShow": {
+            "type": Boolean,
+            "default": false,
         },
         "apiTokens": {
             "type": Boolean,

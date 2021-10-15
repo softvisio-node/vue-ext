@@ -2,6 +2,7 @@
     <ext-sheet layout="fit" side="right" modal="true" width="300" @ready="ready">
         <ext-panel ref="card" layout='{"type":"card","animation":"fade"}'>
             <ext-titlebar docked="top" iconCls="far fa-bell" title="Notifications">
+                <ext-button align="right" iconCls="fas fa-check-double" tooltip="Mark all as read" :hidden="!hasNotifications" @tap="markAllRead"/>
                 <ext-button align="right" iconCls="far fa-trash-alt" tooltip="Delete all notifications" :hidden="!hasNotifications" @tap="deleteAll"/>
                 <ext-button align="right" iconCls="fas fa-redo" tooltip="Refresh notifications" @tap="reload"/>
             </ext-titlebar>
@@ -17,6 +18,12 @@
 
 <script>
 export default {
+    "props": {
+        "markAllReadOnShow": {
+            "type": Boolean,
+            "default": false,
+        },
+    },
     "computed": {
         hasNotifications () {
             return !!this.$store.notifications.totalCount;
@@ -32,12 +39,6 @@ export default {
     },
 
     "methods": {
-        deleteAll1 () {
-            const v = this.$store.notifications.totalCount ? 0 : 100;
-            this.$store.notifications.totalCount = v;
-            this.$store.notifications.totalCount = v;
-        },
-
         ready ( e ) {
             this.ext = e.detail.cmp;
 
@@ -81,44 +82,39 @@ export default {
                     },
                     {
                         "xtype": "container",
-                        "layout": { "type": "hbox", "pack": "end", "align": "center" },
+                        "layout": "hbox",
+                        "margin": "5 0 0 0",
                         "items": [
                             {
                                 "xtype": "component",
                                 "bind": `<i class="far fa-clock"></i> {record.relative_time}`,
                             },
+                            { "xtype": "spacer" },
                             {
                                 "xtype": "button",
-                                "iconCls": "fas fa-ellipsis-v",
-                                "arrow": false,
-                                "menu": [
-                                    {
-                                        "xtype": "container",
-                                        "layout": { "type": "vbox", "align": "start" },
-                                        "items": [
-                                            {
-                                                "xtype": "button",
-                                                "iconCls": "far fa-eye",
-                                                "text": "Mark as read",
-                                                "bind": { "hidden": "{record.read}" },
-                                                "handler": this.readNotification.bind( this ),
-                                            },
-                                            {
-                                                "xtype": "button",
-                                                "iconCls": "far fa-eye-slash",
-                                                "text": "Mark as unread",
-                                                "bind": { "hidden": "{!record.read}" },
-                                                "handler": this.unreadNotification.bind( this ),
-                                            },
-                                            {
-                                                "xtype": "button",
-                                                "iconCls": "far fa-trash-alt",
-                                                "text": "Delete",
-                                                "handler": this.deleteNotification.bind( this ),
-                                            },
-                                        ],
-                                    },
-                                ],
+                                "iconCls": "far fa-eye",
+                                "tooltip": "Mark as read",
+                                "bind": { "hidden": "{record.read}" },
+                                "handler": this.readNotification.bind( this ),
+                            },
+                            {
+                                "xtype": "button",
+                                "iconCls": "far fa-eye-slash",
+                                "tooltip": "Mark as unread",
+                                "bind": { "hidden": "{!record.read}" },
+                                "handler": this.unreadNotification.bind( this ),
+                            },
+                            {
+                                "xtype": "button",
+                                "iconCls": "fas fa-check",
+                                "tooltip": "Mark as read",
+                                "handler": this.readNotification.bind( this ),
+                            },
+                            {
+                                "xtype": "button",
+                                "iconCls": "far fa-trash-alt",
+                                "tooltip": "Delete",
+                                "handler": this.deleteNotification.bind( this ),
                             },
                         ],
                     },
@@ -129,13 +125,17 @@ export default {
         show () {
             this.$store.notifications.refreshRelativeTime();
 
-            this.$store.notifications.markAllRead();
+            if ( this.markAllReadOnShow ) this.$store.notifications.markAllRead();
 
             this.ext.show( { "type": "slideIn" } );
         },
 
         hide () {
             this.ext.hide( { "type": "slideOut" } );
+        },
+
+        async markAllRead () {
+            this.$store.notifications.markAllRead();
         },
 
         async readNotification ( button ) {
@@ -201,9 +201,7 @@ export default {
             }
         },
 
-        onNotificationClick ( record ) {
-            console.log( record );
-        },
+        onNotificationClick ( record ) {},
     },
 };
 </script>
