@@ -1,5 +1,13 @@
 # Changelog
 
+### 6.1.0 (2021-10-15)
+
+Features:
+
+-   feat: improved notifications
+-   feat: notification click
+-   feat: notifications refactored
+
 ### 6.0.3 (2021-10-13)
 
 Fixes:
