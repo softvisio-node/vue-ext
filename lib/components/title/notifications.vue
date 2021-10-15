@@ -43,6 +43,12 @@ export default {
         listReady ( e ) {
             const ext = e.detail.cmp;
 
+            ext.setPlugins( [
+
+                //
+                { "type": "listpaging", "noMoreRecordsText": "", "autoPaging": true },
+            ] );
+
             ext.setStore( this.store );
 
             const tapHandler = this.onNotificationClick.bind( this );
