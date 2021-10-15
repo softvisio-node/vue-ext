@@ -1,7 +1,7 @@
 <template>
     <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
         <ext-toolbar docked="top">
-            <ext-searchfield placeholder="search tokens by name" width="200" @change="search"/>
+            <ext-searchfield placeholder="Search tokens by name" width="200" @change="search"/>
             <ext-spacer/>
             <ext-button iconCls="fas fa-plus" text="Create API Token" @tap="showCreateTokenDialog"/>
             <ext-button iconCls="fas fa-redo" text="Refresh" @tap="reload"/>

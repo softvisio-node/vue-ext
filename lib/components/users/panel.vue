@@ -1,7 +1,7 @@
 <template>
     <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
         <ext-toolbar docked="top">
-            <ext-searchfield placeholder="search users" width="200" @change="search"/>
+            <ext-searchfield placeholder="Search users" width="200" @change="search"/>
             <ext-spacer/>
             <ext-button iconCls="fas fa-user-plus" text="Create User" padding="0 0 0 5" @tap="showCreateUserDialog"/>
             <ext-button iconCls="fas fa-redo" text="Refresh" @tap="reload"/>

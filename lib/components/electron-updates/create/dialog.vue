@@ -12,9 +12,9 @@
                 <ext-radiofield value="x32" label="x32"/>
             </ext-radiogroup>
 
-            <ext-emailfield name="version" label="Version" placeholder="semantic version 1.2.3" required="true"/>
+            <ext-emailfield name="version" label="Version" placeholder="Semantic version 1.2.3" required="true"/>
 
-            <ext-filefield ref="file" placeholder="Choose Update" required="true"/>
+            <ext-filefield ref="file" placeholder="Choose update" required="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">

@@ -1,7 +1,7 @@
 <template>
     <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
         <ext-toolbar docked="top">
-            <ext-searchfield placeholder="search tokens by name" width="200" @change="search"/>
+            <ext-searchfield placeholder="Search tokens by name" width="200" @change="search"/>
             <ext-spacer/>
             <ext-togglefield label="AUTO REFRESH" labelAlign="right" @change="autoRefreshChange"/>
             <ext-button ref="refreshButton" iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
