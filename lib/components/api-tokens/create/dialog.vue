@@ -1,7 +1,7 @@
 <template>
     <ext-dialog title="Create API Token" width="400" height="400" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="vbox" @ready="ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
-            <ext-textfield ref="name" name="name" label="Token Name" placeholder="enter new token name" required="true"/>
+            <ext-textfield ref="name" name="name" label="Token Name" placeholder="Enter new token name" required="true"/>
         </ext-fieldpanel>
 
         <ext-container ref="done" defaults='{"labelAlign":"top"}' hidden="true">
