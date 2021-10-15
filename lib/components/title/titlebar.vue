@@ -13,7 +13,7 @@
 
         <ext-button align="right" iconCls="fas fa-bars" width="40" height="50" margin="0 0 0 5" @tap="showMenu"/>
 
-        <Notifications ref="notifications" :markAllReadOnShow="notificationsMarkAllReadOnShow"/>
+        <Notifications ref="notifications"/>
 
         <Menu ref="menu" :apiTokens="apiTokens" :profile="profile" :changePassword="changePassword" @showProfileDialog="showProfileDialog">
             <template #top>
@@ -34,8 +34,6 @@
 <script>
 import Avatar from "./avatar";
 import Menu from "./menu";
-
-// import NotificationsDialog from "./notifications";
 import Notifications from "./notifications";
 
 export default {
@@ -46,7 +44,7 @@ export default {
             "type": Boolean,
             "default": true,
         },
-        "notificationsMarkAllReadOnShow": {
+        "canDeleteNotifications": {
             "type": Boolean,
             "default": false,
         },
@@ -72,7 +70,7 @@ export default {
         },
 
         notificationsBadgeText () {
-            return this.$store.notifications.unreadCount;
+            return this.$store.notifications.undoneCount;
         },
     },
 
@@ -108,7 +106,7 @@ export default {
         },
 
         _setNotificationsBadgeText () {
-            this.$refs.notificationsButton.ext.setBadgeText( this.$store.notifications.unreadCount || "" );
+            this.$refs.notificationsButton.ext.setBadgeText( this.$store.notifications.undoneCount || "" );
         },
     },
 };

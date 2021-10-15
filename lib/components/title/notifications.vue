@@ -2,8 +2,7 @@
     <ext-sheet layout="fit" side="right" modal="true" width="300" @ready="ready">
         <ext-panel ref="card" layout='{"type":"card","animation":"fade"}'>
             <ext-titlebar docked="top" iconCls="far fa-bell" title="Notifications">
-                <ext-button align="right" iconCls="fas fa-check-double" tooltip="Mark all as read" :hidden="!hasNotifications" @tap="markAllRead"/>
-                <ext-button align="right" iconCls="far fa-trash-alt" tooltip="Delete all notifications" :hidden="!hasNotifications" @tap="deleteAll"/>
+                <ext-button align="right" iconCls="fas fa-check-double" tooltip="Mark all as done" :hidden="!hasNotifications" @tap="setDoneAll"/>
                 <ext-button align="right" iconCls="fas fa-redo" tooltip="Refresh notifications" @tap="reload"/>
             </ext-titlebar>
             <ext-panel layout="center">
@@ -18,15 +17,9 @@
 
 <script>
 export default {
-    "props": {
-        "markAllReadOnShow": {
-            "type": Boolean,
-            "default": false,
-        },
-    },
     "computed": {
         hasNotifications () {
-            return !!this.$store.notifications.totalCount;
+            return !!this.$store.notifications.undoneCount;
         },
     },
 
@@ -36,6 +29,8 @@ export default {
 
     mounted () {
         this.store = this.$store.notifications.store;
+
+        this.store.reload();
     },
 
     "methods": {
@@ -92,29 +87,9 @@ export default {
                             { "xtype": "spacer" },
                             {
                                 "xtype": "button",
-                                "iconCls": "far fa-eye",
-                                "tooltip": "Mark as read",
-                                "bind": { "hidden": "{record.read}" },
-                                "handler": this.readNotification.bind( this ),
-                            },
-                            {
-                                "xtype": "button",
-                                "iconCls": "far fa-eye-slash",
-                                "tooltip": "Mark as unread",
-                                "bind": { "hidden": "{!record.read}" },
-                                "handler": this.unreadNotification.bind( this ),
-                            },
-                            {
-                                "xtype": "button",
                                 "iconCls": "fas fa-check",
-                                "tooltip": "Mark as read",
-                                "handler": this.readNotification.bind( this ),
-                            },
-                            {
-                                "xtype": "button",
-                                "iconCls": "far fa-trash-alt",
-                                "tooltip": "Delete",
-                                "handler": this.deleteNotification.bind( this ),
+                                "tooltip": "Mark as done",
+                                "handler": this._setDone.bind( this ),
                             },
                         ],
                     },
@@ -125,59 +100,11 @@ export default {
         show () {
             this.$store.notifications.refreshRelativeTime();
 
-            if ( this.markAllReadOnShow ) this.$store.notifications.markAllRead();
-
             this.ext.show( { "type": "slideIn" } );
         },
 
         hide () {
             this.ext.hide( { "type": "slideOut" } );
-        },
-
-        async markAllRead () {
-            this.$store.notifications.markAllRead();
-        },
-
-        async readNotification ( button ) {
-            const record = button.lookupViewModel().get( "record" );
-
-            button.disable();
-
-            await this.$store.notifications.markRead( record.id );
-
-            button.enable();
-        },
-
-        async unreadNotification ( button ) {
-            const record = button.lookupViewModel().get( "record" );
-
-            button.disable();
-
-            await this.$store.notifications.markUnread( record.id );
-
-            button.enable();
-        },
-
-        async deleteNotification ( button ) {
-            const record = button.lookupViewModel().get( "record" );
-
-            button.disable();
-
-            await this.$store.notifications.delete( record.id );
-
-            button.enable();
-        },
-
-        async deleteAll ( e ) {
-            if ( !( await this.$utils.confirm( "Confirmation", "Are you sure you want to delete all notifications?" ) ) ) return;
-
-            const button = e.detail.sender;
-
-            button.disable();
-
-            await this.$store.notifications.deleteAll();
-
-            button.enable();
         },
 
         async reload ( e ) {
@@ -190,6 +117,21 @@ export default {
             button.enable();
         },
 
+        async _setDone ( button ) {
+            const record = button.lookupViewModel().get( "record" );
+
+            button.disable();
+
+            await this.$store.notifications.setDone( record.id );
+
+            button.enable();
+        },
+
+        async setDoneAll () {
+            this.$store.notifications.setDoneAll();
+        },
+
+        // XXX
         onUpdate () {
             const value = this.hasNotifications;
 
@@ -201,6 +143,7 @@ export default {
             }
         },
 
+        // XXX
         onNotificationClick ( record ) {},
     },
 };
