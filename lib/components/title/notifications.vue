@@ -3,7 +3,8 @@
         <ext-panel ref="card" layout='{"type":"card","animation":"fade"}'>
             <ext-titlebar docked="top" iconCls="far fa-bell" title="Notifications">
                 <ext-button align="right" iconCls="fas fa-eye" tooltip="Mark all as read" :hidden="!totalUndoneUnread" @tap="setReadAll"/>
-                <ext-button align="right" iconCls="fas fa-check-double" tooltip="Mark all as done" :hidden="!totalUndone" @tap="setDoneAll"/>
+                <!-- <ext-button align="right" iconCls="fas fa-check-double" tooltip="Mark all as done" :hidden="!totalUndone" @tap="setDoneAll"/> -->
+                <ext-button align="right" iconCls="far fa-trash-alt" tooltip="Delete all" :hidden="!totalUndone" @tap="deleteAll"/>
                 <ext-button align="right" iconCls="fas fa-redo" tooltip="Refresh notifications" @tap="reload"/>
             </ext-titlebar>
             <ext-panel layout="center">
@@ -110,11 +111,18 @@ export default {
                                 "bind": { "hidden": "{!record.read}" },
                                 "handler": this._setUnread.bind( this ),
                             },
+
+                            // {
+                            //     "xtype": "button",
+                            //     "iconCls": "fas fa-check",
+                            //     "tooltip": "Mark as done",
+                            //     "handler": this._setDone.bind( this ),
+                            // },
                             {
                                 "xtype": "button",
-                                "iconCls": "fas fa-check",
-                                "tooltip": "Mark as done",
-                                "handler": this._setDone.bind( this ),
+                                "iconCls": "far fa-trash-alt",
+                                "tooltip": "Delete",
+                                "handler": this._delete.bind( this ),
                             },
                         ],
                     },
@@ -178,6 +186,20 @@ export default {
 
         async setDoneAll () {
             this.$store.notifications.setDoneAll();
+        },
+
+        async _delete ( button ) {
+            const record = button.lookupViewModel().get( "record" );
+
+            button.disable();
+
+            await this.$store.notifications.delete( record.id );
+
+            button.enable();
+        },
+
+        async deleteAll () {
+            this.$store.notifications.deleteAll();
         },
 
         _onTotalUndoneUpdate () {
