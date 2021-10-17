@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.2.1 (2021-10-17)
+
+Fixes:
+
+-   fix: notifications align
+
 ### 6.2.0 (2021-10-17)
 
 Features:
