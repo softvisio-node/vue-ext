@@ -2,7 +2,7 @@
     <ext-sheet layout="fit" side="right" modal="true" width="300" @ready="ready">
         <ext-panel ref="card" layout='{"type":"card","animation":"fade"}'>
             <ext-titlebar docked="top" iconCls="far fa-bell" title="Notifications">
-                <ext-button align="right" iconCls="fas fa-eye" tooltip="Mark all as read" :hidden="!totalUndoneUnread" @tap="setReadAll"/>
+                <ext-button align="right" iconCls="far fa-eye" tooltip="Mark all as read" :hidden="!totalUndoneUnread" @tap="setReadAll"/>
                 <!-- <ext-button align="right" iconCls="fas fa-check-double" tooltip="Mark all as done" :hidden="!totalUndone" @tap="setDoneAll"/> -->
                 <ext-button align="right" iconCls="far fa-trash-alt" tooltip="Delete all" :hidden="!totalUndone" @tap="deleteAll"/>
                 <ext-button align="right" iconCls="fas fa-redo" tooltip="Refresh notifications" @tap="reload"/>
@@ -97,14 +97,14 @@ export default {
                             { "xtype": "spacer" },
                             {
                                 "xtype": "button",
-                                "iconCls": "fas fa-eye",
+                                "iconCls": "far fa-eye",
                                 "tooltip": "Mark as read",
                                 "bind": { "hidden": "{record.read}" },
                                 "handler": this._setRead.bind( this ),
                             },
                             {
                                 "xtype": "button",
-                                "iconCls": "fas fa-eye-slash",
+                                "iconCls": "far fa-eye-slash",
                                 "tooltip": "Mark as unread",
                                 "bind": { "hidden": "{!record.read}" },
                                 "handler": this._setUnread.bind( this ),
