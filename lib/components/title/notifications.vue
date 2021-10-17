@@ -67,7 +67,7 @@ export default {
                 "items": [
                     {
                         "xtype": "component",
-                        "bind": `<span class="{record.read ? 'notification-subject-read' : 'notification-subject-unread'}">{record.subject}</span>`,
+                        "bind": `<span class="{record.read ? 'notification-subject-read' : 'notification-subject-unread'}">• {record.subject}</span>`,
                         "listeners": {
                             "tap": function () {
                                 tapHandler( this.component.lookupViewModel().get( "record" ) );
