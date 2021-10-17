@@ -2,6 +2,7 @@
     <ext-sheet layout="fit" side="right" modal="true" width="300" @ready="ready">
         <ext-panel ref="card" layout='{"type":"card","animation":"fade"}'>
             <ext-titlebar docked="top" iconCls="far fa-bell" title="Notifications">
+                <ext-button align="right" iconCls="fas fa-eye" tooltip="Mark all as read" :hidden="!totalUndoneUnread" @tap="setReadAll"/>
                 <ext-button align="right" iconCls="fas fa-check-double" tooltip="Mark all as done" :hidden="!totalUndone" @tap="setDoneAll"/>
                 <ext-button align="right" iconCls="fas fa-redo" tooltip="Refresh notifications" @tap="reload"/>
             </ext-titlebar>
@@ -41,7 +42,7 @@ export default {
         ready ( e ) {
             this.ext = e.detail.cmp;
 
-            this._onUndoneCountUpdate();
+            this._onTotalUndoneUpdate();
         },
 
         listReady ( e ) {
@@ -97,6 +98,20 @@ export default {
                             { "xtype": "spacer" },
                             {
                                 "xtype": "button",
+                                "iconCls": "fas fa-eye",
+                                "tooltip": "Mark as read",
+                                "bind": { "hidden": "{record.read}" },
+                                "handler": this._setRead.bind( this ),
+                            },
+                            {
+                                "xtype": "button",
+                                "iconCls": "fas fa-eye-slash",
+                                "tooltip": "Mark as unread",
+                                "bind": { "hidden": "{!record.read}" },
+                                "handler": this._setUnread.bind( this ),
+                            },
+                            {
+                                "xtype": "button",
                                 "iconCls": "fas fa-check",
                                 "tooltip": "Mark as done",
                                 "handler": this._setDone.bind( this ),
@@ -123,6 +138,30 @@ export default {
             button.disable();
 
             await this.$store.notifications.reload();
+
+            button.enable();
+        },
+
+        async _setRead ( button ) {
+            const record = button.lookupViewModel().get( "record" );
+
+            button.disable();
+
+            await this.$store.notifications.setRead( record.id );
+
+            button.enable();
+        },
+
+        async setReadAll () {
+            this.$store.notifications.setReadAll();
+        },
+
+        async _setUnread ( button ) {
+            const record = button.lookupViewModel().get( "record" );
+
+            button.disable();
+
+            await this.$store.notifications.setUnread( record.id );
 
             button.enable();
         },
