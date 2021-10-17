@@ -67,8 +67,7 @@ export default {
                 "items": [
                     {
                         "xtype": "component",
-                        "bind": `<span class="notification-subject">{record.subject}</span>`,
-                        "style": "cursor:pointer",
+                        "bind": `<span class="{record.read ? 'notification-subject-read' : 'notification-subject-unread'}">{record.subject}</span>`,
                         "listeners": {
                             "tap": function () {
                                 tapHandler( this.component.lookupViewModel().get( "record" ) );
@@ -78,8 +77,7 @@ export default {
                     },
                     {
                         "xtype": "component",
-                        "style": "cursor:pointer",
-                        "bind": "{record.body}",
+                        "bind": `<span class="{record.read ? 'notification-body-read' : 'notification-body-unread'}">{record.body}</span>`,
                         "listeners": {
                             "tap": function () {
                                 tapHandler( this.component.lookupViewModel().get( "record" ) );
@@ -220,8 +218,27 @@ export default {
 </script>
 
 <style>
-.notification-subject {
-    font-weight: bold;
+.notification-subject-unread {
+    cursor: pointer;
     font-size: 1.2em;
+    font-weight: bold;
+}
+
+.notification-subject-read {
+    cursor: pointer;
+    font-size: 1.2em;
+    /* font-weight: bold; */
+}
+
+.notification-body-unread {
+    cursor: pointer;
+    font-weight: bold;
+    /* font-size: 1.2em; */
+}
+
+.notification-body-read {
+    cursor: pointer;
+    /* font-weight: bold; */
+    /* font-size: 1.2em; */
 }
 </style>
