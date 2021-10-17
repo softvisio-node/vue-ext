@@ -87,7 +87,7 @@ export default {
                     },
                     {
                         "xtype": "container",
-                        "layout": "hbox",
+                        "layout": { "type": "hbox", "align": "center" },
                         "margin": "5 0 0 0",
                         "items": [
                             {
