@@ -2,7 +2,7 @@
     <ext-sheet layout="fit" side="right" modal="true" width="300" @ready="ready">
         <ext-panel ref="card" layout='{"type":"card","animation":"fade"}'>
             <ext-titlebar docked="top" iconCls="far fa-bell" title="Notifications">
-                <ext-button align="right" iconCls="fas fa-check-double" tooltip="Mark all as done" :hidden="!undoneCount" @tap="setDoneAll"/>
+                <ext-button align="right" iconCls="fas fa-check-double" tooltip="Mark all as done" :hidden="!totalUndone" @tap="setDoneAll"/>
                 <ext-button align="right" iconCls="fas fa-redo" tooltip="Refresh notifications" @tap="reload"/>
             </ext-titlebar>
             <ext-panel layout="center">
@@ -18,13 +18,17 @@
 <script>
 export default {
     "computed": {
-        undoneCount () {
-            return !!this.$store.notifications.undoneCount;
+        totalUndone () {
+            return !!this.$store.notifications.totalUndone;
+        },
+
+        totalUndoneUnread () {
+            return !!this.$store.notifications.totalUndoneUnread;
         },
     },
 
     "watch": {
-        "undoneCount": "_onUndoneCountUpdate",
+        "totalUndone": "_onTotalUndoneUpdate",
     },
 
     mounted () {
@@ -137,9 +141,8 @@ export default {
             this.$store.notifications.setDoneAll();
         },
 
-        // XXX
-        _onUndoneCountUpdate () {
-            const value = this.undoneCount;
+        _onTotalUndoneUpdate () {
+            const value = this.totalUndone;
 
             if ( !value ) {
                 this.$refs.card.ext.setActiveItem( 0 );
