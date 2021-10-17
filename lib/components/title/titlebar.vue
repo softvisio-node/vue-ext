@@ -69,13 +69,13 @@ export default {
             return this.$store.session.title;
         },
 
-        notificationsBadgeText () {
-            return this.$store.notifications.undoneCount;
+        totalUndoneUnread () {
+            return this.$store.notifications.totalUndoneUnread;
         },
     },
 
     "watch": {
-        "notificationsBadgeText": "_setNotificationsBadgeText",
+        "totalUndoneUnread": "_setNotificationsBadgeText",
     },
 
     "methods": {
@@ -106,7 +106,7 @@ export default {
         },
 
         _setNotificationsBadgeText () {
-            this.$refs.notificationsButton.ext.setBadgeText( this.$store.notifications.undoneCount || "" );
+            this.$refs.notificationsButton.ext.setBadgeText( this.$store.notifications.totalUndoneUnread || "" );
         },
     },
 };
