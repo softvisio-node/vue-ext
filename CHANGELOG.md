@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.2.2 (2021-10-18)
+
+Fixes:
+
+-   fix: notifications eye icon
+
 ### 6.2.1 (2021-10-17)
 
 Fixes:
