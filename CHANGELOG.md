@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.2.3 (2021-10-24)
+
+Fixes:
+
+-   fix: dialog defaults
+
 ### 6.2.2 (2021-10-18)
 
 Fixes:
