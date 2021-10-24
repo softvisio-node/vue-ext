@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Change Password" width="300" height="300" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" @ready="ready">
+    <ext-dialog title="Change Password" width="300" height="300" closeAction="hide" @ready="_ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
             <ext-passwordfield name="password" label="Password" required="true"/>
             <ext-passwordfield ref="passwordConfirm" label="Confirm Password" required="true"/>
@@ -15,7 +15,7 @@
 <script>
 export default {
     "methods": {
-        ready ( e ) {
+        _ready ( e ) {
             this.ext = e.detail.cmp;
 
             this.ext.on( "hide", () => {

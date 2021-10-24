@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :title="title" :width="width" :height="height" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="fit" viewModel="true" @ready="ready">
+    <ext-dialog :title="title" :width="width" :height="height" scrollable="true" closeAction="hide" layout="fit" viewModel="true" @ready="_ready">
         <ext-fieldpanel ref="form" layout="fit" modelValidation="true">
             <ext-tabpanel tabBarPosition="left" tabRotation="none" tabBar='{"layout":{"type":"vbox","pack":"start","align":"start"},"defaults":{"padding":"0 10 0 10","width":250,"height":50,"flex":null,"textAlign":"right"}}' layout='{"deferRender":false,"animation":{"type":"slide","direction":"vertical"}}' padding="0 10 0 10">
                 <slot name="top"/>
@@ -63,7 +63,7 @@ export default {
     },
 
     "methods": {
-        async ready ( e ) {
+        async _ready ( e ) {
             this.ext = e.detail.cmp;
 
             if ( this.submitOnEnter ) this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );

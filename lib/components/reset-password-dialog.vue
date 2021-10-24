@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Reset Password" layout="fit" width="300" minHeight="450" closable="true" draggable="false" closeAction="destroy" hideOnMaskTap="true" @destroy="close" @ready="ready">
+    <ext-dialog title="Reset Password" layout="fit" width="300" minHeight="450" @destroy="close" @ready="_ready">
         <ext-fieldpanel ref="form" defaults1='{"labelAlign":"left","labelWidth":120}'>
             <ext-hiddenfield name="token" :value="token"/>
             <ext-passwordfield name="password" label="New Password" required="true"/>
@@ -31,20 +31,16 @@ export default {
     },
 
     "methods": {
-        ready ( e ) {
+        _ready ( e ) {
             this.ext = e.detail.cmp;
 
             if ( !this.token ) {
                 this.$utils.toast( "Password reset token was not found.", 5000 );
 
                 this.close();
-
-                return;
             }
 
-            this.ext.on( "hide", () => {
-                this.close();
-            } );
+            this.ext.on( "hide", () => this.close() );
 
             this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
         },

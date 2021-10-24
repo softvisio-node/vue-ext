@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog ref="dialog" bodyPadding="0" draggable="false" closeAction="destroy" :hideOnMaskTap="closable">
+    <ext-dialog bodyPadding="0" :closable="closable">
         <AuthPanel :signup="signup" :reset="reset" :closable="closable" :shadow="shadow" @close="onClose"/>
     </ext-dialog>
 </template>
@@ -31,9 +31,7 @@ export default {
 
     "methods": {
         onClose () {
-
-            // this.$unmount();
-            this.$refs.dialog.ext.destroy();
+            this.ext.close();
         },
     },
 };

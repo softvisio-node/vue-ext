@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :title="title" width="95%" height="95%" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="fit" viewModel="true" @ready="ready">
+    <ext-dialog :title="title" width="95%" height="95%" scrollable="true" closeAction="hide" layout="fit" viewModel="true">
         <ext-toolbar docked="top">
             <ext-spacer/>
             <ext-button iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
@@ -38,10 +38,6 @@ export default {
     },
 
     "methods": {
-        async ready ( e ) {
-            this.ext = e.detail.cmp;
-        },
-
         gridReady ( e ) {
             var grid = ( this.grid = e.detail.cmp );
 

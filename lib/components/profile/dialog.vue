@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Your Profile" :width="width" :height="height" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="fit">
+    <ext-dialog title="Your Profile" :width="width" :height="height" scrollable="true" closeAction="hide" layout="fit">
         <Panel :titles="titles">
             <template #top>
                 <slot name="top"/>

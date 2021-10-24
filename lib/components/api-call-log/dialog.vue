@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="API Call Log" width="95%" height="95%" scrollable="true" closable="true" draggable="false" closeAction="hide" hideOnMaskTap="true" layout="fit">
+    <ext-dialog title="API Call Log" width="95%" height="95%" scrollable="true" closeAction="hide" layout="fit">
         <Panel/>
     </ext-dialog>
 </template>
