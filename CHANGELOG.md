@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.2.4 (2021-10-27)
+
+Fixes:
+
+-   fix: store install
+
 ### 6.2.3 (2021-10-24)
 
 Fixes:
