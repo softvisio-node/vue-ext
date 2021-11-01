@@ -1,13 +1,13 @@
 <template>
     <ext-panel layout="vbox" @ready="_ready">
-        <ext-container layout='{"type":"hbox","align":"center"}'>
-            <ext-emailfield label="Email" labelAlign="left" labelWidth="150" :value="email"/>
-            <ext-button text="Update"/>
-        </ext-container>
+        <!-- <ext-container layout='{"type":"hbox","align":"center"}'> -->
+        <!--     <ext-emailfield label="Email" labelAlign="left" labelWidth="150" :value="email"/> -->
+        <!--     <ext-button text="Update"/> -->
+        <!-- </ext-container> -->
 
         <ext-container layout='{"type":"hbox","align":"center"}'>
-            <ext-textfield label="Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
-            <ext-button text="Update"/>
+            <ext-textfield ref="telegramUsernameField" label="Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
+            <ext-button text="Update" @tap="_updateTelegramUsername"/>
         </ext-container>
 
         <ext-container html="in order to receive telegram notifications you need to set your telegram username."/>
@@ -133,6 +133,27 @@ export default {
 
         _openTelegramBot () {
             window.open( this.telegramBotUrl, "_blank" ).focus();
+        },
+
+        async _updateTelegramUsername ( e ) {
+            const button = e.detail.sender,
+                field = this.$refs.telegramUsernameField.ext,
+                value = field.getValue();
+
+            button.disable();
+
+            const res = await this.$api.call( "profile/set-telegram-username", value );
+
+            button.enable();
+
+            if ( !res.ok ) {
+                this.$utils.toast( res );
+            }
+            else {
+                this.$store.notifications.telegramUsername = value;
+
+                this.$utils.toast( `Telegram username updated` );
+            }
         },
     },
 };
