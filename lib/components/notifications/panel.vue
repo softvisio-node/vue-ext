@@ -3,6 +3,8 @@
         <ext-emailfield label="Email" labelAlign="left" labelWidth="150" :value="email"/>
         <ext-textfield label="Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
 
+        <ext-container height="5"/>
+
         <ext-container html="In order to receive telegram notifications you need to set your telegram username."/>
         <ext-container layout='{"type":"hbox","align":"center"}'>
             <ext-container html="Open chat with the "/>
@@ -10,7 +12,7 @@
             <ext-container html='and press <b>"Start"</b>.'/>
         </ext-container>
 
-        <ext-container height="20"/>
+        <ext-container height="10"/>
 
         <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_gridReady">
             <ext-toolbar docked="top">
