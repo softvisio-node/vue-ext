@@ -1,5 +1,12 @@
 # Changelog
 
+### 6.3.0 (2021-11-01)
+
+Features:
+
+-   feat: notifications settings
+-   feat: telegram_name renamed to telegram_username
+
 ### 6.2.4 (2021-10-27)
 
 Fixes:
