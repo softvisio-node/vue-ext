@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.3.1 (2021-11-01)
+
+Fixes:
+
+-   fix: notifications buttons
+
 ### 6.3.0 (2021-11-01)
 
 Features:
