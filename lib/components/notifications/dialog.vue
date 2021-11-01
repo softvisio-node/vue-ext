@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Notifications Settings" width="700" height="400" layout="fit">
+    <ext-dialog title="Notifications Settings" width="700" height="90%" layout="fit">
         <Panel/>
     </ext-dialog>
 </template>

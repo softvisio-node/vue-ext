@@ -1,19 +1,50 @@
 <template>
     <ext-panel layout="vbox" @ready="_ready">
-        <ext-container html=""/>
+        <ext-textfield label="Email" labelAlign="left" labelWidth="150" :value="email"/>
+        <ext-textfield label="Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
 
-        <ext-grid flex="1" itemConfig='{"viewModel":true}' @ready="_gridReady">
-            <ext-column text="Notification Type" dataIndex="title" flex="1" cell='{"encodeHtml":false}'/>
-            <ext-column text="Internal<br/>notifications" width="100" align="center" @ready="_internalColReady"/>
-            <ext-column text="Email<br/>notifications" width="100" @ready="_emailColReady"/>
-            <ext-column text="Telegram<br/>notifications" width="100" @ready="_telegramColReady"/>
-            <ext-column text="Push<br/>notifications" width="100" @ready="_pushColReady"/>
+        <ext-container html="In order to receive telegram notifications you need to set your telegram username."/>
+        <ext-container layout='{"type":"hbox","align":"center"}'>
+            <ext-container html="Open chat with the "/>
+            <ext-button :text="telegramBotUsername" iconCls="fas fa-external-link-alt" iconAlign="right" @tap="_openTelegramBot"/>
+            <ext-container html='and press <b>"Start"</b>.'/>
+        </ext-container>
+
+        <ext-container height="20"/>
+
+        <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_gridReady">
+            <ext-toolbar docked="top">
+                <ext-container html="Notification Types"/>
+            </ext-toolbar>
+            <ext-column dataIndex="title" flex="1" cell='{"encodeHtml":false}'/>
+            <ext-column text='<div style="text-align:center">Internal<br/>notifications</div>' width="100" align="center" @ready="_internalColReady"/>
+            <ext-column text='<div style="text-align:center">Email<br/>notifications</div>' width="100" align="center" @ready="_emailColReady"/>
+            <ext-column text='<div style="text-align:center">Telegram<br/>notifications</div>' width="100" align="center" @ready="_telegramColReady"/>
+            <ext-column text='<div style="text-align:center">Push<br/>notifications</div>' width="100" align="center" @ready="_pushColReady"/>
         </ext-grid>
     </ext-panel>
 </template>
 
 <script>
 export default {
+    "computed": {
+        email () {
+            return this.$store.notifications.email;
+        },
+
+        telegramUsername () {
+            return this.$store.notifications.telegramUsername;
+        },
+
+        telegramBotUsername () {
+            return this.$store.notifications.telegramBotUsername;
+        },
+
+        telegramBotUrl () {
+            return "https://t.me/" + this.$store.notifications.telegramBotUsername;
+        },
+    },
+
     "methods": {
         _ready ( e ) {
             this.reload();
@@ -84,7 +115,7 @@ export default {
                 await this.$utils.sleep( 1000 );
 
                 button.suspendEvent( "change" );
-                record.set( "enabled", oldVal );
+                record.set( channel, oldVal );
                 button.enable();
                 button.resumeEvent( "change" );
             }
@@ -93,6 +124,10 @@ export default {
             }
 
             return;
+        },
+
+        _openTelegramBot () {
+            window.open( this.telegramBotUrl, "_blank" ).focus();
         },
     },
 };
