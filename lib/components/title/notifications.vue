@@ -134,6 +134,8 @@ export default {
         async showNotificationsSettingsDialog () {
             const cmp = await this.$mount( NotificationsSettingsDialog );
 
+            this.hide();
+
             cmp.ext.show();
         },
 
