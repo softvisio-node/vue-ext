@@ -5,6 +5,7 @@
                 <ext-button align="right" iconCls="far fa-eye" tooltip="Mark all as read" :hidden="!totalUndoneUnread" @tap="setReadAll"/>
                 <!-- <ext-button align="right" iconCls="fas fa-check-double" tooltip="Mark all as done" :hidden="!totalUndone" @tap="setDoneAll"/> -->
                 <ext-button align="right" iconCls="far fa-trash-alt" tooltip="Delete all" :hidden="!totalUndone" @tap="deleteAll"/>
+                <ext-button align="right" iconCls="fas fa-cog" tooltip="Notifications settings" @tap="showNotificationsSettingsDialog"/>
                 <ext-button align="right" iconCls="fas fa-redo" tooltip="Refresh notifications" @tap="reload"/>
             </ext-titlebar>
             <ext-panel layout="center">
@@ -18,6 +19,8 @@
 </template>
 
 <script>
+import NotificationsSettingsDialog from "../notifications/dialog.vue";
+
 export default {
     "computed": {
         totalUndone () {
@@ -126,6 +129,12 @@ export default {
                     },
                 ],
             } );
+        },
+
+        async showNotificationsSettingsDialog () {
+            const cmp = await this.$mount( NotificationsSettingsDialog );
+
+            cmp.ext.show();
         },
 
         show () {
