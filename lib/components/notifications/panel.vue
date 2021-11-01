@@ -5,13 +5,13 @@
         <!--     <ext-button text="Update"/> -->
         <!-- </ext-container> -->
 
-        <ext-container layout='{"type":"hbox","align":"center"}'>
+        <ext-container layout='{"type":"hbox","align":"center"}' :hidden="!telegramEnabled">
             <ext-textfield ref="telegramUsernameField" label="Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
             <ext-button text="Update" @tap="_updateTelegramUsername"/>
         </ext-container>
 
-        <ext-container html="in order to receive telegram notifications you need to set your telegram username."/>
-        <ext-container layout='{"type":"hbox","align":"center"}'>
+        <ext-container html="in order to receive telegram notifications you need to set your telegram username." :hidden="!telegramEnabled"/>
+        <ext-container layout='{"type":"hbox","align":"center"}' :hidden="!telegramEnabled">
             <ext-container html="Open chat with the "/>
             <ext-button :text="telegramBotUsername" iconCls="fas fa-external-link-alt" iconAlign="right" @tap="_openTelegramBot"/>
             <ext-container html='and press <b>"Start"</b>.'/>
@@ -39,6 +39,10 @@ export default {
 
         telegramUsername () {
             return this.$store.notifications.telegramUsername;
+        },
+
+        telegramEnabled () {
+            return !!this.$store.notifications.telegramBotUsername;
         },
 
         telegramBotUsername () {
