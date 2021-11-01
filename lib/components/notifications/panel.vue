@@ -1,6 +1,6 @@
 <template>
     <ext-panel layout="vbox" @ready="_ready">
-        <ext-textfield label="Email" labelAlign="left" labelWidth="150" :value="email"/>
+        <ext-emailfield label="Email" labelAlign="left" labelWidth="150" :value="email"/>
         <ext-textfield label="Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
 
         <ext-container html="In order to receive telegram notifications you need to set your telegram username."/>
