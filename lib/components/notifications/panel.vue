@@ -1,18 +1,21 @@
 <template>
     <ext-panel layout="vbox" @ready="_ready">
-        <ext-emailfield label="Email" labelAlign="left" labelWidth="150" :value="email"/>
-        <ext-textfield label="Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
+        <ext-container layout='{"type":"hbox","align":"center"}'>
+            <ext-emailfield label="Email" labelAlign="left" labelWidth="150" :value="email"/>
+            <ext-button text="Update"/>
+        </ext-container>
 
-        <ext-container height="5"/>
+        <ext-container layout='{"type":"hbox","align":"center"}'>
+            <ext-textfield label="Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
+            <ext-button text="Update"/>
+        </ext-container>
 
-        <ext-container html="In order to receive telegram notifications you need to set your telegram username."/>
+        <ext-container html="in order to receive telegram notifications you need to set your telegram username."/>
         <ext-container layout='{"type":"hbox","align":"center"}'>
             <ext-container html="Open chat with the "/>
             <ext-button :text="telegramBotUsername" iconCls="fas fa-external-link-alt" iconAlign="right" @tap="_openTelegramBot"/>
             <ext-container html='and press <b>"Start"</b>.'/>
         </ext-container>
-
-        <ext-container height="10"/>
 
         <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_gridReady">
             <ext-toolbar docked="top">
