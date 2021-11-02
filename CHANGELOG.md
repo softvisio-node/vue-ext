@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.4.1 (2021-11-02)
+
+Fixes:
+
+-   fix: notifications animation
+
 ### 6.4.0 (2021-11-02)
 
 Features:
