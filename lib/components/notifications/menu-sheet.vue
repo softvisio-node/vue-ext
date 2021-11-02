@@ -46,6 +46,21 @@ export default {
         ready ( e ) {
             this.ext = e.detail.cmp;
 
+            this.ext.setEnter( "right" );
+            this.ext.setExit( "right" );
+
+            this.ext.setShowAnimation( {
+                "type": "slideIn",
+                "duration": 250,
+                "easing": "ease-out",
+            } );
+
+            this.ext.setHideAnimation( {
+                "type": "slideOut",
+                "duration": 250,
+                "easing": "ease-in",
+            } );
+
             this._onTotalUndoneUpdate();
         },
 
@@ -142,11 +157,11 @@ export default {
         show () {
             this.$store.notifications.refreshRelativeTime();
 
-            this.ext.show( { "type": "slideIn" } );
+            this.ext.show();
         },
 
         hide () {
-            this.ext.hide( { "type": "slideOut" } );
+            this.ext.hide();
         },
 
         async reload ( e ) {
