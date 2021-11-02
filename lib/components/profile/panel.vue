@@ -170,7 +170,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( "Sessions deleted" );
+                this.$utils.toast( "Sessions were deleted" );
             }
         },
     },
