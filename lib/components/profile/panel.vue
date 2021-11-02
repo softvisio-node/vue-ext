@@ -13,7 +13,7 @@
                     <ext-container flex="1">
                         <div>Sign out from all sessions, except this session.</div>
                     </ext-container>
-                    <ext-button text="Delete Sessions" ui="action" @tap="deleteSessions"/>
+                    <ext-button text="Delete Sessions" @tap="deleteSessions"/>
                 </ext-container>
             </ext-panel>
 
@@ -27,11 +27,12 @@
                 </ext-fieldpanel>
                 <ext-container layout="hbox" padding="10 0 0 0">
                     <ext-spacer/>
-                    <ext-button text="Update Password" ui="action" @tap="changePassword"/>
+                    <ext-button text="Update Password" @tap="changePassword"/>
                 </ext-container>
             </ext-panel>
         </ext-panel>
 
+        <!-- notifications -->
         <ext-panel title="Notifications" layout="fit" padding="0 10 0 10">
             <NotificationsPanel/>
         </ext-panel>

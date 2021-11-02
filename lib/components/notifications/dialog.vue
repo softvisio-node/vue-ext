@@ -1,14 +1,14 @@
 <template>
     <ext-dialog title="Notifications Settings" width="700" height="90%" layout="fit">
-        <Panel/>
+        <NotificationsPanel/>
     </ext-dialog>
 </template>
 
 <script>
-import Panel from "./panel.vue";
+import NotificationsPanel from "#components/notifications/panel";
 
 export default {
-    "components": { Panel },
+    "components": { NotificationsPanel },
 
     "methods": {},
 };
