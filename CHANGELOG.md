@@ -1,5 +1,12 @@
 # Changelog
 
+### 6.4.0 (2021-11-02)
+
+Features:
+
+-   feat: new imports shortcuts
+-   feat: profile ui
+
 ### 6.3.1 (2021-11-01)
 
 Fixes:
