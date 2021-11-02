@@ -21,7 +21,7 @@ export default {
     "props": {
         "width": {
             "type": String,
-            "default": "90%",
+            "default": "900",
         },
         "height": {
             "type": String,

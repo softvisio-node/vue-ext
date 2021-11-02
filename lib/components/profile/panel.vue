@@ -1,5 +1,5 @@
 <template>
-    <ext-tabpanel tabBarPosition="left" tabRotation="none" tabBar='{"layout":{"type":"vbox","pack":"start","align":"start"},"defaults":{"padding":"0 10 0 10","width":250,"height":50,"flex":null,"textAlign":"right"}}' layout='{"animation":{"type":"slide","direction":"vertical"}}' padding="0 10 0 10">
+    <ext-tabpanel tabBarPosition="left" tabRotation="none" tabBar='{"layout":{"type":"vbox","pack":"start","align":"start"},"defaults":{"padding":"0 10 0 10","width":170,"height":50,"flex":null,"textAlign":"right"}}' layout='{"animation":{"type":"slide","direction":"vertical"}}' padding="0 10 0 10">
         <slot name="top"/>
 
         <!-- security -->
@@ -32,6 +32,10 @@
             </ext-panel>
         </ext-panel>
 
+        <ext-panel title="Notifications" layout="fit" padding="0 10 0 10">
+            <NotificationsPanel/>
+        </ext-panel>
+
         <!-- theme -->
         <ext-panel title="Interface Theme" layout="vbox" viewModel="true">
             <ext-toolbar docked="top">
@@ -55,7 +59,11 @@
 </template>
 
 <script>
+import NotificationsPanel from "#components/notifications/panel";
+
 export default {
+    "components": { NotificationsPanel },
+
     "computed": {
         "systemDarkMode": {
             get () {

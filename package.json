@@ -20,7 +20,19 @@
     "type": "module",
     "imports": {
         "#core/*": "@softvisio/core/*",
-        "#lib/*": "./lib/*.js"
+        "#lib/*": [
+            "./lib/*.js",
+            "./lib/*.cjs",
+            "./lib/*.vue"
+        ],
+        "#components/*": [
+            "./lib/components/*.vue",
+            "./lib/components/*.js",
+            "./lib/components/*.cjs"
+        ],
+        "#assets/*": "./lib/assets/*",
+        "#models/*": "./lib/models/*.js",
+        "#store/*": "./lib/store/*.js"
     },
     "exports": {
         ".": "./lib/index.js",
