@@ -1,11 +1,11 @@
 <template>
     <ext-panel layout="vbox" @ready="_ready">
-        <!-- <ext-container layout='{"type":"hbox","align":"center"}'> -->
-        <!--     <ext-emailfield label="Email" labelAlign="left" labelWidth="150" :value="email"/> -->
+        <!-- <ext-container layout="hbox"> -->
+        <!--     <ext-textfield label="Yout Email Address" labelAlign="left" labelWidth="150" :value="email"/> -->
         <!--     <ext-button text="Update"/> -->
         <!-- </ext-container> -->
 
-        <ext-container layout='{"type":"hbox","align":"center"}' :hidden="!telegramEnabled">
+        <ext-container layout="hbox" :hidden="!telegramEnabled">
             <ext-textfield ref="telegramUsernameField" label="Your Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
             <ext-button text="Update" @tap="_updateTelegramUsername"/>
             <ext-button :text="`Open @` + telegramBotUsername" iconCls="fas fa-external-link-alt" iconAlign="right" @tap="_openTelegramBot"/>
@@ -22,10 +22,10 @@
                 <ext-container html="Notification Types"/>
             </ext-toolbar>
             <ext-column dataIndex="title" flex="1" cell='{"encodeHtml":false}'/>
-            <ext-column text='<div style="text-align:center">Internal<br/>notifications</div>' width="100" align="center" @ready="_internalColReady"/>
-            <ext-column text='<div style="text-align:center">Email<br/>notifications</div>' width="100" align="center" @ready="_emailColReady"/>
-            <ext-column text='<div style="text-align:center">Telegram<br/>notifications</div>' width="100" align="center" @ready="_telegramColReady"/>
-            <ext-column text='<div style="text-align:center">Push<br/>notifications</div>' width="100" align="center" @ready="_pushColReady"/>
+            <ext-column text='<div style="text-align:center"><b>Internal</b><br/>notifications</div>' width="100" align="center" @ready="_internalColReady"/>
+            <ext-column text='<div style="text-align:center"><b>Email</b><br/>notifications</div>' width="100" align="center" @ready="_emailColReady"/>
+            <ext-column text='<div style="text-align:center"><b>Telegram</b><br/>notifications</div>' width="100" align="center" @ready="_telegramColReady"/>
+            <ext-column text='<div style="text-align:center"><b>Push</b><br/>notifications</div>' width="100" align="center" @ready="_pushColReady"/>
         </ext-grid>
     </ext-panel>
 </template>
