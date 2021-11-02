@@ -5,16 +5,16 @@
         <!--     <ext-button text="Update"/> -->
         <!-- </ext-container> -->
 
-        <ext-container layout='{"type":"hbox","align":"center"}' :hidden="!telegramEnabled">
-            <ext-textfield ref="telegramUsernameField" label="Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
-            <ext-button text="Update" @tap="_updateTelegramUsername"/>
+        <ext-container :hidden="!telegramEnabled">
+            <div>
+                In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@{{ telegramBotUsername }}</b> and press <b>"Start"</b>.
+            </div>
         </ext-container>
 
-        <ext-container html="in order to receive telegram notifications you need to set your telegram username." :hidden="!telegramEnabled"/>
         <ext-container layout='{"type":"hbox","align":"center"}' :hidden="!telegramEnabled">
-            <ext-container html="Open chat with the "/>
-            <ext-button :text="telegramBotUsername" iconCls="fas fa-external-link-alt" iconAlign="right" @tap="_openTelegramBot"/>
-            <ext-container html='and press <b>"Start"</b>.'/>
+            <ext-textfield ref="telegramUsernameField" label="Your Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
+            <ext-button text="Update" @tap="_updateTelegramUsername"/>
+            <ext-button :text="telegramBotUsernameButtonText" iconCls="fas fa-external-link-alt" iconAlign="right" @tap="_openTelegramBot"/>
         </ext-container>
 
         <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_gridReady">
@@ -47,6 +47,10 @@ export default {
 
         telegramBotUsername () {
             return this.$store.notifications.telegramBotUsername;
+        },
+
+        telegramBotUsernameButtonText () {
+            return "Open @" + this.$store.notifications.telegramBotUsername;
         },
 
         telegramBotUrl () {
