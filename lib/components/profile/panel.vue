@@ -3,7 +3,7 @@
         <slot name="top"/>
 
         <!-- security -->
-        <ext-panel title="Security" layout="vbox" viewModel="true" padding="0 10 0 10">
+        <ext-panel title="Security" layout="vbox" viewModel="true">
             <ext-panel>
                 <ext-toolbar docked="top">
                     <ext-container html="Delete Sessions"/>
@@ -21,12 +21,11 @@
                 <ext-toolbar docked="top">
                     <ext-container html="Change Password"/>
                 </ext-toolbar>
-                <ext-fieldpanel ref="changePasswordForm" width="70%">
+                <ext-fieldpanel ref="changePasswordForm" width="50%">
                     <ext-passwordfield name="password" label="New Password" required="true"/>
                     <ext-passwordfield ref="passwordConfirm" label="Confirm New Password" required="true"/>
 
-                    <ext-container layout="hbox" padding="10 0 0 0">
-                        <ext-spacer/>
+                    <ext-container layout='{"type":"hbox","pack":"end"}'>
                         <ext-button text="Update Password" @tap="changePassword"/>
                     </ext-container>
                 </ext-fieldpanel>
@@ -34,7 +33,7 @@
         </ext-panel>
 
         <!-- notifications -->
-        <ext-panel title="Notifications" layout="fit" padding="0 10 0 10">
+        <ext-panel title="Notifications" layout="fit">
             <NotificationsPanel/>
         </ext-panel>
 
