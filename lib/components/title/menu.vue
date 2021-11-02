@@ -29,8 +29,8 @@
 
 <script>
 import Avatar from "./avatar";
-import ChangePasswordDialog from "../change-password-dialog";
-import ApiTokensDialog from "../api-tokens/dialog";
+import ChangePasswordDialog from "#components/change-password-dialog";
+import ApiTokensDialog from "#components/api-tokens/dialog";
 
 export default {
     "components": { Avatar },
