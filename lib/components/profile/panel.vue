@@ -21,14 +21,15 @@
                 <ext-toolbar docked="top">
                     <ext-container html="Change Password"/>
                 </ext-toolbar>
-                <ext-fieldpanel ref="changePasswordForm" defaults='{"labelAlign":"left","labelWidth":150}'>
+                <ext-fieldpanel ref="changePasswordForm" width="70%">
                     <ext-passwordfield name="password" label="New Password" required="true"/>
                     <ext-passwordfield ref="passwordConfirm" label="Confirm New Password" required="true"/>
+
+                    <ext-container layout="hbox" padding="10 0 0 0">
+                        <ext-spacer/>
+                        <ext-button text="Update Password" @tap="changePassword"/>
+                    </ext-container>
                 </ext-fieldpanel>
-                <ext-container layout="hbox" padding="10 0 0 0">
-                    <ext-spacer/>
-                    <ext-button text="Update Password" @tap="changePassword"/>
-                </ext-container>
             </ext-panel>
         </ext-panel>
 
