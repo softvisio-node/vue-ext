@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import NotificationsSettingsDialog from "../notifications/dialog.vue";
+import NotificationsSettingsDialog from "#components/notifications/dialog";
 
 export default {
     "computed": {

@@ -32,9 +32,9 @@
 </template>
 
 <script>
-import Avatar from "./avatar";
-import Menu from "./menu";
-import Notifications from "./notifications";
+import Avatar from "#components/title/avatar";
+import Menu from "#components/title/menu";
+import Notifications from "#components/notifications/menu-sheet";
 
 export default {
     "components": { Avatar, Menu, Notifications },
