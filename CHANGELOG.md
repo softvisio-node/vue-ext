@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.4.2 (2021-11-02)
+
+Fixes:
+
+-   fix: profile forms
+
 ### 6.4.1 (2021-11-02)
 
 Fixes:
