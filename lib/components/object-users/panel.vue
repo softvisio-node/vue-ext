@@ -1,12 +1,24 @@
 <template>
     <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_ready">
         <ext-toolbar docked="top">
-            <!-- <ext-container html="Notification Types"/> -->
+            <ext-spacer/>
+            <ext-button iconCls="fas fa-plus" text="Add User" @tap="_showAddUserDialog"/>
         </ext-toolbar>
         <ext-column width="40" @ready="_avatarColReady"/>
         <ext-column text="Username" dataIndex="username" flex="1" cell='{"encodeHtml":false}'/>
         <ext-column text="Role" dataIndex="role_name" flex="1" cell='{"encodeHtml":false}' @ready="_roleColReady"/>
         <ext-column width="100" @ready="_actionColReady"/>
+
+        <ext-dialog ref="addUserDialog" title="Add User" width="400" height="250" closeAction="hide">
+            <ext-comboboxfield ref="addUserCombo" label="User" valueField="id" displayField="name" editable="false" queryMode="local" triggerAction="all"/>
+
+            <ext-comboboxfield ref="addUserRoleCombo" label="Role" valueField="id" displayField="name" editable="false" queryMode="local" triggerAction="all" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>'/>
+
+            <ext-toolbar docked="bottom">
+                <ext-spacer/>
+                <ext-button text="Add User"/>
+            </ext-toolbar>
+        </ext-dialog>
     </ext-grid>
 </template>
 
@@ -116,6 +128,12 @@ export default {
             else {
                 this.$utils.toast( res );
             }
+        },
+
+        _showAddUserDialog () {
+            this.$refs.addUserRoleCombo.ext.setStore( this.rolesStore );
+
+            this.$refs.addUserDialog.ext.show();
         },
     },
 };
