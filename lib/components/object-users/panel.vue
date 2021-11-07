@@ -1,13 +1,10 @@
 <template>
-    <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_gridReady">
+    <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_ready">
         <ext-toolbar docked="top">
-            <ext-container html="Notification Types"/>
+            <!-- <ext-container html="Notification Types"/> -->
         </ext-toolbar>
-        <ext-column dataIndex="title" flex="1" cell='{"encodeHtml":false}'/>
-        <ext-column text='<div style="text-align:center"><b>Internal</b><br/>notifications</div>' width="100" align="center" @ready="_internalColReady"/>
-        <ext-column text='<div style="text-align:center"><b>Email</b><br/>notifications</div>' width="100" align="center" @ready="_emailColReady"/>
-        <ext-column text='<div style="text-align:center"><b>Telegram</b><br/>notifications</div>' width="100" align="center" @ready="_telegramColReady"/>
-        <ext-column text='<div style="text-align:center"><b>Push</b><br/>notifications</div>' width="100" align="center" @ready="_pushColReady"/>
+        <ext-column text="Username" dataIndex="username" flex="1" cell='{"encodeHtml":false}'/>
+        <ext-column text="Role" dataIndex="role_name" flex="1" cell='{"encodeHtml":false}'/>
     </ext-grid>
 </template>
 
@@ -33,59 +30,28 @@ export default {
             this.reload();
         },
 
-        _ready ( e ) {},
-
-        _gridReady ( e ) {
+        _ready ( e ) {
             const cmp = e.detail.cmp;
 
-            cmp.setStore( this.$store.notifications.settingsStore );
+            cmp.setStore( this.usersStore );
         },
 
-        _internalColReady ( e ) {
-            this._toggleColReady( "internal", e );
-        },
-
-        _emailColReady ( e ) {
-            this._toggleColReady( "email", e );
-        },
-
-        _telegramColReady ( e ) {
-            this._toggleColReady( "telegram", e );
-        },
-
-        _pushColReady ( e ) {
-            this._toggleColReady( "push", e );
-        },
-
-        _toggleColReady ( channel, e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setCell( {
-                "xtype": "widgetcell",
-                "widget": {
-                    "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "center" },
-                    "items": [
-                        {
-                            "xtype": "togglefield",
-                            "bind": {
-                                "value": `{record.${channel}}`,
-                                "disabled": `{!record.${channel}_enabled}`,
-                            },
-                            "listeners": { "change": this.toggleChannelEnabled.bind( this, channel ) },
-                        },
-                    ],
-                },
-            } );
-        },
-
-        // XXX
         async reload () {
             const res = await this.$api.call( "object-users/get-object-users", this.objectId );
 
-            console.log( res );
+            if ( !res.ok ) {
+                this.$utils.tolast( res );
+
+                this.rolesStore.loadRawData( [] );
+                this.usersStore.loadRawData( [] );
+            }
+            else {
+                this.rolesStore.loadRawData( res.data.roles );
+                this.usersStore.loadRawData( res.data.users );
+            }
         },
 
+        // XXX
         async toggleChannelEnabled ( channel, button, newVal, oldVal ) {
             const record = button.up( "gridrow" ).getRecord(),
                 curVal = record.get( channel );
@@ -111,31 +77,6 @@ export default {
             }
 
             return;
-        },
-
-        _openTelegramBot () {
-            window.open( this.telegramBotUrl, "_blank" ).focus();
-        },
-
-        async _updateTelegramUsername ( e ) {
-            const button = e.detail.sender,
-                field = this.$refs.telegramUsernameField.ext,
-                value = field.getValue();
-
-            button.disable();
-
-            const res = await this.$api.call( "profile/set-telegram-username", value );
-
-            button.enable();
-
-            if ( !res.ok ) {
-                this.$utils.toast( res );
-            }
-            else {
-                this.$store.notifications.telegramUsername = value;
-
-                this.$utils.toast( `Telegram username updated` );
-            }
         },
     },
 };
