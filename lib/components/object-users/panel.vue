@@ -10,7 +10,7 @@
         <ext-column width="100" @ready="_actionColReady"/>
 
         <ext-dialog ref="addUserDialog" title="Add User" width="400" height="250" closeAction="hide">
-            <ext-comboboxfield ref="addUserCombo" label="User" valueField="id" displayField="name" triggerAction="last" minChars="1" forceSelection="true" @ready="_addUserComboReady"/>
+            <ext-comboboxfield ref="addUserCombo" label="User" valueField="id" displayField="name" triggerAction="query" minChars="1" forceSelection="true" @ready="_addUserComboReady"/>
 
             <ext-comboboxfield ref="addUserRoleCombo" label="Role" valueField="id" displayField="name" editable="false" queryMode="local" triggerAction="all" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>'/>
 
