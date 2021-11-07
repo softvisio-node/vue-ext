@@ -3,8 +3,10 @@
         <ext-toolbar docked="top">
             <!-- <ext-container html="Notification Types"/> -->
         </ext-toolbar>
+        <ext-column width="40" @ready="_avatarColReady"/>
         <ext-column text="Username" dataIndex="username" flex="1" cell='{"encodeHtml":false}'/>
-        <ext-column text="Role" dataIndex="role_name" flex="1" cell='{"encodeHtml":false}'/>
+        <ext-column text="Role" dataIndex="role_name" flex="1" cell='{"encodeHtml":false}' @ready="_roleColReady"/>
+        <ext-column width="100" @ready="_actionColReady"/>
     </ext-grid>
 </template>
 
@@ -36,6 +38,50 @@ export default {
             cmp.setStore( this.usersStore );
         },
 
+        _avatarColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "img",
+                    "height": 36,
+                    "bind": { "src": "{record.avatar}" },
+                },
+            } );
+        },
+
+        _roleColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setRenderer( ( value, record ) => {
+                return `
+<div class="object-user-role-name">${record.get( "role_name" )}</div>
+<div class="object-user-role-description">${record.get( "role_description" )}</div>
+`;
+            } );
+        },
+
+        _actionColReady ( e ) {
+            var cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "layout": { "type": "hbox", "pack": "end", "align": "center" },
+                    "items": [
+                        {
+                            "xtype": "button",
+                            "iconCls": "far fa-trash-alt",
+                            "tooltip": "Delete user",
+                            "handler": this._deleteUser.bind( this ),
+                        },
+                    ],
+                },
+            } );
+        },
+
         async reload () {
             const res = await this.$api.call( "object-users/get-object-users", this.objectId );
 
@@ -51,44 +97,37 @@ export default {
             }
         },
 
-        // XXX
-        async toggleChannelEnabled ( channel, button, newVal, oldVal ) {
-            const record = button.up( "gridrow" ).getRecord(),
-                curVal = record.get( channel );
+        async _deleteUser ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
 
-            if ( newVal === curVal ) return;
+            if ( !( await this.$utils.confirm( "Confirmation", "Are you sure you want to delete user?" ) ) ) return;
 
             button.disable();
 
-            var res = await this.$api.call( "notifications/set-user-notification-channel", record.get( "type" ), channel, newVal );
+            var res = await this.$api.call( "object-users/delete-object-user", this.objectId, record.id );
 
-            if ( !res.ok ) {
-                this.$utils.toast( res );
+            button.enable();
 
-                await this.$utils.sleep( 1000 );
+            if ( res.ok ) {
+                this.$utils.toast( "User deleted" );
 
-                button.suspendEvent( "change" );
-                record.set( channel, oldVal );
-                button.enable();
-                button.resumeEvent( "change" );
+                this.usersStore.remove( record );
             }
             else {
-                button.enable();
+                this.$utils.toast( res );
             }
-
-            return;
         },
     },
 };
 </script>
 
 <style>
-.notification-type-name {
+.object-user-role-name {
     font-weight: bold;
     font-size: 1.2em;
 }
 
-.notification-type-description {
+.object-user-role-description {
     font-size: 1em;
 }
 </style>
