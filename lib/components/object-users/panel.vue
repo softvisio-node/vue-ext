@@ -57,7 +57,7 @@ export default {
 
             cmp.setStore( this.usersStore );
 
-            this.$refs.addUserRoleCombo.ext.on( "hide", () => {
+            this.$refs.addUserDialog.ext.on( "hide", () => {
                 this.$refs.addUserCombo.ext.clearValue();
                 this.$refs.addUserRoleCombo.ext.clearValue();
             } );
