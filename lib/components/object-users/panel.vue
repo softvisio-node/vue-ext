@@ -1,6 +1,7 @@
 <template>
     <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_ready">
         <ext-toolbar docked="top">
+            <ext-searchfield placeholder="Search users" width="200" @change="_searchUsers"/>
             <ext-spacer/>
             <ext-button iconCls="fas fa-plus" text="Add User" @tap="_showAddUserDialog"/>
         </ext-toolbar>
@@ -30,6 +31,7 @@ export default {
     created () {
         this.usersStore = Ext.create( "Ext.data.Store", {
             "model": ObjectUserModel,
+            "remoteFilter": false,
         } );
 
         this.rolesStore = Ext.create( "Ext.data.Store", {
@@ -135,6 +137,22 @@ export default {
             else {
                 this.rolesStore.loadRawData( res.data.roles );
                 this.usersStore.loadRawData( res.data.users );
+            }
+        },
+
+        _searchUsers ( e ) {
+            var val = e.detail.newValue.trim();
+
+            if ( val !== "" ) {
+                this.usersStore.addFilter( {
+                    "property": "username",
+                    "operator": "like",
+                    "value": val,
+                },
+                false );
+            }
+            else {
+                this.usersStore.removeFilter( "username" );
             }
         },
 
