@@ -5,18 +5,18 @@
             <ext-button iconCls="fas fa-plus" text="Add User" @tap="_showAddUserDialog"/>
         </ext-toolbar>
         <ext-column width="40" @ready="_avatarColReady"/>
-        <ext-column text="Username" dataIndex="username" flex="1" cell='{"encodeHtml":false}'/>
+        <ext-column text="Username" dataIndex="username" flex="1" cell='{"encodeHtml":false}' @ready="_usernameColReady"/>
         <ext-column text="Role" dataIndex="role_name" flex="1" cell='{"encodeHtml":false}' @ready="_roleColReady"/>
         <ext-column width="100" @ready="_actionColReady"/>
 
         <ext-dialog ref="addUserDialog" title="Add User" width="400" height="250" closeAction="hide">
-            <ext-comboboxfield ref="addUserCombo" label="User" valueField="id" displayField="name" editable="false" queryMode="local" triggerAction="all"/>
+            <ext-comboboxfield ref="addUserCombo" label="User" valueField="id" displayField="name" triggerAction="last" minChars="1" forceSelection="true" @ready="_addUserComboReady"/>
 
             <ext-comboboxfield ref="addUserRoleCombo" label="Role" valueField="id" displayField="name" editable="false" queryMode="local" triggerAction="all" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>'/>
 
             <ext-toolbar docked="bottom">
                 <ext-spacer/>
-                <ext-button text="Add User"/>
+                <ext-button text="Add User" @tap="_addUser"/>
             </ext-toolbar>
         </ext-dialog>
     </ext-grid>
@@ -35,6 +35,14 @@ export default {
         this.rolesStore = Ext.create( "Ext.data.Store", {
             "model": ObjectRoleModel,
         } );
+
+        this.suggestUsersStore = Ext.create( "Ext.data.Store", {
+            "pageSize": null,
+            "proxy": {
+                "type": "softvisio",
+                "api": { "read": "object-users/suggest-users" },
+            },
+        } );
     },
 
     "methods": {
@@ -48,6 +56,11 @@ export default {
             const cmp = e.detail.cmp;
 
             cmp.setStore( this.usersStore );
+
+            this.$refs.addUserRoleCombo.ext.on( "hide", () => {
+                this.$refs.addUserCombo.ext.clearValue();
+                this.$refs.addUserRoleCombo.ext.clearValue();
+            } );
         },
 
         _avatarColReady ( e ) {
@@ -60,6 +73,16 @@ export default {
                     "height": 36,
                     "bind": { "src": "{record.avatar}" },
                 },
+            } );
+        },
+
+        _usernameColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setRenderer( ( value, record ) => {
+                return `
+<div class="object-user-role-name">${record.get( "username" )}</div>
+`;
             } );
         },
 
@@ -92,6 +115,12 @@ export default {
                     ],
                 },
             } );
+        },
+
+        _addUserComboReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setStore( this.suggestUsersStore );
         },
 
         async reload () {
@@ -134,6 +163,30 @@ export default {
             this.$refs.addUserRoleCombo.ext.setStore( this.rolesStore );
 
             this.$refs.addUserDialog.ext.show();
+        },
+
+        async _addUser () {
+            const userId = this.$refs.addUserCombo.ext.getValue(),
+                roleId = this.$refs.addUserRoleCombo.ext.getValue();
+
+            if ( !userId || !roleId ) {
+                this.$utls.toast( `Please, fill all fields` );
+
+                return;
+            }
+
+            const res = await this.$api.call( "object-users/set-object-user-role", this.objectId, userId, roleId );
+
+            if ( !res.ok ) {
+                this.$utils.toast( res );
+            }
+            else {
+                this.$utils.toast( `User added` );
+
+                this.reload();
+
+                this.$refs.addUserDialog.ext.hide();
+            }
         },
     },
 };
