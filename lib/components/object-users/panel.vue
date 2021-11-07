@@ -10,14 +10,15 @@
         <ext-column text="Role" dataIndex="role_name" flex="1" cell='{"encodeHtml":false}' @ready="_roleColReady"/>
         <ext-column width="100" @ready="_actionColReady"/>
 
-        <ext-dialog ref="addUserDialog" title="Add User" width="400" height="250" closeAction="hide">
+        <!-- add / update user dialog -->
+        <ext-dialog ref="addUserDialog" title="Add / Update User" width="400" height="250" closeAction="hide">
             <ext-comboboxfield ref="addUserCombo" label="Select user" valueField="id" displayField="name" triggerAction="query" minChars="1" forceSelection="true" @ready="_addUserComboReady"/>
 
             <ext-comboboxfield ref="addUserRoleCombo" label="Select user role" valueField="id" displayField="name" editable="false" queryMode="local" triggerAction="all" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>'/>
 
             <ext-toolbar docked="bottom">
                 <ext-spacer/>
-                <ext-button text="Add User" @tap="_addUser"/>
+                <ext-button text="Submit" @tap="_addUser"/>
             </ext-toolbar>
         </ext-dialog>
     </ext-grid>
@@ -109,6 +110,12 @@ export default {
                     "xtype": "container",
                     "layout": { "type": "hbox", "pack": "end", "align": "center" },
                     "items": [
+                        {
+                            "xtype": "button",
+                            "iconCls": "fas fa-edit",
+                            "tooltip": "Edit user role",
+                            "handler": this._deleteUser.bind( this ),
+                        },
                         {
                             "xtype": "button",
                             "iconCls": "far fa-trash-alt",
