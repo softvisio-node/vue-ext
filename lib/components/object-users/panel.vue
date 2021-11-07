@@ -5,7 +5,7 @@
             <ext-button iconCls="fas fa-plus" text="Add User" @tap="_showAddUserDialog"/>
         </ext-toolbar>
         <ext-column width="40" @ready="_avatarColReady"/>
-        <ext-column text="Username" dataIndex="username" flex="1" cell='{"encodeHtml":false}' @ready="_usernameColReady"/>
+        <ext-column text="Username" dataIndex="username" flex="1" cell='{"encodeHtml":false,"style":"vertical-align:top"}' @ready="_usernameColReady"/>
         <ext-column text="Role" dataIndex="role_name" flex="1" cell='{"encodeHtml":false}' @ready="_roleColReady"/>
         <ext-column width="100" @ready="_actionColReady"/>
 
@@ -81,7 +81,7 @@ export default {
 
             cmp.setRenderer( ( value, record ) => {
                 return `
-<div class="object-user-role-name">${record.get( "username" )}</div>
+<div class="object-user-username">${record.get( "username" )}</div>
 `;
             } );
         },
@@ -193,6 +193,11 @@ export default {
 </script>
 
 <style>
+.object-user-username {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
 .object-user-role-name {
     font-weight: bold;
     font-size: 1.2em;
