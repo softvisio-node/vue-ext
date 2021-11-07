@@ -1,5 +1,5 @@
 <template>
-    <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_ready">
+    <ext-grid flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" columnMenu="false" columnResize="false" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-searchfield placeholder="Search users" width="200" @change="_searchUsers"/>
             <ext-spacer/>
@@ -32,6 +32,7 @@ export default {
         this.usersStore = Ext.create( "Ext.data.Store", {
             "model": ObjectUserModel,
             "remoteFilter": false,
+            "remoteSort": false,
         } );
 
         this.rolesStore = Ext.create( "Ext.data.Store", {
