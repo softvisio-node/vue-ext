@@ -113,7 +113,8 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fas fa-edit",
-                            "tooltip": "Edit user role",
+                            "tooltip": "Change user role",
+                            "padding": "0 0 0 3",
                             "handler": this._deleteUser.bind( this ),
                         },
                         {
