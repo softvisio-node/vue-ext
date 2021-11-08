@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.5.0 (2021-11-08)
+
+Features:
+
+-   feat: object users
+
 ### 6.4.2 (2021-11-02)
 
 Fixes:
