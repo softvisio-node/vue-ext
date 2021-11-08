@@ -253,7 +253,7 @@ export default {
 
             this.ext.mask();
 
-            const res = await this.$api.call( "admin/api-call-log/read-history-stat", this.record.id );
+            const res = await this.$api.call( "admin/api-call-log/get-history-stats", this.record.id );
 
             this.ext.unmask();
 

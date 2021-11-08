@@ -428,7 +428,7 @@ export default {
             this.$refs.refreshButton.ext.setDisabled( true );
             this._pauseAutoRefresh();
 
-            const res = await this.$api.call( "admin/api-call-log/read-latest-stat" );
+            const res = await this.$api.call( "admin/api-call-log/get-latest-stats" );
 
             this.refreshing = false;
             this.$refs.refreshButton.ext.setDisabled( false );
