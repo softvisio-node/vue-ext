@@ -14,6 +14,8 @@
         <ext-dialog ref="addUserDialog" title="Add / Update User" width="400" height="250" closeAction="hide">
             <ext-comboboxfield ref="addUserCombo" label="Select user" valueField="id" displayField="name" triggerAction="query" minChars="1" forceSelection="true" @ready="_addUserComboReady"/>
 
+            <ext-displayfield ref="addUserUsername" label="User"/>
+
             <ext-comboboxfield ref="addUserRoleCombo" label="Select user role" valueField="id" displayField="name" editable="false" queryMode="local" triggerAction="all" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>'/>
 
             <ext-toolbar docked="bottom">
@@ -115,7 +117,7 @@ export default {
                             "iconCls": "fas fa-edit",
                             "tooltip": "Change user role",
                             "padding": "0 0 0 3",
-                            "handler": this._deleteUser.bind( this ),
+                            "handler": this._editUser.bind( this ),
                         },
                         {
                             "xtype": "button",
@@ -165,6 +167,21 @@ export default {
             }
         },
 
+        async _editUser ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
+
+            this.$refs.addUserCombo.ext.hide();
+            this.$refs.addUserUsername.ext.show();
+
+            this.$refs.addUserCombo.ext.setValue( record.id );
+            this.$refs.addUserUsername.ext.setValue( record.get( "username" ) );
+
+            this.$refs.addUserRoleCombo.ext.setStore( this.rolesStore );
+            this.$refs.addUserRoleCombo.ext.setValue( record.get( "role_id" ) );
+
+            this.$refs.addUserDialog.ext.show();
+        },
+
         async _deleteUser ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
@@ -189,6 +206,9 @@ export default {
         _showAddUserDialog () {
             this.$refs.addUserRoleCombo.ext.setStore( this.rolesStore );
 
+            this.$refs.addUserCombo.ext.show();
+            this.$refs.addUserUsername.ext.hide();
+
             this.$refs.addUserDialog.ext.show();
         },
 
@@ -208,7 +228,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( `User added` );
+                this.$utils.toast( `Users updated` );
 
                 this.reload();
 
