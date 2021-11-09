@@ -12,7 +12,7 @@
 
         <!-- add / update user dialog -->
         <ext-dialog ref="addUserDialog" title="Add / Update User" width="400" height="250" closeAction="hide">
-            <ext-comboboxfield ref="addUserCombo" label="Select user" valueField="id" displayField="name" triggerAction="query" minChars="1" forceSelection="true" @ready="_addUserComboReady"/>
+            <ext-comboboxfield ref="addUserCombo" label="Select user" valueField="id" displayField="name" primaryFilter='{"property":"name","operator":"like"}' triggerAction="query" minChars="1" forceSelection="true" @ready="_addUserComboReady"/>
 
             <ext-displayfield ref="addUserUsername" label="User"/>
 
