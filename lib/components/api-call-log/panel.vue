@@ -36,12 +36,7 @@ export default {
         gridReady ( e ) {
             var grid = e.detail.cmp;
 
-            grid.setPlugins( [
-
-                //
-                { "type": "gridviewoptions" },
-                { "type": "listpaging", "noMoreRecordsText": "", "autoPaging": false },
-            ] );
+            grid.setPlugins( ["gridviewoptions", "autopaging"] );
 
             // grid.setColumnMenu( null );
 

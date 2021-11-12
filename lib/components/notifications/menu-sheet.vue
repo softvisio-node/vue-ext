@@ -67,11 +67,7 @@ export default {
         listReady ( e ) {
             const ext = e.detail.cmp;
 
-            ext.setPlugins( [
-
-                //
-                { "type": "listpaging", "noMoreRecordsText": "", "autoPaging": true },
-            ] );
+            ext.setPlugins( ["autopaging"] );
 
             ext.setStore( this.store );
 
