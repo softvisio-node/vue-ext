@@ -1,5 +1,17 @@
 # Changelog
 
+### 6.6.0 (2021-11-13)
+
+Features:
+
+-   feat: autopaging
+
+Fixes:
+
+-   fix: api methods renamed
+-   fix: api tokens reader
+-   fix: object users combo filter like operator
+
 ### 6.5.0 (2021-11-08)
 
 Features:
