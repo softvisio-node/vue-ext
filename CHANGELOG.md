@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.6.1 (2021-11-14)
+
+Fixes:
+
+-   fix: api token refactored
+
 ### 6.6.0 (2021-11-13)
 
 Features:
