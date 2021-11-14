@@ -1,5 +1,9 @@
 # Changelog
 
+### 6.6.3 (2021-11-14)
+
+No notable changes since the previous release.
+
 ### 6.6.2 (2021-11-14)
 
 Fixes:
