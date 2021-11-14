@@ -27,7 +27,7 @@ export default {
         gridReady ( e ) {
             var grid = e.detail.cmp;
 
-            grid.setPlugins( ["gridviewoptions", "autopaging"] );
+            grid.setPlugins( ["autopaging", "gridviewoptions"] );
 
             // grid.setColumnMenu( null );
 
