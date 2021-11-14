@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.6.2 (2021-11-14)
+
+Fixes:
+
+-   fix: ext package published
+
 ### 6.6.1 (2021-11-14)
 
 Fixes:
