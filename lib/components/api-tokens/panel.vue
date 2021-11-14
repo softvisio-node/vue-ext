@@ -87,14 +87,14 @@ export default {
 
             if ( val !== "" ) {
                 this.store.addFilter( {
-                    "property": "search",
+                    "property": "name",
                     "operator": "like",
                     "value": val,
                 },
                 false );
             }
             else {
-                this.store.removeFilter( "search" );
+                this.store.removeFilter( "name" );
             }
         },
 
