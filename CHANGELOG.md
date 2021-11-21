@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.6.4 (2021-11-21)
+
+Fixes:
+
+-   fix: viewport defer rendering disabled
+
 ### 6.6.3 (2021-11-14)
 
 No notable changes since the previous release.
