@@ -1,6 +1,4 @@
-<template>
-    <ext-panel fullscreen="true" layout="card" scrollable="true"/>
-</template>
+<template><ext-panel fullscreen="true" layout='{"type":"card","deferRender":false}' scrollable="true"/></template>
 
 <script>
 import "./assets/scrollbars.css";
