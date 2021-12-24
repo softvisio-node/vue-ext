@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.6.5 (2021-12-24)
+
+Fixes:
+
+-   fix: froala update
+
 ### 6.6.4 (2021-11-21)
 
 Fixes:
