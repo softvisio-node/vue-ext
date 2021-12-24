@@ -18,8 +18,10 @@ npm i @softvisio/vue-ext
 
 ### Froala
 
+Link to download components [https://trials.sencha.com/ext/ext-addons-7.5.0-trial.zip](https://trials.sencha.com/ext/ext-addons-7.5.0-trial.zip).
+
 ```javascript
 import "#softvisio/components/froala";
 
-<ext-froalaeditorfield editor="{}" />;
+<ext-froalaeditorfield editor='{"placeholderText":null}' />;
 ```
