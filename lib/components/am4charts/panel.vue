@@ -24,7 +24,7 @@ chartsReady (chart) {
 </template>
 
 <script>
-const am4charts = await import( /* webpackChunkName: "amcharts" */ "./loader.js" );
+const am4charts = await import( "./loader.js" );
 
 export default {
     "props": {
