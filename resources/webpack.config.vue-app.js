@@ -19,4 +19,25 @@ config.optimization.splitChunks.cacheGroups["ext"] = {
     "chunks": "initial",
 };
 
+config.optimization.splitChunks.cacheGroups["froala-editor"] = {
+    "name": "froala-editor",
+    "test": /froala-editor[\\/]/,
+    "priority": -9,
+    "chunks": "all",
+};
+
+config.optimization.splitChunks.cacheGroups["amcharts4"] = {
+    "name": "amcharts4",
+    "test": /@amcharts[\\/]amcharts4[\\/]/,
+    "priority": -9,
+    "chunks": "all",
+};
+
+config.optimization.splitChunks.cacheGroups["pdfjs"] = {
+    "name": "pdfjs",
+    "test": /pdfjs-dist[\\/]/,
+    "priority": -9,
+    "chunks": "all",
+};
+
 export default config;
