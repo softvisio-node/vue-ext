@@ -7,7 +7,11 @@
 <script>
 import { defineAsyncComponent } from "vue";
 
-const pdfJs = await import( /* webpackChunkName: "pdfjs" */ "./loader.js" );
+const pdfJs = await import( "pdfjs-dist/build/pdf" );
+const { "default": PdfJsWorker } = await import( "pdfjs-dist/build/pdf.worker" );
+
+pdfJs.GlobalWorkerOptions.workerPort = new PdfJsWorker();
+
 const PdfDialog = defineAsyncComponent( () => import( "./dialog" ) );
 
 const pixelRatio = window.devicePixelRatio || 1;
