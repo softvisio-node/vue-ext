@@ -1,5 +1,14 @@
 # Changelog
 
+### 6.6.7 (2021-12-28)
+
+Fixes:
+
+-   fix: amcharts loader
+-   fix: ext-charts
+-   fix: pdfjs loader
+-   fix: webpack chunks
+
 ### 6.6.6 (2021-12-25)
 
 Fixes:
