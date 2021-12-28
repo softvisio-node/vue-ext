@@ -8,9 +8,25 @@ config.resolve.alias = {
     "#ext": "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION,
     "#ewc$": "@softvisio/ext/ewc-" + process.env.EWC_VERSION,
     "#ewc": "@softvisio/ext/resources/ewc-" + process.env.EWC_VERSION,
+    "#ext-charts$": "@softvisio/ext/ext-charts-" + process.env.EXT_VERSION,
 };
 
 // config.module.rules[1].exclude.push( /[\\/]resources[\\/]ext-[\d.]+[\\/]/, /[\\/]resources[\\/]ewc-[\d.]+[\\/]/ );
+
+config.optimization.splitChunks.cacheGroups["ext-charts"] = {
+    "name": "ext-charts",
+    test ( module ) {
+        if ( !module.resource ) return;
+
+        const resource = module.resource.replaceAll( "\\", "/" );
+
+        if ( resource.includes( "@softvisio/ext/lib/ext-charts-" ) ) return true;
+
+        if ( resource.includes( "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION + "/charts.js" ) ) return true;
+    },
+    "priority": -9,
+    "chunks": "all",
+};
 
 config.optimization.splitChunks.cacheGroups["ext"] = {
     "name": "ext",
