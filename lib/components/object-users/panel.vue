@@ -217,7 +217,7 @@ export default {
                 roleId = this.$refs.addUserRoleCombo.ext.getValue();
 
             if ( !userId || !roleId ) {
-                this.$utls.toast( `Please, fill all fields` );
+                this.$utils.toast( `Please, fill all fields` );
 
                 return;
             }
