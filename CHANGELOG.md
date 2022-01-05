@@ -1,5 +1,12 @@
 # Changelog
 
+### 6.6.8 (2022-01-05)
+
+Fixes:
+
+-   fix: typo in method name
+-   fix: users roles combo load
+
 ### 6.6.7 (2021-12-28)
 
 Fixes:
