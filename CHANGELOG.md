@@ -1,5 +1,16 @@
 # Changelog
 
+### 6.7.0 (2022-01-07)
+
+Features:
+
+-   feat: ext-charts loader
+
+Fixes:
+
+-   fix: froala renamed to froala-editor
+-   fix: imports
+
 ### 6.6.8 (2022-01-05)
 
 Fixes:
