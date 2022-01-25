@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.7.1 (2022-01-25)
+
+Fixes:
+
+-   fix: api events
+
 ### 6.7.0 (2022-01-07)
 
 Features:
