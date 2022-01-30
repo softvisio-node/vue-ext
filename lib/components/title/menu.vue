@@ -114,7 +114,7 @@ export default {
         signout () {
             this.close();
 
-            this.$store.session.signout();
+            this.$app.signout();
         },
     },
 };

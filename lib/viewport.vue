@@ -26,12 +26,12 @@ export default {
             while ( true ) {
                 viewport.mask( this.defaultMask );
 
-                var res = await this.$store.session.signin();
+                var res = await this.$app.signin();
 
                 viewport.unmask();
 
                 // connection ok
-                if ( res.ok || res.status === 401 || res.status === 403 ) break;
+                if ( res.ok ) break;
 
                 // connection error
                 this.$utils.toast( res );

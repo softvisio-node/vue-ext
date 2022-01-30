@@ -56,7 +56,7 @@ export default {
 
                 Ext.Viewport.mask();
 
-                var res = await this.$store.session.signin( vals );
+                var res = await this.$app.signin( vals );
 
                 if ( !res.ok ) {
                     Ext.Viewport.unmask();
