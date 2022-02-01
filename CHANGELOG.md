@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.7.3 (2022-02-01)
+
+Fixes:
+
+-   fix: api call log
+
 ### 6.7.2 (2022-01-30)
 
 Fixes:
