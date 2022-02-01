@@ -263,9 +263,9 @@ export default {
                 this.ext.hide();
             }
 
-            this.loadChart.setData( res.data.load );
-            this.runtimeChart.setData( res.data.requests );
-            this.exceptionsChart.setData( res.data.requests );
+            this.loadChart.setData( res.data );
+            this.runtimeChart.setData( res.data );
+            this.exceptionsChart.setData( res.data );
         },
     },
 };
