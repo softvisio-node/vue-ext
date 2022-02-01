@@ -36,8 +36,6 @@ export default {
         gridReady ( e ) {
             var grid = e.detail.cmp;
 
-            grid.setPlugins( ["gridviewoptions", "autopaging"] );
-
             // grid.setColumnMenu( null );
 
             grid.setItemConfig( { "viewModel": true } );
@@ -123,7 +121,7 @@ export default {
                 "widget": {
                     "xtype": "container",
                     "height": 150,
-                    "bind": { "chartData": "{record.load}" },
+                    "bind": { "chartData": "{record.series}" },
                     "listeners": { "initialize": this.loadChartReady.bind( this ) },
                     setChartData ( data ) {
                         this.chart.setData( data );
@@ -140,7 +138,7 @@ export default {
                 "widget": {
                     "xtype": "container",
                     "height": 150,
-                    "bind": { "chartData": "{record.requests}" },
+                    "bind": { "chartData": "{record.series}" },
                     "listeners": { "initialize": this.avgRuntimeChartReady.bind( this ) },
                     setChartData ( data ) {
                         this.chart.setData( data );
@@ -157,7 +155,7 @@ export default {
                 "widget": {
                     "xtype": "container",
                     "height": 150,
-                    "bind": { "chartData": "{record.requests}" },
+                    "bind": { "chartData": "{record.series}" },
                     "listeners": { "initialize": this.exceptionsChartReady.bind( this ) },
                     setChartData ( data ) {
                         this.chart.setData( data );
