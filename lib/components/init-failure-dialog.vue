@@ -14,9 +14,9 @@ export default {
 
     "methods": {
         close () {
-            this.ext.hide();
-
             this.$emit( "close" );
+
+            this.ext.destroy();
         },
     },
 };

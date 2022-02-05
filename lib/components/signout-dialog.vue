@@ -22,7 +22,7 @@ export default {
         close () {
             this.$emit( "close" );
 
-            if ( this.hideOnClose ) this.ext.hide();
+            if ( this.hideOnClose ) this.ext.destroy();
         },
     },
 };
