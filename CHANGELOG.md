@@ -1,5 +1,11 @@
 # Changelog
 
+### 6.7.4 (2022-02-05)
+
+Fixes:
+
+-   fix: authentication
+
 ### 6.7.3 (2022-02-01)
 
 Fixes:
