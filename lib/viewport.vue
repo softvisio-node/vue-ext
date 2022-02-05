@@ -5,13 +5,11 @@ import "./assets/scrollbars.css";
 import Viewport from "@softvisio/vue/viewport";
 import defaultMask from "./load-mask";
 import ResetPasswordDialog from "./components/reset-password-dialog";
-import InitFailureDialog from "./components/init-failure-dialog";
 
 export default {
     "extends": Viewport,
 
     created () {
-        this.initFailureDialog = InitFailureDialog;
         this.resetPasswordDialog = ResetPasswordDialog;
         this.defaultMask = defaultMask;
         this.privateView = null;
@@ -22,37 +20,15 @@ export default {
         async init () {
             var viewport = Ext.Viewport;
 
-            // init session
-            while ( true ) {
-                viewport.mask( this.defaultMask );
+            viewport.mask( this.defaultMask );
 
-                var res = await this.$app.signin();
+            await this.$app.checkAuthentication();
 
-                viewport.unmask();
-
-                // connection ok
-                if ( res.ok ) break;
-
-                // connection error
-                this.$utils.toast( res );
-
-                await this.onInitFailure();
-            }
+            viewport.unmask();
 
             this.$router.init( this );
 
             this.$router.reload();
-        },
-
-        async onInitFailure () {
-            return new Promise( resolve => {
-                this.$mount( this.initFailureDialog, {
-                    "props": {
-                        "onClose": resolve,
-                    },
-                    "cache": false,
-                } ).then( cmp => cmp.ext.show() );
-            } );
         },
 
         // router

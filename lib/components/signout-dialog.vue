@@ -10,11 +10,19 @@
 
 <script>
 export default {
+    "props": {
+        "hideOnClose": {
+            "type": Boolean,
+            "default": false,
+        },
+    },
     "emits": ["close"],
 
     "methods": {
         close () {
             this.$emit( "close" );
+
+            if ( this.hideOnClose ) this.ext.hide();
         },
     },
 };
