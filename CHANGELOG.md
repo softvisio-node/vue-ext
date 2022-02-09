@@ -1,5 +1,13 @@
 # Changelog
 
+### 7.0.0-alpha.0 (2022-02-09)
+
+Breaking changes:
+
+-   feat!: font awesome 6
+
+Migration:
+
 ### 6.7.4 (2022-02-05)
 
 Fixes:
