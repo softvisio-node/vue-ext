@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.0.0 (2022-02-09)
+
+No notable changes since the previous release.
+
+Migration:
+
 ### 7.0.0-alpha.0 (2022-02-09)
 
 Breaking changes:
