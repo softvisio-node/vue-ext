@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.1.0 (2022-02-11)
+
+Features:
+
+-   feat: app env schema validator
+
 ### 7.0.0 (2022-02-09)
 
 No notable changes since the previous release.
