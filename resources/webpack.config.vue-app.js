@@ -1,4 +1,4 @@
-import config from "@softvisio/vue/resources/webpack.config.vue-app.js";
+import { config, schema } from "@softvisio/vue/resources/webpack.config.vue-app.js";
 
 config.resolve.alias = {
     ...config.resolve.alias,
@@ -56,4 +56,6 @@ config.optimization.splitChunks.cacheGroups["pdfjs"] = {
     "chunks": "all",
 };
 
-export default config;
+schema.push( new URL( "./schemas/app.env.vue-app.schema.yaml", import.meta.url ) );
+
+export { config, schema };
