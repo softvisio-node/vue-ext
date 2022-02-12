@@ -20,6 +20,7 @@
     "type": "module",
     "imports": {
         "#core/*": "@softvisio/core/*",
+        "#resources/*": "./resources/*",
         "#lib/*": [
             "./lib/*.js",
             "./lib/*.cjs",
@@ -42,8 +43,7 @@
             "./lib/*/index.js",
             "./lib/*/index.vue"
         ],
-        "./resources/*": "./resources/*",
-        "./webpack.config.*": "./resources/webpack.config.*.js"
+        "./resources/*": "./resources/*"
     },
     "dependencies": {
         "@amcharts/amcharts4": "^4.10.18",

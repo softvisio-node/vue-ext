@@ -1,4 +1,4 @@
-import config from "@softvisio/vue/resources/webpack.config.firebase-worker.js";
+import config from "@softvisio/vue/resources/webpack.firebase.worker.config.js";
 
 config.resolve.alias = {
     ...config.resolve.alias,
