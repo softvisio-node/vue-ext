@@ -2,7 +2,7 @@
     <ext-dialog :title="title" width="95%" height="95%" scrollable="true" closeAction="hide" layout="vbox" viewModel="true">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-button iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
+            <ext-button iconCls="fa-solid fa-redo" text="Refresh" @tap="refresh"/>
         </ext-toolbar>
 
         <AmchartsPanel height="400" @ready="loadChartReady"/>

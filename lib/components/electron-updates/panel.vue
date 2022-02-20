@@ -2,7 +2,7 @@
     <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-button iconCls="fas fa-upload" text="Upload Release" @tap="create"/>
+            <ext-button iconCls="fa-solid fa-upload" text="Upload Release" @tap="create"/>
         </ext-toolbar>
 
         <ext-column text="Plaform" dataIndex="platform_name" sorter='{"property":"platform"}' flex="1" cell='{"encodeHtml":false}'/>
@@ -68,7 +68,7 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "far fa-trash-alt",
+                            "iconCls": "fa-solid fa-trash-alt",
                             "handler": this.delete.bind( this ),
                         },
                     ],

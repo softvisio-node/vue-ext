@@ -3,7 +3,7 @@
         <ext-toolbar docked="top">
             <ext-searchfield placeholder="Search users" width="200" @change="_searchUsers"/>
             <ext-spacer/>
-            <ext-button iconCls="fas fa-plus" text="Add User" @tap="_showAddUserDialog"/>
+            <ext-button iconCls="fa-solid fa-plus" text="Add User" @tap="_showAddUserDialog"/>
         </ext-toolbar>
         <ext-column width="40" @ready="_avatarColReady"/>
         <ext-column text="Username" dataIndex="username" flex="1" cell='{"encodeHtml":false,"style":"vertical-align:top"}' @ready="_usernameColReady"/>
@@ -115,14 +115,14 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "fas fa-edit",
+                            "iconCls": "fa-solid fa-edit",
                             "tooltip": "Change user role",
                             "padding": "0 0 0 3",
                             "handler": this._editUser.bind( this ),
                         },
                         {
                             "xtype": "button",
-                            "iconCls": "far fa-trash-alt",
+                            "iconCls": "fa-solid fa-trash-alt",
                             "tooltip": "Delete user",
                             "handler": this._deleteUser.bind( this ),
                         },

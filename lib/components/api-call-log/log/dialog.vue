@@ -2,7 +2,7 @@
     <ext-dialog :title="title" width="95%" height="95%" scrollable="true" closeAction="hide" layout="fit" viewModel="true">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-button iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
+            <ext-button iconCls="fa-solid fa-redo" text="Refresh" @tap="refresh"/>
         </ext-toolbar>
 
         <ext-grid ref="grid" layout="fit" multicolumnSort="true" @ready="gridReady">

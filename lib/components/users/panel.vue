@@ -3,8 +3,8 @@
         <ext-toolbar docked="top">
             <ext-searchfield placeholder="Search users" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fas fa-user-plus" text="Create User" padding="0 0 0 5" @tap="showCreateUserDialog"/>
-            <ext-button iconCls="fas fa-redo" text="Refresh" @tap="reload"/>
+            <ext-button iconCls="fa-solid fa-user-plus" text="Create User" padding="0 0 0 5" @tap="showCreateUserDialog"/>
+            <ext-button iconCls="fa-solid fa-redo" text="Refresh" @tap="reload"/>
         </ext-toolbar>
 
         <ext-column width="40" @ready="avatarColReady"/>
@@ -117,26 +117,26 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "fas fa-unlock-alt",
+                            "iconCls": "fa-solid fa-unlock-alt",
                             "tooltip": "Edit user permissions",
                             "handler": this.showUserPermissionsDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
-                            "iconCls": "far fa-trash-alt",
+                            "iconCls": "fa-solid fa-trash-alt",
                             "tooltip": "Delete user",
                             "handler": this.deleteUser.bind( this ),
                         },
                         {
                             "xtype": "button",
-                            "iconCls": "fas fa-ellipsis-v",
+                            "iconCls": "fa-solid fa-ellipsis-v",
                             "tooltip": "Actions",
                             "arrow": false,
                             "menu": {
                                 "items": [
                                     {
                                         "xtype": "button",
-                                        "iconCls": "fas fa-sign-out-alt",
+                                        "iconCls": "fa-solid fa-sign-out-alt",
                                         "text": "Drop Sessions",
                                         "handler": this.deleteUserSessions.bind( this ),
                                     },

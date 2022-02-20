@@ -4,7 +4,7 @@
             <ext-searchfield placeholder="Search tokens by name" width="200" @change="search"/>
             <ext-spacer/>
             <ext-togglefield label="AUTO REFRESH" labelAlign="right" @change="autoRefreshChange"/>
-            <ext-button ref="refreshButton" iconCls="fas fa-redo" text="Refresh" @tap="refresh"/>
+            <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" text="Refresh" @tap="refresh"/>
         </ext-toolbar>
 
         <ext-column text="API Method ID" width="300" sorter='{"property":"id"}' @ready="idColReady"/>
@@ -175,12 +175,12 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "fas fa-chart-line",
+                            "iconCls": "fa-solid fa-chart-line",
                             "handler": this.showHistory.bind( this ),
                         },
                         {
                             "xtype": "button",
-                            "iconCls": "fas fa-list",
+                            "iconCls": "fa-solid fa-list",
                             "handler": this.showLog.bind( this ),
                         },
                         { "xtype": "container", "height": 80 },

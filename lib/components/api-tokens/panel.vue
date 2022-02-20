@@ -3,8 +3,8 @@
         <ext-toolbar docked="top">
             <ext-searchfield placeholder="Search tokens by name" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fas fa-plus" text="Create API Token" @tap="showCreateTokenDialog"/>
-            <ext-button iconCls="fas fa-redo" text="Refresh" @tap="reload"/>
+            <ext-button iconCls="fa-solid fa-plus" text="Create API Token" @tap="showCreateTokenDialog"/>
+            <ext-button iconCls="fa-solid fa-redo" text="Refresh" @tap="reload"/>
         </ext-toolbar>
 
         <ext-column text="Name" dataIndex="name" flex="1"/>
@@ -68,13 +68,13 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "fas fa-unlock-alt",
+                            "iconCls": "fa-solid fa-unlock-alt",
                             "tooltip": "Edit token permissions",
                             "handler": this.showTokenPermissionsDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
-                            "iconCls": "far fa-trash-alt",
+                            "iconCls": "fa-solid fa-trash-alt",
                             "handler": this.delete.bind( this ),
                         },
                     ],

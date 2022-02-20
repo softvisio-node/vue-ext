@@ -3,7 +3,7 @@
         <ext-panel layout="center" html='Your session was terminated on the API server. Press "Continue" button below.'/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"center"}'>
-            <ext-button iconCls="fas fa-redo" text="Continue" ui="action" @tap="close"/>
+            <ext-button iconCls="fa-solid fa-redo" text="Continue" ui="action" @tap="close"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

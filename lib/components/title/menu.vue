@@ -12,16 +12,16 @@
 
             <slot name="bottomUp"/>
 
-            <ext-button iconCls="fas fa-key" text="API Access Tokens" textAlign="left" :hidden="!apiTokens" @tap="showApiTokens"/>
-            <ext-button iconCls="fas fa-user" text="Your Profile" textAlign="left" :hidden="!profile" @tap="showProfile"/>
-            <ext-button iconCls="fas fa-asterisk" text="Change Password" textAlign="left" :hidden="!changePassword" @tap="showChangePasswordDialog"/>
+            <ext-button iconCls="fa-solid fa-key" text="API Access Tokens" textAlign="left" :hidden="!apiTokens" @tap="showApiTokens"/>
+            <ext-button iconCls="fa-solid fa-user" text="Your Profile" textAlign="left" :hidden="!profile" @tap="showProfile"/>
+            <ext-button iconCls="fa-solid fa-asterisk" text="Change Password" textAlign="left" :hidden="!changePassword" @tap="showChangePasswordDialog"/>
 
             <slot name="bottomDown"/>
 
-            <ext-button iconCls="fas fa-sign-out-alt" text="Sign Out" textAlign="left" @tap="signout"/>
+            <ext-button iconCls="fa-solid fa-sign-out-alt" text="Sign Out" textAlign="left" @tap="signout"/>
 
             <ext-container layout="hbox">
-                <ext-togglefield boxLabel='<i class="fas fa-adjust"></i> DARK MODE' :value="darkMode" @change="darkMode = $event"/>
+                <ext-togglefield boxLabel='<i class="fa-solid fa-adjust"></i> DARK MODE' :value="darkMode" @change="darkMode = $event"/>
             </ext-container>
         </ext-panel>
     </ext-sheet>

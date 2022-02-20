@@ -1,12 +1,12 @@
 <template>
     <ext-sheet layout="fit" side="right" modal="true" width="300" @ready="ready">
         <ext-panel ref="card" layout='{"type":"card","animation":"fade"}'>
-            <ext-titlebar docked="top" iconCls="far fa-bell" title="Notifications">
-                <ext-button align="right" iconCls="far fa-eye" tooltip="Mark all as read" :hidden="!totalUndoneUnread" @tap="setReadAll"/>
-                <!-- <ext-button align="right" iconCls="fas fa-check-double" tooltip="Mark all as done" :hidden="!totalUndone" @tap="setDoneAll"/> -->
-                <ext-button align="right" iconCls="far fa-trash-alt" tooltip="Delete all" :hidden="!totalUndone" @tap="deleteAll"/>
-                <ext-button align="right" iconCls="fas fa-cog" tooltip="Notifications settings" @tap="showNotificationsSettingsDialog"/>
-                <ext-button align="right" iconCls="fas fa-redo" tooltip="Refresh notifications" @tap="reload"/>
+            <ext-titlebar docked="top" iconCls="fa-solid fa-bell" title="Notifications">
+                <ext-button align="right" iconCls="fa-solid fa-eye" tooltip="Mark all as read" :hidden="!totalUndoneUnread" @tap="setReadAll"/>
+                <!-- <ext-button align="right" iconCls="fa-solid fa-check-double" tooltip="Mark all as done" :hidden="!totalUndone" @tap="setDoneAll"/> -->
+                <ext-button align="right" iconCls="fa-solid fa-trash-alt" tooltip="Delete all" :hidden="!totalUndone" @tap="deleteAll"/>
+                <ext-button align="right" iconCls="fa-solid fa-cog" tooltip="Notifications settings" @tap="showNotificationsSettingsDialog"/>
+                <ext-button align="right" iconCls="fa-solid fa-redo" tooltip="Refresh notifications" @tap="reload"/>
             </ext-titlebar>
             <ext-panel layout="center">
                 <ext-container html='<div style="font-size:1.5em;">You have no notifications</div>'/>
@@ -106,19 +106,19 @@ export default {
                         "items": [
                             {
                                 "xtype": "component",
-                                "bind": `<i class="far fa-clock"></i> {record.relative_time}`,
+                                "bind": `<i class="fa-solid fa-clock"></i> {record.relative_time}`,
                             },
                             { "xtype": "spacer" },
                             {
                                 "xtype": "button",
-                                "iconCls": "far fa-eye",
+                                "iconCls": "fa-solid fa-eye",
                                 "tooltip": "Mark as read",
                                 "bind": { "hidden": "{record.read}" },
                                 "handler": this._setRead.bind( this ),
                             },
                             {
                                 "xtype": "button",
-                                "iconCls": "far fa-eye-slash",
+                                "iconCls": "fa-solid fa-eye-slash",
                                 "tooltip": "Mark as unread",
                                 "bind": { "hidden": "{!record.read}" },
                                 "handler": this._setUnread.bind( this ),
@@ -126,13 +126,13 @@ export default {
 
                             // {
                             //     "xtype": "button",
-                            //     "iconCls": "fas fa-check",
+                            //     "iconCls": "fa-solid fa-check",
                             //     "tooltip": "Mark as done",
                             //     "handler": this._setDone.bind( this ),
                             // },
                             {
                                 "xtype": "button",
-                                "iconCls": "far fa-trash-alt",
+                                "iconCls": "fa-solid fa-trash-alt",
                                 "tooltip": "Delete",
                                 "handler": this._delete.bind( this ),
                             },

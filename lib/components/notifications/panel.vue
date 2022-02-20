@@ -8,7 +8,7 @@
         <ext-container layout="hbox" :hidden="!telegramEnabled">
             <ext-textfield ref="telegramUsernameField" label="Your Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
             <ext-button text="Update" @tap="_updateTelegramUsername"/>
-            <ext-button :text="`Open @` + telegramBotUsername" iconCls="fas fa-external-link-alt" iconAlign="right" @tap="_openTelegramBot"/>
+            <ext-button :text="`Open @` + telegramBotUsername" iconCls="fa-solid fa-external-link-alt" iconAlign="right" @tap="_openTelegramBot"/>
         </ext-container>
 
         <ext-container :hidden="!telegramEnabled">

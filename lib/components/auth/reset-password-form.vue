@@ -8,7 +8,7 @@
         <ext-textfield name="username" label="User Name or Email" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-            <ext-button iconCls="fas fa-arrow-left" text="Sign In" ui="back" @tap="showSignin"/>
+            <ext-button iconCls="fa-solid fa-arrow-left" text="Sign In" ui="back" @tap="showSignin"/>
             <ext-spacer/>
             <ext-button text="Reset" ui="action" @tap="submit"/>
         </ext-toolbar>
