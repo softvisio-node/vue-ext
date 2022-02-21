@@ -7,7 +7,7 @@
 
         <slot name="title"/>
 
-        <ext-button ref="notificationsButton" align="right" iconCls="fa-solid fa-bell" width="55" padding="0 0 10 0" margin="10 20 0 0" :hidden="!notifications" @tap="showNotifications"/>
+        <ext-button ref="notificationsButton" align="right" iconCls="fa-regular fa-bell" width="55" padding="0 0 10 0" margin="10 20 0 0" :hidden="!notifications" @tap="showNotifications"/>
 
         <Avatar align="right" width="40" height="40"/>
 
