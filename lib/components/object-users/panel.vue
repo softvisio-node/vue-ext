@@ -44,7 +44,6 @@ export default {
 
         this.suggestUsersStore = Ext.create( "Ext.data.Store", {
             "pageSize": null,
-            "autoLoadOnFilter": true,
             "proxy": {
                 "type": "softvisio",
                 "api": { "read": "object-users/suggest-users" },
