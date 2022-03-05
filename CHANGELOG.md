@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.1.4 (2022-03-05)
+
+Fixes:
+
+-   fix: autoLoadOnFilter removed
+
 ### 7.1.3 (2022-02-21)
 
 Fixes:
