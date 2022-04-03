@@ -48,6 +48,7 @@
     },
     "dependencies": {
         "@amcharts/amcharts4": "^4.10.18",
+        "@amcharts/amcharts5": "^5.1.10",
         "@fortawesome/fontawesome-free": "^6.0.0",
         "@softvisio/ext": "^5.3.2",
         "froala-editor": "^4.0.0",
