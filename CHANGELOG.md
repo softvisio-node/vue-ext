@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.2.0 (2022-04-10)
+
+Features:
+
+-   feat: amcharts 5
+-   feat: titlebar props
+
 ### 7.1.4 (2022-03-05)
 
 Fixes:
