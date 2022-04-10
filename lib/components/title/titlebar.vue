@@ -9,9 +9,9 @@
 
         <ext-button ref="notificationsButton" align="right" iconCls="fa-regular fa-bell" width="55" padding="0 0 10 0" margin="10 20 0 0" :hidden="!notifications" @tap="showNotifications"/>
 
-        <Avatar align="right" width="40" height="40"/>
+        <Avatar align="right" width="40" height="40" :hidden="!avatar"/>
 
-        <ext-button align="right" iconCls="fa-solid fa-bars" width="40" height="50" margin="0 0 0 5" @tap="showMenu"/>
+        <ext-button align="right" iconCls="fa-solid fa-bars" width="40" height="50" margin="0 0 0 5" :hidden="!menu" @tap="showMenu"/>
 
         <Notifications ref="notifications"/>
 
@@ -41,6 +41,14 @@ export default {
 
     "props": {
         "notifications": {
+            "type": Boolean,
+            "default": true,
+        },
+        "avatar": {
+            "type": Boolean,
+            "default": true,
+        },
+        "menu": {
             "type": Boolean,
             "default": true,
         },
