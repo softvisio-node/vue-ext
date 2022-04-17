@@ -3,13 +3,21 @@
 </template>
 
 <script>
-import * as am4charts from "./loader.js";
+import * as amcharts from "./loader.js";
 
 export default {
     "props": {
         "animated": {
             "type": Boolean,
             "default": true,
+        },
+        "responsive": {
+            "type": Boolean,
+            "default": false,
+        },
+        "micro": {
+            "type": Boolean,
+            "default": false,
         },
     },
 
@@ -23,30 +31,37 @@ export default {
 
     "watch": {
         darkMode () {
-            if ( !this.chart ) return;
+            if ( !this.root ) return;
 
-            this.chart.dispose();
+            this.root.dispose();
 
-            this.chart = null;
+            this.root = null;
 
-            this.$emit( "ready", this );
+            this._create();
         },
     },
 
     beforeUnmount () {
 
         // destroy chart
-        if ( this.chart ) this.chart.dispose();
-        this.chart = null;
+        if ( this.root ) {
+            this.root.dispose();
+
+            this.root = null;
+        }
 
         // destroy ext component
-        if ( this.ext ) this.ext.destroy();
-        this.ext = null;
+        if ( this.ext ) {
+            this.ext.destroy();
+
+            this.ext = null;
+        }
     },
 
     "methods": {
         ready ( e ) {
             this.ext = e.detail.cmp;
+            this.am5 = amcharts.am5;
 
             if ( this.ext.rendered ) {
                 this._afterRender();
@@ -59,21 +74,29 @@ export default {
         _afterRender () {
             this.ext.afterRender = null;
 
+            this._create();
+        },
+
+        _create ( config ) {
+            if ( this.root ) return;
+
+            this.root = amcharts.am5.Root.new( this.ext.innerElement.dom );
+
+            const themes = [];
+
+            if ( this.animated ) themes.push( amcharts.themeAnimated.new( this.root ) );
+            if ( this.responsive ) themes.push( amcharts.themeResponsive.new( this.root ) );
+            if ( this.micro ) themes.push( amcharts.themeMicro.new( this.root ) );
+            themes.push( this.darkMode ? amcharts.themeDark.new( this.root ) : amcharts.themeLight.new( this.root ) );
+
+            this.root.setThemes( themes );
+
             this.$emit( "ready", this );
         },
 
-        async create ( config ) {
-
-            // theme
-            am4charts.am4core.unuseAllThemes();
-            if ( this.animated ) am4charts.am4core.useTheme( am4charts.chartThemeAnimated );
-            am4charts.am4core.useTheme( this.darkMode ? am4charts.chartThemeDark : am4charts.chartThemeLight );
-
-            this.chart = am4charts.am4core.createFromConfig( JSON.parse( JSON.stringify( config ) ), this.ext.innerElement.dom );
-        },
-
+        // XXX
         setData ( data ) {
-            this.chart.data = data;
+            this.root.data = data;
         },
 
         setStore ( store ) {
@@ -96,16 +119,17 @@ export default {
             this._onStoreDataChanged();
         },
 
+        // XXX
         _onStoreDataChanged () {
             const data = Ext.Array.pluck( this.store.data.items, "data" );
 
             const dataHandler = this.dataHandler;
 
             if ( dataHandler ) {
-                this.chart.data = dataHandler( data );
+                this.root.data = dataHandler( data );
             }
             else {
-                this.chart.data = data;
+                this.root.data = data;
             }
         },
     },
