@@ -1,24 +1,3 @@
-<!--
-# USAGE
-
-yarn add @amcharts/amcharts4
-
-import AmchartsPanel from "#vue/components/amcharts4-panel";
-
-<AmchartsPanel :animated="false" @ready="chartsReady"/>
-
-chartsReady (chart) {
-    chart.create( amChartsConfig );
-
-    chart.setStore(...);
-
-    chart.dataHandler = function ( data ) { return data };
-
-    chart.setData(...);
-}
-
--->
-
 <template>
     <ext-panel layout="fit" @ready="ready"/>
 </template>
