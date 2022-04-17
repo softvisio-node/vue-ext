@@ -1,5 +1,5 @@
 <template>
-    <ext-panel layout="fit" @ready="ready"/>
+    <ext-panel layout="fit" @ready="_ready"/>
 </template>
 
 <script>
@@ -59,7 +59,34 @@ export default {
     },
 
     "methods": {
-        ready ( e ) {
+
+        // public
+        setStore ( store ) {
+            var oldStore = this.store,
+                bindEvents = Ext.apply( {
+                    "scope": this,
+                },
+                {
+                    "dataChanged": this._onStoreDataChanged,
+                } );
+
+            if ( oldStore ) {
+                oldStore.un( bindEvents );
+            }
+
+            this.store = store;
+
+            store.on( bindEvents );
+
+            this._onStoreDataChanged();
+        },
+
+        setData ( data ) {
+            this.$emit( "data", data );
+        },
+
+        // protected
+        _ready ( e ) {
             this.ext = e.detail.cmp;
             this.am5 = amcharts.am5;
 
@@ -92,26 +119,6 @@ export default {
             this.root.setThemes( themes );
 
             this.$emit( "ready", this );
-        },
-
-        setStore ( store ) {
-            var oldStore = this.store,
-                bindEvents = Ext.apply( {
-                    "scope": this,
-                },
-                {
-                    "dataChanged": this._onStoreDataChanged,
-                } );
-
-            if ( oldStore ) {
-                oldStore.un( bindEvents );
-            }
-
-            this.store = store;
-
-            store.on( bindEvents );
-
-            this._onStoreDataChanged();
         },
 
         _onStoreDataChanged () {
