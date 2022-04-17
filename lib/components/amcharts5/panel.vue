@@ -21,7 +21,7 @@ export default {
         },
     },
 
-    "emits": ["ready"],
+    "emits": ["ready", "data"],
 
     "computed": {
         darkMode () {
@@ -94,11 +94,6 @@ export default {
             this.$emit( "ready", this );
         },
 
-        // XXX
-        setData ( data ) {
-            this.root.data = data;
-        },
-
         setStore ( store ) {
             var oldStore = this.store,
                 bindEvents = Ext.apply( {
@@ -119,18 +114,10 @@ export default {
             this._onStoreDataChanged();
         },
 
-        // XXX
         _onStoreDataChanged () {
             const data = Ext.Array.pluck( this.store.data.items, "data" );
 
-            const dataHandler = this.dataHandler;
-
-            if ( dataHandler ) {
-                this.root.data = dataHandler( data );
-            }
-            else {
-                this.root.data = data;
-            }
+            this.$emit( "data", data );
         },
     },
 };
