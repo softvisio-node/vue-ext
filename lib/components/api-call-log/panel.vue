@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import AmchartsPanel from "#vue/components/am4charts/panel";
+import AmchartsPanel from "#vue/components/amcharts4/panel";
 import ApiCallLogStatModel from "#vue/models/api-call-log/stat";
 import HistoryDialog from "./history/dialog";
 import LogDialog from "./log/dialog";

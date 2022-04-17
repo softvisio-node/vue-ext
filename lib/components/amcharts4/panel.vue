@@ -3,7 +3,7 @@
 
 yarn add @amcharts/amcharts4
 
-import AmchartsPanel from "#vue/components/am4charts-panel";
+import AmchartsPanel from "#vue/components/amcharts4-panel";
 
 <AmchartsPanel :animated="false" @ready="chartsReady"/>
 

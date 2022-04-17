@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import AmchartsPanel from "#vue/components/am4charts/panel";
+import AmchartsPanel from "#vue/components/amcharts4/panel";
 
 export default {
     "components": { AmchartsPanel },
