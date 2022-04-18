@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import * as am4charts from "./loader.js";
+import * as amcharts from "./loader.js";
 
 export default {
     "props": {
@@ -65,11 +65,11 @@ export default {
         async create ( config ) {
 
             // theme
-            am4charts.am4core.unuseAllThemes();
-            if ( this.animated ) am4charts.am4core.useTheme( am4charts.themeAnimated );
-            am4charts.am4core.useTheme( this.darkMode ? am4charts.themeDark : am4charts.themeLight );
+            amcharts.am4core.unuseAllThemes();
+            if ( this.animated ) amcharts.am4core.useTheme( amcharts.themeAnimated );
+            amcharts.am4core.useTheme( this.darkMode ? amcharts.themeDark : amcharts.themeLight );
 
-            this.chart = am4charts.am4core.createFromConfig( JSON.parse( JSON.stringify( config ) ), this.ext.innerElement.dom );
+            this.chart = amcharts.am4core.createFromConfig( JSON.parse( JSON.stringify( config ) ), this.ext.innerElement.dom );
         },
 
         setData ( data ) {
