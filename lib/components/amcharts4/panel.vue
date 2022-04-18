@@ -1,5 +1,5 @@
 <template>
-    <ext-panel layout="fit" @ready="ready"/>
+    <ext-panel layout="fit" @ready="_ready"/>
 </template>
 
 <script>
@@ -45,23 +45,6 @@ export default {
     },
 
     "methods": {
-        ready ( e ) {
-            this.ext = e.detail.cmp;
-
-            if ( this.ext.rendered ) {
-                this._afterRender();
-            }
-            else {
-                this.ext.afterRender = this._afterRender.bind( this );
-            }
-        },
-
-        _afterRender () {
-            this.ext.afterRender = null;
-
-            this.$emit( "ready", this );
-        },
-
         async create ( config ) {
 
             // theme
@@ -94,6 +77,24 @@ export default {
             store.on( bindEvents );
 
             this._onStoreDataChanged();
+        },
+
+        // protected
+        _ready ( e ) {
+            this.ext = e.detail.cmp;
+
+            if ( this.ext.rendered ) {
+                this._afterRender();
+            }
+            else {
+                this.ext.afterRender = this._afterRender.bind( this );
+            }
+        },
+
+        _afterRender () {
+            this.ext.afterRender = null;
+
+            this.$emit( "ready", this );
         },
 
         _onStoreDataChanged () {
