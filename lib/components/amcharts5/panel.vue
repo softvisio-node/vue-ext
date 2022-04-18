@@ -4,6 +4,7 @@
 
 <script>
 import * as amcharts from "./loader.js";
+import "./ext.amcharts5.js";
 
 export default {
     "props": {
@@ -105,7 +106,7 @@ export default {
             this._create();
         },
 
-        _create ( config ) {
+        _create () {
             if ( this.root ) return;
 
             this.root = amcharts.am5.Root.new( this.ext.innerElement.dom );
