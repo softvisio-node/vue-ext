@@ -66,8 +66,8 @@ export default {
 
             // theme
             am4charts.am4core.unuseAllThemes();
-            if ( this.animated ) am4charts.am4core.useTheme( am4charts.chartThemeAnimated );
-            am4charts.am4core.useTheme( this.darkMode ? am4charts.chartThemeDark : am4charts.chartThemeLight );
+            if ( this.animated ) am4charts.am4core.useTheme( am4charts.themeAnimated );
+            am4charts.am4core.useTheme( this.darkMode ? am4charts.themeDark : am4charts.themeLight );
 
             this.chart = am4charts.am4core.createFromConfig( JSON.parse( JSON.stringify( config ) ), this.ext.innerElement.dom );
         },
