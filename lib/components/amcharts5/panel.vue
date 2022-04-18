@@ -82,7 +82,8 @@ export default {
         },
 
         setData ( data ) {
-            this.$emit( "data", data );
+            if ( this.onData ) this.onData( data );
+            else this.$emit( "data", data );
         },
 
         // protected
@@ -124,7 +125,7 @@ export default {
         _onStoreDataChanged () {
             const data = Ext.Array.pluck( this.store.data.items, "data" );
 
-            this.$emit( "data", data );
+            this.setData( data );
         },
     },
 };
