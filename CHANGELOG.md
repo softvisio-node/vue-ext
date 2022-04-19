@@ -1,5 +1,17 @@
 # Changelog
 
+### 7.3.0 (2022-04-19)
+
+Features:
+
+-   feat: amcharts5
+
+Fixes:
+
+-   fix: am4charts component renamed
+-   fix: amcharts4
+-   fix: amcharts5
+
 ### 7.2.0 (2022-04-10)
 
 Features:
