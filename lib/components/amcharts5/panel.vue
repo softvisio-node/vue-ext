@@ -122,7 +122,7 @@ export default {
         },
 
         _onStoreDataChanged () {
-            const data = this.store?.data.items;
+            const data = Ext.Array.pluck( this.store?.data.items, "data" );
 
             this.setData( data );
         },
