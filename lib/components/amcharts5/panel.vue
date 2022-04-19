@@ -38,7 +38,7 @@ export default {
 
             this.root = null;
 
-            this._create();
+            this._createRoot();
         },
     },
 
@@ -62,29 +62,27 @@ export default {
     "methods": {
 
         // public
-        setStore ( store ) {
-            var oldStore = this.store,
-                bindEvents = Ext.apply( {
+        setStore ( newStore ) {
+            const oldStore = this.store,
+                events = {
                     "scope": this,
-                },
-                {
                     "dataChanged": this._onStoreDataChanged,
-                } );
+                };
 
-            if ( oldStore ) {
-                oldStore.un( bindEvents );
+            this.store = newStore;
+
+            if ( oldStore ) oldStore.un( events );
+
+            if ( newStore ) {
+                newStore.on( events );
+
+                this._onStoreDataChanged();
             }
-
-            this.store = store;
-
-            store.on( bindEvents );
-
-            this._onStoreDataChanged();
         },
 
         setData ( data ) {
-            if ( this.onData ) this.onData( data );
-            else this.$emit( "data", data );
+            if ( this.onData ) this.onData( this, data );
+            else this.$emit( "data", this, data );
         },
 
         // protected
@@ -103,10 +101,10 @@ export default {
         _afterRender () {
             this.ext.afterRender = null;
 
-            this._create();
+            this._createRoot();
         },
 
-        _create () {
+        _createRoot () {
             if ( this.root ) return;
 
             this.root = amcharts.am5.Root.new( this.ext.innerElement.dom );
@@ -124,7 +122,7 @@ export default {
         },
 
         _onStoreDataChanged () {
-            const data = Ext.Array.pluck( this.store.data.items, "data" );
+            const data = this.store?.data.items;
 
             this.setData( data );
         },
