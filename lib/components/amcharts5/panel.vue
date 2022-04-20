@@ -81,7 +81,7 @@ export default {
         },
 
         setData ( data ) {
-            if ( this.onData ) this.onData( this, data );
+            if ( this.updateChart ) this.updateChart( this, data );
             else this.$emit( "data", this, data );
         },
 
