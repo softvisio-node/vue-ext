@@ -24,24 +24,6 @@ export default {
 
     "emits": ["ready", "data"],
 
-    "computed": {
-        darkMode () {
-            return this.$store.theme.darkMode;
-        },
-    },
-
-    "watch": {
-        darkMode () {
-            if ( !this.root ) return;
-
-            this.root.dispose();
-
-            this.root = null;
-
-            this._createRoot();
-        },
-    },
-
     beforeUnmount () {
 
         // destroy chart
@@ -114,7 +96,7 @@ export default {
             if ( this.animated ) themes.push( amcharts.themeAnimated.new( this.root ) );
             if ( this.responsive ) themes.push( amcharts.themeResponsive.new( this.root ) );
             if ( this.micro ) themes.push( amcharts.themeMicro.new( this.root ) );
-            themes.push( this.darkMode ? amcharts.themeDark.new( this.root ) : amcharts.themeLight.new( this.root ) );
+            themes.push( amcharts.theme.new( this.root ) );
 
             this.root.setThemes( themes );
 
