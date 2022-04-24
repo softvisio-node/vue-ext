@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.3.2 (2022-04-24)
+
+Fixes:
+
+-   fix: amcharts4 removed
+-   fix: amcharts5 migration
+
 ### 7.3.1 (2022-04-20)
 
 Fixes:
