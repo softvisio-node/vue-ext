@@ -5,9 +5,8 @@
             <ext-button iconCls="fa-solid fa-redo" text="Refresh" @tap="refresh"/>
         </ext-toolbar>
 
-        <Amcharts5Panel height="350" @ready="_createLoadChart" @data="_updateChart"/>
+        <Amcharts5Panel height="250" @ready="_createLoadChart" @data="_updateChart"/>
 
-        <AmchartsPanel height="300" @ready="_loadChartReady"/>
         <AmchartsPanel height="300" @ready="_runtimeChartReady"/>
         <AmchartsPanel height="300" @ready="_exceptionsChartReady"/>
     </ext-dialog>
@@ -44,9 +43,10 @@ export default {
                 "layout": root.verticalLayout,
                 "panX": true,
                 "panY": true,
-                "wheelX": "panX",
-                "wheelY": "zoomX",
                 "pinchZoomX": true,
+
+                // "wheelX": "panX",
+                // "wheelY": "zoomX",
             } ) );
 
             chart.set( "cursor",
@@ -60,8 +60,19 @@ export default {
                     "orientation": "horizontal",
                 } ) );
 
+            chart.children.unshift( am5.Label.new( root, {
+                "text": "Acceptes / Declined Requests for Last 30 Days",
+                "fontSize": 12,
+                "x": am5.percent( 50 ),
+                "centerX": am5.percent( 50 ),
+            } ) );
+
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
-                "baseInterval": {},
+                "maxDeviation": 0,
+                "baseInterval": {
+                    "timeUnit": "hour",
+                    "count": 1,
+                },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
                 "tooltipDateFormat": "I",
                 "tooltip": am5.Tooltip.new( root, {} ),
@@ -109,91 +120,6 @@ export default {
                 "centerX": am5.percent( 50 ),
             } ) );
             legend.data.setAll( chart.series.values );
-
-            this.refresh();
-        },
-
-        // XXX
-        _loadChartReady ( chart ) {
-            this.loadChart = chart;
-
-            chart.create( {
-                "titles": [{ "text": "Acceptes / Declined Requests for Last 30 Days", "fontSize": 12 }],
-                "type": "XYChart",
-
-                "dateFormatter": { "inputDateFormat": "yyyy-MM-dd HH:mm:ss" },
-
-                "cursor": { "type": "XYCursor", "behavior": "zoomX" },
-
-                "scrollbarX": {
-                    "type": "XYChartScrollbar",
-                    "series": ["accepted", "declined"],
-                },
-
-                "legend": {},
-
-                "xAxes": [
-                    {
-                        "type": "DateAxis",
-
-                        // grouping
-                        "groupData": true,
-                        "groupCount": 24 * 30,
-
-                        // pre-zoom
-                        "start": 0.75,
-                        "end": 1,
-                        "keepSelection": true,
-                    },
-                ],
-                "yAxes": [
-                    {
-                        "id": "value",
-                        "type": "ValueAxis",
-                        "title": { "text": "Requests" },
-                        "min": 0,
-                    },
-                ],
-
-                "series": [
-                    {
-                        "id": "accepted",
-                        "type": "ColumnSeries",
-                        "name": "Accepted",
-                        "yAxis": "value",
-                        "dataFields": {
-                            "dateX": "date",
-                            "valueY": "total_accepted",
-                        },
-                        "groupFields": { "valueY": "sum" },
-                        "tooltipText": "Accepted requests: {valueY.value}",
-                        "stacked": true,
-                        "fill": "green",
-                        "stroke": "green",
-                        "columns": {
-                            "maxWidth": 30,
-                        },
-                    },
-                    {
-                        "id": "declined",
-                        "type": "ColumnSeries",
-                        "name": "Declined",
-                        "yAxis": "value",
-                        "dataFields": {
-                            "dateX": "date",
-                            "valueY": "total_declined",
-                        },
-                        "groupFields": { "valueY": "sum" },
-                        "tooltipText": "Declined requests: {valueY.value}",
-                        "stacked": true,
-                        "fill": "red",
-                        "stroke": "red",
-                        "columns": {
-                            "maxWidth": 30,
-                        },
-                    },
-                ],
-            } );
 
             this.refresh();
         },
@@ -343,7 +269,7 @@ export default {
         },
 
         async refresh () {
-            if ( !this.record || !this._loadChart || !this.loadChart || !this.runtimeChart || !this.exceptionsChart ) return;
+            if ( !this.record || !this._loadChart || !this.runtimeChart || !this.exceptionsChart ) return;
 
             this.ext.mask();
 
@@ -359,7 +285,6 @@ export default {
 
             this._loadChart.setData( res.data );
 
-            this.loadChart.setData( res.data );
             this.runtimeChart.setData( res.data );
             this.exceptionsChart.setData( res.data );
         },
