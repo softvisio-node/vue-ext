@@ -5,11 +5,9 @@
             <ext-button iconCls="fa-solid fa-redo" text="Refresh" @tap="refresh"/>
         </ext-toolbar>
 
-        <AmchartsPanel height="400" @ready="loadChartReady"/>
-
-        <AmchartsPanel height="300" @ready="runtimeChartReady"/>
-
-        <AmchartsPanel height="300" @ready="exceptionsChartReady"/>
+        <AmchartsPanel height="400" @ready="_loadChartReady"/>
+        <AmchartsPanel height="300" @ready="_runtimeChartReady"/>
+        <AmchartsPanel height="300" @ready="_exceptionsChartReady"/>
     </ext-dialog>
 </template>
 
@@ -32,7 +30,7 @@ export default {
             this.refresh();
         },
 
-        loadChartReady ( chart ) {
+        _loadChartReady ( chart ) {
             this.loadChart = chart;
 
             chart.create( {
@@ -116,7 +114,7 @@ export default {
             this.refresh();
         },
 
-        runtimeChartReady ( chart ) {
+        _runtimeChartReady ( chart ) {
             this.runtimeChart = chart;
 
             chart.create( {
@@ -181,7 +179,7 @@ export default {
             this.refresh();
         },
 
-        exceptionsChartReady ( chart ) {
+        _exceptionsChartReady ( chart ) {
             this.exceptionsChart = chart;
 
             chart.create( {
@@ -231,7 +229,7 @@ export default {
                         "yAxis": "value",
                         "dataFields": {
                             "dateX": "date",
-                            "valueY": "exceptions_percent",
+                            "valueY": "errors_percent",
                         },
                         "groupFields": { "valueY": "average" },
                         "tooltipText": "Exceptions: {valueY.value}%",
