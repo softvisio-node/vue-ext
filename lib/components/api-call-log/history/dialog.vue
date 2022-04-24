@@ -5,7 +5,9 @@
             <ext-button iconCls="fa-solid fa-redo" text="Refresh" @tap="refresh"/>
         </ext-toolbar>
 
-        <AmchartsPanel height="400" @ready="_loadChartReady"/>
+        <Amcharts5Panel height="350" @ready="_createLoadChart" @data="_updateChart"/>
+
+        <AmchartsPanel height="300" @ready="_loadChartReady"/>
         <AmchartsPanel height="300" @ready="_runtimeChartReady"/>
         <AmchartsPanel height="300" @ready="_exceptionsChartReady"/>
     </ext-dialog>
@@ -13,9 +15,11 @@
 
 <script>
 import AmchartsPanel from "#vue/components/amcharts4/panel";
+import Amcharts5Panel from "#vue/components/amcharts5/panel";
+import * as am5xy from "@amcharts/amcharts5/xy";
 
 export default {
-    "components": { AmchartsPanel },
+    "components": { AmchartsPanel, Amcharts5Panel },
 
     data () {
         return { "title": "History" };
@@ -30,6 +34,85 @@ export default {
             this.refresh();
         },
 
+        _createLoadChart ( cmp ) {
+            this._loadChart = cmp;
+
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+                "panX": true,
+                "panY": true,
+                "wheelX": "panX",
+                "wheelY": "zoomX",
+                "pinchZoomX": true,
+            } ) );
+
+            chart.set( "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "zoomX",
+                } ) );
+
+            // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
+            chart.set( "scrollbarX",
+                am5.Scrollbar.new( root, {
+                    "orientation": "horizontal",
+                } ) );
+
+            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "baseInterval": {},
+                "renderer": am5xy.AxisRendererX.new( root, {} ),
+                "tooltipDateFormat": "I",
+                "tooltip": am5.Tooltip.new( root, {} ),
+            } ) );
+
+            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "renderer": am5xy.AxisRendererY.new( root, {} ),
+            } ) );
+
+            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "Accepted",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueXField": "date",
+                "valueYField": "total_accepted",
+                "stroke": "green",
+                "fill": "green",
+                "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": "Accepted requests: {valueY}",
+                } ),
+            } ) );
+
+            chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "Declined",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueXField": "date",
+                "valueYField": "total_declined",
+                "fill": "red",
+                "stroke": "red",
+                "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": "Declined requests: {valueY}",
+                } ),
+            } ) );
+
+            series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
+            const legend = chart.children.push( am5.Legend.new( root, {
+                "x": am5.percent( 50 ),
+                "centerX": am5.percent( 50 ),
+            } ) );
+            legend.data.setAll( chart.series.values );
+
+            this.refresh();
+        },
+
+        // XXX
         _loadChartReady ( chart ) {
             this.loadChart = chart;
 
@@ -114,6 +197,7 @@ export default {
             this.refresh();
         },
 
+        // XXX
         _runtimeChartReady ( chart ) {
             this.runtimeChart = chart;
 
@@ -179,6 +263,7 @@ export default {
             this.refresh();
         },
 
+        // XXX
         _exceptionsChartReady ( chart ) {
             this.exceptionsChart = chart;
 
@@ -246,8 +331,18 @@ export default {
             this.refresh();
         },
 
+        _updateChart ( cmp, data ) {
+            const chart = cmp.root.container.children.values[0];
+
+            chart.xAxes.values[0].data.setAll( data || [] );
+
+            for ( const serie of chart.series ) {
+                serie.data.setAll( data || [] );
+            }
+        },
+
         async refresh () {
-            if ( !this.record || !this.loadChart || !this.runtimeChart || !this.exceptionsChart ) return;
+            if ( !this.record || !this._loadChart || !this.loadChart || !this.runtimeChart || !this.exceptionsChart ) return;
 
             this.ext.mask();
 
@@ -260,6 +355,8 @@ export default {
 
                 this.ext.hide();
             }
+
+            this._loadChart.setData( res.data );
 
             this.loadChart.setData( res.data );
             this.runtimeChart.setData( res.data );

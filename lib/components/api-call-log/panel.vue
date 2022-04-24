@@ -123,7 +123,7 @@ export default {
                     "xtype": "amcharts5",
                     "height": 150,
                     "createChart": this._createLoadChart.bind( this ),
-                    "updateChart": this._updateMicroChart.bind( this ),
+                    "updateChart": this._updateChart.bind( this ),
                     "bind": { "data": "{record.series}" },
                 },
             } );
@@ -138,7 +138,7 @@ export default {
                     "xtype": "amcharts5",
                     "height": 150,
                     "createChart": this._createAvgRuntimeChart.bind( this ),
-                    "updateChart": this._updateMicroChart.bind( this ),
+                    "updateChart": this._updateChart.bind( this ),
                     "bind": { "data": "{record.series}" },
                 },
             } );
@@ -153,7 +153,7 @@ export default {
                     "xtype": "amcharts5",
                     "height": 150,
                     "createChart": this._createExceptionsChart.bind( this ),
-                    "updateChart": this._updateMicroChart.bind( this ),
+                    "updateChart": this._updateChart.bind( this ),
                     "bind": { "data": "{record.series}" },
                 },
             } );
@@ -214,14 +214,16 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Total",
+                "name": "Accepted",
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
                 "valueYField": "total_accepted",
+                "fill": "green",
+                "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Total requests: {valueY}",
+                    "labelText": "Accepted requests: {valueY}",
                 } ),
             } ) );
 
@@ -231,7 +233,8 @@ export default {
                 "yAxis": yAxis,
                 "valueXField": "date",
                 "valueYField": "total_declined",
-                "stroke": am5.color( 0xff0000 ),
+                "fill": "red",
+                "stroke": "red",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": "Declined requests: {valueY}",
@@ -279,6 +282,8 @@ export default {
                 "yAxis": yAxis,
                 "valueXField": "date",
                 "valueYField": "avg_runtime",
+                "fill": "green",
+                "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": "Avg. runtime: {valueY} sec.",
@@ -326,6 +331,8 @@ export default {
                 "yAxis": yAxis,
                 "valueYField": "errors_percent",
                 "valueXField": "date",
+                "fill": "red",
+                "stroke": "red",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": "Exceptions: {valueY}%",
@@ -338,7 +345,7 @@ export default {
             } );
         },
 
-        _updateMicroChart ( cmp, data ) {
+        _updateChart ( cmp, data ) {
             const chart = cmp.root.container.children.values[0];
 
             chart.xAxes.values[0].data.setAll( data || [] );
