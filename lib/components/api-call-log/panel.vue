@@ -8,18 +8,19 @@
         </ext-toolbar>
 
         <ext-column text="API Method ID" width="300" sorter='{"property":"id"}' @ready="idColReady"/>
-        <ext-column text="Load for Last 60 Minutes" flex="1" align="center" @ready="loadColReady"/>
-        <ext-column text="Average Request Runtime for Last 60 Minutes" flex="1" align="center" @ready="avgRuntimeColReady"/>
-        <ext-column text="Exceptions for Last 60 Minutes (%)" flex="1" align="center" @ready="exceptionsColReady"/>
-        <ext-column width="40" @ready="actionColReady"/>
+        <ext-column text="Load for Last 60 Minutes" flex="1" align="center" @ready="_loadColReady"/>
+        <ext-column text="Average Request Runtime for Last 60 Minutes" flex="1" align="center" @ready="_avgRuntimeColReady"/>
+        <ext-column text="Exceptions for Last 60 Minutes (%)" flex="1" align="center" @ready="_exceptionsColReady"/>
+        <ext-column width="40" @ready="_actionColReady"/>
     </ext-grid>
 </template>
 
 <script>
-import AmchartsPanel from "#vue/components/amcharts4/panel";
 import ApiCallLogStatModel from "#vue/models/api-call-log/stat";
 import HistoryDialog from "./history/dialog";
 import LogDialog from "./log/dialog";
+import "#vue/components/amcharts5/ext.amcharts5";
+import * as am5xy from "@amcharts/amcharts5/xy";
 
 export default {
     mounted () {
@@ -113,58 +114,52 @@ export default {
             } );
         },
 
-        loadColReady ( e ) {
-            var cmp = e.detail.cmp;
+        _loadColReady ( e ) {
+            const cmp = e.detail.cmp;
 
             cmp.setCell( {
                 "xtype": "widgetcell",
                 "widget": {
-                    "xtype": "container",
+                    "xtype": "amcharts5",
                     "height": 150,
-                    "bind": { "chartData": "{record.series}" },
-                    "listeners": { "initialize": this.loadChartReady.bind( this ) },
-                    setChartData ( data ) {
-                        this.chart.setData( data );
-                    },
+                    "createChart": this._createLoadChart.bind( this ),
+                    "updateChart": this._updateMicroChart.bind( this ),
+                    "bind": { "data": "{record.series}" },
                 },
             } );
         },
 
-        avgRuntimeColReady ( e ) {
-            var cmp = e.detail.cmp;
+        _avgRuntimeColReady ( e ) {
+            const cmp = e.detail.cmp;
 
             cmp.setCell( {
                 "xtype": "widgetcell",
                 "widget": {
-                    "xtype": "container",
+                    "xtype": "amcharts5",
                     "height": 150,
-                    "bind": { "chartData": "{record.series}" },
-                    "listeners": { "initialize": this.avgRuntimeChartReady.bind( this ) },
-                    setChartData ( data ) {
-                        this.chart.setData( data );
-                    },
+                    "createChart": this._createAvgRuntimeChart.bind( this ),
+                    "updateChart": this._updateMicroChart.bind( this ),
+                    "bind": { "data": "{record.series}" },
                 },
             } );
         },
 
-        exceptionsColReady ( e ) {
-            var cmp = e.detail.cmp;
+        _exceptionsColReady ( e ) {
+            const cmp = e.detail.cmp;
 
             cmp.setCell( {
                 "xtype": "widgetcell",
                 "widget": {
-                    "xtype": "container",
+                    "xtype": "amcharts5",
                     "height": 150,
-                    "bind": { "chartData": "{record.series}" },
-                    "listeners": { "initialize": this.exceptionsChartReady.bind( this ) },
-                    setChartData ( data ) {
-                        this.chart.setData( data );
-                    },
+                    "createChart": this._createExceptionsChart.bind( this ),
+                    "updateChart": this._updateMicroChart.bind( this ),
+                    "bind": { "data": "{record.series}" },
                 },
             } );
         },
 
-        actionColReady ( e ) {
+        _actionColReady ( e ) {
             var cmp = e.detail.cmp;
 
             cmp.setCell( {
@@ -189,180 +184,168 @@ export default {
             } );
         },
 
-        async loadChartReady ( cmp ) {
-            var chart = await this.$mount( AmchartsPanel, { "el": cmp, "cache": false } );
+        _createLoadChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
 
-            cmp.chart = chart;
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
 
-            chart.create( {
-                "type": "XYChart",
+                // "panX": true,
+                // "panY": true,
+                // "wheelX": "panX",
+                // "wheelY": "zoomX",
+                // "pinchZoomX": true,
+            } ) );
 
-                "dateFormatter": { "inputDateFormat": "yyyy-MM-dd HH:mm:ss" },
+            chart.set( "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } ) );
 
-                // "responsive": { "enabled": true },
-                "cursor": { "type": "XYCursor", "behavior": "none" },
+            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "baseInterval": {},
+                "renderer": am5xy.AxisRendererX.new( root, {} ),
+                "tooltipDateFormat": "HH:mm",
+                "tooltip": am5.Tooltip.new( root, {} ),
+            } ) );
 
-                "xAxes": [
-                    {
-                        "type": "DateAxis",
+            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "renderer": am5xy.AxisRendererY.new( root, {} ),
+            } ) );
 
-                        // "renderer": { "inside": true }, // render labels inside chart
-                    },
-                ],
-                "yAxes": [
-                    {
-                        "id": "value",
-                        "type": "ValueAxis",
-                        "title": { "text": "Requests" },
-                        "min": 0,
-                    },
-                ],
+            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "Total",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueXField": "date",
+                "valueYField": "total_accepted",
+                "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": "Total requests: {valueY}",
+                } ),
+            } ) );
 
-                "series": [
-                    {
-                        "id": "accepted_requests",
-                        "type": "ColumnSeries",
-                        "name": "Accepted",
-                        "yAxis": "value",
-                        "dataFields": {
-                            "dateX": "date",
-                            "valueY": "total_accepted",
-                        },
-                        "tooltipText": "Accepted requests: {valueY.value}",
-                        "stacked": true,
-                        "fill": "green",
-                        "stroke": "green",
-                        "columns": {
-                            "maxWidth": 30,
-                        },
-                    },
-                    {
-                        "id": "declined_requests",
-                        "type": "ColumnSeries",
-                        "name": "Declined",
-                        "yAxis": "value",
-                        "dataFields": {
-                            "dateX": "date",
-                            "valueY": "total_declined",
-                        },
-                        "tooltipText": "Declined requests: {valueY.value}",
-                        "stacked": true,
-                        "fill": "red",
-                        "stroke": "red",
-                        "columns": {
-                            "maxWidth": 30,
-                        },
-                    },
-                ],
+            chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "Declined",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueXField": "date",
+                "valueYField": "total_declined",
+                "stroke": am5.color( 0xff0000 ),
+                "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": "Declined requests: {valueY}",
+                } ),
+            } ) );
+
+            series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
             } );
         },
 
-        async avgRuntimeChartReady ( cmp ) {
-            var chart = await this.$mount( AmchartsPanel, { "el": cmp, "cache": false } );
+        _createAvgRuntimeChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
 
-            cmp.chart = chart;
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
 
-            cmp.chart = chart;
+                // "panX": true,
+                // "panY": true,
+                // "wheelX": "panX",
+                // "wheelY": "zoomX",
+                // "pinchZoomX": true,
+            } ) );
 
-            chart.create( {
-                "type": "XYChart",
+            chart.set( "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } ) );
 
-                "dateFormatter": { "inputDateFormat": "yyyy-MM-dd HH:mm:ss" },
+            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "baseInterval": {},
+                "renderer": am5xy.AxisRendererX.new( root, {} ),
+                "tooltipDateFormat": "HH:mm",
+                "tooltip": am5.Tooltip.new( root, {} ),
+            } ) );
 
-                // "responsive": { "enabled": true },
-                "cursor": { "type": "XYCursor", "behavior": "none" },
+            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "renderer": am5xy.AxisRendererY.new( root, {} ),
+            } ) );
 
-                "xAxes": [
-                    {
-                        "type": "DateAxis",
+            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "Avg. runtime",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueXField": "date",
+                "valueYField": "avg_runtime",
+                "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": "Avg. runtime: {valueY} sec.",
+                } ),
+            } ) );
 
-                        // "renderer": { "inside": true }, // render labels inside chart
-                    },
-                ],
-                "yAxes": [
-                    {
-                        "id": "value",
-                        "type": "ValueAxis",
-                        "title": { "text": "Seconds" },
-                        "min": 0,
-                    },
-                ],
-
-                "series": [
-                    {
-                        "id": "avg_runtime",
-                        "type": "ColumnSeries",
-                        "name": "Avg. runtime",
-                        "yAxis": "value",
-                        "dataFields": {
-                            "dateX": "date",
-                            "valueY": "avg_runtime",
-                        },
-                        "tooltipText": "Avg. runtime: {valueY.value} sec.",
-                        "stacked": true,
-                        "fill": "green",
-                        "stroke": "green",
-                        "columns": {
-                            "maxWidth": 30,
-                        },
-                    },
-                ],
+            series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
             } );
         },
 
-        async exceptionsChartReady ( cmp ) {
-            var chart = await this.$mount( AmchartsPanel, { "el": cmp, "cache": false } );
+        _createExceptionsChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
 
-            cmp.chart = chart;
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
 
-            cmp.chart = chart;
+                // "panX": true,
+                // "panY": true,
+                // "wheelX": "panX",
+                // "wheelY": "zoomX",
+                // "pinchZoomX": true,
+            } ) );
 
-            chart.create( {
-                "type": "XYChart",
+            chart.set( "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } ) );
 
-                "dateFormatter": { "inputDateFormat": "yyyy-MM-dd HH:mm:ss" },
+            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "baseInterval": {},
+                "renderer": am5xy.AxisRendererX.new( root, {} ),
+                "tooltipDateFormat": "HH:mm",
+                "tooltip": am5.Tooltip.new( root, {} ),
+            } ) );
 
-                // "responsive": { "enabled": true },
-                "cursor": { "type": "XYCursor", "behavior": "none" },
+            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "renderer": am5xy.AxisRendererY.new( root, {} ),
+            } ) );
 
-                "xAxes": [
-                    {
-                        "type": "DateAxis",
+            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "Exceptions (%)",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueYField": "errors_percent",
+                "valueXField": "date",
+                "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": "Exceptions: {valueY}%",
+                } ),
+            } ) );
 
-                        // "renderer": { "inside": true }, // render labels inside chart
-                    },
-                ],
-                "yAxes": [
-                    {
-                        "id": "value",
-                        "type": "ValueAxis",
-                        "title": { "text": "Exceptions (%)" },
-                        "min": 0,
-                        "max": 100,
-                        "strictMinMax": true,
-                    },
-                ],
-
-                "series": [
-                    {
-                        "id": "exceptions_percent",
-                        "type": "ColumnSeries",
-                        "name": "Exceptions",
-                        "yAxis": "value",
-                        "dataFields": {
-                            "dateX": "date",
-                            "valueY": "exceptions_percent",
-                        },
-                        "tooltipText": "Exceptions: {valueY.value}%",
-                        "stacked": true,
-                        "fill": "red",
-                        "stroke": "red",
-                        "columns": {
-                            "maxWidth": 30,
-                        },
-                    },
-                ],
+            series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
             } );
+        },
+
+        _updateMicroChart ( cmp, data ) {
+            const chart = cmp.root.container.children.values[0];
+
+            chart.xAxes.values[0].data.setAll( data || [] );
+
+            for ( const serie of chart.series ) {
+                serie.data.setAll( data || [] );
+            }
         },
 
         search ( e ) {
