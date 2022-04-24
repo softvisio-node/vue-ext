@@ -41,6 +41,7 @@ export default {
                 am5 = cmp.am5;
 
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
+                "layout": root.verticalLayout,
                 "panX": true,
                 "panY": true,
                 "wheelX": "panX",
