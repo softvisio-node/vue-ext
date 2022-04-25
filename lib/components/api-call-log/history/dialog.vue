@@ -5,9 +5,9 @@
             <ext-button iconCls="fa-solid fa-redo" text="Refresh" @tap="refresh"/>
         </ext-toolbar>
 
-        <Amcharts5Panel height="250" @ready="_createLoadChart" @data="_updateChart"/>
-        <Amcharts5Panel height="250" @ready="_createRuntimeChart" @data="_updateChart"/>
-        <Amcharts5Panel height="250" @ready="_createExceptionsChart" @data="_updateChart"/>
+        <Amcharts5Panel height="250" @ready="_createLoadChart"/>
+        <Amcharts5Panel height="250" @ready="_createRuntimeChart"/>
+        <Amcharts5Panel height="250" @ready="_createExceptionsChart"/>
     </ext-dialog>
 </template>
 
@@ -32,6 +32,8 @@ export default {
         },
 
         _createLoadChart ( cmp ) {
+            cmp.updateChart = this._updateChart.bind( this );
+
             this._loadChart = cmp;
 
             const root = cmp.root,
@@ -123,6 +125,8 @@ export default {
         },
 
         _createRuntimeChart ( cmp ) {
+            cmp.updateChart = this._updateChart.bind( this );
+
             this._runtimeChart = cmp;
 
             const root = cmp.root,
@@ -194,6 +198,8 @@ export default {
         },
 
         _createExceptionsChart ( cmp ) {
+            cmp.updateChart = this._updateChart.bind( this );
+
             this._exceptionsChart = cmp;
 
             const root = cmp.root,

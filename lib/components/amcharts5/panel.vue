@@ -22,7 +22,7 @@ export default {
         },
     },
 
-    "emits": ["ready", "data"],
+    "emits": ["ready"],
 
     beforeUnmount () {
 
@@ -64,7 +64,16 @@ export default {
 
         setData ( data ) {
             if ( this.updateChart ) this.updateChart( this, data );
-            else this.$emit( "data", this, data );
+        },
+
+        updateChart ( cmp, data ) {
+            const chart = cmp.root.container.children.values[0];
+
+            chart.xAxes.values[0].data.setAll( data || [] );
+
+            for ( const serie of chart.series ) {
+                serie.data.setAll( data || [] );
+            }
         },
 
         // protected
