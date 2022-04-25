@@ -64,10 +64,12 @@ export default {
 
         setData ( data ) {
             if ( this.updateChart ) this.updateChart( this, data );
+            else this._defaultUpdateChart( data );
         },
 
-        updateChart ( cmp, data ) {
-            const chart = cmp.root.container.children.values[0];
+        // protected
+        _defaultUpdateChart ( data ) {
+            const chart = this.root.container.children.values[0];
 
             chart.xAxes.values[0].data.setAll( data || [] );
 
@@ -76,7 +78,6 @@ export default {
             }
         },
 
-        // protected
         _ready ( e ) {
             this.ext = e.detail.cmp;
             this.am5 = amcharts.am5;
