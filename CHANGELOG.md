@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.3.3 (2022-04-25)
+
+Fixes:
+
+-   fix: amcharts data event removed
+
 ### 7.3.2 (2022-04-24)
 
 Fixes:
