@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.3.4 (2022-05-02)
+
+Fixes:
+
+-   fix: amcharts5 import
+
 ### 7.3.3 (2022-04-25)
 
 Fixes:
