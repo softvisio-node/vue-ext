@@ -5,18 +5,18 @@
             <ext-button iconCls="fa-solid fa-redo" text="Refresh" @tap="refresh"/>
         </ext-toolbar>
 
-        <Amcharts5Panel height="250" @ready="_createLoadChart"/>
-        <Amcharts5Panel height="250" @ready="_createRuntimeChart"/>
-        <Amcharts5Panel height="250" @ready="_createExceptionsChart"/>
+        <Amcharts5 height="250" @ready="_createLoadChart"/>
+        <Amcharts5 height="250" @ready="_createRuntimeChart"/>
+        <Amcharts5 height="250" @ready="_createExceptionsChart"/>
     </ext-dialog>
 </template>
 
 <script>
-import Amcharts5Panel from "#vue/components/amcharts5/panel";
+import Amcharts5 from "#vue/components/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 export default {
-    "components": { Amcharts5Panel },
+    "components": { Amcharts5 },
 
     data () {
         return { "title": "History" };
