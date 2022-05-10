@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.3.5 (2022-05-10)
+
+Fixes:
+
+-   fix: app env validation schema
+
 ### 7.3.4 (2022-05-02)
 
 Fixes:
