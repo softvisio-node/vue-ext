@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.3.6 (2022-05-13)
+
+Fixes:
+
+-   fix: google maps api lang
+
 ### 7.3.5 (2022-05-10)
 
 Fixes:
