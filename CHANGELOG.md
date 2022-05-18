@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.3.7 (2022-05-18)
+
+Fixes:
+
+-   fix: reserved names
+-   fix: viewport template layout
+
 ### 7.3.6 (2022-05-13)
 
 Fixes:
