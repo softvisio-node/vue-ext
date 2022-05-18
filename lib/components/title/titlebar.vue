@@ -15,7 +15,7 @@
 
         <Notifications ref="notifications"/>
 
-        <Menu ref="menu" :apiTokens="apiTokens" :profile="profile" :changePassword="changePassword" @showProfileDialog="showProfileDialog">
+        <Menu1 ref="menu" :apiTokens="apiTokens" :profile="profile" :changePassword="changePassword" @showProfileDialog="showProfileDialog">
             <template #top>
                 <slot name="menuTop"/>
             </template>
@@ -27,17 +27,17 @@
             <template #bottomDown>
                 <slot name="menuBottomDown"/>
             </template>
-        </Menu>
+        </Menu1>
     </ext-titlebar>
 </template>
 
 <script>
 import Avatar from "#components/title/avatar";
-import Menu from "#components/title/menu";
+import Menu1 from "#components/title/menu";
 import Notifications from "#components/notifications/menu-sheet";
 
 export default {
-    "components": { Avatar, Menu, Notifications },
+    "components": { Avatar, Menu1, Notifications },
 
     "props": {
         "notifications": {
