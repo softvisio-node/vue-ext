@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.3.8 (2022-05-19)
+
+Fixes:
+
+-   fix: app title component renamed
+
 ### 7.3.7 (2022-05-18)
 
 Fixes:
