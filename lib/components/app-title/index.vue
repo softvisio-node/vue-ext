@@ -9,13 +9,13 @@
 
         <ext-button ref="notificationsButton" align="right" iconCls="fa-regular fa-bell" width="55" padding="0 0 10 0" margin="10 20 0 0" :hidden="!notifications" @tap="showNotifications"/>
 
-        <Avatar align="right" width="40" height="40" :hidden="!avatar"/>
+        <AppAvatar align="right" width="40" height="40" :hidden="!avatar"/>
 
         <ext-button align="right" iconCls="fa-solid fa-bars" width="40" height="50" margin="0 0 0 5" :hidden="!menu" @tap="showMenu"/>
 
         <Notifications ref="notifications"/>
 
-        <Menu1 ref="menu" :apiTokens="apiTokens" :profile="profile" :changePassword="changePassword" @showProfileDialog="showProfileDialog">
+        <AppMenu ref="menu" :apiTokens="apiTokens" :profile="profile" :changePassword="changePassword" @showProfileDialog="showProfileDialog">
             <template #top>
                 <slot name="menuTop"/>
             </template>
@@ -27,17 +27,17 @@
             <template #bottomDown>
                 <slot name="menuBottomDown"/>
             </template>
-        </Menu1>
+        </AppMenu>
     </ext-titlebar>
 </template>
 
 <script>
-import Avatar from "#components/title/avatar";
-import Menu1 from "#components/title/menu";
+import AppAvatar from "./avatar";
+import AppMenu from "./menu";
 import Notifications from "#components/notifications/menu-sheet";
 
 export default {
-    "components": { Avatar, Menu1, Notifications },
+    "components": { AppAvatar, AppMenu, Notifications },
 
     "props": {
         "notifications": {
