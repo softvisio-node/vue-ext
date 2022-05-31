@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-05-31 19:15+0300\n"
+"POT-Creation-Date: 2022-05-31 19:22+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,8 +15,17 @@ msgstr ""
 "X-Generator: Poedit 3.0.1\n"
 "X-Poedit-SearchPath-0: lib\n"
 
+msgid "API Access Tokens"
+msgstr ""
+
 msgid "Your Profile"
 msgstr "Ваш Профайл"
+
+msgid "Change Password"
+msgstr "Сменить Пароль"
+
+msgid "Sign Out"
+msgstr ""
 
 msgid "Dark Mode"
 msgstr "Тёмный режим"
@@ -29,9 +38,6 @@ msgstr "Удалить Сессии"
 
 msgid "Sign out from all sessions, except this session."
 msgstr "Выйти из всех сессий кроме этой сессии."
-
-msgid "Change Password"
-msgstr "Сменить Пароль"
 
 msgid "New Password"
 msgstr "Новый Пароль"

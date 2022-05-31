@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-05-31 18:14+0300\n"
+"POT-Creation-Date: 2022-05-31 19:23+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -13,3 +13,72 @@ msgstr ""
 "X-Poedit-Basepath: ../..\n"
 "X-Generator: Poedit 3.0.1\n"
 "X-Poedit-SearchPath-0: lib\n"
+
+msgid "API Access Tokens"
+msgstr ""
+
+msgid "Your Profile"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Sign Out"
+msgstr ""
+
+msgid "Dark Mode"
+msgstr ""
+
+msgid "Security"
+msgstr ""
+
+msgid "Delete Sessions"
+msgstr ""
+
+msgid "Sign out from all sessions, except this session."
+msgstr ""
+
+msgid "New Password"
+msgstr ""
+
+msgid "Confirm New Password"
+msgstr ""
+
+msgid "Update Password"
+msgstr ""
+
+msgid "Notifications"
+msgstr ""
+
+msgid "Interface Theme"
+msgstr ""
+
+msgid "Follow OS Theme"
+msgstr ""
+
+msgid "Base Color"
+msgstr ""
+
+msgid "Accent Color"
+msgstr ""
+
+msgid "Search users"
+msgstr ""
+
+msgid "Create User"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
