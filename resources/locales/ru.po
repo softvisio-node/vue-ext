@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-05-31 18:46+0300\n"
+"POT-Creation-Date: 2022-05-31 19:15+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,11 +18,17 @@ msgstr ""
 msgid "Your Profile"
 msgstr "Ваш Профайл"
 
+msgid "Dark Mode"
+msgstr "Тёмный режим"
+
 msgid "Security"
 msgstr "Ьезопастность"
 
 msgid "Delete Sessions"
 msgstr "Удалить Сессии"
+
+msgid "Sign out from all sessions, except this session."
+msgstr "Выйти из всех сессий кроме этой сессии."
 
 msgid "Change Password"
 msgstr "Сменить Пароль"
@@ -35,6 +41,21 @@ msgstr "Подтвердите Новый Пароль"
 
 msgid "Update Password"
 msgstr "Обновить Пароль"
+
+msgid "Notifications"
+msgstr "Уведомления"
+
+msgid "Interface Theme"
+msgstr "Цвет Интерфейса"
+
+msgid "Follow OS Theme"
+msgstr "Следовать теме ОС"
+
+msgid "Base Color"
+msgstr "Базовый цвет"
+
+msgid "Accent Color"
+msgstr "Акцент"
 
 msgid "Search users"
 msgstr "Поиск пользователей"

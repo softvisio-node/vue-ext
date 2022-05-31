@@ -10,9 +10,7 @@
                 </ext-toolbar>
 
                 <ext-container layout="hbox">
-                    <ext-container flex="1">
-                        <div>Sign out from all sessions, except this session.</div>
-                    </ext-container>
+                    <ext-container flex="1" :html="i18n`Sign out from all sessions, except this session.`"/>
                     <ext-button :text="i18n`Delete Sessions`" @tap="deleteSessions"/>
                 </ext-container>
             </ext-panel>
@@ -33,26 +31,26 @@
         </ext-panel>
 
         <!-- notifications -->
-        <ext-panel title="Notifications" layout="fit">
+        <ext-panel :title="i18n`Notifications`" layout="fit">
             <NotificationsPanel/>
         </ext-panel>
 
         <!-- theme -->
-        <ext-panel title="Interface Theme" layout="vbox" viewModel="true">
+        <ext-panel :title="i18n`Interface Theme`" layout="vbox" viewModel="true">
             <ext-toolbar docked="top">
-                <ext-container html="Interface Theme"/>
+                <ext-container :html="i18n`Interface Theme`"/>
             </ext-toolbar>
 
             <ext-fieldset layout1='{"type":"vbox","pack":"start","align":"start"}' defaults='{"labelAlign":"left","labelWidth":150}'>
-                <ext-togglefield label="Follow OS Theme" :value="systemDarkMode" @change="systemDarkMode = $event"/>
+                <ext-togglefield :label="i18n`Follow OS Theme`" :value="systemDarkMode" @change="systemDarkMode = $event"/>
 
-                <ext-togglefield label='<i class="fa-solid fa-adjust"></i> Dark Mode' :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
+                <ext-togglefield :label="darlModeLabel" :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
 
-                <ext-fieldcontainer label="Base Color" layout="fit">
+                <ext-fieldcontainer :label="i18n`Base Color`" layout="fit">
                     <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeBaseChanged"/>
                 </ext-fieldcontainer>
 
-                <ext-fieldcontainer label="Accent Color" layout="fit">
+                <ext-fieldcontainer :label="i18n`Accent Color`" layout="fit">
                     <ext-componentdataview inline="true" @ready="themesColorsViewReady" @childtap="themeAccentChanged"/>
                 </ext-fieldcontainer>
             </ext-fieldset>
@@ -67,6 +65,12 @@ import NotificationsPanel from "#components/notifications/panel";
 
 export default {
     "components": { NotificationsPanel },
+
+    data () {
+        return {
+            "darlModeLabel": `<i class="fa-solid fa-adjust"></i> ${this.i18n`Dark Mode`}]`,
+        };
+    },
 
     "computed": {
         "systemDarkMode": {
