@@ -3,30 +3,30 @@
         <slot name="top"/>
 
         <!-- security -->
-        <ext-panel title="Security" layout="vbox" viewModel="true">
+        <ext-panel :title="i18n`Security`" layout="vbox" viewModel="true">
             <ext-panel>
                 <ext-toolbar docked="top">
-                    <ext-container html="Delete Sessions"/>
+                    <ext-container :html="i18n`Delete Sessions`"/>
                 </ext-toolbar>
 
                 <ext-container layout="hbox">
                     <ext-container flex="1">
                         <div>Sign out from all sessions, except this session.</div>
                     </ext-container>
-                    <ext-button text="Delete Sessions" @tap="deleteSessions"/>
+                    <ext-button :text="i18n`Delete Sessions`" @tap="deleteSessions"/>
                 </ext-container>
             </ext-panel>
 
             <ext-panel>
                 <ext-toolbar docked="top">
-                    <ext-container html="Change Password"/>
+                    <ext-container :html="i18n`Change Password`"/>
                 </ext-toolbar>
                 <ext-fieldpanel ref="changePasswordForm" width="50%">
-                    <ext-passwordfield name="password" label="New Password" required="true"/>
-                    <ext-passwordfield ref="passwordConfirm" label="Confirm New Password" required="true"/>
+                    <ext-passwordfield name="password" :label="i18n`New Password`" required="true"/>
+                    <ext-passwordfield ref="passwordConfirm" :label="i18n`Confirm New Password`" required="true"/>
 
                     <ext-container layout='{"type":"hbox","pack":"end"}'>
-                        <ext-button text="Update Password" @tap="changePassword"/>
+                        <ext-button :text="i18n`Update Password`" @tap="changePassword"/>
                     </ext-container>
                 </ext-fieldpanel>
             </ext-panel>
