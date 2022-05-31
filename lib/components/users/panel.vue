@@ -1,21 +1,21 @@
 <template>
     <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
         <ext-toolbar docked="top">
-            <ext-searchfield :placeholder="i18n('Search users')" width="200" @change="search"/>
+            <ext-searchfield :placeholder="i18n`Search users`" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-user-plus" :text="i18n('Create User')" padding="0 0 0 5" @tap="showCreateUserDialog"/>
-            <ext-button iconCls="fa-solid fa-redo" :text="i18n('Refresh')" @tap="reload"/>
+            <ext-button iconCls="fa-solid fa-user-plus" :text="i18n`Create User`" padding="0 0 0 5" @tap="showCreateUserDialog"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="i18n`Refresh`" @tap="reload"/>
         </ext-toolbar>
 
         <ext-column width="40" @ready="avatarColReady"/>
 
-        <ext-column :text="i18n('Name')" dataIndex="name" flex="1" summaryDataIndex="total" @ready="nameColReady"/>
+        <ext-column :text="i18n`Name`" dataIndex="name" flex="1" summaryDataIndex="total" @ready="nameColReady"/>
 
-        <ext-column :text="i18n('Created')" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
+        <ext-column :text="i18n`Created`" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
 
-        <ext-column :text="i18n('Admin')" width="95" @ready="adminColReady"/>
+        <ext-column :text="i18n`Admin`" width="95" @ready="adminColReady"/>
 
-        <ext-column :text="i18n('Enabled')" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
+        <ext-column :text="i18n`Enabled`" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
 
         <ext-column width="100" @ready="actionColReady"/>
     </ext-grid>
