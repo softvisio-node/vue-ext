@@ -16,22 +16,22 @@ msgstr ""
 "X-Poedit-SearchPath-0: lib\n"
 
 msgid "Search users"
-msgstr ""
+msgstr "Поиск пользователей"
 
 msgid "Create User"
 msgstr "Создать пользователя"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Обновить"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 msgid "Created"
-msgstr ""
+msgstr "Создан"
 
 msgid "Admin"
-msgstr ""
+msgstr "Админ"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Включен"
