@@ -3,54 +3,54 @@
         <slot name="top"/>
 
         <!-- security -->
-        <ext-panel :title="i18n`Security`" layout="vbox" viewModel="true">
+        <ext-panel :title="i18n(`Security`)" layout="vbox" viewModel="true">
             <ext-panel>
                 <ext-toolbar docked="top">
-                    <ext-container :html="i18n`Delete Sessions`"/>
+                    <ext-container :html="i18n(`Delete Sessions`)"/>
                 </ext-toolbar>
 
                 <ext-container layout="hbox">
-                    <ext-container flex="1" :html="i18n`Sign out from all sessions, except this session.`"/>
-                    <ext-button :text="i18n`Delete Sessions`" @tap="deleteSessions"/>
+                    <ext-container flex="1" :html="i18n(`Sign out from all sessions, except this session.`)"/>
+                    <ext-button :text="i18n(`Delete Sessions`)" @tap="deleteSessions"/>
                 </ext-container>
             </ext-panel>
 
             <ext-panel>
                 <ext-toolbar docked="top">
-                    <ext-container :html="i18n`Change Password`"/>
+                    <ext-container :html="i18n(`Change Password`)"/>
                 </ext-toolbar>
                 <ext-fieldpanel ref="changePasswordForm" width="50%">
-                    <ext-passwordfield name="password" :label="i18n`New Password`" required="true"/>
-                    <ext-passwordfield ref="passwordConfirm" :label="i18n`Confirm New Password`" required="true"/>
+                    <ext-passwordfield name="password" :label="i18n(`New Password`)" required="true"/>
+                    <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm New Password`)" required="true"/>
 
                     <ext-container layout='{"type":"hbox","pack":"end"}'>
-                        <ext-button :text="i18n`Update Password`" @tap="changePassword"/>
+                        <ext-button :text="i18n(`Update Password`)" @tap="changePassword"/>
                     </ext-container>
                 </ext-fieldpanel>
             </ext-panel>
         </ext-panel>
 
         <!-- notifications -->
-        <ext-panel :title="i18n`Notifications`" layout="fit">
+        <ext-panel :title="i18n(`Notifications`)" layout="fit">
             <NotificationsPanel/>
         </ext-panel>
 
         <!-- theme -->
-        <ext-panel :title="i18n`Interface Theme`" layout="vbox" viewModel="true">
+        <ext-panel :title="i18n(`Interface Theme`)" layout="vbox" viewModel="true">
             <ext-toolbar docked="top">
-                <ext-container :html="i18n`Interface Theme`"/>
+                <ext-container :html="i18n(`Interface Theme`)"/>
             </ext-toolbar>
 
             <ext-fieldset layout1='{"type":"vbox","pack":"start","align":"start"}' defaults='{"labelAlign":"left","labelWidth":150}'>
-                <ext-togglefield :label="i18n`Follow OS Theme`" :value="systemDarkMode" @change="systemDarkMode = $event"/>
+                <ext-togglefield :label="i18n(`Follow OS Theme`)" :value="systemDarkMode" @change="systemDarkMode = $event"/>
 
                 <ext-togglefield :label="darlModeLabel" :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
 
-                <ext-fieldcontainer :label="i18n`Base Color`" layout="fit">
+                <ext-fieldcontainer :label="i18n(`Base Color`)" layout="fit">
                     <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeBaseChanged"/>
                 </ext-fieldcontainer>
 
-                <ext-fieldcontainer :label="i18n`Accent Color`" layout="fit">
+                <ext-fieldcontainer :label="i18n(`Accent Color`)" layout="fit">
                     <ext-componentdataview inline="true" @ready="themesColorsViewReady" @childtap="themeAccentChanged"/>
                 </ext-fieldcontainer>
             </ext-fieldset>
@@ -68,7 +68,7 @@ export default {
 
     data () {
         return {
-            "darlModeLabel": `<i class="fa-solid fa-adjust"></i> ${this.i18n`Dark Mode`}]`,
+            "darlModeLabel": `<i class="fa-solid fa-adjust"></i> ${this.i18n( `Dark Mode` )}]`,
         };
     },
 
