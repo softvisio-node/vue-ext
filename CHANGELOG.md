@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.4.0 (2022-06-03)
+
+Features:
+
+-   feat: localization
+
 ### 7.3.8 (2022-05-19)
 
 Fixes:
