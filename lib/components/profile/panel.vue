@@ -44,7 +44,7 @@
             <ext-fieldset layout1='{"type":"vbox","pack":"start","align":"start"}' defaults='{"labelAlign":"left","labelWidth":150}'>
                 <ext-togglefield :label="i18n(`Follow OS Theme`)" :value="systemDarkMode" @change="systemDarkMode = $event"/>
 
-                <ext-togglefield :label="darlModeLabel" :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
+                <ext-togglefield :label="darkModeLabel" :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
 
                 <ext-fieldcontainer :label="i18n(`Base Color`)" layout="fit">
                     <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeBaseChanged"/>
@@ -68,7 +68,7 @@ export default {
 
     data () {
         return {
-            "darlModeLabel": `<i class="fa-solid fa-adjust"></i> ${this.i18n( `Dark Mode` )}]`,
+            "darkModeLabel": `<i class="fa-solid fa-adjust"></i> ${this.i18n( `Dark Mode` )}]`,
         };
     },
 
