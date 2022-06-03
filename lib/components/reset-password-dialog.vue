@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Reset Password" layout="fit" width="300" minHeight="450" @destroy="close" @ready="_ready">
+    <ext-dialog :title="i18n(`Reset Password`)" layout="fit" width="300" minHeight="450" @destroy="close" @ready="_ready">
         <ext-fieldpanel ref="form" defaults1='{"labelAlign":"left","labelWidth":120}'>
             <ext-hiddenfield name="token" :value="token"/>
             <ext-passwordfield name="password" label="New Password" required="true"/>

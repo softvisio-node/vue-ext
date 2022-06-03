@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Upload Release" width="350" height="400" closeAction="hide" @ready="_ready">
+    <ext-dialog :title="i18n(`Upload Release`)" width="350" height="400" closeAction="hide" @ready="_ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
             <ext-radiogroup name="platform" label="Platform" defaults='{"labelAlign":"right"}' vertical="true">
                 <ext-radiofield value="win32" label="Windows" checked="true"/>

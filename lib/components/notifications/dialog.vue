@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Notifications Settings" width="700" height="90%" layout="fit">
+    <ext-dialog :title="i18n(`Notifications Settings`)" width="700" height="90%" layout="fit">
         <NotificationsPanel/>
     </ext-dialog>
 </template>

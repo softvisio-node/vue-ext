@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog title="Create API Token" width="400" height="400" closeAction="hide" layout="vbox" @ready="ready">
+    <ext-dialog :title="i18n(`Create API Token`)" width="400" height="400" closeAction="hide" layout="vbox" @ready="ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
             <ext-textfield ref="name" name="name" label="Token Name" :placeholder="i18n(`Enter new token name`)" required="true"/>
         </ext-fieldpanel>

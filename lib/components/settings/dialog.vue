@@ -5,7 +5,7 @@
                 <slot name="top"/>
 
                 <!-- SMTP -->
-                <ext-panel title="SMTP Settings" :hidden="!smtpSettings">
+                <ext-panel :title="i18n(`SMTP Settings`)" :hidden="!smtpSettings">
                     <ext-toolbar docked="top" :hidden="!titles">
                         <ext-container html="SMTP Settings"/>
                     </ext-toolbar>
