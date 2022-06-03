@@ -12,15 +12,15 @@
             </ext-container>
             <ext-spacer height="5"/>
             <ext-container layout="center">
-                <ext-button iconCls="fa-solid fa-copy" text="Copy Token To Clipboard" ui="action" @tap="copyToClipboard"/>
+                <ext-button iconCls="fa-solid fa-copy" :text="i18n(`Copy Token To Clipboard`)" ui="action" @tap="copyToClipboard"/>
             </ext-container>
         </ext-container>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button ref="cancel" text="Cancel" ui="decline" @tap="close"/>
-            <ext-button ref="submit" text="Create" ui="action" @tap="submit"/>
-            <ext-button ref="close" text="Close" ui="action" hidden="true" @tap="close"/>
+            <ext-button ref="cancel" :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
+            <ext-button ref="submit" :text="i18n(`Create`)" ui="action" @tap="submit"/>
+            <ext-button ref="close" :text="i18n(`Close`)" ui="action" hidden="true" @tap="close"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

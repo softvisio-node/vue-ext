@@ -18,7 +18,7 @@
                         <ext-passwordfield label="SMTP Password" bind="{record.smtp_password}"/>
                     </ext-fieldset>
                     <ext-container layout='{"type":"hbox","pack":"end"}'>
-                        <ext-button text="Test SMTP" bind='{"disabled":"{!record.smtp_can_test}"}' ui="action" @tap="testSmtp"/>
+                        <ext-button :text="i18n(`Test SMTP`)" bind='{"disabled":"{!record.smtp_can_test}"}' ui="action" @tap="testSmtp"/>
                     </ext-container>
                 </ext-panel>
 
@@ -27,8 +27,8 @@
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button text="Cancel" ui="decline" @tap="close"/>
-            <ext-button text="Submit" ui="action" bind='{"disabled":"{!record.dirty}"}' @tap="submit"/>
+            <ext-button :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
+            <ext-button :text="i18n(`Submit`)" ui="action" bind='{"disabled":"{!record.dirty}"}' @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

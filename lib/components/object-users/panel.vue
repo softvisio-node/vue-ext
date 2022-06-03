@@ -3,11 +3,11 @@
         <ext-toolbar docked="top">
             <ext-searchfield placeholder="Search users" width="200" @change="_searchUsers"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-plus" text="Add User" @tap="_showAddUserDialog"/>
+            <ext-button iconCls="fa-solid fa-plus" :text="i18n(`Add User`)" @tap="_showAddUserDialog"/>
         </ext-toolbar>
         <ext-column width="40" @ready="_avatarColReady"/>
-        <ext-column text="Username" dataIndex="username" flex="1" cell='{"encodeHtml":false,"style":"vertical-align:top"}' @ready="_usernameColReady"/>
-        <ext-column text="Role" dataIndex="role_name" flex="1" cell='{"encodeHtml":false}' @ready="_roleColReady"/>
+        <ext-column :text="i18n(`Username`)" dataIndex="username" flex="1" cell='{"encodeHtml":false,"style":"vertical-align:top"}' @ready="_usernameColReady"/>
+        <ext-column :text="i18n(`Role`)" dataIndex="role_name" flex="1" cell='{"encodeHtml":false}' @ready="_roleColReady"/>
         <ext-column width="100" @ready="_actionColReady"/>
 
         <!-- add / update user dialog -->
@@ -20,7 +20,7 @@
 
             <ext-toolbar docked="bottom">
                 <ext-spacer/>
-                <ext-button text="Submit" @tap="_addUser"/>
+                <ext-button :text="i18n(`Submit`)" @tap="_addUser"/>
             </ext-toolbar>
         </ext-dialog>
     </ext-grid>

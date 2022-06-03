@@ -1,16 +1,16 @@
 <template>
     <ext-dialog title="Edit Token Permissions" width="800" height="90%" closeAction="hide" layout="fit" viewModel="true">
         <ext-grid plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
-            <ext-column text="Name" dataIndex="name" width="150"/>
+            <ext-column :text="i18n(`Name`)" dataIndex="name" width="150"/>
 
-            <ext-column text="Description" dataIndex="description" flex="1"/>
+            <ext-column :text="i18n(`Description`)" dataIndex="description" flex="1"/>
 
-            <ext-column text="Enabled" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
+            <ext-column :text="i18n(`Enabled`)" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
         </ext-grid>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button text="Cancel" ui="decline" @tap="close"/>
-            <ext-button text="Submit" ui="action" bind='{"disabled":"{!dirty}"}' @tap="submit"/>
+            <ext-button :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
+            <ext-button :text="i18n(`Submit`)" ui="action" bind='{"disabled":"{!dirty}"}' @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

@@ -8,12 +8,12 @@
         <ext-textfield name="username" label="User Name or Email" required="true"/>
         <ext-passwordfield name="password" label="Password" required="true"/>
 
-        <ext-button text="Do not have account? Sign up" :hidden="!signup" width="100%" margin="10 0 0 0" @tap="showSignup"/>
+        <ext-button :text="i18n(`Do not have account? Sign up`)" :hidden="!signup" width="100%" margin="10 0 0 0" @tap="showSignup"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-            <ext-button text="Forgot password?" ui="forward" :hidden="!reset" @tap="showReset"/>
+            <ext-button :text="i18n(`Forgot password?`)" ui="forward" :hidden="!reset" @tap="showReset"/>
             <ext-spacer/>
-            <ext-button text="Sign in" ui="action" @tap="submit"/>
+            <ext-button :text="i18n(`Sign in`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-formpanel>
 </template>

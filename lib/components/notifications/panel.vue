@@ -2,19 +2,17 @@
     <ext-panel layout="vbox" @ready="_ready">
         <!-- <ext-container layout="hbox"> -->
         <!--     <ext-textfield label="Yout Email Address" labelAlign="left" labelWidth="150" :value="email"/> -->
-        <!--     <ext-button text="Update"/> -->
+        <!--     <ext-button :text="i18n(`Update`)"/> -->
         <!-- </ext-container> -->
 
         <ext-container layout="hbox" :hidden="!telegramEnabled">
             <ext-textfield ref="telegramUsernameField" label="Your Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
-            <ext-button text="Update" @tap="_updateTelegramUsername"/>
-            <ext-button :text="`Open @` + telegramBotUsername" iconCls="fa-solid fa-external-link-alt" iconAlign="right" @tap="_openTelegramBot"/>
+            <ext-button :text="i18n(`Update`)" @tap="_updateTelegramUsername"/>
+            <ext-button :text="i18n(`Open @${telegramBotUsername}`)" iconCls="fa-solid fa-external-link-alt" iconAlign="right" @tap="_openTelegramBot"/>
         </ext-container>
 
         <ext-container :hidden="!telegramEnabled">
-            <div>
-                In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@{{ telegramBotUsername }}</b> and press <b>"Start"</b>.
-            </div>
+            <div>{{ i18n(`In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${telegramBotUsername}</b> and press <b>"Start"</b>.`) }}</div>
         </ext-container>
 
         <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_gridReady">
@@ -22,10 +20,10 @@
                 <ext-container html="Notification Types"/>
             </ext-toolbar>
             <ext-column dataIndex="title" flex="1" cell='{"encodeHtml":false}'/>
-            <ext-column text='<div style="text-align:center"><b>Internal</b><br/>notifications</div>' width="100" align="center" @ready="_internalColReady"/>
-            <ext-column text='<div style="text-align:center"><b>Email</b><br/>notifications</div>' width="100" align="center" @ready="_emailColReady"/>
-            <ext-column text='<div style="text-align:center"><b>Telegram</b><br/>notifications</div>' width="100" align="center" @ready="_telegramColReady"/>
-            <ext-column text='<div style="text-align:center"><b>Push</b><br/>notifications</div>' width="100" align="center" @ready="_pushColReady"/>
+            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(`Internal${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_internalColReady"/>
+            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(`Email${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_emailColReady"/>
+            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(`Telegram${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_telegramColReady"/>
+            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(`Push${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_pushColReady"/>
         </ext-grid>
     </ext-panel>
 </template>

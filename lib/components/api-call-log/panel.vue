@@ -4,13 +4,13 @@
             <ext-searchfield placeholder="Search tokens by name" width="200" @change="search"/>
             <ext-spacer/>
             <ext-togglefield label="AUTO REFRESH" labelAlign="right" @change="autoRefreshChange"/>
-            <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" text="Refresh" @tap="refresh"/>
+            <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18n(`Refresh`)" @tap="refresh"/>
         </ext-toolbar>
 
-        <ext-column text="API Method ID" width="300" sorter='{"property":"id"}' @ready="idColReady"/>
-        <ext-column text="Load for Last 60 Minutes" flex="1" align="center" @ready="_loadColReady"/>
-        <ext-column text="Average Request Runtime for Last 60 Minutes" flex="1" align="center" @ready="_avgRuntimeColReady"/>
-        <ext-column text="Exceptions for Last 60 Minutes (%)" flex="1" align="center" @ready="_exceptionsColReady"/>
+        <ext-column :text="i18n(`API Method ID`)" width="300" sorter='{"property":"id"}' @ready="idColReady"/>
+        <ext-column :text="i18n(`Load for Last 60 Minutes`)" flex="1" align="center" @ready="_loadColReady"/>
+        <ext-column :text="i18n(`Average Request Runtime for Last 60 Minutes`)" flex="1" align="center" @ready="_avgRuntimeColReady"/>
+        <ext-column :text="i18n(`Exceptions for Last 60 Minutes (%)`)" flex="1" align="center" @ready="_exceptionsColReady"/>
         <ext-column width="40" @ready="_actionColReady"/>
     </ext-grid>
 </template>

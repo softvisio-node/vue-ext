@@ -10,9 +10,9 @@
         <ext-passwordfield ref="passwordConfirm" label="Confirm Password" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-            <ext-button iconCls="fa-solid fa-arrow-left" text="Sign In" ui="back" @tap="showSignin"/>
+            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18n(`Sign In`)" ui="back" @tap="showSignin"/>
             <ext-spacer/>
-            <ext-button text="Sign Up" ui="action" @tap="submit"/>
+            <ext-button :text="i18n(`Sign Up`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-formpanel>
 </template>

@@ -6,8 +6,8 @@
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button text="Cancel" ui="decline" @tap="close"/>
-            <ext-button text="Submit" ui="action" @tap="submit"/>
+            <ext-button :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
+            <ext-button :text="i18n(`Submit`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

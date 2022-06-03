@@ -19,8 +19,8 @@
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button text="Cancel" ui="decline" @tap="close"/>
-            <ext-button text="Upload" ui="action" @tap="submit"/>
+            <ext-button :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
+            <ext-button :text="i18n(`Upload`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

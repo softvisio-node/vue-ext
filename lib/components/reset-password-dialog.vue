@@ -7,8 +7,8 @@
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button text="Cancel" ui="decline" @tap="close"/>
-            <ext-button text="Reset Password" ui="action" @tap="submit"/>
+            <ext-button :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
+            <ext-button :text="i18n(`Reset Password`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
