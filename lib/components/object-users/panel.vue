@@ -185,7 +185,7 @@ export default {
         async _deleteUser ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            if ( !( await this.$utils.confirm( "Confirmation", "Are you sure you want to delete user?" ) ) ) return;
+            if ( !( await this.$utils.confirm( this.i18n( "Confirmation" ), this.i18n( "Are you sure you want to delete user?" ) ) ) ) return;
 
             button.disable();
 
