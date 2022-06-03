@@ -10,7 +10,7 @@
                 </ext-toolbar>
 
                 <ext-container layout="hbox">
-                    <ext-container flex="1" :html="i18n(`Sign out from all sessions, except this session.`)"/>
+                    <ext-container flex="1" :html="i18n(`Sign out from all sessions, except this session`)"/>
                     <ext-button :text="i18n(`Delete sessions`)" @tap="deleteSessions"/>
                 </ext-container>
             </ext-panel>
@@ -20,11 +20,11 @@
                     <ext-container :html="i18n(`Change password`)"/>
                 </ext-toolbar>
                 <ext-fieldpanel ref="changePasswordForm" width="50%">
-                    <ext-passwordfield name="password" :label="i18n(`New Password`)" required="true"/>
-                    <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm New Password`)" required="true"/>
+                    <ext-passwordfield name="password" :label="i18n(`New password`)" required="true"/>
+                    <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm new password`)" required="true"/>
 
                     <ext-container layout='{"type":"hbox","pack":"end"}'>
-                        <ext-button :text="i18n(`Update Password`)" @tap="changePassword"/>
+                        <ext-button :text="i18n(`Update password`)" @tap="changePassword"/>
                     </ext-container>
                 </ext-fieldpanel>
             </ext-panel>
@@ -38,7 +38,7 @@
         <!-- theme -->
         <ext-panel :title="i18n(`Interface theme`)" layout="vbox" viewModel="true">
             <ext-toolbar docked="top">
-                <ext-container :html="i18n(`Interface Theme`)"/>
+                <ext-container :html="i18n(`Interface theme`)"/>
             </ext-toolbar>
 
             <ext-fieldset layout1='{"type":"vbox","pack":"start","align":"start"}' defaults='{"labelAlign":"left","labelWidth":150}'>
@@ -68,7 +68,7 @@ export default {
 
     data () {
         return {
-            "darkModeLabel": `<i class="fa-solid fa-adjust"></i> ${this.i18n( `Dark Mode` )}`,
+            "darkModeLabel": `<i class="fa-solid fa-adjust"></i> ${this.i18n( `Dark mode` )}`,
         };
     },
 

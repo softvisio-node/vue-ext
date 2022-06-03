@@ -32,7 +32,7 @@ export default {
                 return `<i class="fa-solid fa-adjust"></i>`;
             }
             else {
-                return `<i class="fa-solid fa-adjust"></i> ${this.i18n( `Dark Mode` )}`;
+                return `<i class="fa-solid fa-adjust"></i> ${this.i18n( `Dark mode` )}`;
             }
         },
 

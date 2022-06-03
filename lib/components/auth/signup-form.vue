@@ -7,7 +7,7 @@
         </ext-toolbar>
         <ext-emailfield name="username" :label="i18n(`Email`)" required="true"/>
         <ext-passwordfield name="password" :label="i18n(`Password`)" required="true"/>
-        <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm Password`)" required="true"/>
+        <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm password`)" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
             <ext-button iconCls="fa-solid fa-arrow-left" :text="i18n(`Sign in`)" ui="back" @tap="showSignin"/>

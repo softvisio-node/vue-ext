@@ -3,7 +3,7 @@
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18n(`Search tokens by name`)" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-plus" :text="i18n(`Create API Token`)" @tap="showCreateTokenDialog"/>
+            <ext-button iconCls="fa-solid fa-plus" :text="i18n(`Create API token`)" @tap="showCreateTokenDialog"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18n(`Refresh`)" @tap="reload"/>
         </ext-toolbar>
 

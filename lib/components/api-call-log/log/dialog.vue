@@ -25,7 +25,7 @@ import ApiCallLogEntryModel from "#vue/models/api-call-log/entry";
 export default {
     data () {
         return {
-            "title": "API Call Log",
+            "title": "API call log",
         };
     },
 
@@ -49,7 +49,7 @@ export default {
         },
 
         setRecord ( record ) {
-            this.title = `API Call Log for Method "${record.id}"`;
+            this.title = `API call log for Method "${record.id}"`;
 
             this.store.addFilter( {
                 "property": "method_id",

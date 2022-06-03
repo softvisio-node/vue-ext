@@ -12,7 +12,7 @@
 
             <slot name="bottomUp"/>
 
-            <ext-button iconCls="fa-solid fa-key" :text="i18n(`API Access Tokens`)" textAlign="left" :hidden="!apiTokens" @tap="showApiTokens"/>
+            <ext-button iconCls="fa-solid fa-key" :text="i18n(`API tokens`)" textAlign="left" :hidden="!apiTokens" @tap="showApiTokens"/>
             <ext-button iconCls="fa-solid fa-user" :text="i18n(`Your profile`)" textAlign="left" :hidden="!profile" @tap="showProfile"/>
             <ext-button iconCls="fa-solid fa-asterisk" :text="i18n(`Change password`)" textAlign="left" :hidden="!changePassword" @tap="showChangePasswordDialog"/>
 
