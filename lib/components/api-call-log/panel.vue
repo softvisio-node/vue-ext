@@ -8,7 +8,7 @@
         </ext-toolbar>
 
         <ext-column :text="i18n(`API Method ID`)" width="300" sorter='{"property":"id"}' @ready="idColReady"/>
-        <ext-column :text="i18n(`Load for Last 60 Minutes`)" flex="1" align="center" @ready="_loadColReady"/>
+        <ext-column :text="i18n(`Load for last 60 minutes`)" flex="1" align="center" @ready="_loadColReady"/>
         <ext-column :text="i18n(`Average Request Runtime for Last 60 Minutes`)" flex="1" align="center" @ready="_avgRuntimeColReady"/>
         <ext-column :text="i18n(`Exceptions for Last 60 Minutes (%)`)" flex="1" align="center" @ready="_exceptionsColReady"/>
         <ext-column width="40" @ready="_actionColReady"/>

@@ -1,16 +1,15 @@
 <template>
     <ext-dialog :title="i18n(`Create User`)" width="350" height="400" closeAction="hide" @ready="_ready">
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
-            <ext-emailfield name="username" :label="i18n(`Email`)" required="true"/>
-            <ext-passwordfield name="password" :label="i18n(`Password`)" required="true"/>
-            <ext-passwordfield name="password1" :label="i18n(`Confirm Password`)" required="true"/>
-            <ext-togglefield name="enabled" :label="i18n(`Enabled`)" value="true"/>
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
+            <ext-emailfield name="username" :label="i18n(`Email`)" :placeholder="i18n(`Enter user email`)" required="true"/>
+            <ext-passwordfield name="password" :label="i18n(`Password`)" :placeholder="i18n(`Enter user password`)" required="true"/>
+            <ext-passwordfield name="password1" :label="i18n(`Confirm password`)" :placeholder="i18n(`Confirm user password`)" required="true"/>
+            <ext-togglefield name="enabled" :label="i18n(`Login enabled`)" value="true"/>
             <ext-togglefield name="admin" :label="i18n(`Admin`)" value="false"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
             <ext-button :text="i18n(`Create User`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>

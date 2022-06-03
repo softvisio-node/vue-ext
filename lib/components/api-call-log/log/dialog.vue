@@ -14,7 +14,7 @@
 
             <ext-column :text="i18n(`Status`)" dataIndex="status_label" sortable="false" cell='{"encodeHtml":false}' width="100" align="center"/>
 
-            <ext-column :text="i18n(`Status Text`)" dataIndex="status_text" sortable="false" flex="1"/>
+            <ext-column :text="i18n(`Status text`)" dataIndex="status_text" sortable="false" flex="1"/>
         </ext-grid>
     </ext-dialog>
 </template>
