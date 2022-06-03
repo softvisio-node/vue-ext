@@ -2,11 +2,11 @@
     <ext-sheet layout="fit" side="right" modal="true" width="300" @ready="ready">
         <ext-panel ref="card" layout='{"type":"card","animation":"fade"}'>
             <ext-titlebar docked="top" iconCls="fa-regular fa-bell" :title="i18n(`Notifications`)">
-                <ext-button align="right" iconCls="fa-solid fa-eye" tooltip="Mark all as read" :hidden="!totalUndoneUnread" @tap="setReadAll"/>
-                <!-- <ext-button align="right" iconCls="fa-solid fa-check-double" tooltip="Mark all as done" :hidden="!totalUndone" @tap="setDoneAll"/> -->
-                <ext-button align="right" iconCls="fa-solid fa-trash-alt" tooltip="Delete all" :hidden="!totalUndone" @tap="deleteAll"/>
-                <ext-button align="right" iconCls="fa-solid fa-cog" tooltip="Notifications settings" @tap="showNotificationsSettingsDialog"/>
-                <ext-button align="right" iconCls="fa-solid fa-redo" tooltip="Refresh notifications" @tap="reload"/>
+                <ext-button align="right" iconCls="fa-solid fa-eye" :tooltip="i18n(`Mark all as read`)" :hidden="!totalUndoneUnread" @tap="setReadAll"/>
+                <!-- <ext-button align="right" iconCls="fa-solid fa-check-double" :tooltip="i18n(`Mark all as done`)" :hidden="!totalUndone" @tap="setDoneAll"/> -->
+                <ext-button align="right" iconCls="fa-solid fa-trash-alt" :tooltip="i18n(`Delete all`)" :hidden="!totalUndone" @tap="deleteAll"/>
+                <ext-button align="right" iconCls="fa-solid fa-cog" :tooltip="i18n(`Notifications settings`)" @tap="showNotificationsSettingsDialog"/>
+                <ext-button align="right" iconCls="fa-solid fa-redo" :tooltip="i18n(`Refresh notifications`)" @tap="reload"/>
             </ext-titlebar>
             <ext-panel layout="center">
                 <ext-container :html='`<div style="font-size:1.5em;">` + i18n(`You have no notifications`) + `</div>`'/>

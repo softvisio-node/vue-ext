@@ -11,7 +11,7 @@
                     </ext-toolbar>
                     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":250}'>
                         <ext-textfield label="App URL" bind="{record.app_url}"/>
-                        <ext-textfield label="From <i class='fa-solid fa-question-circle'></i>" bind="{record.smtp_from}" :placeholder="i18n(`User name <email@address>`)" tooltip="Format: User Name &amp;lt;email@address>."/>
+                        <ext-textfield label="From <i class='fa-solid fa-question-circle'></i>" bind="{record.smtp_from}" :placeholder="i18n(`User name <email@address>`)" :tooltip="i18n(`Format: User Name <email@address>.`)"/>
                         <ext-textfield label="SMTP Host" bind="{record.smtp_hostname}"/>
                         <ext-spinnerfield label="SMTP Port" decimals="0" minValue="1" maxValue="65535" bind="{record.smtp_port}"/>
                         <ext-textfield label="SMTP Username" bind="{record.smtp_username}"/>
