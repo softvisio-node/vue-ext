@@ -81,7 +81,7 @@ export default {
                 this.$refs.submit.ext.setHidden( true );
                 this.$refs.close.ext.setHidden( false );
 
-                this.$utils.toast( "API token created" );
+                this.$utils.toast( this.i18n( "API token created" ) );
 
                 this.$store["api-tokens"].reload();
             }
@@ -93,7 +93,7 @@ export default {
         copyToClipboard () {
             this.$utils.copyToClipboard( this.$refs.token.ext.getValue() );
 
-            this.$utils.toast( "Token copied to clipboard" );
+            this.$utils.toast( this.i18n( "Token copied to clipboard" ) );
         },
     },
 };

@@ -56,7 +56,7 @@ export default {
             Ext.Viewport.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( "Password changed." );
+                this.$utils.toast( this.i18n( "Password changed" ) );
 
                 this.close();
             }

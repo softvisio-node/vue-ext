@@ -120,7 +120,7 @@ export default {
                 dialog = this.ext;
 
             if ( !form.validate() ) {
-                this.$utils.toast( "Please, fill all required fields" );
+                this.$utils.toast( this.i18n( "Please, fill all required fields" ) );
 
                 return;
             }
@@ -142,7 +142,7 @@ export default {
             if ( res.ok ) {
                 record.commit();
 
-                this.$utils.toast( "Settings updated" );
+                this.$utils.toast( this.i18n( "Settings updated" ) );
 
                 this.close();
             }

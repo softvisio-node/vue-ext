@@ -62,7 +62,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( "Release created." );
+                this.$utils.toast( this.i18n( "Release created" ) );
 
                 this.$store["electron-updates"].reload();
 

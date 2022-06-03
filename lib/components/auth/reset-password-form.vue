@@ -50,7 +50,7 @@ export default {
                 else {
                     form.reset();
 
-                    this.$utils.toast( "Password change instructions were sent to the email address, associated with your account.", 5000 );
+                    this.$utils.toast( this.i18n( "Password change instructions were sent to the email address, associated with your account." ), 5000 );
 
                     this.showSignin();
                 }

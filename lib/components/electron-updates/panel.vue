@@ -117,7 +117,7 @@ export default {
             var res = await this.$api.call( "electron-updates/delete", record.getId() );
 
             if ( res.ok ) {
-                this.$utils.toast( "Update deleted" );
+                this.$utils.toast( this.i18n( "Update deleted" ) );
 
                 this.store.remove( record );
             }

@@ -171,7 +171,7 @@ export default {
                 button.resumeEvent( "change" );
             }
             else {
-                this.$utils.toast( "User permissions updated" );
+                this.$utils.toast( this.i18n( "User permissions updated" ) );
 
                 userPermissions.admin = newVal;
             }
@@ -203,7 +203,7 @@ export default {
                 button.resumeEvent( "change" );
             }
             else {
-                this.$utils.toast( `User ${newVal ? "enabled" : "disabled"}` );
+                this.$utils.toast( this.i18n( msgid`User ${newVal ? "enabled" : "disabled"}` ) );
 
                 button.enable();
             }
@@ -224,7 +224,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( "User deleted" );
+                this.$utils.toast( this.i18n( "User deleted" ) );
 
                 this.store.remove( record );
             }
@@ -244,7 +244,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( "Sessions were deleted" );
+                this.$utils.toast( this.i18n( "Sessions were deleted" ) );
             }
             else {
                 this.$utils.toast( res );

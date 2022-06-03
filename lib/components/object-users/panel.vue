@@ -194,7 +194,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( "User deleted" );
+                this.$utils.toast( this.i18n( "User deleted" ) );
 
                 this.usersStore.remove( record );
             }
@@ -217,7 +217,7 @@ export default {
                 roleId = this.$refs.addUserRoleCombo.ext.getValue();
 
             if ( !userId || !roleId ) {
-                this.$utils.toast( `Please, fill all fields` );
+                this.$utils.toast( this.i18n( `Please, fill all fields` ) );
 
                 return;
             }
@@ -228,7 +228,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( `Users updated` );
+                this.$utils.toast( this.i18n( `Users updated` ) );
 
                 this.reload();
 

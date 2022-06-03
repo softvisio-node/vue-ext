@@ -60,7 +60,7 @@ export default {
             var res = await this.$api.call( "admin/users/create", vals );
 
             if ( res.ok ) {
-                this.$utils.toast( "User created" );
+                this.$utils.toast( this.i18n( "User created" ) );
 
                 this.$store.users.reload();
 

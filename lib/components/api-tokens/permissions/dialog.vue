@@ -98,7 +98,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( "Token permissions updated" );
+                this.$utils.toast( this.i18n( "Token permissions updated" ) );
 
                 this.record.set( "permissions", Ext.apply( {}, permissions, this.record.get( "permissions" ) ) );
 

@@ -156,7 +156,7 @@ export default {
             if ( res.ok ) {
                 form.reset( true );
 
-                this.$utils.toast( "Password changed." );
+                this.$utils.toast( this.i18n( "Password changed" ) );
             }
             else {
                 this.$utils.toast( res );
@@ -176,7 +176,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( "Sessions were deleted" );
+                this.$utils.toast( this.i18n( "Sessions were deleted" ) );
             }
         },
     },

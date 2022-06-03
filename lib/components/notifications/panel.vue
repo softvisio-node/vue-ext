@@ -156,7 +156,7 @@ export default {
             else {
                 this.$store.notifications.telegramUsername = value;
 
-                this.$utils.toast( `Telegram username updated` );
+                this.$utils.toast( this.i18n( `Telegram username updated` ) );
             }
         },
     },
