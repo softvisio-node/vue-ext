@@ -2,11 +2,11 @@
     <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-upload" :text="i18n(`Upload Release`)" @tap="create"/>
+            <ext-button iconCls="fa-solid fa-upload" :text="i18n(`Upload release`)" @tap="create"/>
         </ext-toolbar>
 
         <ext-column :text="i18n(`Plaform`)" dataIndex="platform_name" sorter='{"property":"platform"}' flex="1" cell='{"encodeHtml":false}'/>
-        <ext-column :text="i18n(`Arch`)" dataIndex="arch" flex="1"/>
+        <ext-column :text="i18n(`Architecture`)" dataIndex="arch" flex="1"/>
         <ext-column :text="i18n(`Version`)" dataIndex="version" sorter='{"property":"version_sort"}' flex="1"/>
         <ext-column :text="i18n(`Created`)" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
         <ext-column :text="i18n(`Published`)" width="110" sorter='{"property":"published"}' summaryDataIndex="-" @ready="publishedColReady"/>

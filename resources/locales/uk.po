@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-03 15:30+0300\n"
+"POT-Creation-Date: 2022-06-03 23:36+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,99 +14,98 @@ msgstr ""
 "X-Generator: Poedit 3.0.1\n"
 "X-Poedit-SearchPath-0: lib\n"
 
-#: lib/components/api-call-log/dialog.vue:3:24
+#: lib/components/api-call-log/dialog.vue:2:24
 msgid "API Call Log"
 msgstr ""
 
-#: lib/components/api-call-log/history/dialog.vue:6:58
-#: lib/components/api-call-log/log/dialog.vue:6:58
-#: lib/components/api-call-log/panel.vue:8:78
-#: lib/components/api-tokens/panel.vue:8:58 lib/components/users/panel.vue:8:58
+#: lib/components/api-call-log/history/dialog.vue:5:58
+#: lib/components/api-call-log/log/dialog.vue:5:58
+#: lib/components/api-call-log/panel.vue:7:78
+#: lib/components/api-tokens/panel.vue:7:58 lib/components/users/panel.vue:7:58
 msgid "Refresh"
 msgstr ""
 
-#: lib/components/api-call-log/log/dialog.vue:10:31
+#: lib/components/api-call-log/log/dialog.vue:9:31
 msgid "Started"
 msgstr ""
 
-#: lib/components/api-call-log/log/dialog.vue:11:31
+#: lib/components/api-call-log/log/dialog.vue:10:31
 msgid "Finished"
 msgstr ""
 
-#: lib/components/api-call-log/log/dialog.vue:12:31
+#: lib/components/api-call-log/log/dialog.vue:11:31
 msgid "Runtime (sec.)"
 msgstr ""
 
-#: lib/components/api-call-log/log/dialog.vue:14:31
+#: lib/components/api-call-log/log/dialog.vue:13:31
 msgid "Exception"
 msgstr ""
 
-#: lib/components/api-call-log/log/dialog.vue:16:31
+#: lib/components/api-call-log/log/dialog.vue:15:31
 msgid "Status"
 msgstr ""
 
-#: lib/components/api-call-log/log/dialog.vue:18:31
-msgid "Status Text"
+#: lib/components/api-call-log/log/dialog.vue:17:31
+msgid "Status text"
 msgstr ""
 
-#: lib/components/api-call-log/panel.vue:5:43
-#: lib/components/api-tokens/panel.vue:5:43
+#: lib/components/api-call-log/panel.vue:4:43
+#: lib/components/api-tokens/panel.vue:4:43
 msgid "Search tokens by name"
 msgstr ""
 
-#: lib/components/api-call-log/panel.vue:11:27
+#: lib/components/api-call-log/panel.vue:10:27
 msgid "API Method ID"
 msgstr ""
 
-#: lib/components/api-call-log/panel.vue:12:27
-msgid "Load for Last 60 Minutes"
+#: lib/components/api-call-log/panel.vue:11:27
+msgid "Load for last 60 minutes"
 msgstr ""
 
-#: lib/components/api-call-log/panel.vue:13:27
+#: lib/components/api-call-log/panel.vue:12:27
 msgid "Average Request Runtime for Last 60 Minutes"
 msgstr ""
 
-#: lib/components/api-call-log/panel.vue:14:27
+#: lib/components/api-call-log/panel.vue:13:27
 msgid "Exceptions for Last 60 Minutes (%)"
 msgstr ""
 
-#: lib/components/api-tokens/create/dialog.vue:5:58
-msgid "Token Name"
+#: lib/components/api-tokens/create/dialog.vue:4:58
+msgid "Token name"
 msgstr ""
 
-#: lib/components/api-tokens/create/dialog.vue:5:92
+#: lib/components/api-tokens/create/dialog.vue:4:92
 msgid "Enter new token name"
 msgstr ""
 
-#: lib/components/api-tokens/create/dialog.vue:10:51
+#: lib/components/api-tokens/create/dialog.vue:9:51
 msgid "Your API Access Token:"
 msgstr ""
 
-#: lib/components/api-tokens/create/dialog.vue:16:62
-msgid "Copy Token To Clipboard"
+#: lib/components/api-tokens/create/dialog.vue:15:62
+msgid "Copy token to the clipboard"
 msgstr ""
 
-#: lib/components/api-tokens/create/dialog.vue:22:44
-#: lib/components/api-tokens/permissions/dialog.vue:13:31
-#: lib/components/change-password-dialog.vue:10:31
-#: lib/components/electron-updates/create/dialog.vue:23:31
-#: lib/components/reset-password-dialog.vue:11:31
-#: lib/components/settings/dialog.vue:31:31
-#: lib/components/users/create/dialog.vue:14:31
-#: lib/components/users/permissions/dialog.vue:13:31
+#: lib/components/api-tokens/create/dialog.vue:21:44
+#: lib/components/api-tokens/permissions/dialog.vue:12:31
+#: lib/components/change-password-dialog.vue:9:31
+#: lib/components/electron-updates/create/dialog.vue:22:31
+#: lib/components/reset-password-dialog.vue:10:31
+#: lib/components/settings/dialog.vue:30:31
+#: lib/components/users/permissions/dialog.vue:12:31
 msgid "Cancel"
 msgstr ""
 
-#: lib/components/api-tokens/create/dialog.vue:23:44
+#: lib/components/api-tokens/create/dialog.vue:22:44
 msgid "Create"
 msgstr ""
 
-#: lib/components/api-tokens/create/dialog.vue:24:43
+#: lib/components/api-tokens/create/dialog.vue:23:43
 msgid "Close"
 msgstr ""
 
-#: lib/components/api-tokens/create/dialog.vue:3:24
-#: lib/components/api-tokens/panel.vue:7:58
+#: lib/components/api-tokens/create/dialog.vue:2:24
+#: lib/components/api-tokens/panel.vue:6:58
 msgid "Create API Token"
 msgstr ""
 
@@ -115,33 +114,37 @@ msgid "API token created"
 msgstr ""
 
 #: lib/components/api-tokens/create/dialog.vue:69:31
-msgid "Token copied to clipboard"
+msgid "Token copied to the clipboard"
 msgstr ""
 
-#: lib/components/api-tokens/dialog.vue:3:24
-#: lib/components/app-title/menu.vue:16:57
+#: lib/components/api-tokens/dialog.vue:2:24
+#: lib/components/app-title/menu.vue:15:57
 msgid "API Access Tokens"
 msgstr ""
 
-#: lib/components/api-tokens/panel.vue:11:27
-#: lib/components/api-tokens/permissions/dialog.vue:5:31
-#: lib/components/users/panel.vue:13:27
-#: lib/components/users/permissions/dialog.vue:5:31
+#: lib/components/api-tokens/panel.vue:10:27
+#: lib/components/api-tokens/permissions/dialog.vue:4:31
+#: lib/components/users/panel.vue:12:27
+#: lib/components/users/permissions/dialog.vue:4:31
 msgid "Name"
 msgstr ""
 
-#: lib/components/api-tokens/panel.vue:12:27
-#: lib/components/electron-updates/panel.vue:12:27
-#: lib/components/users/panel.vue:15:27
+#: lib/components/api-tokens/panel.vue:11:27
+#: lib/components/electron-updates/panel.vue:11:27
+#: lib/components/users/panel.vue:14:27
 msgid "Created"
 msgstr ""
 
-#: lib/components/api-tokens/panel.vue:13:27
-#: lib/components/api-tokens/permissions/dialog.vue:9:31
-#: lib/components/users/create/dialog.vue:8:52
-#: lib/components/users/panel.vue:19:27
-#: lib/components/users/permissions/dialog.vue:9:31
+#: lib/components/api-tokens/panel.vue:12:27
+#: lib/components/api-tokens/permissions/dialog.vue:8:31
+#: lib/components/users/panel.vue:18:27
+#: lib/components/users/permissions/dialog.vue:8:31
 msgid "Enabled"
+msgstr ""
+
+#: lib/components/api-tokens/panel.vue:56:39
+#: lib/components/api-tokens/permissions/dialog.vue:2:24
+msgid "Edit token permissions"
 msgstr ""
 
 #: lib/components/api-tokens/panel.vue:121:74
@@ -152,64 +155,61 @@ msgstr ""
 msgid "API token deleted"
 msgstr ""
 
-#: lib/components/api-tokens/permissions/dialog.vue:7:31
-#: lib/components/users/permissions/dialog.vue:7:31
+#: lib/components/api-tokens/permissions/dialog.vue:6:31
+#: lib/components/users/permissions/dialog.vue:6:31
 msgid "Description"
 msgstr ""
 
-#: lib/components/api-tokens/permissions/dialog.vue:14:31
-#: lib/components/change-password-dialog.vue:11:31
-#: lib/components/object-users/panel.vue:24:35
-#: lib/components/settings/dialog.vue:32:31
-#: lib/components/users/permissions/dialog.vue:14:31
+#: lib/components/api-tokens/permissions/dialog.vue:13:31
+#: lib/components/change-password-dialog.vue:10:31
+#: lib/components/object-users/panel.vue:23:35
+#: lib/components/settings/dialog.vue:31:31
+#: lib/components/users/permissions/dialog.vue:13:31
 msgid "Submit"
-msgstr ""
-
-#: lib/components/api-tokens/permissions/dialog.vue:3:24
-msgid "Edit Token Permissions"
 msgstr ""
 
 #: lib/components/api-tokens/permissions/dialog.vue:84:35
 msgid "Token permissions updated"
 msgstr ""
 
-#: lib/components/app-title/menu.vue:17:58
-#: lib/components/profile/dialog.vue:3:24
-msgid "Your Profile"
+#: lib/components/app-title/menu.vue:16:58
+#: lib/components/profile/dialog.vue:2:24
+msgid "Your profile"
 msgstr ""
 
-#: lib/components/app-title/menu.vue:18:62
-#: lib/components/change-password-dialog.vue:3:24
-#: lib/components/profile/panel.vue:21:42
-msgid "Change Password"
+#: lib/components/app-title/menu.vue:17:62
+#: lib/components/change-password-dialog.vue:2:24
+#: lib/components/profile/panel.vue:20:42
+msgid "Change password"
 msgstr ""
 
 #: lib/components/app-title/menu.vue:22:66
-msgid "Sign Out"
+msgid "Sign out"
 msgstr ""
 
 #: lib/components/app-title/menu.vue:25:84
-msgid "DARK MODE"
+msgid "Dark mode"
 msgstr ""
 
-#: lib/components/auth/reset-password-form.vue:6:34
-#: lib/components/reset-password-dialog.vue:12:31
-#: lib/components/reset-password-dialog.vue:3:24
-msgid "Reset Password"
+#: lib/components/auth/reset-password-form.vue:5:34
+#: lib/components/reset-password-dialog.vue:11:31
+#: lib/components/reset-password-dialog.vue:2:24
+msgid "Reset password"
 msgstr ""
 
-#: lib/components/auth/reset-password-form.vue:9:47
-#: lib/components/auth/signin-form.vue:9:47
-msgid "User Name or Email"
+#: lib/components/auth/reset-password-form.vue:8:47
+#: lib/components/auth/signin-form.vue:8:47
+msgid "User name or email"
 msgstr ""
 
-#: lib/components/auth/reset-password-form.vue:12:64
-#: lib/components/auth/signin-form.vue:6:34
-#: lib/components/auth/signup-form.vue:14:64
-msgid "Sign In"
+#: lib/components/auth/reset-password-form.vue:11:64
+#: lib/components/auth/signin-form.vue:5:34
+#: lib/components/auth/signin-form.vue:16:31
+#: lib/components/auth/signup-form.vue:13:64
+msgid "Sign in"
 msgstr ""
 
-#: lib/components/auth/reset-password-form.vue:14:31
+#: lib/components/auth/reset-password-form.vue:13:31
 msgid "Reset"
 msgstr ""
 
@@ -217,38 +217,33 @@ msgstr ""
 msgid "Password change instructions were sent to the email address, associated with your account."
 msgstr ""
 
-#: lib/components/auth/signin-form.vue:10:51
-#: lib/components/auth/signup-form.vue:10:51
-#: lib/components/change-password-dialog.vue:5:55
-#: lib/components/users/create/dialog.vue:6:55
+#: lib/components/auth/signin-form.vue:9:51
+#: lib/components/auth/signup-form.vue:9:51
+#: lib/components/change-password-dialog.vue:4:55
+#: lib/components/users/create/dialog.vue:5:55
 msgid "Password"
 msgstr ""
 
-#: lib/components/auth/signin-form.vue:12:27
+#: lib/components/auth/signin-form.vue:11:27
 msgid "Do not have account? Sign up"
 msgstr ""
 
-#: lib/components/auth/signin-form.vue:15:31
+#: lib/components/auth/signin-form.vue:14:31
 msgid "Forgot password?"
 msgstr ""
 
-#: lib/components/auth/signin-form.vue:17:31
-msgid "Sign in"
+#: lib/components/auth/signup-form.vue:5:34
+#: lib/components/auth/signup-form.vue:15:31
+msgid "Sign up"
 msgstr ""
 
-#: lib/components/auth/signup-form.vue:6:34
-#: lib/components/auth/signup-form.vue:16:31
-msgid "Sign Up"
-msgstr ""
-
-#: lib/components/auth/signup-form.vue:9:48
-#: lib/components/users/create/dialog.vue:5:52
+#: lib/components/auth/signup-form.vue:8:48
+#: lib/components/users/create/dialog.vue:4:52
 msgid "Email"
 msgstr ""
 
-#: lib/components/auth/signup-form.vue:11:57
-#: lib/components/change-password-dialog.vue:6:61
-#: lib/components/users/create/dialog.vue:7:56
+#: lib/components/auth/signup-form.vue:10:57
+#: lib/components/change-password-dialog.vue:5:61
 msgid "Confirm Password"
 msgstr ""
 
@@ -263,46 +258,46 @@ msgstr ""
 msgid "Dark Mode"
 msgstr ""
 
-#: lib/components/electron-updates/create/dialog.vue:5:52
+#: lib/components/electron-updates/create/dialog.vue:4:52
 msgid "Platform"
 msgstr ""
 
-#: lib/components/electron-updates/create/dialog.vue:11:48
-#: lib/components/electron-updates/panel.vue:10:27
-msgid "Arch"
+#: lib/components/electron-updates/create/dialog.vue:10:48
+#: lib/components/electron-updates/panel.vue:9:27
+msgid "Architecture"
 msgstr ""
 
-#: lib/components/electron-updates/create/dialog.vue:16:51
-#: lib/components/electron-updates/panel.vue:11:27
+#: lib/components/electron-updates/create/dialog.vue:15:51
+#: lib/components/electron-updates/panel.vue:10:27
 msgid "Version"
 msgstr ""
 
-#: lib/components/electron-updates/create/dialog.vue:16:82
+#: lib/components/electron-updates/create/dialog.vue:15:82
 msgid "Semantic version 1.2.3"
 msgstr ""
 
-#: lib/components/electron-updates/create/dialog.vue:18:52
+#: lib/components/electron-updates/create/dialog.vue:17:52
 msgid "Choose update"
 msgstr ""
 
-#: lib/components/electron-updates/create/dialog.vue:24:31
+#: lib/components/electron-updates/create/dialog.vue:23:31
 msgid "Upload"
 msgstr ""
 
-#: lib/components/electron-updates/create/dialog.vue:3:24
-#: lib/components/electron-updates/panel.vue:6:60
-msgid "Upload Release"
+#: lib/components/electron-updates/create/dialog.vue:2:24
+#: lib/components/electron-updates/panel.vue:5:60
+msgid "Upload release"
 msgstr ""
 
 #: lib/components/electron-updates/create/dialog.vue:38:35
 msgid "Release created"
 msgstr ""
 
-#: lib/components/electron-updates/panel.vue:9:27
+#: lib/components/electron-updates/panel.vue:8:27
 msgid "Plaform"
 msgstr ""
 
-#: lib/components/electron-updates/panel.vue:13:27
+#: lib/components/electron-updates/panel.vue:12:27
 msgid "Published"
 msgstr ""
 
@@ -320,85 +315,85 @@ msgstr ""
 msgid "Update deleted"
 msgstr ""
 
-#: lib/components/init-failure-dialog.vue:4:42
+#: lib/components/init-failure-dialog.vue:3:42
 msgid "Unable to connect to the API server. Check, that you have internet connection and press \"Try Again\" button below."
 msgstr ""
 
-#: lib/components/init-failure-dialog.vue:7:58
+#: lib/components/init-failure-dialog.vue:6:58
 msgid "Try Again"
 msgstr ""
 
-#: lib/components/init-failure-dialog.vue:3:24
-msgid "Server Connection Error"
+#: lib/components/init-failure-dialog.vue:2:24
+msgid "Server connection error"
 msgstr ""
 
-#: lib/components/notifications/dialog.vue:3:24
+#: lib/components/notifications/dialog.vue:2:24
 msgid "Notifications Settings"
 msgstr ""
 
-#: lib/components/notifications/menu-sheet.vue:6:78
+#: lib/components/notifications/menu-sheet.vue:5:78
 msgid "Mark all as read"
 msgstr ""
 
-#: lib/components/notifications/menu-sheet.vue:8:84
+#: lib/components/notifications/menu-sheet.vue:7:84
 msgid "Delete all"
 msgstr ""
 
-#: lib/components/notifications/menu-sheet.vue:9:78
+#: lib/components/notifications/menu-sheet.vue:8:78
 msgid "Notifications settings"
 msgstr ""
 
-#: lib/components/notifications/menu-sheet.vue:10:79
+#: lib/components/notifications/menu-sheet.vue:9:79
 msgid "Refresh notifications"
 msgstr ""
 
-#: lib/components/notifications/menu-sheet.vue:5:76
-#: lib/components/profile/panel.vue:35:27
+#: lib/components/notifications/menu-sheet.vue:4:76
+#: lib/components/profile/panel.vue:34:27
 msgid "Notifications"
 msgstr ""
 
-#: lib/components/notifications/menu-sheet.vue:13:73
+#: lib/components/notifications/menu-sheet.vue:12:73
 msgid "You have no notifications"
 msgstr ""
 
-#: lib/components/notifications/panel.vue:10:63
-msgid "Your Telegram Username"
+#: lib/components/notifications/panel.vue:9:63
+msgid "Your Telegram username"
 msgstr ""
 
-#: lib/components/notifications/panel.vue:11:31
+#: lib/components/notifications/panel.vue:10:31
 msgid "Update"
 msgstr ""
 
-#: lib/components/notifications/panel.vue:12:31
+#: lib/components/notifications/panel.vue:11:31
 #, javascript-format
 msgid "Open @${n}"
 msgstr ""
 
-#: lib/components/notifications/panel.vue:16:20
+#: lib/components/notifications/panel.vue:15:20
 #, javascript-format
 msgid "In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${n}</b> and press <b>\"Start\"</b>."
 msgstr ""
 
-#: lib/components/notifications/panel.vue:21:38
-msgid "Notification Types"
+#: lib/components/notifications/panel.vue:20:38
+msgid "Notification types"
 msgstr ""
 
-#: lib/components/notifications/panel.vue:24:80
+#: lib/components/notifications/panel.vue:23:80
 #, javascript-format
 msgid "Internal${n}notifications"
 msgstr ""
 
-#: lib/components/notifications/panel.vue:25:80
+#: lib/components/notifications/panel.vue:24:80
 #, javascript-format
 msgid "Email${n}notifications"
 msgstr ""
 
-#: lib/components/notifications/panel.vue:26:80
+#: lib/components/notifications/panel.vue:25:80
 #, javascript-format
 msgid "Telegram${n}notifications"
 msgstr ""
 
-#: lib/components/notifications/panel.vue:27:80
+#: lib/components/notifications/panel.vue:26:80
 #, javascript-format
 msgid "Push${n}notifications"
 msgstr ""
@@ -407,37 +402,37 @@ msgstr ""
 msgid "Telegram username updated"
 msgstr ""
 
-#: lib/components/object-users/panel.vue:5:43
-#: lib/components/users/panel.vue:5:43
+#: lib/components/object-users/panel.vue:4:43
+#: lib/components/users/panel.vue:4:43
 msgid "Search users"
 msgstr ""
 
-#: lib/components/object-users/panel.vue:7:58
-msgid "Add User"
+#: lib/components/object-users/panel.vue:6:58
+msgid "Add user"
 msgstr ""
 
-#: lib/components/object-users/panel.vue:10:27
+#: lib/components/object-users/panel.vue:9:27
 msgid "Username"
 msgstr ""
 
-#: lib/components/object-users/panel.vue:11:27
+#: lib/components/object-users/panel.vue:10:27
 msgid "Role"
 msgstr ""
 
-#: lib/components/object-users/panel.vue:16:58
+#: lib/components/object-users/panel.vue:15:58
 msgid "Select user"
 msgstr ""
 
-#: lib/components/object-users/panel.vue:18:60
+#: lib/components/object-users/panel.vue:17:60
 msgid "User"
 msgstr ""
 
-#: lib/components/object-users/panel.vue:20:62
+#: lib/components/object-users/panel.vue:19:62
 msgid "Select user role"
 msgstr ""
 
-#: lib/components/object-users/panel.vue:15:48
-msgid "Add / Update User"
+#: lib/components/object-users/panel.vue:14:48
+msgid "Add / update user"
 msgstr ""
 
 #: lib/components/object-users/panel.vue:160:76
@@ -458,48 +453,50 @@ msgstr ""
 msgid "Users updated"
 msgstr ""
 
-#: lib/components/profile/panel.vue:10:42
-#: lib/components/profile/panel.vue:15:39
-msgid "Delete Sessions"
+#: lib/components/profile/panel.vue:9:42 lib/components/profile/panel.vue:14:39
+msgid "Delete sessions"
 msgstr ""
 
-#: lib/components/profile/panel.vue:14:51
+#: lib/components/profile/panel.vue:13:51
 msgid "Sign out from all sessions, except this session."
 msgstr ""
 
-#: lib/components/profile/panel.vue:24:63
-#: lib/components/reset-password-dialog.vue:6:55
+#: lib/components/profile/panel.vue:23:63
+#: lib/components/reset-password-dialog.vue:5:55
 msgid "New Password"
 msgstr ""
 
-#: lib/components/profile/panel.vue:25:69
-#: lib/components/reset-password-dialog.vue:7:61
+#: lib/components/profile/panel.vue:24:69
+#: lib/components/reset-password-dialog.vue:6:61
 msgid "Confirm New Password"
 msgstr ""
 
-#: lib/components/profile/panel.vue:28:43
+#: lib/components/profile/panel.vue:27:43
 msgid "Update Password"
 msgstr ""
 
-#: lib/components/profile/panel.vue:7:27
+#: lib/components/profile/panel.vue:6:27
 msgid "Security"
 msgstr ""
 
-#: lib/components/profile/panel.vue:42:38
-#: lib/components/profile/panel.vue:40:27
+#: lib/components/profile/panel.vue:41:38
 msgid "Interface Theme"
 msgstr ""
 
-#: lib/components/profile/panel.vue:46:41
-msgid "Follow OS Theme"
+#: lib/components/profile/panel.vue:45:41
+msgid "Follow OS theme"
 msgstr ""
 
-#: lib/components/profile/panel.vue:50:44
-msgid "Base Color"
+#: lib/components/profile/panel.vue:49:44
+msgid "Base color"
 msgstr ""
 
-#: lib/components/profile/panel.vue:54:44
-msgid "Accent Color"
+#: lib/components/profile/panel.vue:53:44
+msgid "Accent color"
+msgstr ""
+
+#: lib/components/profile/panel.vue:39:27
+msgid "Interface theme"
 msgstr ""
 
 #: lib/components/profile/panel.vue:117:35
@@ -511,44 +508,44 @@ msgstr ""
 msgid "Password reset token was not found"
 msgstr ""
 
-#: lib/components/settings/dialog.vue:11:46
-#: lib/components/settings/dialog.vue:9:35
-msgid "SMTP Settings"
+#: lib/components/settings/dialog.vue:10:46
+#: lib/components/settings/dialog.vue:8:35
+msgid "SMTP settings"
+msgstr ""
+
+#: lib/components/settings/dialog.vue:13:47
+msgid "Application URL"
 msgstr ""
 
 #: lib/components/settings/dialog.vue:14:47
-msgid "App URL"
-msgstr ""
-
-#: lib/components/settings/dialog.vue:15:47
 msgid "From"
 msgstr ""
 
-#: lib/components/settings/dialog.vue:15:149
+#: lib/components/settings/dialog.vue:14:149
 msgid "User name <email@address>"
 msgstr ""
 
-#: lib/components/settings/dialog.vue:15:194
-msgid "Format: User Name <email@address>."
+#: lib/components/settings/dialog.vue:14:194
+msgid "Format: user name <email@address>."
 msgstr ""
 
-#: lib/components/settings/dialog.vue:16:47
-msgid "SMTP Host"
+#: lib/components/settings/dialog.vue:15:47
+msgid "SMTP host"
 msgstr ""
 
-#: lib/components/settings/dialog.vue:17:50
-msgid "SMTP Port"
+#: lib/components/settings/dialog.vue:16:50
+msgid "SMTP port"
 msgstr ""
 
-#: lib/components/settings/dialog.vue:18:47
-msgid "SMTP Username"
+#: lib/components/settings/dialog.vue:17:47
+msgid "SMTP username"
 msgstr ""
 
-#: lib/components/settings/dialog.vue:19:51
-msgid "SMTP Password"
+#: lib/components/settings/dialog.vue:18:51
+msgid "SMTP password"
 msgstr ""
 
-#: lib/components/settings/dialog.vue:22:43
+#: lib/components/settings/dialog.vue:21:43
 msgid "Test SMTP"
 msgstr ""
 
@@ -560,31 +557,68 @@ msgstr ""
 msgid "Settings updated"
 msgstr ""
 
-#: lib/components/signout-dialog.vue:4:42
+#: lib/components/signout-dialog.vue:3:42
 msgid "Your session was terminated on the API server. Press \"Continue\" button below."
 msgstr ""
 
-#: lib/components/signout-dialog.vue:7:58
+#: lib/components/signout-dialog.vue:6:58
 msgid "Continue"
 msgstr ""
 
-#: lib/components/signout-dialog.vue:3:24
-msgid "Session Closed"
+#: lib/components/signout-dialog.vue:2:24
+msgid "Session closed"
 msgstr ""
 
-#: lib/components/users/create/dialog.vue:9:50
-#: lib/components/users/panel.vue:17:27
+#: lib/components/users/create/dialog.vue:4:81
+msgid "Enter user email"
+msgstr ""
+
+#: lib/components/users/create/dialog.vue:5:87
+msgid "Enter user password"
+msgstr ""
+
+#: lib/components/users/create/dialog.vue:6:56
+msgid "Confirm password"
+msgstr ""
+
+#: lib/components/users/create/dialog.vue:6:96
+msgid "Confirm user password"
+msgstr ""
+
+#: lib/components/users/create/dialog.vue:7:52
+msgid "Login enabled"
+msgstr ""
+
+#: lib/components/users/create/dialog.vue:8:50
+#: lib/components/users/panel.vue:16:27
 msgid "Admin"
 msgstr ""
 
-#: lib/components/users/create/dialog.vue:15:31
-#: lib/components/users/create/dialog.vue:3:24
-#: lib/components/users/panel.vue:7:63
-msgid "Create User"
+#: lib/components/users/create/dialog.vue:13:31
+#: lib/components/users/create/dialog.vue:2:24
+#: lib/components/users/panel.vue:6:63
+msgid "Create user"
 msgstr ""
 
 #: lib/components/users/create/dialog.vue:45:35
 msgid "User created"
+msgstr ""
+
+#: lib/components/users/panel.vue:98:39
+#: lib/components/users/permissions/dialog.vue:2:24
+msgid "Edit user permissions"
+msgstr ""
+
+#: lib/components/users/panel.vue:104:39
+msgid "Delete user"
+msgstr ""
+
+#: lib/components/users/panel.vue:110:39
+msgid "Actions"
+msgstr ""
+
+#: lib/components/users/panel.vue:117:48
+msgid "Drop sessions"
 msgstr ""
 
 #: lib/components/users/panel.vue:151:35
@@ -595,10 +629,6 @@ msgstr ""
 #: lib/components/users/panel.vue:183:35
 #, javascript-format
 msgid "User ${n}"
-msgstr ""
-
-#: lib/components/users/permissions/dialog.vue:3:24
-msgid "Edit User Permissions"
 msgstr ""
 
 #: lib/utils.js:5:74

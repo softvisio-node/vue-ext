@@ -3,7 +3,7 @@
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18n(`Search users`)" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-user-plus" :text="i18n(`Create User`)" padding="0 0 0 5" @tap="showCreateUserDialog"/>
+            <ext-button iconCls="fa-solid fa-user-plus" :text="i18n(`Create user`)" padding="0 0 0 5" @tap="showCreateUserDialog"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18n(`Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
@@ -118,26 +118,26 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": "Edit user permissions",
+                            "tooltip": this.i18n( "Edit user permissions" ),
                             "handler": this.showUserPermissionsDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
-                            "tooltip": "Delete user",
+                            "tooltip": this.i18n( "Delete user" ),
                             "handler": this.deleteUser.bind( this ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-ellipsis-v",
-                            "tooltip": "Actions",
+                            "tooltip": this.i18n( "Actions" ),
                             "arrow": false,
                             "menu": {
                                 "items": [
                                     {
                                         "xtype": "button",
                                         "iconCls": "fa-solid fa-sign-out-alt",
-                                        "text": "Drop Sessions",
+                                        "text": this.i18n( "Drop sessions" ),
                                         "handler": this.deleteUserSessions.bind( this ),
                                     },
                                 ],

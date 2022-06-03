@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :title="i18n(`Reset Password`)" layout="fit" width="300" minHeight="450" @destroy="close" @ready="_ready">
+    <ext-dialog :title="i18n(`Reset password`)" layout="fit" width="300" minHeight="450" @destroy="close" @ready="_ready">
         <ext-fieldpanel ref="form" defaults1='{"labelAlign":"left","labelWidth":120}'>
             <ext-hiddenfield name="token" :value="token"/>
             <ext-passwordfield name="password" :label="i18n(`New Password`)" required="true"/>
@@ -8,7 +8,7 @@
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
             <ext-button :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
-            <ext-button :text="i18n(`Reset Password`)" ui="action" @tap="submit"/>
+            <ext-button :text="i18n(`Reset password`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

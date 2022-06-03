@@ -6,18 +6,18 @@
         <ext-panel :title="i18n(`Security`)" layout="vbox" viewModel="true">
             <ext-panel>
                 <ext-toolbar docked="top">
-                    <ext-container :html="i18n(`Delete Sessions`)"/>
+                    <ext-container :html="i18n(`Delete sessions`)"/>
                 </ext-toolbar>
 
                 <ext-container layout="hbox">
                     <ext-container flex="1" :html="i18n(`Sign out from all sessions, except this session.`)"/>
-                    <ext-button :text="i18n(`Delete Sessions`)" @tap="deleteSessions"/>
+                    <ext-button :text="i18n(`Delete sessions`)" @tap="deleteSessions"/>
                 </ext-container>
             </ext-panel>
 
             <ext-panel>
                 <ext-toolbar docked="top">
-                    <ext-container :html="i18n(`Change Password`)"/>
+                    <ext-container :html="i18n(`Change password`)"/>
                 </ext-toolbar>
                 <ext-fieldpanel ref="changePasswordForm" width="50%">
                     <ext-passwordfield name="password" :label="i18n(`New Password`)" required="true"/>
@@ -36,21 +36,21 @@
         </ext-panel>
 
         <!-- theme -->
-        <ext-panel :title="i18n(`Interface Theme`)" layout="vbox" viewModel="true">
+        <ext-panel :title="i18n(`Interface theme`)" layout="vbox" viewModel="true">
             <ext-toolbar docked="top">
                 <ext-container :html="i18n(`Interface Theme`)"/>
             </ext-toolbar>
 
             <ext-fieldset layout1='{"type":"vbox","pack":"start","align":"start"}' defaults='{"labelAlign":"left","labelWidth":150}'>
-                <ext-togglefield :label="i18n(`Follow OS Theme`)" :value="systemDarkMode" @change="systemDarkMode = $event"/>
+                <ext-togglefield :label="i18n(`Follow OS theme`)" :value="systemDarkMode" @change="systemDarkMode = $event"/>
 
                 <ext-togglefield :label="darkModeLabel" :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
 
-                <ext-fieldcontainer :label="i18n(`Base Color`)" layout="fit">
+                <ext-fieldcontainer :label="i18n(`Base color`)" layout="fit">
                     <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeBaseChanged"/>
                 </ext-fieldcontainer>
 
-                <ext-fieldcontainer :label="i18n(`Accent Color`)" layout="fit">
+                <ext-fieldcontainer :label="i18n(`Accent color`)" layout="fit">
                     <ext-componentdataview inline="true" @ready="themesColorsViewReady" @childtap="themeAccentChanged"/>
                 </ext-fieldcontainer>
             </ext-fieldset>

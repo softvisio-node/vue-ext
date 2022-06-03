@@ -3,7 +3,7 @@
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18n(`Search users`)" width="200" @change="_searchUsers"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-plus" :text="i18n(`Add User`)" @tap="_showAddUserDialog"/>
+            <ext-button iconCls="fa-solid fa-plus" :text="i18n(`Add user`)" @tap="_showAddUserDialog"/>
         </ext-toolbar>
         <ext-column width="40" @ready="_avatarColReady"/>
         <ext-column :text="i18n(`Username`)" dataIndex="username" flex="1" cell='{"encodeHtml":false,"style":"vertical-align:top"}' @ready="_usernameColReady"/>
@@ -11,7 +11,7 @@
         <ext-column width="100" @ready="_actionColReady"/>
 
         <!-- add / update user dialog -->
-        <ext-dialog ref="addUserDialog" :title="i18n(`Add / Update User`)" width="400" height="250" closeAction="hide">
+        <ext-dialog ref="addUserDialog" :title="i18n(`Add / update user`)" width="400" height="250" closeAction="hide">
             <ext-comboboxfield ref="addUserCombo" :label="i18n(`Select user`)" valueField="id" displayField="name" primaryFilter='{"property":"name","operator":"like"}' triggerAction="query" minChars="1" forceSelection="true" @ready="_addUserComboReady"/>
 
             <ext-displayfield ref="addUserUsername" :label="i18n(`User`)"/>

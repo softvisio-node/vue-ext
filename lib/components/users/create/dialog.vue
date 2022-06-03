@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :title="i18n(`Create User`)" width="350" height="400" closeAction="hide" @ready="_ready">
+    <ext-dialog :title="i18n(`Create user`)" width="350" height="400" closeAction="hide" @ready="_ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
             <ext-emailfield name="username" :label="i18n(`Email`)" :placeholder="i18n(`Enter user email`)" required="true"/>
             <ext-passwordfield name="password" :label="i18n(`Password`)" :placeholder="i18n(`Enter user password`)" required="true"/>
@@ -10,7 +10,7 @@
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button :text="i18n(`Create User`)" ui="action" @tap="submit"/>
+            <ext-button :text="i18n(`Create user`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

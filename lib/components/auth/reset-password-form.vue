@@ -2,13 +2,13 @@
     <ext-formpanel ref="form" @ready="ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-container :html="i18n(`Reset Password`)"/>
+            <ext-container :html="i18n(`Reset password`)"/>
             <ext-spacer/>
         </ext-toolbar>
-        <ext-textfield name="username" :label="i18n(`User Name or Email`)" required="true"/>
+        <ext-textfield name="username" :label="i18n(`User name or email`)" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18n(`Sign In`)" ui="back" @tap="showSignin"/>
+            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18n(`Sign in`)" ui="back" @tap="showSignin"/>
             <ext-spacer/>
             <ext-button :text="i18n(`Reset`)" ui="action" @tap="submit"/>
         </ext-toolbar>

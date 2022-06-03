@@ -12,7 +12,7 @@
             </ext-container>
             <ext-spacer height="5"/>
             <ext-container layout="center">
-                <ext-button iconCls="fa-solid fa-copy" :text="i18n(`Copy Token To Clipboard`)" ui="action" @tap="copyToClipboard"/>
+                <ext-button iconCls="fa-solid fa-copy" :text="i18n(`Copy token to the clipboard`)" ui="action" @tap="copyToClipboard"/>
             </ext-container>
         </ext-container>
 
@@ -93,7 +93,7 @@ export default {
         copyToClipboard () {
             this.$utils.copyToClipboard( this.$refs.token.ext.getValue() );
 
-            this.$utils.toast( this.i18n( "Token copied to clipboard" ) );
+            this.$utils.toast( this.i18n( "Token copied to the clipboard" ) );
         },
     },
 };

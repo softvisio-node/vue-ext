@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-03 21:49+0300\n"
+"POT-Creation-Date: 2022-06-03 23:35+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -31,7 +31,7 @@ msgstr "Запущен"
 
 #: lib/components/api-call-log/log/dialog.vue:10:31
 msgid "Finished"
-msgstr "Занончен"
+msgstr "Завершен"
 
 #: lib/components/api-call-log/log/dialog.vue:11:31
 msgid "Runtime (sec.)"
@@ -71,20 +71,20 @@ msgid "Exceptions for Last 60 Minutes (%)"
 msgstr ""
 
 #: lib/components/api-tokens/create/dialog.vue:4:58
-msgid "Token Name"
+msgid "Token name"
 msgstr "Имя токена"
 
 #: lib/components/api-tokens/create/dialog.vue:4:92
 msgid "Enter new token name"
-msgstr ""
+msgstr "Введите имя нового токена"
 
 #: lib/components/api-tokens/create/dialog.vue:9:51
 msgid "Your API Access Token:"
 msgstr ""
 
 #: lib/components/api-tokens/create/dialog.vue:15:62
-msgid "Copy Token To Clipboard"
-msgstr ""
+msgid "Copy token to the clipboard"
+msgstr "Копировать токен в буфер"
 
 #: lib/components/api-tokens/create/dialog.vue:21:44
 #: lib/components/api-tokens/permissions/dialog.vue:12:31
@@ -94,7 +94,7 @@ msgstr ""
 #: lib/components/settings/dialog.vue:30:31
 #: lib/components/users/permissions/dialog.vue:12:31
 msgid "Cancel"
-msgstr ""
+msgstr "Отменить"
 
 #: lib/components/api-tokens/create/dialog.vue:22:44
 msgid "Create"
@@ -114,8 +114,8 @@ msgid "API token created"
 msgstr "Токен создан"
 
 #: lib/components/api-tokens/create/dialog.vue:69:31
-msgid "Token copied to clipboard"
-msgstr ""
+msgid "Token copied to the clipboard"
+msgstr "Токен скопирован"
 
 #: lib/components/api-tokens/dialog.vue:2:24
 #: lib/components/app-title/menu.vue:15:57
@@ -142,18 +142,23 @@ msgstr "Создан"
 msgid "Enabled"
 msgstr "Включен"
 
+#: lib/components/api-tokens/panel.vue:56:39
+#: lib/components/api-tokens/permissions/dialog.vue:2:24
+msgid "Edit token permissions"
+msgstr "Редактировать права токена"
+
 #: lib/components/api-tokens/panel.vue:121:74
 msgid "Are you sure you want to delete this token?"
-msgstr ""
+msgstr "Вы действительно хотите это сделать?"
 
 #: lib/components/api-tokens/panel.vue:126:35
 msgid "API token deleted"
-msgstr "Токен удален"
+msgstr "АПИ токен удален"
 
 #: lib/components/api-tokens/permissions/dialog.vue:6:31
 #: lib/components/users/permissions/dialog.vue:6:31
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: lib/components/api-tokens/permissions/dialog.vue:13:31
 #: lib/components/change-password-dialog.vue:10:31
@@ -161,59 +166,56 @@ msgstr ""
 #: lib/components/settings/dialog.vue:31:31
 #: lib/components/users/permissions/dialog.vue:13:31
 msgid "Submit"
-msgstr ""
-
-#: lib/components/api-tokens/permissions/dialog.vue:2:24
-msgid "Edit Token Permissions"
-msgstr ""
+msgstr "Отправить"
 
 #: lib/components/api-tokens/permissions/dialog.vue:84:35
 msgid "Token permissions updated"
-msgstr ""
+msgstr "Права токена обновлены"
 
 #: lib/components/app-title/menu.vue:16:58
 #: lib/components/profile/dialog.vue:2:24
-msgid "Your Profile"
-msgstr "Ваш Профайл"
+msgid "Your profile"
+msgstr "Ваш профайл"
 
 #: lib/components/app-title/menu.vue:17:62
 #: lib/components/change-password-dialog.vue:2:24
 #: lib/components/profile/panel.vue:20:42
-msgid "Change Password"
-msgstr "Сменить Пароль"
+msgid "Change password"
+msgstr "Сменить пароль"
 
 #: lib/components/app-title/menu.vue:22:66
-msgid "Sign Out"
-msgstr ""
+msgid "Sign out"
+msgstr "Выйти"
 
 #: lib/components/app-title/menu.vue:25:84
-msgid "DARK MODE"
-msgstr ""
+msgid "Dark mode"
+msgstr "Тёмный режим"
 
 #: lib/components/auth/reset-password-form.vue:5:34
 #: lib/components/reset-password-dialog.vue:11:31
 #: lib/components/reset-password-dialog.vue:2:24
-msgid "Reset Password"
-msgstr "Сбросить Пароль"
+msgid "Reset password"
+msgstr "Сбросить пароль"
 
 #: lib/components/auth/reset-password-form.vue:8:47
 #: lib/components/auth/signin-form.vue:8:47
-msgid "User Name or Email"
-msgstr ""
+msgid "User name or email"
+msgstr "Имя пользователя или email"
 
 #: lib/components/auth/reset-password-form.vue:11:64
 #: lib/components/auth/signin-form.vue:5:34
+#: lib/components/auth/signin-form.vue:16:31
 #: lib/components/auth/signup-form.vue:13:64
-msgid "Sign In"
-msgstr ""
+msgid "Sign in"
+msgstr "Войти"
 
 #: lib/components/auth/reset-password-form.vue:13:31
 msgid "Reset"
-msgstr ""
+msgstr "Сбросить"
 
 #: lib/components/auth/reset-password-form.vue:36:39
 msgid "Password change instructions were sent to the email address, associated with your account."
-msgstr ""
+msgstr "Инструкции по смене пароль отправлены на ваш email."
 
 #: lib/components/auth/signin-form.vue:9:51
 #: lib/components/auth/signup-form.vue:9:51
@@ -224,25 +226,21 @@ msgstr "Пароль"
 
 #: lib/components/auth/signin-form.vue:11:27
 msgid "Do not have account? Sign up"
-msgstr ""
+msgstr "Нет аккаута? Зарегистрируйтесь"
 
 #: lib/components/auth/signin-form.vue:14:31
 msgid "Forgot password?"
 msgstr "Забыли пароль?"
 
-#: lib/components/auth/signin-form.vue:16:31
-msgid "Sign in"
-msgstr "Войти"
-
 #: lib/components/auth/signup-form.vue:5:34
 #: lib/components/auth/signup-form.vue:15:31
-msgid "Sign Up"
-msgstr ""
+msgid "Sign up"
+msgstr "Зарегистрироваться"
 
 #: lib/components/auth/signup-form.vue:8:48
 #: lib/components/users/create/dialog.vue:4:52
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: lib/components/auth/signup-form.vue:10:57
 #: lib/components/change-password-dialog.vue:5:61
@@ -262,12 +260,12 @@ msgstr "Тёмный режим"
 
 #: lib/components/electron-updates/create/dialog.vue:4:52
 msgid "Platform"
-msgstr ""
+msgstr "Платформа"
 
 #: lib/components/electron-updates/create/dialog.vue:10:48
 #: lib/components/electron-updates/panel.vue:9:27
-msgid "Arch"
-msgstr ""
+msgid "Architecture"
+msgstr "Архитектура"
 
 #: lib/components/electron-updates/create/dialog.vue:15:51
 #: lib/components/electron-updates/panel.vue:10:27
@@ -276,11 +274,11 @@ msgstr ""
 
 #: lib/components/electron-updates/create/dialog.vue:15:82
 msgid "Semantic version 1.2.3"
-msgstr ""
+msgstr "Семантическая версия 1.2.3"
 
 #: lib/components/electron-updates/create/dialog.vue:17:52
 msgid "Choose update"
-msgstr ""
+msgstr "Выберите обновление"
 
 #: lib/components/electron-updates/create/dialog.vue:23:31
 msgid "Upload"
@@ -288,20 +286,20 @@ msgstr "Загрузить"
 
 #: lib/components/electron-updates/create/dialog.vue:2:24
 #: lib/components/electron-updates/panel.vue:5:60
-msgid "Upload Release"
-msgstr ""
+msgid "Upload release"
+msgstr "Загрузить релиз"
 
 #: lib/components/electron-updates/create/dialog.vue:38:35
 msgid "Release created"
-msgstr ""
+msgstr "Релиз создан"
 
 #: lib/components/electron-updates/panel.vue:8:27
 msgid "Plaform"
-msgstr ""
+msgstr "Платформа"
 
 #: lib/components/electron-updates/panel.vue:12:27
 msgid "Published"
-msgstr ""
+msgstr "Опубликовано"
 
 #: lib/components/electron-updates/panel.vue:98:47
 #: lib/components/object-users/panel.vue:160:47
@@ -311,11 +309,11 @@ msgstr "Подтверждение"
 
 #: lib/components/electron-updates/panel.vue:98:76
 msgid "Are you sure you want to delete release?"
-msgstr ""
+msgstr "Вы действительно хотите удалить релиз?"
 
 #: lib/components/electron-updates/panel.vue:103:35
 msgid "Update deleted"
-msgstr ""
+msgstr "Обновление удалено"
 
 #: lib/components/init-failure-dialog.vue:3:42
 msgid "Unable to connect to the API server. Check, that you have internet connection and press \"Try Again\" button below."
@@ -326,8 +324,8 @@ msgid "Try Again"
 msgstr "Пробовать еще раз"
 
 #: lib/components/init-failure-dialog.vue:2:24
-msgid "Server Connection Error"
-msgstr ""
+msgid "Server connection error"
+msgstr "Ошибка подключения к серверу"
 
 #: lib/components/notifications/dialog.vue:2:24
 msgid "Notifications Settings"
@@ -335,7 +333,7 @@ msgstr "Настройки Уведомлений"
 
 #: lib/components/notifications/menu-sheet.vue:5:78
 msgid "Mark all as read"
-msgstr ""
+msgstr "Отметить все как прочитанные"
 
 #: lib/components/notifications/menu-sheet.vue:7:84
 msgid "Delete all"
@@ -359,17 +357,17 @@ msgid "You have no notifications"
 msgstr "У вас нет уведомлений"
 
 #: lib/components/notifications/panel.vue:9:63
-msgid "Your Telegram Username"
-msgstr ""
+msgid "Your Telegram username"
+msgstr "Ваше имя пользователя в Telegram"
 
 #: lib/components/notifications/panel.vue:10:31
 msgid "Update"
-msgstr ""
+msgstr "Обноаить"
 
 #: lib/components/notifications/panel.vue:11:31
 #, javascript-format
 msgid "Open @${n}"
-msgstr ""
+msgstr "Открыть @${n}"
 
 #: lib/components/notifications/panel.vue:15:20
 #, javascript-format
@@ -377,20 +375,18 @@ msgid "In order to receive telegram notifications you need to set your telegram 
 msgstr ""
 
 #: lib/components/notifications/panel.vue:20:38
-msgid "Notification Types"
-msgstr "Типы Уведомлений"
+msgid "Notification types"
+msgstr "Типы уведомлений"
 
 #: lib/components/notifications/panel.vue:23:80
-#, fuzzy, javascript-format
-#| msgid "Notifications"
+#, javascript-format
 msgid "Internal${n}notifications"
-msgstr "Уведомления"
+msgstr "Внутренние${n}уведомления"
 
 #: lib/components/notifications/panel.vue:24:80
-#, fuzzy, javascript-format
-#| msgid "Notifications"
+#, javascript-format
 msgid "Email${n}notifications"
-msgstr "Уведомления"
+msgstr "Email${n}уведомления"
 
 #: lib/components/notifications/panel.vue:25:80
 #, javascript-format
@@ -398,14 +394,13 @@ msgid "Telegram${n}notifications"
 msgstr "Telegram${n}уведомления"
 
 #: lib/components/notifications/panel.vue:26:80
-#, fuzzy, javascript-format
-#| msgid "Notifications"
+#, javascript-format
 msgid "Push${n}notifications"
-msgstr "Уведомления"
+msgstr "Пуш${n}уведомления"
 
 #: lib/components/notifications/panel.vue:127:35
 msgid "Telegram username updated"
-msgstr ""
+msgstr "Имя пользователя Telegram обновлено"
 
 #: lib/components/object-users/panel.vue:4:43
 #: lib/components/users/panel.vue:4:43
@@ -413,7 +408,7 @@ msgid "Search users"
 msgstr "Поиск пользователей"
 
 #: lib/components/object-users/panel.vue:6:58
-msgid "Add User"
+msgid "Add user"
 msgstr "Добавить пользователя"
 
 #: lib/components/object-users/panel.vue:9:27
@@ -422,7 +417,7 @@ msgstr "Имя пользователя"
 
 #: lib/components/object-users/panel.vue:10:27
 msgid "Role"
-msgstr ""
+msgstr "Роль"
 
 #: lib/components/object-users/panel.vue:15:58
 msgid "Select user"
@@ -430,20 +425,20 @@ msgstr "Выбрать пользователя"
 
 #: lib/components/object-users/panel.vue:17:60
 msgid "User"
-msgstr ""
+msgstr "Пользователь"
 
 #: lib/components/object-users/panel.vue:19:62
 msgid "Select user role"
-msgstr ""
+msgstr "Выбрать роль пользователя"
 
 #: lib/components/object-users/panel.vue:14:48
-msgid "Add / Update User"
-msgstr ""
+msgid "Add / update user"
+msgstr "Добавить / обновить пользователя"
 
 #: lib/components/object-users/panel.vue:160:76
 #: lib/components/users/panel.vue:195:76
 msgid "Are you sure you want to delete user?"
-msgstr ""
+msgstr "Вы действительно хотите удалить пользователя?"
 
 #: lib/components/object-users/panel.vue:169:35
 #: lib/components/users/panel.vue:204:35
@@ -452,15 +447,15 @@ msgstr "Пользователь удален"
 
 #: lib/components/object-users/panel.vue:192:35
 msgid "Please, fill all fields"
-msgstr ""
+msgstr "Пожалуйста, заполните все поля"
 
 #: lib/components/object-users/panel.vue:203:35
 msgid "Users updated"
-msgstr ""
+msgstr "Пользователь обновлен"
 
 #: lib/components/profile/panel.vue:9:42 lib/components/profile/panel.vue:14:39
-msgid "Delete Sessions"
-msgstr "Удалить Сессии"
+msgid "Delete sessions"
+msgstr "Удалить сессии"
 
 #: lib/components/profile/panel.vue:13:51
 msgid "Sign out from all sessions, except this session."
@@ -485,93 +480,94 @@ msgid "Security"
 msgstr "Безопастность"
 
 #: lib/components/profile/panel.vue:41:38
-#: lib/components/profile/panel.vue:39:27
 msgid "Interface Theme"
 msgstr "Цвет Интерфейса"
 
 #: lib/components/profile/panel.vue:45:41
-msgid "Follow OS Theme"
+msgid "Follow OS theme"
 msgstr "Следовать теме ОС"
 
 #: lib/components/profile/panel.vue:49:44
-msgid "Base Color"
+msgid "Base color"
 msgstr "Базовый цвет"
 
 #: lib/components/profile/panel.vue:53:44
-msgid "Accent Color"
-msgstr "Цвет Акцента"
+msgid "Accent color"
+msgstr "Цвет акцента"
+
+#: lib/components/profile/panel.vue:39:27
+msgid "Interface theme"
+msgstr "Тема интерфейса"
 
 #: lib/components/profile/panel.vue:117:35
 #: lib/components/users/panel.vue:224:35
 msgid "Sessions were deleted"
-msgstr ""
+msgstr "Сессии были удалены"
 
 #: lib/components/reset-password-dialog.vue:23:35
 msgid "Password reset token was not found"
-msgstr ""
+msgstr "Токен сброса пароля не найден"
 
 #: lib/components/settings/dialog.vue:10:46
 #: lib/components/settings/dialog.vue:8:35
-msgid "SMTP Settings"
-msgstr ""
+msgid "SMTP settings"
+msgstr "Настройки SMTP"
 
 #: lib/components/settings/dialog.vue:13:47
-msgid "App URL"
+msgid "Application URL"
 msgstr "URL приложения"
 
 #: lib/components/settings/dialog.vue:14:47
 msgid "From"
-msgstr ""
+msgstr "От"
 
 #: lib/components/settings/dialog.vue:14:149
 msgid "User name <email@address>"
-msgstr ""
+msgstr "Имя пользователя <email@address>"
 
 #: lib/components/settings/dialog.vue:14:194
-msgid "Format: User Name <email@address>."
-msgstr ""
+msgid "Format: user name <email@address>."
+msgstr "Формат: имя пользователя <email@address>."
 
 #: lib/components/settings/dialog.vue:15:47
-msgid "SMTP Host"
-msgstr ""
+msgid "SMTP host"
+msgstr "SMTP хост"
 
 #: lib/components/settings/dialog.vue:16:50
-msgid "SMTP Port"
-msgstr ""
+msgid "SMTP port"
+msgstr "Порт SMTP"
 
 #: lib/components/settings/dialog.vue:17:47
-msgid "SMTP Username"
-msgstr ""
+msgid "SMTP username"
+msgstr "Имя пользователя SMTP"
 
 #: lib/components/settings/dialog.vue:18:51
-#, fuzzy
-#| msgid "New Password"
-msgid "SMTP Password"
-msgstr "Новый Пароль"
+msgid "SMTP password"
+msgstr "Пароль SMTP"
 
 #: lib/components/settings/dialog.vue:21:43
 msgid "Test SMTP"
-msgstr ""
+msgstr "Тест SMTP"
 
 #: lib/components/settings/dialog.vue:88:35
 msgid "Please, fill all required fields"
-msgstr ""
+msgstr "Пожалуйста, заполните все требуемые поля"
 
 #: lib/components/settings/dialog.vue:110:35
 msgid "Settings updated"
-msgstr ""
+msgstr "Настройки обновлены"
 
 #: lib/components/signout-dialog.vue:3:42
 msgid "Your session was terminated on the API server. Press \"Continue\" button below."
-msgstr ""
+msgstr "Ваша сессия былп прервана АПИ серввером. Намите кнопку \"Продолжить\" ниже."
 
 #: lib/components/signout-dialog.vue:6:58
 msgid "Continue"
-msgstr ""
+msgstr "Продолжить"
 
 #: lib/components/signout-dialog.vue:2:24
-msgid "Session Closed"
-msgstr ""
+msgid "Session closed"
+msgstr "Сессия закрыта"
 
 #: lib/components/users/create/dialog.vue:4:81
 msgid "Enter user email"
@@ -601,35 +597,51 @@ msgstr "Админ"
 #: lib/components/users/create/dialog.vue:13:31
 #: lib/components/users/create/dialog.vue:2:24
 #: lib/components/users/panel.vue:6:63
-msgid "Create User"
+msgid "Create user"
 msgstr "Создать пользователя"
 
 #: lib/components/users/create/dialog.vue:45:35
 msgid "User created"
 msgstr "Пользователь создан"
 
+#: lib/components/users/panel.vue:98:39
+#: lib/components/users/permissions/dialog.vue:2:24
+msgid "Edit user permissions"
+msgstr "Редактировать права пользователя"
+
+#: lib/components/users/panel.vue:104:39
+msgid "Delete user"
+msgstr "Удалить пользователя"
+
+#: lib/components/users/panel.vue:110:39
+msgid "Actions"
+msgstr "Действия"
+
+#: lib/components/users/panel.vue:117:48
+msgid "Drop sessions"
+msgstr "Удалить сессии"
+
 #: lib/components/users/panel.vue:151:35
 #: lib/components/users/permissions/dialog.vue:84:35
 msgid "User permissions updated"
-msgstr ""
+msgstr "Права пользователя обновлены"
 
 #: lib/components/users/panel.vue:183:35
 #, javascript-format
 msgid "User ${n}"
-msgstr ""
-
-#: lib/components/users/permissions/dialog.vue:2:24
-msgid "Edit User Permissions"
-msgstr ""
+msgstr "Пользователь ${n}"
 
 #: lib/utils.js:5:74
 msgid "Are you sure you want to do that?"
-msgstr ""
+msgstr "Вы уверены, что хотите сделать это?"
 
 #: lib/viewport.vue:64:35
 msgid "Email confirmation token is invalid"
-msgstr ""
+msgstr "Токен подтверждения email неверен"
 
 #: lib/viewport.vue:74:39
 msgid "Email confirmed successfully"
-msgstr ""
+msgstr "Email подтвержден успешно"
+
+#~ msgid "Sign In"
+#~ msgstr "Выйти"

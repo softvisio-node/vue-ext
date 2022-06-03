@@ -69,7 +69,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": "Edit token permissions",
+                            "tooltip": this.i18n( "Edit token permissions" ),
                             "handler": this.showTokenPermissionsDialog.bind( this ),
                         },
                         {

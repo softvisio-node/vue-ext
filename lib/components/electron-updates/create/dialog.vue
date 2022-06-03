@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :title="i18n(`Upload Release`)" width="350" height="400" closeAction="hide" @ready="_ready">
+    <ext-dialog :title="i18n(`Upload release`)" width="350" height="400" closeAction="hide" @ready="_ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
             <ext-radiogroup name="platform" :label="i18n(`Platform`)" defaults='{"labelAlign":"right"}' vertical="true">
                 <ext-radiofield value="win32" label="Windows" checked="true"/>
@@ -7,7 +7,7 @@
                 <ext-radiofield value="darwin" label="MacOS"/>
             </ext-radiogroup>
 
-            <ext-radiogroup name="arch" :label="i18n(`Arch`)" defaults='{"labelAlign":"right"}' vertical="true">
+            <ext-radiogroup name="arch" :label="i18n(`Architecture`)" defaults='{"labelAlign":"right"}' vertical="true">
                 <ext-radiofield value="x64" label="x64" checked="true"/>
                 <ext-radiofield value="x32" label="x32"/>
             </ext-radiogroup>

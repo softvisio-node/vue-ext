@@ -2,7 +2,7 @@
     <ext-formpanel ref="form" @ready="ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-container :html="i18n(`Sign Up`)"/>
+            <ext-container :html="i18n(`Sign up`)"/>
             <ext-spacer/>
         </ext-toolbar>
         <ext-emailfield name="username" :label="i18n(`Email`)" required="true"/>
@@ -10,9 +10,9 @@
         <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm Password`)" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18n(`Sign In`)" ui="back" @tap="showSignin"/>
+            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18n(`Sign in`)" ui="back" @tap="showSignin"/>
             <ext-spacer/>
-            <ext-button :text="i18n(`Sign Up`)" ui="action" @tap="submit"/>
+            <ext-button :text="i18n(`Sign up`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-formpanel>
 </template>

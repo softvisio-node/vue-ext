@@ -6,7 +6,7 @@
         <!-- </ext-container> -->
 
         <ext-container layout="hbox" :hidden="!telegramEnabled">
-            <ext-textfield ref="telegramUsernameField" :label="i18n(`Your Telegram Username`)" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
+            <ext-textfield ref="telegramUsernameField" :label="i18n(`Your Telegram username`)" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
             <ext-button :text="i18n(`Update`)" @tap="_updateTelegramUsername"/>
             <ext-button :text="i18n(msgid`Open @${telegramBotUsername}`)" iconCls="fa-solid fa-external-link-alt" iconAlign="right" @tap="_openTelegramBot"/>
         </ext-container>
@@ -17,7 +17,7 @@
 
         <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_gridReady">
             <ext-toolbar docked="top">
-                <ext-container :html="i18n(`Notification Types`)"/>
+                <ext-container :html="i18n(`Notification types`)"/>
             </ext-toolbar>
             <ext-column dataIndex="title" flex="1" cell='{"encodeHtml":false}'/>
             <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_internalColReady"/>

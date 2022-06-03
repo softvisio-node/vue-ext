@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :title="i18n(`Edit User Permissions`)" width="800" height="90%" closeAction="hide" layout="fit" viewModel="true">
+    <ext-dialog :title="i18n(`Edit user permissions`)" width="800" height="90%" closeAction="hide" layout="fit" viewModel="true">
         <ext-grid plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
             <ext-column :text="i18n(`Name`)" dataIndex="name" width="150"/>
 

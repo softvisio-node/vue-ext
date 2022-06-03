@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :title="i18n(`Change Password`)" width="300" height="300" closeAction="hide" @ready="_ready">
+    <ext-dialog :title="i18n(`Change password`)" width="300" height="300" closeAction="hide" @ready="_ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
             <ext-passwordfield name="password" :label="i18n(`Password`)" required="true"/>
             <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm Password`)" required="true"/>
