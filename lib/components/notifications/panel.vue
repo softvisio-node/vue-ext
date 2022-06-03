@@ -12,7 +12,7 @@
         </ext-container>
 
         <ext-container :hidden="!telegramEnabled">
-            <div>{{ i18n(`In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${telegramBotUsername}</b> and press <b>"Start"</b>.`) }}</div>
+            <div>{{ i18n(msgid`In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${telegramBotUsername}</b> and press <b>"Start"</b>.`) }}</div>
         </ext-container>
 
         <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_gridReady">
@@ -20,10 +20,10 @@
                 <ext-container :html="i18n(`Notification Types`)"/>
             </ext-toolbar>
             <ext-column dataIndex="title" flex="1" cell='{"encodeHtml":false}'/>
-            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(`Internal${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_internalColReady"/>
-            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(`Email${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_emailColReady"/>
-            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(`Telegram${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_telegramColReady"/>
-            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(`Push${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_pushColReady"/>
+            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_internalColReady"/>
+            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_emailColReady"/>
+            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(msgid`Telegram${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_telegramColReady"/>
+            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(msgid`Push${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_pushColReady"/>
         </ext-grid>
     </ext-panel>
 </template>
