@@ -6,9 +6,22 @@
 import locale from "#vue/locale";
 
 export default {
+    "props": {
+        "autoHide": {
+            "type": Boolean,
+            "default": true,
+        },
+    },
+
     "methods": {
         _ready ( e ) {
             const cmp = e.detail.cmp;
+
+            if ( !locale.hasLocales && this.autoHide ) {
+                cmp.setHidden( true );
+
+                return;
+            }
 
             const menu = [];
 
