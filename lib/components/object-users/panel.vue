@@ -1,7 +1,7 @@
 <template>
     <ext-grid flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" columnMenu="false" columnResize="false" @ready="_ready">
         <ext-toolbar docked="top">
-            <ext-searchfield placeholder="Search users" width="200" @change="_searchUsers"/>
+            <ext-searchfield :placeholder="i18n(`Search users`)" width="200" @change="_searchUsers"/>
             <ext-spacer/>
             <ext-button iconCls="fa-solid fa-plus" :text="i18n(`Add User`)" @tap="_showAddUserDialog"/>
         </ext-toolbar>
