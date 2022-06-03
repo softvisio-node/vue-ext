@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-03 08:03+0300\n"
+"POT-Creation-Date: 2022-06-03 14:11+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -13,6 +13,14 @@ msgstr ""
 "X-Poedit-Basepath: ../..\n"
 "X-Generator: Poedit 3.0.1\n"
 "X-Poedit-SearchPath-0: lib\n"
+
+#: lib/components/api-tokens/create/dialog.vue:57:35
+msgid "API token created"
+msgstr ""
+
+#: lib/components/api-tokens/create/dialog.vue:69:31
+msgid "Token copied to clipboard"
+msgstr ""
 
 #: lib/components/api-tokens/dialog.vue:3:24
 #: lib/components/app-title/menu.vue:16:57
@@ -31,15 +39,16 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: lib/components/api-tokens/panel.vue:121:47
-msgid "Confirmation"
-msgid_plural "Are you sure you want to delete this token?"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+#: lib/components/api-tokens/panel.vue:121:74
+msgid "Are you sure you want to delete this token?"
+msgstr ""
 
 #: lib/components/api-tokens/panel.vue:126:35
 msgid "API token deleted"
+msgstr ""
+
+#: lib/components/api-tokens/permissions/dialog.vue:84:35
+msgid "Token permissions updated"
 msgstr ""
 
 #: lib/components/app-title/menu.vue:17:58
@@ -54,6 +63,61 @@ msgstr ""
 
 #: lib/components/app-title/menu.vue:22:66
 msgid "Sign Out"
+msgstr ""
+
+#: lib/components/auth/reset-password-form.vue:36:39
+msgid "Password change instructions were sent to the email address, associated with your account."
+msgstr ""
+
+#: lib/components/change-password-dialog.vue:45:35
+#: lib/components/profile/panel.vue:97:35
+#: lib/components/reset-password-dialog.vue:60:35
+msgid "Password changed"
+msgstr ""
+
+#: lib/components/dark-mode/button.vue:31:61
+#: lib/components/profile/panel.vue:9:67
+msgid "Dark Mode"
+msgstr ""
+
+#: lib/components/electron-updates/create/dialog.vue:38:35
+msgid "Release created"
+msgstr ""
+
+#: lib/components/electron-updates/panel.vue:98:47
+#: lib/components/object-users/panel.vue:160:47
+#: lib/components/users/panel.vue:195:47 lib/utils.js:5:34
+msgid "Confirmation"
+msgstr ""
+
+#: lib/components/electron-updates/panel.vue:98:76
+msgid "Are you sure you want to delete release?"
+msgstr ""
+
+#: lib/components/electron-updates/panel.vue:103:35
+msgid "Update deleted"
+msgstr ""
+
+#: lib/components/notifications/panel.vue:127:35
+msgid "Telegram username updated"
+msgstr ""
+
+#: lib/components/object-users/panel.vue:160:76
+#: lib/components/users/panel.vue:195:76
+msgid "Are you sure you want to delete user?"
+msgstr ""
+
+#: lib/components/object-users/panel.vue:169:35
+#: lib/components/users/panel.vue:204:35
+msgid "User deleted"
+msgstr ""
+
+#: lib/components/object-users/panel.vue:192:35
+msgid "Please, fill all fields"
+msgstr ""
+
+#: lib/components/object-users/panel.vue:203:35
+msgid "Users updated"
 msgstr ""
 
 #: lib/components/profile/panel.vue:10:42
@@ -102,8 +166,25 @@ msgstr ""
 msgid "Accent Color"
 msgstr ""
 
-#: lib/components/profile/panel.vue:9:67
-msgid "Dark Mode"
+#: lib/components/profile/panel.vue:117:35
+#: lib/components/users/panel.vue:224:35
+msgid "Sessions were deleted"
+msgstr ""
+
+#: lib/components/reset-password-dialog.vue:23:35
+msgid "Password reset token was not found"
+msgstr ""
+
+#: lib/components/settings/dialog.vue:88:35
+msgid "Please, fill all required fields"
+msgstr ""
+
+#: lib/components/settings/dialog.vue:110:35
+msgid "Settings updated"
+msgstr ""
+
+#: lib/components/users/create/dialog.vue:45:35
+msgid "User created"
 msgstr ""
 
 #: lib/components/users/panel.vue:5:43
@@ -128,4 +209,26 @@ msgstr ""
 
 #: lib/components/users/panel.vue:19:27
 msgid "Enabled"
+msgstr ""
+
+#: lib/components/users/panel.vue:151:35
+#: lib/components/users/permissions/dialog.vue:84:35
+msgid "User permissions updated"
+msgstr ""
+
+#: lib/components/users/panel.vue:183:35
+#, javascript-format
+msgid "User ${n}"
+msgstr ""
+
+#: lib/utils.js:5:74
+msgid "Are you sure you want to do that?"
+msgstr ""
+
+#: lib/viewport.vue:64:35
+msgid "Email confirmation token is invalid"
+msgstr ""
+
+#: lib/viewport.vue:74:39
+msgid "Email confirmed successfully"
 msgstr ""
