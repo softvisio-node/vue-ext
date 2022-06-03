@@ -21,7 +21,7 @@
             <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18n(`Sign Out`)" textAlign="left" @tap="signout"/>
 
             <ext-container layout="hbox">
-                <ext-togglefield boxLabel='<i class="fa-solid fa-adjust"></i> DARK MODE' :value="darkMode" @change="darkMode = $event"/>
+                <ext-togglefield :boxLabel='`<i class="fa-solid fa-adjust"></i> ` + i18n(`DARK MODE`)' :value="darkMode" @change="darkMode = $event"/>
             </ext-container>
         </ext-panel>
     </ext-sheet>

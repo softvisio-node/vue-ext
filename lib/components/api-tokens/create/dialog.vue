@@ -1,12 +1,12 @@
 <template>
     <ext-dialog :title="i18n(`Create API Token`)" width="400" height="400" closeAction="hide" layout="vbox" @ready="ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
-            <ext-textfield ref="name" name="name" label="Token Name" :placeholder="i18n(`Enter new token name`)" required="true"/>
+            <ext-textfield ref="name" name="name" :label="i18n(`Token Name`)" :placeholder="i18n(`Enter new token name`)" required="true"/>
         </ext-fieldpanel>
 
         <ext-container ref="done" defaults='{"labelAlign":"top"}' hidden="true">
             <ext-spacer height="10"/>
-            <ext-textareafield ref="token" label="Your API Access Token:" textAlign="center" readOnly="true" height="90"/>
+            <ext-textareafield ref="token" :label="i18n(`Your API Access Token:`)" textAlign="center" readOnly="true" height="90"/>
             <ext-container>
                 <div>Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again.</div>
             </ext-container>

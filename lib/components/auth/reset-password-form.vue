@@ -5,7 +5,7 @@
             <ext-container :html="i18n(`Reset Password`)"/>
             <ext-spacer/>
         </ext-toolbar>
-        <ext-textfield name="username" label="User Name or Email" required="true"/>
+        <ext-textfield name="username" :label="i18n(`User Name or Email`)" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
             <ext-button iconCls="fa-solid fa-arrow-left" :text="i18n(`Sign In`)" ui="back" @tap="showSignin"/>

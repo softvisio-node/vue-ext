@@ -2,8 +2,8 @@
     <ext-dialog :title="i18n(`Reset Password`)" layout="fit" width="300" minHeight="450" @destroy="close" @ready="_ready">
         <ext-fieldpanel ref="form" defaults1='{"labelAlign":"left","labelWidth":120}'>
             <ext-hiddenfield name="token" :value="token"/>
-            <ext-passwordfield name="password" label="New Password" required="true"/>
-            <ext-passwordfield ref="passwordConfirm" label="Confirm New Password" required="true"/>
+            <ext-passwordfield name="password" :label="i18n(`New Password`)" required="true"/>
+            <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm New Password`)" required="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>

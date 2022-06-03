@@ -1,12 +1,12 @@
 <template>
     <ext-panel layout="vbox" @ready="_ready">
         <!-- <ext-container layout="hbox"> -->
-        <!--     <ext-textfield label="Yout Email Address" labelAlign="left" labelWidth="150" :value="email"/> -->
+        <!--     <ext-textfield :label="i18n(`Yout Email Address`)" labelAlign="left" labelWidth="150" :value="email"/> -->
         <!--     <ext-button :text="i18n(`Update`)"/> -->
         <!-- </ext-container> -->
 
         <ext-container layout="hbox" :hidden="!telegramEnabled">
-            <ext-textfield ref="telegramUsernameField" label="Your Telegram Username" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
+            <ext-textfield ref="telegramUsernameField" :label="i18n(`Your Telegram Username`)" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
             <ext-button :text="i18n(`Update`)" @tap="_updateTelegramUsername"/>
             <ext-button :text="i18n(`Open @${telegramBotUsername}`)" iconCls="fa-solid fa-external-link-alt" iconAlign="right" @tap="_openTelegramBot"/>
         </ext-container>

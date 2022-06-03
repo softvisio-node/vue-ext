@@ -12,11 +12,11 @@
 
         <!-- add / update user dialog -->
         <ext-dialog ref="addUserDialog" :title="i18n(`Add / Update User`)" width="400" height="250" closeAction="hide">
-            <ext-comboboxfield ref="addUserCombo" label="Select user" valueField="id" displayField="name" primaryFilter='{"property":"name","operator":"like"}' triggerAction="query" minChars="1" forceSelection="true" @ready="_addUserComboReady"/>
+            <ext-comboboxfield ref="addUserCombo" :label="i18n(`Select user`)" valueField="id" displayField="name" primaryFilter='{"property":"name","operator":"like"}' triggerAction="query" minChars="1" forceSelection="true" @ready="_addUserComboReady"/>
 
-            <ext-displayfield ref="addUserUsername" label="User"/>
+            <ext-displayfield ref="addUserUsername" :label="i18n(`User`)"/>
 
-            <ext-comboboxfield ref="addUserRoleCombo" label="Select user role" valueField="id" displayField="name" editable="false" queryMode="local" triggerAction="all" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>'/>
+            <ext-comboboxfield ref="addUserRoleCombo" :label="i18n(`Select user role`)" valueField="id" displayField="name" editable="false" queryMode="local" triggerAction="all" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>'/>
 
             <ext-toolbar docked="bottom">
                 <ext-spacer/>

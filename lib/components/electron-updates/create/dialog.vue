@@ -1,18 +1,18 @@
 <template>
     <ext-dialog :title="i18n(`Upload Release`)" width="350" height="400" closeAction="hide" @ready="_ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
-            <ext-radiogroup name="platform" label="Platform" defaults='{"labelAlign":"right"}' vertical="true">
+            <ext-radiogroup name="platform" :label="i18n(`Platform`)" defaults='{"labelAlign":"right"}' vertical="true">
                 <ext-radiofield value="win32" label="Windows" checked="true"/>
                 <ext-radiofield value="linux" label="Linux"/>
                 <ext-radiofield value="darwin" label="MacOS"/>
             </ext-radiogroup>
 
-            <ext-radiogroup name="arch" label="Arch" defaults='{"labelAlign":"right"}' vertical="true">
+            <ext-radiogroup name="arch" :label="i18n(`Arch`)" defaults='{"labelAlign":"right"}' vertical="true">
                 <ext-radiofield value="x64" label="x64" checked="true"/>
                 <ext-radiofield value="x32" label="x32"/>
             </ext-radiogroup>
 
-            <ext-emailfield name="version" label="Version" :placeholder="i18n(`Semantic version 1.2.3`)" required="true"/>
+            <ext-emailfield name="version" :label="i18n(`Version`)" :placeholder="i18n(`Semantic version 1.2.3`)" required="true"/>
 
             <ext-filefield ref="file" :placeholder="i18n(`Choose update`)" required="true"/>
         </ext-fieldpanel>

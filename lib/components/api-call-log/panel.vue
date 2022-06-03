@@ -3,7 +3,7 @@
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18n(`Search tokens by name`)" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-togglefield label="AUTO REFRESH" labelAlign="right" @change="autoRefreshChange"/>
+            <ext-togglefield label="i18n(`AUTO REFRESH`)" labelAlign="right" @change="autoRefreshChange"/>
             <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18n(`Refresh`)" @tap="refresh"/>
         </ext-toolbar>
 

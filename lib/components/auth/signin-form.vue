@@ -5,8 +5,8 @@
             <ext-container :html="i18n(`Sign In`)"/>
             <ext-spacer/>
         </ext-toolbar>
-        <ext-textfield name="username" label="User Name or Email" required="true"/>
-        <ext-passwordfield name="password" label="Password" required="true"/>
+        <ext-textfield name="username" :label="i18n(`User Name or Email`)" required="true"/>
+        <ext-passwordfield name="password" :label="i18n(`Password`)" required="true"/>
 
         <ext-button :text="i18n(`Do not have account? Sign up`)" :hidden="!signup" width="100%" margin="10 0 0 0" @tap="showSignup"/>
 

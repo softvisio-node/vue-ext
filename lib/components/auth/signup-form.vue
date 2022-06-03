@@ -5,9 +5,9 @@
             <ext-container :html="i18n(`Sign Up`)"/>
             <ext-spacer/>
         </ext-toolbar>
-        <ext-emailfield name="username" label="Email" required="true"/>
-        <ext-passwordfield name="password" label="Password" required="true"/>
-        <ext-passwordfield ref="passwordConfirm" label="Confirm Password" required="true"/>
+        <ext-emailfield name="username" :label="i18n(`Email`)" required="true"/>
+        <ext-passwordfield name="password" :label="i18n(`Password`)" required="true"/>
+        <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm Password`)" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
             <ext-button iconCls="fa-solid fa-arrow-left" :text="i18n(`Sign In`)" ui="back" @tap="showSignin"/>

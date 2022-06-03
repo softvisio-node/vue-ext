@@ -10,12 +10,12 @@
                         <ext-container :html="i18n(`SMTP Settings`)"/>
                     </ext-toolbar>
                     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":250}'>
-                        <ext-textfield label="App URL" bind="{record.app_url}"/>
-                        <ext-textfield label="From <i class='fa-solid fa-question-circle'></i>" bind="{record.smtp_from}" :placeholder="i18n(`User name <email@address>`)" :tooltip="i18n(`Format: User Name <email@address>.`)"/>
-                        <ext-textfield label="SMTP Host" bind="{record.smtp_hostname}"/>
-                        <ext-spinnerfield label="SMTP Port" decimals="0" minValue="1" maxValue="65535" bind="{record.smtp_port}"/>
-                        <ext-textfield label="SMTP Username" bind="{record.smtp_username}"/>
-                        <ext-passwordfield label="SMTP Password" bind="{record.smtp_password}"/>
+                        <ext-textfield :label="i18n(`App URL`)" bind="{record.app_url}"/>
+                        <ext-textfield :label="i18n(`From`) + `<i class='fa-solid fa-question-circle'></i>`" bind="{record.smtp_from}" :placeholder="i18n(`User name <email@address>`)" :tooltip="i18n(`Format: User Name <email@address>.`)"/>
+                        <ext-textfield :label="i18n(`SMTP Host`)" bind="{record.smtp_hostname}"/>
+                        <ext-spinnerfield :label="i18n(`SMTP Port`)" decimals="0" minValue="1" maxValue="65535" bind="{record.smtp_port}"/>
+                        <ext-textfield :label="i18n(`SMTP Username`)" bind="{record.smtp_username}"/>
+                        <ext-passwordfield :label="i18n(`SMTP Password`)" bind="{record.smtp_password}"/>
                     </ext-fieldset>
                     <ext-container layout='{"type":"hbox","pack":"end"}'>
                         <ext-button :text="i18n(`Test SMTP`)" bind='{"disabled":"{!record.smtp_can_test}"}' ui="action" @tap="testSmtp"/>
