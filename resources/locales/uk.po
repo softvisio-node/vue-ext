@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-03 07:56+0300\n"
+"POT-Creation-Date: 2022-06-03 08:03+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,6 +17,29 @@ msgstr ""
 #: lib/components/api-tokens/dialog.vue:3:24
 #: lib/components/app-title/menu.vue:16:57
 msgid "API Access Tokens"
+msgstr ""
+
+#: lib/components/api-tokens/panel.vue:5:43
+msgid "Search tokens by name"
+msgstr ""
+
+#: lib/components/api-tokens/panel.vue:7:58
+msgid "Create API Token"
+msgstr ""
+
+#: lib/components/api-tokens/panel.vue:8:58 lib/components/users/panel.vue:8:58
+msgid "Refresh"
+msgstr ""
+
+#: lib/components/api-tokens/panel.vue:121:47
+msgid "Confirmation"
+msgid_plural "Are you sure you want to delete this token?"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: lib/components/api-tokens/panel.vue:126:35
+msgid "API token deleted"
 msgstr ""
 
 #: lib/components/app-title/menu.vue:17:58
@@ -89,10 +112,6 @@ msgstr ""
 
 #: lib/components/users/panel.vue:7:63
 msgid "Create User"
-msgstr ""
-
-#: lib/components/users/panel.vue:8:58
-msgid "Refresh"
 msgstr ""
 
 #: lib/components/users/panel.vue:13:27

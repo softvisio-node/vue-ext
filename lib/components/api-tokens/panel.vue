@@ -1,10 +1,10 @@
 <template>
     <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
         <ext-toolbar docked="top">
-            <ext-searchfield placeholder="Search tokens by name" width="200" @change="search"/>
+            <ext-searchfield :placeholder="i18n(`Search tokens by name`)" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-plus" text="Create API Token" @tap="showCreateTokenDialog"/>
-            <ext-button iconCls="fa-solid fa-redo" text="Refresh" @tap="reload"/>
+            <ext-button iconCls="fa-solid fa-plus" :text="i18n(`Create API Token`)" @tap="showCreateTokenDialog"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="i18n(`Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
         <ext-column text="Name" dataIndex="name" flex="1"/>
@@ -134,12 +134,12 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( "Confirmation", "Are you sure you want to delete this token?" ) ) ) return;
+            if ( !( await this.$utils.confirm( this.i18n( "Confirmation", "Are you sure you want to delete this token?" ) ) ) ) return;
 
             var res = await this.$api.call( "api-tokens/delete", record.getId() );
 
             if ( res.ok ) {
-                this.$utils.toast( "API token deleted" );
+                this.$utils.toast( this.i18n( "API token deleted" ) );
 
                 this.store.remove( record );
             }
