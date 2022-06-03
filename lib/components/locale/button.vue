@@ -1,5 +1,5 @@
 <template>
-    <ext-button ref="button" iconCls="fa-solid fa-language" stretchMenu="true" @ready="_ready"/>
+    <ext-button ref="button" iconCls="fa-solid fa-language" :textAlign="textAlign" stretchMenu="true" @ready="_ready"/>
 </template>
 
 <script>
@@ -10,6 +10,10 @@ export default {
         "autoHide": {
             "type": Boolean,
             "default": true,
+        },
+        "textAlign": {
+            "type": String,
+            "default": "left",
         },
     },
 

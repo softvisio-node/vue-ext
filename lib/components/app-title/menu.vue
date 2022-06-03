@@ -18,6 +18,7 @@
 
             <slot name="bottomDown"/>
 
+            <LocaleButton/>
             <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18n(`Sign Out`)" textAlign="left" @tap="signout"/>
 
             <ext-container layout="hbox">
@@ -29,11 +30,12 @@
 
 <script>
 import Avatar from "./avatar";
+import LocaleButton from "#lib/components/locale/button";
 import ChangePasswordDialog from "#components/change-password-dialog";
 import ApiTokensDialog from "#components/api-tokens/dialog";
 
 export default {
-    "components": { Avatar },
+    "components": { Avatar, LocaleButton },
 
     "props": {
         "apiTokens": {
