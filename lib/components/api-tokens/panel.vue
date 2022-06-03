@@ -134,7 +134,7 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( this.i18n( "Confirmation", this.i18n( "Are you sure you want to delete this token?" ) ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.i18n( "Confirmation" ), this.i18n( "Are you sure you want to delete this token?" ) ) ) ) return;
 
             var res = await this.$api.call( "api-tokens/delete", record.getId() );
 
