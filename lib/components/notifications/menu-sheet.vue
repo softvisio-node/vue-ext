@@ -9,7 +9,7 @@
                 <ext-button align="right" iconCls="fa-solid fa-redo" tooltip="Refresh notifications" @tap="reload"/>
             </ext-titlebar>
             <ext-panel layout="center">
-                <ext-container html='<div style="font-size:1.5em;">You have no notifications</div>'/>
+                <ext-container :html='`<div style="font-size:1.5em;">` + i18n(`You have no notifications`) + `</div>`'/>
             </ext-panel>
             <ext-panel layout="fit">
                 <ext-componentdataview layout="vbox" scrollable="true" itemCls="x-listitem" @ready="listReady"/>

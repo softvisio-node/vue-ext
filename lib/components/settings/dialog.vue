@@ -7,7 +7,7 @@
                 <!-- SMTP -->
                 <ext-panel :title="i18n(`SMTP Settings`)" :hidden="!smtpSettings">
                     <ext-toolbar docked="top" :hidden="!titles">
-                        <ext-container html="SMTP Settings"/>
+                        <ext-container :html="i18n(`SMTP Settings`)"/>
                     </ext-toolbar>
                     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":250}'>
                         <ext-textfield label="App URL" bind="{record.app_url}"/>

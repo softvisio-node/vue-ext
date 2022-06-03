@@ -17,7 +17,7 @@
 
         <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_gridReady">
             <ext-toolbar docked="top">
-                <ext-container html="Notification Types"/>
+                <ext-container :html="i18n(`Notification Types`)"/>
             </ext-toolbar>
             <ext-column dataIndex="title" flex="1" cell='{"encodeHtml":false}'/>
             <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18n(`Internal${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_internalColReady"/>

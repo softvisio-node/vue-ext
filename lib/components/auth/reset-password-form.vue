@@ -2,7 +2,7 @@
     <ext-formpanel ref="form" @ready="ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-container html="Reset Password"/>
+            <ext-container :html="i18n(`Reset Password`)"/>
             <ext-spacer/>
         </ext-toolbar>
         <ext-textfield name="username" label="User Name or Email" required="true"/>

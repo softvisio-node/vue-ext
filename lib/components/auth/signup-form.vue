@@ -2,7 +2,7 @@
     <ext-formpanel ref="form" @ready="ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-container html="Sign Up"/>
+            <ext-container :html="i18n(`Sign Up`)"/>
             <ext-spacer/>
         </ext-toolbar>
         <ext-emailfield name="username" label="Email" required="true"/>
