@@ -1,26 +1,39 @@
 <template>
-    <ext-togglefield :label="darkModeLabel" :labelAlign="labelAlign" labelWidth="120" :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
+    <ext-togglefield :label="label" :labelAlign="labelAlign" :labelTextAlign="labelTextAlign" labelWidth="120" :value="darkMode" @change="darkMode = $event"/>
 </template>
 
 <script>
 export default {
     "props": {
+        "hideLabel": {
+            "type": Boolean,
+            "default": false,
+        },
+        "hideLabelText": {
+            "type": Boolean,
+            "default": false,
+        },
         "labelAlign": {
             "type": String,
             "default": "left",
         },
-    },
-    data () {
-        return {
-            "darkModeLabel": `<i class="fa-solid fa-adjust"></i> ${this.i18n( `Dark Mode` )}`,
-        };
+        "labelTextAlign": {
+            "type": String,
+            "default": "right",
+        },
     },
 
     "computed": {
-        "systemDarkMode": {
-            get () {
-                return this.$store.theme.systemDarkMode;
-            },
+        label () {
+            if ( this.hideLabel ) {
+                return "";
+            }
+            else if ( this.hideLabelText ) {
+                return `<i class="fa-solid fa-adjust"></i>`;
+            }
+            else {
+                return `<i class="fa-solid fa-adjust"></i> ${this.i18n( `Dark Mode` )}`;
+            }
         },
 
         "darkMode": {
