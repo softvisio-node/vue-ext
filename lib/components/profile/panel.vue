@@ -68,7 +68,7 @@ export default {
 
     data () {
         return {
-            "darkModeLabel": `<i class="fa-solid fa-adjust"></i> ${this.i18n( `Dark Mode` )}]`,
+            "darkModeLabel": `<i class="fa-solid fa-adjust"></i> ${this.i18n( `Dark Mode` )}`,
         };
     },
 
