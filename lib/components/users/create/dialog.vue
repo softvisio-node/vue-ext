@@ -1,11 +1,11 @@
 <template>
-    <ext-dialog :title="i18n(`Create user`)" width="350" height="400" closeAction="hide" @ready="_ready">
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
+    <ext-dialog :title="i18n(`Create user`)" width="350" height="400" closeAction="hide" scrollable="true" @ready="_ready">
+        <ext-fieldpanel ref="form" @ready="formReady">
             <ext-emailfield name="username" :label="i18n(`Email`)" :placeholder="i18n(`Enter user email`)" required="true"/>
             <ext-passwordfield name="password" :label="i18n(`Password`)" :placeholder="i18n(`Enter user password`)" required="true"/>
             <ext-passwordfield name="password1" :label="i18n(`Confirm password`)" :placeholder="i18n(`Confirm user password`)" required="true"/>
-            <ext-togglefield name="enabled" :label="i18n(`Login enabled`)" value="true"/>
-            <ext-togglefield name="admin" :label="i18n(`Admin`)" value="false"/>
+            <ext-togglefield name="enabled" :label="i18n(`Login enabled`)" labelAlign="left" value="true"/>
+            <ext-togglefield name="admin" :label="i18n(`Admin`)" labelAlign="left" value="false"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
