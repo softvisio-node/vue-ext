@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-04 08:52+0300\n"
+"POT-Creation-Date: 2022-06-04 15:12+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -113,11 +113,11 @@ msgstr ""
 msgid "Create API token"
 msgstr ""
 
-#: lib/components/api-tokens/create/dialog.vue:57:35
+#: lib/components/api-tokens/create/dialog.vue:84:35
 msgid "API token created"
 msgstr ""
 
-#: lib/components/api-tokens/create/dialog.vue:69:31
+#: lib/components/api-tokens/create/dialog.vue:96:31
 msgid "Token copied to the clipboard"
 msgstr ""
 
@@ -146,23 +146,23 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-#: lib/components/api-tokens/panel.vue:56:39
+#: lib/components/api-tokens/panel.vue:72:39
 #: lib/components/api-tokens/permissions/dialog.vue:2:24
 msgid "Edit token permissions"
 msgstr ""
 
-#: lib/components/api-tokens/panel.vue:121:47
-#: lib/components/electron-updates/panel.vue:98:47
-#: lib/components/object-users/panel.vue:160:47
-#: lib/components/users/panel.vue:195:47 lib/utils.js:5:34
+#: lib/components/api-tokens/panel.vue:137:47
+#: lib/components/electron-updates/panel.vue:115:47
+#: lib/components/object-users/panel.vue:188:47
+#: lib/components/users/panel.vue:218:47 lib/utils.js:5:34
 msgid "Confirmation"
 msgstr ""
 
-#: lib/components/api-tokens/panel.vue:121:76
+#: lib/components/api-tokens/panel.vue:137:76
 msgid "Are you sure you want to delete this token?"
 msgstr ""
 
-#: lib/components/api-tokens/panel.vue:126:35
+#: lib/components/api-tokens/panel.vue:142:35
 msgid "API token deleted"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: lib/components/api-tokens/permissions/dialog.vue:84:35
+#: lib/components/api-tokens/permissions/dialog.vue:101:35
 msgid "Token permissions updated"
 msgstr ""
 
@@ -199,8 +199,8 @@ msgid "Sign out"
 msgstr ""
 
 #: lib/components/app-title/menu.vue:25:84
-#: lib/components/dark-mode/button.vue:31:61
-#: lib/components/profile/panel.vue:9:67
+#: lib/components/dark-mode/button.vue:35:61
+#: lib/components/profile/panel.vue:71:67
 msgid "Dark mode"
 msgstr ""
 
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: lib/components/auth/reset-password-form.vue:36:39
+#: lib/components/auth/reset-password-form.vue:53:39
 msgid "Password change instructions were sent to the email address, associated with your account."
 msgstr ""
 
@@ -261,9 +261,9 @@ msgstr ""
 msgid "Confirm password"
 msgstr ""
 
-#: lib/components/change-password-dialog.vue:45:35
-#: lib/components/profile/panel.vue:97:35
-#: lib/components/reset-password-dialog.vue:60:35
+#: lib/components/change-password-dialog.vue:59:35
+#: lib/components/profile/panel.vue:159:35
+#: lib/components/reset-password-dialog.vue:75:35
 msgid "Password changed"
 msgstr ""
 
@@ -299,7 +299,7 @@ msgstr ""
 msgid "Upload release"
 msgstr ""
 
-#: lib/components/electron-updates/create/dialog.vue:38:35
+#: lib/components/electron-updates/create/dialog.vue:65:35
 msgid "Release created"
 msgstr ""
 
@@ -307,11 +307,11 @@ msgstr ""
 msgid "Published"
 msgstr ""
 
-#: lib/components/electron-updates/panel.vue:98:76
+#: lib/components/electron-updates/panel.vue:115:76
 msgid "Are you sure you want to delete release?"
 msgstr ""
 
-#: lib/components/electron-updates/panel.vue:103:35
+#: lib/components/electron-updates/panel.vue:120:35
 msgid "Update deleted"
 msgstr ""
 
@@ -395,7 +395,7 @@ msgstr ""
 msgid "Push${n}notifications"
 msgstr ""
 
-#: lib/components/notifications/panel.vue:127:35
+#: lib/components/notifications/panel.vue:157:35
 msgid "Telegram username updated"
 msgstr ""
 
@@ -432,21 +432,21 @@ msgstr ""
 msgid "Add / update user"
 msgstr ""
 
-#: lib/components/object-users/panel.vue:160:76
-#: lib/components/users/panel.vue:195:76
+#: lib/components/object-users/panel.vue:188:76
+#: lib/components/users/panel.vue:218:76
 msgid "Are you sure you want to delete user?"
 msgstr ""
 
-#: lib/components/object-users/panel.vue:169:35
-#: lib/components/users/panel.vue:204:35
+#: lib/components/object-users/panel.vue:197:35
+#: lib/components/users/panel.vue:227:35
 msgid "User deleted"
 msgstr ""
 
-#: lib/components/object-users/panel.vue:192:35
+#: lib/components/object-users/panel.vue:220:35
 msgid "Please, fill all fields"
 msgstr ""
 
-#: lib/components/object-users/panel.vue:203:35
+#: lib/components/object-users/panel.vue:231:35
 msgid "Users updated"
 msgstr ""
 
@@ -493,12 +493,12 @@ msgstr ""
 msgid "Accent color"
 msgstr ""
 
-#: lib/components/profile/panel.vue:117:35
-#: lib/components/users/panel.vue:224:35
+#: lib/components/profile/panel.vue:179:35
+#: lib/components/users/panel.vue:247:35
 msgid "Sessions were deleted"
 msgstr ""
 
-#: lib/components/reset-password-dialog.vue:23:35
+#: lib/components/reset-password-dialog.vue:38:35
 msgid "Password reset token was not found"
 msgstr ""
 
@@ -543,11 +543,11 @@ msgstr ""
 msgid "Test SMTP"
 msgstr ""
 
-#: lib/components/settings/dialog.vue:88:35
+#: lib/components/settings/dialog.vue:123:35
 msgid "Please, fill all required fields"
 msgstr ""
 
-#: lib/components/settings/dialog.vue:110:35
+#: lib/components/settings/dialog.vue:145:35
 msgid "Settings updated"
 msgstr ""
 
@@ -590,33 +590,33 @@ msgstr ""
 msgid "Create user"
 msgstr ""
 
-#: lib/components/users/create/dialog.vue:45:35
+#: lib/components/users/create/dialog.vue:62:35
 msgid "User created"
 msgstr ""
 
-#: lib/components/users/panel.vue:98:39
+#: lib/components/users/panel.vue:121:39
 #: lib/components/users/permissions/dialog.vue:2:24
 msgid "Edit user permissions"
 msgstr ""
 
-#: lib/components/users/panel.vue:104:39
+#: lib/components/users/panel.vue:127:39
 msgid "Delete user"
 msgstr ""
 
-#: lib/components/users/panel.vue:110:39
+#: lib/components/users/panel.vue:133:39
 msgid "Actions"
 msgstr ""
 
-#: lib/components/users/panel.vue:117:48
+#: lib/components/users/panel.vue:140:48
 msgid "Drop sessions"
 msgstr ""
 
-#: lib/components/users/panel.vue:151:35
-#: lib/components/users/permissions/dialog.vue:84:35
+#: lib/components/users/panel.vue:174:35
+#: lib/components/users/permissions/dialog.vue:101:35
 msgid "User permissions updated"
 msgstr ""
 
-#: lib/components/users/panel.vue:183:35
+#: lib/components/users/panel.vue:206:35
 #, javascript-format
 msgid "User ${n}"
 msgstr ""
@@ -625,10 +625,10 @@ msgstr ""
 msgid "Are you sure you want to do that?"
 msgstr ""
 
-#: lib/viewport.vue:64:35
+#: lib/viewport.vue:68:35
 msgid "Email confirmation token is invalid"
 msgstr ""
 
-#: lib/viewport.vue:74:39
+#: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr ""
