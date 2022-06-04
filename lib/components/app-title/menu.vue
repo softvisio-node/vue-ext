@@ -18,7 +18,7 @@
 
             <slot name="bottomDown"/>
 
-            <LocaleButton/>
+            <LocaleButton :autoHide="true"/>
             <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18n(`Sign out`)" textAlign="left" @tap="signout"/>
 
             <ext-container layout="hbox">
