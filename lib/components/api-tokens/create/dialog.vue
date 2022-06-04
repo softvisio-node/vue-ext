@@ -8,7 +8,7 @@
             <ext-spacer height="10"/>
             <ext-textareafield ref="token" :label="i18n(`Your API access token:`)" textAlign="center" readOnly="true" height="90"/>
             <ext-container>
-                <div>Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again.</div>
+                <div>{{ i18n(`Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again.`) }}</div>
             </ext-container>
             <ext-spacer height="5"/>
             <ext-container layout="center">
