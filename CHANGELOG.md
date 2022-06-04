@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.4.2 (2022-06-04)
+
+Fixes:
+
+-   fix: menu locale button auto hide
+-   fix: translations
+
 ### 7.4.1 (2022-06-03)
 
 Fixes:
