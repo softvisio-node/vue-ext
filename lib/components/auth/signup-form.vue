@@ -10,7 +10,7 @@
         <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm password`)" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18n(`Sign in`)" ui="back" @tap="showSignin"/>
+            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18n(`Back`)" ui="back" @tap="showSignin"/>
             <ext-spacer/>
             <ext-button :text="i18n(`Sign up`)" ui="action" @tap="submit"/>
         </ext-toolbar>

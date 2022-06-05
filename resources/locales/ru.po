@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-05 21:50+0300\n"
+"POT-Creation-Date: 2022-06-05 21:59+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -215,11 +215,9 @@ msgid "User name or email"
 msgstr "Имя пользователя или email"
 
 #: lib/components/auth/reset-password-form.vue:11:64
-#: lib/components/auth/signin-form.vue:5:34
-#: lib/components/auth/signin-form.vue:16:31
 #: lib/components/auth/signup-form.vue:13:64
-msgid "Sign in"
-msgstr "Войти"
+msgid "Back"
+msgstr "Назад"
 
 #: lib/components/auth/reset-password-form.vue:13:31
 msgid "Reset"
@@ -228,6 +226,11 @@ msgstr "Сбросить"
 #: lib/components/auth/reset-password-form.vue:53:39
 msgid "Password change instructions were sent to the email address, associated with your account."
 msgstr "Инструкции по смене пароль отправлены на ваш email."
+
+#: lib/components/auth/signin-form.vue:5:34
+#: lib/components/auth/signin-form.vue:16:31
+msgid "Sign in"
+msgstr "Войти"
 
 #: lib/components/auth/signin-form.vue:9:51
 #: lib/components/auth/signup-form.vue:9:51
