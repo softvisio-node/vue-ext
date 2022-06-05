@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.4.4 (2022-06-05)
+
+Fixes:
+
+-   fix: po template
+
 ### 7.4.3 (2022-06-04)
 
 Fixes:
