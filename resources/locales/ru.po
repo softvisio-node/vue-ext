@@ -405,7 +405,7 @@ msgstr "Имя пользователя Telegram обновлено"
 #: lib/components/object-users/panel.vue:4:43
 #: lib/components/users/panel.vue:4:43
 msgid "Search users"
-msgstr "Поиск пользователей"
+msgstr "Искать пользователей"
 
 #: lib/components/object-users/panel.vue:6:58
 msgid "Add user"
