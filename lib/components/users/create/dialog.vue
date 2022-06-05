@@ -4,7 +4,7 @@
             <ext-emailfield name="username" :label="i18n(`Email`)" :placeholder="i18n(`Enter user email`)" required="true"/>
             <ext-passwordfield name="password" :label="i18n(`Password`)" :placeholder="i18n(`Enter user password`)" required="true"/>
             <ext-passwordfield name="password1" :label="i18n(`Confirm password`)" :placeholder="i18n(`Confirm user password`)" required="true"/>
-            <ext-togglefield name="enabled" :label="i18n(`Login enabled`)" labelAlign="left" value="true"/>
+            <ext-togglefield name="enabled" :label="i18n(`Enabled`)" labelAlign="left" value="true"/>
             <ext-togglefield name="admin" :label="i18n(`Administrator`)" labelAlign="left" value="false"/>
         </ext-fieldpanel>
 
