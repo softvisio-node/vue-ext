@@ -11,9 +11,9 @@
 
         <ext-column :text="i18n(`Name`)" dataIndex="name" flex="1" summaryDataIndex="total" @ready="nameColReady"/>
 
-        <ext-column :text="i18n(`Created`)" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
+        <ext-column :text="i18n(`Creation date`)" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
 
-        <ext-column :text="i18n(`Admin`)" width="95" @ready="adminColReady"/>
+        <ext-column :text="i18n(`Administrator`)" width="130" @ready="adminColReady"/>
 
         <ext-column :text="i18n(`Enabled`)" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-04 15:09+0300\n"
+"POT-Creation-Date: 2022-06-05 21:14+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -135,7 +135,6 @@ msgstr "Имя"
 
 #: lib/components/api-tokens/panel.vue:11:27
 #: lib/components/electron-updates/panel.vue:11:27
-#: lib/components/users/panel.vue:14:27
 msgid "Created"
 msgstr "Создан"
 
@@ -581,8 +580,8 @@ msgstr "Вход разрешен"
 
 #: lib/components/users/create/dialog.vue:8:50
 #: lib/components/users/panel.vue:16:27
-msgid "Admin"
-msgstr "Админ"
+msgid "Administrator"
+msgstr "Администратор"
 
 #: lib/components/users/create/dialog.vue:13:31
 #: lib/components/users/create/dialog.vue:2:24
@@ -593,6 +592,10 @@ msgstr "Создать пользователя"
 #: lib/components/users/create/dialog.vue:62:35
 msgid "User created"
 msgstr "Пользователь создан"
+
+#: lib/components/users/panel.vue:14:27
+msgid "Creation date"
+msgstr "Дата создания"
 
 #: lib/components/users/panel.vue:121:39
 #: lib/components/users/permissions/dialog.vue:2:24
@@ -632,24 +635,3 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
-
-#~ msgid "Confirm Password"
-#~ msgstr "Подтвердите пароль"
-
-#~ msgid "Dark Mode"
-#~ msgstr "Тёмный режим"
-
-#~ msgid "Plaform"
-#~ msgstr "Платформа"
-
-#~ msgid "Notifications Settings"
-#~ msgstr "Настройки уведомлений"
-
-#~ msgid "Interface Theme"
-#~ msgstr "Тема интерфейса"
-
-#~ msgid "API Access Tokens"
-#~ msgstr "API токены"
-
-#~ msgid "Sign In"
-#~ msgstr "Выйти"
