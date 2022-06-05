@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.4.5 (2022-06-05)
+
+Fixes:
+
+-   fix: locale
+
 ### 7.4.4 (2022-06-05)
 
 Fixes:
