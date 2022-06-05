@@ -9,7 +9,7 @@
 
         <ext-column width="40" @ready="avatarColReady"/>
 
-        <ext-column :text="i18n(`Name`)" dataIndex="name" flex="1" summaryDataIndex="total" @ready="nameColReady"/>
+        <ext-column :text="i18n(`User name`)" dataIndex="name" flex="1" summaryDataIndex="total" @ready="nameColReady"/>
 
         <ext-column :text="i18n(`Creation date`)" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
 
@@ -136,7 +136,7 @@ export default {
                                 "items": [
                                     {
                                         "xtype": "button",
-                                        "iconCls": "fa-solid fa-sign-out-alt",
+                                        "iconCls": "fa-solid fa-broom",
                                         "text": this.i18n( "Drop sessions" ),
                                         "handler": this.deleteUserSessions.bind( this ),
                                     },
