@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-05 21:44+0300\n"
+"POT-Creation-Date: 2022-06-05 21:50+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -189,7 +189,7 @@ msgstr "Ваш профайл"
 
 #: lib/components/app-title/menu.vue:17:62
 #: lib/components/change-password-dialog.vue:2:24
-#: lib/components/profile/panel.vue:20:42
+#: lib/components/profile/panel.vue:27:43
 msgid "Change password"
 msgstr "Сменить пароль"
 
@@ -453,17 +453,18 @@ msgstr "Пожалуйста, заполните все поля"
 msgid "Users updated"
 msgstr "Пользователи обновлены"
 
-#: lib/components/profile/panel.vue:9:42
-msgid "Delete sessions"
-msgstr "Удалить сессии"
+#: lib/components/profile/panel.vue:9:42 lib/components/profile/panel.vue:14:39
+#: lib/components/users/panel.vue:140:48
+msgid "Drop sessions"
+msgstr "Сбросить сессии"
 
 #: lib/components/profile/panel.vue:13:51
 msgid "Sign out from all sessions, except this session"
 msgstr "Выйти из всех сессий кроме этой"
 
-#: lib/components/profile/panel.vue:14:39 lib/components/users/panel.vue:140:48
-msgid "Drop sessions"
-msgstr "Сбросить сессии"
+#: lib/components/profile/panel.vue:20:42
+msgid "Password change"
+msgstr "Смена пароля"
 
 #: lib/components/profile/panel.vue:23:63
 #: lib/components/reset-password-dialog.vue:5:55
@@ -474,10 +475,6 @@ msgstr "Новый пароль"
 #: lib/components/reset-password-dialog.vue:6:61
 msgid "Confirm new password"
 msgstr "Подтвердите новый пароль"
-
-#: lib/components/profile/panel.vue:27:43
-msgid "Update password"
-msgstr "Обновить пароль"
 
 #: lib/components/profile/panel.vue:6:27
 msgid "Security"
@@ -635,3 +632,9 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Delete sessions"
+#~ msgstr "Удалить сессии"
+
+#~ msgid "Update password"
+#~ msgstr "Обновить пароль"

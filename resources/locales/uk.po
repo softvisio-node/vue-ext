@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-05 21:36+0300\n"
+"POT-Creation-Date: 2022-06-05 21:50+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -189,7 +189,7 @@ msgstr ""
 
 #: lib/components/app-title/menu.vue:17:62
 #: lib/components/change-password-dialog.vue:2:24
-#: lib/components/profile/panel.vue:20:42
+#: lib/components/profile/panel.vue:27:43
 msgid "Change password"
 msgstr ""
 
@@ -454,11 +454,16 @@ msgid "Users updated"
 msgstr ""
 
 #: lib/components/profile/panel.vue:9:42 lib/components/profile/panel.vue:14:39
-msgid "Delete sessions"
+#: lib/components/users/panel.vue:140:48
+msgid "Drop sessions"
 msgstr ""
 
 #: lib/components/profile/panel.vue:13:51
 msgid "Sign out from all sessions, except this session"
+msgstr ""
+
+#: lib/components/profile/panel.vue:20:42
+msgid "Password change"
 msgstr ""
 
 #: lib/components/profile/panel.vue:23:63
@@ -469,10 +474,6 @@ msgstr ""
 #: lib/components/profile/panel.vue:24:69
 #: lib/components/reset-password-dialog.vue:6:61
 msgid "Confirm new password"
-msgstr ""
-
-#: lib/components/profile/panel.vue:27:43
-msgid "Update password"
 msgstr ""
 
 #: lib/components/profile/panel.vue:6:27
@@ -608,10 +609,6 @@ msgstr ""
 
 #: lib/components/users/panel.vue:133:39
 msgid "Actions"
-msgstr ""
-
-#: lib/components/users/panel.vue:140:48
-msgid "Drop sessions"
 msgstr ""
 
 #: lib/components/users/panel.vue:174:35

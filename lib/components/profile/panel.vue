@@ -6,7 +6,7 @@
         <ext-panel :title="i18n(`Security`)" layout="vbox" viewModel="true">
             <ext-panel>
                 <ext-toolbar docked="top">
-                    <ext-container :html="i18n(`Delete sessions`)"/>
+                    <ext-container :html="i18n(`Drop sessions`)"/>
                 </ext-toolbar>
 
                 <ext-container layout="hbox">
@@ -17,14 +17,14 @@
 
             <ext-panel>
                 <ext-toolbar docked="top">
-                    <ext-container :html="i18n(`Change password`)"/>
+                    <ext-container :html="i18n(`Password change`)"/>
                 </ext-toolbar>
-                <ext-fieldpanel ref="changePasswordForm" width="50%">
+                <ext-fieldpanel ref="changePasswordForm">
                     <ext-passwordfield name="password" :label="i18n(`New password`)" required="true"/>
                     <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm new password`)" required="true"/>
 
                     <ext-container layout='{"type":"hbox","pack":"end"}'>
-                        <ext-button :text="i18n(`Update password`)" @tap="changePassword"/>
+                        <ext-button :text="i18n(`Change password`)" @tap="changePassword"/>
                     </ext-container>
                 </ext-fieldpanel>
             </ext-panel>
