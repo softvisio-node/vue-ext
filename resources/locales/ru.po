@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-05 21:18+0300\n"
+"POT-Creation-Date: 2022-06-05 21:23+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -71,6 +71,7 @@ msgid "Exceptions for last 60 minutes (%)"
 msgstr "Исключения за последние 60 минут"
 
 #: lib/components/api-tokens/create/dialog.vue:4:58
+#: lib/components/api-tokens/panel.vue:10:27
 msgid "Token name"
 msgstr "Имя токена"
 
@@ -126,17 +127,10 @@ msgstr "Токен скопирован"
 msgid "API tokens"
 msgstr "Токены API"
 
-#: lib/components/api-tokens/panel.vue:10:27
-#: lib/components/api-tokens/permissions/dialog.vue:4:31
-#: lib/components/users/panel.vue:12:27
-#: lib/components/users/permissions/dialog.vue:4:31
-msgid "Name"
-msgstr "Имя"
-
 #: lib/components/api-tokens/panel.vue:11:27
-#: lib/components/electron-updates/panel.vue:11:27
-msgid "Created"
-msgstr "Создан"
+#: lib/components/users/panel.vue:14:27
+msgid "Creation date"
+msgstr "Дата создания"
 
 #: lib/components/api-tokens/panel.vue:12:27
 #: lib/components/api-tokens/permissions/dialog.vue:8:31
@@ -165,6 +159,12 @@ msgstr "Вы действительно хотите удалить этот т�
 #: lib/components/api-tokens/panel.vue:142:35
 msgid "API token deleted"
 msgstr "API токен удален"
+
+#: lib/components/api-tokens/permissions/dialog.vue:4:31
+#: lib/components/users/panel.vue:12:27
+#: lib/components/users/permissions/dialog.vue:4:31
+msgid "Name"
+msgstr "Имя"
 
 #: lib/components/api-tokens/permissions/dialog.vue:6:31
 #: lib/components/users/permissions/dialog.vue:6:31
@@ -302,6 +302,10 @@ msgstr "Загрузить релиз"
 #: lib/components/electron-updates/create/dialog.vue:65:35
 msgid "Release created"
 msgstr "Релиз создан"
+
+#: lib/components/electron-updates/panel.vue:11:27
+msgid "Created"
+msgstr "Создан"
 
 #: lib/components/electron-updates/panel.vue:12:27
 msgid "Published"
@@ -589,10 +593,6 @@ msgstr "Создать пользователя"
 #: lib/components/users/create/dialog.vue:62:35
 msgid "User created"
 msgstr "Пользователь создан"
-
-#: lib/components/users/panel.vue:14:27
-msgid "Creation date"
-msgstr "Дата создания"
 
 #: lib/components/users/panel.vue:121:39
 #: lib/components/users/permissions/dialog.vue:2:24

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-05 21:18+0300\n"
+"POT-Creation-Date: 2022-06-05 21:23+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -71,6 +71,7 @@ msgid "Exceptions for last 60 minutes (%)"
 msgstr ""
 
 #: lib/components/api-tokens/create/dialog.vue:4:58
+#: lib/components/api-tokens/panel.vue:10:27
 msgid "Token name"
 msgstr ""
 
@@ -126,16 +127,9 @@ msgstr ""
 msgid "API tokens"
 msgstr ""
 
-#: lib/components/api-tokens/panel.vue:10:27
-#: lib/components/api-tokens/permissions/dialog.vue:4:31
-#: lib/components/users/panel.vue:12:27
-#: lib/components/users/permissions/dialog.vue:4:31
-msgid "Name"
-msgstr ""
-
 #: lib/components/api-tokens/panel.vue:11:27
-#: lib/components/electron-updates/panel.vue:11:27
-msgid "Created"
+#: lib/components/users/panel.vue:14:27
+msgid "Creation date"
 msgstr ""
 
 #: lib/components/api-tokens/panel.vue:12:27
@@ -164,6 +158,12 @@ msgstr ""
 
 #: lib/components/api-tokens/panel.vue:142:35
 msgid "API token deleted"
+msgstr ""
+
+#: lib/components/api-tokens/permissions/dialog.vue:4:31
+#: lib/components/users/panel.vue:12:27
+#: lib/components/users/permissions/dialog.vue:4:31
+msgid "Name"
 msgstr ""
 
 #: lib/components/api-tokens/permissions/dialog.vue:6:31
@@ -301,6 +301,10 @@ msgstr ""
 
 #: lib/components/electron-updates/create/dialog.vue:65:35
 msgid "Release created"
+msgstr ""
+
+#: lib/components/electron-updates/panel.vue:11:27
+msgid "Created"
 msgstr ""
 
 #: lib/components/electron-updates/panel.vue:12:27
@@ -588,10 +592,6 @@ msgstr ""
 
 #: lib/components/users/create/dialog.vue:62:35
 msgid "User created"
-msgstr ""
-
-#: lib/components/users/panel.vue:14:27
-msgid "Creation date"
 msgstr ""
 
 #: lib/components/users/panel.vue:121:39

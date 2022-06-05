@@ -7,8 +7,8 @@
             <ext-button iconCls="fa-solid fa-redo" :text="i18n(`Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
-        <ext-column :text="i18n(`Name`)" dataIndex="name" flex="1"/>
-        <ext-column :text="i18n(`Created`)" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
+        <ext-column :text="i18n(`Token name`)" dataIndex="name" flex="1"/>
+        <ext-column :text="i18n(`Creation date`)" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
         <ext-column :text="i18n(`Enabled`)" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
         <ext-column width="80" @ready="actionColReady"/>
     </ext-grid>
