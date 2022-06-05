@@ -11,7 +11,7 @@
 
                 <ext-container layout="hbox">
                     <ext-container flex="1" :html="i18n(`Sign out from all sessions, except this session`)"/>
-                    <ext-button :text="i18n(`Delete sessions`)" @tap="deleteSessions"/>
+                    <ext-button :text="i18n(`Drop sessions`)" @tap="deleteSessions"/>
                 </ext-container>
             </ext-panel>
 

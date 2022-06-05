@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-05 21:35+0300\n"
+"POT-Creation-Date: 2022-06-05 21:44+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -453,13 +453,17 @@ msgstr "Пожалуйста, заполните все поля"
 msgid "Users updated"
 msgstr "Пользователи обновлены"
 
-#: lib/components/profile/panel.vue:9:42 lib/components/profile/panel.vue:14:39
+#: lib/components/profile/panel.vue:9:42
 msgid "Delete sessions"
 msgstr "Удалить сессии"
 
 #: lib/components/profile/panel.vue:13:51
 msgid "Sign out from all sessions, except this session"
 msgstr "Выйти из всех сессий кроме этой"
+
+#: lib/components/profile/panel.vue:14:39 lib/components/users/panel.vue:140:48
+msgid "Drop sessions"
+msgstr "Сбросить сессии"
 
 #: lib/components/profile/panel.vue:23:63
 #: lib/components/reset-password-dialog.vue:5:55
@@ -609,10 +613,6 @@ msgstr "Удалить пользователя"
 #: lib/components/users/panel.vue:133:39
 msgid "Actions"
 msgstr "Действия"
-
-#: lib/components/users/panel.vue:140:48
-msgid "Drop sessions"
-msgstr "Сбросить сессии"
 
 #: lib/components/users/panel.vue:174:35
 #: lib/components/users/permissions/dialog.vue:101:35
