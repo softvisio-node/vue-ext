@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-05 21:50+0300\n"
+"POT-Creation-Date: 2022-06-06 05:55+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -198,7 +198,7 @@ msgid "Sign out"
 msgstr ""
 
 #: lib/components/app-title/menu.vue:25:84
-#: lib/components/dark-mode/button.vue:35:61
+#: lib/components/dark-mode/button.vue:31:61
 #: lib/components/profile/panel.vue:71:67
 msgid "Dark mode"
 msgstr ""
@@ -215,10 +215,8 @@ msgid "User name or email"
 msgstr ""
 
 #: lib/components/auth/reset-password-form.vue:11:64
-#: lib/components/auth/signin-form.vue:5:34
-#: lib/components/auth/signin-form.vue:16:31
 #: lib/components/auth/signup-form.vue:13:64
-msgid "Sign in"
+msgid "Back"
 msgstr ""
 
 #: lib/components/auth/reset-password-form.vue:13:31
@@ -227,6 +225,11 @@ msgstr ""
 
 #: lib/components/auth/reset-password-form.vue:53:39
 msgid "Password change instructions were sent to the email address, associated with your account."
+msgstr ""
+
+#: lib/components/auth/signin-form.vue:5:34
+#: lib/components/auth/signin-form.vue:16:31
+msgid "Sign in"
 msgstr ""
 
 #: lib/components/auth/signin-form.vue:9:51

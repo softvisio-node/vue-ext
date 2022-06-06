@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-05 21:59+0300\n"
+"POT-Creation-Date: 2022-06-06 05:55+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -198,7 +198,7 @@ msgid "Sign out"
 msgstr "Выйти"
 
 #: lib/components/app-title/menu.vue:25:84
-#: lib/components/dark-mode/button.vue:35:61
+#: lib/components/dark-mode/button.vue:31:61
 #: lib/components/profile/panel.vue:71:67
 msgid "Dark mode"
 msgstr "Тёмный режим"
