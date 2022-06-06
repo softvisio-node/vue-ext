@@ -1,13 +1,13 @@
 <template>
-    <ext-dialog :title="i18n(`Change password`)" width="300" height="300" closeAction="hide" @ready="_ready">
+    <ext-dialog :title="i18nd(`vue-ext`, `Change password`)" width="300" height="300" closeAction="hide" @ready="_ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
-            <ext-passwordfield name="password" :label="i18n(`Password`)" required="true"/>
-            <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm password`)" required="true"/>
+            <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" required="true"/>
+            <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" required="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
-            <ext-button :text="i18n(`Submit`)" ui="action" @tap="submit"/>
+            <ext-button :text="i18nd(`vue-ext`, `Cancel`)" ui="decline" @tap="close"/>
+            <ext-button :text="i18nd(`vue-ext`, `Submit`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -56,7 +56,7 @@ export default {
             Ext.Viewport.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18n( "Password changed" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Password changed" ) );
 
                 this.close();
             }

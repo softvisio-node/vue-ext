@@ -1,16 +1,16 @@
 <template>
-    <ext-dialog :title="i18n(`Edit token permissions`)" width="800" height="90%" closeAction="hide" layout="fit" viewModel="true">
+    <ext-dialog :title="i18nd(`vue-ext`, `Edit token permissions`)" width="800" height="90%" closeAction="hide" layout="fit" viewModel="true">
         <ext-grid plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
-            <ext-column :text="i18n(`Name`)" dataIndex="name" width="150"/>
+            <ext-column :text="i18nd(`vue-ext`, `Name`)" dataIndex="name" width="150"/>
 
-            <ext-column :text="i18n(`Description`)" dataIndex="description" flex="1"/>
+            <ext-column :text="i18nd(`vue-ext`, `Description`)" dataIndex="description" flex="1"/>
 
-            <ext-column :text="i18n(`Enabled`)" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
+            <ext-column :text="i18nd(`vue-ext`, `Enabled`)" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
         </ext-grid>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
-            <ext-button :text="i18n(`Submit`)" ui="action" bind='{"disabled":"{!dirty}"}' @tap="submit"/>
+            <ext-button :text="i18nd(`vue-ext`, `Cancel`)" ui="decline" @tap="close"/>
+            <ext-button :text="i18nd(`vue-ext`, `Submit`)" ui="action" bind='{"disabled":"{!dirty}"}' @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -98,7 +98,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( this.i18n( "Token permissions updated" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Token permissions updated" ) );
 
                 this.record.set( "permissions", Ext.apply( {}, permissions, this.record.get( "permissions" ) ) );
 

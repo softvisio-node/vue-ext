@@ -1,14 +1,14 @@
 <template>
-    <ext-dialog :title="i18n(`Reset password`)" layout="fit" width="300" minHeight="450" @destroy="close" @ready="_ready">
+    <ext-dialog :title="i18nd(`vue-ext`, `Reset password`)" layout="fit" width="300" minHeight="450" @destroy="close" @ready="_ready">
         <ext-fieldpanel ref="form" defaults1='{"labelAlign":"left","labelWidth":120}'>
             <ext-hiddenfield name="token" :value="token"/>
-            <ext-passwordfield name="password" :label="i18n(`New password`)" required="true"/>
-            <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm new password`)" required="true"/>
+            <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `New password`)" required="true"/>
+            <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm new password`)" required="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
-            <ext-button :text="i18n(`Reset password`)" ui="action" @tap="submit"/>
+            <ext-button :text="i18nd(`vue-ext`, `Cancel`)" ui="decline" @tap="close"/>
+            <ext-button :text="i18nd(`vue-ext`, `Reset password`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -35,7 +35,7 @@ export default {
             this.ext = e.detail.cmp;
 
             if ( !this.token ) {
-                this.$utils.toast( this.i18n( "Password reset token was not found" ), 5000 );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Password reset token was not found" ), 5000 );
 
                 this.close();
             }
@@ -72,7 +72,7 @@ export default {
             form.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18n( "Password changed" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Password changed" ) );
 
                 this.close();
             }

@@ -1,21 +1,21 @@
 <template>
     <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
         <ext-toolbar docked="top">
-            <ext-searchfield :placeholder="i18n(`Search users`)" width="200" @change="search"/>
+            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-user-plus" :text="i18n(`Create user`)" padding="0 0 0 5" @tap="showCreateUserDialog"/>
-            <ext-button iconCls="fa-solid fa-redo" :text="i18n(`Refresh`)" @tap="reload"/>
+            <ext-button iconCls="fa-solid fa-user-plus" :text="i18nd(`vue-ext`, `Create user`)" padding="0 0 0 5" @tap="showCreateUserDialog"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
         <ext-column width="40" @ready="avatarColReady"/>
 
-        <ext-column :text="i18n(`User name`)" dataIndex="name" flex="1" summaryDataIndex="total" @ready="nameColReady"/>
+        <ext-column :text="i18nd(`vue-ext`, `User name`)" dataIndex="name" flex="1" summaryDataIndex="total" @ready="nameColReady"/>
 
-        <ext-column :text="i18n(`Creation date`)" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
+        <ext-column :text="i18nd(`vue-ext`, `Creation date`)" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
 
-        <ext-column :text="i18n(`Administrator`)" width="130" @ready="adminColReady"/>
+        <ext-column :text="i18nd(`vue-ext`, `Administrator`)" width="130" @ready="adminColReady"/>
 
-        <ext-column :text="i18n(`Enabled`)" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
+        <ext-column :text="i18nd(`vue-ext`, `Enabled`)" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
 
         <ext-column width="100" @ready="actionColReady"/>
     </ext-grid>
@@ -118,26 +118,26 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18n( "Edit user permissions" ),
+                            "tooltip": this.i18nd( `vue-ext`, "Edit user permissions" ),
                             "handler": this.showUserPermissionsDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
-                            "tooltip": this.i18n( "Delete user" ),
+                            "tooltip": this.i18nd( `vue-ext`, "Delete user" ),
                             "handler": this.deleteUser.bind( this ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-ellipsis-v",
-                            "tooltip": this.i18n( "Actions" ),
+                            "tooltip": this.i18nd( `vue-ext`, "Actions" ),
                             "arrow": false,
                             "menu": {
                                 "items": [
                                     {
                                         "xtype": "button",
                                         "iconCls": "fa-solid fa-broom",
-                                        "text": this.i18n( "Drop sessions" ),
+                                        "text": this.i18nd( `vue-ext`, "Drop sessions" ),
                                         "handler": this.deleteUserSessions.bind( this ),
                                     },
                                 ],
@@ -171,7 +171,7 @@ export default {
                 button.resumeEvent( "change" );
             }
             else {
-                this.$utils.toast( this.i18n( "User permissions updated" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "User permissions updated" ) );
 
                 userPermissions.admin = newVal;
             }
@@ -203,7 +203,7 @@ export default {
                 button.resumeEvent( "change" );
             }
             else {
-                this.$utils.toast( this.i18n( msgid`User ${newVal ? "enabled" : "disabled"}` ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, msgid`User ${newVal ? "enabled" : "disabled"}` ) );
 
                 button.enable();
             }
@@ -215,7 +215,7 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( this.i18n( "Confirmation" ), this.i18n( "Are you sure you want to delete user?" ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Confirmation" ), this.i18nd( `vue-ext`, "Are you sure you want to delete user?" ) ) ) ) return;
 
             button.disable();
 
@@ -224,7 +224,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18n( "User deleted" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "User deleted" ) );
 
                 this.store.remove( record );
             }
@@ -244,7 +244,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18n( "Sessions were deleted" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Sessions were deleted" ) );
             }
             else {
                 this.$utils.toast( res );

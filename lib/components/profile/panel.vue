@@ -3,54 +3,54 @@
         <slot name="top"/>
 
         <!-- security -->
-        <ext-panel :title="i18n(`Security`)" layout="vbox" viewModel="true">
+        <ext-panel :title="i18nd(`vue-ext`, `Security`)" layout="vbox" viewModel="true">
             <ext-panel>
                 <ext-toolbar docked="top">
-                    <ext-container :html="i18n(`Drop sessions`)"/>
+                    <ext-container :html="i18nd(`vue-ext`, `Drop sessions`)"/>
                 </ext-toolbar>
 
                 <ext-container layout="hbox">
-                    <ext-container flex="1" :html="i18n(`Sign out from all sessions, except this session`)"/>
-                    <ext-button :text="i18n(`Drop sessions`)" @tap="deleteSessions"/>
+                    <ext-container flex="1" :html="i18nd(`vue-ext`, `Sign out from all sessions, except this session`)"/>
+                    <ext-button :text="i18nd(`vue-ext`, `Drop sessions`)" @tap="deleteSessions"/>
                 </ext-container>
             </ext-panel>
 
             <ext-panel>
                 <ext-toolbar docked="top">
-                    <ext-container :html="i18n(`Password change`)"/>
+                    <ext-container :html="i18nd(`vue-ext`, `Password change`)"/>
                 </ext-toolbar>
                 <ext-fieldpanel ref="changePasswordForm">
-                    <ext-passwordfield name="password" :label="i18n(`New password`)" required="true"/>
-                    <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm new password`)" required="true"/>
+                    <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `New password`)" required="true"/>
+                    <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm new password`)" required="true"/>
 
                     <ext-container layout='{"type":"hbox","pack":"end"}'>
-                        <ext-button :text="i18n(`Change password`)" @tap="changePassword"/>
+                        <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="changePassword"/>
                     </ext-container>
                 </ext-fieldpanel>
             </ext-panel>
         </ext-panel>
 
         <!-- notifications -->
-        <ext-panel :title="i18n(`Notifications`)" layout="fit">
+        <ext-panel :title="i18nd(`vue-ext`, `Notifications`)" layout="fit">
             <NotificationsPanel/>
         </ext-panel>
 
         <!-- theme -->
-        <ext-panel :title="i18n(`Interface theme`)" layout="vbox" viewModel="true">
+        <ext-panel :title="i18nd(`vue-ext`, `Interface theme`)" layout="vbox" viewModel="true">
             <ext-toolbar docked="top">
-                <ext-container :html="i18n(`Interface theme`)"/>
+                <ext-container :html="i18nd(`vue-ext`, `Interface theme`)"/>
             </ext-toolbar>
 
             <ext-fieldset layout1='{"type":"vbox","pack":"start","align":"start"}' defaults='{"labelAlign":"left","labelWidth":150}'>
-                <ext-togglefield :label="i18n(`Follow OS theme`)" :value="systemDarkMode" @change="systemDarkMode = $event"/>
+                <ext-togglefield :label="i18nd(`vue-ext`, `Follow OS theme`)" :value="systemDarkMode" @change="systemDarkMode = $event"/>
 
                 <ext-togglefield :label="darkModeLabel" :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
 
-                <ext-fieldcontainer :label="i18n(`Base color`)" layout="fit">
+                <ext-fieldcontainer :label="i18nd(`vue-ext`, `Base color`)" layout="fit">
                     <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeBaseChanged"/>
                 </ext-fieldcontainer>
 
-                <ext-fieldcontainer :label="i18n(`Accent color`)" layout="fit">
+                <ext-fieldcontainer :label="i18nd(`vue-ext`, `Accent color`)" layout="fit">
                     <ext-componentdataview inline="true" @ready="themesColorsViewReady" @childtap="themeAccentChanged"/>
                 </ext-fieldcontainer>
             </ext-fieldset>
@@ -68,7 +68,7 @@ export default {
 
     data () {
         return {
-            "darkModeLabel": `<i class="fa-solid fa-adjust"></i> ${this.i18n( `Dark mode` )}`,
+            "darkModeLabel": `<i class="fa-solid fa-adjust"></i> ${this.i18nd( `vue-ext`, `Dark mode` )}`,
         };
     },
 
@@ -156,7 +156,7 @@ export default {
             if ( res.ok ) {
                 form.reset( true );
 
-                this.$utils.toast( this.i18n( "Password changed" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Password changed" ) );
             }
             else {
                 this.$utils.toast( res );
@@ -176,7 +176,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( this.i18n( "Sessions were deleted" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Sessions were deleted" ) );
             }
         },
     },

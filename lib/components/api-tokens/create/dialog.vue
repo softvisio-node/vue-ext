@@ -1,26 +1,26 @@
 <template>
-    <ext-dialog :title="i18n(`Create API token`)" width="400" height="400" closeAction="hide" layout="vbox" @ready="ready">
+    <ext-dialog :title="i18nd(`vue-ext`, `Create API token`)" width="400" height="400" closeAction="hide" layout="vbox" @ready="ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
-            <ext-textfield ref="name" name="name" :label="i18n(`Token name`)" :placeholder="i18n(`Enter new token name`)" required="true"/>
+            <ext-textfield ref="name" name="name" :label="i18nd(`vue-ext`, `Token name`)" :placeholder="i18nd(`vue-ext`, `Enter new token name`)" required="true"/>
         </ext-fieldpanel>
 
         <ext-container ref="done" defaults='{"labelAlign":"top"}' hidden="true">
             <ext-spacer height="10"/>
-            <ext-textareafield ref="token" :label="i18n(`Your API access token:`)" textAlign="center" readOnly="true" height="90"/>
+            <ext-textareafield ref="token" :label="i18nd(`vue-ext`, `Your API access token:`)" textAlign="center" readOnly="true" height="90"/>
             <ext-container>
-                <div>{{ i18n(`Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again.`) }}</div>
+                <div>{{ i18nd(`vue-ext`, `Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again.`) }}</div>
             </ext-container>
             <ext-spacer height="5"/>
             <ext-container layout="center">
-                <ext-button iconCls="fa-solid fa-copy" :text="i18n(`Copy token to the clipboard`)" ui="action" @tap="copyToClipboard"/>
+                <ext-button iconCls="fa-solid fa-copy" :text="i18nd(`vue-ext`, `Copy token to the clipboard`)" ui="action" @tap="copyToClipboard"/>
             </ext-container>
         </ext-container>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button ref="cancel" :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
-            <ext-button ref="submit" :text="i18n(`Create`)" ui="action" @tap="submit"/>
-            <ext-button ref="close" :text="i18n(`Close`)" ui="action" hidden="true" @tap="close"/>
+            <ext-button ref="cancel" :text="i18nd(`vue-ext`, `Cancel`)" ui="decline" @tap="close"/>
+            <ext-button ref="submit" :text="i18nd(`vue-ext`, `Create`)" ui="action" @tap="submit"/>
+            <ext-button ref="close" :text="i18nd(`vue-ext`, `Close`)" ui="action" hidden="true" @tap="close"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -81,7 +81,7 @@ export default {
                 this.$refs.submit.ext.setHidden( true );
                 this.$refs.close.ext.setHidden( false );
 
-                this.$utils.toast( this.i18n( "API token created" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "API token created" ) );
 
                 this.$store["api-tokens"].reload();
             }
@@ -93,7 +93,7 @@ export default {
         copyToClipboard () {
             this.$utils.copyToClipboard( this.$refs.token.ext.getValue() );
 
-            this.$utils.toast( this.i18n( "Token copied to the clipboard" ) );
+            this.$utils.toast( this.i18nd( `vue-ext`, "Token copied to the clipboard" ) );
         },
     },
 };

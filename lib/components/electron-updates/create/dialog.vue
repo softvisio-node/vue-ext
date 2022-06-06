@@ -1,26 +1,26 @@
 <template>
-    <ext-dialog :title="i18n(`Upload release`)" width="350" height="400" closeAction="hide" @ready="_ready">
+    <ext-dialog :title="i18nd(`vue-ext`, `Upload release`)" width="350" height="400" closeAction="hide" @ready="_ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
-            <ext-radiogroup name="platform" :label="i18n(`Platform`)" defaults='{"labelAlign":"right"}' vertical="true">
+            <ext-radiogroup name="platform" :label="i18nd(`vue-ext`, `Platform`)" defaults='{"labelAlign":"right"}' vertical="true">
                 <ext-radiofield value="win32" label="Windows" checked="true"/>
                 <ext-radiofield value="linux" label="Linux"/>
                 <ext-radiofield value="darwin" label="MacOS"/>
             </ext-radiogroup>
 
-            <ext-radiogroup name="arch" :label="i18n(`Architecture`)" defaults='{"labelAlign":"right"}' vertical="true">
+            <ext-radiogroup name="arch" :label="i18nd(`vue-ext`, `Architecture`)" defaults='{"labelAlign":"right"}' vertical="true">
                 <ext-radiofield value="x64" label="x64" checked="true"/>
                 <ext-radiofield value="x32" label="x32"/>
             </ext-radiogroup>
 
-            <ext-emailfield name="version" :label="i18n(`Version`)" :placeholder="i18n(`Semantic version 1.2.3`)" required="true"/>
+            <ext-emailfield name="version" :label="i18nd(`vue-ext`, `Version`)" :placeholder="i18nd(`vue-ext`, `Semantic version 1.2.3`)" required="true"/>
 
-            <ext-filefield ref="file" :placeholder="i18n(`Choose update`)" required="true"/>
+            <ext-filefield ref="file" :placeholder="i18nd(`vue-ext`, `Choose update`)" required="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
-            <ext-button :text="i18n(`Upload`)" ui="action" @tap="submit"/>
+            <ext-button :text="i18nd(`vue-ext`, `Cancel`)" ui="decline" @tap="close"/>
+            <ext-button :text="i18nd(`vue-ext`, `Upload`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -62,7 +62,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18n( "Release created" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Release created" ) );
 
                 this.$store["electron-updates"].reload();
 

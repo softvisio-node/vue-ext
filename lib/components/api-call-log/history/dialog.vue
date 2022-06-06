@@ -2,7 +2,7 @@
     <ext-dialog :title="title" width="95%" height="95%" scrollable="true" closeAction="hide" layout="vbox" viewModel="true">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-redo" :text="i18n(`Refresh`)" @tap="refresh"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
         </ext-toolbar>
 
         <Amcharts5 height="250" @ready="_createLoadChart"/>

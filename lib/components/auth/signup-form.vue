@@ -2,17 +2,17 @@
     <ext-formpanel ref="form" @ready="ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-container :html="i18n(`Sign up`)"/>
+            <ext-container :html="i18nd(`vue-ext`, `Sign up`)"/>
             <ext-spacer/>
         </ext-toolbar>
-        <ext-emailfield name="username" :label="i18n(`Email`)" required="true"/>
-        <ext-passwordfield name="password" :label="i18n(`Password`)" required="true"/>
-        <ext-passwordfield ref="passwordConfirm" :label="i18n(`Confirm password`)" required="true"/>
+        <ext-emailfield name="username" :label="i18nd(`vue-ext`, `Email`)" required="true"/>
+        <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" required="true"/>
+        <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18n(`Back`)" ui="back" @tap="showSignin"/>
+            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" ui="back" @tap="showSignin"/>
             <ext-spacer/>
-            <ext-button :text="i18n(`Sign up`)" ui="action" @tap="submit"/>
+            <ext-button :text="i18nd(`vue-ext`, `Sign up`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-formpanel>
 </template>

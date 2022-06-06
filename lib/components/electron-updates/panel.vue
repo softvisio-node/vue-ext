@@ -2,14 +2,14 @@
     <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-upload" :text="i18n(`Upload release`)" @tap="create"/>
+            <ext-button iconCls="fa-solid fa-upload" :text="i18nd(`vue-ext`, `Upload release`)" @tap="create"/>
         </ext-toolbar>
 
-        <ext-column :text="i18n(`Platform`)" dataIndex="platform_name" sorter='{"property":"platform"}' flex="1" cell='{"encodeHtml":false}'/>
-        <ext-column :text="i18n(`Architecture`)" dataIndex="arch" flex="1"/>
-        <ext-column :text="i18n(`Version`)" dataIndex="version" sorter='{"property":"version_sort"}' flex="1"/>
-        <ext-column :text="i18n(`Created`)" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
-        <ext-column :text="i18n(`Published`)" width="110" sorter='{"property":"published"}' summaryDataIndex="-" @ready="publishedColReady"/>
+        <ext-column :text="i18nd(`vue-ext`, `Platform`)" dataIndex="platform_name" sorter='{"property":"platform"}' flex="1" cell='{"encodeHtml":false}'/>
+        <ext-column :text="i18nd(`vue-ext`, `Architecture`)" dataIndex="arch" flex="1"/>
+        <ext-column :text="i18nd(`vue-ext`, `Version`)" dataIndex="version" sorter='{"property":"version_sort"}' flex="1"/>
+        <ext-column :text="i18nd(`vue-ext`, `Created`)" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
+        <ext-column :text="i18nd(`vue-ext`, `Published`)" width="110" sorter='{"property":"published"}' summaryDataIndex="-" @ready="publishedColReady"/>
 
         <ext-column width="40" @ready="actionColReady"/>
     </ext-grid>
@@ -112,12 +112,12 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( this.i18n( "Confirmation" ), this.i18n( "Are you sure you want to delete release?" ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Confirmation" ), this.i18nd( `vue-ext`, "Are you sure you want to delete release?" ) ) ) ) return;
 
             var res = await this.$api.call( "electron-updates/delete", record.getId() );
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18n( "Update deleted" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Update deleted" ) );
 
                 this.store.remove( record );
             }

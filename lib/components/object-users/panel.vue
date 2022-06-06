@@ -1,26 +1,26 @@
 <template>
     <ext-grid flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" columnMenu="false" columnResize="false" @ready="_ready">
         <ext-toolbar docked="top">
-            <ext-searchfield :placeholder="i18n(`Search users`)" width="200" @change="_searchUsers"/>
+            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-plus" :text="i18n(`Add user`)" @tap="_showAddUserDialog"/>
+            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_showAddUserDialog"/>
         </ext-toolbar>
         <ext-column width="40" @ready="_avatarColReady"/>
-        <ext-column :text="i18n(`Username`)" dataIndex="username" flex="1" cell='{"encodeHtml":false,"style":"vertical-align:top"}' @ready="_usernameColReady"/>
-        <ext-column :text="i18n(`Role`)" dataIndex="role_name" flex="1" cell='{"encodeHtml":false}' @ready="_roleColReady"/>
+        <ext-column :text="i18nd(`vue-ext`, `Username`)" dataIndex="username" flex="1" cell='{"encodeHtml":false,"style":"vertical-align:top"}' @ready="_usernameColReady"/>
+        <ext-column :text="i18nd(`vue-ext`, `Role`)" dataIndex="role_name" flex="1" cell='{"encodeHtml":false}' @ready="_roleColReady"/>
         <ext-column width="100" @ready="_actionColReady"/>
 
         <!-- add / update user dialog -->
-        <ext-dialog ref="addUserDialog" :title="i18n(`Add / update user`)" width="400" height="250" closeAction="hide">
-            <ext-comboboxfield ref="addUserCombo" :label="i18n(`Select user`)" valueField="id" displayField="name" primaryFilter='{"property":"name","operator":"like"}' triggerAction="query" minChars="1" forceSelection="true" @ready="_addUserComboReady"/>
+        <ext-dialog ref="addUserDialog" :title="i18nd(`vue-ext`, `Add / update user`)" width="400" height="250" closeAction="hide">
+            <ext-comboboxfield ref="addUserCombo" :label="i18nd(`vue-ext`, `Select user`)" valueField="id" displayField="name" primaryFilter='{"property":"name","operator":"like"}' triggerAction="query" minChars="1" forceSelection="true" @ready="_addUserComboReady"/>
 
-            <ext-displayfield ref="addUserUsername" :label="i18n(`User`)"/>
+            <ext-displayfield ref="addUserUsername" :label="i18nd(`vue-ext`, `User`)"/>
 
-            <ext-comboboxfield ref="addUserRoleCombo" :label="i18n(`Select user role`)" valueField="id" displayField="name" editable="false" queryMode="local" triggerAction="all" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>'/>
+            <ext-comboboxfield ref="addUserRoleCombo" :label="i18nd(`vue-ext`, `Select user role`)" valueField="id" displayField="name" editable="false" queryMode="local" triggerAction="all" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>'/>
 
             <ext-toolbar docked="bottom">
                 <ext-spacer/>
-                <ext-button :text="i18n(`Submit`)" @tap="_addUser"/>
+                <ext-button :text="i18nd(`vue-ext`, `Submit`)" @tap="_addUser"/>
             </ext-toolbar>
         </ext-dialog>
     </ext-grid>
@@ -185,7 +185,7 @@ export default {
         async _deleteUser ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            if ( !( await this.$utils.confirm( this.i18n( "Confirmation" ), this.i18n( "Are you sure you want to delete user?" ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Confirmation" ), this.i18nd( `vue-ext`, "Are you sure you want to delete user?" ) ) ) ) return;
 
             button.disable();
 
@@ -194,7 +194,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18n( "User deleted" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "User deleted" ) );
 
                 this.usersStore.remove( record );
             }
@@ -217,7 +217,7 @@ export default {
                 roleId = this.$refs.addUserRoleCombo.ext.getValue();
 
             if ( !userId || !roleId ) {
-                this.$utils.toast( this.i18n( `Please, fill all fields` ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, `Please, fill all fields` ) );
 
                 return;
             }
@@ -228,7 +228,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( this.i18n( `Users updated` ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, `Users updated` ) );
 
                 this.reload();
 

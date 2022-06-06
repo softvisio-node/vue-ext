@@ -1,15 +1,15 @@
 <template>
     <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
         <ext-toolbar docked="top">
-            <ext-searchfield :placeholder="i18n(`Search tokens by name`)" width="200" @change="search"/>
+            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-plus" :text="i18n(`Create API token`)" @tap="showCreateTokenDialog"/>
-            <ext-button iconCls="fa-solid fa-redo" :text="i18n(`Refresh`)" @tap="reload"/>
+            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Create API token`)" @tap="showCreateTokenDialog"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
-        <ext-column :text="i18n(`Token name`)" dataIndex="name" flex="1"/>
-        <ext-column :text="i18n(`Creation date`)" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
-        <ext-column :text="i18n(`Enabled`)" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
+        <ext-column :text="i18nd(`vue-ext`, `Token name`)" dataIndex="name" flex="1"/>
+        <ext-column :text="i18nd(`vue-ext`, `Creation date`)" dataIndex="created" width="150" formatter="date('Y-m-d H:i')"/>
+        <ext-column :text="i18nd(`vue-ext`, `Enabled`)" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
         <ext-column width="80" @ready="actionColReady"/>
     </ext-grid>
 </template>
@@ -69,7 +69,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18n( "Edit token permissions" ),
+                            "tooltip": this.i18nd( `vue-ext`, "Edit token permissions" ),
                             "handler": this.showTokenPermissionsDialog.bind( this ),
                         },
                         {
@@ -134,12 +134,12 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( this.i18n( "Confirmation" ), this.i18n( "Are you sure you want to delete this token?" ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Confirmation" ), this.i18nd( `vue-ext`, "Are you sure you want to delete this token?" ) ) ) ) return;
 
             var res = await this.$api.call( "api-tokens/delete", record.getId() );
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18n( "API token deleted" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "API token deleted" ) );
 
                 this.store.remove( record );
             }

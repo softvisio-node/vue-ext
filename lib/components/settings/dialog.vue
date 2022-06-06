@@ -5,20 +5,20 @@
                 <slot name="top"/>
 
                 <!-- SMTP -->
-                <ext-panel :title="i18n(`SMTP settings`)" :hidden="!smtpSettings">
+                <ext-panel :title="i18nd(`vue-ext`, `SMTP settings`)" :hidden="!smtpSettings">
                     <ext-toolbar docked="top" :hidden="!titles">
-                        <ext-container :html="i18n(`SMTP settings`)"/>
+                        <ext-container :html="i18nd(`vue-ext`, `SMTP settings`)"/>
                     </ext-toolbar>
                     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":250}'>
-                        <ext-textfield :label="i18n(`Application URL`)" bind="{record.app_url}"/>
-                        <ext-textfield :label="i18n(`From`) + `<i class='fa-solid fa-question-circle'></i>`" bind="{record.smtp_from}" :placeholder="i18n(`User name <email@address>`)" :tooltip="i18n(`Format: user name <email@address>.`)"/>
-                        <ext-textfield :label="i18n(`SMTP host`)" bind="{record.smtp_hostname}"/>
-                        <ext-spinnerfield :label="i18n(`SMTP port`)" decimals="0" minValue="1" maxValue="65535" bind="{record.smtp_port}"/>
-                        <ext-textfield :label="i18n(`SMTP username`)" bind="{record.smtp_username}"/>
-                        <ext-passwordfield :label="i18n(`SMTP password`)" bind="{record.smtp_password}"/>
+                        <ext-textfield :label="i18nd(`vue-ext`, `Application URL`)" bind="{record.app_url}"/>
+                        <ext-textfield :label="i18nd(`vue-ext`, `From`) + `<i class='fa-solid fa-question-circle'></i>`" bind="{record.smtp_from}" :placeholder="i18nd(`vue-ext`, `User name <email@address>`)" :tooltip="i18nd(`vue-ext`, `Format: user name <email@address>.`)"/>
+                        <ext-textfield :label="i18nd(`vue-ext`, `SMTP host`)" bind="{record.smtp_hostname}"/>
+                        <ext-spinnerfield :label="i18nd(`vue-ext`, `SMTP port`)" decimals="0" minValue="1" maxValue="65535" bind="{record.smtp_port}"/>
+                        <ext-textfield :label="i18nd(`vue-ext`, `SMTP username`)" bind="{record.smtp_username}"/>
+                        <ext-passwordfield :label="i18nd(`vue-ext`, `SMTP password`)" bind="{record.smtp_password}"/>
                     </ext-fieldset>
                     <ext-container layout='{"type":"hbox","pack":"end"}'>
-                        <ext-button :text="i18n(`Test SMTP`)" bind='{"disabled":"{!record.smtp_can_test}"}' ui="action" @tap="testSmtp"/>
+                        <ext-button :text="i18nd(`vue-ext`, `Test SMTP`)" bind='{"disabled":"{!record.smtp_can_test}"}' ui="action" @tap="testSmtp"/>
                     </ext-container>
                 </ext-panel>
 
@@ -27,8 +27,8 @@
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button :text="i18n(`Cancel`)" ui="decline" @tap="close"/>
-            <ext-button :text="i18n(`Submit`)" ui="action" bind='{"disabled":"{!record.dirty}"}' @tap="submit"/>
+            <ext-button :text="i18nd(`vue-ext`, `Cancel`)" ui="decline" @tap="close"/>
+            <ext-button :text="i18nd(`vue-ext`, `Submit`)" ui="action" bind='{"disabled":"{!record.dirty}"}' @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -120,7 +120,7 @@ export default {
                 dialog = this.ext;
 
             if ( !form.validate() ) {
-                this.$utils.toast( this.i18n( "Please, fill all required fields" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Please, fill all required fields" ) );
 
                 return;
             }
@@ -142,7 +142,7 @@ export default {
             if ( res.ok ) {
                 record.commit();
 
-                this.$utils.toast( this.i18n( "Settings updated" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Settings updated" ) );
 
                 this.close();
             }

@@ -1,16 +1,16 @@
 <template>
-    <ext-dialog :title="i18n(`Create user`)" width="350" height="400" closeAction="hide" scrollable="true" @ready="_ready">
+    <ext-dialog :title="i18nd(`vue-ext`, `Create user`)" width="350" height="400" closeAction="hide" scrollable="true" @ready="_ready">
         <ext-fieldpanel ref="form" @ready="formReady">
-            <ext-emailfield name="username" :label="i18n(`Email`)" :placeholder="i18n(`Enter user email`)" required="true"/>
-            <ext-passwordfield name="password" :label="i18n(`Password`)" :placeholder="i18n(`Enter user password`)" required="true"/>
-            <ext-passwordfield name="password1" :label="i18n(`Confirm password`)" :placeholder="i18n(`Confirm user password`)" required="true"/>
-            <ext-togglefield name="enabled" :label="i18n(`Enabled`)" labelAlign="left" value="true"/>
-            <ext-togglefield name="admin" :label="i18n(`Administrator`)" labelAlign="left" value="false"/>
+            <ext-emailfield name="username" :label="i18nd(`vue-ext`, `Email`)" :placeholder="i18nd(`vue-ext`, `Enter user email`)" required="true"/>
+            <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" :placeholder="i18nd(`vue-ext`, `Enter user password`)" required="true"/>
+            <ext-passwordfield name="password1" :label="i18nd(`vue-ext`, `Confirm password`)" :placeholder="i18nd(`vue-ext`, `Confirm user password`)" required="true"/>
+            <ext-togglefield name="enabled" :label="i18nd(`vue-ext`, `Enabled`)" labelAlign="left" value="true"/>
+            <ext-togglefield name="admin" :label="i18nd(`vue-ext`, `Administrator`)" labelAlign="left" value="false"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button :text="i18n(`Create user`)" ui="action" @tap="submit"/>
+            <ext-button :text="i18nd(`vue-ext`, `Create user`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -59,7 +59,7 @@ export default {
             var res = await this.$api.call( "admin/users/create", vals );
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18n( "User created" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "User created" ) );
 
                 this.$store.users.reload();
 

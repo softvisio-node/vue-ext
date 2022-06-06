@@ -12,17 +12,17 @@
 
             <slot name="bottomUp"/>
 
-            <ext-button iconCls="fa-solid fa-key" :text="i18n(`API tokens`)" textAlign="left" :hidden="!apiTokens" @tap="showApiTokens"/>
-            <ext-button iconCls="fa-solid fa-user" :text="i18n(`Your profile`)" textAlign="left" :hidden="!profile" @tap="showProfile"/>
-            <ext-button iconCls="fa-solid fa-asterisk" :text="i18n(`Change password`)" textAlign="left" :hidden="!changePassword" @tap="showChangePasswordDialog"/>
+            <ext-button iconCls="fa-solid fa-key" :text="i18nd(`vue-ext`, `API tokens`)" textAlign="left" :hidden="!apiTokens" @tap="showApiTokens"/>
+            <ext-button iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your profile`)" textAlign="left" :hidden="!profile" @tap="showProfile"/>
+            <ext-button iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" :hidden="!changePassword" @tap="showChangePasswordDialog"/>
 
             <slot name="bottomDown"/>
 
             <LocaleButton :autoHide="true"/>
-            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18n(`Sign out`)" textAlign="left" @tap="signout"/>
+            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
 
             <ext-container layout="hbox">
-                <ext-togglefield :boxLabel='`<i class="fa-solid fa-adjust"></i> ` + i18n(`Dark mode`)' :value="darkMode" @change="darkMode = $event"/>
+                <ext-togglefield :boxLabel='`<i class="fa-solid fa-adjust"></i> ` + i18nd(`vue-ext`, `Dark mode`)' :value="darkMode" @change="darkMode = $event"/>
             </ext-container>
         </ext-panel>
     </ext-sheet>
