@@ -4,17 +4,7 @@
 
         <!-- security -->
         <ext-panel :title="i18nd(`vue-ext`, `Security`)" layout="vbox" viewModel="true">
-            <ext-panel>
-                <ext-toolbar docked="top">
-                    <ext-container :html="i18nd(`vue-ext`, `Drop sessions`)"/>
-                </ext-toolbar>
-
-                <ext-container layout="hbox">
-                    <ext-container flex="1" :html="i18nd(`vue-ext`, `Sign out from all sessions, except this session`)"/>
-                    <ext-button :text="i18nd(`vue-ext`, `Drop sessions`)" @tap="deleteSessions"/>
-                </ext-container>
-            </ext-panel>
-
+            <!-- change password -->
             <ext-panel>
                 <ext-toolbar docked="top">
                     <ext-container :html="i18nd(`vue-ext`, `Password change`)"/>
@@ -27,6 +17,18 @@
                         <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="changePassword"/>
                     </ext-container>
                 </ext-fieldpanel>
+            </ext-panel>
+
+            <!-- drop sessions -->
+            <ext-panel>
+                <ext-toolbar docked="top">
+                    <ext-container :html="i18nd(`vue-ext`, `Sessions drop`)"/>
+                </ext-toolbar>
+
+                <ext-container layout="hbox">
+                    <ext-container flex="1" :html="i18nd(`vue-ext`, `Sign out from all sessions, except this session`)"/>
+                    <ext-button :text="i18nd(`vue-ext`, `Drop sessions`)" @tap="deleteSessions"/>
+                </ext-container>
             </ext-panel>
         </ext-panel>
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-06 23:12+0300\n"
+"POT-Creation-Date: 2022-06-06 23:52+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -189,7 +189,7 @@ msgstr ""
 
 #: lib/components/app-title/menu.vue:17:62
 #: lib/components/change-password-dialog.vue:2:24
-#: lib/components/profile/panel.vue:27:43
+#: lib/components/profile/panel.vue:17:43
 msgid "Change password"
 msgstr ""
 
@@ -199,7 +199,7 @@ msgstr ""
 
 #: lib/components/app-title/menu.vue:25:84
 #: lib/components/dark-mode/button.vue:31:61
-#: lib/components/profile/panel.vue:71:67
+#: lib/components/profile/panel.vue:73:67
 msgid "Dark mode"
 msgstr ""
 
@@ -264,7 +264,7 @@ msgid "Confirm password"
 msgstr ""
 
 #: lib/components/change-password-dialog.vue:59:35
-#: lib/components/profile/panel.vue:159:35
+#: lib/components/profile/panel.vue:161:35
 #: lib/components/reset-password-dialog.vue:75:35
 msgid "Password changed"
 msgstr ""
@@ -351,7 +351,7 @@ msgid "Refresh notifications"
 msgstr ""
 
 #: lib/components/notifications/menu-sheet.vue:4:76
-#: lib/components/profile/panel.vue:34:27
+#: lib/components/profile/panel.vue:36:27
 msgid "Notifications"
 msgstr ""
 
@@ -456,51 +456,54 @@ msgstr ""
 msgid "Users updated"
 msgstr ""
 
-#: lib/components/profile/panel.vue:9:42 lib/components/profile/panel.vue:14:39
-#: lib/components/users/panel.vue:140:48
-msgid "Drop sessions"
-msgstr ""
-
-#: lib/components/profile/panel.vue:13:51
-msgid "Sign out from all sessions, except this session"
-msgstr ""
-
-#: lib/components/profile/panel.vue:20:42
+#: lib/components/profile/panel.vue:10:42
 msgid "Password change"
 msgstr ""
 
-#: lib/components/profile/panel.vue:23:63
+#: lib/components/profile/panel.vue:13:63
 #: lib/components/reset-password-dialog.vue:5:55
 msgid "New password"
 msgstr ""
 
-#: lib/components/profile/panel.vue:24:69
+#: lib/components/profile/panel.vue:14:69
 #: lib/components/reset-password-dialog.vue:6:61
 msgid "Confirm new password"
+msgstr ""
+
+#: lib/components/profile/panel.vue:25:42
+msgid "Sessions drop"
+msgstr ""
+
+#: lib/components/profile/panel.vue:29:51
+msgid "Sign out from all sessions, except this session"
+msgstr ""
+
+#: lib/components/profile/panel.vue:30:39 lib/components/users/panel.vue:140:48
+msgid "Drop sessions"
 msgstr ""
 
 #: lib/components/profile/panel.vue:6:27
 msgid "Security"
 msgstr ""
 
-#: lib/components/profile/panel.vue:41:38
-#: lib/components/profile/panel.vue:39:27
+#: lib/components/profile/panel.vue:43:38
+#: lib/components/profile/panel.vue:41:27
 msgid "Interface theme"
 msgstr ""
 
-#: lib/components/profile/panel.vue:45:41
+#: lib/components/profile/panel.vue:47:41
 msgid "Follow OS theme"
 msgstr ""
 
-#: lib/components/profile/panel.vue:49:44
+#: lib/components/profile/panel.vue:51:44
 msgid "Base color"
 msgstr ""
 
-#: lib/components/profile/panel.vue:53:44
+#: lib/components/profile/panel.vue:55:44
 msgid "Accent color"
 msgstr ""
 
-#: lib/components/profile/panel.vue:179:35
+#: lib/components/profile/panel.vue:181:35
 #: lib/components/users/panel.vue:247:35
 msgid "Sessions were deleted"
 msgstr ""
