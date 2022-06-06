@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-06 05:55+0300\n"
+"POT-Creation-Date: 2022-06-06 21:27+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -330,8 +330,8 @@ msgid "Try Again"
 msgstr "Пробовать еще раз"
 
 #: lib/components/init-failure-dialog.vue:2:24
-msgid "Server connection error"
-msgstr "Ошибка подключения к серверу"
+msgid "Connection error"
+msgstr "Ошибка подключения"
 
 #: lib/components/notifications/dialog.vue:2:24
 #: lib/components/notifications/menu-sheet.vue:8:78
