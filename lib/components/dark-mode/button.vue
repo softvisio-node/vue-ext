@@ -1,5 +1,5 @@
 <template>
-    <ext-togglefield :label="label" :labelAlign="labelAlign" :labelTextAlign="labelTextAlign" labelWidth="120" :value="darkMode" @change="darkMode = $event"/>
+    <ext-togglefield :boxLabel="label" :boxLabelAlign="boxLabelAlign" :value="darkMode" @change="darkMode = $event"/>
 </template>
 
 <script>
@@ -13,13 +13,9 @@ export default {
             "type": Boolean,
             "default": false,
         },
-        "labelAlign": {
+        "boxLabelAlign": {
             "type": String,
-            "default": "left",
-        },
-        "labelTextAlign": {
-            "type": String,
-            "default": "right",
+            "default": "after", // before, after
         },
     },
 
@@ -35,7 +31,6 @@ export default {
                 return `<i class="fa-solid fa-adjust"></i> ${this.i18n( `Dark mode` )}`;
             }
         },
-
         "darkMode": {
             get () {
                 return this.$store.theme.darkMode + "";
