@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-06 21:27+0300\n"
+"POT-Creation-Date: 2022-06-06 23:11+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -75,7 +75,7 @@ msgstr "Исключения за последние 60 минут"
 msgid "Token name"
 msgstr "Имя токена"
 
-#: lib/components/api-tokens/create/dialog.vue:4:92
+#: lib/components/api-tokens/create/dialog.vue:4:104
 msgid "Enter new token name"
 msgstr "Введите имя нового токена"
 
@@ -152,7 +152,7 @@ msgstr "Редактировать права токена"
 msgid "Confirmation"
 msgstr "Подтверждение"
 
-#: lib/components/api-tokens/panel.vue:137:76
+#: lib/components/api-tokens/panel.vue:137:88
 msgid "Are you sure you want to delete this token?"
 msgstr "Вы действительно хотите удалить этот токен?"
 
@@ -284,7 +284,7 @@ msgstr "Архитектура"
 msgid "Version"
 msgstr "Версия"
 
-#: lib/components/electron-updates/create/dialog.vue:15:82
+#: lib/components/electron-updates/create/dialog.vue:15:94
 msgid "Semantic version 1.2.3"
 msgstr "Семантическая версия 1.2.3"
 
@@ -313,7 +313,7 @@ msgstr "Создан"
 msgid "Published"
 msgstr "Опубликовано"
 
-#: lib/components/electron-updates/panel.vue:115:76
+#: lib/components/electron-updates/panel.vue:115:88
 msgid "Are you sure you want to delete release?"
 msgstr "Вы действительно хотите удалить релиз?"
 
@@ -438,8 +438,8 @@ msgstr "Выбрать роль пользователя"
 msgid "Add / update user"
 msgstr "Добавить / обновить пользователя"
 
-#: lib/components/object-users/panel.vue:188:76
-#: lib/components/users/panel.vue:218:76
+#: lib/components/object-users/panel.vue:188:88
+#: lib/components/users/panel.vue:218:88
 msgid "Are you sure you want to delete user?"
 msgstr "Вы действительно хотите удалить пользователя?"
 
@@ -522,11 +522,11 @@ msgstr "URL приложения"
 msgid "From"
 msgstr "От"
 
-#: lib/components/settings/dialog.vue:14:149
+#: lib/components/settings/dialog.vue:14:161
 msgid "User name <email@address>"
 msgstr "Имя пользователя <email@address>"
 
-#: lib/components/settings/dialog.vue:14:194
+#: lib/components/settings/dialog.vue:14:218
 msgid "Format: user name <email@address>."
 msgstr "Формат: имя пользователя <email@address>."
 
@@ -570,15 +570,15 @@ msgstr "Продолжить"
 msgid "Session closed"
 msgstr "Сессия закрыта"
 
-#: lib/components/users/create/dialog.vue:4:81
+#: lib/components/users/create/dialog.vue:4:93
 msgid "Enter user email"
 msgstr "Введите email пользователя"
 
-#: lib/components/users/create/dialog.vue:5:87
+#: lib/components/users/create/dialog.vue:5:99
 msgid "Enter user password"
 msgstr "Введите пароль пользователя"
 
-#: lib/components/users/create/dialog.vue:6:96
+#: lib/components/users/create/dialog.vue:6:108
 msgid "Confirm user password"
 msgstr "Подтвердите пароль пользователя"
 
@@ -624,7 +624,7 @@ msgstr "Права пользователя обновлены"
 msgid "User ${n}"
 msgstr "Пользователь ${n}"
 
-#: lib/utils.js:5:76
+#: lib/utils.js:5:88
 msgid "Are you sure you want to do that?"
 msgstr "Вы уверены, что хотите сделать это?"
 
