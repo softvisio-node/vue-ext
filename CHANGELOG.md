@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.4.8 (2022-06-06)
+
+Fixes:
+
+-   fix: locale domains
+-   fix: translation
+
 ### 7.4.7 (2022-06-06)
 
 Fixes:
