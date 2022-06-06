@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.4.7 (2022-06-06)
+
+Fixes:
+
+-   fix: dark mode button
+-   fix: locale
+
 ### 7.4.6 (2022-06-05)
 
 Fixes:
