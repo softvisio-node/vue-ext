@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-06 23:51+0300\n"
+"POT-Creation-Date: 2022-06-09 01:12+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -94,7 +94,6 @@ msgstr "Копировать токен в буфер"
 #: lib/components/api-tokens/create/dialog.vue:21:44
 #: lib/components/api-tokens/permissions/dialog.vue:12:31
 #: lib/components/change-password-dialog.vue:9:31
-#: lib/components/electron-updates/create/dialog.vue:22:31
 #: lib/components/reset-password-dialog.vue:10:31
 #: lib/components/settings/dialog.vue:30:31
 #: lib/components/users/permissions/dialog.vue:12:31
@@ -146,7 +145,6 @@ msgid "Edit token permissions"
 msgstr "Редактировать права токена"
 
 #: lib/components/api-tokens/panel.vue:137:47
-#: lib/components/electron-updates/panel.vue:115:47
 #: lib/components/object-users/panel.vue:188:47
 #: lib/components/users/panel.vue:218:47 lib/utils.js:5:34
 msgid "Confirmation"
@@ -268,58 +266,6 @@ msgstr "Подтвердите пароль"
 #: lib/components/reset-password-dialog.vue:75:35
 msgid "Password changed"
 msgstr "Пароль изменен"
-
-#: lib/components/electron-updates/create/dialog.vue:4:52
-#: lib/components/electron-updates/panel.vue:8:27
-msgid "Platform"
-msgstr "Платформа"
-
-#: lib/components/electron-updates/create/dialog.vue:10:48
-#: lib/components/electron-updates/panel.vue:9:27
-msgid "Architecture"
-msgstr "Архитектура"
-
-#: lib/components/electron-updates/create/dialog.vue:15:51
-#: lib/components/electron-updates/panel.vue:10:27
-msgid "Version"
-msgstr "Версия"
-
-#: lib/components/electron-updates/create/dialog.vue:15:94
-msgid "Semantic version 1.2.3"
-msgstr "Семантическая версия 1.2.3"
-
-#: lib/components/electron-updates/create/dialog.vue:17:52
-msgid "Choose update"
-msgstr "Выберите обновление"
-
-#: lib/components/electron-updates/create/dialog.vue:23:31
-msgid "Upload"
-msgstr "Загрузить"
-
-#: lib/components/electron-updates/create/dialog.vue:2:24
-#: lib/components/electron-updates/panel.vue:5:60
-msgid "Upload release"
-msgstr "Загрузить релиз"
-
-#: lib/components/electron-updates/create/dialog.vue:65:35
-msgid "Release created"
-msgstr "Релиз создан"
-
-#: lib/components/electron-updates/panel.vue:11:27
-msgid "Created"
-msgstr "Создан"
-
-#: lib/components/electron-updates/panel.vue:12:27
-msgid "Published"
-msgstr "Опубликовано"
-
-#: lib/components/electron-updates/panel.vue:115:88
-msgid "Are you sure you want to delete release?"
-msgstr "Вы действительно хотите удалить релиз?"
-
-#: lib/components/electron-updates/panel.vue:120:35
-msgid "Update deleted"
-msgstr "Обновление удалено"
 
 #: lib/components/init-failure-dialog.vue:3:42
 msgid "Unable to connect to the API server. Check, that you have internet connection and press \"Try Again\" button below."
@@ -638,6 +584,42 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Platform"
+#~ msgstr "Платформа"
+
+#~ msgid "Architecture"
+#~ msgstr "Архитектура"
+
+#~ msgid "Version"
+#~ msgstr "Версия"
+
+#~ msgid "Semantic version 1.2.3"
+#~ msgstr "Семантическая версия 1.2.3"
+
+#~ msgid "Choose update"
+#~ msgstr "Выберите обновление"
+
+#~ msgid "Upload"
+#~ msgstr "Загрузить"
+
+#~ msgid "Upload release"
+#~ msgstr "Загрузить релиз"
+
+#~ msgid "Release created"
+#~ msgstr "Релиз создан"
+
+#~ msgid "Created"
+#~ msgstr "Создан"
+
+#~ msgid "Published"
+#~ msgstr "Опубликовано"
+
+#~ msgid "Are you sure you want to delete release?"
+#~ msgstr "Вы действительно хотите удалить релиз?"
+
+#~ msgid "Update deleted"
+#~ msgstr "Обновление удалено"
 
 #~ msgid "Delete sessions"
 #~ msgstr "Удалить сессии"
