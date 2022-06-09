@@ -41,8 +41,8 @@ export default {
             cmp.setText( locale.name );
         },
 
-        _setLocale ( locale ) {
-            locale.setLocale( locale );
+        _setLocale ( id ) {
+            locale.setLocale( id );
         },
     },
 };
