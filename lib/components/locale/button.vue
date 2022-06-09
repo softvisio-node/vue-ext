@@ -32,17 +32,17 @@ export default {
             for ( const _locale of Object.values( locale.locales ) ) {
                 menu.push( {
                     "text": _locale.name,
-                    "handler": () => this._setLanguage( _locale.id ),
+                    "handler": () => this._setLocale( _locale.id ),
                 } );
             }
 
             cmp.setMenu( menu );
 
-            cmp.setText( locale.locale.name );
+            cmp.setText( locale.name );
         },
 
-        _setLanguage ( language ) {
-            locale.setLanguage( language );
+        _setLocale ( locale ) {
+            locale.setLocale( locale );
         },
     },
 };
