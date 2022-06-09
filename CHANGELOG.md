@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.4.9 (2022-06-09)
+
+Fixes:
+
+-   fix: electron updated removed
+-   fix: locales
+
 ### 7.4.8 (2022-06-06)
 
 Fixes:
