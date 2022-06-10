@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-09 01:12+0300\n"
+"POT-Creation-Date: 2022-06-10 16:18+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Poedit-Basepath: ../..\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1\n"
 "X-Poedit-SearchPath-0: lib\n"
 
 #: lib/components/api-call-log/dialog.vue:2:24
@@ -568,10 +568,13 @@ msgstr "Действия"
 msgid "User permissions updated"
 msgstr "Права пользователя обновлены"
 
-#: lib/components/users/panel.vue:206:35
-#, javascript-format
-msgid "User ${n}"
-msgstr "Пользователь ${n}"
+#: lib/components/users/panel.vue:206:44
+msgid "User enabled"
+msgstr "Пользователь включен"
+
+#: lib/components/users/panel.vue:206:86
+msgid "User disabled"
+msgstr "Пользователь выключен"
 
 #: lib/utils.js:5:88
 msgid "Are you sure you want to do that?"
@@ -584,6 +587,10 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#, javascript-format
+#~ msgid "User ${n}"
+#~ msgstr "Пользователь ${n}"
 
 #~ msgid "Platform"
 #~ msgstr "Платформа"

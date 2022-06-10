@@ -203,7 +203,7 @@ export default {
                 button.resumeEvent( "change" );
             }
             else {
-                this.$utils.toast( this.i18nd( `vue-ext`, msgid`User ${newVal ? "enabled" : "disabled"}` ) );
+                this.$utils.toast( newVal ? this.i18nd( `vue-ext`, `User enabled` ) : this.i18nd( `vue-ext`, `User disabled` ) );
 
                 button.enable();
             }
