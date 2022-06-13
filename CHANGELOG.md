@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.4.10 (2022-06-13)
+
+Fixes:
+
+-   fix: linted
+-   fix: translations
+
 ### 7.4.9 (2022-06-09)
 
 Fixes:
