@@ -130,12 +130,14 @@ export default {
                 "message": `<div style="color:white;">Updating<br/>please wait...</div>`,
             } );
 
-            var res = await this.$api.call( "admin/settings/update",
+            var res = await this.$api.call(
+                "admin/settings/update",
                 record.getData( {
                     "changes": true,
                     "critical": true,
                     "serialize": true,
-                } ) );
+                } )
+            );
 
             dialog.unmask();
 

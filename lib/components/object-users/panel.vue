@@ -155,12 +155,14 @@ export default {
             var val = e.detail.newValue.trim();
 
             if ( val !== "" ) {
-                this.usersStore.addFilter( {
-                    "property": "username",
-                    "operator": "like",
-                    "value": val,
-                },
-                false );
+                this.usersStore.addFilter(
+                    {
+                        "property": "username",
+                        "operator": "like",
+                        "value": val,
+                    },
+                    false
+                );
             }
             else {
                 this.usersStore.removeFilter( "username" );

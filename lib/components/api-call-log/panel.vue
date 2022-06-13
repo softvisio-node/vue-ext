@@ -197,10 +197,12 @@ export default {
                 // "pinchZoomX": true,
             } ) );
 
-            chart.set( "cursor",
+            chart.set(
+                "cursor",
                 am5xy.XYCursor.new( root, {
                     "behavior": "none", // "zoomX",
-                } ) );
+                } )
+            );
 
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
@@ -263,10 +265,12 @@ export default {
                 // "pinchZoomX": true,
             } ) );
 
-            chart.set( "cursor",
+            chart.set(
+                "cursor",
                 am5xy.XYCursor.new( root, {
                     "behavior": "none", // "zoomX",
-                } ) );
+                } )
+            );
 
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
@@ -315,10 +319,12 @@ export default {
                 // "pinchZoomX": true,
             } ) );
 
-            chart.set( "cursor",
+            chart.set(
+                "cursor",
                 am5xy.XYCursor.new( root, {
                     "behavior": "none", // "zoomX",
-                } ) );
+                } )
+            );
 
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
@@ -368,12 +374,14 @@ export default {
             var val = e.detail.newValue.trim();
 
             if ( val !== "" ) {
-                this.store.addFilter( {
-                    "property": "id",
-                    "operator": "like",
-                    "value": val,
-                },
-                false );
+                this.store.addFilter(
+                    {
+                        "property": "id",
+                        "operator": "like",
+                        "value": val,
+                    },
+                    false
+                );
             }
             else {
                 this.store.removeFilter( "search" );

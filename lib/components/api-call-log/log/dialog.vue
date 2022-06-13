@@ -51,12 +51,14 @@ export default {
         setRecord ( record ) {
             this.title = `API call log for Method "${record.id}"`;
 
-            this.store.addFilter( {
-                "property": "method_id",
-                "operator": "=",
-                "value": record.getId(),
-            },
-            false );
+            this.store.addFilter(
+                {
+                    "property": "method_id",
+                    "operator": "=",
+                    "value": record.getId(),
+                },
+                false
+            );
         },
 
         async refresh () {

@@ -49,16 +49,20 @@ export default {
                 // "wheelY": "zoomX",
             } ) );
 
-            chart.set( "cursor",
+            chart.set(
+                "cursor",
                 am5xy.XYCursor.new( root, {
                     "behavior": "zoomX",
-                } ) );
+                } )
+            );
 
             // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
-            chart.set( "scrollbarX",
+            chart.set(
+                "scrollbarX",
                 am5.Scrollbar.new( root, {
                     "orientation": "horizontal",
-                } ) );
+                } )
+            );
 
             chart.children.unshift( am5.Label.new( root, {
                 "text": "Acceptes / Declined Requests for Last 30 Days",
@@ -142,16 +146,20 @@ export default {
                 // "wheelY": "zoomX",
             } ) );
 
-            chart.set( "cursor",
+            chart.set(
+                "cursor",
                 am5xy.XYCursor.new( root, {
                     "behavior": "zoomX",
-                } ) );
+                } )
+            );
 
             // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
-            chart.set( "scrollbarX",
+            chart.set(
+                "scrollbarX",
                 am5.Scrollbar.new( root, {
                     "orientation": "horizontal",
-                } ) );
+                } )
+            );
 
             chart.children.unshift( am5.Label.new( root, {
                 "text": "Average Runtime for Last 30 Days",
@@ -215,16 +223,20 @@ export default {
                 // "wheelY": "zoomX",
             } ) );
 
-            chart.set( "cursor",
+            chart.set(
+                "cursor",
                 am5xy.XYCursor.new( root, {
                     "behavior": "zoomX",
-                } ) );
+                } )
+            );
 
             // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
-            chart.set( "scrollbarX",
+            chart.set(
+                "scrollbarX",
                 am5.Scrollbar.new( root, {
                     "orientation": "horizontal",
-                } ) );
+                } )
+            );
 
             chart.children.unshift( am5.Label.new( root, {
                 "text": "Exceptions Percent for Last 30 Days",
