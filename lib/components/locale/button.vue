@@ -29,10 +29,10 @@ export default {
 
             const menu = [];
 
-            for ( const _locale of Object.values( locale.locales ) ) {
+            for ( const [locale, text] of Object.entries( locale.locales ) ) {
                 menu.push( {
-                    "text": _locale.name,
-                    "handler": () => this._setLocale( _locale.id ),
+                    text,
+                    "handler": () => this._setLocale( locale ),
                 } );
             }
 
