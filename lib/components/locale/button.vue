@@ -38,7 +38,7 @@ export default {
 
             cmp.setMenu( menu );
 
-            cmp.setText( locale.name );
+            cmp.setText( locale.text );
         },
 
         _setLocale ( id ) {
