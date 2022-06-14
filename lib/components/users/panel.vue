@@ -11,7 +11,7 @@
 
         <ext-column :text="i18nd(`vue-ext`, `User name`)" dataIndex="name" flex="1" summaryDataIndex="total" @ready="nameColReady"/>
 
-        <ext-column :text="i18nd(`vue-ext`, `Creation date`)" dataIndex="created" width="150" formatter="intlDate()"/>
+        <ext-column :text="i18nd(`vue-ext`, `Creation date`)" dataIndex="created" width="150" formatter="date()"/>
 
         <ext-column :text="i18nd(`vue-ext`, `Administrator`)" width="130" @ready="adminColReady"/>
 
