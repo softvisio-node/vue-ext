@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-15 12:32+0300\n"
+"POT-Creation-Date: 2022-06-15 13:00+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -321,269 +321,269 @@ msgstr ""
 #: lib/components/notifications/panel.vue:15:20
 #, javascript-format
 msgid "In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${n}</b> and press <b>\"Start\"</b>."
-msgstr ""
+msgstr "Щоб отримувати сповіщення Telegram, вам потрібно встановити своє ім’я користувача в Telegram. Потім відкрийте чат із <b>@${n}</b> і натисніть <b>\"Start\"</b>."
 
 #: lib/components/notifications/panel.vue:20:38
 msgid "Notification types"
-msgstr ""
+msgstr "Типи сповіщень"
 
 #: lib/components/notifications/panel.vue:23:80
 #, javascript-format
 msgid "Internal${n}notifications"
-msgstr ""
+msgstr "Внутрішні${n}сповіщення"
 
 #: lib/components/notifications/panel.vue:24:80
 #, javascript-format
 msgid "Email${n}notifications"
-msgstr ""
+msgstr "Email${n}сповіщення"
 
 #: lib/components/notifications/panel.vue:25:80
 #, javascript-format
 msgid "Telegram${n}notifications"
-msgstr ""
+msgstr "Telegram${n}сповіщення"
 
 #: lib/components/notifications/panel.vue:26:80
 #, javascript-format
 msgid "Push${n}notifications"
-msgstr ""
+msgstr "Push${n}сповіщення"
 
 #: lib/components/notifications/panel.vue:157:35
 msgid "Telegram username updated"
-msgstr ""
+msgstr "Ім’я користувача Telegram оновлено"
 
 #: lib/components/object-users/panel.vue:4:43
 #: lib/components/users/panel.vue:4:43
 msgid "Search users"
-msgstr ""
+msgstr "Пошук користувачів"
 
 #: lib/components/object-users/panel.vue:6:58
 msgid "Add user"
-msgstr ""
+msgstr "Додати користувача"
 
 #: lib/components/object-users/panel.vue:9:27
 msgid "Username"
-msgstr ""
+msgstr "Ім'я користувача"
 
 #: lib/components/object-users/panel.vue:10:27
 msgid "Role"
-msgstr ""
+msgstr "Роль"
 
 #: lib/components/object-users/panel.vue:15:58
 msgid "Select user"
-msgstr ""
+msgstr "Виберіть користувача"
 
 #: lib/components/object-users/panel.vue:17:60
 msgid "User"
-msgstr ""
+msgstr "Користувач"
 
 #: lib/components/object-users/panel.vue:19:62
 msgid "Select user role"
-msgstr ""
+msgstr "Виберіть роль користувача"
 
 #: lib/components/object-users/panel.vue:14:48
 msgid "Add / update user"
-msgstr ""
+msgstr "Додати/оновити користувача"
 
 #: lib/components/object-users/panel.vue:190:88
 #: lib/components/users/panel.vue:218:88
 msgid "Are you sure you want to delete user?"
-msgstr ""
+msgstr "Ви впевнені, що хочете видалити користувача?"
 
 #: lib/components/object-users/panel.vue:199:35
 #: lib/components/users/panel.vue:227:35
 msgid "User deleted"
-msgstr ""
+msgstr "Користувача видалено"
 
 #: lib/components/object-users/panel.vue:222:35
 msgid "Please, fill all fields"
-msgstr ""
+msgstr "Будь ласка, заповніть усі поля"
 
 #: lib/components/object-users/panel.vue:233:35
 msgid "Users updated"
-msgstr ""
+msgstr "Користувачі оновлені"
 
 #: lib/components/profile/panel.vue:10:42
 msgid "Password change"
-msgstr ""
+msgstr "Зміна пароля"
 
 #: lib/components/profile/panel.vue:13:63
 #: lib/components/reset-password-dialog.vue:5:55
 msgid "New password"
-msgstr ""
+msgstr "Новий пароль"
 
 #: lib/components/profile/panel.vue:14:69
 #: lib/components/reset-password-dialog.vue:6:61
 msgid "Confirm new password"
-msgstr ""
+msgstr "Підтвердити новий пароль"
 
 #: lib/components/profile/panel.vue:25:42
 msgid "Sessions drop"
-msgstr ""
+msgstr "Видалення сеансів"
 
 #: lib/components/profile/panel.vue:29:51
 msgid "Sign out from all sessions, except this session"
-msgstr ""
+msgstr "Вийти з усіх сеансів, крім цього"
 
 #: lib/components/profile/panel.vue:30:39 lib/components/users/panel.vue:140:48
 msgid "Drop sessions"
-msgstr ""
+msgstr "Відкидати сеанси"
 
 #: lib/components/profile/panel.vue:6:27
 msgid "Security"
-msgstr ""
+msgstr "Безпека"
 
 #: lib/components/profile/panel.vue:43:38
 #: lib/components/profile/panel.vue:41:27
 msgid "Interface theme"
-msgstr ""
+msgstr "Тема інтерфейсу"
 
 #: lib/components/profile/panel.vue:47:41
 msgid "Follow OS theme"
-msgstr ""
+msgstr "Використовувати тему ОС"
 
 #: lib/components/profile/panel.vue:51:44
 msgid "Base color"
-msgstr ""
+msgstr "Базовий колір"
 
 #: lib/components/profile/panel.vue:55:44
 msgid "Accent color"
-msgstr ""
+msgstr "Колір акценту"
 
 #: lib/components/profile/panel.vue:181:35
 #: lib/components/users/panel.vue:247:35
 msgid "Sessions were deleted"
-msgstr ""
+msgstr "Сеанси видалено"
 
 #: lib/components/reset-password-dialog.vue:38:35
 msgid "Password reset token was not found"
-msgstr ""
+msgstr "Токен скидання пароля не знайдено"
 
 #: lib/components/settings/dialog.vue:10:46
 #: lib/components/settings/dialog.vue:8:35
 msgid "SMTP settings"
-msgstr ""
+msgstr "Налаштування SMTP"
 
 #: lib/components/settings/dialog.vue:13:47
 msgid "Application URL"
-msgstr ""
+msgstr "URL-адреса додатка"
 
 #: lib/components/settings/dialog.vue:14:47
 msgid "From"
-msgstr ""
+msgstr "Від"
 
 #: lib/components/settings/dialog.vue:14:161
 msgid "User name <email@address>"
-msgstr ""
+msgstr "Ім'я користувача <email@address>"
 
 #: lib/components/settings/dialog.vue:14:218
 msgid "Format: user name <email@address>."
-msgstr ""
+msgstr "Формат: user name <email@address>."
 
 #: lib/components/settings/dialog.vue:15:47
 msgid "SMTP host"
-msgstr ""
+msgstr "Хост SMTP"
 
 #: lib/components/settings/dialog.vue:16:50
 msgid "SMTP port"
-msgstr ""
+msgstr "SMTP порт"
 
 #: lib/components/settings/dialog.vue:17:47
 msgid "SMTP username"
-msgstr ""
+msgstr "Ім'я користувача SMTP"
 
 #: lib/components/settings/dialog.vue:18:51
 msgid "SMTP password"
-msgstr ""
+msgstr "Пароль SMTP"
 
 #: lib/components/settings/dialog.vue:21:43
 msgid "Test SMTP"
-msgstr ""
+msgstr "Перевірка SMTP"
 
 #: lib/components/settings/dialog.vue:123:35
 msgid "Please, fill all required fields"
-msgstr ""
+msgstr "Будь ласка, заповніть усі обов'язкові поля"
 
 #: lib/components/settings/dialog.vue:147:35
 msgid "Settings updated"
-msgstr ""
+msgstr "Налаштування оновлено"
 
 #: lib/components/signout-dialog.vue:3:42
 msgid "Your session was terminated on the API server. Press \"Continue\" button below."
-msgstr ""
+msgstr "Ваш сеанс був припинений на сервері API. Натисніть кнопку \"Продовжити\" нижче."
 
 #: lib/components/signout-dialog.vue:6:58
 msgid "Continue"
-msgstr ""
+msgstr "Продовжити"
 
 #: lib/components/signout-dialog.vue:2:24
 msgid "Session closed"
-msgstr ""
+msgstr "Сесія закрита"
 
 #: lib/components/users/create/dialog.vue:4:93
 msgid "Enter user email"
-msgstr ""
+msgstr "Введіть email користувача"
 
 #: lib/components/users/create/dialog.vue:5:99
 msgid "Enter user password"
-msgstr ""
+msgstr "Введіть пароль користувача"
 
 #: lib/components/users/create/dialog.vue:6:108
 msgid "Confirm user password"
-msgstr ""
+msgstr "Підтвердьте пароль користувача"
 
 #: lib/components/users/create/dialog.vue:8:50
 #: lib/components/users/panel.vue:16:27
 msgid "Administrator"
-msgstr ""
+msgstr "Адміністратор"
 
 #: lib/components/users/create/dialog.vue:13:31
 #: lib/components/users/create/dialog.vue:2:24
 #: lib/components/users/panel.vue:6:63
 msgid "Create user"
-msgstr ""
+msgstr "Створити користувача"
 
 #: lib/components/users/create/dialog.vue:62:35
 msgid "User created"
-msgstr ""
+msgstr "Користувач створений"
 
 #: lib/components/users/panel.vue:12:27
 msgid "User name"
-msgstr ""
+msgstr "Ім'я користувача"
 
 #: lib/components/users/panel.vue:121:39
 #: lib/components/users/permissions/dialog.vue:2:24
 msgid "Edit user permissions"
-msgstr ""
+msgstr "Редагувати дозволи користувача"
 
 #: lib/components/users/panel.vue:127:39
 msgid "Delete user"
-msgstr ""
+msgstr "Видалити користувача"
 
 #: lib/components/users/panel.vue:133:39
 msgid "Actions"
-msgstr ""
+msgstr "Дії"
 
 #: lib/components/users/panel.vue:174:35
 #: lib/components/users/permissions/dialog.vue:101:35
 msgid "User permissions updated"
-msgstr ""
+msgstr "Дозволи користувача оновлено"
 
 #: lib/components/users/panel.vue:206:44
 msgid "User enabled"
-msgstr ""
+msgstr "Користувач увімкнено"
 
 #: lib/components/users/panel.vue:206:86
 msgid "User disabled"
-msgstr ""
+msgstr "Користувача вимкнено"
 
 #: lib/utils.js:5:88
 msgid "Are you sure you want to do that?"
-msgstr ""
+msgstr "Ви впевнені, що хочете це зробити?"
 
 #: lib/viewport.vue:68:35
 msgid "Email confirmation token is invalid"
-msgstr ""
+msgstr "Токен підтвердження електронної пошти недійсний"
 
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
-msgstr ""
+msgstr "Електронна пошта успішно підтверджена"
