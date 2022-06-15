@@ -20,16 +20,11 @@
             </ext-panel>
 
             <!-- drop sessions -->
-            <ext-panel>
-                <ext-toolbar docked="top">
-                    <ext-container :html="i18nd(`vue-ext`, `Sessions drop`)"/>
-                </ext-toolbar>
 
-                <ext-container layout="hbox">
-                    <ext-container flex="1" :html="i18nd(`vue-ext`, `Sign out from all sessions, except this session`)"/>
-                    <ext-button :text="i18nd(`vue-ext`, `Drop sessions`)" @tap="deleteSessions"/>
-                </ext-container>
-            </ext-panel>
+            <ext-container layout="hbox">
+                <ext-container flex="1" :html="i18nd(`vue-ext`, `Sign out from all sessions, except this session`)"/>
+                <ext-button :text="i18nd(`vue-ext`, `Drop sessions`)" @tap="deleteSessions"/>
+            </ext-container>
         </ext-panel>
 
         <!-- notifications -->
