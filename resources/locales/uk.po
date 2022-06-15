@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-15 14:02+0300\n"
+"POT-Creation-Date: 2022-06-15 14:42+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -39,15 +39,11 @@ msgstr "Підтвердити новий пароль"
 msgid "Change password"
 msgstr "Змінити пароль"
 
-#: lib/components/account/panel.vue:25:42
-msgid "Sessions drop"
-msgstr "Видалення сеансів"
-
-#: lib/components/account/panel.vue:29:51
+#: lib/components/account/panel.vue:25:47
 msgid "Sign out from all sessions, except this session"
 msgstr "Вийти з усіх сеансів, крім цього"
 
-#: lib/components/account/panel.vue:30:39 lib/components/users/panel.vue:140:48
+#: lib/components/account/panel.vue:26:35 lib/components/users/panel.vue:140:48
 msgid "Drop sessions"
 msgstr "Відкидати сеанси"
 
@@ -55,41 +51,41 @@ msgstr "Відкидати сеанси"
 msgid "Security"
 msgstr "Безпека"
 
-#: lib/components/account/panel.vue:36:27
+#: lib/components/account/panel.vue:31:27
 #: lib/components/notifications/menu-sheet.vue:4:76
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: lib/components/account/panel.vue:43:38
-#: lib/components/account/panel.vue:41:27
+#: lib/components/account/panel.vue:38:38
+#: lib/components/account/panel.vue:36:27
 msgid "Interface theme"
 msgstr "Тема інтерфейсу"
 
-#: lib/components/account/panel.vue:47:41
-msgid "Follow OS theme"
+#: lib/components/account/panel.vue:42:41
+msgid "Use OS theme"
 msgstr "Використовувати тему ОС"
 
-#: lib/components/account/panel.vue:51:44
+#: lib/components/account/panel.vue:46:44
 msgid "Base color"
 msgstr "Базовий колір"
 
-#: lib/components/account/panel.vue:55:44
+#: lib/components/account/panel.vue:50:44
 msgid "Accent color"
 msgstr "Колір акценту"
 
-#: lib/components/account/panel.vue:73:67
+#: lib/components/account/panel.vue:68:67
 #: lib/components/app-title/menu.vue:25:84
 #: lib/components/dark-mode/button.vue:31:61
 msgid "Dark mode"
 msgstr "Темний режим"
 
-#: lib/components/account/panel.vue:161:35
+#: lib/components/account/panel.vue:156:35
 #: lib/components/change-password-dialog.vue:59:35
 #: lib/components/reset-password-dialog.vue:75:35
 msgid "Password changed"
 msgstr "Пароль змінено"
 
-#: lib/components/account/panel.vue:181:35
+#: lib/components/account/panel.vue:176:35
 #: lib/components/users/panel.vue:247:35
 msgid "Sessions were deleted"
 msgstr "Сеанси видалено"
@@ -583,6 +579,9 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "Sessions drop"
+#~ msgstr "Видалення сеансів"
 
 #~ msgid "Your profile"
 #~ msgstr "Твій профіль"

@@ -38,8 +38,8 @@
                 <ext-container :html="i18nd(`vue-ext`, `Interface theme`)"/>
             </ext-toolbar>
 
-            <ext-fieldset layout1='{"type":"vbox","pack":"start","align":"start"}' defaults='{"labelAlign":"left","labelWidth":150}'>
-                <ext-togglefield :label="i18nd(`vue-ext`, `Follow OS theme`)" :value="systemDarkMode" @change="systemDarkMode = $event"/>
+            <ext-fieldset layout1='{"type":"vbox","pack":"start","align":"start"}' defaults='{"labelAlign":"left","labelWidth":200}'>
+                <ext-togglefield :label="i18nd(`vue-ext`, `Use OS theme`)" :value="systemDarkMode" @change="systemDarkMode = $event"/>
 
                 <ext-togglefield :label="darkModeLabel" :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
 
