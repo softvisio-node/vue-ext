@@ -8,7 +8,7 @@
         </ext-toolbar>
 
         <ext-column :text="i18nd(`vue-ext`, `Token name`)" dataIndex="name" flex="1"/>
-        <ext-column :text="i18nd(`vue-ext`, `Creation date`)" dataIndex="created" width="150" formatter='date("intl:dateStyle:short,timeStyle:short")'/>
+        <ext-column :text="i18nd(`vue-ext`, `Creation date`)" dataIndex="created" width="150" formatter='date("dateStyle:short,timeStyle:short")'/>
         <ext-column :text="i18nd(`vue-ext`, `Enabled`)" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
         <ext-column width="80" @ready="actionColReady"/>
     </ext-grid>
