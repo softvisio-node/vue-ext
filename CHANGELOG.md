@@ -1,5 +1,16 @@
 # Changelog
 
+### 7.4.11 (2022-06-15)
+
+Fixes:
+
+-   fix: account form
+-   fix: date format
+-   fix: locales
+-   fix: profile renamed to account
+-   fix: props
+-   fix: translations
+
 ### 7.4.10 (2022-06-13)
 
 Fixes:
