@@ -15,7 +15,7 @@
 
         <ext-column :text="i18nd(`vue-ext`, `Administrator`)" width="130" @ready="adminColReady"/>
 
-        <ext-column :text="i18nd(`vue-ext`, `User enabled`)" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
+        <ext-column :text="i18nd(`vue-ext`, `User enabled`)" width="200" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
 
         <ext-column width="100" @ready="actionColReady"/>
     </ext-grid>
