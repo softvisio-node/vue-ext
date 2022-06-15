@@ -16,80 +16,80 @@ msgstr ""
 
 #: lib/components/api-call-log/dialog.vue:2:24
 msgid "API call log"
-msgstr ""
+msgstr "Журнал викликів API"
 
 #: lib/components/api-call-log/history/dialog.vue:5:58
 #: lib/components/api-call-log/log/dialog.vue:5:58
 #: lib/components/api-call-log/panel.vue:7:78
 #: lib/components/api-tokens/panel.vue:7:58 lib/components/users/panel.vue:7:58
 msgid "Refresh"
-msgstr ""
+msgstr "Оновити"
 
 #: lib/components/api-call-log/log/dialog.vue:9:31
 msgid "Started"
-msgstr ""
+msgstr "Розпочато"
 
 #: lib/components/api-call-log/log/dialog.vue:10:31
 msgid "Finished"
-msgstr ""
+msgstr "Завершено(Edited)Restore original"
 
 #: lib/components/api-call-log/log/dialog.vue:11:31
 msgid "Runtime (sec.)"
-msgstr ""
+msgstr "Час виконання (сек.)"
 
 #: lib/components/api-call-log/log/dialog.vue:13:31
 msgid "Exception"
-msgstr ""
+msgstr "Помилка"
 
 #: lib/components/api-call-log/log/dialog.vue:15:31
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: lib/components/api-call-log/log/dialog.vue:17:31
 msgid "Status text"
-msgstr ""
+msgstr "Текст статусу"
 
 #: lib/components/api-call-log/panel.vue:4:43
 #: lib/components/api-tokens/panel.vue:4:43
 msgid "Search tokens by name"
-msgstr ""
+msgstr "Пошук токенів за назвою"
 
 #: lib/components/api-call-log/panel.vue:10:27
 msgid "API method id"
-msgstr ""
+msgstr "Ідентифікатор методу API"
 
 #: lib/components/api-call-log/panel.vue:11:27
 msgid "Load for last 60 minutes"
-msgstr ""
+msgstr "Завантаження за останні 60 хвилин"
 
 #: lib/components/api-call-log/panel.vue:12:27
 msgid "Average request runtime for last 60 minutes"
-msgstr ""
+msgstr "Середня тривалість виконання запиту за останні 60 хвилин"
 
 #: lib/components/api-call-log/panel.vue:13:27
 msgid "Exceptions for last 60 minutes (%)"
-msgstr ""
+msgstr "Помилки за останні 60 хвилин (%)"
 
 #: lib/components/api-tokens/create/dialog.vue:4:58
 #: lib/components/api-tokens/panel.vue:10:27
 msgid "Token name"
-msgstr ""
+msgstr "Ім'я токена"
 
 #: lib/components/api-tokens/create/dialog.vue:4:104
 msgid "Enter new token name"
-msgstr ""
+msgstr "Введіть нову назву токена"
 
 #: lib/components/api-tokens/create/dialog.vue:9:51
 msgid "Your API access token:"
-msgstr ""
+msgstr "Ваш токен доступу до API:"
 
 #: lib/components/api-tokens/create/dialog.vue:11:24
 msgid "Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again."
-msgstr ""
+msgstr "Будь ласка, скопіюйте маркер у буфер обміну та збережіть його в надійному місці. Після того, як це діалогове вікно буде закрито, ми не змогли знову показати вам цей маркер."
 
 #: lib/components/api-tokens/create/dialog.vue:15:62
 msgid "Copy token to the clipboard"
-msgstr ""
+msgstr "Скопіюйте маркер у буфер обміну"
 
 #: lib/components/api-tokens/create/dialog.vue:21:44
 #: lib/components/api-tokens/permissions/dialog.vue:12:31
@@ -98,38 +98,38 @@ msgstr ""
 #: lib/components/settings/dialog.vue:30:31
 #: lib/components/users/permissions/dialog.vue:12:31
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #: lib/components/api-tokens/create/dialog.vue:22:44
 msgid "Create"
-msgstr ""
+msgstr "Створюйте"
 
 #: lib/components/api-tokens/create/dialog.vue:23:43
 msgid "Close"
-msgstr ""
+msgstr "Закрити"
 
 #: lib/components/api-tokens/create/dialog.vue:2:24
 #: lib/components/api-tokens/panel.vue:6:58
 msgid "Create API token"
-msgstr ""
+msgstr "Створіть токен API"
 
 #: lib/components/api-tokens/create/dialog.vue:84:35
 msgid "API token created"
-msgstr ""
+msgstr "Створено токен API"
 
 #: lib/components/api-tokens/create/dialog.vue:96:31
 msgid "Token copied to the clipboard"
-msgstr ""
+msgstr "Токен скопійовано в буфер обміну"
 
 #: lib/components/api-tokens/dialog.vue:2:24
 #: lib/components/app-title/menu.vue:15:57
 msgid "API tokens"
-msgstr ""
+msgstr "Токени API"
 
 #: lib/components/api-tokens/panel.vue:11:27
 #: lib/components/users/panel.vue:14:27
 msgid "Creation date"
-msgstr ""
+msgstr "Дата створення"
 
 #: lib/components/api-tokens/panel.vue:12:27
 #: lib/components/api-tokens/permissions/dialog.vue:8:31
@@ -137,36 +137,36 @@ msgstr ""
 #: lib/components/users/panel.vue:18:27
 #: lib/components/users/permissions/dialog.vue:8:31
 msgid "Enabled"
-msgstr ""
+msgstr "Увімкнено"
 
 #: lib/components/api-tokens/panel.vue:72:39
 #: lib/components/api-tokens/permissions/dialog.vue:2:24
 msgid "Edit token permissions"
-msgstr ""
+msgstr "Редагувати дозволи токена"
 
 #: lib/components/api-tokens/panel.vue:139:47
 #: lib/components/object-users/panel.vue:190:47
 #: lib/components/users/panel.vue:218:47 lib/utils.js:5:34
 msgid "Confirmation"
-msgstr ""
+msgstr "Підтвердження"
 
 #: lib/components/api-tokens/panel.vue:139:88
 msgid "Are you sure you want to delete this token?"
-msgstr ""
+msgstr "Ви впевнені, що хочете видалити цей токен?"
 
 #: lib/components/api-tokens/panel.vue:144:35
 msgid "API token deleted"
-msgstr ""
+msgstr "Токен API видалено"
 
 #: lib/components/api-tokens/permissions/dialog.vue:4:31
 #: lib/components/users/permissions/dialog.vue:4:31
 msgid "Name"
-msgstr ""
+msgstr "Ім'я"
 
 #: lib/components/api-tokens/permissions/dialog.vue:6:31
 #: lib/components/users/permissions/dialog.vue:6:31
 msgid "Description"
-msgstr ""
+msgstr "Опис"
 
 #: lib/components/api-tokens/permissions/dialog.vue:13:31
 #: lib/components/change-password-dialog.vue:10:31
@@ -174,38 +174,38 @@ msgstr ""
 #: lib/components/settings/dialog.vue:31:31
 #: lib/components/users/permissions/dialog.vue:13:31
 msgid "Submit"
-msgstr ""
+msgstr "Подати"
 
 #: lib/components/api-tokens/permissions/dialog.vue:101:35
 msgid "Token permissions updated"
-msgstr ""
+msgstr "Дозволи для токену оновлено"
 
 #: lib/components/app-title/menu.vue:16:58
 #: lib/components/profile/dialog.vue:2:24
 msgid "Your profile"
-msgstr ""
+msgstr "Твій профіль"
 
 #: lib/components/app-title/menu.vue:17:62
 #: lib/components/change-password-dialog.vue:2:24
 #: lib/components/profile/panel.vue:17:43
 msgid "Change password"
-msgstr ""
+msgstr "Змінити пароль"
 
 #: lib/components/app-title/menu.vue:22:66
 msgid "Sign out"
-msgstr ""
+msgstr "Вийти"
 
 #: lib/components/app-title/menu.vue:25:84
 #: lib/components/dark-mode/button.vue:31:61
 #: lib/components/profile/panel.vue:73:67
 msgid "Dark mode"
-msgstr ""
+msgstr "Темний режим"
 
 #: lib/components/auth/reset-password-form.vue:5:34
 #: lib/components/reset-password-dialog.vue:11:31
 #: lib/components/reset-password-dialog.vue:2:24
 msgid "Reset password"
-msgstr ""
+msgstr "Скинути пароль"
 
 #: lib/components/auth/reset-password-form.vue:8:47
 #: lib/components/auth/signin-form.vue:8:47
@@ -215,15 +215,15 @@ msgstr "Ім'я користувача або email"
 #: lib/components/auth/reset-password-form.vue:11:64
 #: lib/components/auth/signup-form.vue:13:64
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: lib/components/auth/reset-password-form.vue:13:31
 msgid "Reset"
-msgstr ""
+msgstr "Скинути"
 
 #: lib/components/auth/reset-password-form.vue:53:39
 msgid "Password change instructions were sent to the email address, associated with your account."
-msgstr ""
+msgstr "Інструкції щодо зміни пароля були надіслані на адресу електронної пошти, пов’язану з вашим обліковим записом."
 
 #: lib/components/auth/signin-form.vue:5:34
 #: lib/components/auth/signin-form.vue:16:31
@@ -235,88 +235,88 @@ msgstr ""
 #: lib/components/change-password-dialog.vue:4:55
 #: lib/components/users/create/dialog.vue:5:55
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: lib/components/auth/signin-form.vue:11:27
 msgid "Do not have account? Sign up"
-msgstr ""
+msgstr "Немає облікового запису? зареєструватися"
 
 #: lib/components/auth/signin-form.vue:14:31
 msgid "Forgot password?"
-msgstr ""
+msgstr "Забули пароль?"
 
 #: lib/components/auth/signup-form.vue:5:34
 #: lib/components/auth/signup-form.vue:15:31
 msgid "Sign up"
-msgstr ""
+msgstr "Зареєструватися"
 
 #: lib/components/auth/signup-form.vue:8:48
 #: lib/components/users/create/dialog.vue:4:52
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: lib/components/auth/signup-form.vue:10:57
 #: lib/components/change-password-dialog.vue:5:61
 #: lib/components/users/create/dialog.vue:6:56
 msgid "Confirm password"
-msgstr ""
+msgstr "Підтвердьте пароль"
 
 #: lib/components/change-password-dialog.vue:59:35
 #: lib/components/profile/panel.vue:161:35
 #: lib/components/reset-password-dialog.vue:75:35
 msgid "Password changed"
-msgstr ""
+msgstr "Пароль змінено"
 
 #: lib/components/init-failure-dialog.vue:3:42
 msgid "Unable to connect to the API server. Check, that you have internet connection and press \"Try Again\" button below."
-msgstr ""
+msgstr "Не вдається підключитися до сервера API. Перевірте, чи є у вас підключення до Інтернету, і натисніть кнопку \"Повторити спробу\" нижче."
 
 #: lib/components/init-failure-dialog.vue:6:58
 msgid "Try Again"
-msgstr ""
+msgstr "Повторити спробу"
 
 #: lib/components/init-failure-dialog.vue:2:24
 msgid "Connection error"
-msgstr ""
+msgstr "Помилка з'єднання"
 
 #: lib/components/notifications/dialog.vue:2:24
 #: lib/components/notifications/menu-sheet.vue:8:78
 msgid "Notifications settings"
-msgstr ""
+msgstr "Налаштування сповіщень"
 
 #: lib/components/notifications/menu-sheet.vue:5:78
 msgid "Mark all as read"
-msgstr ""
+msgstr "Позначити все як прочитане"
 
 #: lib/components/notifications/menu-sheet.vue:7:84
 msgid "Delete all"
-msgstr ""
+msgstr "Видалити все"
 
 #: lib/components/notifications/menu-sheet.vue:9:79
 msgid "Refresh notifications"
-msgstr ""
+msgstr "Оновити сповіщення"
 
 #: lib/components/notifications/menu-sheet.vue:4:76
 #: lib/components/profile/panel.vue:36:27
 msgid "Notifications"
-msgstr ""
+msgstr "Сповіщення"
 
 #: lib/components/notifications/menu-sheet.vue:12:73
 msgid "You have no notifications"
-msgstr ""
+msgstr "У вас немає сповіщень"
 
 #: lib/components/notifications/panel.vue:9:63
 msgid "Your Telegram username"
-msgstr ""
+msgstr "Ваше ім'я користувача в Telegram"
 
 #: lib/components/notifications/panel.vue:10:31
 msgid "Update"
-msgstr ""
+msgstr "Оновити"
 
 #: lib/components/notifications/panel.vue:11:31
 #, javascript-format
 msgid "Open @${n}"
-msgstr ""
+msgstr "Відкрити @${n}"
 
 #: lib/components/notifications/panel.vue:15:20
 #, javascript-format
