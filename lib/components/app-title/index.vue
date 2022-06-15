@@ -7,15 +7,15 @@
 
         <slot name="title"/>
 
-        <ext-button ref="notificationsButton" align="right" iconCls="fa-regular fa-bell" width="55" padding="0 0 10 0" margin="10 20 0 0" :hidden="!notifications" @tap="showNotifications"/>
+        <ext-button ref="notificationsButton" align="right" iconCls="fa-regular fa-bell" width="55" padding="0 0 10 0" margin="10 20 0 0" :hidden="!notificationsEnabled" @tap="showNotifications"/>
 
-        <AppAvatar align="right" width="40" height="40" :hidden="!avatar"/>
+        <AppAvatar align="right" width="40" height="40" :hidden="!avatarEnabled"/>
 
-        <ext-button align="right" iconCls="fa-solid fa-bars" width="40" height="50" margin="0 0 0 5" :hidden="!menu" @tap="showMenu"/>
+        <ext-button align="right" iconCls="fa-solid fa-bars" width="40" height="50" margin="0 0 0 5" :hidden="!menuEnabled" @tap="showMenu"/>
 
         <Notifications ref="notifications"/>
 
-        <AppMenu ref="menu" :apiTokens="apiTokens" :showAccount="showAccount" :changePassword="changePassword" @showAccountDialog="showAccountDialog">
+        <AppMenu ref="menu" :apiTokens="apiTokensEnabled" :showAccount="accountEnabled" :changePassword="changePasswordEnabled" @showAccountDialog="showAccountDialog">
             <template #top>
                 <slot name="menuTop"/>
             </template>
@@ -40,15 +40,7 @@ export default {
     "components": { AppAvatar, AppMenu, Notifications },
 
     "props": {
-        "notifications": {
-            "type": Boolean,
-            "default": true,
-        },
-        "avatar": {
-            "type": Boolean,
-            "default": true,
-        },
-        "menu": {
+        "notificationsEnabled": {
             "type": Boolean,
             "default": true,
         },
@@ -56,15 +48,23 @@ export default {
             "type": Boolean,
             "default": false,
         },
-        "apiTokens": {
+        "avatarEnabled": {
             "type": Boolean,
             "default": true,
         },
-        "showAccount": {
+        "menuEnabled": {
             "type": Boolean,
             "default": true,
         },
-        "changePassword": {
+        "apiTokensEnabled": {
+            "type": Boolean,
+            "default": true,
+        },
+        "accountEnabled": {
+            "type": Boolean,
+            "default": true,
+        },
+        "changePasswordEnabled": {
             "type": Boolean,
             "default": false,
         },

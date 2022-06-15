@@ -12,9 +12,9 @@
 
             <slot name="bottomUp"/>
 
-            <ext-button iconCls="fa-solid fa-key" :text="i18nd(`vue-ext`, `API tokens`)" textAlign="left" :hidden="!apiTokens" @tap="showApiTokens"/>
-            <ext-button iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" :hidden="!showAccount" @tap="showAccountDialog"/>
-            <ext-button iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" :hidden="!changePassword" @tap="showChangePasswordDialog"/>
+            <ext-button iconCls="fa-solid fa-key" :text="i18nd(`vue-ext`, `API tokens`)" textAlign="left" :hidden="!apiTokensEnabled" @tap="showApiTokens"/>
+            <ext-button iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" :hidden="!accountEnabled" @tap="showAccountDialog"/>
+            <ext-button iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" :hidden="!changePasswordEnabled" @tap="showChangePasswordDialog"/>
 
             <slot name="bottomDown"/>
 
@@ -38,15 +38,15 @@ export default {
     "components": { Avatar, LocaleButton },
 
     "props": {
-        "apiTokens": {
+        "apiTokensEnabled": {
             "type": Boolean,
             "default": true,
         },
-        "showAccount": {
+        "accountEnabled": {
             "type": Boolean,
             "default": true,
         },
-        "changePassword": {
+        "changePasswordEnabled": {
             "type": Boolean,
             "default": false,
         },
