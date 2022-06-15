@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.4.12 (2022-06-15)
+
+Fixes:
+
+-   fix: confirm dialog localization
+
 ### 7.4.11 (2022-06-15)
 
 Fixes:
