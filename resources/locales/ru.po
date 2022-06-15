@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-15 14:41+0300\n"
+"POT-Creation-Date: 2022-06-15 19:13+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -171,7 +171,6 @@ msgstr "Копировать токен в буфер"
 #: lib/components/api-tokens/permissions/dialog.vue:12:31
 #: lib/components/change-password-dialog.vue:9:31
 #: lib/components/reset-password-dialog.vue:10:31
-#: lib/components/settings/dialog.vue:30:31
 #: lib/components/users/permissions/dialog.vue:12:31
 msgid "Cancel"
 msgstr "Отменить"
@@ -220,7 +219,7 @@ msgstr "Редактировать права токена"
 
 #: lib/components/api-tokens/panel.vue:139:47
 #: lib/components/object-users/panel.vue:190:47
-#: lib/components/users/panel.vue:218:47 lib/utils.js:5:34
+#: lib/components/users/panel.vue:218:47
 msgid "Confirmation"
 msgstr "Подтверждение"
 
@@ -245,7 +244,6 @@ msgstr "Описание"
 #: lib/components/api-tokens/permissions/dialog.vue:13:31
 #: lib/components/change-password-dialog.vue:10:31
 #: lib/components/object-users/panel.vue:23:35
-#: lib/components/settings/dialog.vue:31:31
 #: lib/components/users/permissions/dialog.vue:13:31
 msgid "Submit"
 msgstr "Отправить"
@@ -453,55 +451,6 @@ msgstr "Пользователи обновлены"
 msgid "Password reset token was not found"
 msgstr "Токен сброса пароля не найден"
 
-#: lib/components/settings/dialog.vue:10:46
-#: lib/components/settings/dialog.vue:8:35
-msgid "SMTP settings"
-msgstr "Настройки SMTP"
-
-#: lib/components/settings/dialog.vue:13:47
-msgid "Application URL"
-msgstr "URL приложения"
-
-#: lib/components/settings/dialog.vue:14:47
-msgid "From"
-msgstr "От"
-
-#: lib/components/settings/dialog.vue:14:161
-msgid "Username <email@address>"
-msgstr "Имя пользователя <email@address>"
-
-#: lib/components/settings/dialog.vue:14:217
-msgid "Format: username <email@address>."
-msgstr "Формат: имя пользователя <email@address>."
-
-#: lib/components/settings/dialog.vue:15:47
-msgid "SMTP host"
-msgstr "SMTP хост"
-
-#: lib/components/settings/dialog.vue:16:50
-msgid "SMTP port"
-msgstr "Порт SMTP"
-
-#: lib/components/settings/dialog.vue:17:47
-msgid "SMTP username"
-msgstr "Имя пользователя SMTP"
-
-#: lib/components/settings/dialog.vue:18:51
-msgid "SMTP password"
-msgstr "Пароль SMTP"
-
-#: lib/components/settings/dialog.vue:21:43
-msgid "Test SMTP"
-msgstr "Тест SMTP"
-
-#: lib/components/settings/dialog.vue:123:35
-msgid "Please, fill all required fields"
-msgstr "Пожалуйста, заполните все требуемые поля"
-
-#: lib/components/settings/dialog.vue:147:35
-msgid "Settings updated"
-msgstr "Настройки обновлены"
-
 #: lib/components/signout-dialog.vue:3:42
 msgid "Your session was terminated on the API server. Press \"Continue\" button below."
 msgstr "Ваша сессия былп прервана API серввером. Намите кнопку \"Продолжить\" ниже."
@@ -568,9 +517,13 @@ msgstr "Права пользователя обновлены"
 msgid "User disabled"
 msgstr "Пользователь выключен"
 
-#: lib/utils.js:5:88
-msgid "Are you sure you want to do that?"
-msgstr "Вы уверены, что хотите сделать это?"
+#: lib/utils.js:11:28
+msgid "Yes"
+msgstr "Да"
+
+#: lib/utils.js:15:28
+msgid "No"
+msgstr "Нет"
 
 #: lib/viewport.vue:68:35
 msgid "Email confirmation token is invalid"
@@ -579,6 +532,45 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "SMTP settings"
+#~ msgstr "Настройки SMTP"
+
+#~ msgid "Application URL"
+#~ msgstr "URL приложения"
+
+#~ msgid "From"
+#~ msgstr "От"
+
+#~ msgid "Username <email@address>"
+#~ msgstr "Имя пользователя <email@address>"
+
+#~ msgid "Format: username <email@address>."
+#~ msgstr "Формат: имя пользователя <email@address>."
+
+#~ msgid "SMTP host"
+#~ msgstr "SMTP хост"
+
+#~ msgid "SMTP port"
+#~ msgstr "Порт SMTP"
+
+#~ msgid "SMTP username"
+#~ msgstr "Имя пользователя SMTP"
+
+#~ msgid "SMTP password"
+#~ msgstr "Пароль SMTP"
+
+#~ msgid "Test SMTP"
+#~ msgstr "Тест SMTP"
+
+#~ msgid "Please, fill all required fields"
+#~ msgstr "Пожалуйста, заполните все требуемые поля"
+
+#~ msgid "Settings updated"
+#~ msgstr "Настройки обновлены"
+
+#~ msgid "Are you sure you want to do that?"
+#~ msgstr "Вы уверены, что хотите сделать это?"
 
 #~ msgid "Sessions drop"
 #~ msgstr "Сброс сессий"
