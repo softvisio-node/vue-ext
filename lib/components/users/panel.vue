@@ -9,7 +9,7 @@
 
         <ext-column width="40" @ready="avatarColReady"/>
 
-        <ext-column :text="i18nd(`vue-ext`, `User name`)" dataIndex="name" flex="1" summaryDataIndex="total" @ready="nameColReady"/>
+        <ext-column :text="i18nd(`vue-ext`, `Username`)" dataIndex="name" flex="1" summaryDataIndex="total" @ready="nameColReady"/>
 
         <ext-column :text="i18nd(`vue-ext`, `Creation date`)" dataIndex="created" width="150" formatter="date()"/>
 

@@ -11,7 +11,7 @@
                     </ext-toolbar>
                     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":250}'>
                         <ext-textfield :label="i18nd(`vue-ext`, `Application URL`)" bind="{record.app_url}"/>
-                        <ext-textfield :label="i18nd(`vue-ext`, `From`) + `<i class='fa-solid fa-question-circle'></i>`" bind="{record.smtp_from}" :placeholder="i18nd(`vue-ext`, `User name <email@address>`)" :tooltip="i18nd(`vue-ext`, `Format: user name <email@address>.`)"/>
+                        <ext-textfield :label="i18nd(`vue-ext`, `From`) + `<i class='fa-solid fa-question-circle'></i>`" bind="{record.smtp_from}" :placeholder="i18nd(`vue-ext`, `Username <email@address>`)" :tooltip="i18nd(`vue-ext`, `Format: username <email@address>.`)"/>
                         <ext-textfield :label="i18nd(`vue-ext`, `SMTP host`)" bind="{record.smtp_hostname}"/>
                         <ext-spinnerfield :label="i18nd(`vue-ext`, `SMTP port`)" decimals="0" minValue="1" maxValue="65535" bind="{record.smtp_port}"/>
                         <ext-textfield :label="i18nd(`vue-ext`, `SMTP username`)" bind="{record.smtp_username}"/>

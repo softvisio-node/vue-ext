@@ -5,7 +5,7 @@
             <ext-container :html="i18nd(`vue-ext`, `Reset password`)"/>
             <ext-spacer/>
         </ext-toolbar>
-        <ext-textfield name="username" :label="i18nd(`vue-ext`, `User name or email`)" required="true"/>
+        <ext-textfield name="username" :label="i18nd(`vue-ext`, `Username or email`)" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
             <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" ui="back" @tap="showSignin"/>

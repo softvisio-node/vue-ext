@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-15 12:31+0300\n"
+"POT-Creation-Date: 2022-06-15 13:02+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -209,7 +209,7 @@ msgstr "Сбросить пароль"
 
 #: lib/components/auth/reset-password-form.vue:8:47
 #: lib/components/auth/signin-form.vue:8:47
-msgid "User name or email"
+msgid "Username or email"
 msgstr "Имя пользователя или email"
 
 #: lib/components/auth/reset-password-form.vue:11:64
@@ -361,6 +361,7 @@ msgid "Add user"
 msgstr "Добавить пользователя"
 
 #: lib/components/object-users/panel.vue:9:27
+#: lib/components/users/panel.vue:12:27
 msgid "Username"
 msgstr "Имя пользователя"
 
@@ -472,11 +473,11 @@ msgid "From"
 msgstr "От"
 
 #: lib/components/settings/dialog.vue:14:161
-msgid "User name <email@address>"
+msgid "Username <email@address>"
 msgstr "Имя пользователя <email@address>"
 
-#: lib/components/settings/dialog.vue:14:218
-msgid "Format: user name <email@address>."
+#: lib/components/settings/dialog.vue:14:217
+msgid "Format: username <email@address>."
 msgstr "Формат: имя пользователя <email@address>."
 
 #: lib/components/settings/dialog.vue:15:47
@@ -546,10 +547,6 @@ msgstr "Создать пользователя"
 msgid "User created"
 msgstr "Пользователь создан"
 
-#: lib/components/users/panel.vue:12:27
-msgid "User name"
-msgstr "Имя пользователя"
-
 #: lib/components/users/panel.vue:121:39
 #: lib/components/users/permissions/dialog.vue:2:24
 msgid "Edit user permissions"
@@ -587,6 +584,9 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "User name"
+#~ msgstr "Имя пользователя"
 
 #, javascript-format
 #~ msgid "User ${n}"

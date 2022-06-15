@@ -5,7 +5,7 @@
             <ext-container :html="i18nd(`vue-ext`, `Sign in`)"/>
             <ext-spacer/>
         </ext-toolbar>
-        <ext-textfield name="username" :label="i18nd(`vue-ext`, `User name or email`)" required="true"/>
+        <ext-textfield name="username" :label="i18nd(`vue-ext`, `Username or email`)" required="true"/>
         <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" required="true"/>
 
         <ext-button :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" :hidden="!signup" width="100%" margin="10 0 0 0" @tap="showSignup"/>
