@@ -13,7 +13,7 @@
             <slot name="bottomUp"/>
 
             <ext-button iconCls="fa-solid fa-key" :text="i18nd(`vue-ext`, `API tokens`)" textAlign="left" :hidden="!apiTokens" @tap="showApiTokens"/>
-            <ext-button iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your profile`)" textAlign="left" :hidden="!profile" @tap="showProfile"/>
+            <ext-button iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" :hidden="!showAccount" @tap="showAccountDialog"/>
             <ext-button iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" :hidden="!changePassword" @tap="showChangePasswordDialog"/>
 
             <slot name="bottomDown"/>
@@ -42,7 +42,7 @@ export default {
             "type": Boolean,
             "default": true,
         },
-        "profile": {
+        "showAccount": {
             "type": Boolean,
             "default": true,
         },
@@ -52,7 +52,7 @@ export default {
         },
     },
 
-    "emits": ["showProfileDialog"],
+    "emits": ["showAccountDialog"],
 
     "computed": {
         username () {
@@ -93,8 +93,8 @@ export default {
             this.ext.hide( false );
         },
 
-        async showProfile () {
-            this.$emit( "showProfileDialog" );
+        async showAccountDialog () {
+            this.$emit( "showAccountDialog" );
         },
 
         async showApiTokens () {

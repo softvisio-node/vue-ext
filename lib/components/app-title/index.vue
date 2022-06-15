@@ -15,7 +15,7 @@
 
         <Notifications ref="notifications"/>
 
-        <AppMenu ref="menu" :apiTokens="apiTokens" :profile="profile" :changePassword="changePassword" @showProfileDialog="showProfileDialog">
+        <AppMenu ref="menu" :apiTokens="apiTokens" :showAccount="showAccount" :changePassword="changePassword" @showAccountDialog="showAccountDialog">
             <template #top>
                 <slot name="menuTop"/>
             </template>
@@ -60,7 +60,7 @@ export default {
             "type": Boolean,
             "default": true,
         },
-        "profile": {
+        "showAccount": {
             "type": Boolean,
             "default": true,
         },
@@ -70,7 +70,7 @@ export default {
         },
     },
 
-    "emits": ["showProfileDialog"],
+    "emits": ["showAccountDialog"],
 
     "computed": {
         title () {
@@ -107,10 +107,10 @@ export default {
             this.$refs.notifications.hide();
         },
 
-        showProfileDialog () {
+        showAccountDialog () {
             this.hideMenu();
 
-            this.$emit( "showProfileDialog" );
+            this.$emit( "showAccountDialog" );
         },
 
         _setNotificationsBadgeText () {

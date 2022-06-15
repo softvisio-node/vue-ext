@@ -144,7 +144,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "profile/set-telegram-username", value );
+            const res = await this.$api.call( "account/set-telegram-username", value );
 
             button.enable();
 

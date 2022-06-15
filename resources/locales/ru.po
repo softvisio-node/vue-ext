@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-15 13:42+0300\n"
+"POT-Creation-Date: 2022-06-15 14:01+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -13,6 +13,86 @@ msgstr ""
 "X-Poedit-Basepath: ../..\n"
 "X-Generator: Poedit 3.1\n"
 "X-Poedit-SearchPath-0: lib\n"
+
+#: lib/components/account/dialog.vue:2:24
+#: lib/components/app-title/menu.vue:16:58
+msgid "Your account"
+msgstr "Ваш аккаунт"
+
+#: lib/components/account/panel.vue:10:42
+msgid "Password change"
+msgstr "Смена пароля"
+
+#: lib/components/account/panel.vue:13:63
+#: lib/components/reset-password-dialog.vue:5:55
+msgid "New password"
+msgstr "Новый пароль"
+
+#: lib/components/account/panel.vue:14:69
+#: lib/components/reset-password-dialog.vue:6:61
+msgid "Confirm new password"
+msgstr "Подтвердите новый пароль"
+
+#: lib/components/account/panel.vue:17:43
+#: lib/components/app-title/menu.vue:17:62
+#: lib/components/change-password-dialog.vue:2:24
+msgid "Change password"
+msgstr "Сменить пароль"
+
+#: lib/components/account/panel.vue:25:42
+msgid "Sessions drop"
+msgstr "Сброс сессий"
+
+#: lib/components/account/panel.vue:29:51
+msgid "Sign out from all sessions, except this session"
+msgstr "Выйти из всех сессий кроме этой"
+
+#: lib/components/account/panel.vue:30:39 lib/components/users/panel.vue:140:48
+msgid "Drop sessions"
+msgstr "Сбросить сессии"
+
+#: lib/components/account/panel.vue:6:27
+msgid "Security"
+msgstr "Безопастность"
+
+#: lib/components/account/panel.vue:36:27
+#: lib/components/notifications/menu-sheet.vue:4:76
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: lib/components/account/panel.vue:43:38
+#: lib/components/account/panel.vue:41:27
+msgid "Interface theme"
+msgstr "Тема интерфейса"
+
+#: lib/components/account/panel.vue:47:41
+msgid "Follow OS theme"
+msgstr "Следовать теме ОС"
+
+#: lib/components/account/panel.vue:51:44
+msgid "Base color"
+msgstr "Базовый цвет"
+
+#: lib/components/account/panel.vue:55:44
+msgid "Accent color"
+msgstr "Цвет акцента"
+
+#: lib/components/account/panel.vue:73:67
+#: lib/components/app-title/menu.vue:25:84
+#: lib/components/dark-mode/button.vue:31:61
+msgid "Dark mode"
+msgstr "Тёмный режим"
+
+#: lib/components/account/panel.vue:161:35
+#: lib/components/change-password-dialog.vue:59:35
+#: lib/components/reset-password-dialog.vue:75:35
+msgid "Password changed"
+msgstr "Пароль изменен"
+
+#: lib/components/account/panel.vue:181:35
+#: lib/components/users/panel.vue:247:35
+msgid "Sessions were deleted"
+msgstr "Сессии были удалены"
 
 #: lib/components/api-call-log/dialog.vue:2:24
 msgid "API call log"
@@ -178,26 +258,9 @@ msgstr "Отправить"
 msgid "Token permissions updated"
 msgstr "Права токена обновлены"
 
-#: lib/components/app-title/menu.vue:16:58
-#: lib/components/profile/dialog.vue:2:24
-msgid "Your profile"
-msgstr "Ваш профайл"
-
-#: lib/components/app-title/menu.vue:17:62
-#: lib/components/change-password-dialog.vue:2:24
-#: lib/components/profile/panel.vue:17:43
-msgid "Change password"
-msgstr "Сменить пароль"
-
 #: lib/components/app-title/menu.vue:22:66
 msgid "Sign out"
 msgstr "Выйти"
-
-#: lib/components/app-title/menu.vue:25:84
-#: lib/components/dark-mode/button.vue:31:61
-#: lib/components/profile/panel.vue:73:67
-msgid "Dark mode"
-msgstr "Тёмный режим"
 
 #: lib/components/auth/reset-password-form.vue:5:34
 #: lib/components/reset-password-dialog.vue:11:31
@@ -259,12 +322,6 @@ msgstr "Email"
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
-#: lib/components/change-password-dialog.vue:59:35
-#: lib/components/profile/panel.vue:161:35
-#: lib/components/reset-password-dialog.vue:75:35
-msgid "Password changed"
-msgstr "Пароль изменен"
-
 #: lib/components/init-failure-dialog.vue:3:42
 msgid "Unable to connect to the API server. Check, that you have internet connection and press \"Try Again\" button below."
 msgstr "Невозможно подключиться к серверу API. Проверьте, что у вас есть подключение к интернет и нажмите кнопку ниже."
@@ -293,11 +350,6 @@ msgstr "Удалить все"
 #: lib/components/notifications/menu-sheet.vue:9:79
 msgid "Refresh notifications"
 msgstr "Обновить уведомления"
-
-#: lib/components/notifications/menu-sheet.vue:4:76
-#: lib/components/profile/panel.vue:36:27
-msgid "Notifications"
-msgstr "Уведомления"
 
 #: lib/components/notifications/menu-sheet.vue:12:73
 msgid "You have no notifications"
@@ -400,58 +452,6 @@ msgstr "Пожалуйста, заполните все поля"
 #: lib/components/object-users/panel.vue:233:35
 msgid "Users updated"
 msgstr "Пользователи обновлены"
-
-#: lib/components/profile/panel.vue:10:42
-msgid "Password change"
-msgstr "Смена пароля"
-
-#: lib/components/profile/panel.vue:13:63
-#: lib/components/reset-password-dialog.vue:5:55
-msgid "New password"
-msgstr "Новый пароль"
-
-#: lib/components/profile/panel.vue:14:69
-#: lib/components/reset-password-dialog.vue:6:61
-msgid "Confirm new password"
-msgstr "Подтвердите новый пароль"
-
-#: lib/components/profile/panel.vue:25:42
-msgid "Sessions drop"
-msgstr "Сброс сессий"
-
-#: lib/components/profile/panel.vue:29:51
-msgid "Sign out from all sessions, except this session"
-msgstr "Выйти из всех сессий кроме этой"
-
-#: lib/components/profile/panel.vue:30:39 lib/components/users/panel.vue:140:48
-msgid "Drop sessions"
-msgstr "Сбросить сессии"
-
-#: lib/components/profile/panel.vue:6:27
-msgid "Security"
-msgstr "Безопастность"
-
-#: lib/components/profile/panel.vue:43:38
-#: lib/components/profile/panel.vue:41:27
-msgid "Interface theme"
-msgstr "Тема интерфейса"
-
-#: lib/components/profile/panel.vue:47:41
-msgid "Follow OS theme"
-msgstr "Следовать теме ОС"
-
-#: lib/components/profile/panel.vue:51:44
-msgid "Base color"
-msgstr "Базовый цвет"
-
-#: lib/components/profile/panel.vue:55:44
-msgid "Accent color"
-msgstr "Цвет акцента"
-
-#: lib/components/profile/panel.vue:181:35
-#: lib/components/users/panel.vue:247:35
-msgid "Sessions were deleted"
-msgstr "Сессии были удалены"
 
 #: lib/components/reset-password-dialog.vue:38:35
 msgid "Password reset token was not found"
@@ -583,6 +583,9 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Your profile"
+#~ msgstr "Ваш профайл"
 
 #~ msgid "User name"
 #~ msgstr "Имя пользователя"
