@@ -3,8 +3,6 @@
 </template>
 
 <script>
-import locale from "#vue/locale";
-
 export default {
     "props": {
         "autoHide": {
@@ -19,7 +17,8 @@ export default {
 
     "methods": {
         _ready ( e ) {
-            const cmp = e.detail.cmp;
+            const cmp = e.detail.cmp,
+                locale = this.$store.locale;
 
             if ( !locale.hasLocales && this.autoHide ) {
                 cmp.setHidden( true );
@@ -41,8 +40,8 @@ export default {
             cmp.setText( locale.text );
         },
 
-        _setLocale ( id ) {
-            locale.setLocale( id );
+        _setLocale ( localeName ) {
+            this.$store.locale.setLocale( localeName );
         },
     },
 };
