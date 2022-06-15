@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-10 16:18+0300\n"
+"POT-Creation-Date: 2022-06-15 12:31+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -144,17 +144,17 @@ msgstr "Включен"
 msgid "Edit token permissions"
 msgstr "Редактировать права токена"
 
-#: lib/components/api-tokens/panel.vue:137:47
-#: lib/components/object-users/panel.vue:188:47
+#: lib/components/api-tokens/panel.vue:139:47
+#: lib/components/object-users/panel.vue:190:47
 #: lib/components/users/panel.vue:218:47 lib/utils.js:5:34
 msgid "Confirmation"
 msgstr "Подтверждение"
 
-#: lib/components/api-tokens/panel.vue:137:88
+#: lib/components/api-tokens/panel.vue:139:88
 msgid "Are you sure you want to delete this token?"
 msgstr "Вы действительно хотите удалить этот токен?"
 
-#: lib/components/api-tokens/panel.vue:142:35
+#: lib/components/api-tokens/panel.vue:144:35
 msgid "API token deleted"
 msgstr "API токен удален"
 
@@ -384,21 +384,21 @@ msgstr "Выбрать роль пользователя"
 msgid "Add / update user"
 msgstr "Добавить / обновить пользователя"
 
-#: lib/components/object-users/panel.vue:188:88
+#: lib/components/object-users/panel.vue:190:88
 #: lib/components/users/panel.vue:218:88
 msgid "Are you sure you want to delete user?"
 msgstr "Вы действительно хотите удалить пользователя?"
 
-#: lib/components/object-users/panel.vue:197:35
+#: lib/components/object-users/panel.vue:199:35
 #: lib/components/users/panel.vue:227:35
 msgid "User deleted"
 msgstr "Пользователь удален"
 
-#: lib/components/object-users/panel.vue:220:35
+#: lib/components/object-users/panel.vue:222:35
 msgid "Please, fill all fields"
 msgstr "Пожалуйста, заполните все поля"
 
-#: lib/components/object-users/panel.vue:231:35
+#: lib/components/object-users/panel.vue:233:35
 msgid "Users updated"
 msgstr "Пользователи обновлены"
 
@@ -503,7 +503,7 @@ msgstr "Тест SMTP"
 msgid "Please, fill all required fields"
 msgstr "Пожалуйста, заполните все требуемые поля"
 
-#: lib/components/settings/dialog.vue:145:35
+#: lib/components/settings/dialog.vue:147:35
 msgid "Settings updated"
 msgstr "Настройки обновлены"
 
