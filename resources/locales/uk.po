@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-15 13:04+0300\n"
+"POT-Creation-Date: 2022-06-15 13:29+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -228,7 +228,7 @@ msgstr "Інструкції щодо зміни пароля були наді�
 #: lib/components/auth/signin-form.vue:5:34
 #: lib/components/auth/signin-form.vue:16:31
 msgid "Sign in"
-msgstr ""
+msgstr "Увійти"
 
 #: lib/components/auth/signin-form.vue:9:51
 #: lib/components/auth/signup-form.vue:9:51
