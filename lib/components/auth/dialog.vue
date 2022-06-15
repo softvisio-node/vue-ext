@@ -1,6 +1,6 @@
 <template>
     <ext-dialog bodyPadding="0" :closable="closable">
-        <AuthPanel :signup="signup" :reset="reset" :closable="closable" :shadow="shadow" @close="onClose"/>
+        <AuthPanel :signupEnabled="signupEnabled" :resetPasswordEnabled="resetPasswordEnabled" :closable="closable" :shadow="shadow" @close="onClose"/>
     </ext-dialog>
 </template>
 
@@ -11,11 +11,11 @@ export default {
     "components": { AuthPanel },
 
     "props": {
-        "signup": {
+        "signupEnabled": {
             "type": Boolean,
             "default": false,
         },
-        "reset": {
+        "resetPasswordEnabled": {
             "type": Boolean,
             "default": true,
         },

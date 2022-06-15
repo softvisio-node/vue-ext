@@ -1,6 +1,6 @@
 <template>
     <ext-panel :title="title" width="300" minHeight="380" layout='{"type":"card","animation":"slide"}' :shadow="shadow" @ready="ready">
-        <SigninForm :signup="signup" :reset="reset" @reset="showReset" @signup="showSignup"/>
+        <SigninForm :signupEnabled="signupEnabled" :resetPasswordEnabled="resetPasswordEnabled" @reset="showResetPassword" @signup="showSignup"/>
 
         <ResetPasswordForm @signin="showSignin"/>
 
@@ -17,11 +17,11 @@ export default {
     "components": { SigninForm, ResetPasswordForm, SignupForm },
 
     "props": {
-        "signup": {
+        "signupEnabled": {
             "type": Boolean,
             "default": false,
         },
-        "reset": {
+        "resetPasswordEnabled": {
             "type": Boolean,
             "default": true,
         },
@@ -68,7 +68,7 @@ export default {
             this.ext.setActiveItem( 0 );
         },
 
-        showReset () {
+        showResetPassword () {
             this.ext.setActiveItem( 1 );
         },
 

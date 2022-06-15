@@ -8,10 +8,10 @@
         <ext-textfield name="username" :label="i18nd(`vue-ext`, `Username or email`)" required="true"/>
         <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" required="true"/>
 
-        <ext-button :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" :hidden="!signup" width="100%" margin="10 0 0 0" @tap="showSignup"/>
+        <ext-button :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" :hidden="!signupEnabled" width="100%" margin="10 0 0 0" @tap="showSignup"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
-            <ext-button :text="i18nd(`vue-ext`, `Forgot password?`)" ui="forward" :hidden="!reset" @tap="showReset"/>
+            <ext-button :text="i18nd(`vue-ext`, `Forgot password?`)" ui="forward" :hidden="!resetPasswordEnabled" @tap="showReset"/>
             <ext-spacer/>
             <ext-button :text="i18nd(`vue-ext`, `Sign in`)" ui="action" @tap="submit"/>
         </ext-toolbar>
@@ -21,11 +21,11 @@
 <script>
 export default {
     "props": {
-        "signup": {
+        "signupEnabled": {
             "type": Boolean,
             "default": false,
         },
-        "reset": {
+        "resetPasswordEnabled": {
             "type": Boolean,
             "default": false,
         },
