@@ -1,6 +1,6 @@
 <template>
     <ext-dialog :title="i18nd(`vue-ext`, `Your account`)" :width="width" :height="height" scrollable="true" closeAction="hide" layout="fit">
-        <Panel :titles="titles">
+        <Panel>
             <template #top>
                 <slot name="top"/>
             </template>
@@ -26,10 +26,6 @@ export default {
         "height": {
             "type": String,
             "default": "90%",
-        },
-        "titles": {
-            "type": Boolean,
-            "default": true,
         },
     },
 };
