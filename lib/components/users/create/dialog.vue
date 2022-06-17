@@ -1,9 +1,9 @@
 <template>
     <ext-dialog :title="i18nd(`vue-ext`, `Create user`)" width="350" height="400" closeAction="hide" scrollable="true" @ready="_ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":150}' @ready="formReady">
-            <ext-emailfield name="username" :label="i18nd(`vue-ext`, `Email`)" :placeholder="i18nd(`vue-ext`, `Enter user email`)" required="true"/>
-            <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" :placeholder="i18nd(`vue-ext`, `Enter user password`)" required="true"/>
-            <ext-passwordfield name="password1" :label="i18nd(`vue-ext`, `Confirm password`)" :placeholder="i18nd(`vue-ext`, `Confirm user password`)" required="true"/>
+            <ext-emailfield name="username" :label="i18nd(`vue-ext`, `Email`)" required="true"/>
+            <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" required="true"/>
+            <ext-passwordfield name="password1" :label="i18nd(`vue-ext`, `Confirm password`)" required="true"/>
             <ext-togglefield name="enabled" :label="i18nd(`vue-ext`, `User enabled`)" value="true"/>
             <ext-togglefield name="admin" :label="i18nd(`vue-ext`, `Administrator`)" value="false"/>
         </ext-fieldpanel>
