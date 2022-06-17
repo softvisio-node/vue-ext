@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-17 12:36+0300\n"
+"POT-Creation-Date: 2022-06-17 12:40+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -234,20 +234,10 @@ msgid "Description"
 msgstr "Опис"
 
 #: lib/components/api-tokens/permissions/dialog.vue:12:31
-#: lib/components/change-password-dialog.vue:9:31
-#: lib/components/reset-password-dialog.vue:10:31
-#: lib/components/users/permissions/dialog.vue:12:31
-msgid "Cancel"
-msgstr "Скасувати"
+msgid "Save"
+msgstr "Зберегти"
 
-#: lib/components/api-tokens/permissions/dialog.vue:13:31
-#: lib/components/change-password-dialog.vue:10:31
-#: lib/components/object-users/panel.vue:23:35
-#: lib/components/users/permissions/dialog.vue:13:31
-msgid "Submit"
-msgstr "Подати"
-
-#: lib/components/api-tokens/permissions/dialog.vue:101:35
+#: lib/components/api-tokens/permissions/dialog.vue:100:35
 msgid "Token permissions updated"
 msgstr "Дозволи для токену оновлено"
 
@@ -314,6 +304,18 @@ msgstr "Email"
 #: lib/components/users/create/dialog.vue:6:56
 msgid "Confirm password"
 msgstr "Підтвердьте пароль"
+
+#: lib/components/change-password-dialog.vue:9:31
+#: lib/components/reset-password-dialog.vue:10:31
+#: lib/components/users/permissions/dialog.vue:12:31
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: lib/components/change-password-dialog.vue:10:31
+#: lib/components/object-users/panel.vue:23:35
+#: lib/components/users/permissions/dialog.vue:13:31
+msgid "Submit"
+msgstr "Подати"
 
 #: lib/components/init-failure-dialog.vue:3:42
 msgid "Unable to connect to the API server. Check, that you have internet connection and press \"Try Again\" button below."
