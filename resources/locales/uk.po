@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-17 17:38+0300\n"
+"POT-Creation-Date: 2022-06-18 02:04+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -463,18 +463,6 @@ msgstr "Продовжити"
 msgid "Session closed"
 msgstr "Сесія закрита"
 
-#: lib/components/users/create/dialog.vue:4:93
-msgid "Enter user email"
-msgstr "Введіть email користувача"
-
-#: lib/components/users/create/dialog.vue:5:99
-msgid "Enter user password"
-msgstr "Введіть пароль користувача"
-
-#: lib/components/users/create/dialog.vue:6:108
-msgid "Confirm user password"
-msgstr "Підтвердьте пароль користувача"
-
 #: lib/components/users/create/dialog.vue:7:52
 #: lib/components/users/panel.vue:18:27 lib/components/users/panel.vue:206:44
 msgid "User enabled"
@@ -536,6 +524,15 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "Enter user email"
+#~ msgstr "Введіть email користувача"
+
+#~ msgid "Enter user password"
+#~ msgstr "Введіть пароль користувача"
+
+#~ msgid "Confirm user password"
+#~ msgstr "Підтвердьте пароль користувача"
 
 #~ msgid "Create"
 #~ msgstr "Створюйте"
