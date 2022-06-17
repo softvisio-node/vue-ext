@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-15 19:13+0300\n"
+"POT-Creation-Date: 2022-06-17 12:35+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -168,18 +168,10 @@ msgid "Copy token to the clipboard"
 msgstr "Копировать токен в буфер"
 
 #: lib/components/api-tokens/create/dialog.vue:21:44
-#: lib/components/api-tokens/permissions/dialog.vue:12:31
-#: lib/components/change-password-dialog.vue:9:31
-#: lib/components/reset-password-dialog.vue:10:31
-#: lib/components/users/permissions/dialog.vue:12:31
-msgid "Cancel"
-msgstr "Отменить"
+msgid "Create token"
+msgstr "Создать токен"
 
-#: lib/components/api-tokens/create/dialog.vue:22:44
-msgid "Create"
-msgstr "Создать"
-
-#: lib/components/api-tokens/create/dialog.vue:23:43
+#: lib/components/api-tokens/create/dialog.vue:22:43
 msgid "Close"
 msgstr "Закрыть"
 
@@ -188,11 +180,11 @@ msgstr "Закрыть"
 msgid "Create API token"
 msgstr "Создать API токен"
 
-#: lib/components/api-tokens/create/dialog.vue:84:35
+#: lib/components/api-tokens/create/dialog.vue:81:35
 msgid "API token created"
 msgstr "API токен создан"
 
-#: lib/components/api-tokens/create/dialog.vue:96:31
+#: lib/components/api-tokens/create/dialog.vue:93:31
 msgid "Token copied to the clipboard"
 msgstr "Токен скопирован"
 
@@ -240,6 +232,13 @@ msgstr "Имя"
 #: lib/components/users/permissions/dialog.vue:6:31
 msgid "Description"
 msgstr "Описание"
+
+#: lib/components/api-tokens/permissions/dialog.vue:12:31
+#: lib/components/change-password-dialog.vue:9:31
+#: lib/components/reset-password-dialog.vue:10:31
+#: lib/components/users/permissions/dialog.vue:12:31
+msgid "Cancel"
+msgstr "Отменить"
 
 #: lib/components/api-tokens/permissions/dialog.vue:13:31
 #: lib/components/change-password-dialog.vue:10:31
@@ -532,6 +531,9 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Create"
+#~ msgstr "Создать"
 
 #~ msgid "SMTP settings"
 #~ msgstr "Настройки SMTP"

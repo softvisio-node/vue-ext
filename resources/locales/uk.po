@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-15 19:14+0300\n"
+"POT-Creation-Date: 2022-06-17 12:36+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -168,18 +168,10 @@ msgid "Copy token to the clipboard"
 msgstr "Скопіюйте маркер у буфер обміну"
 
 #: lib/components/api-tokens/create/dialog.vue:21:44
-#: lib/components/api-tokens/permissions/dialog.vue:12:31
-#: lib/components/change-password-dialog.vue:9:31
-#: lib/components/reset-password-dialog.vue:10:31
-#: lib/components/users/permissions/dialog.vue:12:31
-msgid "Cancel"
-msgstr "Скасувати"
+msgid "Create token"
+msgstr "Створити токен"
 
-#: lib/components/api-tokens/create/dialog.vue:22:44
-msgid "Create"
-msgstr "Створюйте"
-
-#: lib/components/api-tokens/create/dialog.vue:23:43
+#: lib/components/api-tokens/create/dialog.vue:22:43
 msgid "Close"
 msgstr "Закрити"
 
@@ -188,11 +180,11 @@ msgstr "Закрити"
 msgid "Create API token"
 msgstr "Створіть токен API"
 
-#: lib/components/api-tokens/create/dialog.vue:84:35
+#: lib/components/api-tokens/create/dialog.vue:81:35
 msgid "API token created"
 msgstr "Створено токен API"
 
-#: lib/components/api-tokens/create/dialog.vue:96:31
+#: lib/components/api-tokens/create/dialog.vue:93:31
 msgid "Token copied to the clipboard"
 msgstr "Токен скопійовано в буфер обміну"
 
@@ -240,6 +232,13 @@ msgstr "Ім'я"
 #: lib/components/users/permissions/dialog.vue:6:31
 msgid "Description"
 msgstr "Опис"
+
+#: lib/components/api-tokens/permissions/dialog.vue:12:31
+#: lib/components/change-password-dialog.vue:9:31
+#: lib/components/reset-password-dialog.vue:10:31
+#: lib/components/users/permissions/dialog.vue:12:31
+msgid "Cancel"
+msgstr "Скасувати"
 
 #: lib/components/api-tokens/permissions/dialog.vue:13:31
 #: lib/components/change-password-dialog.vue:10:31
@@ -532,6 +531,9 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "Create"
+#~ msgstr "Створюйте"
 
 #~ msgid "SMTP settings"
 #~ msgstr "Налаштування SMTP"

@@ -18,8 +18,7 @@
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button ref="cancel" :text="i18nd(`vue-ext`, `Cancel`)" ui="decline" @tap="close"/>
-            <ext-button ref="submit" :text="i18nd(`vue-ext`, `Create`)" ui="action" @tap="submit"/>
+            <ext-button ref="submit" :text="i18nd(`vue-ext`, `Create token`)" ui="action" @tap="submit"/>
             <ext-button ref="close" :text="i18nd(`vue-ext`, `Close`)" ui="action" hidden="true" @tap="close"/>
         </ext-toolbar>
     </ext-dialog>
@@ -39,7 +38,6 @@ export default {
                 this.$refs.name.ext.setReadOnly( false );
                 this.$refs.done.ext.setHidden( true );
 
-                this.$refs.cancel.ext.setHidden( false );
                 this.$refs.submit.ext.setHidden( false );
                 this.$refs.close.ext.setHidden( true );
             } );
@@ -77,7 +75,6 @@ export default {
                 this.$refs.name.ext.setReadOnly( true );
                 this.$refs.done.ext.setHidden( false );
 
-                this.$refs.cancel.ext.setHidden( true );
                 this.$refs.submit.ext.setHidden( true );
                 this.$refs.close.ext.setHidden( false );
 
