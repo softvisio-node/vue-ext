@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.4.13 (2022-06-17)
+
+Fixes:
+
+-   fix: create user form
+
 ### 7.4.12 (2022-06-15)
 
 Fixes:
