@@ -9,8 +9,7 @@
         </ext-grid>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button :text="i18nd(`vue-ext`, `Cancel`)" ui="decline" @tap="close"/>
-            <ext-button :text="i18nd(`vue-ext`, `Submit`)" ui="action" bind='{"disabled":"{!dirty}"}' @tap="submit"/>
+            <ext-button :text="i18nd(`vue-ext`, `Save`)" ui="action" bind='{"disabled":"{!dirty}"}' @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
