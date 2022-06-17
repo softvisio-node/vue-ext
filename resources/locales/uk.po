@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-17 12:43+0300\n"
+"POT-Creation-Date: 2022-06-17 16:51+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -517,11 +517,15 @@ msgstr "Дозволи користувача оновлено"
 msgid "User disabled"
 msgstr "Користувача вимкнено"
 
-#: lib/utils.js:11:28
+#: lib/utils.js:31:36
+msgid "Ok"
+msgstr "Ok"
+
+#: lib/utils.js:75:36
 msgid "Yes"
 msgstr "Так"
 
-#: lib/utils.js:15:28
+#: lib/utils.js:84:36
 msgid "No"
 msgstr "Ні"
 
