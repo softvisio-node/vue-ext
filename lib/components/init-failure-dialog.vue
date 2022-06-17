@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :title="i18nd(`vue-ext`, `Connection error`)" width="250" height="300" closable="false" shadow="true">
+    <ext-dialog :title="i18nd(`vue-ext`, `Connection error`)" width="250" height="300" shadow="true" defaultFocus="button" @ready="_ready">
         <ext-panel layout="center" :html='i18nd(`vue-ext`, `Unable to connect to the API server. Check, that you have internet connection and press "Try again" button below.`)'/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"center"}'>
@@ -13,6 +13,12 @@ export default {
     "emits": ["close"],
 
     "methods": {
+        _ready ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.on( "destroy", () => this.close() );
+        },
+
         close () {
             this.$emit( "close" );
 
