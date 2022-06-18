@@ -215,7 +215,7 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Confirmation" ), this.i18nd( `vue-ext`, "Are you sure you want to delete user?" ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete user?" ) ) ) ) return;
 
             button.disable();
 
