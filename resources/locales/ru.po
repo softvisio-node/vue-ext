@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-18 04:15+0300\n"
+"POT-Creation-Date: 2022-06-18 04:22+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -317,7 +317,7 @@ msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
 #: lib/components/change-password-dialog.vue:9:31
-#: lib/components/reset-password-dialog.vue:10:31
+#: lib/components/reset-password-dialog.vue:10:31 lib/utils.js:86:36
 msgid "Cancel"
 msgstr "Отменить"
 
@@ -495,21 +495,13 @@ msgstr "Пользователь выключен"
 msgid "Warning"
 msgstr "Внимание"
 
-#: lib/utils.js:33:36
+#: lib/utils.js:33:36 lib/utils.js:77:36
 msgid "Ok"
 msgstr "Ok"
 
 #: lib/utils.js:48:14
 msgid "Confirmation"
 msgstr "Подтверждение"
-
-#: lib/utils.js:77:36
-msgid "Yes"
-msgstr "Да"
-
-#: lib/utils.js:86:36
-msgid "No"
-msgstr "Нет"
 
 #: lib/viewport.vue:68:35
 msgid "Email confirmation token is invalid"
@@ -518,6 +510,12 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Yes"
+#~ msgstr "Да"
+
+#~ msgid "No"
+#~ msgstr "Нет"
 
 #~ msgid "Try again"
 #~ msgstr "Пробовать еще раз"
