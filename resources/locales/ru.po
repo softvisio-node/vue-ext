@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-18 02:03+0300\n"
+"POT-Creation-Date: 2022-06-18 04:15+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -13,6 +13,22 @@ msgstr ""
 "X-Poedit-Basepath: ../..\n"
 "X-Generator: Poedit 3.1\n"
 "X-Poedit-SearchPath-0: lib\n"
+
+#: lib/app.js:63:28
+msgid "Unable to connect to the API server. Check, that you have internet connection."
+msgstr "Невозможно подключиться к серверу API. Проверьте, что у вас есть подключение к интернет."
+
+#: lib/app.js:64:21
+msgid "Connection error"
+msgstr "Ошибка подключения"
+
+#: lib/app.js:90:28
+msgid "Your session was terminated on the API server."
+msgstr "Ваша сессия былп прервана API серввером."
+
+#: lib/app.js:91:21
+msgid "Session closed"
+msgstr "Сессия закрыта"
 
 #: lib/components/account/dialog.vue:2:24
 #: lib/components/app-title/menu.vue:16:58
@@ -210,12 +226,6 @@ msgid "Edit token permissions"
 msgstr "Редактировать права токена"
 
 #: lib/components/api-tokens/panel.vue:139:47
-#: lib/components/object-users/panel.vue:190:47
-#: lib/components/users/panel.vue:218:47
-msgid "Confirmation"
-msgstr "Подтверждение"
-
-#: lib/components/api-tokens/panel.vue:139:88
 msgid "Are you sure you want to delete this token?"
 msgstr "Вы действительно хотите удалить этот токен?"
 
@@ -315,18 +325,6 @@ msgstr "Отменить"
 #: lib/components/object-users/panel.vue:23:35
 msgid "Submit"
 msgstr "Отправить"
-
-#: lib/components/init-failure-dialog.vue:3:42
-msgid "Unable to connect to the API server. Check, that you have internet connection and press \"Try again\" button below."
-msgstr "Невозможно подключиться к серверу API. Проверьте, что у вас есть подключение к интернет и нажмите кнопку ниже."
-
-#: lib/components/init-failure-dialog.vue:6:58
-msgid "Try again"
-msgstr "Пробовать еще раз"
-
-#: lib/components/init-failure-dialog.vue:2:24
-msgid "Connection error"
-msgstr "Ошибка подключения"
 
 #: lib/components/notifications/dialog.vue:2:24
 #: lib/components/notifications/menu-sheet.vue:8:78
@@ -429,8 +427,8 @@ msgstr "Выбрать роль пользователя"
 msgid "Add / update user"
 msgstr "Добавить / обновить пользователя"
 
-#: lib/components/object-users/panel.vue:190:88
-#: lib/components/users/panel.vue:218:88
+#: lib/components/object-users/panel.vue:190:47
+#: lib/components/users/panel.vue:218:47
 msgid "Are you sure you want to delete user?"
 msgstr "Вы действительно хотите удалить пользователя?"
 
@@ -450,18 +448,6 @@ msgstr "Пользователи обновлены"
 #: lib/components/reset-password-dialog.vue:38:35
 msgid "Password reset token was not found"
 msgstr "Токен сброса пароля не найден"
-
-#: lib/components/signout-dialog.vue:3:42
-msgid "Your session was terminated on the API server. Press \"Continue\" button below."
-msgstr "Ваша сессия былп прервана API серввером. Намите кнопку \"Продолжить\" ниже."
-
-#: lib/components/signout-dialog.vue:6:58
-msgid "Continue"
-msgstr "Продолжить"
-
-#: lib/components/signout-dialog.vue:2:24
-msgid "Session closed"
-msgstr "Сессия закрыта"
 
 #: lib/components/users/create/dialog.vue:7:52
 #: lib/components/users/panel.vue:18:27 lib/components/users/panel.vue:206:44
@@ -505,15 +491,23 @@ msgstr "Права пользователя обновлены"
 msgid "User disabled"
 msgstr "Пользователь выключен"
 
-#: lib/utils.js:31:36
+#: lib/utils.js:4:14
+msgid "Warning"
+msgstr "Внимание"
+
+#: lib/utils.js:33:36
 msgid "Ok"
 msgstr "Ok"
 
-#: lib/utils.js:75:36
+#: lib/utils.js:48:14
+msgid "Confirmation"
+msgstr "Подтверждение"
+
+#: lib/utils.js:77:36
 msgid "Yes"
 msgstr "Да"
 
-#: lib/utils.js:84:36
+#: lib/utils.js:86:36
 msgid "No"
 msgstr "Нет"
 
@@ -524,6 +518,12 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Try again"
+#~ msgstr "Пробовать еще раз"
+
+#~ msgid "Continue"
+#~ msgstr "Продолжить"
 
 #~ msgid "Enter user email"
 #~ msgstr "Введите email пользователя"
