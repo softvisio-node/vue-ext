@@ -1,5 +1,16 @@
 # Changelog
 
+### 7.4.14 (2022-06-18)
+
+Fixes:
+
+-   fix: alert dialog refactored
+-   fix: api token create dialog
+-   fix: configmation dialog redesigned
+-   fix: create user dialog
+-   fix: dialogs focus
+-   fix: token permissions dialog
+
 ### 7.4.13 (2022-06-17)
 
 Fixes:
