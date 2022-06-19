@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.4.19 (2022-06-19)
+
+Fixes:
+
+-   fix: locale refactored
+
 ### 7.4.18 (2022-06-19)
 
 Fixes:
