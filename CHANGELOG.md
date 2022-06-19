@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.4.18 (2022-06-19)
+
+Fixes:
+
+-   fix: fa loader
+
 ### 7.4.17 (2022-06-19)
 
 Fixes:
