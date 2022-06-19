@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.4.15 (2022-06-19)
+
+Fixes:
+
+-   fix: webpack chunks
+
 ### 7.4.14 (2022-06-18)
 
 Fixes:
