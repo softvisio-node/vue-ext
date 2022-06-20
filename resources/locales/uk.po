@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-06-18 04:22+0300\n"
+"POT-Creation-Date: 2022-06-20 23:54+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -13,22 +13,6 @@ msgstr ""
 "X-Poedit-Basepath: ../..\n"
 "X-Generator: Poedit 3.1\n"
 "X-Poedit-SearchPath-0: lib\n"
-
-#: lib/app.js:63:28
-msgid "Unable to connect to the API server. Check, that you have internet connection."
-msgstr "Не вдається підключитися до сервера API. Перевірте, чи є у вас підключення до Інтернету."
-
-#: lib/app.js:64:21
-msgid "Connection error"
-msgstr "Помилка з'єднання"
-
-#: lib/app.js:90:28
-msgid "Your session was terminated on the API server."
-msgstr "Ваш сеанс був припинений на сервері API."
-
-#: lib/app.js:91:21
-msgid "Session closed"
-msgstr "Сесія закрита"
 
 #: lib/components/account/dialog.vue:2:24
 #: lib/components/app-title/menu.vue:16:58
@@ -263,9 +247,16 @@ msgid "Reset password"
 msgstr "Скинути пароль"
 
 #: lib/components/auth/reset-password-form.vue:8:47
-#: lib/components/auth/signin-form.vue:8:47
+#: lib/components/auth/signin-form.vue:9:47
 msgid "Username or email"
 msgstr "Ім'я користувача або email"
+
+#: lib/components/auth/reset-password-form.vue:8:100
+#: lib/components/auth/signin-form.vue:9:100
+#, fuzzy
+#| msgid "Enter user email"
+msgid "Enter your username or email"
+msgstr "Введіть email користувача"
 
 #: lib/components/auth/reset-password-form.vue:11:64
 #: lib/components/auth/signup-form.vue:13:64
@@ -281,22 +272,29 @@ msgid "Password change instructions were sent to the email address, associated w
 msgstr "Інструкції щодо зміни пароля були надіслані на адресу електронної пошти, пов’язану з вашим обліковим записом."
 
 #: lib/components/auth/signin-form.vue:5:34
-#: lib/components/auth/signin-form.vue:16:31
+#: lib/components/auth/signin-form.vue:17:31
 msgid "Sign in"
 msgstr "Увійти"
 
-#: lib/components/auth/signin-form.vue:9:51
+#: lib/components/auth/signin-form.vue:10:51
 #: lib/components/auth/signup-form.vue:9:51
 #: lib/components/change-password-dialog.vue:4:55
 #: lib/components/users/create/dialog.vue:5:55
 msgid "Password"
 msgstr "Пароль"
 
-#: lib/components/auth/signin-form.vue:11:27
+#: lib/components/auth/signin-form.vue:10:95
+#: lib/components/auth/signup-form.vue:9:95
+#, fuzzy
+#| msgid "Enter user password"
+msgid "Enter your password"
+msgstr "Введіть пароль користувача"
+
+#: lib/components/auth/signin-form.vue:12:27
 msgid "Do not have account? Sign up"
 msgstr "Немає облікового запису? зареєструватися"
 
-#: lib/components/auth/signin-form.vue:14:31
+#: lib/components/auth/signin-form.vue:15:31
 msgid "Forgot password?"
 msgstr "Забули пароль?"
 
@@ -310,14 +308,24 @@ msgstr "Зареєструватися"
 msgid "Email"
 msgstr "Email"
 
+#: lib/components/auth/signup-form.vue:8:89
+#, fuzzy
+#| msgid "Enter user email"
+msgid "Enter your email"
+msgstr "Введіть email користувача"
+
 #: lib/components/auth/signup-form.vue:10:57
 #: lib/components/change-password-dialog.vue:5:61
 #: lib/components/users/create/dialog.vue:6:56
 msgid "Confirm password"
 msgstr "Підтвердьте пароль"
 
+#: lib/components/auth/signup-form.vue:10:109
+msgid "Confirm your password"
+msgstr "Підтвердьте ваш пароль"
+
 #: lib/components/change-password-dialog.vue:9:31
-#: lib/components/reset-password-dialog.vue:10:31 lib/utils.js:86:36
+#: lib/components/reset-password-dialog.vue:10:31 lib/utils.js:87:36
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -491,11 +499,27 @@ msgstr "Дозволи користувача оновлено"
 msgid "User disabled"
 msgstr "Користувача вимкнено"
 
+#: lib/index.js:65:28
+msgid "Unable to connect to the API server. Check, that you have internet connection."
+msgstr "Не вдається підключитися до сервера API. Перевірте, чи є у вас підключення до Інтернету."
+
+#: lib/index.js:66:21
+msgid "Connection error"
+msgstr "Помилка з'єднання"
+
+#: lib/index.js:86:28
+msgid "Your session was terminated on the API server."
+msgstr "Ваш сеанс був припинений на сервері API."
+
+#: lib/index.js:87:21
+msgid "Session closed"
+msgstr "Сесія закрита"
+
 #: lib/utils.js:4:14
 msgid "Warning"
 msgstr "Увага"
 
-#: lib/utils.js:33:36 lib/utils.js:77:36
+#: lib/utils.js:33:36 lib/utils.js:79:36
 msgid "Ok"
 msgstr "Ok"
 
@@ -522,15 +546,6 @@ msgstr "Електронна пошта успішно підтверджена"
 
 #~ msgid "Continue"
 #~ msgstr "Продовжити"
-
-#~ msgid "Enter user email"
-#~ msgstr "Введіть email користувача"
-
-#~ msgid "Enter user password"
-#~ msgstr "Введіть пароль користувача"
-
-#~ msgid "Confirm user password"
-#~ msgstr "Підтвердьте пароль користувача"
 
 #~ msgid "Create"
 #~ msgstr "Створюйте"
