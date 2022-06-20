@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.4.22 (2022-06-20)
+
+Fixes:
+
+-   fix: fa chunk
+
 ### 7.4.21 (2022-06-20)
 
 Fixes:
