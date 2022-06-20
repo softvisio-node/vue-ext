@@ -3,8 +3,14 @@
 </template>
 
 <script>
+import locale from "#vue/locale";
+
 export default {
     "props": {
+        "compact": {
+            "type": Boolean,
+            "default": false,
+        },
         "autoHide": {
             "type": Boolean,
             "default": true,
@@ -17,8 +23,7 @@ export default {
 
     "methods": {
         _ready ( e ) {
-            const cmp = e.detail.cmp,
-                locale = this.$store.locale;
+            const cmp = e.detail.cmp;
 
             if ( !locale.hasLocales && this.autoHide ) {
                 cmp.setHidden( true );
@@ -37,11 +42,20 @@ export default {
 
             cmp.setMenu( menu );
 
-            cmp.setText( locale.name );
+            if ( this.compact ) {
+                let name = locale.language;
+
+                if ( locale.regionNameShort ) name += ` (${locale.regionNameShort})`;
+
+                cmp.setText( name );
+            }
+            else {
+                cmp.setText( locale.name );
+            }
         },
 
         _setLocale ( localeName ) {
-            this.$store.locale.setLocale( localeName );
+            locale.setLocale( localeName );
         },
     },
 };

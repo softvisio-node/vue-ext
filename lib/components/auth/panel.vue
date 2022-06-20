@@ -1,5 +1,9 @@
 <template>
-    <ext-panel :title="title" width="300" minHeight="380" layout='{"type":"card","animation":"slide"}' :shadow="shadow" @ready="ready">
+    <ext-panel width="300" minHeight="380" layout='{"type":"card","animation":"slide"}' :shadow="shadow" @ready="ready">
+        <ext-titlebar docked="top" titleAlign="left" :title="title" padding="0 0 0 10">
+            <LocaleButton :compact="true" align="right"/>
+        </ext-titlebar>
+
         <SigninForm :signupEnabled="signupEnabled" :resetPasswordEnabled="resetPasswordEnabled" @reset="showResetPassword" @signup="showSignup"/>
 
         <ResetPasswordForm @signin="showSignin"/>
@@ -9,12 +13,13 @@
 </template>
 
 <script>
+import LocaleButton from "#components/locale/button";
 import SigninForm from "./signin-form";
 import ResetPasswordForm from "./reset-password-form";
 import SignupForm from "./signup-form";
 
 export default {
-    "components": { SigninForm, ResetPasswordForm, SignupForm },
+    "components": { LocaleButton, SigninForm, ResetPasswordForm, SignupForm },
 
     "props": {
         "signupEnabled": {
