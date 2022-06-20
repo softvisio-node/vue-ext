@@ -1,7 +1,7 @@
 <template>
     <ext-panel width="300" minHeight="380" layout='{"type":"card","animation":"slide"}' :shadow="shadow" @ready="ready">
-        <ext-titlebar docked="top" titleAlign="left" :title="title">
-            <LocaleButton :compact="true" align="right"/>
+        <ext-titlebar docked="top" titleAlign="left" :title="title" padding="0 0 0 0">
+            <LocaleButton :compact="true" align="right" textAlign="center" menuAlign="tr-br?"/>
         </ext-titlebar>
 
         <SigninForm :signupEnabled="signupEnabled" :resetPasswordEnabled="resetPasswordEnabled" @reset="showResetPassword" @signup="showSignup"/>

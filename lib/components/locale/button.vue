@@ -1,5 +1,5 @@
 <template>
-    <ext-button ref="button" iconCls="fa-solid fa-language" :textAlign="textAlign" stretchMenu="true" @ready="_ready"/>
+    <ext-button ref="button" iconCls="fa-solid fa-language" :textAlign="textAlign" stretchMenu="true" :menuAlign="menuAlign" @ready="_ready"/>
 </template>
 
 <script>
@@ -18,6 +18,10 @@ export default {
         "textAlign": {
             "type": String,
             "default": "left",
+        },
+        "menuAlign": {
+            "type": String,
+            "default": "tl-bl?",
         },
     },
 
