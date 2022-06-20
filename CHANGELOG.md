@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.4.24 (2022-06-20)
+
+Fixes:
+
+-   fix: auth form
+-   fix: locale nutton menu
+
 ### 7.4.23 (2022-06-20)
 
 Fixes:
