@@ -33,10 +33,14 @@ export default {
 
             const menu = [];
 
-            for ( const [locale, text] of Object.entries( locale.locales ) ) {
+            for ( const [localeId, text] of Object.entries( locale.locales ) ) {
                 menu.push( {
+                    "xtype": "menuradioitem",
                     text,
-                    "handler": () => this._setLocale( locale ),
+                    "value": localeId,
+                    "group": "value",
+                    "checked": localeId === locale.id,
+                    "handler": () => this._setLocale( localeId ),
                 } );
             }
 
@@ -54,8 +58,8 @@ export default {
             }
         },
 
-        _setLocale ( localeName ) {
-            locale.setLocale( localeName );
+        _setLocale ( localeId ) {
+            locale.setLocale( localeId );
         },
     },
 };
