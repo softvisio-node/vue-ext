@@ -58,4 +58,11 @@ config.optimization.splitChunks.cacheGroups["pdfjs"] = {
     "chunks": "all",
 };
 
+config.optimization.splitChunks.cacheGroups["fontawesome"] = {
+    "name": "fa",
+    "test": /@fortawesome[\\/]/,
+    "priority": -9,
+    "chunks": "all",
+};
+
 export default config;
