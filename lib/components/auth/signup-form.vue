@@ -1,18 +1,18 @@
 <template>
-    <ext-formpanel ref="form" @ready="ready">
+    <ext-formpanel ref="form" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
             <ext-container :html="i18nd(`vue-ext`, `Sign up`)"/>
             <ext-spacer/>
         </ext-toolbar>
-        <ext-emailfield name="username" :label="i18nd(`vue-ext`, `Email`)" required="true"/>
-        <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" required="true"/>
-        <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" required="true"/>
+        <ext-emailfield name="username" :label="i18nd(`vue-ext`, `Email`)" :placeholder="i18nd(`vue-ext`, `Enter your email`)" required="true"/>
+        <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true"/>
+        <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" :placeholder="i18nd(`vue-ext`, `Confirm your password`)" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
             <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" ui="back" @tap="showSignin"/>
             <ext-spacer/>
-            <ext-button :text="i18nd(`vue-ext`, `Sign up`)" ui="action" @tap="submit"/>
+            <ext-button :text="i18nd(`vue-ext`, `Sign up`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
     </ext-formpanel>
 </template>
@@ -22,10 +22,10 @@ export default {
     "emits": ["signin"],
 
     "methods": {
-        ready ( e ) {
+        _ready ( e ) {
             var cmp = e.detail.cmp;
 
-            cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+            cmp.setKeyMap( { "ENTER": { "handler": "_submit", "scope": this } } );
         },
 
         showSignin () {
@@ -34,7 +34,7 @@ export default {
             this.$refs.form.ext.reset();
         },
 
-        async submit () {
+        async _submit () {
             var form = this.$refs.form.ext,
                 passwordCondirm = this.$refs.passwordConfirm.ext;
 
