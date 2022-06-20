@@ -1,6 +1,6 @@
 <template>
     <ext-panel width="300" minHeight="380" layout='{"type":"card","animation":"slide"}' :shadow="shadow" @ready="ready">
-        <ext-titlebar docked="top" titleAlign="left" :title="title" padding="0 0 0 10">
+        <ext-titlebar docked="top" titleAlign="left" :title="title">
             <LocaleButton :compact="true" align="right"/>
         </ext-titlebar>
 

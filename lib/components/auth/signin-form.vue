@@ -1,19 +1,20 @@
 <template>
-    <ext-formpanel ref="form" @ready="ready">
+    <ext-formpanel ref="form" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
             <ext-container :html="i18nd(`vue-ext`, `Sign in`)"/>
             <ext-spacer/>
         </ext-toolbar>
-        <ext-textfield name="username" :label="i18nd(`vue-ext`, `Username or email`)" required="true"/>
-        <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" required="true"/>
+
+        <ext-textfield name="username" :label="i18nd(`vue-ext`, `Username or email`)" :placeholder="i18nd(`vue-ext`, `Enter your username or email`)" required="true"/>
+        <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true"/>
 
         <ext-button :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" :hidden="!signupEnabled" width="100%" margin="10 0 0 0" @tap="showSignup"/>
 
-        <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
+        <ext-toolbar docked="bottom">
             <ext-button :text="i18nd(`vue-ext`, `Forgot password?`)" ui="forward" :hidden="!resetPasswordEnabled" @tap="showReset"/>
             <ext-spacer/>
-            <ext-button :text="i18nd(`vue-ext`, `Sign in`)" ui="action" @tap="submit"/>
+            <ext-button :text="i18nd(`vue-ext`, `Sign in`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
     </ext-formpanel>
 </template>
@@ -34,10 +35,10 @@ export default {
     "emits": ["reset", "signup"],
 
     "methods": {
-        ready ( e ) {
+        _ready ( e ) {
             var cmp = e.detail.cmp;
 
-            cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+            cmp.setKeyMap( { "ENTER": { "handler": "_submit", "scope": this } } );
         },
 
         showReset () {
@@ -48,7 +49,7 @@ export default {
             this.$emit( "signup" );
         },
 
-        async submit () {
+        async _submit () {
             var form = this.$refs.form.ext;
 
             if ( form.validate() ) {
