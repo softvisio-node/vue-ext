@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.4.23 (2022-06-20)
+
+Fixes:
+
+-   fix: locale button
+
 ### 7.4.22 (2022-06-20)
 
 Fixes:
