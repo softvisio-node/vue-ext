@@ -253,10 +253,8 @@ msgstr "Ім'я користувача або email"
 
 #: lib/components/auth/reset-password-form.vue:8:100
 #: lib/components/auth/signin-form.vue:9:100
-#, fuzzy
-#| msgid "Enter user email"
 msgid "Enter your username or email"
-msgstr "Введіть email користувача"
+msgstr "Введіть ваше ім'я користувача або email"
 
 #: lib/components/auth/reset-password-form.vue:11:64
 #: lib/components/auth/signup-form.vue:13:64
@@ -285,10 +283,8 @@ msgstr "Пароль"
 
 #: lib/components/auth/signin-form.vue:10:95
 #: lib/components/auth/signup-form.vue:9:95
-#, fuzzy
-#| msgid "Enter user password"
 msgid "Enter your password"
-msgstr "Введіть пароль користувача"
+msgstr "Введіть ваш пароль"
 
 #: lib/components/auth/signin-form.vue:12:27
 msgid "Do not have account? Sign up"
@@ -309,10 +305,8 @@ msgid "Email"
 msgstr "Email"
 
 #: lib/components/auth/signup-form.vue:8:89
-#, fuzzy
-#| msgid "Enter user email"
 msgid "Enter your email"
-msgstr "Введіть email користувача"
+msgstr "Введіть ваш email"
 
 #: lib/components/auth/signup-form.vue:10:57
 #: lib/components/change-password-dialog.vue:5:61
