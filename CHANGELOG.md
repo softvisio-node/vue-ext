@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.4.25 (2022-06-21)
+
+Fixes:
+
+-   fix: floating locale button
+-   fix: theme registry refactored
+
 ### 7.4.24 (2022-06-20)
 
 Fixes:
