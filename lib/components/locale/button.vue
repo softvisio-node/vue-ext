@@ -7,7 +7,7 @@ import locale from "#vue/locale";
 
 export default {
     "props": {
-        "compact": {
+        "absolute": {
             "type": Boolean,
             "default": false,
         },
@@ -28,6 +28,11 @@ export default {
     "methods": {
         _ready ( e ) {
             const cmp = e.detail.cmp;
+
+            if ( this.absolute ) {
+                cmp.setFloated( true );
+                cmp.setStyle( "position: absolute; top: 20px; right: 20px;" );
+            }
 
             if ( !locale.hasLocales && this.autoHide ) {
                 cmp.setHidden( true );
@@ -50,16 +55,7 @@ export default {
 
             cmp.setMenu( menu );
 
-            if ( this.compact ) {
-                let name = locale.language;
-
-                if ( locale.regionNameShort ) name += ` (${locale.regionNameShort})`;
-
-                cmp.setText( name );
-            }
-            else {
-                cmp.setText( locale.name );
-            }
+            cmp.setText( locale.name );
         },
 
         _setLocale ( localeId ) {
