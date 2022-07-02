@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.4.26 (2022-07-02)
+
+Fixes:
+
+-   fix: locale formatters
+
 ### 7.4.25 (2022-06-21)
 
 Fixes:
