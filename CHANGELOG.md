@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.4.27 (2022-07-24)
+
+Fixes:
+
+-   fix: alert prevent default action on esc
+-   fix: auto signout
+
 ### 7.4.26 (2022-07-02)
 
 Fixes:
