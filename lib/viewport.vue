@@ -1,5 +1,5 @@
 <template>
-    <ext-panel fullscreen="true" layout='{"type":"card","deferRender":false}' scrollable="true"/>
+    <ext-panel fullscreen="true" layout='{"deferRender":false,"type":"card"}' scrollable="true"/>
 </template>
 
 <script>

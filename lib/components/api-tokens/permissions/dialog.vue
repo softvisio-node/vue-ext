@@ -8,7 +8,7 @@
             <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Enabled`)" width="95" @ready="enabledColReady"/>
         </ext-grid>
 
-        <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
+        <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
             <ext-button bind='{"disabled":"{!dirty}"}' :text="i18nd(`vue-ext`, `Save`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>

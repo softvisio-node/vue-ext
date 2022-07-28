@@ -12,7 +12,7 @@
 
         <!-- add / update user dialog -->
         <ext-dialog ref="addUserDialog" closeAction="hide" height="250" :title="i18nd(`vue-ext`, `Add / update user`)" width="400">
-            <ext-comboboxfield ref="addUserCombo" displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" minChars="1" primaryFilter='{"property":"name","operator":"like"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
+            <ext-comboboxfield ref="addUserCombo" displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" minChars="1" primaryFilter='{"operator":"like","property":"name"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
 
             <ext-displayfield ref="addUserUsername" :label="i18nd(`vue-ext`, `User`)"/>
 

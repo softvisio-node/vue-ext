@@ -1,5 +1,5 @@
 <template>
-    <ext-tabpanel layout='{"animation":{"type":"slide","direction":"vertical"}}' padding="0 10 0 10" tabBar='{"layout":{"type":"vbox","pack":"start","align":"start"},"defaults":{"padding":"0 10 0 10","width":170,"height":50,"flex":null,"textAlign":"right"}}' tabBarPosition="left" tabRotation="none">
+    <ext-tabpanel layout='{"animation":{"direction":"vertical","type":"slide"}}' padding="0 10 0 10" tabBar='{"defaults":{"flex":null,"height":50,"padding":"0 10 0 10","textAlign":"right","width":170},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none">
         <slot name="top"/>
 
         <!-- security -->
@@ -13,7 +13,7 @@
                     <ext-passwordfield :label="i18nd(`vue-ext`, `New password`)" name="password" required="true"/>
                     <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm new password`)" required="true"/>
 
-                    <ext-container layout='{"type":"hbox","pack":"end"}'>
+                    <ext-container layout='{"pack":"end","type":"hbox"}'>
                         <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="changePassword"/>
                     </ext-container>
                 </ext-fieldpanel>
@@ -38,7 +38,7 @@
                 <ext-container :html="i18nd(`vue-ext`, `Interface theme`)"/>
             </ext-toolbar>
 
-            <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}' layout1='{"type":"vbox","pack":"start","align":"start"}'>
+            <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}' layout1='{"align":"start","pack":"start","type":"vbox"}'>
                 <ext-togglefield :label="i18nd(`vue-ext`, `Use OS theme`)" :value="systemDarkMode" @change="systemDarkMode = $event"/>
 
                 <ext-togglefield :disabled="systemDarkMode" :label="darkModeLabel" :value="darkMode" @change="darkMode = $event"/>

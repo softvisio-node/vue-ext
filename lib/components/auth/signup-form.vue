@@ -9,7 +9,7 @@
         <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true"/>
         <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" :placeholder="i18nd(`vue-ext`, `Confirm your password`)" required="true"/>
 
-        <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>
+        <ext-toolbar docked="bottom" layout='{"align":"center","type":"hbox"}'>
             <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" ui="back" @tap="showSignin"/>
             <ext-spacer/>
             <ext-button :text="i18nd(`vue-ext`, `Sign up`)" ui="action" @tap="_submit"/>

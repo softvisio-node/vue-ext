@@ -1,6 +1,6 @@
 <template>
     <ext-sheet layout="fit" modal="true" side="right" width="300" @ready="ready">
-        <ext-panel ref="card" layout='{"type":"card","animation":"fade"}'>
+        <ext-panel ref="card" layout='{"animation":"fade","type":"card"}'>
             <ext-titlebar docked="top" iconCls="fa-regular fa-bell" :title="i18nd(`vue-ext`, `Notifications`)">
                 <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/>
                 <!-- <ext-button align="right" iconCls="fa-solid fa-check-double" :tooltip="i18nd( `vue-ext`,`Mark all as done`)" :hidden="!totalUndone" @tap="setDoneAll"/> -->

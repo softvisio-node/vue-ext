@@ -6,7 +6,7 @@
             <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm new password`)" required="true"/>
         </ext-fieldpanel>
 
-        <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
+        <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
             <ext-button :text="i18nd(`vue-ext`, `Cancel`)" ui="decline" @tap="close"/>
             <ext-button :text="i18nd(`vue-ext`, `Reset password`)" ui="action" @tap="submit"/>
         </ext-toolbar>
