@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import NotificationsSettingsDialog from "#components/notifications/dialog";
+import NotificationsSettingsDialog from "#lib/components/notifications/dialog";
 
 export default {
     "computed": {

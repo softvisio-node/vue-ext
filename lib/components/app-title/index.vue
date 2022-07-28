@@ -34,7 +34,7 @@
 <script>
 import AppAvatar from "./avatar";
 import AppMenu from "./menu";
-import Notifications from "#components/notifications/menu-sheet";
+import Notifications from "#lib/components/notifications/menu-sheet";
 
 export default {
     "components": { AppAvatar, AppMenu, Notifications },

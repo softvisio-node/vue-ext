@@ -23,18 +23,10 @@
         "#core/*": "@softvisio/core/*",
         "#resources/*": "./resources/*",
         "#lib/*": [
+            "./lib/*.vue",
             "./lib/*.js",
-            "./lib/*.cjs",
-            "./lib/*.vue"
-        ],
-        "#components/*": [
-            "./lib/components/*.vue",
-            "./lib/components/*.js",
-            "./lib/components/*.cjs"
-        ],
-        "#assets/*": "./lib/assets/*",
-        "#models/*": "./lib/models/*.js",
-        "#store/*": "./lib/store/*.js"
+            "./lib/*.cjs"
+        ]
     },
     "exports": {
         ".": "./lib/index.js",

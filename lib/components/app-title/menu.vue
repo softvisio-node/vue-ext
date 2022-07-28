@@ -31,8 +31,8 @@
 <script>
 import Avatar from "./avatar";
 import LocaleButton from "#lib/components/locale/button";
-import ChangePasswordDialog from "#components/change-password-dialog";
-import ApiTokensDialog from "#components/api-tokens/dialog";
+import ChangePasswordDialog from "#lib/components/change-password-dialog";
+import ApiTokensDialog from "#lib/components/api-tokens/dialog";
 
 export default {
     "components": { Avatar, LocaleButton },

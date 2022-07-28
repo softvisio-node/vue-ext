@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import ObjectUserModel from "#models/object-user";
-import ObjectRoleModel from "#models/object-role";
+import ObjectUserModel from "#lib/models/object-user";
+import ObjectRoleModel from "#lib/models/object-role";
 
 export default {
     created () {

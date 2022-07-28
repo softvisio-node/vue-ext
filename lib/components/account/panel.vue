@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import NotificationsPanel from "#components/notifications/panel";
+import NotificationsPanel from "#lib/components/notifications/panel";
 
 export default {
     "components": { NotificationsPanel },
