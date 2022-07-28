@@ -1,12 +1,12 @@
 <template>
-    <ext-dialog :title="i18nd(`vue-ext`, `Create API token`)" width="400" height="400" closeAction="hide" layout="vbox" @ready="ready">
+    <ext-dialog closeAction="hide" height="400" layout="vbox" :title="i18nd(`vue-ext`, `Create API token`)" width="400" @ready="ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
-            <ext-textfield ref="name" name="name" :label="i18nd(`vue-ext`, `Token name`)" :placeholder="i18nd(`vue-ext`, `Enter new token name`)" required="true"/>
+            <ext-textfield ref="name" :label="i18nd(`vue-ext`, `Token name`)" name="name" :placeholder="i18nd(`vue-ext`, `Enter new token name`)" required="true"/>
         </ext-fieldpanel>
 
         <ext-container ref="done" defaults='{"labelAlign":"top"}' hidden="true">
             <ext-spacer height="10"/>
-            <ext-textareafield ref="token" :label="i18nd(`vue-ext`, `Your API access token:`)" textAlign="center" readOnly="true" height="90"/>
+            <ext-textareafield ref="token" height="90" :label="i18nd(`vue-ext`, `Your API access token:`)" readOnly="true" textAlign="center"/>
             <ext-container>
                 <div>{{ i18nd(`vue-ext`, `Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again.`) }}</div>
             </ext-container>
@@ -19,7 +19,7 @@
         <ext-toolbar docked="bottom">
             <ext-spacer/>
             <ext-button ref="submit" :text="i18nd(`vue-ext`, `Create token`)" ui="action" @tap="submit"/>
-            <ext-button ref="close" :text="i18nd(`vue-ext`, `Close`)" ui="action" hidden="true" @tap="close"/>
+            <ext-button ref="close" hidden="true" :text="i18nd(`vue-ext`, `Close`)" ui="action" @tap="close"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

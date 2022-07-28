@@ -1,6 +1,6 @@
 <template>
     <ext-dialog bodyPadding="0" :closable="closable">
-        <AuthPanel :signupEnabled="signupEnabled" :resetPasswordEnabled="resetPasswordEnabled" :closable="closable" :shadow="shadow" @close="onClose"/>
+        <AuthPanel :closable="closable" :resetPasswordEnabled="resetPasswordEnabled" :shadow="shadow" :signupEnabled="signupEnabled" @close="onClose"/>
     </ext-dialog>
 </template>
 

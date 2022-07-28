@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog bodyPadding="0" width="90%" height="90%" layout="fit">
+    <ext-dialog bodyPadding="0" height="90%" layout="fit" width="90%">
         <PdfPanel :src="src"/>
     </ext-dialog>
 </template>

@@ -6,13 +6,13 @@
             <ext-spacer/>
         </ext-toolbar>
 
-        <ext-textfield name="username" :label="i18nd(`vue-ext`, `Username or email`)" :placeholder="i18nd(`vue-ext`, `Enter your username or email`)" required="true"/>
-        <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true"/>
+        <ext-textfield :label="i18nd(`vue-ext`, `Username or email`)" name="username" :placeholder="i18nd(`vue-ext`, `Enter your username or email`)" required="true"/>
+        <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true"/>
 
-        <ext-button :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" :hidden="!signupEnabled" width="100%" margin="10 0 0 0" @tap="showSignup"/>
+        <ext-button :hidden="!signupEnabled" margin="10 0 0 0" :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" width="100%" @tap="showSignup"/>
 
         <ext-toolbar docked="bottom">
-            <ext-button :text="i18nd(`vue-ext`, `Forgot password?`)" ui="forward" :hidden="!resetPasswordEnabled" @tap="showReset"/>
+            <ext-button :hidden="!resetPasswordEnabled" :text="i18nd(`vue-ext`, `Forgot password?`)" ui="forward" @tap="showReset"/>
             <ext-spacer/>
             <ext-button :text="i18nd(`vue-ext`, `Sign in`)" ui="action" @tap="_submit"/>
         </ext-toolbar>

@@ -1,10 +1,10 @@
 <template>
-    <ext-panel width="300" minHeight="380" layout='{"type":"card","animation":"slide"}' :shadow="shadow" @ready="ready">
-        <ext-titlebar docked="top" titleAlign="left" :title="title">
+    <ext-panel layout='{"type":"card","animation":"slide"}' minHeight="380" :shadow="shadow" width="300" @ready="ready">
+        <ext-titlebar docked="top" :title="title" titleAlign="left">
             <LocaleButton :absolute="true"/>
         </ext-titlebar>
 
-        <SigninForm :signupEnabled="signupEnabled" :resetPasswordEnabled="resetPasswordEnabled" @reset="showResetPassword" @signup="showSignup"/>
+        <SigninForm :resetPasswordEnabled="resetPasswordEnabled" :signupEnabled="signupEnabled" @reset="showResetPassword" @signup="showSignup"/>
 
         <ResetPasswordForm @signin="showSignin"/>
 

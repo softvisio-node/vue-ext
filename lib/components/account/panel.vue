@@ -1,16 +1,16 @@
 <template>
-    <ext-tabpanel tabBarPosition="left" tabRotation="none" tabBar='{"layout":{"type":"vbox","pack":"start","align":"start"},"defaults":{"padding":"0 10 0 10","width":170,"height":50,"flex":null,"textAlign":"right"}}' layout='{"animation":{"type":"slide","direction":"vertical"}}' padding="0 10 0 10">
+    <ext-tabpanel layout='{"animation":{"type":"slide","direction":"vertical"}}' padding="0 10 0 10" tabBar='{"layout":{"type":"vbox","pack":"start","align":"start"},"defaults":{"padding":"0 10 0 10","width":170,"height":50,"flex":null,"textAlign":"right"}}' tabBarPosition="left" tabRotation="none">
         <slot name="top"/>
 
         <!-- security -->
-        <ext-panel :title="i18nd(`vue-ext`, `Security`)" layout="vbox" viewModel="true">
+        <ext-panel layout="vbox" :title="i18nd(`vue-ext`, `Security`)" viewModel="true">
             <!-- change password -->
             <ext-panel>
                 <ext-toolbar docked="top">
                     <ext-container :html="i18nd(`vue-ext`, `Password change`)"/>
                 </ext-toolbar>
                 <ext-fieldpanel ref="changePasswordForm">
-                    <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `New password`)" required="true"/>
+                    <ext-passwordfield :label="i18nd(`vue-ext`, `New password`)" name="password" required="true"/>
                     <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm new password`)" required="true"/>
 
                     <ext-container layout='{"type":"hbox","pack":"end"}'>
@@ -28,27 +28,27 @@
         </ext-panel>
 
         <!-- notifications -->
-        <ext-panel :title="i18nd(`vue-ext`, `Notifications`)" layout="fit">
+        <ext-panel layout="fit" :title="i18nd(`vue-ext`, `Notifications`)">
             <NotificationsPanel/>
         </ext-panel>
 
         <!-- theme -->
-        <ext-panel :title="i18nd(`vue-ext`, `Interface theme`)" layout="vbox" viewModel="true">
+        <ext-panel layout="vbox" :title="i18nd(`vue-ext`, `Interface theme`)" viewModel="true">
             <ext-toolbar docked="top">
                 <ext-container :html="i18nd(`vue-ext`, `Interface theme`)"/>
             </ext-toolbar>
 
-            <ext-fieldset layout1='{"type":"vbox","pack":"start","align":"start"}' defaults='{"labelAlign":"left","labelWidth":200}'>
+            <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}' layout1='{"type":"vbox","pack":"start","align":"start"}'>
                 <ext-togglefield :label="i18nd(`vue-ext`, `Use OS theme`)" :value="systemDarkMode" @change="systemDarkMode = $event"/>
 
-                <ext-togglefield :label="darkModeLabel" :value="darkMode" :disabled="systemDarkMode" @change="darkMode = $event"/>
+                <ext-togglefield :disabled="systemDarkMode" :label="darkModeLabel" :value="darkMode" @change="darkMode = $event"/>
 
                 <ext-fieldcontainer :label="i18nd(`vue-ext`, `Base color`)" layout="fit">
-                    <ext-dataview inline="true" @ready="themesColorsViewReady" @childtap="themeBaseChanged"/>
+                    <ext-dataview inline="true" @childtap="themeBaseChanged" @ready="themesColorsViewReady"/>
                 </ext-fieldcontainer>
 
                 <ext-fieldcontainer :label="i18nd(`vue-ext`, `Accent color`)" layout="fit">
-                    <ext-componentdataview inline="true" @ready="themesColorsViewReady" @childtap="themeAccentChanged"/>
+                    <ext-componentdataview inline="true" @childtap="themeAccentChanged" @ready="themesColorsViewReady"/>
                 </ext-fieldcontainer>
             </ext-fieldset>
         </ext-panel>

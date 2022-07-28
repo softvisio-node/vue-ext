@@ -5,8 +5,8 @@
             <ext-container :html="i18nd(`vue-ext`, `Sign up`)"/>
             <ext-spacer/>
         </ext-toolbar>
-        <ext-emailfield name="username" :label="i18nd(`vue-ext`, `Email`)" :placeholder="i18nd(`vue-ext`, `Enter your email`)" required="true"/>
-        <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true"/>
+        <ext-emailfield :label="i18nd(`vue-ext`, `Email`)" name="username" :placeholder="i18nd(`vue-ext`, `Enter your email`)" required="true"/>
+        <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true"/>
         <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" :placeholder="i18nd(`vue-ext`, `Confirm your password`)" required="true"/>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","align":"center"}'>

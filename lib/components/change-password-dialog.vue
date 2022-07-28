@@ -1,7 +1,7 @@
 <template>
-    <ext-dialog :title="i18nd(`vue-ext`, `Change password`)" width="300" height="300" closeAction="hide" @ready="_ready">
+    <ext-dialog closeAction="hide" height="300" :title="i18nd(`vue-ext`, `Change password`)" width="300" @ready="_ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
-            <ext-passwordfield name="password" :label="i18nd(`vue-ext`, `Password`)" required="true"/>
+            <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" required="true"/>
             <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" required="true"/>
         </ext-fieldpanel>
 

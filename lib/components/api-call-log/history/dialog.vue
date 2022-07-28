@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :title="title" width="95%" height="95%" scrollable="true" closeAction="hide" layout="vbox" viewModel="true">
+    <ext-dialog closeAction="hide" height="95%" layout="vbox" scrollable="true" :title="title" viewModel="true" width="95%">
         <ext-toolbar docked="top">
             <ext-spacer/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>

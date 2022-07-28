@@ -1,15 +1,15 @@
 <template>
-    <ext-dialog :title="i18nd(`vue-ext`, `Edit token permissions`)" width="800" height="90%" closeAction="hide" layout="fit" viewModel="true">
-        <ext-grid plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
-            <ext-column :text="i18nd(`vue-ext`, `Name`)" dataIndex="name" width="150"/>
+    <ext-dialog closeAction="hide" height="90%" layout="fit" :title="i18nd(`vue-ext`, `Edit token permissions`)" viewModel="true" width="800">
+        <ext-grid multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
+            <ext-column dataIndex="name" :text="i18nd(`vue-ext`, `Name`)" width="150"/>
 
-            <ext-column :text="i18nd(`vue-ext`, `Description`)" dataIndex="description" flex="1"/>
+            <ext-column dataIndex="description" flex="1" :text="i18nd(`vue-ext`, `Description`)"/>
 
-            <ext-column :text="i18nd(`vue-ext`, `Enabled`)" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
+            <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Enabled`)" width="95" @ready="enabledColReady"/>
         </ext-grid>
 
         <ext-toolbar docked="bottom" layout='{"type":"hbox","pack":"end"}'>
-            <ext-button :text="i18nd(`vue-ext`, `Save`)" ui="action" bind='{"disabled":"{!dirty}"}' @tap="submit"/>
+            <ext-button bind='{"disabled":"{!dirty}"}' :text="i18nd(`vue-ext`, `Save`)" ui="action" @tap="submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
+    <ext-grid ref="grid" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
             <ext-spacer/>
@@ -7,10 +7,10 @@
             <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
         </ext-toolbar>
 
-        <ext-column :text="i18nd(`vue-ext`, `API method id`)" width="300" sorter='{"property":"id"}' @ready="idColReady"/>
-        <ext-column :text="i18nd(`vue-ext`, `Load for last 60 minutes`)" flex="1" align="center" @ready="_loadColReady"/>
-        <ext-column :text="i18nd(`vue-ext`, `Average request runtime for last 60 minutes`)" flex="1" align="center" @ready="_avgRuntimeColReady"/>
-        <ext-column :text="i18nd(`vue-ext`, `Exceptions for last 60 minutes (%)`)" flex="1" align="center" @ready="_exceptionsColReady"/>
+        <ext-column sorter='{"property":"id"}' :text="i18nd(`vue-ext`, `API method id`)" width="300" @ready="idColReady"/>
+        <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Load for last 60 minutes`)" @ready="_loadColReady"/>
+        <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Average request runtime for last 60 minutes`)" @ready="_avgRuntimeColReady"/>
+        <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Exceptions for last 60 minutes (%)`)" @ready="_exceptionsColReady"/>
         <ext-column width="40" @ready="_actionColReady"/>
     </ext-grid>
 </template>

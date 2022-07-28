@@ -5,25 +5,25 @@
         <!--     <ext-button :text="i18nd( `vue-ext`,`Update`)"/> -->
         <!-- </ext-container> -->
 
-        <ext-container layout="hbox" :hidden="!telegramEnabled">
+        <ext-container :hidden="!telegramEnabled" layout="hbox">
             <ext-textfield ref="telegramUsernameField" :label="i18nd(`vue-ext`, `Your Telegram username`)" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
             <ext-button :text="i18nd(`vue-ext`, `Update`)" @tap="_updateTelegramUsername"/>
-            <ext-button :text="i18nd(`vue-ext`, msgid`Open @${telegramBotUsername}`)" iconCls="fa-solid fa-external-link-alt" iconAlign="right" @tap="_openTelegramBot"/>
+            <ext-button iconAlign="right" iconCls="fa-solid fa-external-link-alt" :text="i18nd(`vue-ext`, msgid`Open @${telegramBotUsername}`)" @tap="_openTelegramBot"/>
         </ext-container>
 
         <ext-container :hidden="!telegramEnabled">
             <div>{{ i18nd( `vue-ext`,msgid`In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${telegramBotUsername}</b> and press <b>"Start"</b>.`) }}</div>
         </ext-container>
 
-        <ext-grid flex="1" itemConfig='{"viewModel":true}' sortable="false" columnMenu="false" columnResize="false" @ready="_gridReady">
+        <ext-grid columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' sortable="false" @ready="_gridReady">
             <ext-toolbar docked="top">
                 <ext-container :html="i18nd(`vue-ext`, `Notification types`)"/>
             </ext-toolbar>
-            <ext-column dataIndex="title" flex="1" cell='{"encodeHtml":false}'/>
-            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_internalColReady"/>
-            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_emailColReady"/>
-            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Telegram${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_telegramColReady"/>
-            <ext-column :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Push${`</b><br/>`}notifications`) + '</div>'" width="100" align="center" @ready="_pushColReady"/>
+            <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1"/>
+            <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="100" @ready="_internalColReady"/>
+            <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="100" @ready="_emailColReady"/>
+            <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Telegram${`</b><br/>`}notifications`) + '</div>'" width="100" @ready="_telegramColReady"/>
+            <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Push${`</b><br/>`}notifications`) + '</div>'" width="100" @ready="_pushColReady"/>
         </ext-grid>
     </ext-panel>
 </template>

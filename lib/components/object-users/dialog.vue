@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :title="title" width="700" height="90%" layout="fit">
+    <ext-dialog height="90%" layout="fit" :title="title" width="700">
         <ObjectUsersPanel ref="panel"/>
     </ext-dialog>
 </template>

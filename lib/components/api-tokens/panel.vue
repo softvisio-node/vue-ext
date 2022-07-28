@@ -1,5 +1,5 @@
 <template>
-    <ext-grid ref="grid" layout="fit" plugins='{"gridsummaryrow":true}' multicolumnSort="true" @ready="gridReady">
+    <ext-grid ref="grid" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
             <ext-spacer/>
@@ -7,9 +7,9 @@
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
-        <ext-column :text="i18nd(`vue-ext`, `Token name`)" dataIndex="name" flex="1"/>
-        <ext-column :text="i18nd(`vue-ext`, `Creation date`)" dataIndex="created" width="150" formatter='date("dateStyle:short,timeStyle:short")'/>
-        <ext-column :text="i18nd(`vue-ext`, `Enabled`)" width="95" sorter='{"property":"enabled"}' summaryDataIndex="-" @ready="enabledColReady"/>
+        <ext-column dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Token name`)"/>
+        <ext-column dataIndex="created" formatter='date("dateStyle:short,timeStyle:short")' :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
+        <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Enabled`)" width="95" @ready="enabledColReady"/>
         <ext-column width="80" @ready="actionColReady"/>
     </ext-grid>
 </template>

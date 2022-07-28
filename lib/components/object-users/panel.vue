@@ -1,22 +1,22 @@
 <template>
-    <ext-grid flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" columnMenu="false" columnResize="false" @ready="_ready">
+    <ext-grid columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
             <ext-spacer/>
             <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_showAddUserDialog"/>
         </ext-toolbar>
         <ext-column width="40" @ready="_avatarColReady"/>
-        <ext-column :text="i18nd(`vue-ext`, `Username`)" dataIndex="username" flex="1" cell='{"encodeHtml":false,"style":"vertical-align:top"}' @ready="_usernameColReady"/>
-        <ext-column :text="i18nd(`vue-ext`, `Role`)" dataIndex="role_name" flex="1" cell='{"encodeHtml":false}' @ready="_roleColReady"/>
+        <ext-column cell='{"encodeHtml":false,"style":"vertical-align:top"}' dataIndex="username" flex="1" :text="i18nd(`vue-ext`, `Username`)" @ready="_usernameColReady"/>
+        <ext-column cell='{"encodeHtml":false}' dataIndex="role_name" flex="1" :text="i18nd(`vue-ext`, `Role`)" @ready="_roleColReady"/>
         <ext-column width="100" @ready="_actionColReady"/>
 
         <!-- add / update user dialog -->
-        <ext-dialog ref="addUserDialog" :title="i18nd(`vue-ext`, `Add / update user`)" width="400" height="250" closeAction="hide">
-            <ext-comboboxfield ref="addUserCombo" :label="i18nd(`vue-ext`, `Select user`)" valueField="id" displayField="name" primaryFilter='{"property":"name","operator":"like"}' triggerAction="query" minChars="1" forceSelection="true" @ready="_addUserComboReady"/>
+        <ext-dialog ref="addUserDialog" closeAction="hide" height="250" :title="i18nd(`vue-ext`, `Add / update user`)" width="400">
+            <ext-comboboxfield ref="addUserCombo" displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" minChars="1" primaryFilter='{"property":"name","operator":"like"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
 
             <ext-displayfield ref="addUserUsername" :label="i18nd(`vue-ext`, `User`)"/>
 
-            <ext-comboboxfield ref="addUserRoleCombo" :label="i18nd(`vue-ext`, `Select user role`)" valueField="id" displayField="name" editable="false" queryMode="local" triggerAction="all" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>'/>
+            <ext-comboboxfield ref="addUserRoleCombo" displayField="name" editable="false" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>' :label="i18nd(`vue-ext`, `Select user role`)" queryMode="local" triggerAction="all" valueField="id"/>
 
             <ext-toolbar docked="bottom">
                 <ext-spacer/>

@@ -1,5 +1,5 @@
 <template>
-    <ext-titlebar docked="top" titleAlign="left" :title="title" padding="0 0 0 10" @ready="ready">
+    <ext-titlebar docked="top" padding="0 0 0 10" :title="title" titleAlign="left" @ready="ready">
         <slot name="logo"/>
 
         <!-- XXX this div is required to align components in slot after title -->
@@ -7,15 +7,15 @@
 
         <slot name="title"/>
 
-        <ext-button ref="notificationsButton" align="right" iconCls="fa-regular fa-bell" width="55" padding="0 0 10 0" margin="10 20 0 0" :hidden="!notificationsEnabled" @tap="showNotifications"/>
+        <ext-button ref="notificationsButton" align="right" :hidden="!notificationsEnabled" iconCls="fa-regular fa-bell" margin="10 20 0 0" padding="0 0 10 0" width="55" @tap="showNotifications"/>
 
-        <AppAvatar align="right" width="40" height="40" :hidden="!avatarEnabled"/>
+        <AppAvatar align="right" height="40" :hidden="!avatarEnabled" width="40"/>
 
-        <ext-button align="right" iconCls="fa-solid fa-bars" width="40" height="50" margin="0 0 0 5" :hidden="!menuEnabled" @tap="showMenu"/>
+        <ext-button align="right" height="50" :hidden="!menuEnabled" iconCls="fa-solid fa-bars" margin="0 0 0 5" width="40" @tap="showMenu"/>
 
         <Notifications ref="notifications"/>
 
-        <AppMenu ref="menu" :apiTokens="apiTokensEnabled" :showAccount="accountEnabled" :changePassword="changePasswordEnabled" @showAccountDialog="showAccountDialog">
+        <AppMenu ref="menu" :apiTokens="apiTokensEnabled" :changePassword="changePasswordEnabled" :showAccount="accountEnabled" @showAccountDialog="showAccountDialog">
             <template #top>
                 <slot name="menuTop"/>
             </template>

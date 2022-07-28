@@ -1,20 +1,20 @@
 <template>
-    <ext-sheet layout="vbox" side="right" modal="true" width="300" @ready="ready">
-        <ext-panel layout="vbox" height="130" padding="30 10 10 30" innerCls="x-tabbar">
-            <Avatar width="60" height="60"/>
+    <ext-sheet layout="vbox" modal="true" side="right" width="300" @ready="ready">
+        <ext-panel height="130" innerCls="x-tabbar" layout="vbox" padding="30 10 10 30">
+            <Avatar height="60" width="60"/>
             <ext-container :html="username"/>
         </ext-panel>
 
-        <ext-panel layout="vbox" flex="1" padding="10 10 10 30">
+        <ext-panel flex="1" layout="vbox" padding="10 10 10 30">
             <slot name="top"/>
 
             <ext-spacer/>
 
             <slot name="bottomUp"/>
 
-            <ext-button iconCls="fa-solid fa-key" :text="i18nd(`vue-ext`, `API tokens`)" textAlign="left" :hidden="!apiTokensEnabled" @tap="showApiTokens"/>
-            <ext-button iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" :hidden="!accountEnabled" @tap="showAccountDialog"/>
-            <ext-button iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" :hidden="!changePasswordEnabled" @tap="showChangePasswordDialog"/>
+            <ext-button :hidden="!apiTokensEnabled" iconCls="fa-solid fa-key" :text="i18nd(`vue-ext`, `API tokens`)" textAlign="left" @tap="showApiTokens"/>
+            <ext-button :hidden="!accountEnabled" iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
+            <ext-button :hidden="!changePasswordEnabled" iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
 
             <slot name="bottomDown"/>
 
