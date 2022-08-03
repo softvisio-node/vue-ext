@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.4.30 (2022-08-03)
+
+Fixes:
+
+-   fix: utils prompt
+
 ### 7.4.29 (2022-07-28)
 
 Fixes:
