@@ -43,6 +43,7 @@ export default {
         } );
 
         this.suggestUsersStore = Ext.create( "Ext.data.Store", {
+            "autoLoad": false,
             "pageSize": null,
             "proxy": {
                 "type": "softvisio",
@@ -54,6 +55,12 @@ export default {
     "methods": {
         setObjectId ( objectId ) {
             this.objectId = objectId;
+
+            this.suggestUsersStore.addFilter( {
+                "property": "object_id",
+                "operator": "=",
+                "value": objectId,
+            } );
 
             this.reload();
         },
