@@ -113,7 +113,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "api-tokens/set-enabled", record.get( "id" ), newVal );
+            var res = await this.$api.call( "api-token/set-enabled", record.get( "id" ), newVal );
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
@@ -138,7 +138,7 @@ export default {
 
             if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete this token?" ) ) ) ) return;
 
-            var res = await this.$api.call( "api-tokens/delete", record.getId() );
+            var res = await this.$api.call( "api-token/delete", record.getId() );
 
             if ( res.ok ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, "API token deleted" ) );

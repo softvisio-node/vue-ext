@@ -47,7 +47,7 @@ export default {
             "pageSize": null,
             "proxy": {
                 "type": "softvisio",
-                "api": { "read": "object-users/suggest-users" },
+                "api": { "read": "object-user/suggest-users" },
             },
         } );
     },
@@ -144,7 +144,7 @@ export default {
         },
 
         async reload () {
-            const res = await this.$api.call( "object-users/get-object-users", this.objectId );
+            const res = await this.$api.call( "object-user/get-users", this.objectId );
 
             if ( !res.ok ) {
                 this.$utils.tolast( res );
@@ -198,7 +198,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "object-users/delete-object-user", this.objectId, record.id );
+            var res = await this.$api.call( "object-user/delete", this.objectId, record.id );
 
             button.enable();
 
@@ -231,7 +231,7 @@ export default {
                 return;
             }
 
-            const res = await this.$api.call( "object-users/set-object-user-role", this.objectId, userId, roleId );
+            const res = await this.$api.call( "object-user/set-role", this.objectId, userId, roleId );
 
             if ( !res.ok ) {
                 this.$utils.toast( res );

@@ -114,7 +114,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "notifications/set-user-notification-channel", record.get( "type" ), channel, newVal );
+            var res = await this.$api.call( "notification/set-user-notification-channel", record.get( "type" ), channel, newVal );
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
