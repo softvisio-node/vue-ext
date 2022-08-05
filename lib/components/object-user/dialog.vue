@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="90%" layout="fit" :title="title" width="700">
+    <ext-dialog height="90%" layout="fit" :title="titleText" width="700">
         <ObjectUsersPanel ref="panel"/>
     </ext-dialog>
 </template>
@@ -13,7 +13,13 @@ export default {
     "props": {
         "title": {
             "type": String,
-            "default": "Users Roles",
+            "default": "",
+        },
+    },
+
+    "computed": {
+        titleText () {
+            return this.title || this.i18nd( "vue-ext", "Users" );
         },
     },
 

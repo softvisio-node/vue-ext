@@ -17,7 +17,7 @@
 
             <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `User enabled`)" width="200" @ready="_enabledColReady"/>
 
-            <ext-column width="100" @ready="_actionColReady"/>
+            <ext-column width="80" @ready="_actionColReady"/>
         </ext-grid>
     </ext-panel>
 </template>
