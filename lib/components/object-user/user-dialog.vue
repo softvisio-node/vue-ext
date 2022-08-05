@@ -1,10 +1,18 @@
 <template>
-    <ext-dialog closeAction="hide" height="250" :title="i18nd(`vue-ext`, `Add / update user roles`)" width="400">
+    <ext-dialog closeAction="hide" height="250" :title="i18nd(`vue-ext`, `Add / update user roles`)" width="400" @ready="_ready">
         <ext-comboboxfield ref="addUserCombo" displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" minChars="1" primaryFilter='{"operator":"like","property":"name"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
 
         <ext-displayfield ref="addUserUsername" :label="i18nd(`vue-ext`, `User`)"/>
 
-        <!-- <ext-comboboxfield ref="addUserRoleCombo" displayField="name" editable="false" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>' :label="i18nd(`vue-ext`, `Select user role`)" queryMode="local" triggerAction="all" valueField="id"/> -->
+        <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true">
+            <ext-column cell='{"encodeHtml":false,"style":"vertical-align:top"}' dataIndex="username" flex="1" :text="i18nd(`vue-ext`, `Username`)" @ready="_usernameColReady"/>
+
+            <ext-column cell='{"encodeHtml":false}' dataIndex="roles_text" flex="1" :text="i18nd(`vue-ext`, `Roles`)"/>
+
+            <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `User enabled`)" width="200" @ready="_enabledColReady"/>
+
+            <ext-column width="80" @ready="_actionColReady"/>
+        </ext-grid>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
@@ -14,68 +22,30 @@
 </template>
 
 <script>
-import ObjectUserModel from "#lib/models/object-user";
 import ObjectRoleModel from "#lib/models/object-role";
 
 export default {
-    created () {
-        this.usersStore = Ext.create( "Ext.data.Store", {
-            "model": ObjectUserModel,
-            "remoteFilter": false,
-            "remoteSort": false,
-        } );
-
-        this.rolesStore = Ext.create( "Ext.data.Store", {
-            "model": ObjectRoleModel,
-        } );
-
-        this.suggestUsersStore = Ext.create( "Ext.data.Store", {
-            "autoLoad": false,
-            "pageSize": null,
-            "proxy": {
-                "type": "softvisio",
-                "api": { "read": "object-user/suggest-users" },
-            },
-        } );
-    },
-
     "methods": {
-        setRecord ( record ) {},
-
-        setObjectId ( objectId ) {
-            this.objectId = objectId;
-
-            this.suggestUsersStore.addFilter( {
-                "property": "object_id",
-                "operator": "=",
-                "value": objectId,
+        setRecord ( record ) {
+            this.store = Ext.create( "Ext.data.Store", {
+                "model": ObjectRoleModel,
+                "remoteFilter": false,
+                "remoteSort": false,
+                "data": record.get( "roles" ),
             } );
 
-            this.reload();
+            // this.suggestUsersStore = Ext.create( "Ext.data.Store", {
+            //     "autoLoad": false,
+            //     "pageSize": null,
+            //     "proxy": {
+            //         "type": "softvisio",
+            //         "api": { "read": "object-user/suggest-users" },
+            //     },
+            // } );
         },
 
         _ready ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setStore( this.usersStore );
-
-            this.$refs.addUserDialog.ext.on( "hide", () => {
-                this.$refs.addUserCombo.ext.clearValue();
-                this.$refs.addUserRoleCombo.ext.clearValue();
-            } );
-        },
-
-        _avatarColReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setCell( {
-                "xtype": "widgetcell",
-                "widget": {
-                    "xtype": "img",
-                    "height": 36,
-                    "bind": { "src": "{record.avatar}" },
-                },
-            } );
+            this.$refs.grid.ext.setStore( this.usersStore );
         },
 
         _usernameColReady ( e ) {
