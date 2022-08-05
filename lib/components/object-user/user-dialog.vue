@@ -25,6 +25,8 @@ import ObjectRoleModel from "#lib/models/object-role";
 export default {
     "methods": {
         setRecord ( record, objectId ) {
+            this.record = record;
+
             this.ext.getViewModel().set( "record", record );
 
             this.store.loadRawData( record.get( "roles" ) );
@@ -85,13 +87,22 @@ export default {
         },
 
         async _setEnabled ( button, newVal, oldVal ) {
-            const record = button.up( "gridrow" ).getRecord();
+            const record = this.record;
+
+            if ( record.phantom ) return;
 
             if ( newVal === record.get( "enabled" ) ) return;
 
             button.disable();
 
-            const res = await this.$api.call( "object-user/set-enabled", this.objectId, record.id, newVal );
+            var res;
+
+            if ( newVal ) {
+                res = await this.$api.call( "object-user/add-role", this.objectId, record.id, record.id );
+            }
+            else {
+                res = await this.$api.call( "object-user/delete-role", this.objectId, record.id, record.id );
+            }
 
             button.enable();
 
@@ -102,8 +113,6 @@ export default {
             }
             else {
                 record.commit();
-
-                this.$utils.toast( newVal ? this.i18nd( `vue-ext`, `User enabled` ) : this.i18nd( `vue-ext`, `User disabled` ) );
             }
         },
 
