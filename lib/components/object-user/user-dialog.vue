@@ -26,6 +26,7 @@ export default {
     "methods": {
         setRecord ( record, objectId ) {
             this.record = record;
+            this.objectId = objectId;
 
             this.ext.getViewModel().set( "record", record );
 
