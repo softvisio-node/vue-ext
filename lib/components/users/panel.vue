@@ -190,25 +190,20 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "admin/user/set-enabled", record.get( "id" ), newVal );
+            const res = await this.$api.call( "admin/user/set-enabled", record.get( "id" ), newVal );
+
+            button.enable();
 
             if ( !res.ok ) {
+                record.reject();
+
                 this.$utils.toast( res );
-
-                await this.$utils.sleep( 1000 );
-
-                button.suspendEvent( "change" );
-                record.set( "enabled", oldVal );
-                button.enable();
-                button.resumeEvent( "change" );
             }
             else {
+                record.commit();
+
                 this.$utils.toast( newVal ? this.i18nd( `vue-ext`, `User enabled` ) : this.i18nd( `vue-ext`, `User disabled` ) );
-
-                button.enable();
             }
-
-            return;
         },
 
         async deleteUser ( button ) {

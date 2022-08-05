@@ -1,10 +1,10 @@
 <template>
-    <ext-dialog closeAction="hide" height="250" layout="fit" :title="i18nd(`vue-ext`, `Add / update user roles`)" viewModel="true" width="400">
-        <!-- <ext-comboboxfield ref="addUserCombo" displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" minChars="1" primaryFilter='{"operator":"like","property":"name"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/> -->
+    <ext-dialog closeAction="hide" height="500" layout="vbox" :title="i18nd(`vue-ext`, `Add / update user roles`)" viewModel="true" width="700">
+        <ext-comboboxfield ref="addUserCombo" displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" minChars="1" primaryFilter='{"operator":"like","property":"name"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
 
-        <!-- <ext-displayfield ref="addUserUsername" :label="i18nd(`vue-ext`, `User`)"/> -->
+        <ext-displayfield ref="addUserUsername" :label="i18nd(`vue-ext`, `User`)"/>
 
-        <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true">
+        <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true">
             <ext-column cell='{"encodeHtml":false,"style":"vertical-align:top"}' dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Username`)"/>
 
             <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `User enabled`)" width="200" @ready="_enabledColReady"/>
