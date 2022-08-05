@@ -208,8 +208,10 @@ export default {
         },
 
         // XXX
-        async _addUser ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
+        async _addUser () {
+            const record = new ObjectUserModel( {
+                "roles": this.roles,
+            } );
 
             this._showAddUserDialog( record );
         },

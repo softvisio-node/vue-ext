@@ -1,29 +1,16 @@
 <template>
-    <ext-grid columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
-        <ext-toolbar docked="top">
-            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
+    <ext-dialog closeAction="hide" height="250" :title="i18nd(`vue-ext`, `Add / update user roles`)" width="400">
+        <ext-comboboxfield ref="addUserCombo" displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" minChars="1" primaryFilter='{"operator":"like","property":"name"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
+
+        <ext-displayfield ref="addUserUsername" :label="i18nd(`vue-ext`, `User`)"/>
+
+        <!-- <ext-comboboxfield ref="addUserRoleCombo" displayField="name" editable="false" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>' :label="i18nd(`vue-ext`, `Select user role`)" queryMode="local" triggerAction="all" valueField="id"/> -->
+
+        <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_showAddUserDialog"/>
+            <ext-button :text="i18nd(`vue-ext`, `Submit`)" @tap="_addUser"/>
         </ext-toolbar>
-        <ext-column width="40" @ready="_avatarColReady"/>
-        <ext-column cell='{"encodeHtml":false,"style":"vertical-align:top"}' dataIndex="username" flex="1" :text="i18nd(`vue-ext`, `Username`)" @ready="_usernameColReady"/>
-        <ext-column cell='{"encodeHtml":false}' dataIndex="role_name" flex="1" :text="i18nd(`vue-ext`, `Role`)" @ready="_roleColReady"/>
-        <ext-column width="100" @ready="_actionColReady"/>
-
-        <!-- add / update user dialog -->
-        <ext-dialog ref="addUserDialog" closeAction="hide" height="250" :title="i18nd(`vue-ext`, `Add / update user`)" width="400">
-            <ext-comboboxfield ref="addUserCombo" displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" minChars="1" primaryFilter='{"operator":"like","property":"name"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
-
-            <ext-displayfield ref="addUserUsername" :label="i18nd(`vue-ext`, `User`)"/>
-
-            <ext-comboboxfield ref="addUserRoleCombo" displayField="name" editable="false" itemTpl='<div class="object-user-role-name">{name}</div><div class="object-user-role-description">{description}</div>' :label="i18nd(`vue-ext`, `Select user role`)" queryMode="local" triggerAction="all" valueField="id"/>
-
-            <ext-toolbar docked="bottom">
-                <ext-spacer/>
-                <ext-button :text="i18nd(`vue-ext`, `Submit`)" @tap="_addUser"/>
-            </ext-toolbar>
-        </ext-dialog>
-    </ext-grid>
+    </ext-dialog>
 </template>
 
 <script>
@@ -53,6 +40,8 @@ export default {
     },
 
     "methods": {
+        setRecord ( record ) {},
+
         setObjectId ( objectId ) {
             this.objectId = objectId;
 
@@ -141,84 +130,6 @@ export default {
             const cmp = e.detail.cmp;
 
             cmp.setStore( this.suggestUsersStore );
-        },
-
-        async reload () {
-            const res = await this.$api.call( "object-user/get-users", this.objectId );
-
-            if ( !res.ok ) {
-                this.$utils.tolast( res );
-
-                this.rolesStore.loadRawData( [] );
-                this.usersStore.loadRawData( [] );
-            }
-            else {
-                this.rolesStore.loadRawData( res.data.roles );
-                this.usersStore.loadRawData( res.data.users );
-            }
-        },
-
-        _searchUsers ( e ) {
-            var val = e.detail.newValue.trim();
-
-            if ( val !== "" ) {
-                this.usersStore.addFilter(
-                    {
-                        "property": "username",
-                        "operator": "like",
-                        "value": val,
-                    },
-                    false
-                );
-            }
-            else {
-                this.usersStore.removeFilter( "username" );
-            }
-        },
-
-        async _editUser ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
-
-            this.$refs.addUserCombo.ext.hide();
-            this.$refs.addUserUsername.ext.show();
-
-            this.$refs.addUserCombo.ext.setValue( record.id );
-            this.$refs.addUserUsername.ext.setValue( record.get( "username" ) );
-
-            this.$refs.addUserRoleCombo.ext.setStore( this.rolesStore );
-            this.$refs.addUserRoleCombo.ext.setValue( record.get( "role_id" ) );
-
-            this.$refs.addUserDialog.ext.show();
-        },
-
-        async _deleteUser ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
-
-            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete user?" ) ) ) ) return;
-
-            button.disable();
-
-            var res = await this.$api.call( "object-user/delete", this.objectId, record.id );
-
-            button.enable();
-
-            if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "User deleted" ) );
-
-                this.usersStore.remove( record );
-            }
-            else {
-                this.$utils.toast( res );
-            }
-        },
-
-        _showAddUserDialog () {
-            this.$refs.addUserRoleCombo.ext.setStore( this.rolesStore );
-
-            this.$refs.addUserCombo.ext.show();
-            this.$refs.addUserUsername.ext.hide();
-
-            this.$refs.addUserDialog.ext.show();
         },
 
         async _addUser () {
