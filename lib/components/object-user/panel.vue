@@ -1,0 +1,217 @@
+<template>
+    <ext-grid columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
+        <ext-toolbar docked="top">
+            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
+            <ext-spacer/>
+            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_showAddUserDialog"/>
+        </ext-toolbar>
+
+        <ext-column width="40" @ready="_avatarColReady"/>
+
+        <ext-column cell='{"encodeHtml":false,"style":"vertical-align:top"}' dataIndex="username" flex="1" :text="i18nd(`vue-ext`, `Username`)" @ready="_usernameColReady"/>
+
+        <ext-column cell='{"encodeHtml":false}' dataIndex="roles_text" flex="1" :text="i18nd(`vue-ext`, `Roles`)"/>
+
+        <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `User enabled`)" width="200" @ready="_enabledColReady"/>
+
+        <ext-column width="100" @ready="_actionColReady"/>
+    </ext-grid>
+</template>
+
+<script>
+import ObjectUserModel from "#lib/models/object-user";
+
+export default {
+    "methods": {
+        setObjectId ( objectId ) {
+            this.objectId = objectId;
+
+            this.reload();
+        },
+
+        _ready ( e ) {
+            const cmp = e.detail.cmp;
+
+            this.store = Ext.create( "Ext.data.Store", {
+                "model": ObjectUserModel,
+                "remoteFilter": false,
+                "remoteSort": false,
+            } );
+
+            cmp.setStore( this.store );
+        },
+
+        _avatarColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "img",
+                    "height": 36,
+                    "bind": { "src": "{record.avatar}" },
+                },
+            } );
+        },
+
+        _usernameColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setRenderer( ( value, record ) => {
+                return `
+<div class="object-user-username">${record.get( "username" )}</div>
+`;
+            } );
+        },
+
+        _enabledColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "layout": { "type": "hbox", "pack": "center" },
+                    "items": [
+                        {
+                            "xtype": "togglefield",
+                            "bind": { "value": "{record.enabled}" },
+                            "listeners": { "change": this._setUserEnabled.bind( this ) },
+                        },
+                    ],
+                },
+            } );
+        },
+
+        _actionColReady ( e ) {
+            var cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "layout": { "type": "hbox", "pack": "end", "align": "center" },
+                    "items": [
+                        {
+                            "xtype": "button",
+                            "iconCls": "fa-solid fa-edit",
+                            "tooltip": "Change user role",
+                            "padding": "0 0 0 3",
+
+                            // "handler": this._editUser.bind( this ),
+                        },
+                        {
+                            "xtype": "button",
+                            "iconCls": "fa-solid fa-trash-alt",
+                            "tooltip": "Delete user",
+                            "handler": this._deleteUser.bind( this ),
+                        },
+                    ],
+                },
+            } );
+        },
+
+        async reload () {
+            const res = await this.$api.call( "object-user/get-users", this.objectId );
+
+            if ( !res.ok ) {
+                this.$utils.toast( res );
+
+                this.store.loadRawData( [] );
+            }
+            else {
+                this.store.loadRawData( res.data.users );
+            }
+        },
+
+        _searchUsers ( e ) {
+            var val = e.detail.newValue.trim();
+
+            if ( val !== "" ) {
+                this.usersStore.addFilter(
+                    {
+                        "property": "username",
+                        "operator": "like",
+                        "value": val,
+                    },
+                    false
+                );
+            }
+            else {
+                this.usersStore.removeFilter( "username" );
+            }
+        },
+
+        async _deleteUser ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
+
+            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete user?" ) ) ) ) return;
+
+            button.disable();
+
+            var res = await this.$api.call( "object-user/delete", this.objectId, record.id );
+
+            button.enable();
+
+            if ( res.ok ) {
+                this.$utils.toast( this.i18nd( `vue-ext`, "User deleted" ) );
+
+                this.usersStore.remove( record );
+            }
+            else {
+                this.$utils.toast( res );
+            }
+        },
+
+        _showAddUserDialog () {
+            this.$refs.addUserRoleCombo.ext.setStore( this.rolesStore );
+
+            this.$refs.addUserCombo.ext.show();
+            this.$refs.addUserUsername.ext.hide();
+
+            this.$refs.addUserDialog.ext.show();
+        },
+
+        async _setUserEnabled ( button, newVal, oldVal ) {
+            const gridrow = button.up( "gridrow" ),
+                record = gridrow.getRecord(),
+                curVal = record.get( "enabled" );
+
+            if ( newVal === curVal ) return;
+
+            button.disable();
+
+            const res = await this.$api.call( "object-user/set-enabled", this.objectId, record.id, newVal );
+
+            button.enable();
+
+            if ( !res.ok ) {
+                record.reject();
+
+                this.$utils.toast( res );
+            }
+            else {
+                record.commit();
+
+                this.$utils.toast( newVal ? this.i18nd( `vue-ext`, `User enabled` ) : this.i18nd( `vue-ext`, `User disabled` ) );
+            }
+        },
+    },
+};
+</script>
+
+<style>
+.object-user-username {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.object-user-role-name {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.object-user-role-description {
+    font-size: 1em;
+}
+</style>
