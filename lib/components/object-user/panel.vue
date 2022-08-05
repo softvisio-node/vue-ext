@@ -3,7 +3,7 @@
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_showAddUserDialog"/>
+            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_addUser"/>
         </ext-toolbar>
 
         <ext-panel ref="noData" :html="i18nd(`vue-ext`, `No records matched search criteria`)" layout="center"/>
@@ -204,7 +204,7 @@ export default {
         async _editUser ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            this._showAddUserDialog( record );
+            this._showUserDialog( record );
         },
 
         async _addUser () {
@@ -222,11 +222,11 @@ export default {
                     "roles": res.data,
                 } );
 
-                this._showAddUserDialog( record );
+                this._showUserDialog( record );
             }
         },
 
-        async _showAddUserDialog ( record ) {
+        async _showUserDialog ( record ) {
             const cmp = await this.$mount( UserDialog );
 
             cmp.setRecord( record );

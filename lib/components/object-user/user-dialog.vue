@@ -1,17 +1,13 @@
 <template>
-    <ext-dialog closeAction="hide" height="250" :title="i18nd(`vue-ext`, `Add / update user roles`)" width="400" @ready="_ready">
-        <ext-comboboxfield ref="addUserCombo" displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" minChars="1" primaryFilter='{"operator":"like","property":"name"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
+    <ext-dialog closeAction="hide" height="250" layout="fit" :title="i18nd(`vue-ext`, `Add / update user roles`)" viewModel="true" width="400">
+        <!-- <ext-comboboxfield ref="addUserCombo" displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" minChars="1" primaryFilter='{"operator":"like","property":"name"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/> -->
 
-        <ext-displayfield ref="addUserUsername" :label="i18nd(`vue-ext`, `User`)"/>
+        <!-- <ext-displayfield ref="addUserUsername" :label="i18nd(`vue-ext`, `User`)"/> -->
 
-        <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true">
-            <ext-column cell='{"encodeHtml":false,"style":"vertical-align:top"}' dataIndex="username" flex="1" :text="i18nd(`vue-ext`, `Username`)" @ready="_usernameColReady"/>
-
-            <ext-column cell='{"encodeHtml":false}' dataIndex="roles_text" flex="1" :text="i18nd(`vue-ext`, `Roles`)"/>
+        <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true">
+            <ext-column cell='{"encodeHtml":false,"style":"vertical-align:top"}' dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Username`)"/>
 
             <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `User enabled`)" width="200" @ready="_enabledColReady"/>
-
-            <ext-column width="80" @ready="_actionColReady"/>
         </ext-grid>
 
         <ext-toolbar docked="bottom">
@@ -34,6 +30,8 @@ export default {
                 "data": record.get( "roles" ),
             } );
 
+            this.$refs.grid.ext.setStore( this.store );
+
             // this.suggestUsersStore = Ext.create( "Ext.data.Store", {
             //     "autoLoad": false,
             //     "pageSize": null,
@@ -42,10 +40,6 @@ export default {
             //         "api": { "read": "object-user/suggest-users" },
             //     },
             // } );
-        },
-
-        _ready ( e ) {
-            this.$refs.grid.ext.setStore( this.usersStore );
         },
 
         _usernameColReady ( e ) {
@@ -66,33 +60,6 @@ export default {
 <div class="object-user-role-name">${record.get( "role_name" )}</div>
 <div class="object-user-role-description">${record.get( "role_description" )}</div>
 `;
-            } );
-        },
-
-        _actionColReady ( e ) {
-            var cmp = e.detail.cmp;
-
-            cmp.setCell( {
-                "xtype": "widgetcell",
-                "widget": {
-                    "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "end", "align": "center" },
-                    "items": [
-                        {
-                            "xtype": "button",
-                            "iconCls": "fa-solid fa-edit",
-                            "tooltip": "Change user role",
-                            "padding": "0 0 0 3",
-                            "handler": this._editUser.bind( this ),
-                        },
-                        {
-                            "xtype": "button",
-                            "iconCls": "fa-solid fa-trash-alt",
-                            "tooltip": "Delete user",
-                            "handler": this._deleteUser.bind( this ),
-                        },
-                    ],
-                },
             } );
         },
 
