@@ -1,18 +1,20 @@
 <template>
     <ext-dialog closeAction="hide" height="500" layout="vbox" :title="i18nd(`vue-ext`, `Add / update user roles`)" viewModel="true" width="700" @ready="_ready">
-        <ext-comboboxfield ref="addUserCombo" displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" minChars="1" primaryFilter='{"operator":"like","property":"name"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
+        <ext-comboboxfield ref="addUserCombo" bind='{"hidden":"{!record.phantom}"}' displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" labelAlign="left" labelWidth="150" minChars="1" primaryFilter='{"operator":"like","property":"name"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
 
-        <ext-displayfield ref="addUserUsername" :label="i18nd(`vue-ext`, `User`)"/>
+        <ext-displayfield bind='{"hidden":"{record.phantom}","value":"{record.username}"}' :label="i18nd(`vue-ext`, `Username`)" labelAlign="left" labelWidth="150"/>
 
         <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true">
-            <ext-column cell='{"encodeHtml":false,"style":"vertical-align:top"}' dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Username`)"/>
+            <ext-column dataIndex="name" qidth="150" :text="i18nd(`vue-ext`, `Role name`)"/>
 
-            <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `User enabled`)" width="200" @ready="_enabledColReady"/>
+            <ext-column dataIndex="description" flex="1" :text="i18nd(`vue-ext`, `Description`)"/>
+
+            <ext-column align="center" sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Role enabled`)" width="200" @ready="_enabledColReady"/>
         </ext-grid>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button :text="i18nd(`vue-ext`, `Submit`)" @tap="_addUser"/>
+            <ext-button bind='{"hidden":"{!record.phantom}"}' :text="i18nd(`vue-ext`, `Add user`)" ui="action" @tap="_createUser"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -23,6 +25,8 @@ import ObjectRoleModel from "#lib/models/object-role";
 export default {
     "methods": {
         setRecord ( record, objectId ) {
+            this.ext.getViewModel().set( "record", record );
+
             this.store.loadRawData( record.get( "roles" ) );
 
             this.suggestUsersStore.addFilter( {
@@ -52,13 +56,25 @@ export default {
             } );
         },
 
-        _usernameColReady ( e ) {
+        _enabledColReady ( e ) {
             const cmp = e.detail.cmp;
 
-            cmp.setRenderer( ( value, record ) => {
-                return `
-<div class="object-user-username">${record.get( "username" )}</div>
-`;
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "layout": { "type": "hbox", "pack": "center" },
+                    "items": [
+                        {
+                            "xtype": "togglefield",
+                            "bind": {
+                                "value": "{record.enabled}",
+                                "readOnly": "{!record.readOnly}",
+                            },
+                            "listeners": { "change": this._setEnabled.bind( this ) },
+                        },
+                    ],
+                },
             } );
         },
 
@@ -68,7 +84,30 @@ export default {
             cmp.setStore( this.suggestUsersStore );
         },
 
-        async _addUser () {
+        async _setEnabled ( button, newVal, oldVal ) {
+            const record = button.up( "gridrow" ).getRecord();
+
+            if ( newVal === record.get( "enabled" ) ) return;
+
+            button.disable();
+
+            const res = await this.$api.call( "object-user/set-enabled", this.objectId, record.id, newVal );
+
+            button.enable();
+
+            if ( !res.ok ) {
+                record.reject();
+
+                this.$utils.toast( res );
+            }
+            else {
+                record.commit();
+
+                this.$utils.toast( newVal ? this.i18nd( `vue-ext`, `User enabled` ) : this.i18nd( `vue-ext`, `User disabled` ) );
+            }
+        },
+
+        async _createUser () {
             const userId = this.$refs.addUserCombo.ext.getValue(),
                 roleId = this.$refs.addUserRoleCombo.ext.getValue();
 
@@ -94,19 +133,3 @@ export default {
     },
 };
 </script>
-
-<style>
-.object-user-username {
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-.object-user-role-name {
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-.object-user-role-description {
-    font-size: 1em;
-}
-</style>
