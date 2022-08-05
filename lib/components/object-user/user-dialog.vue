@@ -88,9 +88,11 @@ export default {
         },
 
         async _setEnabled ( button, newVal, oldVal ) {
-            const record = this.record;
+            const user = this.record;
 
-            if ( record.phantom ) return;
+            if ( user.phantom ) return;
+
+            const record = button.lookupViewModel().get( "record" );
 
             if ( newVal === record.get( "enabled" ) ) return;
 
@@ -99,10 +101,10 @@ export default {
             var res;
 
             if ( newVal ) {
-                res = await this.$api.call( "object-user/add-role", this.objectId, record.id, record.id );
+                res = await this.$api.call( "object-user/add-role", this.objectId, user.id, record.id );
             }
             else {
-                res = await this.$api.call( "object-user/delete-role", this.objectId, record.id, record.id );
+                res = await this.$api.call( "object-user/delete-role", this.objectId, user.id, record.id );
             }
 
             button.enable();
