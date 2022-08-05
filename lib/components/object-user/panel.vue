@@ -24,6 +24,7 @@
 
 <script>
 import ObjectUserModel from "#lib/models/object-user";
+import UserDialog from "./user-dialog";
 
 export default {
     "methods": {
@@ -108,8 +109,7 @@ export default {
                             "iconCls": "fa-solid fa-edit",
                             "tooltip": "Change user role",
                             "padding": "0 0 0 3",
-
-                            // "handler": this._editUser.bind( this ),
+                            "handler": this._editUser.bind( this ),
                         },
                         {
                             "xtype": "button",
@@ -157,6 +157,29 @@ export default {
             }
         },
 
+        async _setUserEnabled ( button, newVal, oldVal ) {
+            const record = button.up( "gridrow" ).getRecord();
+
+            if ( newVal === record.get( "enabled" ) ) return;
+
+            button.disable();
+
+            const res = await this.$api.call( "object-user/set-enabled", this.objectId, record.id, newVal );
+
+            button.enable();
+
+            if ( !res.ok ) {
+                record.reject();
+
+                this.$utils.toast( res );
+            }
+            else {
+                record.commit();
+
+                this.$utils.toast( newVal ? this.i18nd( `vue-ext`, `User enabled` ) : this.i18nd( `vue-ext`, `User disabled` ) );
+            }
+        },
+
         async _deleteUser ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
@@ -178,38 +201,25 @@ export default {
             }
         },
 
-        async _setUserEnabled ( button, newVal, oldVal ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord(),
-                curVal = record.get( "enabled" );
+        async _editUser ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
 
-            if ( newVal === curVal ) return;
-
-            button.disable();
-
-            const res = await this.$api.call( "object-user/set-enabled", this.objectId, record.id, newVal );
-
-            button.enable();
-
-            if ( !res.ok ) {
-                record.reject();
-
-                this.$utils.toast( res );
-            }
-            else {
-                record.commit();
-
-                this.$utils.toast( newVal ? this.i18nd( `vue-ext`, `User enabled` ) : this.i18nd( `vue-ext`, `User disabled` ) );
-            }
+            this._showAddUserDialog( record );
         },
 
-        _showAddUserDialog () {
-            this.$refs.addUserRoleCombo.ext.setStore( this.rolesStore );
+        // XXX
+        async _addUser ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
 
-            this.$refs.addUserCombo.ext.show();
-            this.$refs.addUserUsername.ext.hide();
+            this._showAddUserDialog( record );
+        },
 
-            this.$refs.addUserDialog.ext.show();
+        async _showAddUserDialog ( record ) {
+            const cmp = await this.$mount( UserDialog );
+
+            cmp.setRecord( record );
+
+            cmp.ext.show();
         },
     },
 };
