@@ -158,25 +158,22 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "admin/user/update-permissions", record.get( "id" ), { "admin": newVal } );
+            const res = await this.$api.call( "admin/user/update-permissions", record.get( "id" ), { "admin": newVal } );
+
+            button.enable();
 
             if ( !res.ok ) {
+                record.reject();
+
                 this.$utils.toast( res );
-
-                await this.$utils.sleep( 1000 );
-
-                button.suspendEvent( "change" );
-                userPermissions.admin = curVal;
-                button.setValue( curVal );
-                button.resumeEvent( "change" );
             }
             else {
+                record.commit();
+
                 this.$utils.toast( this.i18nd( `vue-ext`, "User permissions updated" ) );
 
                 userPermissions.admin = newVal;
             }
-
-            button.enable();
 
             return;
         },

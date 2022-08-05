@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="500" layout="vbox" :title="i18nd(`vue-ext`, `Add / update user roles`)" viewModel="true" width="700">
+    <ext-dialog closeAction="hide" height="500" layout="vbox" :title="i18nd(`vue-ext`, `Add / update user roles`)" viewModel="true" width="700" @ready="_ready">
         <ext-comboboxfield ref="addUserCombo" displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" minChars="1" primaryFilter='{"operator":"like","property":"name"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
 
         <ext-displayfield ref="addUserUsername" :label="i18nd(`vue-ext`, `User`)"/>
@@ -22,24 +22,34 @@ import ObjectRoleModel from "#lib/models/object-role";
 
 export default {
     "methods": {
-        setRecord ( record ) {
+        setRecord ( record, objectId ) {
+            this.store.loadRawData( record.get( "roles" ) );
+
+            this.suggestUsersStore.addFilter( {
+                "property": "object_id",
+                "operator": "=",
+                "value": objectId,
+            } );
+        },
+
+        _ready ( e ) {
             this.store = Ext.create( "Ext.data.Store", {
                 "model": ObjectRoleModel,
                 "remoteFilter": false,
                 "remoteSort": false,
-                "data": record.get( "roles" ),
             } );
 
             this.$refs.grid.ext.setStore( this.store );
 
-            // this.suggestUsersStore = Ext.create( "Ext.data.Store", {
-            //     "autoLoad": false,
-            //     "pageSize": null,
-            //     "proxy": {
-            //         "type": "softvisio",
-            //         "api": { "read": "object-user/suggest-users" },
-            //     },
-            // } );
+            this.suggestUsersStore = Ext.create( "Ext.data.Store", {
+                "autoLoad": false,
+                "pageSize": null,
+                "proxy": {
+
+                    // "type": "softvisio",
+                    "api": { "read": "object-user/suggest-users" },
+                },
+            } );
         },
 
         _usernameColReady ( e ) {
@@ -48,17 +58,6 @@ export default {
             cmp.setRenderer( ( value, record ) => {
                 return `
 <div class="object-user-username">${record.get( "username" )}</div>
-`;
-            } );
-        },
-
-        _roleColReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setRenderer( ( value, record ) => {
-                return `
-<div class="object-user-role-name">${record.get( "role_name" )}</div>
-<div class="object-user-role-description">${record.get( "role_description" )}</div>
 `;
             } );
         },

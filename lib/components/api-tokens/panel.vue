@@ -113,20 +113,17 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "account/token/set-enabled", record.get( "id" ), newVal );
+            const res = await this.$api.call( "account/token/set-enabled", record.get( "id" ), newVal );
+
+            button.enable();
 
             if ( !res.ok ) {
+                record.reject();
+
                 this.$utils.toast( res );
-
-                await this.$utils.sleep( 1000 );
-
-                button.suspendEvent( "change" );
-                record.set( "enabled", oldVal );
-                button.enable();
-                button.resumeEvent( "change" );
             }
             else {
-                button.enable();
+                record.commit();
             }
 
             return;

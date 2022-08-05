@@ -229,7 +229,7 @@ export default {
         async _showUserDialog ( record ) {
             const cmp = await this.$mount( UserDialog, { "cache": false } );
 
-            cmp.setRecord( record );
+            cmp.setRecord( record, this.objectId );
 
             cmp.ext.show();
         },

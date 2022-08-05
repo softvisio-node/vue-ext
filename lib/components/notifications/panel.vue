@@ -114,20 +114,17 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "account/notification/set-user-notification-channel", record.get( "type" ), channel, newVal );
+            const res = await this.$api.call( "account/notification/set-user-notification-channel", record.get( "type" ), channel, newVal );
+
+            button.enable();
 
             if ( !res.ok ) {
+                button.reject();
+
                 this.$utils.toast( res );
-
-                await this.$utils.sleep( 1000 );
-
-                button.suspendEvent( "change" );
-                record.set( channel, oldVal );
-                button.enable();
-                button.resumeEvent( "change" );
             }
             else {
-                button.enable();
+                record.commit();
             }
 
             return;
