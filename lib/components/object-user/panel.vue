@@ -128,7 +128,7 @@ export default {
             var val = e.detail.newValue.trim();
 
             if ( val !== "" ) {
-                this.usersStore.addFilter(
+                this.store.addFilter(
                     {
                         "property": "username",
                         "operator": "like",
@@ -138,7 +138,7 @@ export default {
                 );
             }
             else {
-                this.usersStore.removeFilter( "username" );
+                this.store.removeFilter( "username" );
             }
         },
 
@@ -156,7 +156,7 @@ export default {
             if ( res.ok ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, "User deleted" ) );
 
-                this.usersStore.remove( record );
+                this.store.remove( record );
             }
             else {
                 this.$utils.toast( res );
