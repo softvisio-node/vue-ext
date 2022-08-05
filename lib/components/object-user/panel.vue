@@ -1,21 +1,25 @@
 <template>
-    <ext-grid columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
+    <ext-panel ref="cards" layout="card" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
             <ext-spacer/>
             <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_showAddUserDialog"/>
         </ext-toolbar>
 
-        <ext-column width="40" @ready="_avatarColReady"/>
+        <ext-panel ref="noData" :html="i18nd(`vue-ext`, `No records matched search criteria`)" layout="center"/>
 
-        <ext-column cell='{"encodeHtml":false,"style":"vertical-align:top"}' dataIndex="username" flex="1" :text="i18nd(`vue-ext`, `Username`)" @ready="_usernameColReady"/>
+        <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true">
+            <ext-column width="40" @ready="_avatarColReady"/>
 
-        <ext-column cell='{"encodeHtml":false}' dataIndex="roles_text" flex="1" :text="i18nd(`vue-ext`, `Roles`)"/>
+            <ext-column cell='{"encodeHtml":false,"style":"vertical-align:top"}' dataIndex="username" flex="1" :text="i18nd(`vue-ext`, `Username`)" @ready="_usernameColReady"/>
 
-        <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `User enabled`)" width="200" @ready="_enabledColReady"/>
+            <ext-column cell='{"encodeHtml":false}' dataIndex="roles_text" flex="1" :text="i18nd(`vue-ext`, `Roles`)"/>
 
-        <ext-column width="100" @ready="_actionColReady"/>
-    </ext-grid>
+            <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `User enabled`)" width="200" @ready="_enabledColReady"/>
+
+            <ext-column width="100" @ready="_actionColReady"/>
+        </ext-grid>
+    </ext-panel>
 </template>
 
 <script>
@@ -30,15 +34,22 @@ export default {
         },
 
         _ready ( e ) {
-            const cmp = e.detail.cmp;
-
             this.store = Ext.create( "Ext.data.Store", {
                 "model": ObjectUserModel,
                 "remoteFilter": false,
                 "remoteSort": false,
             } );
 
-            cmp.setStore( this.store );
+            this.store.on( "datachanged", store => {
+                if ( !store.getCount() ) {
+                    this.$refs.cards.ext.setActiveItem( this.$refs.noData.ext );
+                }
+                else {
+                    this.$refs.cards.ext.setActiveItem( this.$refs.grid.ext );
+                }
+            } );
+
+            this.$refs.grid.ext.setStore( this.store );
         },
 
         _avatarColReady ( e ) {
@@ -112,7 +123,11 @@ export default {
         },
 
         async reload () {
+            this.$refs.cards.ext.mask();
+
             const res = await this.$api.call( "object-user/get-users", this.objectId );
+
+            this.$refs.cards.ext.unmask();
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
@@ -163,15 +178,6 @@ export default {
             }
         },
 
-        _showAddUserDialog () {
-            this.$refs.addUserRoleCombo.ext.setStore( this.rolesStore );
-
-            this.$refs.addUserCombo.ext.show();
-            this.$refs.addUserUsername.ext.hide();
-
-            this.$refs.addUserDialog.ext.show();
-        },
-
         async _setUserEnabled ( button, newVal, oldVal ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord(),
@@ -195,6 +201,15 @@ export default {
 
                 this.$utils.toast( newVal ? this.i18nd( `vue-ext`, `User enabled` ) : this.i18nd( `vue-ext`, `User disabled` ) );
             }
+        },
+
+        _showAddUserDialog () {
+            this.$refs.addUserRoleCombo.ext.setStore( this.rolesStore );
+
+            this.$refs.addUserCombo.ext.show();
+            this.$refs.addUserUsername.ext.hide();
+
+            this.$refs.addUserDialog.ext.show();
         },
     },
 };
