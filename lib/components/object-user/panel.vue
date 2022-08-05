@@ -135,7 +135,7 @@ export default {
                 this.store.loadRawData( [] );
             }
             else {
-                this.store.loadRawData( res.data.users );
+                this.store.loadRawData( res.data );
             }
         },
 
@@ -207,13 +207,23 @@ export default {
             this._showAddUserDialog( record );
         },
 
-        // XXX
         async _addUser () {
-            const record = new ObjectUserModel( {
-                "roles": this.roles,
-            } );
+            this.$refs.cards.ext.mask();
 
-            this._showAddUserDialog( record );
+            const res = await this.$api.call( "object-user/get-roles", this.objectId );
+
+            this.$refs.cards.ext.unmask();
+
+            if ( !res.ok ) {
+                this.$utils.toast( res );
+            }
+            else {
+                const record = new ObjectUserModel( {
+                    "roles": res.data,
+                } );
+
+                this._showAddUserDialog( record );
+            }
         },
 
         async _showAddUserDialog ( record ) {
