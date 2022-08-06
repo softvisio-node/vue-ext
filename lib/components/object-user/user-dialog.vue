@@ -23,6 +23,8 @@
 import ObjectRoleModel from "#lib/models/object-role";
 
 export default {
+    "emits": ["reload"],
+
     "methods": {
         setRecord ( record, objectId ) {
             this.record = record;
@@ -37,6 +39,8 @@ export default {
                 "operator": "=",
                 "value": objectId,
             } );
+
+            this.$refs.addUserCombo.ext.clearValue();
         },
 
         _ready ( e ) {
@@ -123,26 +127,35 @@ export default {
         },
 
         async _createUser () {
-            const userId = this.$refs.addUserCombo.ext.getValue(),
-                roleId = this.$refs.addUserRoleCombo.ext.getValue();
+            const userId = this.$refs.addUserCombo.ext.getValue();
 
-            if ( !userId || !roleId ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, `Please, fill all fields` ) );
+            if ( !userId ) {
+                this.$utils.toast( this.i18nd( `vue-ext`, `Please, fill all required fields` ) );
 
                 return;
             }
 
-            const res = await this.$api.call( "object-user/set-role", this.objectId, userId, roleId );
+            const roles = [];
+
+            this.store.each( role => {
+                if ( role.get( "enabled" ) ) roles.push( role.id );
+            } );
+
+            this.ext.mask();
+
+            const res = await this.$api.call( "object-user/add", this.objectId, userId, roles );
+
+            this.ext.unmask();
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( this.i18nd( `vue-ext`, `Users updated` ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, `Users added` ) );
 
-                this.reload();
+                this.$emit( "reload" );
 
-                this.$refs.addUserDialog.ext.hide();
+                this.ext.hide();
             }
         },
     },

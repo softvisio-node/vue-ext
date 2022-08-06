@@ -11,7 +11,7 @@
         <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true">
             <ext-column width="40" @ready="_avatarColReady"/>
 
-            <ext-column cell='{"encodeHtml":false,"style":"vertical-align:top"}' dataIndex="username" flex="1" :text="i18nd(`vue-ext`, `Username`)" @ready="_usernameColReady"/>
+            <ext-column cell='{"style":"vertical-align:top"}' dataIndex="username" flex="1" :text="i18nd(`vue-ext`, `Username`)"/>
 
             <ext-column cell='{"encodeHtml":false}' dataIndex="roles_text" flex="1" :text="i18nd(`vue-ext`, `Roles`)"/>
 
@@ -63,16 +63,6 @@ export default {
                     "height": 36,
                     "bind": { "src": "{record.avatar}" },
                 },
-            } );
-        },
-
-        _usernameColReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setRenderer( ( value, record ) => {
-                return `
-<div class="object-user-username">${record.get( "username" )}</div>
-`;
             } );
         },
 
@@ -227,7 +217,12 @@ export default {
         },
 
         async _showUserDialog ( record ) {
-            const cmp = await this.$mount( UserDialog, { "cache": false } );
+            const cmp = await this.$mount( UserDialog, {
+                "props": {
+                    "onreload": () => this.reload(),
+                    "reload": () => this.reload(),
+                },
+            } );
 
             cmp.setRecord( record, this.objectId );
 
@@ -236,19 +231,3 @@ export default {
     },
 };
 </script>
-
-<style>
-.object-user-username {
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-.object-user-role-name {
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-.object-user-role-description {
-    font-size: 1em;
-}
-</style>
