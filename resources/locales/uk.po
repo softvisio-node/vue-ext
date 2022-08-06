@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-06 07:23+0300\n"
+"POT-Creation-Date: 2022-08-06 07:29+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -231,7 +231,6 @@ msgid "Description"
 msgstr "Опис"
 
 #: lib/components/api-tokens/permissions/dialog.vue:8:84
-#: lib/components/object-user/user-dialog.vue:14:78
 #: lib/components/users/permissions/dialog.vue:8:84
 msgid "Enabled"
 msgstr "Увімкнено"
@@ -470,6 +469,10 @@ msgstr "Користувача видалено"
 msgid "Select user"
 msgstr "Виберіть користувача"
 
+#: lib/components/object-user/user-dialog.vue:14:78
+msgid "Role enabled"
+msgstr "Роль увімкнено"
+
 #: lib/components/object-user/user-dialog.vue:2:70
 msgid "User roles"
 msgstr "Ролі користувача"
@@ -556,9 +559,6 @@ msgstr "Електронна пошта успішно підтверджена"
 
 #~ msgid "Name"
 #~ msgstr "Ім'я"
-
-#~ msgid "Role enabled"
-#~ msgstr "Роль увімкнено"
 
 #~ msgid "Select user role"
 #~ msgstr "Виберіть роль користувача"

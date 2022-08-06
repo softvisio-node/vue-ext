@@ -11,7 +11,7 @@
 
             <ext-column dataIndex="description" flex="1" :text="i18nd(`vue-ext`, `Description`)"/>
 
-            <ext-column align="center" sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Enabled`)" width="200" @ready="_enabledColReady"/>
+            <ext-column align="center" sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Role enabled`)" width="160" @ready="_enabledColReady"/>
         </ext-grid>
 
         <ext-toolbar docked="bottom">
