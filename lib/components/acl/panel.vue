@@ -155,7 +155,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "acl/set-enabled", this.objectId, record.id, enabled );
+            const res = await this.$api.call( "acl/set-user-enabled", this.objectId, record.id, enabled );
 
             button.enable();
 
@@ -178,7 +178,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "acl/delete", this.objectId, record.id );
+            var res = await this.$api.call( "acl/delete-user", this.objectId, record.id );
 
             button.enable();
 

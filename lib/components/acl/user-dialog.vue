@@ -142,7 +142,7 @@ export default {
 
             this.ext.mask();
 
-            const res = await this.$api.call( "acl/add", this.objectId, userId, { enabled, roles } );
+            const res = await this.$api.call( "acl/add-user", this.objectId, userId, { enabled, roles } );
 
             this.ext.unmask();
 
