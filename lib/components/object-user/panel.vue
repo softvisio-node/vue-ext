@@ -4,6 +4,7 @@
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
             <ext-spacer/>
             <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_addUser"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
         <ext-panel ref="noData" :html="i18nd(`vue-ext`, `No records matched search criteria`)" layout="center"/>
@@ -115,14 +116,14 @@ export default {
         async reload () {
             this.$refs.cards.ext.mask();
 
+            this.store.loadRawData( [] );
+
             const res = await this.$api.call( "object-user/get-users", this.objectId );
 
             this.$refs.cards.ext.unmask();
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
-
-                this.store.loadRawData( [] );
             }
             else {
                 this.store.loadRawData( res.data );
@@ -218,9 +219,7 @@ export default {
 
         async _showUserDialog ( record ) {
             const cmp = await this.$mount( UserDialog, {
-                "props": {
-                    "onReload": () => this.reload(),
-                },
+                "props": { "onReload": () => this.reload() },
             } );
 
             cmp.setRecord( record, this.objectId );
