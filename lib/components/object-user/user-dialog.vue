@@ -30,7 +30,7 @@ export default {
 
             this.ext.getViewModel().set( "record", record );
 
-            this.store.loadRawData( record.get( "roles" ) );
+            this.store.loadRawData( JSON.parse( JSON.stringify( record.get( "roles" ) ) ) );
 
             this.suggestUsersStore.addFilter( {
                 "property": "object_id",
@@ -72,7 +72,7 @@ export default {
                             "xtype": "togglefield",
                             "bind": {
                                 "value": "{record.enabled}",
-                                "readOnly": "{!record.readOnly}",
+                                "disabled": "{record.readOnly}",
                             },
                             "listeners": { "change": this._setEnabled.bind( this ) },
                         },
@@ -116,6 +116,9 @@ export default {
             }
             else {
                 record.commit();
+
+                user.set( { "roles": JSON.parse( JSON.stringify( Ext.pluck( this.store.data.items, "data" ) ) ) } );
+                user.commit();
             }
         },
 
