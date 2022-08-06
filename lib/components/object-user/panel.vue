@@ -219,8 +219,7 @@ export default {
         async _showUserDialog ( record ) {
             const cmp = await this.$mount( UserDialog, {
                 "props": {
-                    "onreload": () => this.reload(),
-                    "reload": () => this.reload(),
+                    "onReload": () => this.reload(),
                 },
             } );
 
