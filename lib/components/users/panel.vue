@@ -79,7 +79,7 @@ export default {
                     "items": [
                         {
                             "xtype": "togglefield",
-                            "bind": { "value": { "bindTo": "{!!record.permissions.admin}", "deep": true } },
+                            "bind": { "value": { "bindTo": "{!!record.roles.admin}", "deep": true } },
                             "listeners": { "change": this.setUserAdmin.bind( this ) },
                         },
                     ],
@@ -151,14 +151,14 @@ export default {
         async setUserAdmin ( button, newVal, oldVal ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord(),
-                userPermissions = record.get( "permissions" ),
-                curVal = !!userPermissions.admin;
+                userRoles = record.get( "roles" ),
+                curVal = !!userRoles.admin;
 
             if ( newVal === curVal ) return;
 
             button.disable();
 
-            const res = await this.$api.call( "admin/user/update-permissions", record.get( "id" ), { "admin": newVal } );
+            const res = await this.$api.call( "admin/user/update-roles", record.get( "id" ), { "admin": newVal } );
 
             button.enable();
 
@@ -170,9 +170,9 @@ export default {
             else {
                 record.commit();
 
-                this.$utils.toast( this.i18nd( `vue-ext`, "User permissions updated" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "User roles updated" ) );
 
-                userPermissions.admin = newVal;
+                userRoles.admin = newVal;
             }
 
             return;

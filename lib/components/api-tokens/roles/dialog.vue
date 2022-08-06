@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import UserPermissionsModel from "../../../models/permissions";
+import UserRolesModel from "../../../models/roles";
 
 export default {
     mounted () {
         this.store = new Ext.data.Store( {
-            "model": UserPermissionsModel,
+            "model": UserRolesModel,
             "autoLoad": false,
             "remoteSort": false,
             "remoteFilter": false,
@@ -63,7 +63,7 @@ export default {
 
             this.ext.mask();
 
-            const res = await this.$api.call( "account/token/get-permissions", record.id );
+            const res = await this.$api.call( "account/token/get-roles", record.id );
 
             this.ext.unmask();
 
@@ -83,15 +83,15 @@ export default {
         },
 
         async submit () {
-            const permissions = {};
+            const roles = {};
 
             this.store.each( record => {
                 if ( !record.dirty ) return;
 
-                permissions[record.id] = record.get( "enabled" );
+                roles[record.id] = record.get( "enabled" );
             } );
 
-            const res = await this.$api.call( "account/token/update-permissions", this.record.id, permissions );
+            const res = await this.$api.call( "account/token/update-roles", this.record.id, roles );
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
@@ -99,7 +99,7 @@ export default {
             else {
                 this.$utils.toast( this.i18nd( `vue-ext`, "Token roles updated" ) );
 
-                this.record.set( "permissions", Ext.apply( {}, permissions, this.record.get( "permissions" ) ) );
+                this.record.set( "roles", Ext.apply( {}, roles, this.record.get( "roles" ) ) );
 
                 this.close();
             }
