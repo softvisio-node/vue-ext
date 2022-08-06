@@ -15,7 +15,7 @@
 
             <ext-column cell='{"encodeHtml":false}' dataIndex="roles_text" flex="1" :text="i18nd(`vue-ext`, `Roles`)"/>
 
-            <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `User enabled`)" width="200" @ready="_enabledColReady"/>
+            <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
 
             <ext-column width="80" @ready="_actionColReady"/>
         </ext-grid>
@@ -96,15 +96,15 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "fa-solid fa-edit",
-                            "tooltip": "Change user role",
+                            "iconCls": "fa-solid fa-unlock-alt",
+                            "tooltip": this.i18nd( "vue-ext", "Edit user roles" ),
                             "padding": "0 0 0 3",
                             "handler": this._editUser.bind( this ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
-                            "tooltip": "Delete user",
+                            "tooltip": this.i18nd( "vue-ext", "Delete user" ),
                             "handler": this._deleteUser.bind( this ),
                         },
                     ],

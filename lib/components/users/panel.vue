@@ -15,7 +15,7 @@
 
         <ext-column :text="i18nd(`vue-ext`, `Administrator`)" width="130" @ready="adminColReady"/>
 
-        <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `User enabled`)" width="200" @ready="enabledColReady"/>
+        <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="enabledColReady"/>
 
         <ext-column width="100" @ready="actionColReady"/>
     </ext-grid>
@@ -118,7 +118,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Edit user permissions" ),
+                            "tooltip": this.i18nd( `vue-ext`, "Edit user roles" ),
                             "handler": this.showUserPermissionsDialog.bind( this ),
                         },
                         {

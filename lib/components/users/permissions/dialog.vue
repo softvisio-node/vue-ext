@@ -1,7 +1,7 @@
 <template>
     <ext-dialog closeAction="hide" height="90%" layout="fit" :title="i18nd(`vue-ext`, `Edit user permissions`)" viewModel="true" width="800">
         <ext-grid multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
-            <ext-column dataIndex="name" :text="i18nd(`vue-ext`, `Name`)" width="150"/>
+            <ext-column dataIndex="name" :text="i18nd(`vue-ext`, `Role`)" width="150"/>
 
             <ext-column dataIndex="description" flex="1" :text="i18nd(`vue-ext`, `Description`)"/>
 

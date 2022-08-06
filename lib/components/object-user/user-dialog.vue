@@ -1,11 +1,13 @@
 <template>
-    <ext-dialog closeAction="hide" height="500" layout="vbox" :title="i18nd(`vue-ext`, `Add / update user roles`)" viewModel="true" width="700" @ready="_ready">
+    <ext-dialog closeAction="hide" height="500" layout="vbox" :title="i18nd(`vue-ext`, `User roles`)" viewModel="true" width="700" @ready="_ready">
         <ext-comboboxfield ref="addUserCombo" bind='{"hidden":"{!record.phantom}"}' displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" labelAlign="left" labelWidth="150" minChars="1" primaryFilter='{"operator":"like","property":"name"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
+
+        <ext-togglefield ref="enabledField" bind='{"hidden":"{!record.phantom}"}' :label="i18nd(`vue-ext`, `Access enabled`)" value="true"/>
 
         <ext-displayfield bind='{"hidden":"{record.phantom}","value":"{record.username}"}' :label="i18nd(`vue-ext`, `Username`)" labelAlign="left" labelWidth="150"/>
 
         <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true">
-            <ext-column dataIndex="name" qidth="150" :text="i18nd(`vue-ext`, `Role name`)"/>
+            <ext-column dataIndex="name" qidth="150" :text="i18nd(`vue-ext`, `Role`)"/>
 
             <ext-column dataIndex="description" flex="1" :text="i18nd(`vue-ext`, `Description`)"/>
 
@@ -41,6 +43,7 @@ export default {
             } );
 
             this.$refs.addUserCombo.ext.clearValue();
+            this.$refs.enabledField.ext.clearValue();
         },
 
         _ready ( e ) {
@@ -127,7 +130,8 @@ export default {
         },
 
         async _addUser () {
-            const userId = this.$refs.addUserCombo.ext.getValue();
+            const userId = this.$refs.addUserCombo.ext.getValue(),
+                enabled = this.$refs.enabledField.ext.getValue();
 
             if ( !userId ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, `Please, fill all required fields` ) );
@@ -143,7 +147,7 @@ export default {
 
             this.ext.mask();
 
-            const res = await this.$api.call( "object-user/add", this.objectId, userId, roles );
+            const res = await this.$api.call( "object-user/add", this.objectId, userId, { enabled, roles } );
 
             this.ext.unmask();
 

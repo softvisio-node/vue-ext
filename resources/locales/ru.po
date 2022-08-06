@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-05 17:10+0300\n"
+"POT-Creation-Date: 2022-08-06 07:00+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -86,7 +86,7 @@ msgid "Password changed"
 msgstr "Пароль изменен"
 
 #: lib/components/account/panel.vue:176:35
-#: lib/components/users/panel.vue:247:35
+#: lib/components/users/panel.vue:239:35
 msgid "Sessions were deleted"
 msgstr "Сессии были удалены"
 
@@ -193,21 +193,22 @@ msgstr "Токен скопирован"
 msgid "API tokens"
 msgstr "Токены API"
 
-#: lib/components/api-tokens/panel.vue:11:99
+#: lib/components/api-tokens/panel.vue:12:99
 #: lib/components/users/panel.vue:14:66
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: lib/components/api-tokens/panel.vue:12:80
-#: lib/components/api-tokens/permissions/dialog.vue:8:84
-#: lib/components/users/permissions/dialog.vue:8:84
-msgid "Enabled"
-msgstr "Включен"
+#: lib/components/api-tokens/panel.vue:14:80
+#: lib/components/object-user/panel.vue:18:63
+#: lib/components/object-user/user-dialog.vue:5:52
+#: lib/components/users/create/dialog.vue:7:37
+#: lib/components/users/panel.vue:18:80
+msgid "Access enabled"
+msgstr "Доступ разрешен"
 
-#: lib/components/api-tokens/panel.vue:72:39
-#: lib/components/api-tokens/permissions/dialog.vue:2:69
-msgid "Edit token permissions"
-msgstr "Редактировать права токена"
+#: lib/components/api-tokens/panel.vue:75:39
+msgid "Edit token roles"
+msgstr "Редактировать роли токена"
 
 #: lib/components/api-tokens/panel.vue:139:47
 msgid "Are you sure you want to delete this token?"
@@ -223,14 +224,24 @@ msgid "Name"
 msgstr "Имя"
 
 #: lib/components/api-tokens/permissions/dialog.vue:6:64
+#: lib/components/object-user/user-dialog.vue:12:64
 #: lib/components/users/permissions/dialog.vue:6:64
 msgid "Description"
 msgstr "Описание"
+
+#: lib/components/api-tokens/permissions/dialog.vue:8:84
+#: lib/components/users/permissions/dialog.vue:8:84
+msgid "Enabled"
+msgstr "Включен"
 
 #: lib/components/api-tokens/permissions/dialog.vue:12:62
 #: lib/components/users/permissions/dialog.vue:12:62
 msgid "Save"
 msgstr "Сохранить"
+
+#: lib/components/api-tokens/permissions/dialog.vue:2:69
+msgid "Edit token permissions"
+msgstr "Редактировать права токена"
 
 #: lib/components/api-tokens/permissions/dialog.vue:100:35
 msgid "Token permissions updated"
@@ -325,8 +336,6 @@ msgid "Cancel"
 msgstr "Отменить"
 
 #: lib/components/change-password-dialog.vue:10:31
-#: lib/components/object-user/panel1.vue:23:35
-#: lib/components/object-user/user-dialog.vue:23:35
 msgid "Submit"
 msgstr "Отправить"
 
@@ -393,24 +402,21 @@ msgstr "Telegram${n}уведомления"
 msgid "Push${n}notifications"
 msgstr "Push${n}уведомления"
 
-#: lib/components/notifications/panel.vue:157:35
+#: lib/components/notifications/panel.vue:154:35
 msgid "Telegram username updated"
 msgstr "Имя пользователя Telegram обновлено"
 
-#: lib/components/object-user/dialog.vue:16:23
+#: lib/components/object-user/dialog.vue:22:33
 msgid "Users"
 msgstr "Пользователи"
 
 #: lib/components/object-user/panel.vue:4:43
-#: lib/components/object-user/panel1.vue:4:43
-#: lib/components/object-user/user-dialog.vue:4:43
 #: lib/components/users/panel.vue:4:43
 msgid "Search users"
 msgstr "Искать пользователей"
 
 #: lib/components/object-user/panel.vue:6:58
-#: lib/components/object-user/panel1.vue:6:58
-#: lib/components/object-user/user-dialog.vue:6:58
+#: lib/components/object-user/user-dialog.vue:19:69
 msgid "Add user"
 msgstr "Добавить пользователя"
 
@@ -418,9 +424,8 @@ msgstr "Добавить пользователя"
 msgid "No records matched search criteria"
 msgstr "Нет записей, соответствующих критериям поиска"
 
-#: lib/components/object-user/panel.vue:14:118
-#: lib/components/object-user/panel1.vue:9:114
-#: lib/components/object-user/user-dialog.vue:9:114
+#: lib/components/object-user/panel.vue:14:99
+#: lib/components/object-user/user-dialog.vue:7:99
 #: lib/components/users/panel.vue:12:78
 msgid "Username"
 msgstr "Имя пользователя"
@@ -429,66 +434,49 @@ msgstr "Имя пользователя"
 msgid "Roles"
 msgstr "Роли"
 
-#: lib/components/object-user/panel.vue:18:63
-#: lib/components/object-user/panel.vue:179:44
-#: lib/components/users/create/dialog.vue:7:37
-#: lib/components/users/panel.vue:18:80 lib/components/users/panel.vue:206:44
+#: lib/components/object-user/panel.vue:169:44
+#: lib/components/users/panel.vue:202:44
 msgid "User enabled"
 msgstr "Пользователь включен"
 
-#: lib/components/object-user/panel.vue:179:86
-#: lib/components/users/panel.vue:206:86
+#: lib/components/object-user/panel.vue:169:86
+#: lib/components/users/panel.vue:202:86
 msgid "User disabled"
 msgstr "Пользователь выключен"
 
-#: lib/components/object-user/panel.vue:186:47
-#: lib/components/object-user/panel1.vue:197:47
-#: lib/components/object-user/user-dialog.vue:197:47
-#: lib/components/users/panel.vue:218:47
+#: lib/components/object-user/panel.vue:176:47
+#: lib/components/users/panel.vue:210:47
 msgid "Are you sure you want to delete user?"
 msgstr "Вы действительно хотите удалить пользователя?"
 
-#: lib/components/object-user/panel.vue:195:35
-#: lib/components/object-user/panel1.vue:206:35
-#: lib/components/object-user/user-dialog.vue:206:35
-#: lib/components/users/panel.vue:227:35
+#: lib/components/object-user/panel.vue:185:35
+#: lib/components/users/panel.vue:219:35
 msgid "User deleted"
 msgstr "Пользователь удален"
 
-#: lib/components/object-user/panel1.vue:10:86
-#: lib/components/object-user/user-dialog.vue:10:86
-msgid "Role"
-msgstr "Роль"
-
-#: lib/components/object-user/panel1.vue:15:100
-#: lib/components/object-user/user-dialog.vue:15:100
+#: lib/components/object-user/user-dialog.vue:3:134
 msgid "Select user"
 msgstr "Выбрать пользователя"
 
-#: lib/components/object-user/panel1.vue:17:60
-#: lib/components/object-user/user-dialog.vue:17:60
-msgid "User"
-msgstr "Пользователь"
+#: lib/components/object-user/user-dialog.vue:10:60
+msgid "Role"
+msgstr "Роль"
 
-#: lib/components/object-user/panel1.vue:19:218
-#: lib/components/object-user/user-dialog.vue:19:218
-msgid "Select user role"
-msgstr "Выбрать роль пользователя"
+#: lib/components/object-user/user-dialog.vue:14:78
+msgid "Role enabled"
+msgstr "Роль включена"
 
-#: lib/components/object-user/panel1.vue:14:80
-#: lib/components/object-user/user-dialog.vue:14:80
-msgid "Add / update user"
-msgstr "Добавить / обновить пользователя"
+#: lib/components/object-user/user-dialog.vue:2:70
+msgid "User roles"
+msgstr "Роли пользователя"
 
-#: lib/components/object-user/panel1.vue:229:35
-#: lib/components/object-user/user-dialog.vue:229:35
-msgid "Please, fill all fields"
-msgstr "Пожалуйста, заполните все поля"
+#: lib/components/object-user/user-dialog.vue:137:35
+msgid "Please, fill all required fields"
+msgstr "Пожалуйста, заполните все требуемые поля"
 
-#: lib/components/object-user/panel1.vue:240:35
-#: lib/components/object-user/user-dialog.vue:240:35
-msgid "Users updated"
-msgstr "Пользователи обновлены"
+#: lib/components/object-user/user-dialog.vue:158:35
+msgid "Users added"
+msgstr "Пользователь добавлен"
 
 #: lib/components/reset-password-dialog.vue:38:35
 msgid "Password reset token was not found"
@@ -510,9 +498,8 @@ msgid "User created"
 msgstr "Пользователь создан"
 
 #: lib/components/users/panel.vue:121:39
-#: lib/components/users/permissions/dialog.vue:2:69
-msgid "Edit user permissions"
-msgstr "Редактировать права пользователя"
+msgid "Edit user roles"
+msgstr "Редактировать роли пользователя"
 
 #: lib/components/users/panel.vue:127:39
 msgid "Delete user"
@@ -522,10 +509,14 @@ msgstr "Удалить пользователя"
 msgid "Actions"
 msgstr "Действия"
 
-#: lib/components/users/panel.vue:174:35
+#: lib/components/users/panel.vue:173:35
 #: lib/components/users/permissions/dialog.vue:100:35
 msgid "User permissions updated"
 msgstr "Права пользователя обновлены"
+
+#: lib/components/users/permissions/dialog.vue:2:69
+msgid "Edit user permissions"
+msgstr "Редактировать права пользователя"
 
 #: lib/index.js:65:28
 msgid "Unable to connect to the API server. Check, that you have internet connection."
@@ -543,7 +534,7 @@ msgstr "Ваша сессия былп прервана API серввером."
 msgid "Session closed"
 msgstr "Сессия закрыта"
 
-#: lib/models/object-user.js:23:41
+#: lib/models/object-user.js:21:51
 msgid "No roles assigned"
 msgstr "Нет назначенных ролей"
 
@@ -566,6 +557,23 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Role name"
+#~ msgstr "Имя роли"
+
+#, fuzzy
+#~| msgid "Add / update user"
+#~ msgid "Add / update user roles"
+#~ msgstr "Добавить / обновить пользователя"
+
+#~ msgid "User"
+#~ msgstr "Пользователь"
+
+#~ msgid "Select user role"
+#~ msgstr "Выбрать роль пользователя"
+
+#~ msgid "Please, fill all fields"
+#~ msgstr "Пожалуйста, заполните все поля"
 
 #~ msgid "Yes"
 #~ msgstr "Да"
@@ -611,9 +619,6 @@ msgstr "Email подтвержден успешно"
 
 #~ msgid "Test SMTP"
 #~ msgstr "Тест SMTP"
-
-#~ msgid "Please, fill all required fields"
-#~ msgstr "Пожалуйста, заполните все требуемые поля"
 
 #~ msgid "Settings updated"
 #~ msgstr "Настройки обновлены"

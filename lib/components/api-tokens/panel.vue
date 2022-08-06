@@ -8,8 +8,11 @@
         </ext-toolbar>
 
         <ext-column dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Token name`)"/>
+
         <ext-column dataIndex="created" formatter='date("dateStyle:short,timeStyle:short")' :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
-        <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Enabled`)" width="95" @ready="enabledColReady"/>
+
+        <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="enabledColReady"/>
+
         <ext-column width="80" @ready="actionColReady"/>
     </ext-grid>
 </template>
@@ -69,7 +72,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Edit token permissions" ),
+                            "tooltip": this.i18nd( `vue-ext`, "Edit token roles" ),
                             "handler": this.showTokenPermissionsDialog.bind( this ),
                         },
                         {

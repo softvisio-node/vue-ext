@@ -4,7 +4,7 @@
             <ext-emailfield :label="i18nd(`vue-ext`, `Email`)" name="username" required="true"/>
             <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" required="true"/>
             <ext-passwordfield :label="i18nd(`vue-ext`, `Confirm password`)" name="password1" required="true"/>
-            <ext-togglefield :label="i18nd(`vue-ext`, `User enabled`)" name="enabled" value="true"/>
+            <ext-togglefield :label="i18nd(`vue-ext`, `Access enabled`)" name="enabled" value="true"/>
             <ext-togglefield :label="i18nd(`vue-ext`, `Administrator`)" name="admin" value="false"/>
         </ext-fieldpanel>
 
