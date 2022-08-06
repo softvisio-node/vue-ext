@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-06 08:55+0300\n"
+"POT-Creation-Date: 2022-08-06 21:47+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -97,7 +97,9 @@ msgstr "Журнал викликів API"
 #: lib/components/api-call-log/history/dialog.vue:5:58
 #: lib/components/api-call-log/log/dialog.vue:5:58
 #: lib/components/api-call-log/panel.vue:7:78
-#: lib/components/api-tokens/panel.vue:7:58 lib/components/users/panel.vue:7:58
+#: lib/components/api-tokens/panel.vue:7:58
+#: lib/components/object-user/panel.vue:7:58
+#: lib/components/users/panel.vue:7:58
 msgid "Refresh"
 msgstr "Оновити"
 
@@ -200,8 +202,8 @@ msgstr "Дата створення"
 
 #: lib/components/api-tokens/panel.vue:14:80
 #: lib/components/api-tokens/panel.vue:131:45
-#: lib/components/object-user/panel.vue:18:63
-#: lib/components/object-user/panel.vue:169:45
+#: lib/components/object-user/panel.vue:19:63
+#: lib/components/object-user/panel.vue:170:45
 #: lib/components/object-user/user-dialog.vue:5:90
 #: lib/components/users/create/dialog.vue:7:37
 #: lib/components/users/panel.vue:18:80 lib/components/users/panel.vue:202:45
@@ -214,7 +216,7 @@ msgid "Edit token roles"
 msgstr "Редагувати ролі токена"
 
 #: lib/components/api-tokens/panel.vue:131:89
-#: lib/components/object-user/panel.vue:169:89
+#: lib/components/object-user/panel.vue:170:89
 #: lib/components/users/panel.vue:202:89
 msgid "Access disabled"
 msgstr "Доступ вимкнено"
@@ -228,7 +230,7 @@ msgid "API token deleted"
 msgstr "Токен API видалено"
 
 #: lib/components/api-tokens/roles/dialog.vue:4:48
-#: lib/components/object-user/user-dialog.vue:10:60
+#: lib/components/object-user/user-dialog.vue:10:48
 #: lib/components/users/roles/dialog.vue:4:48
 msgid "Role"
 msgstr "Роль"
@@ -428,37 +430,37 @@ msgstr "Пошук користувачів"
 msgid "Add user"
 msgstr "Додати користувача"
 
-#: lib/components/object-user/panel.vue:9:39
+#: lib/components/object-user/panel.vue:10:39
 msgid "No records matched search criteria"
 msgstr "Жоден запис не відповідає критеріям пошуку"
 
-#: lib/components/object-user/panel.vue:14:99
+#: lib/components/object-user/panel.vue:15:99
 #: lib/components/object-user/user-dialog.vue:7:99
 #: lib/components/users/panel.vue:12:78
 msgid "Username"
 msgstr "Ім'я користувача"
 
-#: lib/components/object-user/panel.vue:16:91
+#: lib/components/object-user/panel.vue:17:91
 msgid "Roles"
 msgstr "Ролі"
 
-#: lib/components/object-user/panel.vue:100:39
+#: lib/components/object-user/panel.vue:101:39
 #: lib/components/users/panel.vue:121:39
 #: lib/components/users/roles/dialog.vue:2:69
 msgid "Edit user roles"
 msgstr "Редагувати ролі користувача"
 
-#: lib/components/object-user/panel.vue:107:39
+#: lib/components/object-user/panel.vue:108:39
 #: lib/components/users/panel.vue:127:39
 msgid "Delete user"
 msgstr "Видалити користувача"
 
-#: lib/components/object-user/panel.vue:176:47
+#: lib/components/object-user/panel.vue:177:47
 #: lib/components/users/panel.vue:210:47
 msgid "Are you sure you want to delete user?"
 msgstr "Ви впевнені, що хочете видалити користувача?"
 
-#: lib/components/object-user/panel.vue:185:35
+#: lib/components/object-user/panel.vue:186:35
 #: lib/components/users/panel.vue:219:35
 msgid "User deleted"
 msgstr "Користувача видалено"
@@ -507,9 +509,6 @@ msgid "Actions"
 msgstr "Дії"
 
 #: lib/components/users/panel.vue:173:35
-msgid "User permissions updated"
-msgstr "Дозволи користувача оновлено"
-
 #: lib/components/users/roles/dialog.vue:100:35
 msgid "User roles updated"
 msgstr "Ролі користувача оновлено"
@@ -553,6 +552,9 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "User permissions updated"
+#~ msgstr "Дозволи користувача оновлено"
 
 #~ msgid "Enabled"
 #~ msgstr "Увімкнено"
