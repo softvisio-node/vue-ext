@@ -147,14 +147,14 @@ export default {
             }
         },
 
-        async _setUserEnabled ( button, newVal, oldVal ) {
+        async _setUserEnabled ( button, enabled ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            if ( newVal === record.get( "enabled" ) ) return;
+            if ( enabled === record.get( "enabled" ) ) return;
 
             button.disable();
 
-            const res = await this.$api.call( "object-user/set-enabled", this.objectId, record.id, newVal );
+            const res = await this.$api.call( "object-user/set-enabled", this.objectId, record.id, enabled );
 
             button.enable();
 
@@ -166,7 +166,7 @@ export default {
             else {
                 record.commit();
 
-                this.$utils.toast( newVal ? this.i18nd( `vue-ext`, `User enabled` ) : this.i18nd( `vue-ext`, `User disabled` ) );
+                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Access enabled` ) : this.i18nd( `vue-ext`, `Access disabled` ) );
             }
         },
 

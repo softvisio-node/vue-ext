@@ -94,20 +94,20 @@ export default {
             cmp.setStore( this.suggestUsersStore );
         },
 
-        async _setEnabled ( button, newVal, oldVal ) {
+        async _setEnabled ( button, enabled ) {
             const user = this.record;
 
             if ( user.phantom ) return;
 
             const record = button.lookupViewModel().get( "record" );
 
-            if ( newVal === record.get( "enabled" ) ) return;
+            if ( enabled === record.get( "enabled" ) ) return;
 
             button.disable();
 
             var res;
 
-            if ( newVal ) {
+            if ( enabled ) {
                 res = await this.$api.call( "object-user/add-role", this.objectId, user.id, record.id );
             }
             else {
@@ -123,6 +123,8 @@ export default {
             }
             else {
                 record.commit();
+
+                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Role enabled` ) : this.i18nd( `vue-ext`, `Role disabled` ) );
 
                 user.set( { "roles": JSON.parse( JSON.stringify( Ext.pluck( this.store.data.items, "data" ) ) ) } );
                 user.commit();

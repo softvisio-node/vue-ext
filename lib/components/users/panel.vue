@@ -23,7 +23,7 @@
 
 <script>
 import CreateDialog from "./create/dialog";
-import PermissionsDialog from "./permissions/dialog";
+import RolesDialog from "./roles/dialog";
 
 export default {
     mounted () {
@@ -119,7 +119,7 @@ export default {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
                             "tooltip": this.i18nd( `vue-ext`, "Edit user roles" ),
-                            "handler": this.showUserPermissionsDialog.bind( this ),
+                            "handler": this.showUserRolesDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
@@ -178,16 +178,16 @@ export default {
             return;
         },
 
-        async setUserEnabled ( button, newVal, oldVal ) {
+        async setUserEnabled ( button, enabled ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord(),
                 curVal = record.get( "enabled" );
 
-            if ( newVal === curVal ) return;
+            if ( enabled === curVal ) return;
 
             button.disable();
 
-            const res = await this.$api.call( "admin/user/set-enabled", record.get( "id" ), newVal );
+            const res = await this.$api.call( "admin/user/set-enabled", record.get( "id" ), enabled );
 
             button.enable();
 
@@ -199,7 +199,7 @@ export default {
             else {
                 record.commit();
 
-                this.$utils.toast( newVal ? this.i18nd( `vue-ext`, `User enabled` ) : this.i18nd( `vue-ext`, `User disabled` ) );
+                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Access enabled` ) : this.i18nd( `vue-ext`, `Access disabled` ) );
             }
         },
 
@@ -271,11 +271,11 @@ export default {
             cmp.ext.show();
         },
 
-        async showUserPermissionsDialog ( button ) {
+        async showUserRolesDialog ( button ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            const cmp = await this.$mount( PermissionsDialog );
+            const cmp = await this.$mount( RolesDialog );
 
             cmp.setRecord( record );
 

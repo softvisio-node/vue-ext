@@ -107,16 +107,16 @@ export default {
             this.$store["api-tokens"].reload();
         },
 
-        async setEnabled ( button, newVal, oldVal ) {
+        async setEnabled ( button, enabled ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord(),
                 curVal = record.get( "enabled" );
 
-            if ( newVal === curVal ) return;
+            if ( enabled === curVal ) return;
 
             button.disable();
 
-            const res = await this.$api.call( "account/token/set-enabled", record.get( "id" ), newVal );
+            const res = await this.$api.call( "account/token/set-enabled", record.id, enabled );
 
             button.enable();
 
@@ -127,6 +127,8 @@ export default {
             }
             else {
                 record.commit();
+
+                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Access enabled` ) : this.i18nd( `vue-ext`, `Access disabled` ) );
             }
 
             return;
