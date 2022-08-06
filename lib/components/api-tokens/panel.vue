@@ -19,7 +19,7 @@
 
 <script>
 import CreateDialog from "./create/dialog";
-import PermissionsDialog from "./permissions/dialog";
+import RolesDialog from "./roles/dialog";
 
 export default {
     mounted () {
@@ -73,7 +73,7 @@ export default {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
                             "tooltip": this.i18nd( `vue-ext`, "Edit token roles" ),
-                            "handler": this.showTokenPermissionsDialog.bind( this ),
+                            "handler": this.showTokenRolesDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
@@ -158,11 +158,11 @@ export default {
             cmp.ext.show();
         },
 
-        async showTokenPermissionsDialog ( button ) {
+        async showTokenRolesDialog ( button ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            const cmp = await this.$mount( PermissionsDialog );
+            const cmp = await this.$mount( RolesDialog );
 
             cmp.setRecord( record );
 
