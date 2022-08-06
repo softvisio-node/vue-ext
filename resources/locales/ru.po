@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-06 07:00+0300\n"
+"POT-Creation-Date: 2022-08-06 07:22+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -200,7 +200,7 @@ msgstr "Дата создания"
 
 #: lib/components/api-tokens/panel.vue:14:80
 #: lib/components/object-user/panel.vue:18:63
-#: lib/components/object-user/user-dialog.vue:5:52
+#: lib/components/object-user/user-dialog.vue:5:90
 #: lib/components/users/create/dialog.vue:7:37
 #: lib/components/users/panel.vue:18:80
 msgid "Access enabled"
@@ -219,9 +219,10 @@ msgid "API token deleted"
 msgstr "API токен удален"
 
 #: lib/components/api-tokens/permissions/dialog.vue:4:48
+#: lib/components/object-user/user-dialog.vue:10:60
 #: lib/components/users/permissions/dialog.vue:4:48
-msgid "Name"
-msgstr "Имя"
+msgid "Role"
+msgstr "Роль"
 
 #: lib/components/api-tokens/permissions/dialog.vue:6:64
 #: lib/components/object-user/user-dialog.vue:12:64
@@ -230,6 +231,7 @@ msgid "Description"
 msgstr "Описание"
 
 #: lib/components/api-tokens/permissions/dialog.vue:8:84
+#: lib/components/object-user/user-dialog.vue:14:78
 #: lib/components/users/permissions/dialog.vue:8:84
 msgid "Enabled"
 msgstr "Включен"
@@ -434,6 +436,16 @@ msgstr "Имя пользователя"
 msgid "Roles"
 msgstr "Роли"
 
+#: lib/components/object-user/panel.vue:100:39
+#: lib/components/users/panel.vue:121:39
+msgid "Edit user roles"
+msgstr "Редактировать роли пользователя"
+
+#: lib/components/object-user/panel.vue:107:39
+#: lib/components/users/panel.vue:127:39
+msgid "Delete user"
+msgstr "Удалить пользователя"
+
 #: lib/components/object-user/panel.vue:169:44
 #: lib/components/users/panel.vue:202:44
 msgid "User enabled"
@@ -457,14 +469,6 @@ msgstr "Пользователь удален"
 #: lib/components/object-user/user-dialog.vue:3:134
 msgid "Select user"
 msgstr "Выбрать пользователя"
-
-#: lib/components/object-user/user-dialog.vue:10:60
-msgid "Role"
-msgstr "Роль"
-
-#: lib/components/object-user/user-dialog.vue:14:78
-msgid "Role enabled"
-msgstr "Роль включена"
 
 #: lib/components/object-user/user-dialog.vue:2:70
 msgid "User roles"
@@ -496,14 +500,6 @@ msgstr "Создать пользователя"
 #: lib/components/users/create/dialog.vue:62:35
 msgid "User created"
 msgstr "Пользователь создан"
-
-#: lib/components/users/panel.vue:121:39
-msgid "Edit user roles"
-msgstr "Редактировать роли пользователя"
-
-#: lib/components/users/panel.vue:127:39
-msgid "Delete user"
-msgstr "Удалить пользователя"
 
 #: lib/components/users/panel.vue:133:39
 msgid "Actions"
@@ -557,6 +553,12 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Name"
+#~ msgstr "Имя"
+
+#~ msgid "Role enabled"
+#~ msgstr "Роль включена"
 
 #~ msgid "Role name"
 #~ msgstr "Имя роли"
