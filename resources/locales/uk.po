@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-06 07:29+0300\n"
+"POT-Creation-Date: 2022-08-06 08:55+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -199,54 +199,61 @@ msgid "Creation date"
 msgstr "Дата створення"
 
 #: lib/components/api-tokens/panel.vue:14:80
+#: lib/components/api-tokens/panel.vue:131:45
 #: lib/components/object-user/panel.vue:18:63
+#: lib/components/object-user/panel.vue:169:45
 #: lib/components/object-user/user-dialog.vue:5:90
 #: lib/components/users/create/dialog.vue:7:37
-#: lib/components/users/panel.vue:18:80
+#: lib/components/users/panel.vue:18:80 lib/components/users/panel.vue:202:45
 msgid "Access enabled"
 msgstr "Доступ увімкнено"
 
 #: lib/components/api-tokens/panel.vue:75:39
+#: lib/components/api-tokens/roles/dialog.vue:2:69
 msgid "Edit token roles"
 msgstr "Редагувати ролі токена"
 
-#: lib/components/api-tokens/panel.vue:139:47
+#: lib/components/api-tokens/panel.vue:131:89
+#: lib/components/object-user/panel.vue:169:89
+#: lib/components/users/panel.vue:202:89
+msgid "Access disabled"
+msgstr "Доступ вимкнено"
+
+#: lib/components/api-tokens/panel.vue:141:47
 msgid "Are you sure you want to delete this token?"
 msgstr "Ви впевнені, що хочете видалити цей токен?"
 
-#: lib/components/api-tokens/panel.vue:144:35
+#: lib/components/api-tokens/panel.vue:146:35
 msgid "API token deleted"
 msgstr "Токен API видалено"
 
-#: lib/components/api-tokens/permissions/dialog.vue:4:48
+#: lib/components/api-tokens/roles/dialog.vue:4:48
 #: lib/components/object-user/user-dialog.vue:10:60
-#: lib/components/users/permissions/dialog.vue:4:48
+#: lib/components/users/roles/dialog.vue:4:48
 msgid "Role"
 msgstr "Роль"
 
-#: lib/components/api-tokens/permissions/dialog.vue:6:64
+#: lib/components/api-tokens/roles/dialog.vue:6:64
 #: lib/components/object-user/user-dialog.vue:12:64
-#: lib/components/users/permissions/dialog.vue:6:64
+#: lib/components/users/roles/dialog.vue:6:64
 msgid "Description"
 msgstr "Опис"
 
-#: lib/components/api-tokens/permissions/dialog.vue:8:84
-#: lib/components/users/permissions/dialog.vue:8:84
-msgid "Enabled"
-msgstr "Увімкнено"
+#: lib/components/api-tokens/roles/dialog.vue:8:84
+#: lib/components/object-user/user-dialog.vue:14:78
+#: lib/components/object-user/user-dialog.vue:120:45
+#: lib/components/users/roles/dialog.vue:8:84
+msgid "Role enabled"
+msgstr "Роль увімкнено"
 
-#: lib/components/api-tokens/permissions/dialog.vue:12:62
-#: lib/components/users/permissions/dialog.vue:12:62
+#: lib/components/api-tokens/roles/dialog.vue:12:62
+#: lib/components/users/roles/dialog.vue:12:62
 msgid "Save"
 msgstr "Зберегти"
 
-#: lib/components/api-tokens/permissions/dialog.vue:2:69
-msgid "Edit token permissions"
-msgstr "Редагувати дозволи токена"
-
-#: lib/components/api-tokens/permissions/dialog.vue:100:35
-msgid "Token permissions updated"
-msgstr "Дозволи для токену оновлено"
+#: lib/components/api-tokens/roles/dialog.vue:100:35
+msgid "Token roles updated"
+msgstr "Ролі токена оновлено"
 
 #: lib/components/app-title/menu.vue:22:66
 msgid "Sign out"
@@ -331,8 +338,8 @@ msgid "Confirm your password"
 msgstr "Підтвердьте ваш пароль"
 
 #: lib/components/change-password-dialog.vue:9:31
-#: lib/components/reset-password-dialog.vue:10:31 lib/utils.js:87:36
-#: lib/utils.js:138:36
+#: lib/components/reset-password-dialog.vue:10:31 lib/utils.js:79:36
+#: lib/utils.js:131:36
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -437,6 +444,7 @@ msgstr "Ролі"
 
 #: lib/components/object-user/panel.vue:100:39
 #: lib/components/users/panel.vue:121:39
+#: lib/components/users/roles/dialog.vue:2:69
 msgid "Edit user roles"
 msgstr "Редагувати ролі користувача"
 
@@ -444,16 +452,6 @@ msgstr "Редагувати ролі користувача"
 #: lib/components/users/panel.vue:127:39
 msgid "Delete user"
 msgstr "Видалити користувача"
-
-#: lib/components/object-user/panel.vue:169:44
-#: lib/components/users/panel.vue:202:44
-msgid "User enabled"
-msgstr "Користувача увімкнено"
-
-#: lib/components/object-user/panel.vue:169:86
-#: lib/components/users/panel.vue:202:86
-msgid "User disabled"
-msgstr "Користувача вимкнено"
 
 #: lib/components/object-user/panel.vue:176:47
 #: lib/components/users/panel.vue:210:47
@@ -469,19 +467,19 @@ msgstr "Користувача видалено"
 msgid "Select user"
 msgstr "Виберіть користувача"
 
-#: lib/components/object-user/user-dialog.vue:14:78
-msgid "Role enabled"
-msgstr "Роль увімкнено"
-
 #: lib/components/object-user/user-dialog.vue:2:70
 msgid "User roles"
 msgstr "Ролі користувача"
 
-#: lib/components/object-user/user-dialog.vue:137:35
+#: lib/components/object-user/user-dialog.vue:120:87
+msgid "Role disabled"
+msgstr "Роль вимкнено"
+
+#: lib/components/object-user/user-dialog.vue:132:35
 msgid "Please, fill all required fields"
 msgstr "Будь ласка, заповніть усі обов'язкові поля"
 
-#: lib/components/object-user/user-dialog.vue:158:35
+#: lib/components/object-user/user-dialog.vue:153:35
 msgid "Users added"
 msgstr "Користувача додано"
 
@@ -509,13 +507,12 @@ msgid "Actions"
 msgstr "Дії"
 
 #: lib/components/users/panel.vue:173:35
-#: lib/components/users/permissions/dialog.vue:100:35
 msgid "User permissions updated"
 msgstr "Дозволи користувача оновлено"
 
-#: lib/components/users/permissions/dialog.vue:2:69
-msgid "Edit user permissions"
-msgstr "Редагувати дозволи користувача"
+#: lib/components/users/roles/dialog.vue:100:35
+msgid "User roles updated"
+msgstr "Ролі користувача оновлено"
 
 #: lib/index.js:65:28
 msgid "Unable to connect to the API server. Check, that you have internet connection."
@@ -541,11 +538,11 @@ msgstr "Ролі не призначено"
 msgid "Warning"
 msgstr "Увага"
 
-#: lib/utils.js:33:36 lib/utils.js:79:36 lib/utils.js:130:36
+#: lib/utils.js:33:36 lib/utils.js:84:36 lib/utils.js:136:36
 msgid "Ok"
 msgstr "Ok"
 
-#: lib/utils.js:48:14
+#: lib/utils.js:49:14
 msgid "Confirmation"
 msgstr "Підтвердження"
 
@@ -556,6 +553,21 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:78:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "Enabled"
+#~ msgstr "Увімкнено"
+
+#~ msgid "Edit token permissions"
+#~ msgstr "Редагувати дозволи токена"
+
+#~ msgid "User enabled"
+#~ msgstr "Користувача увімкнено"
+
+#~ msgid "User disabled"
+#~ msgstr "Користувача вимкнено"
+
+#~ msgid "Edit user permissions"
+#~ msgstr "Редагувати дозволи користувача"
 
 #~ msgid "Name"
 #~ msgstr "Ім'я"

@@ -105,14 +105,7 @@ export default {
 
             button.disable();
 
-            var res;
-
-            if ( enabled ) {
-                res = await this.$api.call( "object-user/add-role", this.objectId, user.id, record.id );
-            }
-            else {
-                res = await this.$api.call( "object-user/delete-role", this.objectId, user.id, record.id );
-            }
+            const res = await this.$api.call( "object-user/set-role-enabled", this.objectId, user.id, record.id, enabled );
 
             button.enable();
 
