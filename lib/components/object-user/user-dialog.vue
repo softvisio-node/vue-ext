@@ -7,7 +7,7 @@
         <ext-displayfield bind='{"hidden":"{record.phantom}","value":"{record.username}"}' :label="i18nd(`vue-ext`, `Username`)" labelAlign="left" labelWidth="150"/>
 
         <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true">
-            <ext-column dataIndex="name" qidth="150" :text="i18nd(`vue-ext`, `Role`)"/>
+            <ext-column dataIndex="name" :text="i18nd(`vue-ext`, `Role`)" width="150"/>
 
             <ext-column dataIndex="description" flex="1" :text="i18nd(`vue-ext`, `Description`)"/>
 
