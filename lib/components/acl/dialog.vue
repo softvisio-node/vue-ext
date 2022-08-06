@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ObjectUsersPanel from "#lib/components/object-user/panel";
+import ObjectUsersPanel from "#lib/components/acl/panel";
 
 export default {
     "components": { ObjectUsersPanel },

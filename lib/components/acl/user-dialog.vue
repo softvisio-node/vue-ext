@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import ObjectRoleModel from "#lib/models/object-role";
+import AclRoleModel from "#lib/models/acl-role";
 
 export default {
     "emits": ["reload"],
@@ -48,7 +48,7 @@ export default {
 
         _ready ( e ) {
             this.store = Ext.create( "Ext.data.Store", {
-                "model": ObjectRoleModel,
+                "model": AclRoleModel,
                 "remoteFilter": false,
                 "remoteSort": false,
             } );
@@ -61,7 +61,7 @@ export default {
                 "proxy": {
 
                     // "type": "softvisio",
-                    "api": { "read": "object-user/suggest-users" },
+                    "api": { "read": "acl/suggest-users" },
                 },
             } );
         },
@@ -105,7 +105,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "object-user/set-role-enabled", this.objectId, user.id, record.id, enabled );
+            const res = await this.$api.call( "acl/set-role-enabled", this.objectId, user.id, record.id, enabled );
 
             button.enable();
 
@@ -142,7 +142,7 @@ export default {
 
             this.ext.mask();
 
-            const res = await this.$api.call( "object-user/add", this.objectId, userId, { enabled, roles } );
+            const res = await this.$api.call( "acl/add", this.objectId, userId, { enabled, roles } );
 
             this.ext.unmask();
 

@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import ObjectUserModel from "#lib/models/object-user";
+import AclUserModel from "#lib/models/acl-user";
 import UserDialog from "./user-dialog";
 
 export default {
@@ -37,7 +37,7 @@ export default {
 
         _ready ( e ) {
             this.store = Ext.create( "Ext.data.Store", {
-                "model": ObjectUserModel,
+                "model": AclUserModel,
                 "remoteFilter": false,
                 "remoteSort": false,
             } );
@@ -118,7 +118,7 @@ export default {
 
             this.store.loadRawData( [] );
 
-            const res = await this.$api.call( "object-user/get-users", this.objectId );
+            const res = await this.$api.call( "acl/get-users", this.objectId );
 
             this.$refs.cards.ext.unmask();
 
@@ -155,7 +155,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "object-user/set-enabled", this.objectId, record.id, enabled );
+            const res = await this.$api.call( "acl/set-enabled", this.objectId, record.id, enabled );
 
             button.enable();
 
@@ -178,7 +178,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "object-user/delete", this.objectId, record.id );
+            var res = await this.$api.call( "acl/delete", this.objectId, record.id );
 
             button.enable();
 
@@ -201,7 +201,7 @@ export default {
         async _addUser () {
             this.$refs.cards.ext.mask();
 
-            const res = await this.$api.call( "object-user/get-roles", this.objectId );
+            const res = await this.$api.call( "acl/get-roles", this.objectId );
 
             this.$refs.cards.ext.unmask();
 
@@ -209,7 +209,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                const record = new ObjectUserModel( {
+                const record = new AclUserModel( {
                     "roles": res.data,
                 } );
 
