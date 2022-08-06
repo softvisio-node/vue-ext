@@ -1,5 +1,13 @@
 # Changelog
 
+### 7.4.31 (2022-08-06)
+
+Fixes:
+
+-   fix: api refactored
+-   fix: object user component refactored
+-   fix: object users list
+
 ### 7.4.30 (2022-08-03)
 
 Fixes:
