@@ -14,7 +14,7 @@
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button bind='{"hidden":"{!record.phantom}"}' :text="i18nd(`vue-ext`, `Add user`)" ui="action" @tap="_createUser"/>
+            <ext-button bind='{"hidden":"{!record.phantom}"}' :text="i18nd(`vue-ext`, `Add user`)" ui="action" @tap="_addUser"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -126,7 +126,7 @@ export default {
             }
         },
 
-        async _createUser () {
+        async _addUser () {
             const userId = this.$refs.addUserCombo.ext.getValue();
 
             if ( !userId ) {
