@@ -28,6 +28,23 @@ import AclUserModel from "#lib/models/acl-user";
 import UserDialog from "./user-dialog";
 
 export default {
+    mounted () {
+        this.store = Ext.create( "Ext.data.Store", {
+            "model": AclUserModel,
+            "remoteFilter": false,
+            "remoteSort": false,
+        } );
+
+        this.store.on( "datachanged", store => {
+            if ( !store.getCount() ) {
+                this.$refs.cards.ext.setActiveItem( this.$refs.noData.ext );
+            }
+            else {
+                this.$refs.cards.ext.setActiveItem( this.$refs.grid.ext );
+            }
+        } );
+    },
+
     "methods": {
         setObjectId ( objectId ) {
             this.objectId = objectId;
@@ -36,21 +53,6 @@ export default {
         },
 
         _ready ( e ) {
-            this.store = Ext.create( "Ext.data.Store", {
-                "model": AclUserModel,
-                "remoteFilter": false,
-                "remoteSort": false,
-            } );
-
-            this.store.on( "datachanged", store => {
-                if ( !store.getCount() ) {
-                    this.$refs.cards.ext.setActiveItem( this.$refs.noData.ext );
-                }
-                else {
-                    this.$refs.cards.ext.setActiveItem( this.$refs.grid.ext );
-                }
-            } );
-
             this.$refs.grid.ext.setStore( this.store );
         },
 
@@ -157,10 +159,10 @@ export default {
 
             const res = await this.$api.call( "acl/set-user-enabled", this.objectId, record.id, enabled );
 
-            button.enable();
-
             if ( !res.ok ) {
-                record.reject();
+                await this.$utils.sleep( 500 );
+
+                record.set( "enabled", !enabled );
 
                 this.$utils.toast( res );
             }
@@ -169,6 +171,8 @@ export default {
 
                 this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Access enabled` ) : this.i18nd( `vue-ext`, `Access disabled` ) );
             }
+
+            button.enable();
         },
 
         async _deleteUser ( button ) {
