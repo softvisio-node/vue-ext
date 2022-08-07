@@ -24,13 +24,13 @@
 </template>
 
 <script>
-import AclUserModel from "#lib/models/acl-user";
+import UserModel from "./models/user";
 import UserDialog from "./user-dialog";
 
 export default {
-    mounted () {
+    created () {
         this.store = Ext.create( "Ext.data.Store", {
-            "model": AclUserModel,
+            "model": UserModel,
             "remoteFilter": false,
             "remoteSort": false,
         } );
@@ -216,7 +216,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                const record = new AclUserModel( {
+                const record = new UserModel( {
                     "roles": res.data,
                 } );
 

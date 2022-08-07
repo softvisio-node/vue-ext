@@ -22,10 +22,26 @@
 </template>
 
 <script>
-import AclRoleModel from "#lib/models/acl-role";
+import RoleModel from "./models/role";
 
 export default {
     "emits": ["reload"],
+
+    created () {
+        this.store = Ext.create( "Ext.data.Store", {
+            "model": RoleModel,
+            "remoteFilter": false,
+            "remoteSort": false,
+        } );
+
+        this.suggestUsersStore = Ext.create( "Ext.data.Store", {
+            "autoLoad": false,
+            "pageSize": null,
+            "proxy": {
+                "api": { "read": "acl/suggest-users" },
+            },
+        } );
+    },
 
     "methods": {
         setRecord ( record, objectId ) {
@@ -47,23 +63,7 @@ export default {
         },
 
         _ready ( e ) {
-            this.store = Ext.create( "Ext.data.Store", {
-                "model": AclRoleModel,
-                "remoteFilter": false,
-                "remoteSort": false,
-            } );
-
             this.$refs.grid.ext.setStore( this.store );
-
-            this.suggestUsersStore = Ext.create( "Ext.data.Store", {
-                "autoLoad": false,
-                "pageSize": null,
-                "proxy": {
-
-                    // "type": "softvisio",
-                    "api": { "read": "acl/suggest-users" },
-                },
-            } );
         },
 
         _enabledColReady ( e ) {
