@@ -5,7 +5,6 @@
             <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" required="true"/>
             <ext-passwordfield :label="i18nd(`vue-ext`, `Confirm password`)" name="password1" required="true"/>
             <ext-togglefield :label="i18nd(`vue-ext`, `Access enabled`)" name="enabled" value="true"/>
-            <ext-togglefield :label="i18nd(`vue-ext`, `Administrator`)" name="admin" value="false"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
@@ -47,13 +46,6 @@ export default {
                 return;
             }
 
-            if ( vals.admin ) {
-                vals.roles = {
-                    "admin": true,
-                };
-            }
-
-            delete vals.admin;
             delete vals.password1;
 
             var res = await this.$api.call( "admin/user/create", vals );
