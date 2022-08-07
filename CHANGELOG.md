@@ -1,5 +1,19 @@
 # Changelog
 
+### 7.5.0 (2022-08-07)
+
+Features:
+
+-   feat: permissions renamed to roles
+
+Fixes:
+
+-   fix: admi toggle removed
+-   fix: admin toggle removed
+-   fix: frontend permissions renamed to roles
+-   fix: object-user renamed to acl
+-   fix: user auth
+
 ### 7.4.32 (2022-08-06)
 
 Fixes:
