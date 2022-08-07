@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-06 21:47+0300\n"
+"POT-Creation-Date: 2022-08-07 08:12+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -90,18 +90,113 @@ msgstr "Пароль изменен"
 msgid "Sessions were deleted"
 msgstr "Сессии были удалены"
 
-#: lib/components/api-call-log/dialog.vue:2:87
-msgid "API call log"
-msgstr "Лог вызовов API"
+#: lib/components/acl/dialog.vue:22:33
+msgid "Users"
+msgstr "Пользователи"
 
+#: lib/components/acl/panel.vue:4:43 lib/components/users/panel.vue:4:43
+msgid "Search users"
+msgstr "Искать пользователей"
+
+#: lib/components/acl/panel.vue:6:58 lib/components/acl/user-dialog.vue:19:69
+msgid "Add user"
+msgstr "Добавить пользователя"
+
+#: lib/components/acl/panel.vue:7:58
 #: lib/components/api-call-log/history/dialog.vue:5:58
 #: lib/components/api-call-log/log/dialog.vue:5:58
 #: lib/components/api-call-log/panel.vue:7:78
-#: lib/components/api-tokens/panel.vue:7:58
-#: lib/components/object-user/panel.vue:7:58
-#: lib/components/users/panel.vue:7:58
+#: lib/components/api-tokens/panel.vue:7:58 lib/components/users/panel.vue:7:58
 msgid "Refresh"
 msgstr "Обновить"
+
+#: lib/components/acl/panel.vue:10:39
+msgid "No records matched search criteria"
+msgstr "Нет записей, соответствующих критериям поиска"
+
+#: lib/components/acl/panel.vue:15:99 lib/components/acl/user-dialog.vue:7:99
+#: lib/components/users/panel.vue:12:78
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: lib/components/acl/panel.vue:17:91
+msgid "Roles"
+msgstr "Роли"
+
+#: lib/components/acl/panel.vue:19:63 lib/components/acl/panel.vue:170:45
+#: lib/components/acl/user-dialog.vue:5:90
+#: lib/components/api-tokens/panel.vue:14:80
+#: lib/components/api-tokens/panel.vue:131:45
+#: lib/components/users/create/dialog.vue:7:37
+#: lib/components/users/panel.vue:18:80 lib/components/users/panel.vue:202:45
+msgid "Access enabled"
+msgstr "Доступ разрешен"
+
+#: lib/components/acl/panel.vue:101:39 lib/components/users/panel.vue:121:39
+#: lib/components/users/roles/dialog.vue:2:69
+msgid "Edit user roles"
+msgstr "Редактировать роли пользователя"
+
+#: lib/components/acl/panel.vue:108:39 lib/components/users/panel.vue:127:39
+msgid "Delete user"
+msgstr "Удалить пользователя"
+
+#: lib/components/acl/panel.vue:170:89
+#: lib/components/api-tokens/panel.vue:131:89
+#: lib/components/users/panel.vue:202:89
+msgid "Access disabled"
+msgstr "Доступ запрещен"
+
+#: lib/components/acl/panel.vue:177:47 lib/components/users/panel.vue:210:47
+msgid "Are you sure you want to delete user?"
+msgstr "Вы действительно хотите удалить пользователя?"
+
+#: lib/components/acl/panel.vue:186:35 lib/components/users/panel.vue:219:35
+msgid "User deleted"
+msgstr "Пользователь удален"
+
+#: lib/components/acl/user-dialog.vue:3:134
+msgid "Select user"
+msgstr "Выбрать пользователя"
+
+#: lib/components/acl/user-dialog.vue:10:48
+#: lib/components/api-tokens/roles/dialog.vue:4:48
+#: lib/components/users/roles/dialog.vue:4:48
+msgid "Role"
+msgstr "Роль"
+
+#: lib/components/acl/user-dialog.vue:12:64
+#: lib/components/api-tokens/roles/dialog.vue:6:64
+#: lib/components/users/roles/dialog.vue:6:64
+msgid "Description"
+msgstr "Описание"
+
+#: lib/components/acl/user-dialog.vue:14:78
+#: lib/components/acl/user-dialog.vue:120:45
+#: lib/components/api-tokens/roles/dialog.vue:8:84
+#: lib/components/users/roles/dialog.vue:8:84
+msgid "Role enabled"
+msgstr "Роль включена"
+
+#: lib/components/acl/user-dialog.vue:2:70
+msgid "User roles"
+msgstr "Роли пользователя"
+
+#: lib/components/acl/user-dialog.vue:120:87
+msgid "Role disabled"
+msgstr "Роль отключена"
+
+#: lib/components/acl/user-dialog.vue:132:35
+msgid "Please, fill all required fields"
+msgstr "Пожалуйста, заполните все требуемые поля"
+
+#: lib/components/acl/user-dialog.vue:153:35
+msgid "Users added"
+msgstr "Пользователь добавлен"
+
+#: lib/components/api-call-log/dialog.vue:2:87
+msgid "API call log"
+msgstr "Лог вызовов API"
 
 #: lib/components/api-call-log/log/dialog.vue:9:103
 msgid "Started"
@@ -200,26 +295,10 @@ msgstr "Токены API"
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: lib/components/api-tokens/panel.vue:14:80
-#: lib/components/api-tokens/panel.vue:131:45
-#: lib/components/object-user/panel.vue:19:63
-#: lib/components/object-user/panel.vue:170:45
-#: lib/components/object-user/user-dialog.vue:5:90
-#: lib/components/users/create/dialog.vue:7:37
-#: lib/components/users/panel.vue:18:80 lib/components/users/panel.vue:202:45
-msgid "Access enabled"
-msgstr "Доступ разрешен"
-
 #: lib/components/api-tokens/panel.vue:75:39
 #: lib/components/api-tokens/roles/dialog.vue:2:69
 msgid "Edit token roles"
 msgstr "Редактировать роли токена"
-
-#: lib/components/api-tokens/panel.vue:131:89
-#: lib/components/object-user/panel.vue:170:89
-#: lib/components/users/panel.vue:202:89
-msgid "Access disabled"
-msgstr "Доступ запрещен"
 
 #: lib/components/api-tokens/panel.vue:141:47
 msgid "Are you sure you want to delete this token?"
@@ -228,25 +307,6 @@ msgstr "Вы действительно хотите удалить этот т�
 #: lib/components/api-tokens/panel.vue:146:35
 msgid "API token deleted"
 msgstr "API токен удален"
-
-#: lib/components/api-tokens/roles/dialog.vue:4:48
-#: lib/components/object-user/user-dialog.vue:10:48
-#: lib/components/users/roles/dialog.vue:4:48
-msgid "Role"
-msgstr "Роль"
-
-#: lib/components/api-tokens/roles/dialog.vue:6:64
-#: lib/components/object-user/user-dialog.vue:12:64
-#: lib/components/users/roles/dialog.vue:6:64
-msgid "Description"
-msgstr "Описание"
-
-#: lib/components/api-tokens/roles/dialog.vue:8:84
-#: lib/components/object-user/user-dialog.vue:14:78
-#: lib/components/object-user/user-dialog.vue:120:45
-#: lib/components/users/roles/dialog.vue:8:84
-msgid "Role enabled"
-msgstr "Роль включена"
 
 #: lib/components/api-tokens/roles/dialog.vue:12:62
 #: lib/components/users/roles/dialog.vue:12:62
@@ -416,75 +476,6 @@ msgstr "Push${n}уведомления"
 msgid "Telegram username updated"
 msgstr "Имя пользователя Telegram обновлено"
 
-#: lib/components/object-user/dialog.vue:22:33
-msgid "Users"
-msgstr "Пользователи"
-
-#: lib/components/object-user/panel.vue:4:43
-#: lib/components/users/panel.vue:4:43
-msgid "Search users"
-msgstr "Искать пользователей"
-
-#: lib/components/object-user/panel.vue:6:58
-#: lib/components/object-user/user-dialog.vue:19:69
-msgid "Add user"
-msgstr "Добавить пользователя"
-
-#: lib/components/object-user/panel.vue:10:39
-msgid "No records matched search criteria"
-msgstr "Нет записей, соответствующих критериям поиска"
-
-#: lib/components/object-user/panel.vue:15:99
-#: lib/components/object-user/user-dialog.vue:7:99
-#: lib/components/users/panel.vue:12:78
-msgid "Username"
-msgstr "Имя пользователя"
-
-#: lib/components/object-user/panel.vue:17:91
-msgid "Roles"
-msgstr "Роли"
-
-#: lib/components/object-user/panel.vue:101:39
-#: lib/components/users/panel.vue:121:39
-#: lib/components/users/roles/dialog.vue:2:69
-msgid "Edit user roles"
-msgstr "Редактировать роли пользователя"
-
-#: lib/components/object-user/panel.vue:108:39
-#: lib/components/users/panel.vue:127:39
-msgid "Delete user"
-msgstr "Удалить пользователя"
-
-#: lib/components/object-user/panel.vue:177:47
-#: lib/components/users/panel.vue:210:47
-msgid "Are you sure you want to delete user?"
-msgstr "Вы действительно хотите удалить пользователя?"
-
-#: lib/components/object-user/panel.vue:186:35
-#: lib/components/users/panel.vue:219:35
-msgid "User deleted"
-msgstr "Пользователь удален"
-
-#: lib/components/object-user/user-dialog.vue:3:134
-msgid "Select user"
-msgstr "Выбрать пользователя"
-
-#: lib/components/object-user/user-dialog.vue:2:70
-msgid "User roles"
-msgstr "Роли пользователя"
-
-#: lib/components/object-user/user-dialog.vue:120:87
-msgid "Role disabled"
-msgstr "Роль отключена"
-
-#: lib/components/object-user/user-dialog.vue:132:35
-msgid "Please, fill all required fields"
-msgstr "Пожалуйста, заполните все требуемые поля"
-
-#: lib/components/object-user/user-dialog.vue:153:35
-msgid "Users added"
-msgstr "Пользователь добавлен"
-
 #: lib/components/reset-password-dialog.vue:38:35
 msgid "Password reset token was not found"
 msgstr "Токен сброса пароля не найден"
@@ -515,7 +506,7 @@ msgstr "Роли пользователя обновлены"
 
 #: lib/index.js:65:28
 msgid "Unable to connect to the API server. Check, that you have internet connection."
-msgstr "Невозможно подключиться к серверу API. Проверьте, что у вас есть подключение к интернет."
+msgstr "Не удалось подключиться к серверу API. Проверьте, что у вас есть подключение к интернет."
 
 #: lib/index.js:66:21
 msgid "Connection error"
@@ -529,7 +520,7 @@ msgstr "Ваша сессия былп прервана API серввером."
 msgid "Session closed"
 msgstr "Сессия закрыта"
 
-#: lib/models/object-user.js:21:51
+#: lib/models/acl-user.js:21:51
 msgid "No roles assigned"
 msgstr "Нет назначенных ролей"
 
