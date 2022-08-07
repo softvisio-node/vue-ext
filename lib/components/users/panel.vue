@@ -13,8 +13,6 @@
 
         <ext-column dataIndex="created" formatter="date()" :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
 
-        <ext-column :text="i18nd(`vue-ext`, `Administrator`)" width="130" @ready="adminColReady"/>
-
         <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="enabledColReady"/>
 
         <ext-column width="100" @ready="actionColReady"/>
@@ -65,25 +63,6 @@ export default {
 
             cmp.setSummaryRenderer( function ( val ) {
                 return "Total Users: " + val;
-            } );
-        },
-
-        adminColReady ( e ) {
-            var cmp = e.detail.cmp;
-
-            cmp.setCell( {
-                "xtype": "widgetcell",
-                "widget": {
-                    "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "center" },
-                    "items": [
-                        {
-                            "xtype": "togglefield",
-                            "bind": { "value": { "bindTo": "{!!record.roles.admin}", "deep": true } },
-                            "listeners": { "change": this.setUserAdmin.bind( this ) },
-                        },
-                    ],
-                },
             } );
         },
 
@@ -146,36 +125,6 @@ export default {
                     ],
                 },
             } );
-        },
-
-        async setUserAdmin ( button, newVal, oldVal ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord(),
-                userRoles = record.get( "roles" ),
-                curVal = !!userRoles.admin;
-
-            if ( newVal === curVal ) return;
-
-            button.disable();
-
-            const res = await this.$api.call( "admin/user/update-roles", record.get( "id" ), { "admin": newVal } );
-
-            button.enable();
-
-            if ( !res.ok ) {
-                record.reject();
-
-                this.$utils.toast( res );
-            }
-            else {
-                record.commit();
-
-                this.$utils.toast( this.i18nd( `vue-ext`, "User roles updated" ) );
-
-                userRoles.admin = newVal;
-            }
-
-            return;
         },
 
         async setUserEnabled ( button, enabled ) {
