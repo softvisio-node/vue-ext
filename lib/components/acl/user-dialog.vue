@@ -79,7 +79,7 @@ export default {
                             "xtype": "togglefield",
                             "bind": {
                                 "value": "{record.enabled}",
-                                "disabled": "{record.readOnly}",
+                                "disabled": "{record.readonly}",
                             },
                             "listeners": { "change": this._setEnabled.bind( this ) },
                         },
