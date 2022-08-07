@@ -118,10 +118,10 @@ export default {
 
             const res = await this.$api.call( "account/token/set-enabled", record.id, enabled );
 
-            button.enable();
-
             if ( !res.ok ) {
-                record.reject();
+                await this.$utils.sleep( 500 );
+
+                record.set( "enabled", !enabled );
 
                 this.$utils.toast( res );
             }
@@ -131,7 +131,7 @@ export default {
                 this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Access enabled` ) : this.i18nd( `vue-ext`, `Access disabled` ) );
             }
 
-            return;
+            button.enable();
         },
 
         async delete ( button ) {

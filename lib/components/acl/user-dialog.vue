@@ -107,10 +107,10 @@ export default {
 
             const res = await this.$api.call( "acl/set-role-enabled", this.objectId, user.id, record.id, enabled );
 
-            button.enable();
-
             if ( !res.ok ) {
-                record.reject();
+                await this.$utils.sleep( 500 );
+
+                record.set( "enabled", !enabled );
 
                 this.$utils.toast( res );
             }
@@ -122,6 +122,8 @@ export default {
                 user.set( { "roles": JSON.parse( JSON.stringify( Ext.pluck( this.store.data.items, "data" ) ) ) } );
                 user.commit();
             }
+
+            button.enable();
         },
 
         async _addUser () {
