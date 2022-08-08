@@ -26,6 +26,8 @@
 
 <script>
 export default {
+    "emits": ["created"],
+
     "methods": {
         async ready ( e ) {
             this.ext = e.detail.cmp;
@@ -80,7 +82,7 @@ export default {
 
                 this.$utils.toast( this.i18nd( `vue-ext`, "API token created" ) );
 
-                this.$store["api-tokens"].reload();
+                this.$emit( "created" );
             }
             else {
                 this.$utils.toast( res );

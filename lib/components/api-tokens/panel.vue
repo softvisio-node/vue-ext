@@ -20,10 +20,15 @@
 <script>
 import CreateDialog from "./create/dialog";
 import RolesDialog from "./roles/dialog";
+import TokenModel from "./models/token";
 
 export default {
-    mounted () {
-        this.store = this.$store["api-tokens"].store;
+    created () {
+        this.store = Ext.create( "Ext.data.Store", {
+            "model": TokenModel,
+            "autoLoad": false,
+            "pageSize": 100,
+        } );
     },
 
     "methods": {
@@ -104,7 +109,7 @@ export default {
         },
 
         reload () {
-            this.$store["api-tokens"].reload();
+            this.store.loadPage( 1 );
         },
 
         async setEnabled ( button, enabled ) {
@@ -153,7 +158,11 @@ export default {
         },
 
         async showCreateTokenDialog () {
-            const cmp = await this.$mount( CreateDialog );
+            const cmp = await this.$mount( CreateDialog, {
+                "props": {
+                    "onCreated": () => this.reload(),
+                },
+            } );
 
             cmp.ext.show();
         },
