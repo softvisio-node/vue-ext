@@ -32,7 +32,7 @@
 import Avatar from "./avatar";
 import LocaleButton from "#lib/components/locale/button";
 import ChangePasswordDialog from "#lib/components/change-password-dialog";
-import ApiTokensDialog from "#lib/components/api-tokens/dialog";
+import TokensDialog from "#lib/components/tokens/dialog";
 
 export default {
     "components": { Avatar, LocaleButton },
@@ -100,7 +100,7 @@ export default {
         async showApiTokens () {
             this.hide();
 
-            const cmp = await this.$mount( ApiTokensDialog );
+            const cmp = await this.$mount( TokensDialog );
 
             cmp.ext.show();
         },
