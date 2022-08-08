@@ -2,7 +2,7 @@
     <ext-dialog closeAction="hide" height="95%" layout="vbox" scrollable="true" :title="title" viewModel="true" width="95%">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
         <Amcharts5 height="250" @ready="_createLoadChart"/>
@@ -28,7 +28,7 @@ export default {
 
             this.title = `History for Method "${record.id}"`;
 
-            this.refresh();
+            this.reload();
         },
 
         _createLoadChart ( cmp ) {
@@ -125,7 +125,7 @@ export default {
             } ) );
             legend.data.setAll( chart.series.values );
 
-            this.refresh();
+            this.reload();
         },
 
         _createRuntimeChart ( cmp ) {
@@ -202,7 +202,7 @@ export default {
                 "dateFormat": "i",
             } );
 
-            this.refresh();
+            this.reload();
         },
 
         _createExceptionsChart ( cmp ) {
@@ -293,7 +293,7 @@ export default {
                 "dateFormat": "i",
             } );
 
-            this.refresh();
+            this.reload();
         },
 
         _updateChart ( cmp, data ) {
@@ -306,7 +306,7 @@ export default {
             }
         },
 
-        async refresh () {
+        async reload () {
             if ( !this.record || !this._loadChart || !this._runtimeChart || !this._exceptionsChart ) return;
 
             this.ext.mask();

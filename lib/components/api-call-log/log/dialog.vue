@@ -2,7 +2,7 @@
     <ext-dialog closeAction="hide" height="95%" layout="fit" scrollable="true" :title="title" viewModel="true" width="95%">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
         <ext-grid ref="grid" layout="fit" multicolumnSort="true" @ready="gridReady">
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import ApiCallLogEntryModel from "#vue/models/api-call-log/entry";
+import EntryModel from "../models/entry";
 
 export default {
     data () {
@@ -29,9 +29,9 @@ export default {
         };
     },
 
-    mounted () {
+    created () {
         this.store = Ext.create( "Ext.data.Store", {
-            "model": ApiCallLogEntryModel,
+            "model": EntryModel,
             "autoLoad": false,
             "pageSize": 50,
         } );
@@ -61,7 +61,7 @@ export default {
             );
         },
 
-        async refresh () {
+        async reload () {
             this.store.loadPage( 1 );
         },
     },

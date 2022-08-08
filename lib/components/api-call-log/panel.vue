@@ -4,7 +4,7 @@
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
             <ext-spacer/>
             <ext-togglefield label="i18nd( `vue-ext`,`Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
-            <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+            <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
         <ext-column sorter='{"property":"id"}' :text="i18nd(`vue-ext`, `API method id`)" width="300" @ready="idColReady"/>
@@ -16,16 +16,16 @@
 </template>
 
 <script>
-import ApiCallLogStatModel from "#vue/models/api-call-log/stat";
+import StatModel from "./models/stat";
 import HistoryDialog from "./history/dialog";
 import LogDialog from "./log/dialog";
 import "#vue/components/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 export default {
-    mounted () {
+    created () {
         this.store = new Ext.data.Store( {
-            "model": ApiCallLogStatModel,
+            "model": StatModel,
             "autoLoad": false,
             "pageSize": null,
             "remoteSort": false,
@@ -43,7 +43,7 @@ export default {
 
             grid.setStore( this.store );
 
-            this.refresh();
+            this.reload();
         },
 
         idColReady ( e ) {
@@ -418,10 +418,10 @@ export default {
 
             if ( !this.autoRefreshInterval ) return;
 
-            this.autoRefreshIntervalClean = setInterval( () => this.refresh(), this.autoRefreshInterval );
+            this.autoRefreshIntervalClean = setInterval( () => this.reload(), this.autoRefreshInterval );
         },
 
-        async refresh () {
+        async reload () {
             if ( this.refreshing ) return;
 
             this.refreshing = true;
