@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.5.2 (2022-08-08)
+
+Fixes:
+
+-   fix: store refactored
+
 ### 7.5.1 (2022-08-08)
 
 Fixes:
