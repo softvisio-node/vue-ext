@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import UserRolesModel from "../../../models/roles";
+import RolesModel from "#lib/models/roles";
 
 export default {
-    mounted () {
+    created () {
         this.store = new Ext.data.Store( {
-            "model": UserRolesModel,
+            "model": RolesModel,
             "autoLoad": false,
             "remoteSort": false,
             "remoteFilter": false,

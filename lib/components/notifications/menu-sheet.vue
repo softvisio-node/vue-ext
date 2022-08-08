@@ -36,7 +36,7 @@ export default {
         "totalUndone": "_onTotalUndoneUpdate",
     },
 
-    mounted () {
+    created () {
         this.store = this.$store.notifications.store;
 
         this.store.reload();
