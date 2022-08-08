@@ -1,5 +1,13 @@
 # Changelog
 
+### 7.5.1 (2022-08-08)
+
+Fixes:
+
+-   fix: acl
+-   fix: store refactored
+-   fix: toggle field revert
+
 ### 7.5.0 (2022-08-07)
 
 Features:
