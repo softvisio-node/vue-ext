@@ -22,10 +22,15 @@
 <script>
 import CreateDialog from "./create/dialog";
 import RolesDialog from "./roles/dialog";
+import UserModel from "./models/user";
 
 export default {
-    mounted () {
-        this.store = this.$store.users.store;
+    created () {
+        this.store = Ext.create( "Ext.data.Store", {
+            "model": UserModel,
+            "autoLoad": false,
+            "pageSize": 50,
+        } );
     },
 
     "methods": {
@@ -213,11 +218,15 @@ export default {
         },
 
         reload () {
-            this.$store.users.reload();
+            this.store.loadPage( 1 );
         },
 
         async showCreateUserDialog () {
-            const cmp = await this.$mount( CreateDialog );
+            const cmp = await this.$mount( CreateDialog, {
+                "props": {
+                    "onCreated": () => this.reload(),
+                },
+            } );
 
             cmp.ext.show();
         },

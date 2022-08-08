@@ -16,6 +16,8 @@
 
 <script>
 export default {
+    "emits": ["created"],
+
     "methods": {
         async _ready ( e ) {
             this.ext = e.detail.cmp;
@@ -53,7 +55,7 @@ export default {
             if ( res.ok ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, "User created" ) );
 
-                this.$store.users.reload();
+                this.$emit( "created" );
 
                 this.close();
             }
