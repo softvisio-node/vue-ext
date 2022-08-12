@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.5.3 (2022-08-12)
+
+Fixes:
+
+-   fix: ext format label removed
+
 ### 7.5.2 (2022-08-08)
 
 Fixes:
