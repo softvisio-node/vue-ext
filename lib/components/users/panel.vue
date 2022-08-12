@@ -1,5 +1,5 @@
 <template>
-    <ext-grid ref="grid" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
+    <ext-panel ref="cards" layout="card">
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
             <ext-spacer/>
@@ -7,22 +7,34 @@
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
-        <ext-column width="40" @ready="avatarColReady"/>
+        <!-- no-data card -->
+        <ext-container ref="noDataCard" :html="i18nd(`vue-ext`, `You have no records match search criteria`)" layout="center" style="text-align: center"/>
 
-        <ext-column dataIndex="name" flex="1" summaryDataIndex="total" :text="i18nd(`vue-ext`, `Username`)" @ready="nameColReady"/>
+        <!-- error card -->
+        <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
+            <ext-container :html="i18nd(`vue-ext`, `Unable to load records`)"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" ui="action" @tap="reload"/>
+        </ext-container>
 
-        <ext-column dataIndex="created" formatter="date()" :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
+        <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="_gridReady">
+            <ext-column width="40" @ready="_avatarColReady"/>
 
-        <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="enabledColReady"/>
+            <ext-column dataIndex="name" flex="1" summaryDataIndex="total" :text="i18nd(`vue-ext`, `Username`)" @ready="_nameColReady"/>
 
-        <ext-column width="100" @ready="actionColReady"/>
-    </ext-grid>
+            <ext-column dataIndex="created" formatter="date()" :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
+
+            <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
+
+            <ext-column width="100" @ready="_actionColReady"/>
+        </ext-grid>
+    </ext-panel>
 </template>
 
 <script>
 import CreateDialog from "./create/dialog";
 import RolesDialog from "./roles/dialog";
 import UserModel from "./models/user";
+import loadMask from "#vue/load-mask";
 
 export default {
     created () {
@@ -31,10 +43,12 @@ export default {
             "autoLoad": false,
             "pageSize": 50,
         } );
+
+        this.store.on( "load", this._onStoreLoad.bind( this ) );
     },
 
     "methods": {
-        gridReady ( e ) {
+        _gridReady ( e ) {
             var grid = e.detail.cmp;
 
             grid.setPlugins( ["gridviewoptions", "autopaging"] );
@@ -48,7 +62,7 @@ export default {
             this.reload();
         },
 
-        avatarColReady ( e ) {
+        _avatarColReady ( e ) {
             var cmp = e.detail.cmp;
 
             cmp.setCell( {
@@ -61,7 +75,7 @@ export default {
             } );
         },
 
-        nameColReady ( e ) {
+        _nameColReady ( e ) {
             var cmp = e.detail.cmp;
 
             cmp.setCell( { "encodeHtml": false } );
@@ -71,7 +85,7 @@ export default {
             } );
         },
 
-        enabledColReady ( e ) {
+        _enabledColReady ( e ) {
             var cmp = e.detail.cmp;
 
             cmp.setCell( {
@@ -90,7 +104,7 @@ export default {
             } );
         },
 
-        actionColReady ( e ) {
+        _actionColReady ( e ) {
             var cmp = e.detail.cmp;
 
             cmp.setCell( {
@@ -218,6 +232,8 @@ export default {
         },
 
         reload () {
+            this.$refs.cards.ext.mask( loadMask );
+
             this.store.loadPage( 1 );
         },
 
@@ -240,6 +256,20 @@ export default {
             cmp.setRecord( record );
 
             cmp.ext.show();
+        },
+
+        _onStoreLoad ( store, records, success ) {
+            this.$refs.cards.ext.unmask();
+
+            if ( !success ) {
+                this.$refs.cards.ext.setActiveItem( this.$refs.errorCard.ext );
+            }
+            else if ( !this.store.count() ) {
+                this.$refs.cards.ext.setActiveItem( this.$refs.noDataCard.ext );
+            }
+            else {
+                this.$refs.cards.ext.setActiveItem( this.$refs.dataCard.ext );
+            }
         },
     },
 };
