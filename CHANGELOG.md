@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.5.4 (2022-08-12)
+
+Fixes:
+
+-   fix: translations
+
 ### 7.5.3 (2022-08-12)
 
 Fixes:
