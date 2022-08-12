@@ -8,7 +8,7 @@
         </ext-toolbar>
 
         <!-- no-data card -->
-        <ext-container ref="noDataCard" :html="i18nd(`vue-ext`, `You have no records match search criteria`)" layout="center" style="text-align: center"/>
+        <ext-container ref="noDataCard" :html="i18nd(`vue-ext`, `No records match search criteria`)" layout="center" style="text-align: center"/>
 
         <!-- error card -->
         <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
