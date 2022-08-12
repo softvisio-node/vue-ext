@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.5.5 (2022-08-12)
+
+Fixes:
+
+-   fix: users component
+
 ### 7.5.4 (2022-08-12)
 
 Fixes:
