@@ -1,5 +1,5 @@
 <template>
-    <ext-grid ref="grid" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
+    <ext-panel ref="cards" layout="card">
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
             <ext-spacer/>
@@ -7,20 +7,33 @@
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
-        <ext-column dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Token name`)"/>
+        <!-- no-data card -->
+        <ext-container ref="noDataCard" :html="i18nd(`vue-ext`, `No records match search criteria`)" layout="center" style="text-align: center"/>
 
-        <ext-column dataIndex="created" formatter='date("dateStyle:short,timeStyle:short")' :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
+        <!-- error card -->
+        <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
+            <ext-container :html="i18nd(`vue-ext`, `Unable to load records`)"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" ui="action" @tap="reload"/>
+        </ext-container>
 
-        <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="enabledColReady"/>
+        <!-- data card -->
+        <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
+            <ext-column dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Token name`)"/>
 
-        <ext-column width="80" @ready="actionColReady"/>
-    </ext-grid>
+            <ext-column dataIndex="created" formatter='date("dateStyle:short,timeStyle:short")' :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
+
+            <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="enabledColReady"/>
+
+            <ext-column width="80" @ready="actionColReady"/>
+        </ext-grid>
+    </ext-panel>
 </template>
 
 <script>
 import CreateDialog from "./create/dialog";
 import RolesDialog from "./roles/dialog";
 import TokenModel from "./models/token";
+import loadMask from "#vue/load-mask";
 
 export default {
     created () {
@@ -29,6 +42,8 @@ export default {
             "autoLoad": false,
             "pageSize": 100,
         } );
+
+        this.store.on( "load", this._onStoreLoad.bind( this ) );
     },
 
     "methods": {
@@ -109,6 +124,8 @@ export default {
         },
 
         reload () {
+            this.$refs.cards.ext.mask( loadMask );
+
             this.store.loadPage( 1 );
         },
 
@@ -176,6 +193,20 @@ export default {
             cmp.setRecord( record );
 
             cmp.ext.show();
+        },
+
+        _onStoreLoad ( store, records, success ) {
+            this.$refs.cards.ext.unmask();
+
+            if ( !success ) {
+                this.$refs.cards.ext.setActiveItem( this.$refs.errorCard.ext );
+            }
+            else if ( !this.store.count() ) {
+                this.$refs.cards.ext.setActiveItem( this.$refs.noDataCard.ext );
+            }
+            else {
+                this.$refs.cards.ext.setActiveItem( this.$refs.dataCard.ext );
+            }
         },
     },
 };

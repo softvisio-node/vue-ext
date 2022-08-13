@@ -16,6 +16,7 @@
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" ui="action" @tap="reload"/>
         </ext-container>
 
+        <!-- data card -->
         <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="_gridReady">
             <ext-column width="40" @ready="_avatarColReady"/>
 
