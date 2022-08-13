@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.5.6 (2022-08-13)
+
+Fixes:
+
+-   fix: account form
+-   fix: tokens panel
+
 ### 7.5.5 (2022-08-12)
 
 Fixes:
