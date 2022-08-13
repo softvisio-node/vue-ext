@@ -9,22 +9,28 @@
                 <ext-toolbar docked="top">
                     <ext-container :html="i18nd(`vue-ext`, `Password change`)"/>
                 </ext-toolbar>
-                <ext-fieldpanel ref="changePasswordForm">
+
+                <ext-fieldpanel ref="changePasswordForm" defaults='{"labelAlign":"left","labelWidth":200}'>
                     <ext-passwordfield :label="i18nd(`vue-ext`, `New password`)" name="password" required="true"/>
                     <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm new password`)" required="true"/>
-
-                    <ext-container layout='{"pack":"end","type":"hbox"}'>
-                        <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="changePassword"/>
-                    </ext-container>
                 </ext-fieldpanel>
+
+                <ext-container layout='{"pack":"end","type":"hbox"}'>
+                    <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="changePassword"/>
+                </ext-container>
             </ext-panel>
 
             <!-- drop sessions -->
+            <ext-panel>
+                <ext-toolbar docked="top">
+                    <ext-container :html="i18nd(`vue-ext`, `Drop sessions`)"/>
+                </ext-toolbar>
 
-            <ext-container layout="hbox">
-                <ext-container flex="1" :html="i18nd(`vue-ext`, `Sign out from all sessions, except this session`)"/>
-                <ext-button :text="i18nd(`vue-ext`, `Drop sessions`)" @tap="deleteSessions"/>
-            </ext-container>
+                <ext-container layout="hbox">
+                    <ext-container flex="1" :html="i18nd(`vue-ext`, `Sign out from all sessions, except this session`)"/>
+                    <ext-button :text="i18nd(`vue-ext`, `Drop sessions`)" @tap="deleteSessions"/>
+                </ext-container>
+            </ext-panel>
         </ext-panel>
 
         <!-- notifications -->
