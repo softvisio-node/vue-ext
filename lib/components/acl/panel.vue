@@ -46,8 +46,8 @@ export default {
     },
 
     "methods": {
-        setObjectId ( objectId ) {
-            this.objectId = objectId;
+        setAclId ( aclId ) {
+            this.aclId = aclId;
 
             this.reload();
         },
@@ -123,7 +123,7 @@ export default {
 
             this.store.loadRawData( [] );
 
-            const res = await this.$api.call( "acl/get-users", this.objectId );
+            const res = await this.$api.call( "acl/get-users", this.aclId );
 
             this.$refs.cards.ext.unmask();
 
@@ -160,7 +160,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "acl/set-user-enabled", this.objectId, record.id, enabled );
+            const res = await this.$api.call( "acl/set-user-enabled", this.aclId, record.id, enabled );
 
             if ( !res.ok ) {
                 await this.$utils.sleep( 500 );
@@ -185,7 +185,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "acl/delete-user", this.objectId, record.id );
+            var res = await this.$api.call( "acl/delete-user", this.aclId, record.id );
 
             button.enable();
 
@@ -208,7 +208,7 @@ export default {
         async _addUser () {
             this.$refs.cards.ext.mask();
 
-            const res = await this.$api.call( "acl/get-roles", this.objectId );
+            const res = await this.$api.call( "acl/get-roles", this.aclId );
 
             this.$refs.cards.ext.unmask();
 
@@ -229,7 +229,7 @@ export default {
                 "props": { "onReload": () => this.reload() },
             } );
 
-            cmp.setRecord( record, this.objectId );
+            cmp.setRecord( record, this.aclId );
 
             cmp.ext.show();
         },

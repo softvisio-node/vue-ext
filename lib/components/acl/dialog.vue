@@ -24,8 +24,8 @@ export default {
     },
 
     "methods": {
-        setObjectId ( objectId ) {
-            this.$refs.panel.setObjectId( objectId );
+        setAclId ( aclId ) {
+            this.$refs.panel.setAclId( aclId );
         },
     },
 };
