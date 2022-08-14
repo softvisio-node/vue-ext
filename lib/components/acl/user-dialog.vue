@@ -44,9 +44,9 @@ export default {
     },
 
     "methods": {
-        setRecord ( record, objectId ) {
+        setRecord ( record, aclId ) {
             this.record = record;
-            this.objectId = objectId;
+            this.aclId = aclId;
 
             this.ext.getViewModel().set( "record", record );
 
@@ -55,7 +55,7 @@ export default {
             this.suggestUsersStore.addFilter( {
                 "property": "object_id",
                 "operator": "=",
-                "value": objectId,
+                "value": aclId,
             } );
 
             this.$refs.addUserCombo.ext.clearValue();
@@ -105,7 +105,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "acl/set-role-enabled", this.objectId, user.id, record.id, enabled );
+            const res = await this.$api.call( "acl/set-role-enabled", this.aclId, user.id, record.id, enabled );
 
             if ( !res.ok ) {
                 await this.$utils.sleep( 500 );
@@ -144,7 +144,7 @@ export default {
 
             this.ext.mask();
 
-            const res = await this.$api.call( "acl/add-user", this.objectId, userId, { enabled, roles } );
+            const res = await this.$api.call( "acl/add-user", this.aclId, userId, { enabled, roles } );
 
             this.ext.unmask();
 
