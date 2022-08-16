@@ -53,7 +53,7 @@ export default {
             this.store.loadRawData( JSON.parse( JSON.stringify( record.get( "roles" ) ) ) );
 
             this.suggestUsersStore.addFilter( {
-                "property": "object_id",
+                "property": "acl_id",
                 "operator": "=",
                 "value": aclId,
             } );
