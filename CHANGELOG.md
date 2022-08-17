@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.5.11 (2022-08-17)
+
+Fixes:
+
+-   fix: acl roles layout
+
 ### 7.5.10 (2022-08-17)
 
 Fixes:
