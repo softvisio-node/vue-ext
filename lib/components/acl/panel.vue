@@ -7,7 +7,13 @@
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
-        <ext-panel ref="noData" :html="i18nd(`vue-ext`, `No records matched search criteria`)" layout="center"/>
+        <ext-panel ref="noDataCard" :html="i18nd(`vue-ext`, `No records matched search criteria`)" layout="center"/>
+
+        <!-- error card -->
+        <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
+            <ext-container :html="i18nd(`vue-ext`, `Unable to load records`)"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" ui="action" @tap="reload"/>
+        </ext-container>
 
         <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true">
             <ext-column width="40" @ready="_avatarColReady"/>
@@ -26,6 +32,7 @@
 <script>
 import UserModel from "./models/user";
 import UserDialog from "./user-dialog";
+import loadMask from "#vue/load-mask";
 
 export default {
     created () {
@@ -37,7 +44,7 @@ export default {
 
         this.store.on( "datachanged", store => {
             if ( !store.getCount() ) {
-                this.$refs.cards.ext.setActiveItem( this.$refs.noData.ext );
+                this.$refs.cards.ext.setActiveItem( this.$refs.noDataCard.ext );
             }
             else {
                 this.$refs.cards.ext.setActiveItem( this.$refs.grid.ext );
@@ -125,7 +132,7 @@ export default {
         },
 
         async reload () {
-            this.$refs.cards.ext.mask();
+            this.$refs.cards.ext.mask( loadMask );
 
             this.store.loadRawData( [] );
 
@@ -134,6 +141,8 @@ export default {
             this.$refs.cards.ext.unmask();
 
             if ( !res.ok ) {
+                this.$refs.cards.ext.setActiveItem( this.$refs.errorCard.ext );
+
                 this.$utils.toast( res );
             }
             else {
