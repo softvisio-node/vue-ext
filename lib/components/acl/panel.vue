@@ -137,7 +137,7 @@ export default {
 
             this.store.loadRawData( [] );
 
-            var res = await this.$api.call( "acl/get-acl", this.aclId );
+            var res = await this.$api.call( "acl/get-acl-permissions", this.aclId, "acl" );
 
             if ( !res.ok ) {
                 this.$refs.cards.ext.unmask();
