@@ -82,7 +82,7 @@ export default {
                             "xtype": "togglefield",
                             "bind": {
                                 "value": "{record.enabled}",
-                                "disabled": "{record.enabled_readonly}",
+                                "disabled": "{!record.can_set_enabled}",
                             },
                             "listeners": { "change": this._setUserEnabled.bind( this ) },
                         },
@@ -106,12 +106,18 @@ export default {
                             "tooltip": this.i18nd( "vue-ext", "Edit user roles" ),
                             "padding": "0 0 0 3",
                             "handler": this._editUser.bind( this ),
+                            "bind": {
+                                "disabled": "{!record.can_edit_roles}",
+                            },
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
                             "tooltip": this.i18nd( "vue-ext", "Delete user" ),
                             "handler": this._deleteUser.bind( this ),
+                            "bind": {
+                                "disabled": "{!record.can_delete}",
+                            },
                         },
                     ],
                 },
