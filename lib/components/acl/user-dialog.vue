@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="500" layout="vbox" :title="i18nd(`vue-ext`, `User roles`)" viewModel="true" width="700" @ready="_ready">
+    <ext-dialog closeAction="hide" height="500" layout="vbox" :title="i18nd(`vue-ext`, `User roles`)" viewModel="true" width="650" @ready="_ready">
         <ext-comboboxfield ref="addUserCombo" bind='{"hidden":"{!record.phantom}"}' displayField="name" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" labelAlign="left" labelWidth="150" minChars="1" primaryFilter='{"operator":"like","property":"name"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
 
         <ext-togglefield ref="enabledField" bind='{"hidden":"{!record.phantom}"}' :label="i18nd(`vue-ext`, `Access enabled`)" labelAlign="left" labelWidth="150" value="true"/>
@@ -7,9 +7,7 @@
         <ext-displayfield bind='{"hidden":"{record.phantom}","value":"{record.username}"}' :label="i18nd(`vue-ext`, `Username`)" labelAlign="left" labelWidth="150"/>
 
         <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true">
-            <ext-column dataIndex="name" :text="i18nd(`vue-ext`, `Role`)" width="150"/>
-
-            <ext-column dataIndex="description" flex="1" :text="i18nd(`vue-ext`, `Description`)"/>
+            <ext-column cell='{"encodeHtml":false}' dataIndex="role_html" flex="1" :text="i18nd(`vue-ext`, `Role`)"/>
 
             <ext-column align="center" sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Role enabled`)" width="160" @ready="_enabledColReady"/>
         </ext-grid>
@@ -73,7 +71,7 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "center" },
+                    "layout": { "type": "hbox", "pack": "center", "align": "top" },
                     "items": [
                         {
                             "xtype": "togglefield",
