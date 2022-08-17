@@ -1,9 +1,9 @@
 <template>
-    <ext-panel ref="cards" layout="card" @ready="_ready">
+    <ext-panel ref="cards" layout="card" viewModel="true" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_addUser"/>
+            <ext-button bind='{"hidden":"{!acl.can_add_user}"}' iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_addUser"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import AclModel from "./models/acl";
 import UserModel from "./models/user";
 import UserDialog from "./user-dialog";
 import loadMask from "#vue/load-mask";
@@ -136,7 +137,20 @@ export default {
 
             this.store.loadRawData( [] );
 
-            const res = await this.$api.call( "acl/get-users", this.aclId );
+            var res = await this.$api.call( "acl/get-acl", this.aclId );
+
+            if ( !res.ok ) {
+                this.$refs.cards.ext.unmask();
+
+                this.$refs.cards.ext.setActiveItem( this.$refs.errorCard.ext );
+
+                this.$utils.toast( res );
+            }
+
+            const acl = new AclModel( res.data );
+            this.$refs.cards.ext.getViewModel().set( "acl", acl );
+
+            res = await this.$api.call( "acl/get-users", this.aclId );
 
             this.$refs.cards.ext.unmask();
 
