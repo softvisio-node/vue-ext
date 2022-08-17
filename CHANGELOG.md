@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.5.10 (2022-08-17)
+
+Fixes:
+
+-   fix: acl get users
+
 ### 7.5.9 (2022-08-17)
 
 Fixes:
