@@ -6,10 +6,10 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
-import * as pdfJs from "pdfjs-dist/build/pdf";
-import PdfJsWorker from "pdfjs-dist/build/pdf.worker";
+import * as pdfjs from "pdfjs-dist/build/pdf.js";
+import pdfjsWorker from "pdfjs-dist/build/pdf.worker.js";
 
-pdfJs.GlobalWorkerOptions.workerPort = new PdfJsWorker();
+pdfjs.GlobalWorkerOptions.workerPort = new Worker( pdfjsWorker );
 
 const PdfDialog = defineAsyncComponent( () => import( "./dialog" ) );
 
@@ -193,7 +193,7 @@ export default {
 
             cmp.mask();
 
-            const loadingTask = pdfJs.getDocument( this.currentSrc );
+            const loadingTask = pdfjs.getDocument( this.currentSrc );
 
             // loadingTask.onProgress = function ( progress ) {
             //     var percent = parseInt( ( progress.loaded / progress.total ) * 100 );
