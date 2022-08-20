@@ -15,7 +15,7 @@
 
         <Notifications ref="notifications"/>
 
-        <AppMenu ref="menu" :apiTokens="apiTokensEnabled" :changePassword="changePasswordEnabled" :showAccount="accountEnabled" @showAccountDialog="showAccountDialog">
+        <AppMenu ref="menu" :accountEnabled="accountEnabled" :apiTokensEnabled="apiTokensEnabled" :changePasswordEnabled="changePasswordEnabled" @showAccountDialog="showAccountDialog">
             <template #top>
                 <slot name="menuTop"/>
             </template>
