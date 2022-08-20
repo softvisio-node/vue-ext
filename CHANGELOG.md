@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.5.16 (2022-08-20)
+
+Fixes:
+
+-   fix: app signout mask
+
 ### 7.5.15 (2022-08-20)
 
 Fixes:
