@@ -53,11 +53,11 @@ export default {
             var form = this.$refs.form.ext;
 
             if ( form.validate() ) {
-                var vals = form.getValues();
+                const vals = form.getValues();
 
                 Ext.Viewport.mask();
 
-                var res = await this.$app.signin( vals );
+                const res = await this.$app.signin( vals );
 
                 if ( !res.ok ) {
                     Ext.Viewport.unmask();

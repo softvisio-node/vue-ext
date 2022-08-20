@@ -33,14 +33,14 @@ export default {
         },
 
         async _submit () {
-            var form = this.$refs.form.ext;
+            const form = this.$refs.form.ext;
 
             if ( form.validate() ) {
-                var vals = form.getValues();
+                const vals = form.getValues();
 
                 Ext.Viewport.mask();
 
-                var res = await this.$store.session.sendPasswordResetEmail( vals.username );
+                const res = await this.$store.session.sendPasswordResetEmail( vals.username );
 
                 Ext.Viewport.unmask();
 
