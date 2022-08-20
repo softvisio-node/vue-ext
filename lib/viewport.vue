@@ -42,12 +42,16 @@ export default {
                 this.routeConfirmEmail();
             }
             else {
-                if ( this.isAuthenticated ) {
-                    this.routePrivate( route );
-                }
-                else {
-                    this.routePublic( route );
-                }
+                this._onRoute( route );
+            }
+        },
+
+        async _onRoute ( route ) {
+            if ( this.isAuthenticated ) {
+                this.routePrivate( route );
+            }
+            else {
+                this.routePublic( route );
             }
         },
 
