@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.5.15 (2022-08-20)
+
+Fixes:
+
+-   fix: route dispatcher
+
 ### 7.5.14 (2022-08-20)
 
 Fixes:
