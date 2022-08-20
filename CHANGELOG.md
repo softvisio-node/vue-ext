@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.5.13 (2022-08-20)
+
+Fixes:
+
+-   fix: app title props
+-   fix: pdfjs loader
+
 ### 7.5.12 (2022-08-17)
 
 Fixes:
