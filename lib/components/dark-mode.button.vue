@@ -1,5 +1,5 @@
 <template>
-    <ext-togglefield :boxLabel1="label" :boxLabelAlign="boxLabelAlign" :disabled="disabled" :label="label" :labelAlign="labelAlign" :labelWidth="labelWidth" :value="value" @change="value = $event"/>
+    <ext-togglefield :disabled="disabled" :label="label" :labelAlign="labelAlign" :labelTextAlign="labelTextAlign" :labelWidth="labelWidth" :value="value" @change="value = $event"/>
 </template>
 
 <script>
@@ -17,13 +17,13 @@ export default {
             "type": String,
             "default": "left",
         },
+        "labelTextAlign": {
+            "type": String,
+            "default": "left",
+        },
         "labelWidth": {
             "type": Number,
             "default": null,
-        },
-        "boxLabelAlign": {
-            "type": String,
-            "default": "after", // before, after
         },
         "disabled": {
             "type": Boolean,

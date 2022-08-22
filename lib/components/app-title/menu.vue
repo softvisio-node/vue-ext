@@ -23,10 +23,10 @@
             <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
 
             <!-- push notifications button -->
-            <PushNotificationsButton :hidden="!pushNotificationsEnabled"/>
+            <PushNotificationsButton :hidden="!pushNotificationsEnabled" labelWidth="200"/>
 
             <!-- dark node button -->
-            <DarkModeButton/>
+            <DarkModeButton labelWidth="200"/>
         </ext-panel>
     </ext-sheet>
 </template>
