@@ -81,7 +81,7 @@ export default {
         },
 
         pushNotificationsHidden () {
-            return !this.pushNotificationsEnabled || !this.$store.session.pushNotificationsAllowed || !this.$store.session.pushNotificationsSupported;
+            return !this.pushNotificationsEnabled || !this.$store.session.pushNotificationsSupported;
         },
 
         pushNotificationsValue () {
