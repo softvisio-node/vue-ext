@@ -26,9 +26,7 @@
             <PushNotificationsButton :hidden="!pushNotificationsEnabled"/>
 
             <!-- dark node button -->
-            <ext-container layout="hbox">
-                <ext-togglefield :boxLabel='`<i class="fa-solid fa-adjust"></i> ` + i18nd(`vue-ext`, `Dark mode`)' :value="darkMode" @change="darkMode = $event"/>
-            </ext-container>
+            <DarkModeButton/>
         </ext-panel>
     </ext-sheet>
 </template>
@@ -38,10 +36,11 @@ import Avatar from "./avatar";
 import LocaleButton from "#lib/components/locale.button";
 import ChangePasswordDialog from "#lib/components/change-password-dialog";
 import TokensDialog from "#lib/components/tokens/dialog";
+import DarkModeButton from "#lib/components/dark-mode.button";
 import PushNotificationsButton from "#lib/components/push-notifications.button";
 
 export default {
-    "components": { Avatar, LocaleButton, PushNotificationsButton },
+    "components": { Avatar, LocaleButton, PushNotificationsButton, DarkModeButton },
 
     "props": {
         "apiTokensEnabled": {
@@ -67,16 +66,6 @@ export default {
     "computed": {
         username () {
             return '<div class="username">' + this.$store.session.username + "</div>";
-        },
-
-        "darkMode": {
-            get () {
-                return this.$store.theme.darkMode;
-            },
-
-            set ( e ) {
-                this.$store.theme.setDarkMode( e.detail.newValue );
-            },
         },
     },
 
