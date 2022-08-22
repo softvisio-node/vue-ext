@@ -25,7 +25,7 @@ export default {
         },
 
         value () {
-            return this.$store.session.pushNotificationsEnabled;
+            return this.$store.session.pushNotificationsEnabled ? "true" : "";
         },
     },
 

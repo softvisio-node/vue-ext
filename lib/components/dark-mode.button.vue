@@ -43,9 +43,10 @@ export default {
                 return `<i class="fa-solid fa-adjust"></i> ${this.i18nd( `vue-ext`, `Dark mode` )}`;
             }
         },
+
         "value": {
             get () {
-                return this.$store.theme.darkMode + "";
+                return this.$store.theme.darkMode ? "true" : "";
             },
 
             set ( e ) {
