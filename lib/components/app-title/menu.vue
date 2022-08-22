@@ -20,13 +20,13 @@
 
             <LocaleButton :autoHide="true"/>
 
+            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
+
             <!-- push notifications button -->
-            <PushNotificationsButton :hidden="!pushNotificationsEnabled" labelTextAlign="right" labelWidth="200"/>
+            <PushNotificationsButton :hidden="!pushNotificationsEnabled" labelWidth="200"/>
 
             <!-- dark node button -->
-            <DarkModeButton labelTextAlign="right" labelWidth="200"/>
-
-            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
+            <DarkModeButton labelWidth="200"/>
         </ext-panel>
     </ext-sheet>
 </template>

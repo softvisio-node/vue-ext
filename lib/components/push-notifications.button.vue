@@ -14,7 +14,7 @@ export default {
             "default": "left",
         },
         "labelWidth": {
-            "type": Number,
+            "type": String,
             "default": null,
         },
     },
