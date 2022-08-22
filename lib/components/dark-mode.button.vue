@@ -1,5 +1,5 @@
 <template>
-    <ext-togglefield :boxLabel="label" :boxLabelAlign="boxLabelAlign" :value="darkMode" @change="darkMode = $event"/>
+    <ext-togglefield :boxLabel1="label" :boxLabelAlign="boxLabelAlign" :disabled="disabled" :label="label" :labelAlign="labelAlign" :labelWidth="labelWidth" :value="value" @change="value = $event"/>
 </template>
 
 <script>
@@ -13,9 +13,21 @@ export default {
             "type": Boolean,
             "default": false,
         },
+        "labelAlign": {
+            "type": String,
+            "default": "left",
+        },
+        "labelWidth": {
+            "type": Number,
+            "default": null,
+        },
         "boxLabelAlign": {
             "type": String,
             "default": "after", // before, after
+        },
+        "disabled": {
+            "type": Boolean,
+            "default": false,
         },
     },
 
@@ -31,7 +43,7 @@ export default {
                 return `<i class="fa-solid fa-adjust"></i> ${this.i18nd( `vue-ext`, `Dark mode` )}`;
             }
         },
-        "darkMode": {
+        "value": {
             get () {
                 return this.$store.theme.darkMode + "";
             },

@@ -44,10 +44,10 @@
                 <ext-container :html="i18nd(`vue-ext`, `Interface theme`)"/>
             </ext-toolbar>
 
-            <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}' layout1='{"align":"start","pack":"start","type":"vbox"}'>
+            <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}'>
                 <ext-togglefield :label="i18nd(`vue-ext`, `Use OS theme`)" :value="systemDarkMode" @change="systemDarkMode = $event"/>
 
-                <ext-togglefield :disabled="systemDarkMode" :label="darkModeLabel" :value="darkMode" @change="darkMode = $event"/>
+                <DarkModeButton :disabled="systemDarkMode"/>
 
                 <ext-fieldcontainer :label="i18nd(`vue-ext`, `Base color`)" layout="fit">
                     <ext-dataview inline="true" @childtap="themeBaseChanged" @ready="themesColorsViewReady"/>
@@ -65,15 +65,10 @@
 
 <script>
 import NotificationsPanel from "#lib/components/notifications/panel";
+import DarkModeButton from "#lib/components/dark-mode.button";
 
 export default {
-    "components": { NotificationsPanel },
-
-    data () {
-        return {
-            "darkModeLabel": `<i class="fa-solid fa-adjust"></i> ${this.i18nd( `vue-ext`, `Dark mode` )}`,
-        };
-    },
+    "components": { NotificationsPanel, DarkModeButton },
 
     "computed": {
         "systemDarkMode": {
@@ -83,16 +78,6 @@ export default {
 
             set ( e ) {
                 this.$store.theme.setSystemDarkMode( e.detail.newValue );
-            },
-        },
-
-        "darkMode": {
-            get () {
-                return this.$store.theme.darkMode + "";
-            },
-
-            set ( e ) {
-                this.$store.theme.setDarkMode( e.detail.newValue );
             },
         },
     },
