@@ -81,11 +81,11 @@ export default {
         },
 
         pushNotificationsHidden () {
-            return !this.pushNotificationsEnabled || !this.$store.session.isPushNotificationsAllowed || !this.$store.session.isPushNotificationsSupported;
+            return !this.pushNotificationsEnabled || !this.$store.session.pushNotificationsAllowed || !this.$store.session.pushNotificationsSupported;
         },
 
         pushNotificationsValue () {
-            return this.$store.session.isPushNotificationsEnabled;
+            return this.$store.session.pushNotificationsEnabled;
         },
     },
 
