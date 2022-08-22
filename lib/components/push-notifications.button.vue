@@ -19,6 +19,8 @@ export default {
             const button = e.detail.sender,
                 value = e.detail.newValue;
 
+            if ( value === this.$store.session.pushNotificationsEnabled ) return;
+
             button.disable();
 
             var res;
