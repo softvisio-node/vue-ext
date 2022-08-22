@@ -19,8 +19,15 @@
             <slot name="bottomDown"/>
 
             <LocaleButton :autoHide="true"/>
+
             <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
 
+            <!-- push notifications button -->
+            <ext-container :hidden="pushNotificationsHidden" layout="hbox">
+                <ext-togglefield :boxLabel="i18nd(`vue-ext`, `Enable push notifications`)" :value="pushNotificationsValue" @change="_togglePushNotifications"/>
+            </ext-container>
+
+            <!-- dark node button -->
             <ext-container layout="hbox">
                 <ext-togglefield :boxLabel='`<i class="fa-solid fa-adjust"></i> ` + i18nd(`vue-ext`, `Dark mode`)' :value="darkMode" @change="darkMode = $event"/>
             </ext-container>
@@ -50,6 +57,10 @@ export default {
             "type": Boolean,
             "default": false,
         },
+        "pushNotificationsEnabled": {
+            "type": Boolean,
+            "default": false,
+        },
     },
 
     "emits": ["showAccountDialog"],
@@ -67,6 +78,14 @@ export default {
             set ( e ) {
                 this.$store.theme.setDarkMode( e.detail.newValue );
             },
+        },
+
+        pushNotificationsHidden () {
+            return !this.pushNotificationsEnabled || !this.$store.session.isPushNotificationsAllowed || !this.$store.session.isPushNotificationsSupported;
+        },
+
+        pushNotificationsValue () {
+            return this.$store.session.isPushNotificationsEnabled;
         },
     },
 
@@ -117,6 +136,38 @@ export default {
             this.close();
 
             this.$app.signout();
+        },
+
+        async _togglePushNotifications ( e ) {
+            const button = e.detail.sender,
+                value = e.detail.newValue;
+
+            button.disable();
+
+            var res;
+
+            if ( value ) {
+                res = await this.$store.session.enablePushNotifications();
+            }
+            else {
+                res = await this.$store.session.disablePushNotifications();
+            }
+
+            button.enable();
+
+            if ( !res.ok ) {
+                button.setValue( !value );
+
+                this.$utils.toast( res );
+            }
+            else {
+                if ( value ) {
+                    this.$utils.toast( this.i18nd( "vue-ext", "Push notifications enabled" ) );
+                }
+                else {
+                    this.$utils.toast( this.i18nd( "vue-ext", "Push notifications disabled" ) );
+                }
+            }
         },
     },
 };
