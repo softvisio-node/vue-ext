@@ -35,7 +35,7 @@
 
 <script>
 import Avatar from "./avatar";
-import LocaleButton from "#lib/components/locale/button";
+import LocaleButton from "#lib/components/locale.button";
 import ChangePasswordDialog from "#lib/components/change-password-dialog";
 import TokensDialog from "#lib/components/tokens/dialog";
 import PushNotificationsButton from "#lib/components/push-notifications.button";

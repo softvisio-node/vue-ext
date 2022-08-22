@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import LocaleButton from "#lib/components/locale/button";
+import LocaleButton from "#lib/components/locale.button";
 import SigninForm from "./signin-form";
 import ResetPasswordForm from "./reset-password-form";
 import SignupForm from "./signup-form";
