@@ -23,9 +23,7 @@
             <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
 
             <!-- push notifications button -->
-            <ext-container :hidden="pushNotificationsHidden" layout="hbox">
-                <ext-togglefield :boxLabel="i18nd(`vue-ext`, `Enable push notifications`)" :value="pushNotificationsValue" @change="_togglePushNotifications"/>
-            </ext-container>
+            <PushNotificationsButton :hidden="!pushNotificationsEnabled"/>
 
             <!-- dark node button -->
             <ext-container layout="hbox">
@@ -40,9 +38,10 @@ import Avatar from "./avatar";
 import LocaleButton from "#lib/components/locale/button";
 import ChangePasswordDialog from "#lib/components/change-password-dialog";
 import TokensDialog from "#lib/components/tokens/dialog";
+import PushNotificationsButton from "#lib/components/push-notifications.button";
 
 export default {
-    "components": { Avatar, LocaleButton },
+    "components": { Avatar, LocaleButton, PushNotificationsButton },
 
     "props": {
         "apiTokensEnabled": {
@@ -78,14 +77,6 @@ export default {
             set ( e ) {
                 this.$store.theme.setDarkMode( e.detail.newValue );
             },
-        },
-
-        pushNotificationsHidden () {
-            return !this.pushNotificationsEnabled || !this.$store.session.pushNotificationsSupported;
-        },
-
-        pushNotificationsValue () {
-            return this.$store.session.pushNotificationsEnabled;
         },
     },
 
@@ -136,38 +127,6 @@ export default {
             this.close();
 
             this.$app.signout();
-        },
-
-        async _togglePushNotifications ( e ) {
-            const button = e.detail.sender,
-                value = e.detail.newValue;
-
-            button.disable();
-
-            var res;
-
-            if ( value ) {
-                res = await this.$store.session.enablePushNotifications();
-            }
-            else {
-                res = await this.$store.session.disablePushNotifications();
-            }
-
-            button.enable();
-
-            if ( !res.ok ) {
-                button.setValue( !value );
-
-                this.$utils.toast( res );
-            }
-            else {
-                if ( value ) {
-                    this.$utils.toast( this.i18nd( "vue-ext", "Push notifications enabled" ) );
-                }
-                else {
-                    this.$utils.toast( this.i18nd( "vue-ext", "Push notifications disabled" ) );
-                }
-            }
         },
     },
 };
