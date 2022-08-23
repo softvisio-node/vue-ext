@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-13 00:17+0300\n"
+"POT-Creation-Date: 2022-08-23 03:54+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -23,70 +23,65 @@ msgstr "Ваш аккаунт"
 msgid "Password change"
 msgstr "Зміна пароля"
 
-#: lib/components/account/panel.vue:13:47
+#: lib/components/account/panel.vue:14:47
 #: lib/components/reset-password-dialog.vue:5:39
 msgid "New password"
 msgstr "Новий пароль"
 
-#: lib/components/account/panel.vue:14:69
+#: lib/components/account/panel.vue:15:69
 #: lib/components/reset-password-dialog.vue:6:61
 msgid "Confirm new password"
 msgstr "Підтвердити новий пароль"
 
-#: lib/components/account/panel.vue:17:43
+#: lib/components/account/panel.vue:19:39
 #: lib/components/app-title/menu.vue:17:95
 #: lib/components/change-password-dialog.vue:2:56
 msgid "Change password"
 msgstr "Змінити пароль"
 
-#: lib/components/account/panel.vue:25:47
-msgid "Sign out from all sessions, except this session"
-msgstr "Вийти з усіх сеансів, крім цього"
-
-#: lib/components/account/panel.vue:26:35 lib/components/users/panel.vue:138:48
+#: lib/components/account/panel.vue:26:42
+#: lib/components/account/panel.vue:31:39 lib/components/users/panel.vue:139:48
 msgid "Drop sessions"
 msgstr "Відкидати сеанси"
+
+#: lib/components/account/panel.vue:30:51
+msgid "Sign out from all sessions, except this session"
+msgstr "Вийти з усіх сеансів, крім цього"
 
 #: lib/components/account/panel.vue:6:41
 msgid "Security"
 msgstr "Безпека"
 
-#: lib/components/account/panel.vue:31:40
+#: lib/components/account/panel.vue:37:40
 #: lib/components/notifications/menu-sheet.vue:4:76
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: lib/components/account/panel.vue:38:38
-#: lib/components/account/panel.vue:36:41
+#: lib/components/account/panel.vue:44:38
+#: lib/components/account/panel.vue:42:41
 msgid "Interface theme"
 msgstr "Тема інтерфейсу"
 
-#: lib/components/account/panel.vue:42:41
+#: lib/components/account/panel.vue:48:41
 msgid "Use OS theme"
 msgstr "Використовувати тему ОС"
 
-#: lib/components/account/panel.vue:46:44
+#: lib/components/account/panel.vue:52:44
 msgid "Base color"
 msgstr "Базовий колір"
 
-#: lib/components/account/panel.vue:50:44
+#: lib/components/account/panel.vue:56:44
 msgid "Accent color"
 msgstr "Колір акценту"
 
-#: lib/components/account/panel.vue:68:67
-#: lib/components/app-title/menu.vue:25:84
-#: lib/components/dark-mode/button.vue:31:61
-msgid "Dark mode"
-msgstr "Темний режим"
-
-#: lib/components/account/panel.vue:156:35
+#: lib/components/account/panel.vue:147:35
 #: lib/components/change-password-dialog.vue:59:35
 #: lib/components/reset-password-dialog.vue:75:35
 msgid "Password changed"
 msgstr "Пароль змінено"
 
-#: lib/components/account/panel.vue:176:35
-#: lib/components/users/panel.vue:209:35
+#: lib/components/account/panel.vue:167:35
+#: lib/components/users/panel.vue:210:35
 msgid "Sessions were deleted"
 msgstr "Сеанси видалено"
 
@@ -94,7 +89,7 @@ msgstr "Сеанси видалено"
 msgid "Users"
 msgstr "Користувачі"
 
-#: lib/components/acl/models/user.js:22:51
+#: lib/components/acl/models/user.js:34:51
 msgid "No roles assigned"
 msgstr "Ролі не призначено"
 
@@ -102,59 +97,64 @@ msgstr "Ролі не призначено"
 msgid "Search users"
 msgstr "Пошук користувачів"
 
-#: lib/components/acl/panel.vue:6:58 lib/components/acl/user-dialog.vue:19:69
+#: lib/components/acl/panel.vue:6:98 lib/components/acl/user-dialog.vue:17:69
 msgid "Add user"
 msgstr "Додати користувача"
 
-#: lib/components/acl/panel.vue:7:58
+#: lib/components/acl/panel.vue:7:58 lib/components/acl/panel.vue:15:58
 #: lib/components/api-call-log/history/dialog.vue:5:58
 #: lib/components/api-call-log/log/dialog.vue:5:58
 #: lib/components/api-call-log/panel.vue:7:78
-#: lib/components/tokens/panel.vue:7:58 lib/components/users/panel.vue:7:58
-#: lib/components/users/panel.vue:16:58
+#: lib/components/tokens/panel.vue:7:58 lib/components/tokens/panel.vue:16:58
+#: lib/components/users/panel.vue:7:58 lib/components/users/panel.vue:16:58
 msgid "Refresh"
 msgstr "Оновити"
 
-#: lib/components/acl/panel.vue:10:39
+#: lib/components/acl/panel.vue:10:43
 msgid "No records matched search criteria"
 msgstr "Жоден запис не відповідає критеріям пошуку"
 
-#: lib/components/acl/panel.vue:15:99 lib/components/acl/user-dialog.vue:7:99
-#: lib/components/users/panel.vue:22:82
+#: lib/components/acl/panel.vue:14:34 lib/components/tokens/panel.vue:15:34
+#: lib/components/users/panel.vue:15:34
+msgid "Unable to load records"
+msgstr "Неможливо завантажити записи"
+
+#: lib/components/acl/panel.vue:21:99 lib/components/acl/user-dialog.vue:7:99
+#: lib/components/users/panel.vue:23:82
 msgid "Username"
 msgstr "Ім'я користувача"
 
-#: lib/components/acl/panel.vue:17:91
+#: lib/components/acl/panel.vue:23:91
 msgid "Roles"
 msgstr "Ролі"
 
-#: lib/components/acl/panel.vue:19:63 lib/components/acl/panel.vue:175:45
+#: lib/components/acl/panel.vue:25:63 lib/components/acl/panel.vue:204:45
 #: lib/components/acl/user-dialog.vue:5:90
-#: lib/components/tokens/panel.vue:14:80 lib/components/tokens/panel.vue:136:45
+#: lib/components/tokens/panel.vue:25:84 lib/components/tokens/panel.vue:153:45
 #: lib/components/users/create/dialog.vue:7:37
-#: lib/components/users/panel.vue:26:84 lib/components/users/panel.vue:170:45
+#: lib/components/users/panel.vue:27:84 lib/components/users/panel.vue:171:45
 msgid "Access enabled"
 msgstr "Доступ увімкнено"
 
-#: lib/components/acl/panel.vue:106:39 lib/components/users/panel.vue:119:39
+#: lib/components/acl/panel.vue:114:39 lib/components/users/panel.vue:120:39
 #: lib/components/users/roles/dialog.vue:2:69
 msgid "Edit user roles"
 msgstr "Редагувати ролі користувача"
 
-#: lib/components/acl/panel.vue:113:39 lib/components/users/panel.vue:125:39
+#: lib/components/acl/panel.vue:124:39 lib/components/users/panel.vue:126:39
 msgid "Delete user"
 msgstr "Видалити користувача"
 
-#: lib/components/acl/panel.vue:175:89 lib/components/tokens/panel.vue:136:89
-#: lib/components/users/panel.vue:170:89
+#: lib/components/acl/panel.vue:204:89 lib/components/tokens/panel.vue:153:89
+#: lib/components/users/panel.vue:171:89
 msgid "Access disabled"
 msgstr "Доступ вимкнено"
 
-#: lib/components/acl/panel.vue:184:47 lib/components/users/panel.vue:180:47
+#: lib/components/acl/panel.vue:213:47 lib/components/users/panel.vue:181:47
 msgid "Are you sure you want to delete user?"
 msgstr "Ви впевнені, що хочете видалити користувача?"
 
-#: lib/components/acl/panel.vue:193:35 lib/components/users/panel.vue:189:35
+#: lib/components/acl/panel.vue:222:35 lib/components/users/panel.vue:190:35
 msgid "User deleted"
 msgstr "Користувача видалено"
 
@@ -162,20 +162,14 @@ msgstr "Користувача видалено"
 msgid "Select user"
 msgstr "Виберіть користувача"
 
-#: lib/components/acl/user-dialog.vue:10:48
+#: lib/components/acl/user-dialog.vue:10:119
 #: lib/components/tokens/roles/dialog.vue:4:48
 #: lib/components/users/roles/dialog.vue:4:48
 msgid "Role"
 msgstr "Роль"
 
-#: lib/components/acl/user-dialog.vue:12:64
-#: lib/components/tokens/roles/dialog.vue:6:64
-#: lib/components/users/roles/dialog.vue:6:64
-msgid "Description"
-msgstr "Опис"
-
-#: lib/components/acl/user-dialog.vue:14:78
-#: lib/components/acl/user-dialog.vue:120:45
+#: lib/components/acl/user-dialog.vue:12:78
+#: lib/components/acl/user-dialog.vue:118:45
 #: lib/components/tokens/roles/dialog.vue:8:84
 #: lib/components/users/roles/dialog.vue:8:84
 msgid "Role enabled"
@@ -185,15 +179,15 @@ msgstr "Роль увімкнено"
 msgid "User roles"
 msgstr "Ролі користувача"
 
-#: lib/components/acl/user-dialog.vue:120:87
+#: lib/components/acl/user-dialog.vue:118:87
 msgid "Role disabled"
 msgstr "Роль вимкнено"
 
-#: lib/components/acl/user-dialog.vue:134:35
+#: lib/components/acl/user-dialog.vue:132:35
 msgid "Please, fill all required fields"
 msgstr "Будь ласка, заповніть усі обов'язкові поля"
 
-#: lib/components/acl/user-dialog.vue:155:35
+#: lib/components/acl/user-dialog.vue:153:35
 msgid "Users added"
 msgstr "Користувача додано"
 
@@ -251,7 +245,7 @@ msgstr "Помилки за останні 60 хвилин (%)"
 msgid "API tokens"
 msgstr "Токени API"
 
-#: lib/components/app-title/menu.vue:22:66
+#: lib/components/app-title/menu.vue:23:66
 msgid "Sign out"
 msgstr "Вийти"
 
@@ -343,6 +337,10 @@ msgstr "Скасувати"
 msgid "Submit"
 msgstr "Подати"
 
+#: lib/components/dark-mode.button.vue:43:61
+msgid "Dark mode"
+msgstr "Темний режим"
+
 #: lib/components/notifications/dialog.vue:2:50
 #: lib/components/notifications/menu-sheet.vue:8:78
 msgid "Notifications settings"
@@ -410,12 +408,24 @@ msgstr "Push${n}сповіщення"
 msgid "Telegram username updated"
 msgstr "Ім’я користувача Telegram оновлено"
 
+#: lib/components/push-notifications.button.vue:2:46
+msgid "Enable push notifications"
+msgstr "Увімкнути push-сповіщення"
+
+#: lib/components/push-notifications.button.vue:59:39
+msgid "Push notifications enabled"
+msgstr "Push-сповіщення ввімкнено"
+
+#: lib/components/push-notifications.button.vue:62:39
+msgid "Push notifications disabled"
+msgstr "Push-повідомлення вимкнено"
+
 #: lib/components/reset-password-dialog.vue:38:35
 msgid "Password reset token was not found"
 msgstr "Токен скидання пароля не знайдено"
 
 #: lib/components/tokens/create/dialog.vue:4:46
-#: lib/components/tokens/panel.vue:10:53
+#: lib/components/tokens/panel.vue:21:57
 msgid "Token name"
 msgstr "Ім'я токена"
 
@@ -456,22 +466,31 @@ msgstr "Створено токен API"
 msgid "Token copied to the clipboard"
 msgstr "Токен скопійовано в буфер обміну"
 
-#: lib/components/tokens/panel.vue:12:99 lib/components/users/panel.vue:24:70
+#: lib/components/tokens/panel.vue:11:47 lib/components/users/panel.vue:11:47
+msgid "No records match search criteria"
+msgstr "Жоден запис не відповідає критеріям пошуку"
+
+#: lib/components/tokens/panel.vue:23:103 lib/components/users/panel.vue:25:70
 msgid "Creation date"
 msgstr "Дата створення"
 
-#: lib/components/tokens/panel.vue:80:39
+#: lib/components/tokens/panel.vue:95:39
 #: lib/components/tokens/roles/dialog.vue:2:69
 msgid "Edit token roles"
 msgstr "Редагувати ролі токена"
 
-#: lib/components/tokens/panel.vue:146:47
+#: lib/components/tokens/panel.vue:163:47
 msgid "Are you sure you want to delete this token?"
 msgstr "Ви впевнені, що хочете видалити цей токен?"
 
-#: lib/components/tokens/panel.vue:151:35
+#: lib/components/tokens/panel.vue:168:35
 msgid "API token deleted"
 msgstr "Токен API видалено"
+
+#: lib/components/tokens/roles/dialog.vue:6:64
+#: lib/components/users/roles/dialog.vue:6:64
+msgid "Description"
+msgstr "Опис"
 
 #: lib/components/tokens/roles/dialog.vue:12:62
 #: lib/components/users/roles/dialog.vue:12:62
@@ -492,15 +511,7 @@ msgstr "Створити користувача"
 msgid "User created"
 msgstr "Користувач створений"
 
-#: lib/components/users/panel.vue:11:47
-msgid "No records match search criteria"
-msgstr "Жоден запис не відповідає критеріям пошуку"
-
-#: lib/components/users/panel.vue:15:34
-msgid "Unable to load records"
-msgstr "Неможливо завантажити записи"
-
-#: lib/components/users/panel.vue:131:39
+#: lib/components/users/panel.vue:132:39
 msgid "Actions"
 msgstr "Дії"
 
@@ -508,19 +519,19 @@ msgstr "Дії"
 msgid "User roles updated"
 msgstr "Ролі користувача оновлено"
 
-#: lib/index.js:65:28
+#: lib/index.js:73:28
 msgid "Unable to connect to the API server. Check, that you have internet connection."
 msgstr "Не вдається підключитися до сервера API. Перевірте, чи є у вас підключення до Інтернету."
 
-#: lib/index.js:66:21
+#: lib/index.js:74:21
 msgid "Connection error"
 msgstr "Помилка з'єднання"
 
-#: lib/index.js:88:28
+#: lib/index.js:96:28
 msgid "Your session was terminated on the API server."
 msgstr "Ваш сеанс був припинений на сервері API."
 
-#: lib/index.js:89:21
+#: lib/index.js:97:21
 msgid "Session closed"
 msgstr "Сесія закрита"
 
@@ -536,11 +547,11 @@ msgstr "Ok"
 msgid "Confirmation"
 msgstr "Підтвердження"
 
-#: lib/viewport.vue:68:35
+#: lib/viewport.vue:72:35
 msgid "Email confirmation token is invalid"
 msgstr "Токен підтвердження електронної пошти недійсний"
 
-#: lib/viewport.vue:78:39
+#: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
 
