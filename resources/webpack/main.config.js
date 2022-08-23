@@ -1,6 +1,6 @@
-import config from "@softvisio/vue/resources/webpack.vue.app.config.js";
+import config from "@softvisio/vue/resources/webpack/main.config.js";
 
-config.schemas.push( new URL( "./schemas/env.vue.app.schema.yaml", import.meta.url ) );
+config.schemas.push( new URL( "../schemas/env.vue.app.schema.yaml", import.meta.url ) );
 
 config.resolve.alias = {
     ...config.resolve.alias,
