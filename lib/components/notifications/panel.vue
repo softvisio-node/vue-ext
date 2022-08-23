@@ -6,16 +6,17 @@
         <!-- </ext-container> -->
 
         <!-- telegram settings -->
-        <ext-container :hidden="telegramHidden" layout="hbox">
+        <ext-container :hidden="telegramHidden">
             <ext-toolbar docked="top">
                 <ext-container html="Telegram"/>
                 <ext-spacer/>
-                <PushNotificationsButton :hideLabel="true"/>
+                <ext-button iconAlign="right" iconCls="fa-solid fa-external-link-alt" :text="i18nd(`vue-ext`, `Open bot`)" @tap="_openTelegramBot"/>
             </ext-toolbar>
 
-            <ext-textfield ref="telegramUsernameField" :label="i18nd(`vue-ext`, `Your Telegram username`)" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
-            <ext-button :text="i18nd(`vue-ext`, `Update`)" @tap="_updateTelegramUsername"/>
-            <ext-button iconAlign="right" iconCls="fa-solid fa-external-link-alt" :text="i18nd(`vue-ext`, msgid`Open @${telegramBotUsername}`)" @tap="_openTelegramBot"/>
+            <ext-container layout='{"pack":"start","type":"hbox"}'>
+                <ext-textfield ref="telegramUsernameField" flex="1" :label="i18nd(`vue-ext`, `Your Telegram username`)" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
+                <ext-button :text="i18nd(`vue-ext`, `Save username`)" @tap="_updateTelegramUsername"/>
+            </ext-container>
         </ext-container>
 
         <!-- push notifications -->
@@ -31,7 +32,7 @@
         </ext-panel>
 
         <!-- notification types -->
-        <ext-container :hidden="!telegramEnabled">
+        <ext-container :hidden="telegramHidden">
             <div>{{ i18nd( `vue-ext`,msgid`In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${telegramBotUsername}</b> and press <b>"Start"</b>.`) }}</div>
         </ext-container>
 

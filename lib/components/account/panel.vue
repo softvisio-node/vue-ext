@@ -3,7 +3,7 @@
         <slot name="top"/>
 
         <!-- security -->
-        <ext-panel layout="vbox" :title="i18nd(`vue-ext`, `Security`)" viewModel="true">
+        <ext-panel defaults='{"padding":"0 0 30 0"}' layout="vbox" :title="i18nd(`vue-ext`, `Security`)" viewModel="true">
             <!-- change password -->
             <ext-panel>
                 <ext-toolbar docked="top">
