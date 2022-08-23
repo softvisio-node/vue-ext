@@ -1,10 +1,14 @@
 <template>
-    <ext-togglefield :hidden="hidden" :label="i18nd(`vue-ext`, `Enable push notifications`)" :labelAlign="labelAlign" :labelTextAlign="labelTextAlign" :labelWidth="labelWidth" :value="value" @change="_toggle"/>
+    <ext-togglefield :hidden="hidden" :label="label" :labelAlign="labelAlign" :labelTextAlign="labelTextAlign" :labelWidth="labelWidth" :value="value" @change="_toggle"/>
 </template>
 
 <script>
 export default {
     "props": {
+        "hideLabel": {
+            "type": Boolean,
+            "default": false,
+        },
         "labelAlign": {
             "type": String,
             "default": "left",
@@ -22,6 +26,15 @@ export default {
     "computed": {
         hidden () {
             return !this.$store.session.pushNotificationsSupported;
+        },
+
+        label () {
+            if ( this.hideLabel ) {
+                return "";
+            }
+            else {
+                return this.i18nd( `vue-ext`, `Receive push notifications` );
+            }
         },
 
         value () {

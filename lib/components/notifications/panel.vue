@@ -1,16 +1,36 @@
 <template>
-    <ext-panel layout="vbox" @ready="_ready">
+    <ext-panel defaults='{"padding":"0 0 30 0"}' layout="vbox" @ready="_ready">
         <!-- <ext-container layout="hbox"> -->
         <!--     <ext-textfield :label="i18nd( `vue-ext`,`Yout Email Address`)" labelAlign="left" labelWidth="150" :value="email"/> -->
         <!--     <ext-button :text="i18nd( `vue-ext`,`Update`)"/> -->
         <!-- </ext-container> -->
 
-        <ext-container :hidden="!telegramEnabled" layout="hbox">
+        <!-- telegram settings -->
+        <ext-container :hidden="telegramHidden" layout="hbox">
+            <ext-toolbar docked="top">
+                <ext-container html="Telegram"/>
+                <ext-spacer/>
+                <PushNotificationsButton :hideLabel="true"/>
+            </ext-toolbar>
+
             <ext-textfield ref="telegramUsernameField" :label="i18nd(`vue-ext`, `Your Telegram username`)" labelAlign="left" labelWidth="150" :value="telegramUsername"/>
             <ext-button :text="i18nd(`vue-ext`, `Update`)" @tap="_updateTelegramUsername"/>
             <ext-button iconAlign="right" iconCls="fa-solid fa-external-link-alt" :text="i18nd(`vue-ext`, msgid`Open @${telegramBotUsername}`)" @tap="_openTelegramBot"/>
         </ext-container>
 
+        <!-- push notifications -->
+        <ext-panel :hidden="pusHidden">
+            <ext-toolbar docked="top">
+                <ext-container :html="i18nd(`vue-ext`, `Push notifications`)"/>
+            </ext-toolbar>
+
+            <ext-container layout="hbox">
+                <ext-container flex="1" :html="i18nd(`vue-ext`, `Receive push notifications on this device`)"/>
+                <PushNotificationsButton :hideLabel="true"/>
+            </ext-container>
+        </ext-panel>
+
+        <!-- notification types -->
         <ext-container :hidden="!telegramEnabled">
             <div>{{ i18nd( `vue-ext`,msgid`In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${telegramBotUsername}</b> and press <b>"Start"</b>.`) }}</div>
         </ext-container>
@@ -29,7 +49,11 @@
 </template>
 
 <script>
+import PushNotificationsButton from "#lib/components/push-notifications.button";
+
 export default {
+    "components": { PushNotificationsButton },
+
     "computed": {
         email () {
             return this.$store.notifications.email;
@@ -39,8 +63,8 @@ export default {
             return this.$store.notifications.telegramUsername;
         },
 
-        telegramEnabled () {
-            return !!this.$store.notifications.telegramBotUsername;
+        telegramHidden () {
+            return !this.$store.notifications.telegramBotUsername;
         },
 
         telegramBotUsername () {
@@ -49,6 +73,10 @@ export default {
 
         telegramBotUrl () {
             return "https://t.me/" + this.$store.notifications.telegramBotUsername;
+        },
+
+        pusHidden () {
+            return !this.$store.session.pushNotificationsSupported;
         },
     },
 
