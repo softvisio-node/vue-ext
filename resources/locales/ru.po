@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-23 03:52+0300\n"
+"POT-Creation-Date: 2022-08-23 05:12+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -48,7 +48,7 @@ msgstr "Сбросить сессии"
 msgid "Sign out from all sessions, except this session"
 msgstr "Выйти из всех сессий кроме этой"
 
-#: lib/components/account/panel.vue:6:41
+#: lib/components/account/panel.vue:6:75
 msgid "Security"
 msgstr "Безопастность"
 
@@ -362,61 +362,68 @@ msgstr "Обновить уведомления"
 msgid "You have no notifications"
 msgstr "У вас нет уведомлений"
 
-#: lib/components/notifications/panel.vue:9:63
+#: lib/components/notifications/panel.vue:13:93
+msgid "Open bot"
+msgstr "Открыть бот"
+
+#: lib/components/notifications/panel.vue:17:76
 msgid "Your Telegram username"
 msgstr "Ваше имя пользователя в Telegram"
 
-#: lib/components/notifications/panel.vue:10:31
-msgid "Update"
-msgstr "Обноаить"
+#: lib/components/notifications/panel.vue:18:35
+msgid "Save username"
+msgstr "Сохранить имя пользователя"
 
-#: lib/components/notifications/panel.vue:11:89
-#, javascript-format
-msgid "Open @${n}"
-msgstr "Открыть @${n}"
+#: lib/components/notifications/panel.vue:25:38
+msgid "Push notifications"
+msgstr "Push-уведомления"
 
-#: lib/components/notifications/panel.vue:15:20
+#: lib/components/notifications/panel.vue:29:47
+msgid "Receive push notifications on this device"
+msgstr "Получать push-уведомления на этом устройстве"
+
+#: lib/components/notifications/panel.vue:36:20
 #, javascript-format
 msgid "In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${n}</b> and press <b>\"Start\"</b>."
 msgstr "Для получения уведомлений в Telegram вам нужно установить ваше имя пользователя в Telegram. После этого откройте чат с <b>@${n}</b> и нажмите <b>\"Start\"</b>."
 
-#: lib/components/notifications/panel.vue:20:38
+#: lib/components/notifications/panel.vue:41:38
 msgid "Notification types"
 msgstr "Типы уведомлений"
 
-#: lib/components/notifications/panel.vue:23:95
+#: lib/components/notifications/panel.vue:44:95
 #, javascript-format
 msgid "Internal${n}notifications"
 msgstr "Внутренние${n}уведомления"
 
-#: lib/components/notifications/panel.vue:24:95
+#: lib/components/notifications/panel.vue:45:95
 #, javascript-format
 msgid "Email${n}notifications"
 msgstr "Email${n}уведомления"
 
-#: lib/components/notifications/panel.vue:25:95
+#: lib/components/notifications/panel.vue:46:95
 #, javascript-format
 msgid "Telegram${n}notifications"
 msgstr "Telegram${n}уведомления"
 
-#: lib/components/notifications/panel.vue:26:95
+#: lib/components/notifications/panel.vue:47:95
 #, javascript-format
 msgid "Push${n}notifications"
 msgstr "Push${n}уведомления"
 
-#: lib/components/notifications/panel.vue:154:35
+#: lib/components/notifications/panel.vue:183:35
 msgid "Telegram username updated"
 msgstr "Имя пользователя Telegram обновлено"
 
-#: lib/components/push-notifications.button.vue:2:46
-msgid "Enable push notifications"
-msgstr "Включить push-уведомления"
+#: lib/components/push-notifications.button.vue:36:23
+msgid "Receive push notifications"
+msgstr "Получать push-уведомления"
 
-#: lib/components/push-notifications.button.vue:59:39
+#: lib/components/push-notifications.button.vue:72:39
 msgid "Push notifications enabled"
 msgstr "Push-уведомления включены"
 
-#: lib/components/push-notifications.button.vue:62:39
+#: lib/components/push-notifications.button.vue:75:39
 msgid "Push notifications disabled"
 msgstr "Push-уведомления выключены"
 
@@ -555,6 +562,16 @@ msgstr "Токен подтверждения email неверен"
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
 
+#~ msgid "Update"
+#~ msgstr "Обноаить"
+
+#, javascript-format
+#~ msgid "Open @${n}"
+#~ msgstr "Открыть @${n}"
+
+#~ msgid "Enable push notifications"
+#~ msgstr "Включить push-уведомления"
+
 #, fuzzy
 #~| msgid "No records matched search criteria"
 #~ msgid "You have no records match search criteria"
@@ -636,9 +653,6 @@ msgstr "Email подтвержден успешно"
 
 #~ msgid "SMTP port"
 #~ msgstr "Порт SMTP"
-
-#~ msgid "SMTP username"
-#~ msgstr "Имя пользователя SMTP"
 
 #~ msgid "SMTP password"
 #~ msgstr "Пароль SMTP"
