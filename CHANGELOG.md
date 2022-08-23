@@ -1,5 +1,21 @@
 # Changelog
 
+### 7.6.0 (2022-08-23)
+
+Features:
+
+-   feat: push notifications
+
+Fixes:
+
+-   fix: account panel
+-   fix: dark mode button refactored
+-   fix: dark mode button renamed
+-   fix: firebase
+-   fix: locale button renamed
+-   fix: push notifications button
+-   fix: webpack config
+
 ### 7.5.16 (2022-08-20)
 
 Fixes:
