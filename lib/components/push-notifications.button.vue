@@ -47,9 +47,9 @@ export default {
                 res = await this.$store.session.disablePushNotifications();
             }
 
-            button.enable();
-
             if ( !res.ok ) {
+                await this.$utils.sleep( 500 );
+
                 button.setValue( !value );
 
                 this.$utils.toast( res );
@@ -62,6 +62,8 @@ export default {
                     this.$utils.toast( this.i18nd( "vue-ext", "Push notifications disabled" ) );
                 }
             }
+
+            button.enable();
         },
     },
 };
