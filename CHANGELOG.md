@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.6.1 (2022-08-24)
+
+Fixes:
+
+-   fix: app env schema
+-   fix: dark mode env
+
 ### 7.6.0 (2022-08-23)
 
 Features:
