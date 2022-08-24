@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.6.2 (2022-08-24)
+
+Fixes:
+
+-   fix: app env schema
+
 ### 7.6.1 (2022-08-24)
 
 Fixes:
