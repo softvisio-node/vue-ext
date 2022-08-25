@@ -20,12 +20,8 @@
                 <slot name="menuTop"/>
             </template>
 
-            <template #bottomUp>
-                <slot name="menuBottomUp"/>
-            </template>
-
-            <template #bottomDown>
-                <slot name="menuBottomDown"/>
+            <template #bottom>
+                <slot name="menuBottom"/>
             </template>
         </AppMenu>
     </ext-titlebar>

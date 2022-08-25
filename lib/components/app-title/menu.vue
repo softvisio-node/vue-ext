@@ -8,24 +8,24 @@
         <ext-panel flex="1" layout="vbox" padding="10 10 10 30">
             <slot name="top"/>
 
+            <ext-button :hidden="!accountButtonEnabled" iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
+            <ext-button :hidden="!changePasswordButtonEnabled" iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
+
             <ext-spacer/>
 
             <slot name="bottomUp"/>
 
-            <ext-button :hidden="!accountButtonEnabled" iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
-            <ext-button :hidden="!changePasswordButtonEnabled" iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
-
-            <slot name="bottomDown"/>
-
             <LocaleButton :autoHide="true"/>
-
-            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
 
             <!-- push notifications button -->
             <PushNotificationsButton :hidden="!pushNotificationsButtonEnabled" labelWidth="200"/>
 
             <!-- dark node button -->
             <DarkModeButton labelWidth="200"/>
+
+            <ext-container height="20"/>
+
+            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
         </ext-panel>
     </ext-sheet>
 </template>
