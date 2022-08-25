@@ -15,7 +15,7 @@
 
         <Notifications ref="notifications"/>
 
-        <AppMenu ref="menu" :accountEnabled="accountEnabled" :apiTokensEnabled="apiTokensEnabled" :changePasswordEnabled="changePasswordEnabled" :pushNotificationsEnabled="pushNotificationsEnabled" @showAccountDialog="showAccountDialog">
+        <AppMenu ref="menu" :accountEnabled="accountEnabled" :changePasswordEnabled="changePasswordEnabled" :pushNotificationsEnabled="pushNotificationsEnabled" @showAccountDialog="showAccountDialog">
             <template #top>
                 <slot name="menuTop"/>
             </template>
@@ -53,10 +53,6 @@ export default {
             "default": true,
         },
         "menuEnabled": {
-            "type": Boolean,
-            "default": true,
-        },
-        "apiTokensEnabled": {
             "type": Boolean,
             "default": true,
         },

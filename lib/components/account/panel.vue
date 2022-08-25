@@ -38,6 +38,11 @@
             <NotificationsPanel/>
         </ext-panel>
 
+        <!-- api keys -->
+        <ext-panel layout="fit" :title="i18nd(`vue-ext`, `API keys`)">
+            <ApiKeysPanel/>
+        </ext-panel>
+
         <!-- theme -->
         <ext-panel layout="vbox" :title="i18nd(`vue-ext`, `Interface theme`)" viewModel="true">
             <ext-toolbar docked="top">
@@ -65,10 +70,11 @@
 
 <script>
 import NotificationsPanel from "#lib/components/notifications/panel";
+import ApiKeysPanel from "#lib/components/api-keys/panel";
 import DarkModeButton from "#lib/components/dark-mode.button";
 
 export default {
-    "components": { NotificationsPanel, DarkModeButton },
+    "components": { NotificationsPanel, ApiKeysPanel, DarkModeButton },
 
     "computed": {
         "systemDarkMode": {

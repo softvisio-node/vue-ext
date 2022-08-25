@@ -12,7 +12,6 @@
 
             <slot name="bottomUp"/>
 
-            <ext-button :hidden="!apiTokensEnabled" iconCls="fa-solid fa-key" :text="i18nd(`vue-ext`, `API tokens`)" textAlign="left" @tap="showApiTokens"/>
             <ext-button :hidden="!accountEnabled" iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
             <ext-button :hidden="!changePasswordEnabled" iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
 
@@ -35,7 +34,6 @@
 import Avatar from "./avatar";
 import LocaleButton from "#lib/components/locale.button";
 import ChangePasswordDialog from "#lib/components/change-password-dialog";
-import TokensDialog from "#lib/components/tokens/dialog";
 import DarkModeButton from "#lib/components/dark-mode.button";
 import PushNotificationsButton from "#lib/components/push-notifications.button";
 
@@ -43,10 +41,6 @@ export default {
     "components": { Avatar, LocaleButton, PushNotificationsButton, DarkModeButton },
 
     "props": {
-        "apiTokensEnabled": {
-            "type": Boolean,
-            "default": true,
-        },
         "accountEnabled": {
             "type": Boolean,
             "default": true,
@@ -94,14 +88,6 @@ export default {
 
         async showAccountDialog () {
             this.$emit( "showAccountDialog" );
-        },
-
-        async showApiTokens () {
-            this.hide();
-
-            const cmp = await this.$mount( TokensDialog );
-
-            cmp.ext.show();
         },
 
         async showChangePasswordDialog () {

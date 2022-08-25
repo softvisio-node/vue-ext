@@ -6,9 +6,8 @@
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-            <ext-button :text="i18nd(`vue-ext`, `Cancel`)" ui="decline" @tap="close"/>
-            <ext-button :text="i18nd(`vue-ext`, `Submit`)" ui="action" @tap="submit"/>
-        </ext-toolbar>
+\ <ext-button :text="i18nd(`vue-ext`, `Change password`)" ui="action" @tap="submit"/>
+</ext-toolbar>
     </ext-dialog>
 </template>
 
