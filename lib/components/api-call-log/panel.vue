@@ -1,7 +1,7 @@
 <template>
     <ext-grid ref="grid" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
         <ext-toolbar docked="top">
-            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search methods by name`)" width="200" @change="search"/>
+            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for methods by name`)" width="200" @change="search"/>
             <ext-spacer/>
             <ext-togglefield label="i18nd( `vue-ext`,`Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
             <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>

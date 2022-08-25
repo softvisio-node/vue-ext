@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-25 08:34+0300\n"
+"POT-Creation-Date: 2022-08-25 08:47+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -228,8 +228,8 @@ msgid "Status text"
 msgstr "Текст статуса"
 
 #: lib/components/api-call-log/panel.vue:4:43
-msgid "Search methods by name"
-msgstr "Искать ключи по имени"
+msgid "Search for methods by name"
+msgstr "Искать методы по имени"
 
 #: lib/components/api-call-log/panel.vue:10:54
 msgid "API method id"

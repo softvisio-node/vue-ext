@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-25 08:35+0300\n"
+"POT-Creation-Date: 2022-08-25 08:43+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -60,10 +60,8 @@ msgstr "Сповіщення"
 
 #: lib/components/account/panel.vue:42:40
 #: lib/components/api-keys/dialog.vue:2:87
-#, fuzzy
-#| msgid "API tokens"
 msgid "API keys"
-msgstr "Токени API"
+msgstr "Ключі API"
 
 #: lib/components/account/panel.vue:49:38
 #: lib/components/account/panel.vue:47:41
@@ -230,10 +228,8 @@ msgid "Status text"
 msgstr "Текст статусу"
 
 #: lib/components/api-call-log/panel.vue:4:43
-#, fuzzy
-#| msgid "Search tokens by name"
-msgid "Search methods by name"
-msgstr "Пошук токенів за назвою"
+msgid "Search for methods by name"
+msgstr "Пошук методів за назвою"
 
 #: lib/components/api-call-log/panel.vue:10:54
 msgid "API method id"
@@ -253,40 +249,28 @@ msgstr "Помилки за останні 60 хвилин (%)"
 
 #: lib/components/api-keys/create/dialog.vue:4:46
 #: lib/components/api-keys/panel.vue:21:57
-#, fuzzy
-#| msgid "User name"
 msgid "Key name"
-msgstr "Ім'я користувача"
+msgstr "Ім'я ключа"
 
 #: lib/components/api-keys/create/dialog.vue:4:102
-#, fuzzy
-#| msgid "Enter new token name"
 msgid "Enter new key name"
-msgstr "Введіть нову назву токена"
+msgstr "Введіть нову назву ключа"
 
 #: lib/components/api-keys/create/dialog.vue:9:61
-#, fuzzy
-#| msgid "Your API access token:"
 msgid "Your API access key:"
-msgstr "Ваш токен доступу до API:"
+msgstr "Ваш ключ доступу до API:"
 
 #: lib/components/api-keys/create/dialog.vue:11:24
-#, fuzzy
-#| msgid "Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again."
 msgid "Please, copy key to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this key again."
-msgstr "Будь ласка, скопіюйте маркер у буфер обміну та збережіть його в надійному місці. Після того, як це діалогове вікно буде закрито, ми не змогли знову показати вам цей маркер."
+msgstr "Будь ласка, скопіюйте ключ у буфер обміну та збережіть його в надійному місці. Після того, як це діалогове вікно буде закрито, ми не змогли знову показати вам цей ключ."
 
 #: lib/components/api-keys/create/dialog.vue:15:62
-#, fuzzy
-#| msgid "Copy token to the clipboard"
 msgid "Copy key to the clipboard"
-msgstr "Скопіюйте маркер у буфер обміну"
+msgstr "Скопіюйте ключ у буфер обміну"
 
 #: lib/components/api-keys/create/dialog.vue:21:44
-#, fuzzy
-#| msgid "Create token"
 msgid "Create key"
-msgstr "Створити токен"
+msgstr "Створити ключ"
 
 #: lib/components/api-keys/create/dialog.vue:22:57
 msgid "Close"
@@ -294,28 +278,20 @@ msgstr "Закрити"
 
 #: lib/components/api-keys/create/dialog.vue:2:70
 #: lib/components/api-keys/panel.vue:6:58
-#, fuzzy
-#| msgid "Create API token"
 msgid "Create API key"
-msgstr "Створіть токен API"
+msgstr "Створіть ключ API"
 
 #: lib/components/api-keys/create/dialog.vue:83:35
-#, fuzzy
-#| msgid "API token created"
 msgid "API key created"
-msgstr "Створено токен API"
+msgstr "Створено ключ API"
 
 #: lib/components/api-keys/create/dialog.vue:95:31
-#, fuzzy
-#| msgid "Token copied to the clipboard"
 msgid "Key copied to the clipboard"
-msgstr "Токен скопійовано в буфер обміну"
+msgstr "Ключ скопійовано в буфер обміну"
 
 #: lib/components/api-keys/panel.vue:4:43
-#, fuzzy
-#| msgid "Search tokens by name"
 msgid "Search keys by name"
-msgstr "Пошук токенів за назвою"
+msgstr "Пошук ключів за назвою"
 
 #: lib/components/api-keys/panel.vue:11:47 lib/components/users/panel.vue:11:47
 msgid "No records match search criteria"
@@ -328,22 +304,16 @@ msgstr "Дата створення"
 
 #: lib/components/api-keys/panel.vue:95:39
 #: lib/components/api-keys/roles/dialog.vue:2:69
-#, fuzzy
-#| msgid "Edit token roles"
 msgid "Edit key roles"
-msgstr "Редагувати ролі токена"
+msgstr "Редагувати ролі ключа"
 
 #: lib/components/api-keys/panel.vue:163:47
-#, fuzzy
-#| msgid "Are you sure you want to delete this token?"
 msgid "Are you sure you want to delete this key?"
-msgstr "Ви впевнені, що хочете видалити цей токен?"
+msgstr "Ви впевнені, що хочете видалити цей ключ?"
 
 #: lib/components/api-keys/panel.vue:168:35
-#, fuzzy
-#| msgid "API token deleted"
 msgid "API key deleted"
-msgstr "Токен API видалено"
+msgstr "Ключ API видалено"
 
 #: lib/components/api-keys/roles/dialog.vue:6:64
 #: lib/components/users/roles/dialog.vue:6:64
@@ -356,10 +326,8 @@ msgid "Save"
 msgstr "Зберегти"
 
 #: lib/components/api-keys/roles/dialog.vue:100:35
-#, fuzzy
-#| msgid "User roles updated"
 msgid "Key roles updated"
-msgstr "Ролі користувача оновлено"
+msgstr "Ролі ключа оновлено"
 
 #: lib/components/app-title/menu.vue:22:66
 msgid "Sign out"
