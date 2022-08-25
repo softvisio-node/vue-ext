@@ -1,10 +1,11 @@
 <template>
-    <ext-formpanel ref="form" @ready="_ready">
+    <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0","padding":"0 0 0 0"}' @ready="_ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
             <ext-container :html="i18nd(`vue-ext`, `Sign up`)"/>
             <ext-spacer/>
         </ext-toolbar>
+
         <ext-emailfield :label="i18nd(`vue-ext`, `Email`)" name="username" :placeholder="i18nd(`vue-ext`, `Enter your email`)" required="true"/>
         <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true"/>
         <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" :placeholder="i18nd(`vue-ext`, `Confirm your password`)" required="true"/>
@@ -14,7 +15,7 @@
             <ext-spacer/>
             <ext-button :text="i18nd(`vue-ext`, `Sign up`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
-    </ext-formpanel>
+    </ext-fieldpanel>
 </template>
 
 <script>

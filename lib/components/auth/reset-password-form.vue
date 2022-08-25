@@ -1,5 +1,5 @@
 <template>
-    <ext-formpanel ref="form" @ready="_ready">
+    <ext-fieldpanel ref="form" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
             <ext-container :html="i18nd(`vue-ext`, `Reset password`)"/>
@@ -12,7 +12,7 @@
             <ext-spacer/>
             <ext-button :text="i18nd(`vue-ext`, `Reset`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
-    </ext-formpanel>
+    </ext-fieldpanel>
 </template>
 
 <script>
