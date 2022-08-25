@@ -63,7 +63,7 @@ export default {
 
             this.ext.mask();
 
-            const res = await this.$api.call( "admin/user/get-roles", record.id );
+            const res = await this.$api.call( "admin/users/get-roles", record.id );
 
             this.ext.unmask();
 
@@ -91,7 +91,7 @@ export default {
                 roles[record.id] = record.get( "enabled" );
             } );
 
-            const res = await this.$api.call( "admin/user/update-roles", this.record.id, roles );
+            const res = await this.$api.call( "admin/users/update-roles", this.record.id, roles );
 
             if ( !res.ok ) {
                 this.$utils.toast( res );

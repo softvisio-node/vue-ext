@@ -50,7 +50,7 @@ export default {
 
             delete vals.password1;
 
-            var res = await this.$api.call( "admin/user/create", vals );
+            var res = await this.$api.call( "admin/users/create", vals );
 
             if ( res.ok ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, "User created" ) );
