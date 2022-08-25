@@ -23,7 +23,7 @@
             <!-- dark node button -->
             <DarkModeButton labelWidth="200"/>
 
-            <ext-container height="20"/>
+            <ext-container height="10"/>
 
             <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
         </ext-panel>
