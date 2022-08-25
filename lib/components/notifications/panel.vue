@@ -143,7 +143,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "account/notification/set-user-notification-channel", record.get( "type" ), channel, newVal );
+            const res = await this.$api.call( "account/notifications/set-user-notification-channel", record.get( "type" ), channel, newVal );
 
             button.enable();
 
