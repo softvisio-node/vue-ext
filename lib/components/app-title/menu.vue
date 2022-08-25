@@ -12,8 +12,8 @@
 
             <slot name="bottomUp"/>
 
-            <ext-button :hidden="!accountEnabled" iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
-            <ext-button :hidden="!changePasswordEnabled" iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
+            <ext-button :hidden="!accountButtonEnabled" iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
+            <ext-button :hidden="!changePasswordButtonEnabled" iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
 
             <slot name="bottomDown"/>
 
@@ -22,7 +22,7 @@
             <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
 
             <!-- push notifications button -->
-            <PushNotificationsButton :hidden="!pushNotificationsEnabled" labelWidth="200"/>
+            <PushNotificationsButton :hidden="!pushNotificationsButtonEnabled" labelWidth="200"/>
 
             <!-- dark node button -->
             <DarkModeButton labelWidth="200"/>
@@ -41,15 +41,15 @@ export default {
     "components": { Avatar, LocaleButton, PushNotificationsButton, DarkModeButton },
 
     "props": {
-        "accountEnabled": {
+        "accountButtonEnabled": {
             "type": Boolean,
             "default": true,
         },
-        "changePasswordEnabled": {
+        "changePasswordButtonEnabled": {
             "type": Boolean,
             "default": false,
         },
-        "pushNotificationsEnabled": {
+        "pushNotificationsButtonEnabled": {
             "type": Boolean,
             "default": false,
         },

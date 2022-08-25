@@ -7,7 +7,7 @@
 
         <slot name="title"/>
 
-        <ext-button ref="notificationsButton" align="right" :hidden="!notificationsEnabled" iconCls="fa-regular fa-bell" margin="10 20 0 0" padding="0 0 10 0" width="55" @tap="showNotifications"/>
+        <ext-button ref="notificationsButton" align="right" :hidden="!notificationsButtonEnabled" iconCls="fa-regular fa-bell" margin="10 20 0 0" padding="0 0 10 0" width="55" @tap="showNotifications"/>
 
         <AppAvatar align="right" height="40" :hidden="!avatarEnabled" width="40"/>
 
@@ -15,7 +15,7 @@
 
         <Notifications ref="notifications"/>
 
-        <AppMenu ref="menu" :accountEnabled="accountEnabled" :changePasswordEnabled="changePasswordEnabled" :pushNotificationsEnabled="pushNotificationsEnabled" @showAccountDialog="showAccountDialog">
+        <AppMenu ref="menu" :accountButtonEnabled="menuAccountButtonEnabled" :changePasswordButtonEnabled="menuChangePasswordButtonEnabled" :pushNotificationsButtonEnabled="menuPushNotificationsButtonEnabled" @showAccountDialog="showAccountDialog">
             <template #top>
                 <slot name="menuTop"/>
             </template>
@@ -40,7 +40,7 @@ export default {
     "components": { AppAvatar, AppMenu, Notifications },
 
     "props": {
-        "notificationsEnabled": {
+        "notificationsButtonEnabled": {
             "type": Boolean,
             "default": true,
         },
@@ -56,15 +56,15 @@ export default {
             "type": Boolean,
             "default": true,
         },
-        "accountEnabled": {
+        "menuAccountButtonEnabled": {
             "type": Boolean,
             "default": true,
         },
-        "changePasswordEnabled": {
+        "menuChangePasswordButtonEnabled": {
             "type": Boolean,
             "default": false,
         },
-        "pushNotificationsEnabled": {
+        "menuPushNotificationsButtonEnabled": {
             "type": Boolean,
             "default": false,
         },
