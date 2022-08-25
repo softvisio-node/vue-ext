@@ -9,7 +9,7 @@
         <ext-textfield :label="i18nd(`vue-ext`, `Username or email`)" name="username" :placeholder="i18nd(`vue-ext`, `Enter your username or email`)" required="true"/>
         <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true"/>
 
-        <ext-button :hidden="!signupEnabled" :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" width="100%" @tap="showSignup"/>
+        <ext-button :hidden="!signupEnabled" margin="20 0 0 0" :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" width="100%" @tap="showSignup"/>
 
         <ext-toolbar docked="bottom">
             <ext-button :hidden="!resetPasswordEnabled" :text="i18nd(`vue-ext`, `Forgot password?`)" ui="forward" @tap="showReset"/>
