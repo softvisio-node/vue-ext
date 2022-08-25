@@ -11,9 +11,9 @@
             <ext-button :hidden="!accountButtonEnabled" iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
             <ext-button :hidden="!changePasswordButtonEnabled" iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
 
-            <ext-spacer/>
+            <slot name="bottom"/>
 
-            <slot name="bottomUp"/>
+            <ext-spacer/>
 
             <LocaleButton :autoHide="true"/>
 
