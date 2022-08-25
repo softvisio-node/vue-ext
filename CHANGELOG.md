@@ -1,5 +1,15 @@
 # Changelog
 
+### 7.6.3 (2022-08-25)
+
+Fixes:
+
+-   fix: alert max width
+-   fix: api keys
+-   fix: app title props
+-   fix: ctx properties
+-   fix: token renamed to key
+
 ### 7.6.2 (2022-08-24)
 
 Fixes:
