@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.6.5 (2022-08-25)
+
+Fixes:
+
+-   fix: api methods
+
 ### 7.6.4 (2022-08-25)
 
 Fixes:
