@@ -1,9 +1,9 @@
 <template>
     <ext-panel ref="cards" layout="card">
         <ext-toolbar docked="top">
-            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
+            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search keys by name`)" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Create API token`)" @tap="showCreateTokenDialog"/>
+            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Create API key`)" @tap="showCreateKeyDialog"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
@@ -18,7 +18,7 @@
 
         <!-- data card -->
         <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
-            <ext-column dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Token name`)"/>
+            <ext-column dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Key name`)"/>
 
             <ext-column dataIndex="created" formatter='date("dateStyle:short,timeStyle:short")' :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
 
@@ -32,13 +32,13 @@
 <script>
 import CreateDialog from "./create/dialog";
 import RolesDialog from "./roles/dialog";
-import TokenModel from "./models/token";
+import KeyModel from "./models/key";
 import loadMask from "#vue/load-mask";
 
 export default {
     created () {
         this.store = Ext.create( "Ext.data.Store", {
-            "model": TokenModel,
+            "model": KeyModel,
             "autoLoad": false,
             "pageSize": 100,
         } );
@@ -92,8 +92,8 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Edit token roles" ),
-                            "handler": this.showTokenRolesDialog.bind( this ),
+                            "tooltip": this.i18nd( `vue-ext`, "Edit key roles" ),
+                            "handler": this.showKeyRolesDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
@@ -138,7 +138,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "account/token/set-enabled", record.id, enabled );
+            const res = await this.$api.call( "account/api-keys/set-enabled", record.id, enabled );
 
             if ( !res.ok ) {
                 await this.$utils.sleep( 500 );
@@ -160,12 +160,12 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete this token?" ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete this key?" ) ) ) ) return;
 
-            var res = await this.$api.call( "account/token/delete", record.getId() );
+            var res = await this.$api.call( "account/api-keys/delete", record.getId() );
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "API token deleted" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "API key deleted" ) );
 
                 this.store.remove( record );
             }
@@ -174,7 +174,7 @@ export default {
             }
         },
 
-        async showCreateTokenDialog () {
+        async showCreateKeyDialog () {
             const cmp = await this.$mount( CreateDialog, {
                 "props": {
                     "onCreated": () => this.reload(),
@@ -184,7 +184,7 @@ export default {
             cmp.ext.show();
         },
 
-        async showTokenRolesDialog ( button ) {
+        async showKeyRolesDialog ( button ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
