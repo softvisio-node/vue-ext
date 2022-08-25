@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.6.6 (2022-08-25)
+
+Fixes:
+
+-   fix: padding
+
 ### 7.6.5 (2022-08-25)
 
 Fixes:
