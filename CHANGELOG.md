@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.6.4 (2022-08-25)
+
+Fixes:
+
+-   fix: alert max width
+
 ### 7.6.3 (2022-08-25)
 
 Fixes:
