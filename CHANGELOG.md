@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.6.7 (2022-08-26)
+
+Fixes:
+
+-   fix: account icon
+
 ### 7.6.6 (2022-08-25)
 
 Fixes:
