@@ -8,7 +8,7 @@
         <ext-panel flex="1" layout="vbox" padding="10 10 10 30">
             <slot name="top"/>
 
-            <ext-button :hidden="!accountButtonEnabled" iconCls="fa-solid fa-user" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
+            <ext-button :hidden="!accountButtonEnabled" iconCls="fa-solid fa-user-tie" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
             <ext-button :hidden="!changePasswordButtonEnabled" iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
 
             <slot name="bottom"/>
