@@ -22,10 +22,6 @@ export default {
     "components": { LocaleButton, SigninForm, ResetPasswordForm, SignupForm },
 
     "props": {
-        "signupEnabled": {
-            "type": Boolean,
-            "default": false,
-        },
         "resetPasswordEnabled": {
             "type": Boolean,
             "default": true,
@@ -45,6 +41,10 @@ export default {
     "computed": {
         title () {
             return this.$store.session.title;
+        },
+
+        signupEnabled () {
+            return this.$store.session.signupEnabled;
         },
     },
 
