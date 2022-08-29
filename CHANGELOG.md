@@ -1,5 +1,9 @@
 # Changelog
 
+### 7.6.10 (2022-08-29)
+
+No notable changes since the previous release.
+
 ### 7.6.9 (2022-08-29)
 
 Fixes:
