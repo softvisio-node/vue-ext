@@ -1,5 +1,13 @@
 # Changelog
 
+### 7.6.9 (2022-08-29)
+
+Fixes:
+
+-   fix: aler icon
+-   fix: app signupEnabled option
+-   fix: session signupEnabled option
+
 ### 7.6.8 (2022-08-29)
 
 Fixes:
