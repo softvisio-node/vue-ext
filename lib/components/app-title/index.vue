@@ -9,7 +9,7 @@
 
         <ext-button ref="notificationsButton" align="right" :hidden="!notificationsButtonEnabled" iconCls="fa-regular fa-bell" margin="10 20 0 0" padding="0 0 10 0" width="55" @tap="showNotifications"/>
 
-        <AppAvatar align="right" height="40" :hidden="!avatarEnabled" width="40"/>
+        <AvatarUser align="right" height="40" :hidden="!avatarEnabled" width="40"/>
 
         <ext-button align="right" height="50" :hidden="!menuEnabled" iconCls="fa-solid fa-bars" margin="0 0 0 5" width="40" @tap="showMenu"/>
 
@@ -28,12 +28,12 @@
 </template>
 
 <script>
-import AppAvatar from "./avatar";
+import AvatarUser from "./avatar/user";
 import AppMenu from "./menu";
 import Notifications from "#lib/components/notifications/menu-sheet";
 
 export default {
-    "components": { AppAvatar, AppMenu, Notifications },
+    "components": { AvatarUser, AppMenu, Notifications },
 
     "props": {
         "notificationsButtonEnabled": {

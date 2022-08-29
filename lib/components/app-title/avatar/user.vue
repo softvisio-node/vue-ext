@@ -1,9 +1,13 @@
 <template>
-    <ext-image cls="avatar" :height="height" :src="avatar" style="border: 1px solid; border-radius: 50%" :width="width"/>
+    <AvatarImage :height="height" :src="src" :width="width"/>
 </template>
 
 <script>
+import AvatarImage from "./image";
+
 export default {
+    "components": { AvatarImage },
+
     "props": {
         "width": {
             "type": String,
@@ -16,16 +20,9 @@ export default {
     },
 
     "computed": {
-        avatar () {
+        src () {
             return this.$store.session.avatar;
         },
     },
 };
 </script>
-
-<style>
-.avatar {
-    border: 1px dashed;
-    /* border-radius: 100px; */
-}
-</style>

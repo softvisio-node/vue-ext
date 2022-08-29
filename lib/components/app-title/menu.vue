@@ -1,7 +1,7 @@
 <template>
     <ext-sheet layout="vbox" modal="true" side="right" width="300" @ready="ready">
         <ext-panel height="130" innerCls="x-tabbar" layout="vbox" padding="30 10 10 30">
-            <Avatar height="60" width="60"/>
+            <AvatarUser height="60" width="60"/>
             <ext-container :html="username" margin="5 0 0 0" style="font-size: 1.3em; color: white"/>
         </ext-panel>
 
@@ -31,14 +31,14 @@
 </template>
 
 <script>
-import Avatar from "./avatar";
+import AvatarUser from "./avatar/user";
 import LocaleButton from "#lib/components/locale.button";
 import ChangePasswordDialog from "#lib/components/change-password-dialog";
 import DarkModeButton from "#lib/components/dark-mode.button";
 import PushNotificationsButton from "#lib/components/push-notifications.button";
 
 export default {
-    "components": { Avatar, LocaleButton, PushNotificationsButton, DarkModeButton },
+    "components": { AvatarUser, LocaleButton, PushNotificationsButton, DarkModeButton },
 
     "props": {
         "accountButtonEnabled": {
