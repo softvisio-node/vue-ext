@@ -1,8 +1,8 @@
 import config from "@softvisio/vue/resources/webpack/main.config.js";
 
-config.addSchema( new URL( "../schemas/env.main.schema.yaml", import.meta.url ) );
+config.get( "main" ).addSchema( new URL( "../schemas/env.main.schema.yaml", import.meta.url ) );
 
-config.wrap( ( config, options ) => {
+config.get( "main" ).wrap( ( config, options ) => {
     config.resolve.alias = {
         ...config.resolve.alias,
         "#vue": "@softvisio/vue-ext",
