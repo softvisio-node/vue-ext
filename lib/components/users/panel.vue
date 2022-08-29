@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import "#lib/components/avatar/avatar.ext";
+import "#lib/components/avatar/ext.avatar";
 import CreateDialog from "./create/dialog";
 import RolesDialog from "./roles/dialog";
 import UserModel from "./models/user";

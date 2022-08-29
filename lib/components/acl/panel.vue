@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import "#lib/components/avatar/avatar.ext";
+import "#lib/components/avatar/ext.avatar";
 import AclModel from "./models/acl";
 import UserModel from "./models/user";
 import UserDialog from "./user-dialog";
