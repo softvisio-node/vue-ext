@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.6.8 (2022-08-29)
+
+Fixes:
+
+-   fix: round avatar
+
 ### 7.6.7 (2022-08-26)
 
 Fixes:
