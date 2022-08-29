@@ -1,5 +1,5 @@
 <template>
-    <ext-image cls="avatar" :height="height" :src="avatar" :width="width"/>
+    <ext-image cls="avatar" :height="height" :src="avatar" style="border: 1px solid; border-radius: 50%" :width="width"/>
 </template>
 
 <script>
