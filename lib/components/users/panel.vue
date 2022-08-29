@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import "#lib/components/avatar/avatar.ext";
 import CreateDialog from "./create/dialog";
 import RolesDialog from "./roles/dialog";
 import UserModel from "./models/user";
@@ -69,9 +70,8 @@ export default {
             cmp.setCell( {
                 "xtype": "widgetcell",
                 "widget": {
-                    "xtype": "img",
-                    "height": 36,
-                    "bind": { "src": "{record.avatar}" },
+                    "xtype": "avatar",
+                    "bind": "{record.avatar}",
                 },
             } );
         },

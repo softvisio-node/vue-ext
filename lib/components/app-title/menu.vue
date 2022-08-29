@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import AvatarUser from "./avatar/user";
+import AvatarUser from "#lib/components/avatar/user";
 import LocaleButton from "#lib/components/locale.button";
 import ChangePasswordDialog from "#lib/components/change-password-dialog";
 import DarkModeButton from "#lib/components/dark-mode.button";

@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import AvatarUser from "./avatar/user";
+import AvatarUser from "#lib/components/avatar/user";
 import AppMenu from "./menu";
 import Notifications from "#lib/components/notifications/menu-sheet";
 
