@@ -27,6 +27,8 @@
 
             <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
         </ext-panel>
+
+        <ext-container :html="version" margin="0 10 0 10" style="opacity: 0.7"/>
     </ext-sheet>
 </template>
 
@@ -60,6 +62,10 @@ export default {
     "computed": {
         username () {
             return this.$store.session.username;
+        },
+
+        version () {
+            return `frontend: ${this.$store.session.frontendVersionText} / backend: ${this.$store.session.backendVersionText}`;
         },
     },
 
