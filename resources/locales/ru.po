@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-30 20:27+0300\n"
+"POT-Creation-Date: 2022-08-30 20:35+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -41,7 +41,7 @@ msgid "Change password"
 msgstr "Сменить пароль"
 
 #: lib/components/account/panel.vue:26:42
-#: lib/components/account/panel.vue:31:39 lib/components/users/panel.vue:139:48
+#: lib/components/account/panel.vue:31:39 lib/components/users/panel.vue:141:48
 msgid "Drop sessions"
 msgstr "Сбросить сессии"
 
@@ -87,7 +87,7 @@ msgid "Password changed"
 msgstr "Пароль изменен"
 
 #: lib/components/account/panel.vue:173:35
-#: lib/components/users/panel.vue:210:35
+#: lib/components/users/panel.vue:212:35
 msgid "Sessions were deleted"
 msgstr "Сессии были удалены"
 
@@ -137,32 +137,32 @@ msgstr "Роли"
 
 #: lib/components/acl/panel.vue:25:63 lib/components/acl/panel.vue:204:45
 #: lib/components/acl/user-dialog.vue:5:90
-#: lib/components/api-keys/panel.vue:26:84
-#: lib/components/api-keys/panel.vue:154:45
+#: lib/components/api-keys/panel.vue:27:84
+#: lib/components/api-keys/panel.vue:155:45
 #: lib/components/users/create/dialog.vue:7:37
-#: lib/components/users/panel.vue:27:84 lib/components/users/panel.vue:171:45
+#: lib/components/users/panel.vue:29:84 lib/components/users/panel.vue:173:45
 msgid "Access enabled"
 msgstr "Доступ разрешен"
 
-#: lib/components/acl/panel.vue:114:39 lib/components/users/panel.vue:120:39
+#: lib/components/acl/panel.vue:114:39 lib/components/users/panel.vue:122:39
 #: lib/components/users/roles/dialog.vue:2:69
 msgid "Edit user roles"
 msgstr "Редактировать роли пользователя"
 
-#: lib/components/acl/panel.vue:124:39 lib/components/users/panel.vue:126:39
+#: lib/components/acl/panel.vue:124:39 lib/components/users/panel.vue:128:39
 msgid "Delete user"
 msgstr "Удалить пользователя"
 
-#: lib/components/acl/panel.vue:204:89 lib/components/api-keys/panel.vue:154:89
-#: lib/components/users/panel.vue:171:89
+#: lib/components/acl/panel.vue:204:89 lib/components/api-keys/panel.vue:155:89
+#: lib/components/users/panel.vue:173:89
 msgid "Access disabled"
 msgstr "Доступ запрещен"
 
-#: lib/components/acl/panel.vue:213:47 lib/components/users/panel.vue:181:47
+#: lib/components/acl/panel.vue:213:47 lib/components/users/panel.vue:183:47
 msgid "Are you sure you want to delete user?"
 msgstr "Вы действительно хотите удалить пользователя?"
 
-#: lib/components/acl/panel.vue:222:35 lib/components/users/panel.vue:190:35
+#: lib/components/acl/panel.vue:222:35 lib/components/users/panel.vue:192:35
 msgid "User deleted"
 msgstr "Пользователь удален"
 
@@ -298,24 +298,25 @@ msgid "No records match search criteria"
 msgstr "Нет записей, соответствующих критериям поиска"
 
 #: lib/components/api-keys/panel.vue:23:128
+#: lib/components/users/panel.vue:25:128
 msgid "Last activity"
 msgstr "Последняя активность"
 
-#: lib/components/api-keys/panel.vue:24:103
-#: lib/components/users/panel.vue:25:70
+#: lib/components/api-keys/panel.vue:25:103
+#: lib/components/users/panel.vue:27:70
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: lib/components/api-keys/panel.vue:96:39
+#: lib/components/api-keys/panel.vue:97:39
 #: lib/components/api-keys/roles/dialog.vue:2:69
 msgid "Edit key roles"
 msgstr "Редактировать роли ключа"
 
-#: lib/components/api-keys/panel.vue:164:47
+#: lib/components/api-keys/panel.vue:165:47
 msgid "Are you sure you want to delete this key?"
 msgstr "Вы действительно хотите удалить этот ключ?"
 
-#: lib/components/api-keys/panel.vue:169:35
+#: lib/components/api-keys/panel.vue:170:35
 msgid "API key deleted"
 msgstr "Ключ API удален"
 
@@ -532,7 +533,7 @@ msgstr "Создать пользователя"
 msgid "User created"
 msgstr "Пользователь создан"
 
-#: lib/components/users/panel.vue:132:39
+#: lib/components/users/panel.vue:134:39
 msgid "Actions"
 msgstr "Действия"
 
