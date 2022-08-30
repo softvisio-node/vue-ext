@@ -30,6 +30,8 @@
                     <ext-container flex="1" :html="i18nd(`vue-ext`, `Sign out from all sessions, except this session`)"/>
                     <ext-button :text="i18nd(`vue-ext`, `Drop sessions`)" @tap="deleteSessions"/>
                 </ext-container>
+
+                <SessionsPanel height="300"/>
             </ext-panel>
         </ext-panel>
 
@@ -69,12 +71,13 @@
 </template>
 
 <script>
+import SessionsPanel from "#lib/components/sessions/panel";
 import NotificationsPanel from "#lib/components/notifications/panel";
 import ApiKeysPanel from "#lib/components/api-keys/panel";
 import DarkModeButton from "#lib/components/dark-mode.button";
 
 export default {
-    "components": { NotificationsPanel, ApiKeysPanel, DarkModeButton },
+    "components": { SessionsPanel, NotificationsPanel, ApiKeysPanel, DarkModeButton },
 
     "computed": {
         "systemDarkMode": {

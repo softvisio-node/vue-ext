@@ -1,9 +1,7 @@
 <template>
     <ext-panel ref="cards" layout="card">
         <ext-toolbar docked="top">
-            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="i18nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
@@ -18,34 +16,31 @@
 
         <!-- data card -->
         <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="_gridReady">
-            <ext-column width="40" @ready="_avatarColReady"/>
+            <ext-column dataIndex="user_agent" flex="1" :text="i18nd(`vue-ext`, `User agent`)"/>
 
-            <ext-column dataIndex="name" flex="1" summaryDataIndex="total" :text="i18nd(`vue-ext`, `Username`)" @ready="_nameColReady"/>
+            <ext-column dataIndex="remmote_address" :text="i18nd(`vue-ext`, `IP address`)" width="100"/>
 
             <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
 
             <ext-column dataIndex="created" formatter="date()" :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
 
-            <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
-
-            <ext-column width="100" @ready="_actionColReady"/>
+            <ext-column width="50" @ready="_actionColReady"/>
         </ext-grid>
     </ext-panel>
 </template>
 
 <script>
-import "#lib/components/avatar/ext.avatar";
-import CreateDialog from "./create/dialog";
-import RolesDialog from "./roles/dialog";
-import UserModel from "./models/user";
+import SessionModel from "./models/session";
 import loadMask from "#vue/load-mask";
 
 export default {
     created () {
         this.store = Ext.create( "Ext.data.Store", {
-            "model": UserModel,
+            "model": SessionModel,
             "autoLoad": false,
-            "pageSize": 50,
+            "pageSize": null,
+            "remoteSort": false,
+            "remoteFilter": false,
         } );
 
         this.store.on( "load", this._onStoreLoad.bind( this ) );
@@ -55,56 +50,13 @@ export default {
         _gridReady ( e ) {
             var grid = e.detail.cmp;
 
-            grid.setPlugins( ["gridviewoptions", "autopaging"] );
-
-            // grid.setColumnMenu( null );
+            grid.setPlugins( ["gridviewoptions"] );
 
             grid.setItemConfig( { "viewModel": true } );
 
             grid.setStore( this.store );
 
             this.reload();
-        },
-
-        _avatarColReady ( e ) {
-            var cmp = e.detail.cmp;
-
-            cmp.setCell( {
-                "xtype": "widgetcell",
-                "widget": {
-                    "xtype": "avatar",
-                    "bind": "{record.avatar}",
-                },
-            } );
-        },
-
-        _nameColReady ( e ) {
-            var cmp = e.detail.cmp;
-
-            cmp.setCell( { "encodeHtml": false } );
-
-            cmp.setSummaryRenderer( function ( val ) {
-                return "Total Users: " + val;
-            } );
-        },
-
-        _enabledColReady ( e ) {
-            var cmp = e.detail.cmp;
-
-            cmp.setCell( {
-                "xtype": "widgetcell",
-                "widget": {
-                    "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "center" },
-                    "items": [
-                        {
-                            "xtype": "togglefield",
-                            "bind": { "value": "{record.enabled}" },
-                            "listeners": { "change": this.setUserEnabled.bind( this ) },
-                        },
-                    ],
-                },
-            } );
         },
 
         _actionColReady ( e ) {
@@ -118,87 +70,18 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Edit user roles" ),
-                            "handler": this.showUserRolesDialog.bind( this ),
-                        },
-                        {
-                            "xtype": "button",
-                            "iconCls": "fa-solid fa-trash-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Delete user" ),
-                            "handler": this.deleteUser.bind( this ),
-                        },
-                        {
-                            "xtype": "button",
-                            "iconCls": "fa-solid fa-ellipsis-v",
-                            "tooltip": this.i18nd( `vue-ext`, "Actions" ),
-                            "arrow": false,
-                            "menu": {
-                                "items": [
-                                    {
-                                        "xtype": "button",
-                                        "iconCls": "fa-solid fa-broom",
-                                        "text": this.i18nd( `vue-ext`, "Drop sessions" ),
-                                        "handler": this.deleteUserSessions.bind( this ),
-                                    },
-                                ],
-                            },
+                            "iconCls": "fa-solid fa-sign-out-alt",
+                            "tooltip": this.i18nd( `vue-ext`, "Signout" ),
+                            "handler": this.deleteSession.bind( this ),
+                            "bind": { "hidden": "{record.current_session}" },
                         },
                     ],
                 },
             } );
         },
 
-        async setUserEnabled ( button, enabled ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord(),
-                curVal = record.get( "enabled" );
-
-            if ( enabled === curVal ) return;
-
-            button.disable();
-
-            const res = await this.$api.call( "admin/users/set-enabled", record.get( "id" ), enabled );
-
-            if ( !res.ok ) {
-                await this.$utils.sleep( 500 );
-
-                record.set( "enabled", !enabled );
-
-                this.$utils.toast( res );
-            }
-            else {
-                record.commit();
-
-                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Access enabled` ) : this.i18nd( `vue-ext`, `Access disabled` ) );
-            }
-
-            button.enable();
-        },
-
-        async deleteUser ( button ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord();
-
-            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete user?" ) ) ) ) return;
-
-            button.disable();
-
-            var res = await this.$api.call( "admin/users/delete", record.getId() );
-
-            button.enable();
-
-            if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "User deleted" ) );
-
-                this.store.remove( record );
-            }
-            else {
-                this.$utils.toast( res );
-            }
-        },
-
-        async deleteUserSessions ( button ) {
+        // XXX
+        async deleteSession ( button ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
@@ -216,58 +99,44 @@ export default {
             }
         },
 
-        search ( e ) {
-            var val = e.detail.newValue.trim();
-
-            if ( val !== "" ) {
-                this.store.addFilter(
-                    {
-                        "property": "search",
-                        "operator": "like",
-                        "value": val,
-                    },
-                    false
-                );
-            }
-            else {
-                this.store.removeFilter( "search" );
-            }
-        },
-
-        reload () {
-            this.$refs.cards.ext.mask( loadMask );
-
-            this.store.loadPage( 1 );
-        },
-
-        async showCreateUserDialog () {
-            const cmp = await this.$mount( CreateDialog, {
-                "props": {
-                    "onCreated": () => this.reload(),
-                },
-            } );
-
-            cmp.ext.show();
-        },
-
-        async showUserRolesDialog ( button ) {
+        // XXX
+        async dropSessions ( button ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            const cmp = await this.$mount( RolesDialog );
+            button.disable();
 
-            cmp.setRecord( record );
+            var res = await this.$api.call( "admin/users/delete-sessions", record.getId() );
 
-            cmp.ext.show();
+            button.enable();
+
+            if ( res.ok ) {
+                this.$utils.toast( this.i18nd( `vue-ext`, "Sessions were deleted" ) );
+            }
+            else {
+                this.$utils.toast( res );
+            }
+        },
+
+        async reload () {
+            this.$refs.cards.ext.mask( loadMask );
+
+            const res = await this.$api.call( "session/get-sessions" );
+
+            this.$refs.cards.ext.unmask();
+
+            if ( !res.ok ) {
+                this.$utils.toast( res );
+
+                this.$refs.cards.ext.setActiveItem( this.$refs.errorCard.ext );
+            }
+            else {
+                this.store.loadRawData( res.data );
+            }
         },
 
         _onStoreLoad ( store, records, success ) {
-            this.$refs.cards.ext.unmask();
-
-            if ( !success ) {
-                this.$refs.cards.ext.setActiveItem( this.$refs.errorCard.ext );
-            }
-            else if ( !this.store.count() ) {
+            if ( !this.store.count() ) {
                 this.$refs.cards.ext.setActiveItem( this.$refs.noDataCard.ext );
             }
             else {
