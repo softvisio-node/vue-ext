@@ -1,5 +1,5 @@
 <template>
-    <ext-panel ref="cards" layout="card" scrollable="false">
+    <ext-panel ref="cards" layout="card">
         <ext-toolbar docked="top">
             <ext-container :html="i18nd(`vue-ext`, `Active sessions`)"/>
             <ext-spacer/>
