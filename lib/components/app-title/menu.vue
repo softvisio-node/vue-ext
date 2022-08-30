@@ -28,7 +28,10 @@
             <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
         </ext-panel>
 
-        <ext-container :html="version" margin="0 10 0 10" style="opacity: 0.7"/>
+        <ext-container layout='{"align":"start","type":"hbox"}' margin="0 10 0 10">
+            <ext-container flex="1" :html="version" style="opacity: 0.7"/>
+            <ext-button iconCls="fa-regular fa-copy" :tooltip="i18nd(`vue-ext`, `Copy version info to clipboard`)" @tap="_copyVersion"/>
+        </ext-container>
     </ext-sheet>
 </template>
 
@@ -64,8 +67,12 @@ export default {
             return this.$store.session.username;
         },
 
+        // XXX
         version () {
-            return `frontend: ${this.$store.session.frontendVersionText} / backend: ${this.$store.session.backendVersionText}`;
+            const backendGitId = this.$store.session.backendGitId || {},
+                frontendGitId = this.$store.session.frontendGitId || {};
+
+            return `backend: v${backendGitId.currentVersion} / frontend: v${frontendGitId.currentVersion}`;
         },
     },
 
@@ -108,6 +115,12 @@ export default {
             this.close();
 
             this.$app.signout();
+        },
+
+        _copyVersion () {
+            this.$utils.copyToClipboard( this.version );
+
+            this.$utils.toast( this.i18nd( "vue-ext", "Version info copied" ) );
         },
     },
 };
