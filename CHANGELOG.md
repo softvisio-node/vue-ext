@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.7.2 (2022-08-30)
+
+Fixes:
+
+-   fix: labelError function
+-   fix: translations
+
 ### 7.7.1 (2022-08-30)
 
 Fixes:
