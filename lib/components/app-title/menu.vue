@@ -67,12 +67,15 @@ export default {
             return this.$store.session.username;
         },
 
-        // XXX
         version () {
             const backendGitId = this.$store.session.backendGitId || {},
                 frontendGitId = this.$store.session.frontendGitId || {};
 
-            return `backend: v${backendGitId.currentVersion} / frontend: v${frontendGitId.currentVersion}`;
+            return `
+ui: ${this._createVersionString( frontendGitId )},
+<br/>
+api: ${this._createVersionString( backendGitId )}
+`;
         },
     },
 
@@ -118,9 +121,28 @@ export default {
         },
 
         _copyVersion () {
-            this.$utils.copyToClipboard( this.version );
+            this.$utils.copyToClipboard( JSON.stringify(
+                {
+                    "backend": this.$store.session.backendGitId,
+                    "frontend": this.$store.session.frontendGitId,
+                },
+                null,
+                4
+            ) );
 
             this.$utils.toast( this.i18nd( "vue-ext", "Version info copied" ) );
+        },
+
+        _createVersionString ( data ) {
+            var html = "";
+
+            html += "v" + data.currentVersion;
+
+            if ( data.currentVersionDistance ) html += "+" + data.currentVersionDistance;
+
+            html += " " + data.mode;
+
+            return html;
         },
     },
 };
