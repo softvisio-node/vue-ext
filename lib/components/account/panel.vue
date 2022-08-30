@@ -1,9 +1,9 @@
 <template>
-    <ext-tabpanel layout='{"animation":{"direction":"vertical","type":"slide"}}' padding="0 10 0 10" tabBar='{"defaults":{"flex":null,"height":50,"padding":"0 10 0 10","textAlign":"right","width":170},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none">
+    <ext-tabpanel layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":50,"padding":"0 10 0 10","textAlign":"right","width":170},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none">
         <slot name="top"/>
 
         <!-- security -->
-        <ext-panel defaults='{"padding":"0 0 30 0"}' layout="vbox" :title="i18nd(`vue-ext`, `Security`)" viewModel="true">
+        <ext-panel layout="vbox" :title="i18nd(`vue-ext`, `Security`)" viewModel="true">
             <!-- change password -->
             <ext-panel>
                 <ext-toolbar docked="top">
