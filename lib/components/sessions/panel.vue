@@ -1,7 +1,9 @@
 <template>
-    <ext-panel ref="cards" layout="card">
+    <ext-panel ref="cards" layout="card" scrollable="false">
         <ext-toolbar docked="top">
+            <ext-container :html="i18nd(`vue-ext`, `Active sessions`)"/>
             <ext-spacer/>
+            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out all sessions`)" @tap="_signoutAllSessions"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
@@ -15,10 +17,10 @@
         </ext-container>
 
         <!-- data card -->
-        <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="_gridReady">
+        <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridviewoptions":true}' @ready="_gridReady">
             <ext-column dataIndex="user_agent" flex="1" :text="i18nd(`vue-ext`, `User agent`)"/>
 
-            <ext-column dataIndex="remmote_address" :text="i18nd(`vue-ext`, `IP address`)" width="100"/>
+            <ext-column dataIndex="remote_address" :text="i18nd(`vue-ext`, `IP address`)" width="130"/>
 
             <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
 
@@ -43,14 +45,12 @@ export default {
             "remoteFilter": false,
         } );
 
-        this.store.on( "load", this._onStoreLoad.bind( this ) );
+        this.store.on( "datachanged", this._onStoreChanged.bind( this ) );
     },
 
     "methods": {
         _gridReady ( e ) {
             var grid = e.detail.cmp;
-
-            grid.setPlugins( ["gridviewoptions"] );
 
             grid.setItemConfig( { "viewModel": true } );
 
@@ -72,7 +72,7 @@ export default {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-sign-out-alt",
                             "tooltip": this.i18nd( `vue-ext`, "Signout" ),
-                            "handler": this.deleteSession.bind( this ),
+                            "handler": this._signoutSession.bind( this ),
                             "bind": { "hidden": "{record.current_session}" },
                         },
                     ],
@@ -80,41 +80,41 @@ export default {
             } );
         },
 
-        // XXX
-        async deleteSession ( button ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord();
+        async _signoutSession ( button ) {
+            const record = button.lookupViewModel().get( "record" );
 
             button.disable();
 
-            var res = await this.$api.call( "admin/users/delete-sessions", record.getId() );
+            var res = await this.$api.call( "session/signout", record.id );
 
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Sessions were deleted" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Session was deleted" ) );
+
+                this.store.remove( record );
             }
             else {
                 this.$utils.toast( res );
             }
         },
 
-        // XXX
-        async dropSessions ( button ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord();
+        async _signoutAllSessions ( e ) {
+            const button = e.detail.sender;
 
             button.disable();
 
-            var res = await this.$api.call( "admin/users/delete-sessions", record.getId() );
+            const res = await this.$api.call( "account/delete-sessions" );
 
             button.enable();
 
-            if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Sessions were deleted" ) );
+            if ( !res.ok ) {
+                this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( res );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Sessions were deleted" ) );
+
+                this.reload();
             }
         },
 
@@ -135,7 +135,7 @@ export default {
             }
         },
 
-        _onStoreLoad ( store, records, success ) {
+        _onStoreChanged ( store, records, success ) {
             if ( !this.store.count() ) {
                 this.$refs.cards.ext.setActiveItem( this.$refs.noDataCard.ext );
             }

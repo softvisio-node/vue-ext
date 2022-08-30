@@ -20,19 +20,8 @@
                 </ext-container>
             </ext-panel>
 
-            <!-- drop sessions -->
-            <ext-panel>
-                <ext-toolbar docked="top">
-                    <ext-container :html="i18nd(`vue-ext`, `Drop sessions`)"/>
-                </ext-toolbar>
-
-                <ext-container layout="hbox">
-                    <ext-container flex="1" :html="i18nd(`vue-ext`, `Sign out from all sessions, except this session`)"/>
-                    <ext-button :text="i18nd(`vue-ext`, `Drop sessions`)" @tap="deleteSessions"/>
-                </ext-container>
-
-                <SessionsPanel height="300"/>
-            </ext-panel>
+            <!-- active sessions -->
+            <SessionsPanel flex="1"/>
         </ext-panel>
 
         <!-- notifications -->
@@ -157,23 +146,6 @@ export default {
             }
             else {
                 this.$utils.toast( res );
-            }
-        },
-
-        async deleteSessions ( e ) {
-            const button = e.detail.sender;
-
-            button.disable();
-
-            const res = await this.$api.call( "account/delete-sessions" );
-
-            button.enable();
-
-            if ( !res.ok ) {
-                this.$utils.toast( res );
-            }
-            else {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Sessions were deleted" ) );
             }
         },
     },
