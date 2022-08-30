@@ -1,0 +1,24 @@
+<template>
+    <ext-dialog closeAction="hide" :height="height" layout="fit" scrollable="true" :title="i18nd(`vue-ext`, `Active sessions`)" :width="width">
+        <ActiveSessionsPanel/>
+    </ext-dialog>
+</template>
+
+<script>
+import ActiveSessionsPanel from "./panel";
+
+export default {
+    "components": { ActiveSessionsPanel },
+
+    "props": {
+        "width": {
+            "type": String,
+            "default": "90%",
+        },
+        "height": {
+            "type": String,
+            "default": "90%",
+        },
+    },
+};
+</script>
