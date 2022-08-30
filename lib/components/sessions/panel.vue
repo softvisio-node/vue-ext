@@ -3,7 +3,7 @@
         <ext-toolbar docked="top">
             <ext-container :html="i18nd(`vue-ext`, `Active sessions`)"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out all sessions`)" @tap="_signoutAllSessions"/>
+            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Delete all sessions`)" @tap="_deleteAllSessions"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
@@ -99,12 +99,12 @@ export default {
             }
         },
 
-        async _signoutAllSessions ( e ) {
+        async _deleteAllSessions ( e ) {
             const button = e.detail.sender;
 
             button.disable();
 
-            const res = await this.$api.call( "account/delete-sessions" );
+            const res = await this.$api.call( "session/delete-all-sessions" );
 
             button.enable();
 
