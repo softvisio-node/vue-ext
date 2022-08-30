@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.7.1 (2022-08-30)
+
+Fixes:
+
+-   fix: alert icon size smaller
+
 ### 7.7.0 (2022-08-30)
 
 Features:
