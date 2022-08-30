@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-30 20:35+0300\n"
+"POT-Creation-Date: 2022-08-31 00:12+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -40,56 +40,42 @@ msgstr "Подтвердите новый пароль"
 msgid "Change password"
 msgstr "Сменить пароль"
 
-#: lib/components/account/panel.vue:26:42
-#: lib/components/account/panel.vue:31:39 lib/components/users/panel.vue:141:48
-msgid "Drop sessions"
-msgstr "Сбросить сессии"
-
-#: lib/components/account/panel.vue:30:51
-msgid "Sign out from all sessions, except this session"
-msgstr "Выйти из всех сессий кроме этой"
-
-#: lib/components/account/panel.vue:6:75
+#: lib/components/account/panel.vue:6:41
 msgid "Security"
 msgstr "Безопастность"
 
-#: lib/components/account/panel.vue:37:40
+#: lib/components/account/panel.vue:28:40
 #: lib/components/notifications/menu-sheet.vue:4:76
 msgid "Notifications"
 msgstr "Уведомления"
 
-#: lib/components/account/panel.vue:42:40
+#: lib/components/account/panel.vue:33:40
 #: lib/components/api-keys/dialog.vue:2:87
 msgid "API keys"
 msgstr "Ключи API"
 
-#: lib/components/account/panel.vue:49:38
-#: lib/components/account/panel.vue:47:41
+#: lib/components/account/panel.vue:40:38
+#: lib/components/account/panel.vue:38:41
 msgid "Interface theme"
 msgstr "Тема интерфейса"
 
-#: lib/components/account/panel.vue:53:41
+#: lib/components/account/panel.vue:44:41
 msgid "Use OS theme"
 msgstr "Использовать тему ОС"
 
-#: lib/components/account/panel.vue:57:44
+#: lib/components/account/panel.vue:48:44
 msgid "Base color"
 msgstr "Базовый цвет"
 
-#: lib/components/account/panel.vue:61:44
+#: lib/components/account/panel.vue:52:44
 msgid "Accent color"
 msgstr "Цвет акцента"
 
-#: lib/components/account/panel.vue:153:35
+#: lib/components/account/panel.vue:145:35
 #: lib/components/change-password-dialog.vue:58:35
 #: lib/components/reset-password-dialog.vue:75:35
 msgid "Password changed"
 msgstr "Пароль изменен"
-
-#: lib/components/account/panel.vue:173:35
-#: lib/components/users/panel.vue:212:35
-msgid "Sessions were deleted"
-msgstr "Сессии были удалены"
 
 #: lib/components/acl/dialog.vue:22:33
 msgid "Users"
@@ -112,7 +98,9 @@ msgstr "Добавить пользователя"
 #: lib/components/api-call-log/log/dialog.vue:5:58
 #: lib/components/api-call-log/panel.vue:7:78
 #: lib/components/api-keys/panel.vue:7:58
-#: lib/components/api-keys/panel.vue:16:58 lib/components/users/panel.vue:7:58
+#: lib/components/api-keys/panel.vue:16:58
+#: lib/components/sessions/panel.vue:7:58
+#: lib/components/sessions/panel.vue:16:58 lib/components/users/panel.vue:7:58
 #: lib/components/users/panel.vue:16:58
 msgid "Refresh"
 msgstr "Обновить"
@@ -122,7 +110,7 @@ msgid "No records matched search criteria"
 msgstr "Нет записей, соответствующих критериям поиска"
 
 #: lib/components/acl/panel.vue:14:34 lib/components/api-keys/panel.vue:15:34
-#: lib/components/users/panel.vue:15:34
+#: lib/components/sessions/panel.vue:15:34 lib/components/users/panel.vue:15:34
 msgid "Unable to load records"
 msgstr "Не удалось загрузить записи"
 
@@ -293,17 +281,19 @@ msgstr "Ключ скопирован"
 msgid "Search keys by name"
 msgstr "Искать ключи по имени"
 
-#: lib/components/api-keys/panel.vue:11:47 lib/components/users/panel.vue:11:47
+#: lib/components/api-keys/panel.vue:11:47
+#: lib/components/sessions/panel.vue:11:47 lib/components/users/panel.vue:11:47
 msgid "No records match search criteria"
 msgstr "Нет записей, соответствующих критериям поиска"
 
 #: lib/components/api-keys/panel.vue:23:128
+#: lib/components/sessions/panel.vue:25:128
 #: lib/components/users/panel.vue:25:128
 msgid "Last activity"
 msgstr "Последняя активность"
 
 #: lib/components/api-keys/panel.vue:25:103
-#: lib/components/users/panel.vue:27:70
+#: lib/components/sessions/panel.vue:27:70 lib/components/users/panel.vue:27:70
 msgid "Creation date"
 msgstr "Дата создания"
 
@@ -335,6 +325,7 @@ msgid "Key roles updated"
 msgstr "Роли ключа обновлены"
 
 #: lib/components/app-title/menu.vue:28:66
+#: lib/components/sessions/panel.vue:74:39
 msgid "Sign out"
 msgstr "Выйти"
 
@@ -523,6 +514,32 @@ msgstr "Отменить"
 msgid "Password reset token was not found"
 msgstr "Токен сброса пароля не найден"
 
+#: lib/components/sessions/dialog.vue:2:91
+#: lib/components/sessions/panel.vue:4:34
+msgid "Active sessions"
+msgstr "Активные сессии"
+
+#: lib/components/sessions/panel.vue:6:66
+msgid "Delete all sessions"
+msgstr "Удалить все сессии"
+
+#: lib/components/sessions/panel.vue:21:63
+msgid "User agent"
+msgstr "Агент пользователя"
+
+#: lib/components/sessions/panel.vue:23:58
+msgid "IP address"
+msgstr "IP адрес"
+
+#: lib/components/sessions/panel.vue:93:35
+msgid "Session was deleted"
+msgstr "Сессия была удалена"
+
+#: lib/components/sessions/panel.vue:115:35
+#: lib/components/users/panel.vue:212:35
+msgid "Sessions were deleted"
+msgstr "Сессии были удалены"
+
 #: lib/components/users/create/dialog.vue:12:31
 #: lib/components/users/create/dialog.vue:2:74
 #: lib/components/users/panel.vue:6:81
@@ -536,6 +553,10 @@ msgstr "Пользователь создан"
 #: lib/components/users/panel.vue:134:39
 msgid "Actions"
 msgstr "Действия"
+
+#: lib/components/users/panel.vue:141:48
+msgid "Drop sessions"
+msgstr "Сбросить сессии"
 
 #: lib/components/users/roles/dialog.vue:100:35
 msgid "User roles updated"
@@ -576,6 +597,14 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#, fuzzy
+#~| msgid "Sign out"
+#~ msgid "Signout"
+#~ msgstr "Выйти"
+
+#~ msgid "Sign out from all sessions, except this session"
+#~ msgstr "Выйти из всех сессий кроме этой"
 
 #~ msgid "Submit"
 #~ msgstr "Отправить"
@@ -693,9 +722,6 @@ msgstr "Email подтвержден успешно"
 #~ msgid "Your profile"
 #~ msgstr "Ваш профайл"
 
-#~ msgid "User name"
-#~ msgstr "Имя пользователя"
-
 #, javascript-format
 #~ msgid "User ${n}"
 #~ msgstr "Пользователь ${n}"
@@ -735,9 +761,6 @@ msgstr "Email подтвержден успешно"
 
 #~ msgid "Update deleted"
 #~ msgstr "Обновление удалено"
-
-#~ msgid "Delete sessions"
-#~ msgstr "Удалить сессии"
 
 #~ msgid "Update password"
 #~ msgstr "Обновить пароль"

@@ -1,5 +1,5 @@
 <template>
-    <ext-tabpanel layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":50,"padding":"0 10 0 10","textAlign":"right","width":170},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none">
+    <ext-tabpanel defaults='{"padding":"0 10 0 10"}' layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":50,"padding":"0 10 0 10","textAlign":"right","width":170},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none">
         <slot name="top"/>
 
         <!-- security -->

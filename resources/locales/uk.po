@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-30 20:35+0300\n"
+"POT-Creation-Date: 2022-08-31 00:12+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -40,56 +40,42 @@ msgstr "Підтвердити новий пароль"
 msgid "Change password"
 msgstr "Змінити пароль"
 
-#: lib/components/account/panel.vue:26:42
-#: lib/components/account/panel.vue:31:39 lib/components/users/panel.vue:141:48
-msgid "Drop sessions"
-msgstr "Відкидати сеанси"
-
-#: lib/components/account/panel.vue:30:51
-msgid "Sign out from all sessions, except this session"
-msgstr "Вийти з усіх сеансів, крім цього"
-
-#: lib/components/account/panel.vue:6:75
+#: lib/components/account/panel.vue:6:41
 msgid "Security"
 msgstr "Безпека"
 
-#: lib/components/account/panel.vue:37:40
+#: lib/components/account/panel.vue:28:40
 #: lib/components/notifications/menu-sheet.vue:4:76
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: lib/components/account/panel.vue:42:40
+#: lib/components/account/panel.vue:33:40
 #: lib/components/api-keys/dialog.vue:2:87
 msgid "API keys"
 msgstr "Ключі API"
 
-#: lib/components/account/panel.vue:49:38
-#: lib/components/account/panel.vue:47:41
+#: lib/components/account/panel.vue:40:38
+#: lib/components/account/panel.vue:38:41
 msgid "Interface theme"
 msgstr "Тема інтерфейсу"
 
-#: lib/components/account/panel.vue:53:41
+#: lib/components/account/panel.vue:44:41
 msgid "Use OS theme"
 msgstr "Використовувати тему ОС"
 
-#: lib/components/account/panel.vue:57:44
+#: lib/components/account/panel.vue:48:44
 msgid "Base color"
 msgstr "Базовий колір"
 
-#: lib/components/account/panel.vue:61:44
+#: lib/components/account/panel.vue:52:44
 msgid "Accent color"
 msgstr "Колір акценту"
 
-#: lib/components/account/panel.vue:153:35
+#: lib/components/account/panel.vue:145:35
 #: lib/components/change-password-dialog.vue:58:35
 #: lib/components/reset-password-dialog.vue:75:35
 msgid "Password changed"
 msgstr "Пароль змінено"
-
-#: lib/components/account/panel.vue:173:35
-#: lib/components/users/panel.vue:212:35
-msgid "Sessions were deleted"
-msgstr "Сеанси видалено"
 
 #: lib/components/acl/dialog.vue:22:33
 msgid "Users"
@@ -112,7 +98,9 @@ msgstr "Додати користувача"
 #: lib/components/api-call-log/log/dialog.vue:5:58
 #: lib/components/api-call-log/panel.vue:7:78
 #: lib/components/api-keys/panel.vue:7:58
-#: lib/components/api-keys/panel.vue:16:58 lib/components/users/panel.vue:7:58
+#: lib/components/api-keys/panel.vue:16:58
+#: lib/components/sessions/panel.vue:7:58
+#: lib/components/sessions/panel.vue:16:58 lib/components/users/panel.vue:7:58
 #: lib/components/users/panel.vue:16:58
 msgid "Refresh"
 msgstr "Оновити"
@@ -122,7 +110,7 @@ msgid "No records matched search criteria"
 msgstr "Жоден запис не відповідає критеріям пошуку"
 
 #: lib/components/acl/panel.vue:14:34 lib/components/api-keys/panel.vue:15:34
-#: lib/components/users/panel.vue:15:34
+#: lib/components/sessions/panel.vue:15:34 lib/components/users/panel.vue:15:34
 msgid "Unable to load records"
 msgstr "Неможливо завантажити записи"
 
@@ -293,17 +281,19 @@ msgstr "Ключ скопійовано в буфер обміну"
 msgid "Search keys by name"
 msgstr "Пошук ключів за назвою"
 
-#: lib/components/api-keys/panel.vue:11:47 lib/components/users/panel.vue:11:47
+#: lib/components/api-keys/panel.vue:11:47
+#: lib/components/sessions/panel.vue:11:47 lib/components/users/panel.vue:11:47
 msgid "No records match search criteria"
 msgstr "Жоден запис не відповідає критеріям пошуку"
 
 #: lib/components/api-keys/panel.vue:23:128
+#: lib/components/sessions/panel.vue:25:128
 #: lib/components/users/panel.vue:25:128
 msgid "Last activity"
 msgstr "Останній активность"
 
 #: lib/components/api-keys/panel.vue:25:103
-#: lib/components/users/panel.vue:27:70
+#: lib/components/sessions/panel.vue:27:70 lib/components/users/panel.vue:27:70
 msgid "Creation date"
 msgstr "Дата створення"
 
@@ -335,6 +325,7 @@ msgid "Key roles updated"
 msgstr "Ролі ключа оновлено"
 
 #: lib/components/app-title/menu.vue:28:66
+#: lib/components/sessions/panel.vue:74:39
 msgid "Sign out"
 msgstr "Вийти"
 
@@ -523,6 +514,32 @@ msgstr "Скасувати"
 msgid "Password reset token was not found"
 msgstr "Токен скидання пароля не знайдено"
 
+#: lib/components/sessions/dialog.vue:2:91
+#: lib/components/sessions/panel.vue:4:34
+msgid "Active sessions"
+msgstr "Активні сесії"
+
+#: lib/components/sessions/panel.vue:6:66
+msgid "Delete all sessions"
+msgstr "Видалити всі сеанси"
+
+#: lib/components/sessions/panel.vue:21:63
+msgid "User agent"
+msgstr "Агент користувача"
+
+#: lib/components/sessions/panel.vue:23:58
+msgid "IP address"
+msgstr "IP адреса"
+
+#: lib/components/sessions/panel.vue:93:35
+msgid "Session was deleted"
+msgstr "Сеанс видалено"
+
+#: lib/components/sessions/panel.vue:115:35
+#: lib/components/users/panel.vue:212:35
+msgid "Sessions were deleted"
+msgstr "Сеанси видалено"
+
 #: lib/components/users/create/dialog.vue:12:31
 #: lib/components/users/create/dialog.vue:2:74
 #: lib/components/users/panel.vue:6:81
@@ -536,6 +553,10 @@ msgstr "Користувач створений"
 #: lib/components/users/panel.vue:134:39
 msgid "Actions"
 msgstr "Дії"
+
+#: lib/components/users/panel.vue:141:48
+msgid "Drop sessions"
+msgstr "Відкидати сеанси"
 
 #: lib/components/users/roles/dialog.vue:100:35
 msgid "User roles updated"
@@ -576,6 +597,9 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "Sign out from all sessions, except this session"
+#~ msgstr "Вийти з усіх сеансів, крім цього"
 
 #~ msgid "Submit"
 #~ msgstr "Подати"

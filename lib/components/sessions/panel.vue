@@ -71,7 +71,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-sign-out-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Signout" ),
+                            "tooltip": this.i18nd( `vue-ext`, "Sign out" ),
                             "handler": this._signoutSession.bind( this ),
                             "bind": { "hidden": "{record.current_session}" },
                         },
