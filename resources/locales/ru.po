@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-30 16:55+0300\n"
+"POT-Creation-Date: 2022-08-30 20:27+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -137,8 +137,8 @@ msgstr "Роли"
 
 #: lib/components/acl/panel.vue:25:63 lib/components/acl/panel.vue:204:45
 #: lib/components/acl/user-dialog.vue:5:90
-#: lib/components/api-keys/panel.vue:25:84
-#: lib/components/api-keys/panel.vue:153:45
+#: lib/components/api-keys/panel.vue:26:84
+#: lib/components/api-keys/panel.vue:154:45
 #: lib/components/users/create/dialog.vue:7:37
 #: lib/components/users/panel.vue:27:84 lib/components/users/panel.vue:171:45
 msgid "Access enabled"
@@ -153,7 +153,7 @@ msgstr "Редактировать роли пользователя"
 msgid "Delete user"
 msgstr "Удалить пользователя"
 
-#: lib/components/acl/panel.vue:204:89 lib/components/api-keys/panel.vue:153:89
+#: lib/components/acl/panel.vue:204:89 lib/components/api-keys/panel.vue:154:89
 #: lib/components/users/panel.vue:171:89
 msgid "Access disabled"
 msgstr "Доступ запрещен"
@@ -297,21 +297,25 @@ msgstr "Искать ключи по имени"
 msgid "No records match search criteria"
 msgstr "Нет записей, соответствующих критериям поиска"
 
-#: lib/components/api-keys/panel.vue:23:103
+#: lib/components/api-keys/panel.vue:23:128
+msgid "Last activity"
+msgstr "Последняя активность"
+
+#: lib/components/api-keys/panel.vue:24:103
 #: lib/components/users/panel.vue:25:70
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: lib/components/api-keys/panel.vue:95:39
+#: lib/components/api-keys/panel.vue:96:39
 #: lib/components/api-keys/roles/dialog.vue:2:69
 msgid "Edit key roles"
 msgstr "Редактировать роли ключа"
 
-#: lib/components/api-keys/panel.vue:163:47
+#: lib/components/api-keys/panel.vue:164:47
 msgid "Are you sure you want to delete this key?"
 msgstr "Вы действительно хотите удалить этот ключ?"
 
-#: lib/components/api-keys/panel.vue:168:35
+#: lib/components/api-keys/panel.vue:169:35
 msgid "API key deleted"
 msgstr "Ключ API удален"
 

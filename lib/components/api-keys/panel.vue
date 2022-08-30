@@ -20,7 +20,7 @@
         <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
             <ext-column dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Key name`)"/>
 
-            <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last actifity`)" width="150"/>
+            <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
             <ext-column dataIndex="created" formatter='date("dateStyle:short,timeStyle:short")' :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
 
             <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="enabledColReady"/>
