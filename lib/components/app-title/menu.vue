@@ -71,11 +71,7 @@ export default {
             const backendGitId = this.$store.session.backendGitId || {},
                 frontendGitId = this.$store.session.frontendGitId || {};
 
-            return `
-ui: ${this._createVersionString( frontendGitId )},
-<br/>
-api: ${this._createVersionString( backendGitId )}
-`;
+            return `<b>ui</b>: ${this._createVersionString( frontendGitId )}, <b>api</b>: ${this._createVersionString( backendGitId )}`;
         },
     },
 
@@ -140,7 +136,12 @@ api: ${this._createVersionString( backendGitId )}
 
             if ( data.currentVersionDistance ) html += "+" + data.currentVersionDistance;
 
-            html += " " + data.mode;
+            if ( data.mode === "development" ) {
+                html += " dev";
+            }
+            else if ( data.mode === "production" ) {
+                html += " prod";
+            }
 
             return html;
         },
