@@ -137,10 +137,7 @@ export default {
             if ( data.currentVersionDistance ) html += "+" + data.currentVersionDistance;
 
             if ( data.mode === "development" ) {
-                html += " dev";
-            }
-            else if ( data.mode === "production" ) {
-                html += " prod";
+                html += "&nbsp;" + this.$utils.labelError( "dev" );
             }
 
             return html;
