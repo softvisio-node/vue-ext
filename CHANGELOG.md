@@ -1,5 +1,16 @@
 # Changelog
 
+### 7.7.0 (2022-08-30)
+
+Features:
+
+-   feat: webpack config refactored
+
+Fixes:
+
+-   fix: app info
+-   fix: git status
+
 ### 7.6.10 (2022-08-29)
 
 No notable changes since the previous release.
