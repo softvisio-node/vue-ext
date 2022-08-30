@@ -1,5 +1,16 @@
 # Changelog
 
+### 7.8.0 (2022-08-30)
+
+Features:
+
+-   feat: sessions panel
+
+Fixes:
+
+-   fix: api keys last activity sort
+-   fix: user last activity
+
 ### 7.7.2 (2022-08-30)
 
 Fixes:
