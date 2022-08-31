@@ -148,8 +148,8 @@ export default {
                                 "items": [
                                     {
                                         "xtype": "button",
-                                        "iconCls": "fa-solid fa-broom",
-                                        "text": this.i18nd( `vue-ext`, "Drop sessions" ),
+                                        "iconCls": "fa-solid fa-sign-out-alt",
+                                        "text": this.i18nd( `vue-ext`, "Delete all sessions" ),
                                         "handler": this.deleteUserSessions.bind( this ),
                                     },
                                 ],

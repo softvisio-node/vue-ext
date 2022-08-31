@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-31 00:12+0300\n"
+"POT-Creation-Date: 2022-08-31 09:51+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -128,29 +128,29 @@ msgstr "Ролі"
 #: lib/components/api-keys/panel.vue:27:84
 #: lib/components/api-keys/panel.vue:155:45
 #: lib/components/users/create/dialog.vue:7:37
-#: lib/components/users/panel.vue:29:84 lib/components/users/panel.vue:173:45
+#: lib/components/users/panel.vue:29:84 lib/components/users/panel.vue:184:45
 msgid "Access enabled"
 msgstr "Доступ увімкнено"
 
-#: lib/components/acl/panel.vue:114:39 lib/components/users/panel.vue:122:39
+#: lib/components/acl/panel.vue:114:39 lib/components/users/panel.vue:133:39
 #: lib/components/users/roles/dialog.vue:2:69
 msgid "Edit user roles"
 msgstr "Редагувати ролі користувача"
 
-#: lib/components/acl/panel.vue:124:39 lib/components/users/panel.vue:128:39
+#: lib/components/acl/panel.vue:124:39 lib/components/users/panel.vue:139:39
 msgid "Delete user"
 msgstr "Видалити користувача"
 
 #: lib/components/acl/panel.vue:204:89 lib/components/api-keys/panel.vue:155:89
-#: lib/components/users/panel.vue:173:89
+#: lib/components/users/panel.vue:184:89
 msgid "Access disabled"
 msgstr "Доступ вимкнено"
 
-#: lib/components/acl/panel.vue:213:47 lib/components/users/panel.vue:183:47
+#: lib/components/acl/panel.vue:213:47 lib/components/users/panel.vue:194:47
 msgid "Are you sure you want to delete user?"
 msgstr "Ви впевнені, що хочете видалити користувача?"
 
-#: lib/components/acl/panel.vue:222:35 lib/components/users/panel.vue:192:35
+#: lib/components/acl/panel.vue:222:35 lib/components/users/panel.vue:203:35
 msgid "User deleted"
 msgstr "Користувача видалено"
 
@@ -288,12 +288,13 @@ msgstr "Жоден запис не відповідає критеріям по�
 
 #: lib/components/api-keys/panel.vue:23:128
 #: lib/components/sessions/panel.vue:25:128
-#: lib/components/users/panel.vue:25:128
+#: lib/components/users/panel.vue:25:163
 msgid "Last activity"
 msgstr "Останній активность"
 
 #: lib/components/api-keys/panel.vue:25:103
-#: lib/components/sessions/panel.vue:27:70 lib/components/users/panel.vue:27:70
+#: lib/components/sessions/panel.vue:27:70
+#: lib/components/users/panel.vue:27:100
 msgid "Creation date"
 msgstr "Дата створення"
 
@@ -519,7 +520,7 @@ msgstr "Токен скидання пароля не знайдено"
 msgid "Active sessions"
 msgstr "Активні сесії"
 
-#: lib/components/sessions/panel.vue:6:66
+#: lib/components/sessions/panel.vue:6:66 lib/components/users/panel.vue:152:48
 msgid "Delete all sessions"
 msgstr "Видалити всі сеанси"
 
@@ -536,7 +537,7 @@ msgid "Session was deleted"
 msgstr "Сеанс видалено"
 
 #: lib/components/sessions/panel.vue:115:35
-#: lib/components/users/panel.vue:212:35
+#: lib/components/users/panel.vue:223:35
 msgid "Sessions were deleted"
 msgstr "Сеанси видалено"
 
@@ -550,13 +551,9 @@ msgstr "Створити користувача"
 msgid "User created"
 msgstr "Користувач створений"
 
-#: lib/components/users/panel.vue:134:39
+#: lib/components/users/panel.vue:145:39
 msgid "Actions"
 msgstr "Дії"
-
-#: lib/components/users/panel.vue:141:48
-msgid "Drop sessions"
-msgstr "Відкидати сеанси"
 
 #: lib/components/users/roles/dialog.vue:100:35
 msgid "User roles updated"
@@ -597,6 +594,9 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "Drop sessions"
+#~ msgstr "Відкидати сеанси"
 
 #~ msgid "Sign out from all sessions, except this session"
 #~ msgstr "Вийти з усіх сеансів, крім цього"
