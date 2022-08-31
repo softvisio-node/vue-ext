@@ -1,5 +1,15 @@
 # Changelog
 
+### 7.9.0 (2022-08-31)
+
+Features:
+
+-   feat: oauth
+
+Fixes:
+
+-   fix: password recovery
+
 ### 7.8.2 (2022-08-31)
 
 Fixes:
