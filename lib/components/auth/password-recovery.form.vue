@@ -1,18 +1,21 @@
 <template>
-    <ext-fieldpanel ref="form" @ready="_ready">
+    <ext-panel layout="vbox" scrollable="true" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
             <ext-container :html="i18nd(`vue-ext`, `Password recovery`)"/>
             <ext-spacer/>
         </ext-toolbar>
-        <ext-textfield :label="i18nd(`vue-ext`, `Username or email`)" name="username" :placeholder="i18nd(`vue-ext`, `Enter your username or email`)" required="true"/>
+
+        <ext-fieldpanel ref="form">
+            <ext-textfield :label="i18nd(`vue-ext`, `Username or email`)" name="username" :placeholder="i18nd(`vue-ext`, `Enter your username or email`)" required="true"/>
+        </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
-            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" @tap="showSignin"/>
+            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" @tap="back"/>
             <ext-spacer/>
             <ext-button :text="i18nd(`vue-ext`, `Recover`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
-    </ext-fieldpanel>
+    </ext-panel>
 </template>
 
 <script>
@@ -21,12 +24,20 @@ export default {
 
     "methods": {
         _ready ( e ) {
-            var cmp = e.detail.cmp;
+            const cmp = e.detail.cmp;
 
-            cmp.setKeyMap( { "ENTER": { "handler": "_submit", "scope": this } } );
+            this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": this._submit.bind( this ) } } );
+
+            this._backListener = this.back.bind( this );
+
+            cmp.on( "activate", () => {
+                this.$app.on( "device/back-button", this._backListener );
+            } );
         },
 
-        showSignin () {
+        back () {
+            this.$app.off( "device/back-button", this._backListener );
+
             this.$emit( "signin" );
 
             this.$refs.form.ext.reset();
@@ -52,7 +63,7 @@ export default {
 
                     this.$utils.toast( this.i18nd( `vue-ext`, "Password change instructions were sent to the email address, associated with your account." ), 5000 );
 
-                    this.showSignin();
+                    this.back();
                 }
             }
         },
