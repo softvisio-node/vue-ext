@@ -2,7 +2,7 @@
     <ext-fieldpanel ref="form" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-container :html="i18nd(`vue-ext`, `Reset password`)"/>
+            <ext-container :html="i18nd(`vue-ext`, `Password recovery`)"/>
             <ext-spacer/>
         </ext-toolbar>
         <ext-textfield :label="i18nd(`vue-ext`, `Username or email`)" name="username" :placeholder="i18nd(`vue-ext`, `Enter your username or email`)" required="true"/>
@@ -10,7 +10,7 @@
         <ext-toolbar docked="bottom">
             <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" ui="back" @tap="showSignin"/>
             <ext-spacer/>
-            <ext-button :text="i18nd(`vue-ext`, `Reset`)" ui="action" @tap="_submit"/>
+            <ext-button :text="i18nd(`vue-ext`, `Recover`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
     </ext-fieldpanel>
 </template>
@@ -40,7 +40,7 @@ export default {
 
                 Ext.Viewport.mask();
 
-                const res = await this.$store.session.sendPasswordResetEmail( vals.username );
+                const res = await this.$store.session.sendPasswordRecoveryEmail( vals.username );
 
                 Ext.Viewport.unmask();
 

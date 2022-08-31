@@ -6,7 +6,7 @@
 
         <SigninForm :resetPasswordEnabled="resetPasswordEnabled" :signinFacebookEnabled="signinFacebookEnabled" :signinGitHubEnabled="signinGitHubEnabled" :signinGoogleEnabled="signinGoogleEnabled" :signupEnabled="signupEnabled" @reset="showResetPassword" @signup="showSignup"/>
 
-        <ResetPasswordForm @signin="showSignin"/>
+        <PasswordRecoveryForm @signin="showSignin"/>
 
         <SignupForm @signin="showSignin"/>
     </ext-panel>
@@ -14,12 +14,12 @@
 
 <script>
 import LocaleButton from "#lib/components/locale.button";
-import SigninForm from "./signin-form";
-import ResetPasswordForm from "./reset-password-form";
-import SignupForm from "./signup-form";
+import SigninForm from "./signin.form";
+import PasswordRecoveryForm from "./password-recovery.form";
+import SignupForm from "./signup.form";
 
 export default {
-    "components": { LocaleButton, SigninForm, ResetPasswordForm, SignupForm },
+    "components": { LocaleButton, SigninForm, PasswordRecoveryForm, SignupForm },
 
     "props": {
         "resetPasswordEnabled": {
