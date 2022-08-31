@@ -9,11 +9,11 @@
         <ext-button :hidden="!resetPasswordEnabled" padding="10 0 0 0" :text="i18nd(`vue-ext`, `Forgot password?`)" width="100%" @tap="showReset"/>
 
         <ext-container defaults='{"margin":"0 20 0 20","ui":"action"}' layout='{"pack":"center","type":"hbox"}' padding="10 0 0 0">
-            <ext-button :hidden="signinGoogleEnabled" iconCls="fa-brands fa-google" :tooltip="i18nd(`vue-ext`, `Sign in with Google`)"/>
+            <ext-button :hidden="!signinGoogleEnabled" iconCls="fa-brands fa-google" :tooltip="i18nd(`vue-ext`, `Sign in with Google`)"/>
 
-            <ext-button :hidden="signinFacebookEnabled" iconCls="fa-brands fa-square-facebook" :tooltip="i18nd(`vue-ext`, `Sign in with Facebook`)"/>
+            <ext-button :hidden="!signinFacebookEnabled" iconCls="fa-brands fa-square-facebook" :tooltip="i18nd(`vue-ext`, `Sign in with Facebook`)"/>
 
-            <ext-button :hidden="signinGitHubEnabled" iconCls="fa-brands fa-github" :tooltip="i18nd(`vue-ext`, `Sign in with GitHub`)"/>
+            <ext-button :hidden="!signinGitHubEnabled" iconCls="fa-brands fa-github" :tooltip="i18nd(`vue-ext`, `Sign in with GitHub`)"/>
         </ext-container>
 
         <ext-button :hidden="!signupEnabled" padding="10 0 0 0" :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" width="100%" @tap="showSignup"/>
