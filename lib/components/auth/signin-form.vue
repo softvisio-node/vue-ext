@@ -9,10 +9,17 @@
         <ext-textfield :label="i18nd(`vue-ext`, `Username or email`)" name="username" :placeholder="i18nd(`vue-ext`, `Enter your username or email`)" required="true"/>
         <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true"/>
 
-        <ext-button :hidden="!signupEnabled" margin="20 0 0 0" :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" width="100%" @tap="showSignup"/>
+        <ext-button :hidden="!resetPasswordEnabled" :text="i18nd(`vue-ext`, `Forgot password?`)" ui="forward" width="100%" @tap="showReset"/>
+
+        <ext-button :hidden="!signupEnabled" :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" width="100%" @tap="showSignup"/>
+
+        <ext-container defaults='{"ui":"action"}' layout='{"pack":"space-around","type":"hbox"}' margin="40 80 0 80">
+            <ext-button :hidden="!signinGoogleEnabled" iconCls="fa-brands fa-google" :tooltip="i18nd(`vue-ext`, `Sign in with Google`)"/>
+            <ext-button :hidden="!signinFacebookEnabled" iconCls="fa-brands fa-square-facebook" :tooltip="i18nd(`vue-ext`, `Sign in with Facebook`)"/>
+            <ext-button :hidden="!signinGitHubEnabled" iconCls="fa-brands fa-github" :tooltip="i18nd(`vue-ext`, `Sign in with GitHub`)"/>
+        </ext-container>
 
         <ext-toolbar docked="bottom">
-            <ext-button :hidden="!resetPasswordEnabled" :text="i18nd(`vue-ext`, `Forgot password?`)" ui="forward" @tap="showReset"/>
             <ext-spacer/>
             <ext-button :text="i18nd(`vue-ext`, `Sign in`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
@@ -22,6 +29,18 @@
 <script>
 export default {
     "props": {
+        "signinGoogleEnabled": {
+            "type": Boolean,
+            "default": false,
+        },
+        "signinFacebookEnabled": {
+            "type": Boolean,
+            "default": false,
+        },
+        "signinGitHubEnabled": {
+            "type": Boolean,
+            "default": false,
+        },
         "signupEnabled": {
             "type": Boolean,
             "default": false,

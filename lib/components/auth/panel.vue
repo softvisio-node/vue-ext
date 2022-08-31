@@ -4,7 +4,7 @@
             <LocaleButton :absolute="true"/>
         </ext-titlebar>
 
-        <SigninForm :resetPasswordEnabled="resetPasswordEnabled" :signupEnabled="signupEnabled" @reset="showResetPassword" @signup="showSignup"/>
+        <SigninForm :resetPasswordEnabled="resetPasswordEnabled" :signinFacebookEnabled="signinFacebookEnabled" :signinGitHubEnabled="signinGitHubEnabled" :signinGoogleEnabled="signinGoogleEnabled" :signupEnabled="signupEnabled" @reset="showResetPassword" @signup="showSignup"/>
 
         <ResetPasswordForm @signin="showSignin"/>
 
@@ -41,6 +41,18 @@ export default {
     "computed": {
         title () {
             return this.$store.session.title;
+        },
+
+        signinGoogleEnabled () {
+            return this.$store.session.settings.signin_google_enabled;
+        },
+
+        signinFacebookEnabled () {
+            return this.$store.session.settings.signin_facebook_enabled;
+        },
+
+        signinGitHubEnabled () {
+            return this.$store.session.settings.signin_github_enabled;
         },
 
         signupEnabled () {
