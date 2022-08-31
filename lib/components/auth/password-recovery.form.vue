@@ -8,7 +8,7 @@
         <ext-textfield :label="i18nd(`vue-ext`, `Username or email`)" name="username" :placeholder="i18nd(`vue-ext`, `Enter your username or email`)" required="true"/>
 
         <ext-toolbar docked="bottom">
-            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" ui="back" @tap="showSignin"/>
+            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" @tap="showSignin"/>
             <ext-spacer/>
             <ext-button :text="i18nd(`vue-ext`, `Recover`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
