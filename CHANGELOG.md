@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.8.1 (2022-08-31)
+
+Fixes:
+
+-   fix: users panel props
+
 ### 7.8.0 (2022-08-30)
 
 Features:
