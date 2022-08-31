@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-31 09:50+0300\n"
+"POT-Creation-Date: 2022-08-31 16:52+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -338,81 +338,91 @@ msgstr "Скопировать информацию о версии в буфе�
 msgid "Version info copied"
 msgstr "Информация о версии скопирована в буфер"
 
-#: lib/components/auth/reset-password-form.vue:5:34
-#: lib/components/reset-password-dialog.vue:11:31
-#: lib/components/reset-password-dialog.vue:2:53
-msgid "Reset password"
-msgstr "Сбросить пароль"
+#: lib/components/auth/password-recovery.form.vue:5:34
+msgid "Password recovery"
+msgstr "Восстановление пароля"
 
-#: lib/components/auth/reset-password-form.vue:8:31
-#: lib/components/auth/signin-form.vue:9:31
+#: lib/components/auth/password-recovery.form.vue:8:31
+#: lib/components/auth/signin.form.vue:9:31
 msgid "Username or email"
 msgstr "Имя пользователя или email"
 
-#: lib/components/auth/reset-password-form.vue:8:100
-#: lib/components/auth/signin-form.vue:9:100
+#: lib/components/auth/password-recovery.form.vue:8:100
+#: lib/components/auth/signin.form.vue:9:100
 msgid "Enter your username or email"
 msgstr "Введите ваше имя пользователя или email"
 
-#: lib/components/auth/reset-password-form.vue:11:64
-#: lib/components/auth/signup-form.vue:14:64
+#: lib/components/auth/password-recovery.form.vue:11:64
+#: lib/components/auth/signup.form.vue:14:64
 msgid "Back"
 msgstr "Назад"
 
-#: lib/components/auth/reset-password-form.vue:13:31
-msgid "Reset"
-msgstr "Сбросить"
+#: lib/components/auth/password-recovery.form.vue:13:31
+msgid "Recover"
+msgstr "Восстановить"
 
-#: lib/components/auth/reset-password-form.vue:53:39
+#: lib/components/auth/password-recovery.form.vue:53:39
 msgid "Password change instructions were sent to the email address, associated with your account."
 msgstr "Инструкции по смене пароль отправлены на ваш email."
 
-#: lib/components/auth/signin-form.vue:5:34
-#: lib/components/auth/signin-form.vue:17:31
+#: lib/components/auth/signin.form.vue:5:34
+#: lib/components/auth/signin.form.vue:24:31
 msgid "Sign in"
 msgstr "Войти"
 
-#: lib/components/auth/signin-form.vue:10:35
-#: lib/components/auth/signup-form.vue:10:35
+#: lib/components/auth/signin.form.vue:10:35
+#: lib/components/auth/signup.form.vue:10:35
 #: lib/components/change-password-dialog.vue:4:39
 #: lib/components/users/create/dialog.vue:5:39
 msgid "Password"
 msgstr "Пароль"
 
-#: lib/components/auth/signin-form.vue:10:95
-#: lib/components/auth/signup-form.vue:10:95
+#: lib/components/auth/signin.form.vue:10:95
+#: lib/components/auth/signup.form.vue:10:95
 msgid "Enter your password"
 msgstr "Введите ваш пароль"
 
-#: lib/components/auth/signin-form.vue:12:70
-msgid "Do not have account? Sign up"
-msgstr "Нет аккаута? Зарегистрируйтесь"
-
-#: lib/components/auth/signin-form.vue:15:63
+#: lib/components/auth/signin.form.vue:12:59
 msgid "Forgot password?"
 msgstr "Забыли пароль?"
 
-#: lib/components/auth/signup-form.vue:5:34
-#: lib/components/auth/signup-form.vue:16:31
+#: lib/components/auth/signin.form.vue:14:52
+msgid "Do not have account? Sign up"
+msgstr "Нет аккаута? Зарегистрируйтесь"
+
+#: lib/components/auth/signin.form.vue:17:95
+msgid "Sign in with Google"
+msgstr "Войти через Google"
+
+#: lib/components/auth/signin.form.vue:18:106
+msgid "Sign in with Facebook"
+msgstr "Войти через Facebook"
+
+#: lib/components/auth/signin.form.vue:19:95
+msgid "Sign in with GitHub"
+msgstr "Войти через GitHub"
+
+#: lib/components/auth/signup.form.vue:5:34
+#: lib/components/auth/signup.form.vue:16:31
 msgid "Sign up"
 msgstr "Зарегистрироваться"
 
-#: lib/components/auth/signup-form.vue:9:32
+#: lib/components/auth/signup.form.vue:9:32
 #: lib/components/users/create/dialog.vue:4:36
 msgid "Email"
 msgstr "Email"
 
-#: lib/components/auth/signup-form.vue:9:89
+#: lib/components/auth/signup.form.vue:9:89
 msgid "Enter your email"
 msgstr "Введите ваш email"
 
-#: lib/components/auth/signup-form.vue:11:57
+#: lib/components/auth/signup.form.vue:11:57
 #: lib/components/change-password-dialog.vue:5:61
 #: lib/components/users/create/dialog.vue:6:39
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
-#: lib/components/auth/signup-form.vue:11:109
+#: lib/components/auth/signup.form.vue:11:109
 msgid "Confirm your password"
 msgstr "Подтвердите ваш пароль"
 
@@ -511,6 +521,11 @@ msgstr "Push-уведомления выключены"
 msgid "Cancel"
 msgstr "Отменить"
 
+#: lib/components/reset-password-dialog.vue:11:31
+#: lib/components/reset-password-dialog.vue:2:53
+msgid "Reset password"
+msgstr "Сбросить пароль"
+
 #: lib/components/reset-password-dialog.vue:38:35
 msgid "Password reset token was not found"
 msgstr "Токен сброса пароля не найден"
@@ -594,6 +609,9 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Reset"
+#~ msgstr "Сбросить"
 
 #~ msgid "Drop sessions"
 #~ msgstr "Сбросить сессии"
