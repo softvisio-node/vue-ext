@@ -6,8 +6,15 @@ export default {
     "extends": Panel,
 
     "methods": {
-        maximize () {
-            this.$mount( PdfDialog, { "props": { "src": this.currentSrc }, "cache": false } );
+        async maximize () {
+            const cmp = await this.$mount( PdfDialog, {
+                "cache": false,
+                "props": {
+                    "src": this.currentSrc,
+                },
+            } );
+
+            cmp.ext.show();
         },
     },
 };
