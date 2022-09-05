@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import PdfPanel from "./panel";
+import PdfPanel from "./_panel";
 
 export default {
     "components": { PdfPanel },
