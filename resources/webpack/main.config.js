@@ -14,7 +14,7 @@ export class Main extends Super {
 
     // protected
     _generate ( options ) {
-        const config = super.generate( options );
+        const config = super._generate( options );
 
         config.resolve.alias = {
             ...config.resolve.alias,
