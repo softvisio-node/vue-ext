@@ -1,72 +1,84 @@
-import config from "@softvisio/vue/resources/webpack/main.config.js";
+import { Main as Super } from "@softvisio/vue/resources/webpack/main.config.js";
 
-config.get( "main" ).addSchema( new URL( "../schemas/env.main.schema.yaml", import.meta.url ) );
+export class Main extends Super {
+    #schemas = [
 
-config.get( "main" ).wrap( ( config, options ) => {
-    config.resolve.alias = {
-        ...config.resolve.alias,
-        "#vue": "@softvisio/vue-ext",
+        //
+        new URL( "../schemas/env.main.schema.yaml", import.meta.url ),
+    ];
 
-        "#ext$": "@softvisio/ext/ext-" + process.env.EXT_VERSION,
-        "#ext": "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION,
-        "#ewc$": "@softvisio/ext/ewc-" + process.env.EWC_VERSION,
-        "#ewc": "@softvisio/ext/resources/ewc-" + process.env.EWC_VERSION,
-        "#ext-charts$": "@softvisio/ext/ext-charts-" + process.env.EXT_VERSION,
-    };
+    // properties
+    get schemas () {
+        return [...super.schemas, ...this.#schemas];
+    }
 
-    // config.module.rules[1].exclude.push( /[\\/]resources[\\/]ext-[\d.]+[\\/]/, /[\\/]resources[\\/]ewc-[\d.]+[\\/]/ );
+    // public
+    generate ( options ) {
+        const config = super.generate( options );
 
-    // config.optimization.splitChunks.cacheGroups["ext-charts"] = {
-    //     "name": "ext-charts",
-    //     test ( module ) {
-    //         if ( !module.resource ) return;
+        config.resolve.alias = {
+            ...config.resolve.alias,
+            "#vue": "@softvisio/vue-ext",
 
-    //         const resource = module.resource.replaceAll( "\\", "/" );
+            "#ext$": "@softvisio/ext/ext-" + process.env.EXT_VERSION,
+            "#ext": "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION,
+            "#ewc$": "@softvisio/ext/ewc-" + process.env.EWC_VERSION,
+            "#ewc": "@softvisio/ext/resources/ewc-" + process.env.EWC_VERSION,
+            "#ext-charts$": "@softvisio/ext/ext-charts-" + process.env.EXT_VERSION,
+        };
 
-    //         if ( resource.includes( "@softvisio/ext/lib/ext-charts-" ) ) return true;
+        // config.module.rules[1].exclude.push( /[\\/]resources[\\/]ext-[\d.]+[\\/]/, /[\\/]resources[\\/]ewc-[\d.]+[\\/]/ );
 
-    //         if ( resource.includes( "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION + "/charts.js" ) ) return true;
-    //     },
-    //     "priority": -9,
-    //     "chunks": "all",
-    // };
+        // config.optimization.splitChunks.cacheGroups["ext-charts"] = {
+        //     "name": "ext-charts",
+        //     test ( module ) {
+        //         if ( !module.resource ) return;
 
-    // config.optimization.splitChunks.cacheGroups["ext"] = {
-    //     "name": "ext",
-    //     "test": /@softvisio[\\/]ext[\\/]/,
-    //     "priority": -9,
-    //     "chunks": "initial",
-    // };
+        //         const resource = module.resource.replaceAll( "\\", "/" );
 
-    config.optimization.splitChunks.cacheGroups["froala-editor"] = {
-        "name": "froala-editor",
-        "test": /froala-editor[\\/]/,
-        "priority": -9,
-        "chunks": "all",
-    };
+        //         if ( resource.includes( "@softvisio/ext/lib/ext-charts-" ) ) return true;
 
-    config.optimization.splitChunks.cacheGroups["amcharts5"] = {
-        "name": "amcharts5",
-        "test": /@amcharts[\\/]amcharts5[\\/]/,
-        "priority": -9,
-        "chunks": "all",
-    };
+        //         if ( resource.includes( "@softvisio/ext/resources/ext-" + process.env.EXT_VERSION + "/charts.js" ) ) return true;
+        //     },
+        //     "priority": -9,
+        //     "chunks": "all",
+        // };
 
-    config.optimization.splitChunks.cacheGroups["pdfjs"] = {
-        "name": "pdfjs",
-        "test": /pdfjs-dist[\\/]/,
-        "priority": -9,
-        "chunks": "all",
-    };
+        // config.optimization.splitChunks.cacheGroups["ext"] = {
+        //     "name": "ext",
+        //     "test": /@softvisio[\\/]ext[\\/]/,
+        //     "priority": -9,
+        //     "chunks": "initial",
+        // };
 
-    config.optimization.splitChunks.cacheGroups["fontawesome"] = {
-        "name": "fa",
-        "test": /@fortawesome[\\/]/,
-        "priority": -9,
-        "chunks": "all",
-    };
+        config.optimization.splitChunks.cacheGroups["froala-editor"] = {
+            "name": "froala-editor",
+            "test": /froala-editor[\\/]/,
+            "priority": -9,
+            "chunks": "all",
+        };
 
-    return config;
-} );
+        config.optimization.splitChunks.cacheGroups["amcharts5"] = {
+            "name": "amcharts5",
+            "test": /@amcharts[\\/]amcharts5[\\/]/,
+            "priority": -9,
+            "chunks": "all",
+        };
 
-export default config;
+        config.optimization.splitChunks.cacheGroups["pdfjs"] = {
+            "name": "pdfjs",
+            "test": /pdfjs-dist[\\/]/,
+            "priority": -9,
+            "chunks": "all",
+        };
+
+        config.optimization.splitChunks.cacheGroups["fontawesome"] = {
+            "name": "fa",
+            "test": /@fortawesome[\\/]/,
+            "priority": -9,
+            "chunks": "all",
+        };
+
+        return config;
+    }
+}
