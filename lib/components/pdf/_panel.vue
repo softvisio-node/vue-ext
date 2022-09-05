@@ -70,7 +70,7 @@ export default {
 
             if ( this.maximizable ) {
                 maximize = [
-                    { "xtype": "button", "iconCls": "fa-solid fa-compress", "ui": "action", "handler": this.maximize.bind( this, null ) },
+                    { "xtype": "button", "iconCls": "fa-solid fa-maximize", "ui": "action", "handler": this.maximize.bind( this, null ) },
                     { "xtype": "container", "height": "10" },
                 ];
             }
@@ -83,7 +83,16 @@ export default {
                     "type": "vbox",
                 },
 
-                "items": [...maximize, { "xtype": "button", "iconCls": "fa-solid fa-search-plus", "ui": "action", "handler": this.zoomIn.bind( this, null ) }, { "xtype": "container", "height": "10" }, { "xtype": "button", "iconCls": "fa-solid fa-arrows-alt", "ui": "action", "handler": this.resetZoom.bind( this ) }, { "xtype": "container", "height": "10" }, { "xtype": "button", "iconCls": "fa-solid fa-search-minus", "ui": "action", "handler": this.zoomOut.bind( this, null ) }],
+                "items": [
+
+                    //
+                    ...maximize,
+                    { "xtype": "button", "iconCls": "fa-solid fa-search-plus", "ui": "action", "handler": this.zoomIn.bind( this, null ) },
+                    { "xtype": "container", "height": "10" },
+                    { "xtype": "button", "iconCls": "fa-solid fa-minimize", "ui": "action", "handler": this.resetZoom.bind( this ) },
+                    { "xtype": "container", "height": "10" },
+                    { "xtype": "button", "iconCls": "fa-solid fa-search-minus", "ui": "action", "handler": this.zoomOut.bind( this, null ) },
+                ],
             } );
 
             if ( this.src ) this.currentSrc = this.src;
