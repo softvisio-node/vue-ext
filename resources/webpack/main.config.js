@@ -12,8 +12,8 @@ export class Main extends Super {
         return [...super.schemas, ...this.#schemas];
     }
 
-    // public
-    generate ( options ) {
+    // protected
+    _generate ( options ) {
         const config = super.generate( options );
 
         config.resolve.alias = {

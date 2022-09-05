@@ -2,8 +2,8 @@ import { FirebaseMessagingWorker as Super } from "@softvisio/vue/resources/webpa
 
 export class FirebaseMessagingWorker extends Super {
 
-    // public
-    generate ( options ) {
+    // protected
+    _generate ( options ) {
         const config = super.generate( options );
 
         config.resolve.alias = {
