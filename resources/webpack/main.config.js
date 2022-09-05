@@ -60,8 +60,8 @@ export class Main extends Super {
             "chunks": "all",
         };
 
-        config.optimization.splitChunks.cacheGroups["pdfjs"] = {
-            "name": "pdfjs",
+        config.optimization.splitChunks.cacheGroups["pdf"] = {
+            "name": "pdf",
             "test": /pdfjs-dist[\\/]/,
             "priority": -9,
             "chunks": "all",
