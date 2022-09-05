@@ -1,15 +1,10 @@
 import { Main as Super } from "@softvisio/vue/resources/webpack/main.config.js";
 
 export class Main extends Super {
-    #schemas = [
+    constructor ( options ) {
+        super( options );
 
-        //
-        new URL( "../schemas/env.main.schema.yaml", import.meta.url ),
-    ];
-
-    // properties
-    get schemas () {
-        return [...super.schemas, ...this.#schemas];
+        this.addSchema( new URL( "../schemas/env.main.schema.yaml", import.meta.url ) );
     }
 
     // protected
