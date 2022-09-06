@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-05 18:56+0300\n"
+"POT-Creation-Date: 2022-09-06 19:38+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,9 +50,8 @@ msgid "Notifications"
 msgstr "Уведомления"
 
 #: lib/components/account/panel.vue:33:40
-#: lib/components/api-keys/dialog.vue:2:87
-msgid "API keys"
-msgstr "Ключи API"
+msgid "Access tokens"
+msgstr "Токены доступа"
 
 #: lib/components/account/panel.vue:40:38
 #: lib/components/account/panel.vue:38:41
@@ -97,11 +96,11 @@ msgstr "Добавить пользователя"
 #: lib/components/api-call-log/history/dialog.vue:5:58
 #: lib/components/api-call-log/log/dialog.vue:5:58
 #: lib/components/api-call-log/panel.vue:7:78
-#: lib/components/api-keys/panel.vue:7:58
-#: lib/components/api-keys/panel.vue:16:58
 #: lib/components/sessions/panel.vue:7:58
-#: lib/components/sessions/panel.vue:16:58 lib/components/users/panel.vue:7:58
-#: lib/components/users/panel.vue:16:58
+#: lib/components/sessions/panel.vue:16:58
+#: lib/components/user-tokens/panel.vue:7:58
+#: lib/components/user-tokens/panel.vue:16:58
+#: lib/components/users/panel.vue:7:58 lib/components/users/panel.vue:16:58
 msgid "Refresh"
 msgstr "Обновить"
 
@@ -109,8 +108,9 @@ msgstr "Обновить"
 msgid "No records matched search criteria"
 msgstr "Нет записей, соответствующих критериям поиска"
 
-#: lib/components/acl/panel.vue:14:34 lib/components/api-keys/panel.vue:15:34
-#: lib/components/sessions/panel.vue:15:34 lib/components/users/panel.vue:15:34
+#: lib/components/acl/panel.vue:14:34 lib/components/sessions/panel.vue:15:34
+#: lib/components/user-tokens/panel.vue:15:34
+#: lib/components/users/panel.vue:15:34
 msgid "Unable to load records"
 msgstr "Не удалось загрузить записи"
 
@@ -125,8 +125,8 @@ msgstr "Роли"
 
 #: lib/components/acl/panel.vue:25:63 lib/components/acl/panel.vue:204:45
 #: lib/components/acl/user-dialog.vue:5:90
-#: lib/components/api-keys/panel.vue:27:84
-#: lib/components/api-keys/panel.vue:155:45
+#: lib/components/user-tokens/panel.vue:27:84
+#: lib/components/user-tokens/panel.vue:155:45
 #: lib/components/users/create/dialog.vue:7:37
 #: lib/components/users/panel.vue:29:84 lib/components/users/panel.vue:184:45
 msgid "Access enabled"
@@ -141,7 +141,8 @@ msgstr "Редактировать роли пользователя"
 msgid "Delete user"
 msgstr "Удалить пользователя"
 
-#: lib/components/acl/panel.vue:204:89 lib/components/api-keys/panel.vue:155:89
+#: lib/components/acl/panel.vue:204:89
+#: lib/components/user-tokens/panel.vue:155:89
 #: lib/components/users/panel.vue:184:89
 msgid "Access disabled"
 msgstr "Доступ запрещен"
@@ -159,14 +160,14 @@ msgid "Select user"
 msgstr "Выбрать пользователя"
 
 #: lib/components/acl/user-dialog.vue:10:119
-#: lib/components/api-keys/roles/dialog.vue:4:48
+#: lib/components/user-tokens/roles/dialog.vue:4:48
 #: lib/components/users/roles/dialog.vue:4:48
 msgid "Role"
 msgstr "Роль"
 
 #: lib/components/acl/user-dialog.vue:12:78
 #: lib/components/acl/user-dialog.vue:118:45
-#: lib/components/api-keys/roles/dialog.vue:8:84
+#: lib/components/user-tokens/roles/dialog.vue:8:84
 #: lib/components/users/roles/dialog.vue:8:84
 msgid "Role enabled"
 msgstr "Роль включена"
@@ -234,96 +235,6 @@ msgstr "Среднее количество запросов за последн
 #: lib/components/api-call-log/panel.vue:13:51
 msgid "Exceptions for last 60 minutes (%)"
 msgstr "Исключения за последние 60 минут"
-
-#: lib/components/api-keys/create/dialog.vue:4:46
-#: lib/components/api-keys/panel.vue:21:57
-msgid "Key name"
-msgstr "Имя ключа"
-
-#: lib/components/api-keys/create/dialog.vue:4:102
-msgid "Enter new key name"
-msgstr "Введите имя нового ключа"
-
-#: lib/components/api-keys/create/dialog.vue:9:61
-msgid "Your API access key:"
-msgstr "Ваш ключ доступа к API:"
-
-#: lib/components/api-keys/create/dialog.vue:11:24
-msgid "Please, copy key to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this key again."
-msgstr "Пожалуйста, скопируйте ключ в буфер и сохраните в надежном месте. После того, как это окно будет закрыто, мы не сможем показать вам этот ключ снова."
-
-#: lib/components/api-keys/create/dialog.vue:15:62
-msgid "Copy key to the clipboard"
-msgstr "Копировать Ключ в буфер"
-
-#: lib/components/api-keys/create/dialog.vue:21:44
-msgid "Create key"
-msgstr "Создать ключ"
-
-#: lib/components/api-keys/create/dialog.vue:22:57
-msgid "Close"
-msgstr "Закрыть"
-
-#: lib/components/api-keys/create/dialog.vue:2:70
-#: lib/components/api-keys/panel.vue:6:58
-msgid "Create API key"
-msgstr "Создать ключ API"
-
-#: lib/components/api-keys/create/dialog.vue:83:35
-msgid "API key created"
-msgstr "Ключ API создан"
-
-#: lib/components/api-keys/create/dialog.vue:95:31
-msgid "Key copied to the clipboard"
-msgstr "Ключ скопирован"
-
-#: lib/components/api-keys/panel.vue:4:43
-msgid "Search keys by name"
-msgstr "Искать ключи по имени"
-
-#: lib/components/api-keys/panel.vue:11:47
-#: lib/components/sessions/panel.vue:11:47 lib/components/users/panel.vue:11:47
-msgid "No records match search criteria"
-msgstr "Нет записей, соответствующих критериям поиска"
-
-#: lib/components/api-keys/panel.vue:23:128
-#: lib/components/sessions/panel.vue:25:128
-#: lib/components/users/panel.vue:25:163
-msgid "Last activity"
-msgstr "Последняя активность"
-
-#: lib/components/api-keys/panel.vue:25:103
-#: lib/components/sessions/panel.vue:27:70
-#: lib/components/users/panel.vue:27:100
-msgid "Creation date"
-msgstr "Дата создания"
-
-#: lib/components/api-keys/panel.vue:97:39
-#: lib/components/api-keys/roles/dialog.vue:2:69
-msgid "Edit key roles"
-msgstr "Редактировать роли ключа"
-
-#: lib/components/api-keys/panel.vue:165:47
-msgid "Are you sure you want to delete this key?"
-msgstr "Вы действительно хотите удалить этот ключ?"
-
-#: lib/components/api-keys/panel.vue:170:35
-msgid "API key deleted"
-msgstr "Ключ API удален"
-
-#: lib/components/api-keys/roles/dialog.vue:6:64
-#: lib/components/users/roles/dialog.vue:6:64
-msgid "Description"
-msgstr "Описание"
-
-#: lib/components/api-keys/roles/dialog.vue:12:62
-#: lib/components/users/roles/dialog.vue:12:62
-msgid "Save"
-msgstr "Сохранить"
-
-#: lib/components/api-keys/roles/dialog.vue:100:35
-msgid "Key roles updated"
-msgstr "Роли ключа обновлены"
 
 #: lib/components/app-title/menu.vue:28:66
 #: lib/components/sessions/panel.vue:74:39
@@ -555,6 +466,12 @@ msgstr "Активные сессии"
 msgid "Delete all sessions"
 msgstr "Удалить все сессии"
 
+#: lib/components/sessions/panel.vue:11:47
+#: lib/components/user-tokens/panel.vue:11:47
+#: lib/components/users/panel.vue:11:47
+msgid "No records match search criteria"
+msgstr "Нет записей, соответствующих критериям поиска"
+
 #: lib/components/sessions/panel.vue:21:63
 msgid "User agent"
 msgstr "Агент пользователя"
@@ -562,6 +479,18 @@ msgstr "Агент пользователя"
 #: lib/components/sessions/panel.vue:23:58
 msgid "IP address"
 msgstr "IP адрес"
+
+#: lib/components/sessions/panel.vue:25:128
+#: lib/components/user-tokens/panel.vue:23:128
+#: lib/components/users/panel.vue:25:163
+msgid "Last activity"
+msgstr "Последняя активность"
+
+#: lib/components/sessions/panel.vue:27:70
+#: lib/components/user-tokens/panel.vue:25:103
+#: lib/components/users/panel.vue:27:100
+msgid "Creation date"
+msgstr "Дата создания"
 
 #: lib/components/sessions/panel.vue:93:35
 msgid "Session was deleted"
@@ -571,6 +500,83 @@ msgstr "Сессия была удалена"
 #: lib/components/users/panel.vue:223:35
 msgid "Sessions were deleted"
 msgstr "Сессии были удалены"
+
+#: lib/components/user-tokens/create/dialog.vue:4:46
+#: lib/components/user-tokens/panel.vue:21:57
+msgid "Token name"
+msgstr "Имя токена"
+
+#: lib/components/user-tokens/create/dialog.vue:4:104
+msgid "Enter new token name"
+msgstr "Введите имя нового токена"
+
+#: lib/components/user-tokens/create/dialog.vue:9:63
+msgid "Your access token:"
+msgstr "Ваш токен доступа:"
+
+#: lib/components/user-tokens/create/dialog.vue:11:24
+msgid "Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again."
+msgstr "Пожалуйста, скопируйте токен в буфер и сохраните в надежном месте. После того, как это окно будет закрыто, мы не сможем показать вам этот токен снова."
+
+#: lib/components/user-tokens/create/dialog.vue:15:62
+msgid "Copy token to the clipboard"
+msgstr "Копировать токен в буфер"
+
+#: lib/components/user-tokens/create/dialog.vue:21:44
+msgid "Create token"
+msgstr "Создать токен"
+
+#: lib/components/user-tokens/create/dialog.vue:22:57
+msgid "Close"
+msgstr "Закрыть"
+
+#: lib/components/user-tokens/create/dialog.vue:2:70
+#: lib/components/user-tokens/panel.vue:6:58
+msgid "Create access token"
+msgstr "Создать токен доступа"
+
+#: lib/components/user-tokens/create/dialog.vue:83:35
+msgid "Access token created"
+msgstr "Токен доступа создан"
+
+#: lib/components/user-tokens/create/dialog.vue:95:31
+msgid "Token copied to the clipboard"
+msgstr "Токен скопирован"
+
+#: lib/components/user-tokens/dialog.vue:2:87
+msgid "API keys"
+msgstr "Ключи API"
+
+#: lib/components/user-tokens/panel.vue:4:43
+msgid "Search tokens by name"
+msgstr "Искать токены по имени"
+
+#: lib/components/user-tokens/panel.vue:97:39
+#: lib/components/user-tokens/roles/dialog.vue:2:69
+msgid "Edit token roles"
+msgstr "Редактировать роли токена"
+
+#: lib/components/user-tokens/panel.vue:165:47
+msgid "Are you sure you want to delete this token?"
+msgstr "Вы действительно хотите удалить этот токен?"
+
+#: lib/components/user-tokens/panel.vue:170:35
+msgid "Token deleted"
+msgstr "Токен удален"
+
+#: lib/components/user-tokens/roles/dialog.vue:6:64
+#: lib/components/users/roles/dialog.vue:6:64
+msgid "Description"
+msgstr "Описание"
+
+#: lib/components/user-tokens/roles/dialog.vue:12:62
+#: lib/components/users/roles/dialog.vue:12:62
+msgid "Save"
+msgstr "Сохранить"
+
+#: lib/components/user-tokens/roles/dialog.vue:100:35
+msgid "Token roles updated"
+msgstr "Роли токена обновлены"
 
 #: lib/components/users/create/dialog.vue:12:31
 #: lib/components/users/create/dialog.vue:2:74
@@ -626,6 +632,21 @@ msgstr "Токен подтверждения email неверен"
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
 
+#~ msgid "Key name"
+#~ msgstr "Имя ключа"
+
+#~ msgid "Create API key"
+#~ msgstr "Создать ключ API"
+
+#~ msgid "API key created"
+#~ msgstr "Ключ API создан"
+
+#~ msgid "API key deleted"
+#~ msgstr "Ключ API удален"
+
+#~ msgid "Key roles updated"
+#~ msgstr "Роли ключа обновлены"
+
 #~ msgid "Reset"
 #~ msgstr "Сбросить"
 
@@ -642,12 +663,6 @@ msgstr "Email подтвержден успешно"
 
 #~ msgid "Submit"
 #~ msgstr "Отправить"
-
-#~ msgid "Token name"
-#~ msgstr "Имя токена"
-
-#~ msgid "Token roles updated"
-#~ msgstr "Роли токена обновлены"
 
 #~ msgid "Update"
 #~ msgstr "Обноаить"
