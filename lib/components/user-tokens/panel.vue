@@ -1,9 +1,9 @@
 <template>
     <ext-panel ref="cards" layout="card">
         <ext-toolbar docked="top">
-            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search keys by name`)" width="200" @change="search"/>
+            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Create API key`)" @tap="showCreateKeyDialog"/>
+            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Create access token`)" @tap="showCreateTokenDialog"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
@@ -18,7 +18,7 @@
 
         <!-- data card -->
         <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
-            <ext-column dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Key name`)"/>
+            <ext-column dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Token name`)"/>
 
             <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
 
@@ -34,13 +34,13 @@
 <script>
 import CreateDialog from "./create/dialog";
 import RolesDialog from "./roles/dialog";
-import KeyModel from "./models/key";
+import TokenModel from "./models/token";
 import loadMask from "#vue/load-mask";
 
 export default {
     created () {
         this.store = Ext.create( "Ext.data.Store", {
-            "model": KeyModel,
+            "model": TokenModel,
             "autoLoad": false,
             "pageSize": 100,
         } );
@@ -94,8 +94,8 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Edit key roles" ),
-                            "handler": this.showKeyRolesDialog.bind( this ),
+                            "tooltip": this.i18nd( `vue-ext`, "Edit token roles" ),
+                            "handler": this.showTokenRolesDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
@@ -162,12 +162,12 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete this key?" ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete this token?" ) ) ) ) return;
 
             var res = await this.$api.call( "account/tokens/delete", record.getId() );
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "API key deleted" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Token deleted" ) );
 
                 this.store.remove( record );
             }
@@ -176,7 +176,7 @@ export default {
             }
         },
 
-        async showCreateKeyDialog () {
+        async showCreateTokenDialog () {
             const cmp = await this.$mount( CreateDialog, {
                 "props": {
                     "onCreated": () => this.reload(),
@@ -186,7 +186,7 @@ export default {
             cmp.ext.show();
         },
 
-        async showKeyRolesDialog ( button ) {
+        async showTokenRolesDialog ( button ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
