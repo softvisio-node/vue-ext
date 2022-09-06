@@ -140,7 +140,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "account/api-keys/set-enabled", record.id, enabled );
+            const res = await this.$api.call( "account/tokens/set-enabled", record.id, enabled );
 
             if ( !res.ok ) {
                 await this.$utils.sleep( 500 );
@@ -164,7 +164,7 @@ export default {
 
             if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete this key?" ) ) ) ) return;
 
-            var res = await this.$api.call( "account/api-keys/delete", record.getId() );
+            var res = await this.$api.call( "account/tokens/delete", record.getId() );
 
             if ( res.ok ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, "API key deleted" ) );

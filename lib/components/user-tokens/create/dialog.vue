@@ -67,7 +67,7 @@ export default {
                 "message": `<div style="color:white;">Generating<br/>please wait...</div>`,
             } );
 
-            const res = await this.$api.call( "account/api-keys/create", vals.name );
+            const res = await this.$api.call( "account/tokens/create", vals.name );
 
             this.ext.unmask();
 
