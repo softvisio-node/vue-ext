@@ -1,5 +1,18 @@
 # Changelog
 
+### 7.10.0 (2022-09-06)
+
+Features:
+
+-   feat: webpack preprocessor
+
+Fixes:
+
+-   fix: firebase worker
+-   fix: pdf chunk
+-   fix: webpack config
+-   fix: webpack preprocessor
+
 ### 7.9.0 (2022-08-31)
 
 Features:
