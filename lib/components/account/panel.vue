@@ -29,9 +29,9 @@
             <NotificationsPanel/>
         </ext-panel>
 
-        <!-- api keys -->
-        <ext-panel layout="fit" :title="i18nd(`vue-ext`, `API keys`)">
-            <ApiKeysPanel/>
+        <!-- tokens -->
+        <ext-panel layout="fit" :title="i18nd(`vue-ext`, `Access tokens`)">
+            <UserTokensPanel/>
         </ext-panel>
 
         <!-- theme -->
@@ -62,11 +62,11 @@
 <script>
 import SessionsPanel from "#lib/components/sessions/panel";
 import NotificationsPanel from "#lib/components/notifications/panel";
-import ApiKeysPanel from "#lib/components/api-keys/panel";
+import UserTokensPanel from "#lib/components/user-tokens/panel";
 import DarkModeButton from "#lib/components/dark-mode.button";
 
 export default {
-    "components": { SessionsPanel, NotificationsPanel, ApiKeysPanel, DarkModeButton },
+    "components": { SessionsPanel, NotificationsPanel, UserTokensPanel, DarkModeButton },
 
     "computed": {
         "systemDarkMode": {
