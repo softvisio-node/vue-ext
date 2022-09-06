@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="90%" layout="fit" :title="i18nd(`vue-ext`, `Edit key roles`)" viewModel="true" width="800">
+    <ext-dialog closeAction="hide" height="90%" layout="fit" :title="i18nd(`vue-ext`, `Edit token roles`)" viewModel="true" width="800">
         <ext-grid multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
             <ext-column dataIndex="name" :text="i18nd(`vue-ext`, `Role`)" width="150"/>
 
@@ -97,7 +97,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Key roles updated" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Token roles updated" ) );
 
                 this.record.set( "roles", Ext.apply( {}, roles, this.record.get( "roles" ) ) );
 
