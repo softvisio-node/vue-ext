@@ -1,12 +1,12 @@
 <template>
-    <ext-dialog closeAction="hide" height="400" layout="vbox" :title="i18nd(`vue-ext`, `Create access token`)" width="400" @ready="ready">
+    <ext-dialog closeAction="hide" height="400" layout="vbox" :title="i18nd(`vue-ext`, `Create token`)" width="400" @ready="ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
             <ext-textfield ref="name" :label="i18nd(`vue-ext`, `Token name`)" name="name" :placeholder="i18nd(`vue-ext`, `Enter new token name`)" required="true"/>
         </ext-fieldpanel>
 
         <ext-container ref="done" defaults='{"labelAlign":"top"}' hidden="true">
             <ext-spacer height="10"/>
-            <ext-textareafield ref="token" height="90" :label="i18nd(`vue-ext`, `Your access token:`)" readOnly="true" textAlign="center"/>
+            <ext-textareafield ref="token" height="90" :label="i18nd(`vue-ext`, `Your token:`)" readOnly="true" textAlign="center"/>
             <ext-container>
                 <div>{{ i18nd(`vue-ext`, `Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again.`) }}</div>
             </ext-container>
@@ -80,7 +80,7 @@ export default {
                 this.$refs.submit.ext.setHidden( true );
                 this.$refs.close.ext.setHidden( false );
 
-                this.$utils.toast( this.i18nd( `vue-ext`, "Access token created" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Token created" ) );
 
                 this.$emit( "created" );
             }

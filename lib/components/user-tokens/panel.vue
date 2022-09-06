@@ -3,7 +3,7 @@
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Create access token`)" @tap="showCreateTokenDialog"/>
+            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Create token`)" @tap="showCreateTokenDialog"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 

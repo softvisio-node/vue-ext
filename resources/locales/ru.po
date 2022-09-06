@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-06 19:38+0300\n"
+"POT-Creation-Date: 2022-09-06 19:51+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -511,8 +511,8 @@ msgid "Enter new token name"
 msgstr "Введите имя нового токена"
 
 #: lib/components/user-tokens/create/dialog.vue:9:63
-msgid "Your access token:"
-msgstr "Ваш токен доступа:"
+msgid "Your token:"
+msgstr "Ваш токен:"
 
 #: lib/components/user-tokens/create/dialog.vue:11:24
 msgid "Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again."
@@ -523,6 +523,8 @@ msgid "Copy token to the clipboard"
 msgstr "Копировать токен в буфер"
 
 #: lib/components/user-tokens/create/dialog.vue:21:44
+#: lib/components/user-tokens/create/dialog.vue:2:70
+#: lib/components/user-tokens/panel.vue:6:58
 msgid "Create token"
 msgstr "Создать токен"
 
@@ -530,14 +532,9 @@ msgstr "Создать токен"
 msgid "Close"
 msgstr "Закрыть"
 
-#: lib/components/user-tokens/create/dialog.vue:2:70
-#: lib/components/user-tokens/panel.vue:6:58
-msgid "Create access token"
-msgstr "Создать токен доступа"
-
 #: lib/components/user-tokens/create/dialog.vue:83:35
-msgid "Access token created"
-msgstr "Токен доступа создан"
+msgid "Token created"
+msgstr "Токен создан"
 
 #: lib/components/user-tokens/create/dialog.vue:95:31
 msgid "Token copied to the clipboard"
@@ -631,6 +628,12 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Create access token"
+#~ msgstr "Создать токен доступа"
+
+#~ msgid "Access token created"
+#~ msgstr "Токен доступа создан"
 
 #~ msgid "Key name"
 #~ msgstr "Имя ключа"
