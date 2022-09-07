@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.10.2 (2022-09-07)
+
+Fixes:
+
+-   fix: sessions panel
+
 ### 7.10.1 (2022-09-06)
 
 Fixes:
