@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-06 19:51+0300\n"
+"POT-Creation-Date: 2022-09-07 11:45+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -237,7 +237,7 @@ msgid "Exceptions for last 60 minutes (%)"
 msgstr "Исключения за последние 60 минут"
 
 #: lib/components/app-title/menu.vue:28:66
-#: lib/components/sessions/panel.vue:74:39
+#: lib/components/sessions/panel.vue:78:39
 msgid "Sign out"
 msgstr "Выйти"
 
@@ -472,31 +472,39 @@ msgstr "Удалить все сессии"
 msgid "No records match search criteria"
 msgstr "Нет записей, соответствующих критериям поиска"
 
-#: lib/components/sessions/panel.vue:21:63
-msgid "User agent"
-msgstr "Агент пользователя"
+#: lib/components/sessions/panel.vue:21:102
+msgid "Device"
+msgstr "Устройство"
 
-#: lib/components/sessions/panel.vue:23:58
+#: lib/components/sessions/panel.vue:23:92
+msgid "Platform"
+msgstr "Платформа"
+
+#: lib/components/sessions/panel.vue:25:102
+msgid "Browser"
+msgstr "Браузер"
+
+#: lib/components/sessions/panel.vue:27:58
 msgid "IP address"
 msgstr "IP адрес"
 
-#: lib/components/sessions/panel.vue:25:128
+#: lib/components/sessions/panel.vue:29:128
 #: lib/components/user-tokens/panel.vue:23:128
 #: lib/components/users/panel.vue:25:163
 msgid "Last activity"
 msgstr "Последняя активность"
 
-#: lib/components/sessions/panel.vue:27:70
+#: lib/components/sessions/panel.vue:31:70
 #: lib/components/user-tokens/panel.vue:25:103
 #: lib/components/users/panel.vue:27:100
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: lib/components/sessions/panel.vue:93:35
+#: lib/components/sessions/panel.vue:97:35
 msgid "Session was deleted"
 msgstr "Сессия была удалена"
 
-#: lib/components/sessions/panel.vue:115:35
+#: lib/components/sessions/panel.vue:119:35
 #: lib/components/users/panel.vue:223:35
 msgid "Sessions were deleted"
 msgstr "Сессии были удалены"
@@ -628,6 +636,9 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "User agent"
+#~ msgstr "Агент пользователя"
 
 #~ msgid "Create access token"
 #~ msgstr "Создать токен доступа"
@@ -777,9 +788,6 @@ msgstr "Email подтвержден успешно"
 #, javascript-format
 #~ msgid "User ${n}"
 #~ msgstr "Пользователь ${n}"
-
-#~ msgid "Platform"
-#~ msgstr "Платформа"
 
 #~ msgid "Architecture"
 #~ msgstr "Архитектура"
