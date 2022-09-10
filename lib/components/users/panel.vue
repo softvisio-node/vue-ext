@@ -28,7 +28,7 @@
 
             <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
 
-            <ext-column width="100" @ready="_actionColReady"/>
+            <ext-column width="80" @ready="_actionColReady"/>
         </ext-grid>
     </ext-panel>
 </template>
@@ -137,16 +137,11 @@ export default {
                         },
                         {
                             "xtype": "button",
-                            "iconCls": "fa-solid fa-trash-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Delete user" ),
-                            "handler": this.deleteUser.bind( this ),
-                        },
-                        {
-                            "xtype": "button",
                             "iconCls": "fa-solid fa-ellipsis-v",
                             "tooltip": this.i18nd( `vue-ext`, "Actions" ),
                             "arrow": false,
                             "menu": {
+                                "layout": { "align": "start" },
                                 "items": [
                                     {
                                         "xtype": "button",
@@ -157,6 +152,13 @@ export default {
                                         "xtype": "button",
                                         "text": this.i18nd( `vue-ext`, "View user sessions" ),
                                         "handler": this._showUserSessionsDialog.bind( this ),
+                                    },
+                                    {
+                                        "xtype": "button",
+                                        "iconCls": "fa-solid fa-trash-alt",
+                                        "text": this.i18nd( `vue-ext`, "Delete user" ),
+                                        "handler": this.deleteUser.bind( this ),
+                                        "ui": "decline",
                                     },
                                 ],
                             },
