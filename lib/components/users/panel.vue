@@ -141,20 +141,20 @@ export default {
                             "tooltip": this.i18nd( `vue-ext`, "Actions" ),
                             "arrow": false,
                             "menu": {
-                                "layout": { "align": "start" },
+                                "defaults": {
+                                    "textAlign": "left",
+                                    "xtype": "button",
+                                },
                                 "items": [
                                     {
-                                        "xtype": "button",
                                         "text": this.i18nd( `vue-ext`, "Change password" ),
                                         "handler": this._showChangePasswordDialog.bind( this ),
                                     },
                                     {
-                                        "xtype": "button",
                                         "text": this.i18nd( `vue-ext`, "View user sessions" ),
                                         "handler": this._showUserSessionsDialog.bind( this ),
                                     },
                                     {
-                                        "xtype": "button",
                                         "iconCls": "fa-solid fa-trash-alt",
                                         "text": this.i18nd( `vue-ext`, "Delete user" ),
                                         "handler": this.deleteUser.bind( this ),
