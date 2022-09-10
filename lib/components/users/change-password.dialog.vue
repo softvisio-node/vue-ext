@@ -9,15 +9,15 @@ export default {
             "type": String,
             "required": true,
         },
-        "userName": {
+        "username": {
             "type": String,
             "required": true,
         },
     },
 
     "computed": {
-        title () {
-            return this.i18nd( `vue-ext`, `Change password` ) + ": " + this.userName;
+        header () {
+            return this.i18nd( "vue-ext", `Change password for user` ) + `<br/><b>${this.username}</b>`;
         },
     },
 

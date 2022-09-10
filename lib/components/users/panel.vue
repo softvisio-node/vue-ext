@@ -299,7 +299,7 @@ export default {
                 "cache": false,
                 "props": {
                     "userId": record.id,
-                    "userName": record.get( "name" ),
+                    "username": record.get( "name" ),
                 },
             } );
 
