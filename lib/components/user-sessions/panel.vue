@@ -163,7 +163,7 @@ export default {
         },
 
         async _signOutAllSessionsRequest () {
-            return this.$api.call( "session/sign-out-all-sessions" );
+            return this.$api.call( "session/signout-all-sessions" );
         },
     },
 };

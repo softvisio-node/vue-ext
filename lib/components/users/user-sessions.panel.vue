@@ -31,7 +31,7 @@ export default {
         },
 
         async _signOutAllSessionsRequest ( e ) {
-            return this.$api.call( "admin/users/sign-out-all-sessions", this.userId );
+            return this.$api.call( "admin/users/signout-all-sessions", this.userId );
         },
     },
 };
