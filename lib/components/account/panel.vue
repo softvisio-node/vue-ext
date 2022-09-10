@@ -21,7 +21,7 @@
             </ext-panel>
 
             <!-- active sessions -->
-            <SessionsPanel flex="1"/>
+            <UserSessionsPanel flex="1"/>
         </ext-panel>
 
         <!-- notifications -->
@@ -60,13 +60,13 @@
 </template>
 
 <script>
-import SessionsPanel from "#lib/components/sessions/panel";
+import UserSessionsPanel from "#lib/components/user-sessions/panel";
 import NotificationsPanel from "#lib/components/notifications/panel";
 import UserTokensPanel from "#lib/components/user-tokens/panel";
 import DarkModeButton from "#lib/components/dark-mode.button";
 
 export default {
-    "components": { SessionsPanel, NotificationsPanel, UserTokensPanel, DarkModeButton },
+    "components": { UserSessionsPanel, NotificationsPanel, UserTokensPanel, DarkModeButton },
 
     "computed": {
         "systemDarkMode": {
