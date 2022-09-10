@@ -1,6 +1,6 @@
 <template>
     <ext-dialog closeAction="hide" :height="height" layout="fit" scrollable="true" :title="i18nd(`vue-ext`, `Active sessions`)" :width="width">
-        <UserSessionsPanel/>
+        <UserSessionsPanel :userId="userId" :username="username"/>
     </ext-dialog>
 </template>
 
@@ -11,6 +11,14 @@ export default {
     "components": { UserSessionsPanel },
 
     "props": {
+        "userId": {
+            "type": String,
+            "required": true,
+        },
+        "username": {
+            "type": String,
+            "required": true,
+        },
         "width": {
             "type": String,
             "default": "90%",
