@@ -40,7 +40,7 @@ import SessionModel from "./models/session";
 import loadMask from "#vue/load-mask";
 
 export default {
-    created () {
+    mounted () {
         this._createStore();
 
         this.store.on( "datachanged", this._onStoreChanged.bind( this ) );

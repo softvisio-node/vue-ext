@@ -1,45 +1,23 @@
+<template>
+    <ext-dialog closeAction="hide" :height="height" layout="fit" scrollable="true" :title="i18nd(`vue-ext`, `Active sessions`)" :width="width">
+        <UserSessionsPanel/>
+    </ext-dialog>
+</template>
+
 <script>
-import UserSessionsDialog from "#lib/components/user-sessions/dialog";
-import SessionModel from "#lib/components/user-sessions/models/session";
+import UserSessionsPanel from "./user-sessions.panel";
 
 export default {
-    "extends": UserSessionsDialog,
+    "components": { UserSessionsPanel },
 
     "props": {
-        "userId": {
+        "width": {
             "type": String,
-            "required": true,
+            "default": "90%",
         },
-        "username": {
+        "height": {
             "type": String,
-            "required": true,
-        },
-    },
-
-    // XXX
-    "computed": {
-        header () {
-            return this.i18nd( "vue-ext", `Change password for user` ) + `<br/><b>${this.username}</b>`;
-        },
-    },
-
-    "methods": {
-        _createStore () {
-            this.store = Ext.create( "Ext.data.Store", {
-                "model": SessionModel,
-                "autoLoad": false,
-                "pageSize": null,
-                "remoteSort": false,
-                "remoteFilter": false,
-            } );
-        },
-
-        async _signoutSessionRequest ( sessionId ) {
-            return this.$api.call( "admin/users/delete-session", this.userId, sessionId );
-        },
-
-        async _deleteAllSessionsRequest ( e ) {
-            return this.$api.call( "admin/users/delete-all-sessions", this.userId );
+            "default": "90%",
         },
     },
 };

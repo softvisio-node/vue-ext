@@ -156,7 +156,7 @@ export default {
                                     {
                                         "xtype": "button",
                                         "text": this.i18nd( `vue-ext`, "View active sessions" ),
-                                        "handler": this._showActiveSessionsDialog.bind( this ),
+                                        "handler": this._showUserSessionsDialog.bind( this ),
                                     },
                                 ],
                             },
@@ -288,7 +288,7 @@ export default {
             cmp.ext.show();
         },
 
-        async _showActiveSessionsDialog ( button ) {
+        async _showUserSessionsDialog ( button ) {
             const record = button.lookupViewModel().get( "record" );
 
             const cmp = await this.$mount( UserSessionsDialog, {
