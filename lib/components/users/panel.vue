@@ -39,6 +39,7 @@ import CreateDialog from "./create/dialog";
 import RolesDialog from "./roles/dialog";
 import UserModel from "./models/user";
 import loadMask from "#vue/load-mask";
+import ChangePasswordDialog from "./change-password.dialog";
 
 export default {
     "props": {
@@ -148,9 +149,13 @@ export default {
                                 "items": [
                                     {
                                         "xtype": "button",
-                                        "iconCls": "fa-solid fa-sign-out-alt",
-                                        "text": this.i18nd( `vue-ext`, "Delete all sessions" ),
-                                        "handler": this.deleteUserSessions.bind( this ),
+                                        "text": this.i18nd( `vue-ext`, "Change password" ),
+                                        "handler": this._showChangePasswordDialog.bind( this ),
+                                    },
+                                    {
+                                        "xtype": "button",
+                                        "text": this.i18nd( `vue-ext`, "View active sessions" ),
+                                        "handler": this._showActiveSessionsDialog.bind( this ),
                                     },
                                 ],
                             },
@@ -209,6 +214,7 @@ export default {
             }
         },
 
+        // XXX
         async deleteUserSessions ( button ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
@@ -285,6 +291,21 @@ export default {
                 this.$refs.cards.ext.setActiveItem( this.$refs.dataCard.ext );
             }
         },
+
+        async _showChangePasswordDialog ( button ) {
+            const record = button.lookupViewModel().get( "record" );
+
+            const cmp = await this.$mount( ChangePasswordDialog, {
+                "cache": false,
+                "props": {
+                    "title": record.get( "name" ),
+                },
+            } );
+
+            cmp.ext.show();
+        },
+
+        async _showActiveSessionsDialog () {},
     },
 };
 </script>

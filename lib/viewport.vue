@@ -6,7 +6,7 @@
 import "./assets/scrollbars.css";
 import Viewport from "@softvisio/vue/viewport";
 import defaultMask from "./load-mask";
-import ResetPasswordDialog from "./components/reset-password-dialog";
+import ResetPasswordDialog from "./components/reset-password.dialog";
 
 export default {
     "extends": Viewport,

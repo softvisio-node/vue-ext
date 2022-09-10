@@ -38,7 +38,7 @@
 <script>
 import AvatarUser from "#lib/components/avatar/user";
 import LocaleButton from "#lib/components/locale.button";
-import ChangePasswordDialog from "#lib/components/change-password-dialog";
+import ChangePasswordDialog from "#lib/components/change-password.dialog";
 import DarkModeButton from "#lib/components/dark-mode.button";
 import PushNotificationsButton from "#lib/components/push-notifications.button";
 
