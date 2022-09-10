@@ -35,8 +35,8 @@
 
 <script>
 import "#lib/components/avatar/ext.avatar";
-import CreateDialog from "./create/dialog";
-import RolesDialog from "./roles/dialog";
+import CreateUserDialog from "./create-user.dialog";
+import UserRolesDialog from "./user-roles.dialog";
 import UserModel from "./models/user";
 import loadMask from "#vue/load-mask";
 import ChangePasswordDialog from "./change-password.dialog";
@@ -258,7 +258,7 @@ export default {
         },
 
         async showCreateUserDialog () {
-            const cmp = await this.$mount( CreateDialog, {
+            const cmp = await this.$mount( CreateUserDialog, {
                 "props": {
                     "onCreated": () => this.reload(),
                 },
@@ -271,7 +271,7 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            const cmp = await this.$mount( RolesDialog );
+            const cmp = await this.$mount( UserRolesDialog );
 
             cmp.setRecord( record );
 
@@ -292,6 +292,7 @@ export default {
             }
         },
 
+        // XXX
         async _showChangePasswordDialog ( button ) {
             const record = button.lookupViewModel().get( "record" );
 
@@ -305,6 +306,7 @@ export default {
             cmp.ext.show();
         },
 
+        // XXX
         async _showActiveSessionsDialog () {},
     },
 };
