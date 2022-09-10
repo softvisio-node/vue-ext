@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="300" :title="i18nd(`vue-ext`, `Change password`)" width="300" @ready="_ready">
+    <ext-dialog closeAction="hide" height="300" :title="title" width="300" @ready="_ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
             <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" required="true"/>
             <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" required="true"/>
@@ -12,7 +12,15 @@
 </template>
 
 <script>
+import loadMask from "#lib/load-mask";
+
 export default {
+    "computed": {
+        title () {
+            return this.i18nd( `vue-ext`, `Change password` );
+        },
+    },
+
     "methods": {
         _ready ( e ) {
             this.ext = e.detail.cmp;
@@ -40,19 +48,19 @@ export default {
 
             if ( !form.validate() ) return;
 
-            var vals = form.getValues();
+            var values = form.getValues();
 
-            if ( vals.password !== passwordCondirm.getValue() ) {
+            if ( values.password !== passwordCondirm.getValue() ) {
                 passwordCondirm.setError( "Passwords are not match" );
 
                 return;
             }
 
-            Ext.Viewport.mask();
+            this.ext.mask( loadMask );
 
-            const res = await this.$store.session.setPassword( vals.password );
+            const res = await this._changePassword( values.password );
 
-            Ext.Viewport.unmask();
+            this.ext.unmask();
 
             if ( res.ok ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, "Password changed" ) );
@@ -62,6 +70,10 @@ export default {
             else {
                 this.$utils.toast( res );
             }
+        },
+
+        async _changePassword ( password ) {
+            return this.$store.session.setPassword( password );
         },
     },
 };

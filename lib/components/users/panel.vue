@@ -292,14 +292,14 @@ export default {
             }
         },
 
-        // XXX
         async _showChangePasswordDialog ( button ) {
             const record = button.lookupViewModel().get( "record" );
 
             const cmp = await this.$mount( ChangePasswordDialog, {
                 "cache": false,
                 "props": {
-                    "title": record.get( "name" ),
+                    "userId": record.id,
+                    "userName": record.get( "name" ),
                 },
             } );
 
