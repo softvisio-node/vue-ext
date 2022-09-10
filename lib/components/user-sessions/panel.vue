@@ -41,13 +41,7 @@ import loadMask from "#vue/load-mask";
 
 export default {
     created () {
-        this.store = Ext.create( "Ext.data.Store", {
-            "model": SessionModel,
-            "autoLoad": false,
-            "pageSize": null,
-            "remoteSort": false,
-            "remoteFilter": false,
-        } );
+        this._createStore();
 
         this.store.on( "datachanged", this._onStoreChanged.bind( this ) );
     },
@@ -89,7 +83,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "session/signout", record.id );
+            const res = await this._signoutSessionRequest( record.id );
 
             button.enable();
 
@@ -108,7 +102,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "session/delete-all-sessions" );
+            const res = await this._deleteAllSessionsRequest();
 
             button.enable();
 
@@ -146,6 +140,24 @@ export default {
             else {
                 this.$refs.cards.ext.setActiveItem( this.$refs.dataCard.ext );
             }
+        },
+
+        _createStore () {
+            this.store = Ext.create( "Ext.data.Store", {
+                "model": SessionModel,
+                "autoLoad": false,
+                "pageSize": null,
+                "remoteSort": false,
+                "remoteFilter": false,
+            } );
+        },
+
+        async _signoutSessionRequest ( sessionId ) {
+            return this.$api.call( "session/signout", sessionId );
+        },
+
+        async _deleteAllSessionsRequest () {
+            return this.$api.call( "session/delete-all-sessions" );
         },
     },
 };

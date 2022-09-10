@@ -40,6 +40,7 @@ import UserRolesDialog from "./user-roles.dialog";
 import UserModel from "./models/user";
 import loadMask from "#vue/load-mask";
 import ChangePasswordDialog from "./change-password.dialog";
+import UserSessionsDialog from "./user-sessions.dialog";
 
 export default {
     "props": {
@@ -214,25 +215,6 @@ export default {
             }
         },
 
-        // XXX
-        async deleteUserSessions ( button ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord();
-
-            button.disable();
-
-            var res = await this.$api.call( "admin/users/delete-sessions", record.getId() );
-
-            button.enable();
-
-            if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Sessions were deleted" ) );
-            }
-            else {
-                this.$utils.toast( res );
-            }
-        },
-
         search ( e ) {
             var val = e.detail.newValue.trim();
 
@@ -306,8 +288,19 @@ export default {
             cmp.ext.show();
         },
 
-        // XXX
-        async _showActiveSessionsDialog () {},
+        async _showActiveSessionsDialog ( button ) {
+            const record = button.lookupViewModel().get( "record" );
+
+            const cmp = await this.$mount( UserSessionsDialog, {
+                "cache": false,
+                "props": {
+                    "userId": record.id,
+                    "username": record.get( "name" ),
+                },
+            } );
+
+            cmp.ext.show();
+        },
     },
 };
 </script>
