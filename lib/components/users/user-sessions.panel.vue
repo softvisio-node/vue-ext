@@ -1,6 +1,5 @@
 <script>
 import UserSessionsPanel from "#lib/components/user-sessions/panel";
-import SessionModel from "#lib/components/user-sessions/models/session";
 
 export default {
     "extends": UserSessionsPanel,
@@ -24,23 +23,8 @@ export default {
     },
 
     "methods": {
-        _createStore () {
-            this.store = Ext.create( "Ext.data.Store", {
-                "model": SessionModel,
-                "autoLoad": false,
-                "pageSize": null,
-                "remoteSort": false,
-                "remoteFilter": false,
-                "proxy": {
-                    "type": "softvisio",
-                    "api": {
-                        "read": "admin/users/get-sessions",
-                    },
-                    "extraParams": {
-                        "user_id": this.userId,
-                    },
-                },
-            } );
+        async _loadSessions () {
+            return this.$api.call( "admin/users/get-sessions", this.userId );
         },
 
         async _signoutSessionRequest ( sessionId ) {

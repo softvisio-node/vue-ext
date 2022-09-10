@@ -40,8 +40,14 @@ import SessionModel from "./models/session";
 import loadMask from "#vue/load-mask";
 
 export default {
-    mounted () {
-        this._createStore();
+    created () {
+        this.store = Ext.create( "Ext.data.Store", {
+            "model": SessionModel,
+            "autoLoad": false,
+            "pageSize": null,
+            "remoteSort": false,
+            "remoteFilter": false,
+        } );
 
         this.store.on( "datachanged", this._onStoreChanged.bind( this ) );
     },
@@ -119,7 +125,7 @@ export default {
         async reload () {
             this.$refs.cards.ext.mask( loadMask );
 
-            const res = await this.$api.call( "session/get-sessions" );
+            const res = await this._loadSessions();
 
             this.$refs.cards.ext.unmask();
 
@@ -142,14 +148,8 @@ export default {
             }
         },
 
-        _createStore () {
-            this.store = Ext.create( "Ext.data.Store", {
-                "model": SessionModel,
-                "autoLoad": false,
-                "pageSize": null,
-                "remoteSort": false,
-                "remoteFilter": false,
-            } );
+        async _loadSessions () {
+            return this.$api.call( "session/get-sessions" );
         },
 
         async _signoutSessionRequest ( sessionId ) {
