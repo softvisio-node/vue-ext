@@ -1,7 +1,7 @@
 <template>
     <ext-panel ref="cards" layout="card">
         <ext-toolbar docked="top">
-            <ext-container :html="i18nd(`vue-ext`, `Active sessions`)"/>
+            <ext-container :html="title"/>
             <ext-spacer/>
             <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Delete all sessions`)" @tap="_deleteAllSessions"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
@@ -40,6 +40,12 @@ import SessionModel from "./models/session";
 import loadMask from "#vue/load-mask";
 
 export default {
+    "computed": {
+        title () {
+            return this.i18nd( `vue-ext`, `Your sessions` );
+        },
+    },
+
     created () {
         this.store = Ext.create( "Ext.data.Store", {
             "model": SessionModel,

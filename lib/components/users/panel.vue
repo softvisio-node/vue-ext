@@ -155,7 +155,7 @@ export default {
                                     },
                                     {
                                         "xtype": "button",
-                                        "text": this.i18nd( `vue-ext`, "View active sessions" ),
+                                        "text": this.i18nd( `vue-ext`, "View user sessions" ),
                                         "handler": this._showUserSessionsDialog.bind( this ),
                                     },
                                 ],

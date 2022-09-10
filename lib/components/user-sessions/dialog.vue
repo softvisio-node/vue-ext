@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" :height="height" layout="fit" scrollable="true" :title="i18nd(`vue-ext`, `Active sessions`)" :width="width">
+    <ext-dialog closeAction="hide" :height="height" layout="fit" scrollable="true" :title="i18nd(`vue-ext`, `Your sessions`)" :width="width">
         <UserSessionsPanel/>
     </ext-dialog>
 </template>

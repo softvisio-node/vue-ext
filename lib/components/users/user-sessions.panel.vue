@@ -15,10 +15,9 @@ export default {
         },
     },
 
-    // XXX
     "computed": {
-        header () {
-            return this.i18nd( "vue-ext", `Change password for user` ) + `<br/><b>${this.username}</b>`;
+        title () {
+            return this.username;
         },
     },
 
