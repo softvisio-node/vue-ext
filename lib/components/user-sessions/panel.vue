@@ -3,7 +3,7 @@
         <ext-toolbar docked="top">
             <ext-container :html="title"/>
             <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Delete all sessions`)" @tap="_deleteAllSessions"/>
+            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out of all sessions`)" @tap="_signOutAllSessions"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
@@ -82,7 +82,7 @@ export default {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-sign-out-alt",
                             "tooltip": this.i18nd( `vue-ext`, "Sign out" ),
-                            "handler": this._signoutSession.bind( this ),
+                            "handler": this._signOutSession.bind( this ),
                             "bind": { "hidden": "{record.current_session}" },
                         },
                     ],
@@ -90,12 +90,12 @@ export default {
             } );
         },
 
-        async _signoutSession ( button ) {
+        async _signOutSession ( button ) {
             const record = button.lookupViewModel().get( "record" );
 
             button.disable();
 
-            const res = await this._signoutSessionRequest( record.id );
+            const res = await this._signOutSessionRequest( record.id );
 
             button.enable();
 
@@ -109,12 +109,12 @@ export default {
             }
         },
 
-        async _deleteAllSessions ( e ) {
+        async _signOutAllSessions ( e ) {
             const button = e.detail.sender;
 
             button.disable();
 
-            const res = await this._deleteAllSessionsRequest();
+            const res = await this._signOutAllSessionsRequest();
 
             button.enable();
 
@@ -158,12 +158,12 @@ export default {
             return this.$api.call( "session/get-sessions" );
         },
 
-        async _signoutSessionRequest ( sessionId ) {
+        async _signOutSessionRequest ( sessionId ) {
             return this.$api.call( "session/signout", sessionId );
         },
 
-        async _deleteAllSessionsRequest () {
-            return this.$api.call( "session/delete-all-sessions" );
+        async _signOutAllSessionsRequest () {
+            return this.$api.call( "session/sign-out-all-sessions" );
         },
     },
 };

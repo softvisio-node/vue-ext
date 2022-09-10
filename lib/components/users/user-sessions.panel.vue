@@ -26,12 +26,12 @@ export default {
             return this.$api.call( "admin/users/get-sessions", this.userId );
         },
 
-        async _signoutSessionRequest ( sessionId ) {
-            return this.$api.call( "admin/users/delete-session", this.userId, sessionId );
+        async _signOutSessionRequest ( sessionId ) {
+            return this.$api.call( "admin/users/signout-session", this.userId, sessionId );
         },
 
-        async _deleteAllSessionsRequest ( e ) {
-            return this.$api.call( "admin/users/delete-all-sessions", this.userId );
+        async _signOutAllSessionsRequest ( e ) {
+            return this.$api.call( "admin/users/sign-out-all-sessions", this.userId );
         },
     },
 };
