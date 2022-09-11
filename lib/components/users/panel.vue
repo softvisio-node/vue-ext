@@ -83,6 +83,8 @@ export default {
                 { "xtype": "menuseparator" },
                 {
                     "xtype": "menuitem",
+                    "separator": true,
+                    "iconCls": "fa-solid fa-xmark",
                     "text": this.i18nd( "vue-ext", "Clear filter" ),
                     "handler": this._clearRolesFilter.bind( this ),
                 },
@@ -164,8 +166,7 @@ export default {
                             "arrow": false,
                             "menu": {
                                 "defaults": {
-                                    "textAlign": "left",
-                                    "xtype": "button",
+                                    "xtype": "menuitem",
                                 },
                                 "items": [
                                     {
@@ -177,10 +178,10 @@ export default {
                                         "handler": this._showUserSessionsDialog.bind( this ),
                                     },
                                     {
+                                        "separator": true,
                                         "iconCls": "fa-solid fa-trash-alt",
                                         "text": this.i18nd( `vue-ext`, "Delete user" ),
                                         "handler": this.deleteUser.bind( this ),
-                                        "ui": "decline",
                                     },
                                 ],
                             },
@@ -336,7 +337,7 @@ export default {
             } );
 
             if ( checkedItems.length ) {
-                this.$refs.rolesFilter.ext.setText( this.i18nd( "vue-ext", msgid`${checkedItems.length} item selected`, msgid`${checkedItems.length} items selected`, checkedItems.length ) );
+                this.$refs.rolesFilter.ext.setText( this.i18nd( "vue-ext", msgid`${checkedItems.length} role`, msgid`${checkedItems.length} roles`, checkedItems.length ) );
 
                 this.store.addFilter( {
                     "property": "roles",
