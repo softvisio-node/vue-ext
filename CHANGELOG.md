@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.10.4 (2022-09-11)
+
+Fixes:
+
+-   fix: translations
+
 ### 7.10.3 (2022-09-11)
 
 Fixes:
