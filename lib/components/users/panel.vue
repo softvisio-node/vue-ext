@@ -2,7 +2,7 @@
     <ext-panel ref="cards" layout="card">
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
-            <ext-button ref="rolesFilter" width="150"/>
+            <ext-button ref="rolesFilter" width="120"/>
             <ext-spacer/>
             <ext-button iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="i18nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
