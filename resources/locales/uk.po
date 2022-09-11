@@ -462,7 +462,7 @@ msgstr "Токен скидання пароля не знайдено"
 
 #: lib/components/user-sessions/panel.vue:6:66
 msgid "Sign out of all sessions"
-msgstr "Вийти з усіх сеансів"
+msgstr "Вийти з усіх сесій"
 
 #: lib/components/user-sessions/panel.vue:11:47
 #: lib/components/user-tokens/panel.vue:11:47
@@ -504,11 +504,11 @@ msgstr "Ваші сесії"
 
 #: lib/components/user-sessions/panel.vue:103:35
 msgid "Session was deleted"
-msgstr "Сеанс видалено"
+msgstr "Сесію видалено"
 
 #: lib/components/user-sessions/panel.vue:125:35
 msgid "Sessions were deleted"
-msgstr "Сеанси видалено"
+msgstr "Сесії видалено"
 
 #: lib/components/user-tokens/create/dialog.vue:4:46
 #: lib/components/user-tokens/panel.vue:21:57
@@ -612,7 +612,7 @@ msgstr "Дії"
 
 #: lib/components/users/panel.vue:177:48
 msgid "View user sessions"
-msgstr "Перегляд сеансів користувача"
+msgstr "Перегляд сесій користувача"
 
 #: lib/components/users/panel.vue:340:52
 #, javascript-format
@@ -628,7 +628,7 @@ msgstr "Ролі користувача оновлено"
 
 #: lib/components/users/user-sessions.dialog.vue:2:91
 msgid "User sessions"
-msgstr "Сеанси користувача"
+msgstr "Сесії користувача"
 
 #: lib/index.js:73:28
 msgid "Unable to connect to the API server. Check, that you have internet connection."
@@ -640,7 +640,7 @@ msgstr "Помилка з'єднання"
 
 #: lib/index.js:96:28
 msgid "Your session was terminated on the API server."
-msgstr "Ваш сеанс був припинений на сервері API."
+msgstr "Ваша сесія був припинений на сервері API."
 
 #: lib/index.js:97:21
 msgid "Session closed"
@@ -701,7 +701,7 @@ msgstr "Електронна пошта успішно підтверджена"
 #~ msgstr "Скинути"
 
 #~ msgid "Sign out from all sessions, except this session"
-#~ msgstr "Вийти з усіх сеансів, крім цього"
+#~ msgstr "Вийти з усіх сесій, крім цього"
 
 #~ msgid "Submit"
 #~ msgstr "Подати"
@@ -792,7 +792,7 @@ msgstr "Електронна пошта успішно підтверджена"
 #~ msgstr "Ви впевнені, що хочете це зробити?"
 
 #~ msgid "Sessions drop"
-#~ msgstr "Видалення сеансів"
+#~ msgstr "Видалення сесій"
 
 #~ msgid "Your profile"
 #~ msgstr "Твій профіль"

@@ -612,7 +612,7 @@ msgstr "Действия"
 
 #: lib/components/users/panel.vue:177:48
 msgid "View user sessions"
-msgstr "Просмотр сеансов пользователя"
+msgstr "Просмотр сессий пользователя"
 
 #: lib/components/users/panel.vue:340:52
 #, javascript-format
