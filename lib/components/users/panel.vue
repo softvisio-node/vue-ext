@@ -69,7 +69,7 @@ export default {
         _gridReady ( e ) {
             const rolesFilter = this.$refs.rolesFilter.ext;
 
-            rolesFilter.setText( this.i18nd( "vue-ext", "Select roles" ) );
+            rolesFilter.setText( this.i18nd( "vue-ext", "Roles" ) );
 
             rolesFilter.setMenu( [
                 {
@@ -346,7 +346,7 @@ export default {
                 } );
             }
             else {
-                this.$refs.rolesFilter.ext.setText( this.i18nd( "vue-ext", "Select roles" ) );
+                this.$refs.rolesFilter.ext.setText( this.i18nd( "vue-ext", "Roles" ) );
 
                 this.store.removeFilter( "roles" );
             }
