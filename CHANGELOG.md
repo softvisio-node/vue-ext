@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.10.5 (2022-09-11)
+
+Fixes:
+
+-   fix: roles text
+
 ### 7.10.4 (2022-09-11)
 
 Fixes:
