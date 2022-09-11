@@ -1,5 +1,13 @@
 # Changelog
 
+### 7.10.3 (2022-09-11)
+
+Fixes:
+
+-   fix: user sessions refactored
+-   fix: users roles filter
+-   fix: users sessions api
+
 ### 7.10.2 (2022-09-07)
 
 Fixes:
