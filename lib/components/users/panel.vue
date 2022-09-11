@@ -2,6 +2,7 @@
     <ext-panel ref="cards" layout="card">
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
+            <ext-button ref="rolesFilter" width="150"/>
             <ext-spacer/>
             <ext-button iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="i18nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
@@ -66,6 +67,27 @@ export default {
 
     "methods": {
         _gridReady ( e ) {
+            const rolesFilter = this.$refs.rolesFilter.ext;
+
+            rolesFilter.setText( this.i18nd( "vue-ext", "Select roles" ) );
+
+            rolesFilter.setMenu( [
+                {
+                    "xtype": "menucheckitem",
+                    "id": "admin",
+                    "text": "Administrators",
+                    "listeners": {
+                        "checkchange": this._rolesFilterChange.bind( this ),
+                    },
+                },
+                { "xtype": "menuseparator" },
+                {
+                    "xtype": "menuitem",
+                    "text": this.i18nd( "vue-ext", "Clear filter" ),
+                    "handler": this._clearRolesFilter.bind( this ),
+                },
+            ] );
+
             const grid = e.detail.cmp;
 
             grid.setPlugins( ["gridviewoptions", "autopaging"] );
@@ -221,14 +243,11 @@ export default {
             var val = e.detail.newValue.trim();
 
             if ( val !== "" ) {
-                this.store.addFilter(
-                    {
-                        "property": "search",
-                        "operator": "like",
-                        "value": val,
-                    },
-                    false
-                );
+                this.store.addFilter( {
+                    "property": "search",
+                    "operator": "like",
+                    "value": val,
+                } );
             }
             else {
                 this.store.removeFilter( "search" );
@@ -302,6 +321,47 @@ export default {
             } );
 
             cmp.ext.show();
+        },
+
+        // roles filter
+        _rolesFilterChange () {
+            const rolesFilter = this.$refs.rolesFilter.ext,
+                items = rolesFilter.getMenu().getItems(),
+                checkedItems = [];
+
+            items.each( item => {
+                if ( item.xtype !== "menucheckitem" ) return;
+
+                if ( item.getChecked() ) checkedItems.push( item.getId() );
+            } );
+
+            if ( checkedItems.length ) {
+                this.$refs.rolesFilter.ext.setText( this.i18nd( "vue-ext", msgid`${checkedItems.length} item selected`, msgid`${checkedItems.length} items selected`, checkedItems.length ) );
+
+                this.store.addFilter( {
+                    "property": "roles",
+                    "operator": "in",
+                    "value": checkedItems,
+                } );
+            }
+            else {
+                this.$refs.rolesFilter.ext.setText( this.i18nd( "vue-ext", "Select roles" ) );
+
+                this.store.removeFilter( "roles" );
+            }
+        },
+
+        _clearRolesFilter () {
+            const rolesFilter = this.$refs.rolesFilter.ext,
+                items = rolesFilter.getMenu().getItems();
+
+            items.each( item => {
+                if ( item.xtype !== "menucheckitem" ) return;
+
+                item.setChecked( false );
+            } );
+
+            this._rolesFilterChange();
         },
     },
 };

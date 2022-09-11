@@ -168,14 +168,11 @@ export default {
             var val = e.detail.newValue.trim();
 
             if ( val !== "" ) {
-                this.store.addFilter(
-                    {
-                        "property": "username",
-                        "operator": "like",
-                        "value": val,
-                    },
-                    false
-                );
+                this.store.addFilter( {
+                    "property": "username",
+                    "operator": "like",
+                    "value": val,
+                } );
             }
             else {
                 this.store.removeFilter( "username" );
