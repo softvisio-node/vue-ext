@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.10.6 (2022-09-12)
+
+Fixes:
+
+-   fix: user sessions
+
 ### 7.10.5 (2022-09-11)
 
 Fixes:
