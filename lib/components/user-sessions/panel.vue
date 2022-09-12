@@ -18,11 +18,11 @@
 
         <!-- data card -->
         <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridviewoptions":true}' @ready="_gridReady">
-            <ext-column dataIndex="device_text" flex="1" sorter='{"property":"device_vendor"}' :text="i18nd(`vue-ext`, `Device`)"/>
+            <ext-column cell='{"encodeHtml":false}' dataIndex="device_text" flex="1" sorter='{"property":"device_vendor"}' :text="i18nd(`vue-ext`, `Device`)"/>
 
-            <ext-column dataIndex="os_text" flex="1" sorter='{"property":"os_name"}' :text="i18nd(`vue-ext`, `Platform`)"/>
+            <ext-column cell='{"encodeHtml":false}' dataIndex="os_text" flex="1" sorter='{"property":"os_name"}' :text="i18nd(`vue-ext`, `Platform`)"/>
 
-            <ext-column dataIndex="browser_text" flex="1" sorter='{"property":"browser_name"}' :text="i18nd(`vue-ext`, `Browser`)"/>
+            <ext-column cell='{"encodeHtml":false}' dataIndex="browser_text" flex="1" sorter='{"property":"browser_name"}' :text="i18nd(`vue-ext`, `Browser`)"/>
 
             <ext-column dataIndex="remote_address" :text="i18nd(`vue-ext`, `IP address`)" width="130"/>
 
