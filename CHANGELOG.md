@@ -1,5 +1,15 @@
 # Changelog
 
+### 7.11.0 (2022-09-13)
+
+Features:
+
+-   feat: user locale
+
+Fixes:
+
+-   fix: api account sessions
+
 ### 7.10.6 (2022-09-12)
 
 Fixes:
