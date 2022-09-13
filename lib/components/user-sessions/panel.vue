@@ -155,15 +155,15 @@ export default {
         },
 
         async _loadSessions () {
-            return this.$api.call( "session/get-sessions" );
+            return this.$api.call( "account/get-sessions" );
         },
 
         async _signOutSessionRequest ( sessionId ) {
-            return this.$api.call( "session/signout", sessionId );
+            return this.$api.call( "account/signout-session", sessionId );
         },
 
         async _signOutAllSessionsRequest () {
-            return this.$api.call( "session/signout-all-sessions" );
+            return this.$api.call( "account/signout-all-sessions" );
         },
     },
 };
