@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-11 10:46+0300\n"
+"POT-Creation-Date: 2022-09-16 16:45+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -287,6 +287,7 @@ msgstr "Войти"
 
 #: lib/components/auth/signin.form.vue:12:39
 #: lib/components/auth/signup.form.vue:12:39
+#: lib/components/authorization.dialog.vue:6:39
 #: lib/components/change-password.dialog.vue:6:39
 #: lib/components/users/create-user.dialog.vue:5:39
 msgid "Password"
@@ -340,6 +341,22 @@ msgstr "Подтвердите пароль"
 #: lib/components/auth/signup.form.vue:13:113
 msgid "Confirm your password"
 msgstr "Подтвердите ваш пароль"
+
+#: lib/components/authorization.dialog.vue:3:30
+msgid "Authorization is required to perform this operation. Please, authorize and then perform action again."
+msgstr "Для выполнения этой операции требуется авторизация. Пожалуйста, авторизуйтесь, а затем выполните действие еще раз."
+
+#: lib/components/authorization.dialog.vue:10:21
+msgid "Authorize"
+msgstr "Авторизировать"
+
+#: lib/components/authorization.dialog.vue:2:56
+msgid "Authorization"
+msgstr "Авторизация"
+
+#: lib/components/authorization.dialog.vue:62:35
+msgid "Authorized"
+msgstr "Авторизировано"
 
 #: lib/components/dark-mode.button.vue:43:61
 msgid "Dark mode"
@@ -471,15 +488,15 @@ msgstr "Выйти из всех сессий"
 msgid "No records match search criteria"
 msgstr "Нет записей, соответствующих критериям поиска"
 
-#: lib/components/user-sessions/panel.vue:21:102
+#: lib/components/user-sessions/panel.vue:21:130
 msgid "Device"
 msgstr "Устройство"
 
-#: lib/components/user-sessions/panel.vue:23:92
+#: lib/components/user-sessions/panel.vue:23:120
 msgid "Platform"
 msgstr "Платформа"
 
-#: lib/components/user-sessions/panel.vue:25:102
+#: lib/components/user-sessions/panel.vue:25:130
 msgid "Browser"
 msgstr "Браузер"
 
@@ -627,19 +644,19 @@ msgstr "Роли пользователя обновлены"
 msgid "User sessions"
 msgstr "Сессии пользователя"
 
-#: lib/index.js:73:28
+#: lib/index.js:74:28
 msgid "Unable to connect to the API server. Check, that you have internet connection."
 msgstr "Не удалось подключиться к серверу API. Проверьте, что у вас есть подключение к интернет."
 
-#: lib/index.js:74:21
+#: lib/index.js:75:21
 msgid "Connection error"
 msgstr "Ошибка подключения"
 
-#: lib/index.js:96:28
+#: lib/index.js:103:28
 msgid "Your session was terminated on the API server."
 msgstr "Ваша сессия былп прервана API серввером."
 
-#: lib/index.js:97:21
+#: lib/index.js:104:21
 msgid "Session closed"
 msgstr "Сессия закрыта"
 
