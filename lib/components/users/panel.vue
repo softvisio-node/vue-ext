@@ -170,12 +170,12 @@ export default {
                                 },
                                 "items": [
                                     {
-                                        "text": this.i18nd( `vue-ext`, "Change password" ),
-                                        "handler": this._showChangePasswordDialog.bind( this ),
-                                    },
-                                    {
                                         "text": this.i18nd( `vue-ext`, "View user sessions" ),
                                         "handler": this._showUserSessionsDialog.bind( this ),
+                                    },
+                                    {
+                                        "text": this.i18nd( `vue-ext`, "Change password" ),
+                                        "handler": this._showChangePasswordDialog.bind( this ),
                                     },
                                     {
                                         "separator": true,
