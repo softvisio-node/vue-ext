@@ -112,14 +112,14 @@ export default {
                             {
                                 "xtype": "button",
                                 "iconCls": "fa-solid fa-eye",
-                                "tooltip": "Mark as read",
+                                "tooltip": this.i18nd( "vue-ext", "Mark as read" ),
                                 "bind": { "hidden": "{record.read}" },
                                 "handler": this._setRead.bind( this ),
                             },
                             {
                                 "xtype": "button",
                                 "iconCls": "fa-solid fa-eye-slash",
-                                "tooltip": "Mark as unread",
+                                "tooltip": this.i18nd( "vue-ext", "Mark as unread" ),
                                 "bind": { "hidden": "{!record.read}" },
                                 "handler": this._setUnread.bind( this ),
                             },
@@ -127,13 +127,13 @@ export default {
                             // {
                             //     "xtype": "button",
                             //     "iconCls": "fa-solid fa-check",
-                            //     "tooltip": "Mark as done",
+                            //     "tooltip": this.i18nd( "vue-ext", "Mark as done" ),
                             //     "handler": this._setDone.bind( this ),
                             // },
                             {
                                 "xtype": "button",
                                 "iconCls": "fa-solid fa-trash-alt",
-                                "tooltip": "Delete",
+                                "tooltip": this.i18nd( "vue-ext", "Delete" ),
                                 "handler": this._delete.bind( this ),
                             },
                         ],

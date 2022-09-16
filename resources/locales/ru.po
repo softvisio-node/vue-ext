@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-16 16:45+0300\n"
+"POT-Creation-Date: 2022-09-16 21:17+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -37,7 +37,7 @@ msgstr "Подтвердите новый пароль"
 #: lib/components/app-title/menu.vue:12:101
 #: lib/components/change-password.dialog.vue:11:21
 #: lib/components/change-password.dialog.vue:22:19
-#: lib/components/users/panel.vue:173:48
+#: lib/components/users/panel.vue:177:48
 msgid "Change password"
 msgstr "Сменить пароль"
 
@@ -383,6 +383,18 @@ msgstr "Обновить уведомления"
 msgid "You have no notifications"
 msgstr "У вас нет уведомлений"
 
+#: lib/components/notifications/menu-sheet.vue:115:43
+msgid "Mark as read"
+msgstr "Отметить как прочитанное"
+
+#: lib/components/notifications/menu-sheet.vue:122:43
+msgid "Mark as unread"
+msgstr "Отметить как непрочитанное"
+
+#: lib/components/notifications/menu-sheet.vue:136:43
+msgid "Delete"
+msgstr "Удалить"
+
 #: lib/components/notifications/panel.vue:13:93
 msgid "Open bot"
 msgstr "Открыть бот"
@@ -624,7 +636,7 @@ msgstr "Очистить фильтр"
 msgid "Actions"
 msgstr "Действия"
 
-#: lib/components/users/panel.vue:177:48
+#: lib/components/users/panel.vue:173:48
 msgid "View user sessions"
 msgstr "Просмотр сессий пользователя"
 
