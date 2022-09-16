@@ -1,13 +1,13 @@
 <template>
     <ext-dialog closeAction="hide" height="300" :title="i18nd(`vue-ext`, `Authorization`)" width="300" @ready="_ready">
-        <ext-container :html="i18nd(`vue-ext`, `Authorixation is required to perform this operation.`)" style="text-align: center"/>
+        <ext-container :html="i18nd(`vue-ext`, `Authorization is required to perform this operation. Please, authorize and then perform action again.`)"/>
 
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="_formReady">
             <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" required="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-\ <ext-button :text="i18nd(`vue-ext`, `Authorize`)" ui="action" @tap="submit"/>
+\ <ext-button :text="i18nd(`vue-ext`, `Authorize`)" ui="action" @tap="_submit"/>
 </ext-toolbar>
     </ext-dialog>
 </template>
@@ -15,32 +15,42 @@
 <script>
 import loadMask from "#lib/load-mask";
 
+var shown = false;
+
 export default {
     "methods": {
         _ready ( e ) {
             this.ext = e.detail.cmp;
 
             this.ext.on( "hide", () => {
+                shown = false;
+
                 this.$refs.form.ext.reset();
             } );
         },
 
-        formReady ( e ) {
-            var cmp = e.detail.cmp;
+        _formReady ( e ) {
+            const cmp = e.detail.cmp;
 
-            cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+            cmp.setKeyMap( { "ENTER": { "handler": this._submit.bind( this ) } } );
+        },
+
+        show () {
+            if ( shown ) return;
+
+            this.ext.show();
         },
 
         close () {
             this.ext.hide();
         },
 
-        async submit () {
-            var form = this.$refs.form.ext;
+        async _submit () {
+            const form = this.$refs.form.ext;
 
             if ( !form.validate() ) return;
 
-            var values = form.getValues();
+            const values = form.getValues();
 
             this.ext.mask( loadMask );
 
