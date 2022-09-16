@@ -344,11 +344,11 @@ msgstr "Подтвердите ваш пароль"
 
 #: lib/components/authorization.dialog.vue:3:30
 msgid "Authorization is required to perform this operation. Please, authorize and then perform action again."
-msgstr "Для выполнения этой операции требуется авторизация. Пожалуйста, авторизуйтесь, а затем выполните действие еще раз."
+msgstr "Для выполнения этой операции требуется авторизация. Пожалуйста, авторизуйтесь и затем выполните действие еще раз."
 
 #: lib/components/authorization.dialog.vue:10:21
 msgid "Authorize"
-msgstr "Авторизировать"
+msgstr "Авторизоваться"
 
 #: lib/components/authorization.dialog.vue:2:56
 msgid "Authorization"
@@ -356,7 +356,7 @@ msgstr "Авторизация"
 
 #: lib/components/authorization.dialog.vue:62:35
 msgid "Authorized"
-msgstr "Авторизировано"
+msgstr "Авторизовано"
 
 #: lib/components/dark-mode.button.vue:43:61
 msgid "Dark mode"

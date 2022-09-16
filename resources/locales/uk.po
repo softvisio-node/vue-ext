@@ -348,7 +348,7 @@ msgstr "Для виконання цієї операції потрібна а�
 
 #: lib/components/authorization.dialog.vue:10:21
 msgid "Authorize"
-msgstr "Авторизувати"
+msgstr "Авторизуватися"
 
 #: lib/components/authorization.dialog.vue:2:56
 msgid "Authorization"
