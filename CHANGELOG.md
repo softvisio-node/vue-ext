@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.11.3 (2022-09-16)
+
+Fixes:
+
+-   fix: users menu
+
 ### 7.11.2 (2022-09-16)
 
 Fixes:
