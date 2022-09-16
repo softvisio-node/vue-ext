@@ -356,7 +356,7 @@ msgstr "Авторизация"
 
 #: lib/components/authorization.dialog.vue:62:35
 msgid "Authorized"
-msgstr "Авторизовано"
+msgstr "Авторизованно"
 
 #: lib/components/dark-mode.button.vue:43:61
 msgid "Dark mode"
