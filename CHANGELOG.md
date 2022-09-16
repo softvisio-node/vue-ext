@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.11.2 (2022-09-16)
+
+Fixes:
+
+-   fix: trusted user session
+
 ### 7.11.1 (2022-09-16)
 
 Fixes:
