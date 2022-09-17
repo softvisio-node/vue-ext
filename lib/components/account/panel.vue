@@ -4,16 +4,16 @@
 
         <!-- security -->
         <ext-panel layout="vbox" :title="i18nd(`vue-ext`, `Security`)" viewModel="true">
-            <!-- primary email -->
-            <ext-container ref="usernameContainer" defaults='{"labelAlign":"left","labelWidth":200}' layout="hbox">
-                <ext-displayfield :label="i18nd(`vue-ext`, `Primary email address`)" value="dzagashev@gmail.com"/>
-                <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editUsername"/>
+            <!-- email email -->
+            <ext-container ref="emailContainer" defaults='{"labelAlign":"left","labelWidth":200}' layout="hbox">
+                <ext-displayfield :label="i18nd(`vue-ext`, `Email address`)" value="dzagashev@gmail.com"/>
+                <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editEmail"/>
             </ext-container>
 
-            <ext-container ref="editUsernameContainer" defaults='{"labelAlign":"left","labelWidth":200}' :hidden="true" layout="hbox">
-                <ext-emailfield ref="usernameField" :label="i18nd(`vue-ext`, `Primary email address`)" value="dzagashev@gmail.com"/>
-                <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditUsername"/>
-                <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setUsername"/>
+            <ext-container ref="editEmailContainer" defaults='{"labelAlign":"left","labelWidth":200}' :hidden="true" layout="hbox">
+                <ext-emailfield ref="emailField" :label="i18nd(`vue-ext`, `Primary email address`)" value="dzagashev@gmail.com"/>
+                <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditEmail"/>
+                <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setEmail"/>
             </ext-container>
 
             <!-- password -->
@@ -118,36 +118,36 @@ export default {
             this.reload();
         },
 
-        _editUsername () {
-            this.$refs.usernameContainer.ext.hide();
+        _editEmail () {
+            this.$refs.emailContainer.ext.hide();
 
-            this.$refs.editUsernameContainer.ext.show();
+            this.$refs.editEmailContainer.ext.show();
         },
 
-        _cancelEditUsername () {
-            this.$refs.usernameContainer.ext.show();
+        _cancelEditEmail () {
+            this.$refs.emailContainer.ext.show();
 
-            this.$refs.editUsernameContainer.ext.hide();
+            this.$refs.editEmailContainer.ext.hide();
         },
 
-        async _setUsername () {
-            const username = this.$refs.usernameField.ext.getValue();
+        async _setEmail () {
+            const email = this.$refs.emailField.ext.getValue();
 
-            this.$refs.editUsernameContainer.ext.mask();
+            this.$refs.editEmailContainer.ext.mask();
 
-            const res = await this.$api.call( "account/set-email", username );
+            const res = await this.$api.call( "account/set-email", email );
 
-            this.$refs.editUsernameContainer.ext.unmask();
+            this.$refs.editEmailContainer.ext.unmask();
 
             if ( res.ok ) {
                 this.$utils.toast( res );
 
-                this._cancelEditUsername();
+                this._cancelEditEmail();
             }
             else {
                 this.$utils.toast( res );
 
-                this._cancelEditUsername();
+                this._cancelEditEmail();
             }
         },
 
