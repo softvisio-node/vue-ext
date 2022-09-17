@@ -17,7 +17,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", "Email" ) + ": " + this.userEmail;
+            return this.i18nd( "vue-ext", "User" ) + ": " + this.userEmail;
         },
     },
 
