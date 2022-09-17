@@ -1,8 +1,8 @@
 <template>
     <ext-container layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
         <!-- email  -->
-        <ext-container ref="emailContainer" defaults='{"labelAlign":"left","labelWidth":200}' layout='{"align":"center","type":"hbox"}'>
-            <ext-displayfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" padding="0 10 0 0"/>
+        <ext-container ref="emailContainer" layout='{"align":"center","type":"hbox"}'>
+            <ext-displayfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" padding="0 10 0 0"/>
 
             <ext-button bind='{"hidden":"{!record.email_confirmed}"}' iconCls="fa-solid fa-check" :tooltip="i18nd(`vue-ext`, `Email address confirmed`)"/>
             <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="i18nd(`vue-ext`, `Confirm email`)" @tap="_confirmEmail"/>
@@ -11,8 +11,8 @@
         </ext-container>
 
         <!-- edit email -->
-        <ext-fieldpanel ref="editEmailContainer" defaults='{"labelAlign":"left","labelWidth":200}' :hidden="true" layout='{"align":"center","type":"hbox"}'>
-            <ext-emailfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" padding="0 10 0 0" required="true" validators="email"/>
+        <ext-fieldpanel ref="editEmailContainer" :hidden="true" layout='{"align":"center","type":"hbox"}'>
+            <ext-emailfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" padding="0 10 0 0" required="true" validators="email"/>
 
             <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditEmail"/>
             <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setEmail"/>
