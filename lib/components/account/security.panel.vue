@@ -19,20 +19,18 @@
         </ext-fieldpanel>
 
         <!-- password -->
-        <ext-panel>
+        <ext-fieldpanel ref="changePasswordForm" defaults='{"labelAlign":"left","labelWidth":200,"width":"50%"}'>
             <ext-toolbar docked="top">
                 <ext-container :html="i18nd(`vue-ext`, `Password change`)"/>
             </ext-toolbar>
 
-            <ext-fieldpanel ref="changePasswordForm" defaults='{"labelAlign":"left","labelWidth":200}'>
-                <ext-passwordfield :label="i18nd(`vue-ext`, `New password`)" name="password" required="true"/>
-                <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm new password`)" required="true"/>
-            </ext-fieldpanel>
+            <ext-passwordfield :label="i18nd(`vue-ext`, `New password`)" name="password" required="true"/>
+            <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm new password`)" required="true"/>
 
             <ext-container layout='{"pack":"end","type":"hbox"}'>
                 <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="_setPassword"/>
             </ext-container>
-        </ext-panel>
+        </ext-fieldpanel>
 
         <!-- sessions -->
         <UserSessionsPanel maxHeight="500" minHeight="300"/>
