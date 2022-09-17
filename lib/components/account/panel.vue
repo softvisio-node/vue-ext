@@ -1,5 +1,5 @@
 <template>
-    <ext-tabpanel defaults='{"padding":"0 10 0 10"}' layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":50,"padding":"0 10 0 10","textAlign":"right","width":170},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none" @ready="_ready">
+    <ext-tabpanel defaults='{"padding":"0 10 0 10"}' layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":40,"padding":"0 10 0 0","textAlign":"right","width":170},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none" @ready="_ready">
         <slot name="top"/>
 
         <!-- security -->
@@ -101,16 +101,15 @@ export default {
                 {
                     "xtype": "container",
                     "layout": "center",
-                    "padding": "10 0 10 0",
+                    "margin": "10 0 20 0",
                     "height": 70,
                     "docked": "top",
                     "items": [
                         {
                             "xtype": "avatar",
-                            "layout": "center",
                             "src": this.$store.session.avatar,
-                            "width": 64,
-                            "height": 64,
+                            "width": 60,
+                            "height": 60,
                         },
                     ],
                 },
