@@ -1,7 +1,7 @@
 <template>
     <ext-dialog closeAction="hide" height="400" scrollable="true" :title="i18nd(`vue-ext`, `Create user`)" width="350" @ready="_ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":150}' @ready="formReady">
-            <ext-emailfield :label="i18nd(`vue-ext`, `Email`)" name="username" required="true"/>
+            <ext-emailfield :label="i18nd(`vue-ext`, `Email`)" name="email" required="true"/>
             <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" required="true"/>
             <ext-passwordfield :label="i18nd(`vue-ext`, `Confirm password`)" name="password1" required="true"/>
             <ext-togglefield :label="i18nd(`vue-ext`, `Access enabled`)" name="enabled" value="true"/>
@@ -36,21 +36,21 @@ export default {
         },
 
         async submit () {
-            var form = this.$refs.form.ext;
+            const form = this.$refs.form.ext;
 
             if ( !form.validate() ) return;
 
-            var vals = form.getValues();
+            const values = form.getValues();
 
-            if ( vals.password !== vals.password1 ) {
-                form.getFields( "password1" ).setError( "Passwords are not match" );
+            if ( values.password !== values.password1 ) {
+                form.getFields( "password1" ).setError( this.i18nd( "vue-ext", "Passwords are not match" ) );
 
                 return;
             }
 
-            delete vals.password1;
+            delete values.password1;
 
-            var res = await this.$api.call( "admin/users/create", vals );
+            var res = await this.$api.call( "admin/users/create", values );
 
             if ( res.ok ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, "User created" ) );
