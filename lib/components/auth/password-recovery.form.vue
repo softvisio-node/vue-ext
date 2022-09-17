@@ -7,7 +7,7 @@
         </ext-toolbar>
 
         <ext-fieldpanel ref="form">
-            <ext-textfield :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true"/>
+            <ext-emailfield :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
