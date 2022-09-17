@@ -9,7 +9,7 @@ export default {
             "type": String,
             "required": true,
         },
-        "username": {
+        "userEmail": {
             "type": String,
             "required": true,
         },
@@ -17,7 +17,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", "Username" ) + ": " + this.username;
+            return this.i18nd( "vue-ext", "Email" ) + ": " + this.userEmail;
         },
     },
 

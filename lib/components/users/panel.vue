@@ -21,7 +21,7 @@
         <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="_gridReady">
             <ext-column width="40" @ready="_avatarColReady"/>
 
-            <ext-column dataIndex="name" flex="1" summaryDataIndex="total" :text="i18nd(`vue-ext`, `Username`)" @ready="_nameColReady"/>
+            <ext-column dataIndex="email" flex="1" summaryDataIndex="total" :text="i18nd(`vue-ext`, `Email`)" @ready="_emailColReady"/>
 
             <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" :hidden="lastActivityColumnHidden" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
 
@@ -115,8 +115,8 @@ export default {
             } );
         },
 
-        _nameColReady ( e ) {
-            var cmp = e.detail.cmp;
+        _emailColReady ( e ) {
+            const cmp = e.detail.cmp;
 
             cmp.setCell( { "encodeHtml": false } );
 
@@ -303,7 +303,7 @@ export default {
                 "cache": false,
                 "props": {
                     "userId": record.id,
-                    "username": record.get( "name" ),
+                    "userEmail": record.get( "email" ),
                 },
             } );
 
@@ -317,7 +317,7 @@ export default {
                 "cache": false,
                 "props": {
                     "userId": record.id,
-                    "username": record.get( "name" ),
+                    "userEmail": record.get( "email" ),
                 },
             } );
 

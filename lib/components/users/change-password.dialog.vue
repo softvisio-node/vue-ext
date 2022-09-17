@@ -9,7 +9,7 @@ export default {
             "type": String,
             "required": true,
         },
-        "username": {
+        "userEmail": {
             "type": String,
             "required": true,
         },
@@ -17,7 +17,7 @@ export default {
 
     "computed": {
         header () {
-            return this.i18nd( "vue-ext", `Change password for user` ) + `<br/><b>${this.username}</b>`;
+            return this.i18nd( "vue-ext", `Change password for user` ) + `<br/><b>${this.userEmail}</b>`;
         },
     },
 

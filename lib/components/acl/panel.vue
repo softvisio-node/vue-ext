@@ -18,7 +18,7 @@
         <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true">
             <ext-column width="40" @ready="_avatarColReady"/>
 
-            <ext-column cell='{"style":"vertical-align:top"}' dataIndex="username" flex="1" :text="i18nd(`vue-ext`, `Username`)"/>
+            <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)"/>
 
             <ext-column cell='{"encodeHtml":false}' dataIndex="roles_text" flex="1" :text="i18nd(`vue-ext`, `Roles`)"/>
 
@@ -169,13 +169,13 @@ export default {
 
             if ( val !== "" ) {
                 this.store.addFilter( {
-                    "property": "username",
+                    "property": "email",
                     "operator": "like",
                     "value": val,
                 } );
             }
             else {
-                this.store.removeFilter( "username" );
+                this.store.removeFilter( "email" );
             }
         },
 

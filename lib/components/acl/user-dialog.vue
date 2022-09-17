@@ -4,7 +4,7 @@
 
         <ext-togglefield ref="enabledField" bind='{"hidden":"{!record.phantom}"}' :label="i18nd(`vue-ext`, `Access enabled`)" labelAlign="left" labelWidth="150" value="true"/>
 
-        <ext-displayfield bind='{"hidden":"{record.phantom}","value":"{record.username}"}' :label="i18nd(`vue-ext`, `Username`)" labelAlign="left" labelWidth="150"/>
+        <ext-displayfield bind='{"hidden":"{record.phantom}","value":"{record.email}"}' :label="i18nd(`vue-ext`, `Email`)" labelAlign="left" labelWidth="150"/>
 
         <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true">
             <ext-column cell='{"encodeHtml":false}' dataIndex="role_html" flex="1" sorter='{"property":"name"}' :text="i18nd(`vue-ext`, `Role`)"/>
