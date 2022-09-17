@@ -1,13 +1,18 @@
 <template>
-    <ext-container layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true">
+    <ext-container layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
         <!-- email email -->
         <ext-container ref="emailContainer" defaults='{"labelAlign":"left","labelWidth":200}' layout='{"align":"center","type":"hbox"}'>
-            <ext-displayfield :label="i18nd(`vue-ext`, `Email address`)" value="dzagashev@gmail.com"/>
+            <ext-displayfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" padding="0 10 0 0"/>
+
+            <ext-button bind='{"hidden":"{!record.email_confirmed}"}' iconCls="fa-solid fa-check" :tooltip="i18nd(`vue-ext`, `Email address confirmed`)"/>
+            <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="i18nd(`vue-ext`, `Confirm email`)" @tap="_confirmEmail"/>
+
             <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editEmail"/>
         </ext-container>
 
         <ext-container ref="editEmailContainer" defaults='{"labelAlign":"left","labelWidth":200}' :hidden="true" layout='{"align":"center","type":"hbox"}'>
-            <ext-emailfield ref="emailField" :label="i18nd(`vue-ext`, `Email address`)" value="dzagashev@gmail.com"/>
+            <ext-emailfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" padding="0 10 0 0"/>
+
             <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditEmail"/>
             <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setEmail"/>
         </ext-container>
@@ -35,11 +40,18 @@
 
 <script>
 import UserSessionsPanel from "#lib/components/user-sessions/panel";
+import AccountModel from "./models/account";
 
 export default {
     "components": { UserSessionsPanel },
 
     "methods": {
+        _ready ( e ) {
+            this.ext = e.detail.cmp;
+
+            this.reload();
+        },
+
         _editEmail () {
             this.$refs.emailContainer.ext.hide();
 
@@ -47,29 +59,48 @@ export default {
         },
 
         _cancelEditEmail () {
+            this.ext.getViewModel().get( "record" ).reject();
+
             this.$refs.emailContainer.ext.show();
 
             this.$refs.editEmailContainer.ext.hide();
         },
 
         async _setEmail () {
-            const email = this.$refs.emailField.ext.getValue();
+            const record = this.ext.getViewModel().get( "record" );
 
             this.$refs.editEmailContainer.ext.mask();
 
-            const res = await this.$api.call( "account/set-email", email );
+            const res = await this.$api.call( "account/set-email", record.get( "email" ) );
 
             this.$refs.editEmailContainer.ext.unmask();
 
             if ( res.ok ) {
                 this.$utils.toast( res );
 
+                this.ext.getViewModel().get( "record" ).commit( false, "email" );
+
                 this._cancelEditEmail();
             }
             else {
                 this.$utils.toast( res );
+            }
+        },
 
-                this._cancelEditEmail();
+        async _confirmEmail ( e ) {
+            const button = e.detail.sender;
+
+            button.disable();
+
+            const res = await this.$api.call( "session/send-confirmation-email" );
+
+            button.enable();
+
+            if ( res.ok ) {
+                this.$utils.toast( this.i18nd( `vue-ext`, `Confirmation email sent` ) );
+            }
+            else {
+                this.$utils.toast( res );
             }
         },
 
@@ -78,6 +109,11 @@ export default {
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
+            }
+            else {
+                const record = new AccountModel( res.data );
+
+                this.ext.getViewModel().set( "record", record );
             }
         },
 
