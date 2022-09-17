@@ -73,6 +73,12 @@ export default {
 
             if ( !form.validate() ) return;
 
+            if ( !record.isModified( "email" ) ) {
+                this._cancelEditEmail();
+
+                return;
+            }
+
             this.$refs.editEmailContainer.ext.mask();
 
             const res = await this.$api.call( "account/set-email", record.get( "email" ) );
