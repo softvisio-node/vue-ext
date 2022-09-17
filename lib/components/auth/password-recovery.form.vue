@@ -7,7 +7,7 @@
         </ext-toolbar>
 
         <ext-fieldpanel ref="form">
-            <ext-textfield :label="i18nd(`vue-ext`, `Username or email`)" name="username" :placeholder="i18nd(`vue-ext`, `Enter your username or email`)" required="true"/>
+            <ext-textfield :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
@@ -46,25 +46,25 @@ export default {
         async _submit () {
             const form = this.$refs.form.ext;
 
-            if ( form.validate() ) {
-                const vals = form.getValues();
+            if ( !form.validate() ) return;
 
-                Ext.Viewport.mask();
+            const values = form.getValues();
 
-                const res = await this.$store.session.sendPasswordRecoveryEmail( vals.username );
+            Ext.Viewport.mask();
 
-                Ext.Viewport.unmask();
+            const res = await this.$store.session.sendPasswordRecoveryEmail( values.email );
 
-                if ( !res.ok ) {
-                    this.$utils.toast( res );
-                }
-                else {
-                    form.reset();
+            Ext.Viewport.unmask();
 
-                    this.$utils.toast( this.i18nd( `vue-ext`, "Password change instructions were sent to the email address, associated with your account." ), 5000 );
+            if ( !res.ok ) {
+                this.$utils.toast( res );
+            }
+            else {
+                form.reset();
 
-                    this.back();
-                }
+                this.$utils.toast( this.i18nd( `vue-ext`, "Password change instructions were sent to the email address, associated with your account." ), 5000 );
+
+                this.back();
             }
         },
     },

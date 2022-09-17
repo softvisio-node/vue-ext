@@ -7,7 +7,7 @@
         </ext-toolbar>
 
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}'>
-            <ext-emailfield :label="i18nd(`vue-ext`, `Email`)" name="username" :placeholder="i18nd(`vue-ext`, `Enter your email`)" required="true"/>
+            <ext-emailfield :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true"/>
 
             <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true"/>
             <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" :placeholder="i18nd(`vue-ext`, `Confirm your password`)" required="true"/>
@@ -44,6 +44,7 @@ export default {
             this.$emit( "signin" );
 
             this.$refs.form.ext.reset();
+            this.$refs.passwordConfirm.ext.clearValue();
         },
 
         async _submit () {
@@ -52,26 +53,22 @@ export default {
 
             if ( !form.validate() ) return;
 
-            const vals = form.getValues();
+            const values = form.getValues();
 
-            if ( vals.password !== passwordCondirm.getValue() ) {
-                passwordCondirm.setError( "Passwords are not match" );
+            if ( values.password !== passwordCondirm.getValue() ) {
+                passwordCondirm.setError( this.i18nd( "vue-ext", "Passwords are not match" ) );
 
                 return;
             }
 
             Ext.Viewport.mask();
 
-            const res = await this.$app.signup( vals );
+            const res = await this.$app.signup( values );
 
             Ext.Viewport.unmask();
 
             if ( res.ok ) {
                 this.$utils.toast( res, 5000 );
-
-                // reset form
-                form.reset();
-                this.$refs.passwordConfirm.ext.clearValue();
 
                 this.back();
             }
