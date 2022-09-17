@@ -24,7 +24,7 @@ export default {
 
             viewport.mask( this.defaultMask );
 
-            await this.$app.checkAuthentication();
+            await this.$app.checkAuthorization();
 
             viewport.unmask();
 

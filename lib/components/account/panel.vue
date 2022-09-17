@@ -4,7 +4,13 @@
 
         <!-- security -->
         <ext-panel layout="vbox" :title="i18nd(`vue-ext`, `Security`)" viewModel="true">
-            <!-- change password -->
+            <!-- primary email -->
+            <ext-container defaults='{"labelAlign":"left","labelWidth":200}' layout="hbox">
+                <ext-displayfield :label="i18nd(`vue-ext`, `Primary email address`)" value="dzagashev@gmail.com"/>
+                <ext-button :text="i18nd(`vue-ext`, `Change`)"/>
+            </ext-container>
+
+            <!-- password -->
             <ext-panel>
                 <ext-toolbar docked="top">
                     <ext-container :html="i18nd(`vue-ext`, `Password change`)"/>
