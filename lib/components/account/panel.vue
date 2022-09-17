@@ -1,5 +1,5 @@
 <template>
-    <ext-tabpanel defaults='{"padding":"0 10 0 10"}' layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":50,"padding":"0 10 0 10","textAlign":"right","width":170},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none">
+    <ext-tabpanel defaults='{"padding":"0 10 0 10"}' layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":50,"padding":"0 10 0 10","textAlign":"right","width":170},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none" @ready="_ready">
         <slot name="top"/>
 
         <!-- security -->
@@ -93,7 +93,29 @@ export default {
     },
 
     "methods": {
-        _ready () {
+        _ready ( e ) {
+            const cmp = e.detail.cmp,
+                tabBar = cmp.getTabBar();
+
+            tabBar.add( [
+                {
+                    "xtype": "container",
+                    "layout": "center",
+                    "padding": "10 0 10 0",
+                    "height": 70,
+                    "docked": "top",
+                    "items": [
+                        {
+                            "xtype": "avatar",
+                            "layout": "center",
+                            "src": this.$store.session.avatar,
+                            "width": 64,
+                            "height": 64,
+                        },
+                    ],
+                },
+            ] );
+
             this.reload();
         },
 
