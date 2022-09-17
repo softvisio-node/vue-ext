@@ -1,13 +1,13 @@
 <template>
-    <ext-container layout="vbox" viewModel="true">
+    <ext-container layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true">
         <!-- email email -->
-        <ext-container ref="emailContainer" defaults='{"labelAlign":"left","labelWidth":200}' layout="hbox">
+        <ext-container ref="emailContainer" defaults='{"labelAlign":"left","labelWidth":200}' layout='{"align":"center","type":"hbox"}'>
             <ext-displayfield :label="i18nd(`vue-ext`, `Email address`)" value="dzagashev@gmail.com"/>
             <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editEmail"/>
         </ext-container>
 
-        <ext-container ref="editEmailContainer" defaults='{"labelAlign":"left","labelWidth":200}' :hidden="true" layout="hbox">
-            <ext-emailfield ref="emailField" :label="i18nd(`vue-ext`, `Primary email address`)" value="dzagashev@gmail.com"/>
+        <ext-container ref="editEmailContainer" defaults='{"labelAlign":"left","labelWidth":200}' :hidden="true" layout='{"align":"center","type":"hbox"}'>
+            <ext-emailfield ref="emailField" :label="i18nd(`vue-ext`, `Email address`)" value="dzagashev@gmail.com"/>
             <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditEmail"/>
             <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setEmail"/>
         </ext-container>
@@ -29,7 +29,7 @@
         </ext-panel>
 
         <!-- active sessions -->
-        <UserSessionsPanel height="100%" maxHeight="400" minHeight="200"/>
+        <UserSessionsPanel maxHeight="500" minHeight="300"/>
     </ext-container>
 </template>
 

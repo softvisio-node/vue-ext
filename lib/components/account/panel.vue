@@ -3,8 +3,8 @@
         <slot name="top"/>
 
         <!-- security -->
-        <ext-panel layout="vbox" :title="i18nd(`vue-ext`, `Security`)">
-            <SecurityPanel/>
+        <ext-panel layout="vbox" padding="0 0 0 0" :title="i18nd(`vue-ext`, `Security`)">
+            <SecurityPanel flex="1"/>
         </ext-panel>
 
         <!-- notifications -->
