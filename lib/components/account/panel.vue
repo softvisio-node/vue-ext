@@ -114,7 +114,7 @@ export default {
 
             this.$refs.editUsernameContainer.ext.mask();
 
-            const res = await this.$api.call( "account/set-username", username );
+            const res = await this.$api.call( "account/set-email", username );
 
             this.$refs.editUsernameContainer.ext.unmask();
 
