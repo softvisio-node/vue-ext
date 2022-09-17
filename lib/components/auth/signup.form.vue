@@ -7,7 +7,7 @@
         </ext-toolbar>
 
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}'>
-            <ext-emailfield :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true"/>
+            <ext-emailfield :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
 
             <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true"/>
             <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" :placeholder="i18nd(`vue-ext`, `Confirm your password`)" required="true"/>
@@ -51,7 +51,11 @@ export default {
             const form = this.$refs.form.ext,
                 passwordCondirm = this.$refs.passwordConfirm.ext;
 
-            if ( !form.validate() ) return;
+            if ( !form.validate() ) {
+                this.$utils.toast( this.i18nd( `vue-ext`, `Please, correctly fill all required fields` ) );
+
+                return;
+            }
 
             const values = form.getValues();
 

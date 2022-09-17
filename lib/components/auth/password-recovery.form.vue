@@ -7,7 +7,7 @@
         </ext-toolbar>
 
         <ext-fieldpanel ref="form">
-            <ext-emailfield :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true"/>
+            <ext-emailfield :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
@@ -46,7 +46,11 @@ export default {
         async _submit () {
             const form = this.$refs.form.ext;
 
-            if ( !form.validate() ) return;
+            if ( !form.validate() ) {
+                this.$utils.toast( this.i18nd( `vue-ext`, `Please, correctly fill all required fields` ) );
+
+                return;
+            }
 
             const values = form.getValues();
 
