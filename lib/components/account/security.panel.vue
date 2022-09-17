@@ -11,12 +11,12 @@
         </ext-container>
 
         <!-- edit email -->
-        <ext-container ref="editEmailContainer" defaults='{"labelAlign":"left","labelWidth":200}' :hidden="true" layout='{"align":"center","type":"hbox"}'>
-            <ext-emailfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" padding="0 10 0 0"/>
+        <ext-fieldpanel ref="editEmailContainer" defaults='{"labelAlign":"left","labelWidth":200}' :hidden="true" layout='{"align":"center","type":"hbox"}'>
+            <ext-emailfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" padding="0 10 0 0" required="true" validators="email"/>
 
             <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditEmail"/>
             <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setEmail"/>
-        </ext-container>
+        </ext-fieldpanel>
 
         <!-- password -->
         <ext-panel>
@@ -68,7 +68,10 @@ export default {
         },
 
         async _setEmail () {
-            const record = this.ext.getViewModel().get( "record" );
+            const record = this.ext.getViewModel().get( "record" ),
+                form = this.$refs.editEmailContainer.ext;
+
+            if ( !form.validate() ) return;
 
             this.$refs.editEmailContainer.ext.mask();
 
