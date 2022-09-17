@@ -1,6 +1,6 @@
 <template>
     <ext-container layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
-        <!-- email email -->
+        <!-- email  -->
         <ext-container ref="emailContainer" defaults='{"labelAlign":"left","labelWidth":200}' layout='{"align":"center","type":"hbox"}'>
             <ext-displayfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" padding="0 10 0 0"/>
 
@@ -10,6 +10,7 @@
             <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editEmail"/>
         </ext-container>
 
+        <!-- edit email -->
         <ext-container ref="editEmailContainer" defaults='{"labelAlign":"left","labelWidth":200}' :hidden="true" layout='{"align":"center","type":"hbox"}'>
             <ext-emailfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" padding="0 10 0 0"/>
 
@@ -29,11 +30,11 @@
             </ext-fieldpanel>
 
             <ext-container layout='{"pack":"end","type":"hbox"}'>
-                <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="changePassword"/>
+                <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="_setPassword"/>
             </ext-container>
         </ext-panel>
 
-        <!-- active sessions -->
+        <!-- sessions -->
         <UserSessionsPanel maxHeight="500" minHeight="300"/>
     </ext-container>
 </template>
@@ -117,15 +118,15 @@ export default {
             }
         },
 
-        async changePassword () {
-            var form = this.$refs.changePasswordForm.ext,
+        async _setPassword () {
+            const form = this.$refs.changePasswordForm.ext,
                 passwordCondirm = this.$refs.passwordConfirm.ext;
 
             if ( !form.validate() ) return;
 
-            var vals = form.getValues();
+            const values = form.getValues();
 
-            if ( vals.password !== passwordCondirm.getValue() ) {
+            if ( values.password !== passwordCondirm.getValue() ) {
                 passwordCondirm.setError( "Passwords are not match" );
 
                 return;
@@ -133,7 +134,7 @@ export default {
 
             Ext.Viewport.mask();
 
-            const res = await this.$store.session.setPassword( vals.password );
+            const res = await this.$store.session.setPassword( values.password );
 
             Ext.Viewport.unmask();
 
