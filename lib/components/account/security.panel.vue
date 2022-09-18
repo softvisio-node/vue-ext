@@ -5,12 +5,24 @@
             <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="_changePassword"/>
         </ext-fieldcontainer>
 
+        <!-- email  -->
+        <ext-fieldcontainer :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+            <ext-displayfield bind="{record.email}" width="200"/>
+
+            <!-- change email -->
+            <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_changeEmail"/>
+
+            <!-- confitm email -->
+            <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="i18nd(`vue-ext`, `Confirm`)" @tap="_confirmEmail"/>
+        </ext-fieldcontainer>
+
         <!-- telegram username -->
-        <ext-fieldcontainer bind='{"hidden":"{!record.telegram_enabled}"}' :label="i18nd(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200" layout="vbox">
+        <ext-fieldcontainer bind='{"hidden":"{!record.telegram_enabled}"}' :label="i18nd(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
             <ext-container ref="displayTelegramUsernameContainer" layout='{"align":"center","type":"hbox"}'>
                 <ext-displayfield bind="{record.telegram_username}" width="200"/>
                 <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editTelegramUsername"/>
-                <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Open bot`)" @tap="_openTelegramBot"/>
+                <ext-button bind='{"hidden":"{!record.has_telegram_username || !record.telegram_connected}"}' iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Open bot`)" @tap="_openTelegramBot"/>
+                <ext-button bind='{"hidden":"{!record.has_telegram_username || record.telegram_connected}"}' iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Connect bot`)" ui="decline" @tap="_openTelegramBot"/>
             </ext-container>
 
             <!-- edit telegram -->
@@ -19,24 +31,6 @@
                 <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditTelegramUsername"/>
                 <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setTelegramUsername"/>
             </ext-container>
-
-            <!-- connect telegram -->
-            <ext-container bind='{"hidden":"{record.telegram_connected}"}' layout='{"align":"start","type":"vbox"}'>
-                <ext-container :html='i18n(`vue-ext`, `Telegram bot is not connected.<br/>To connect bot open it in telegram and press "Start".`)'/>
-                <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Connect bot`)" @tap="_openTelegramBot"/>
-            </ext-container>
-        </ext-fieldcontainer>
-
-        <!-- email  -->
-        <ext-fieldcontainer :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
-            <ext-displayfield bind="{record.email}" width="200"/>
-
-            <!-- confitm email -->
-            <ext-button bind='{"hidden":"{!record.email_confirmed}"}' iconCls="fa-solid fa-check" :tooltip="i18nd(`vue-ext`, `Email address confirmed`)"/>
-            <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="i18nd(`vue-ext`, `Confirm`)" @tap="_confirmEmail"/>
-
-            <!-- change email -->
-            <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_changeEmail"/>
         </ext-fieldcontainer>
 
         <!-- sessions -->
