@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog layout="fit" minHeight="450" :title="i18nd(`vue-ext`, `Reset password`)" width="300" @destroy="close" @ready="_ready">
+    <ext-dialog layout="fit" minHeight="450" :title="i18nd(`vue-ext`, `Change password`)" width="300" @destroy="close" @ready="_ready">
         <ext-fieldpanel ref="form" defaults1='{"labelAlign":"left","labelWidth":120}'>
             <ext-hiddenfield name="token" :value="token"/>
             <ext-passwordfield :label="i18nd(`vue-ext`, `New password`)" name="password" required="true"/>
@@ -8,7 +8,7 @@
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
             <ext-button :text="i18nd(`vue-ext`, `Cancel`)" ui="decline" @tap="close"/>
-            <ext-button :text="i18nd(`vue-ext`, `Reset password`)" ui="action" @tap="submit"/>
+            <ext-button :text="i18nd(`vue-ext`, `Change password`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -35,14 +35,14 @@ export default {
             this.ext = e.detail.cmp;
 
             if ( !this.token ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Password reset token was not found" ), 5000 );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Password recovey token was not found" ), 5000 );
 
                 this.close();
             }
 
             this.ext.on( "hide", () => this.close() );
 
-            this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+            this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "_submit", "scope": this } } );
         },
 
         close () {
@@ -51,7 +51,7 @@ export default {
             this.$unmount();
         },
 
-        async submit () {
+        async _submit () {
             const form = this.$refs.form.ext,
                 passwordCondirm = this.$refs.passwordConfirm.ext;
 
