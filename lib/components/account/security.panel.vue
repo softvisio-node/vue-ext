@@ -13,8 +13,8 @@
             </ext-container>
 
             <!-- edit telegram -->
-            <ext-container ref="editTelegramUsernameContainer" layout='{"align":"center","type":"hbox"}'>
-                <ext-textfield bind="{record.telegram_username}" width="200"/>
+            <ext-container ref="editTelegramUsernameContainer" :hidden="true" layout='{"align":"center","type":"hbox"}'>
+                <ext-textfield ref="telegramUsernameField" bind="{record.telegram_username}" width="200"/>
                 <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditTelegramUsername"/>
                 <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setTelegramUsername"/>
             </ext-container>
@@ -110,31 +110,29 @@ export default {
             this.$refs.editTelegramUsernameContainer.ext.hide();
         },
 
-        // XXX
         async _setTelegramUsername () {
-            const record = this.ext.getViewModel().get( "record" ),
-                form = this.$refs.editEmailContainer.ext;
+            const record = this.ext.getViewModel().get( "record" );
 
-            if ( !form.validate() ) return;
+            if ( !this.$refs.telegramUsernameField.ext.validate() ) return;
 
-            if ( !record.isModified( "email" ) ) {
-                this._cancelEditEmail();
+            if ( !record.isModified( "telegram_username" ) ) {
+                this._cancelEditTelegramUsername();
 
                 return;
             }
 
-            this.$refs.editEmailContainer.ext.mask();
+            this.$refs.editTelegramUsernameContainer.ext.mask();
 
-            const res = await this.$api.call( "account/set-email", record.get( "email" ) );
+            const res = await this.$api.call( "account/set-telegram-username", record.get( "telegram_username" ) );
 
-            this.$refs.editEmailContainer.ext.unmask();
+            this.$refs.editTelegramUsernameContainer.ext.unmask();
 
             if ( res.ok ) {
                 this.$utils.toast( res );
 
-                this.ext.getViewModel().get( "record" ).commit( false, "email" );
+                record.commit( false, "telegram_username" );
 
-                this._cancelEditEmail();
+                this._cancelEditTelegramUsername();
             }
             else {
                 this.$utils.toast( res );
