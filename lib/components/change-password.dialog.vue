@@ -75,7 +75,7 @@ export default {
         },
 
         async _changePassword ( password ) {
-            return this.$store.session.setPassword( password );
+            return this.$api.call( "account/set-password", password );
         },
     },
 };

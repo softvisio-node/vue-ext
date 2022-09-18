@@ -56,7 +56,7 @@ export default {
 
             Ext.Viewport.mask();
 
-            const res = await this.$store.session.sendPasswordRecoveryEmail( values.email );
+            const res = await this.$api.call( "session/send-password-recovery-email", values.email );
 
             Ext.Viewport.unmask();
 

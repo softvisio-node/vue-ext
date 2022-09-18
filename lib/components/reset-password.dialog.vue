@@ -52,14 +52,14 @@ export default {
         },
 
         async submit () {
-            var form = this.$refs.form.ext,
+            const form = this.$refs.form.ext,
                 passwordCondirm = this.$refs.passwordConfirm.ext;
 
             if ( !form.validate() ) return;
 
-            var vals = form.getValues();
+            const values = form.getValues();
 
-            if ( vals.password !== passwordCondirm.getValue() ) {
+            if ( values.password !== passwordCondirm.getValue() ) {
                 passwordCondirm.setError( "Passwords are not match" );
 
                 return;
@@ -67,7 +67,7 @@ export default {
 
             form.mask();
 
-            const res = await this.$store.session.setPasswordByToken( [vals.token, vals.password] );
+            const res = await this.$api.call( "session/set-password-by-token", values.token, values.password );
 
             form.unmask();
 

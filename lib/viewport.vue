@@ -74,7 +74,7 @@ export default {
             else {
                 Ext.Viewport.mask();
 
-                const res = await this.$store.session.confirmEmailByToken( token );
+                const res = await this.$api.call( "session/confirm-email-by-token", token );
 
                 Ext.Viewport.unmask();
 
