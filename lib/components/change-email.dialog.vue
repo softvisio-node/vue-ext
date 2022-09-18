@@ -53,7 +53,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Password changed" ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Change email instructions were sent to the new email address" ) );
 
                 this.close();
             }
