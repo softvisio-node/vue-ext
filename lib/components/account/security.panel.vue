@@ -19,7 +19,7 @@
         </ext-fieldpanel>
 
         <!-- password -->
-        <ext-fieldpanel ref="changePasswordForm" defaults='{"labelAlign":"left","labelWidth":200,"width":"50%"}'>
+        <ext-fieldpanel ref="changePasswordForm" defaults='{"labelAlign":"left","labelWidth":200,"width":"50%"}' margin="20 0 0 0">
             <ext-toolbar docked="top">
                 <ext-container :html="i18nd(`vue-ext`, `Password change`)"/>
             </ext-toolbar>
@@ -33,7 +33,7 @@
         </ext-fieldpanel>
 
         <!-- sessions -->
-        <UserSessionsPanel maxHeight="500" minHeight="300"/>
+        <UserSessionsPanel margin="20 0 0 0" maxHeight="500" minHeight="300"/>
     </ext-container>
 </template>
 
