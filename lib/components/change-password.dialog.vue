@@ -45,12 +45,12 @@ export default {
         },
 
         async submit () {
-            var form = this.$refs.form.ext,
+            const form = this.$refs.form.ext,
                 passwordCondirm = this.$refs.passwordConfirm.ext;
 
             if ( !form.validate() ) return;
 
-            var values = form.getValues();
+            const values = form.getValues();
 
             if ( values.password !== passwordCondirm.getValue() ) {
                 passwordCondirm.setError( "Passwords are not match" );

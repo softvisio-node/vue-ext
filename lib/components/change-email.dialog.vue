@@ -1,14 +1,11 @@
 <template>
     <ext-dialog closeAction="hide" height="300" :title="title" width="300" @ready="_ready">
-        <ext-container :html="header" style="text-align: center"/>
-
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
-            <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" required="true"/>
-            <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" required="true"/>
+        <ext-fieldpanel ref="form" @ready="formReady">
+            <ext-emailfield :label="i18nd(`vue-ext`, `New email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Ender new email address`)" required="true" validators="email"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-\ <ext-button :text="i18nd(`vue-ext`, `Change password`)" ui="action" @tap="submit"/>
+\ <ext-button :text="i18nd(`vue-ext`, `Change email`)" ui="action" @tap="submit"/>
 </ext-toolbar>
     </ext-dialog>
 </template>
@@ -19,7 +16,7 @@ import loadMask from "#lib/load-mask";
 export default {
     "computed": {
         title () {
-            return this.i18nd( `vue-ext`, `Change password` );
+            return this.i18nd( `vue-ext`, `Change email` );
         },
     },
 
@@ -29,8 +26,6 @@ export default {
 
             this.ext.on( "hide", () => {
                 this.$refs.form.ext.reset();
-
-                this.$refs.passwordConfirm.ext.clearValue();
             } );
         },
 
@@ -45,22 +40,15 @@ export default {
         },
 
         async submit () {
-            var form = this.$refs.form.ext,
-                passwordCondirm = this.$refs.passwordConfirm.ext;
+            const form = this.$refs.form.ext;
 
             if ( !form.validate() ) return;
 
-            var values = form.getValues();
-
-            if ( values.password !== passwordCondirm.getValue() ) {
-                passwordCondirm.setError( "Passwords are not match" );
-
-                return;
-            }
+            const values = form.getValues();
 
             this.ext.mask( loadMask );
 
-            const res = await this._changePassword( values.password );
+            const res = await this.$api.call( "account/send-email-change-token", values.email );
 
             this.ext.unmask();
 
@@ -72,10 +60,6 @@ export default {
             else {
                 this.$utils.toast( res );
             }
-        },
-
-        async _changePassword ( password ) {
-            return this.$store.session.setPassword( password );
         },
     },
 };
