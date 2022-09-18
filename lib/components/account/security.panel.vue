@@ -10,6 +10,7 @@
             <ext-container ref="displayTelegramUsernameContainer" layout='{"align":"center","type":"hbox"}'>
                 <ext-displayfield bind="{record.telegram_username}" width="200"/>
                 <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editTelegramUsername"/>
+                <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Open bot`)" @tap="_openTelegramBot"/>
             </ext-container>
 
             <!-- edit telegram -->
@@ -21,7 +22,7 @@
 
             <!-- connect telegram -->
             <ext-container bind='{"hidden":"{record.telegram_connected}"}' layout='{"align":"start","type":"vbox"}'>
-                <ext-container :html='i18n(`vue-ext`, `Telegram bot is not connected. To connect bot open it in telegram and press "Start".`)'/>
+                <ext-container :html='i18n(`vue-ext`, `Telegram bot is not connected.<br/>To connect bot open it in telegram and press "Start".`)'/>
                 <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Connect bot`)" @tap="_openTelegramBot"/>
             </ext-container>
         </ext-fieldcontainer>
@@ -47,6 +48,7 @@
 import UserSessionsPanel from "#lib/components/user-sessions/panel";
 import AccountModel from "./models/account";
 import ChangePasswordDialog from "#lib/components/change-password.dialog";
+import ChangeEmailDialog from "#lib/components/change-email.dialog";
 
 export default {
     "components": { UserSessionsPanel },
@@ -73,7 +75,7 @@ export default {
 
         // email
         async _changeEmail () {
-            const cmp = await this.$mount( ChangePasswordDialog );
+            const cmp = await this.$mount( ChangeEmailDialog );
 
             cmp.ext.show();
         },
