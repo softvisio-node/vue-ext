@@ -1,5 +1,32 @@
 <template>
     <ext-container layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
+        <!-- password -->
+        <ext-container layout='{"align":"center","type":"hbox"}'>
+            <ext-displayfield :label="i18nd(`vue-ext`, `Password`)" labelAlign="left" labelWidth="200"/>
+
+            <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="_changePassword"/>
+        </ext-container>
+
+        <!-- telegram username -->
+        <ext-container ref="telegramContainer" layout='{"align":"center","type":"hbox"}'>
+            <ext-displayfield bind="{record.telegram_username}" :label="i18nd(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200" padding="0 10 0 0"/>
+
+            <ext-button bind='{"hidden":"{!record.telegram_connected}"}' iconCls="fa-solid fa-check" :tooltip="i18nd(`vue-ext`, `Telegram bot connected`)"/>
+            <ext-button bind='{"hidden":"{record.telegram_connected}"}' :text="i18nd(`vue-ext`, `Confirm email`)" @tap="_confirmEmail"/>
+
+            <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editEmail"/>
+        </ext-container>
+
+        <ext-container :html='i18n(`vue-ext`, `Telegram bot is not connected. To connect bot open it in telegram and press "Start".`)'/>
+
+        <!-- edit telegram username -->
+        <ext-fieldpanel ref="editTelegramUsernameContainer" :hidden="true" layout='{"align":"center","type":"hbox"}'>
+            <ext-emailfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" padding="0 10 0 0" required="true" validators="email"/>
+
+            <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditEmail"/>
+            <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setEmail"/>
+        </ext-fieldpanel>
+
         <!-- email  -->
         <ext-container ref="emailContainer" layout='{"align":"center","type":"hbox"}'>
             <ext-displayfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" padding="0 10 0 0"/>
@@ -18,20 +45,6 @@
             <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setEmail"/>
         </ext-fieldpanel>
 
-        <!-- password -->
-        <ext-fieldpanel ref="changePasswordForm" defaults='{"labelAlign":"left","labelWidth":200,"width":"50%"}' margin="20 0 0 0">
-            <ext-toolbar docked="top">
-                <ext-container :html="i18nd(`vue-ext`, `Password change`)"/>
-            </ext-toolbar>
-
-            <ext-passwordfield :label="i18nd(`vue-ext`, `New password`)" name="password" required="true"/>
-            <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm new password`)" required="true"/>
-
-            <ext-container layout='{"pack":"end","type":"hbox"}'>
-                <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="_setPassword"/>
-            </ext-container>
-        </ext-fieldpanel>
-
         <!-- sessions -->
         <UserSessionsPanel margin="20 0 0 0" maxHeight="500" minHeight="300"/>
     </ext-container>
@@ -40,6 +53,7 @@
 <script>
 import UserSessionsPanel from "#lib/components/user-sessions/panel";
 import AccountModel from "./models/account";
+import ChangePasswordDialog from "#lib/components/change-password.dialog";
 
 export default {
     "components": { UserSessionsPanel },
@@ -125,34 +139,10 @@ export default {
             }
         },
 
-        async _setPassword () {
-            const form = this.$refs.changePasswordForm.ext,
-                passwordCondirm = this.$refs.passwordConfirm.ext;
+        async _changePassword () {
+            const cmp = await this.$mount( ChangePasswordDialog );
 
-            if ( !form.validate() ) return;
-
-            const values = form.getValues();
-
-            if ( values.password !== passwordCondirm.getValue() ) {
-                passwordCondirm.setError( "Passwords are not match" );
-
-                return;
-            }
-
-            Ext.Viewport.mask();
-
-            const res = await this.$store.session.setPassword( values.password );
-
-            Ext.Viewport.unmask();
-
-            if ( res.ok ) {
-                form.reset( true );
-
-                this.$utils.toast( this.i18nd( `vue-ext`, "Password changed" ) );
-            }
-            else {
-                this.$utils.toast( res );
-            }
+            cmp.ext.show();
         },
     },
 };
