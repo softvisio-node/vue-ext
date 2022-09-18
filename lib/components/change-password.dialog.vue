@@ -19,7 +19,7 @@ import loadMask from "#lib/load-mask";
 export default {
     "computed": {
         title () {
-            return this.i18nd( `vue-ext`, `Change password` );
+            return this.i18nd( `vue-ext`, `Password change` );
         },
     },
 

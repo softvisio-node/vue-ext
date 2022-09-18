@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog layout="fit" minHeight="450" :title="i18nd(`vue-ext`, `Change password`)" width="300" @destroy="close" @ready="_ready">
+    <ext-dialog layout="fit" minHeight="450" :title="i18nd(`vue-ext`, `Password change`)" width="300" @destroy="close" @ready="_ready">
         <ext-fieldpanel ref="form" defaults1='{"labelAlign":"left","labelWidth":120}'>
             <ext-hiddenfield name="token" :value="token"/>
             <ext-passwordfield :label="i18nd(`vue-ext`, `New password`)" name="password" required="true"/>
@@ -35,7 +35,7 @@ export default {
             this.ext = e.detail.cmp;
 
             if ( !this.token ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Password recovey token was not found" ), 5000 );
+                this.$utils.toast( this.i18nd( `vue-ext`, "Password recovery token was not found" ), 5000 );
 
                 this.close();
             }

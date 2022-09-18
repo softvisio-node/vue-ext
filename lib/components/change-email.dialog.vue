@@ -21,7 +21,7 @@ import loadMask from "#lib/load-mask";
 export default {
     "computed": {
         title () {
-            return this.i18nd( `vue-ext`, `Change email` );
+            return this.i18nd( `vue-ext`, `Email change` );
         },
     },
 
