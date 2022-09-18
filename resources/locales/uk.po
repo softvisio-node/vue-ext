@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-16 21:18+0300\n"
+"POT-Creation-Date: 2022-09-19 00:47+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,63 +19,97 @@ msgstr ""
 msgid "Your account"
 msgstr "Ваш аккаунт"
 
-#: lib/components/account/panel.vue:10:42
-msgid "Password change"
-msgstr "Зміна пароля"
-
-#: lib/components/account/panel.vue:14:47
-#: lib/components/reset-password.dialog.vue:5:39
-msgid "New password"
-msgstr "Новий пароль"
-
-#: lib/components/account/panel.vue:15:69
-#: lib/components/reset-password.dialog.vue:6:61
-msgid "Confirm new password"
-msgstr "Підтвердити новий пароль"
-
-#: lib/components/account/panel.vue:19:39
-#: lib/components/app-title/menu.vue:12:101
-#: lib/components/change-password.dialog.vue:11:21
-#: lib/components/change-password.dialog.vue:22:19
-#: lib/components/users/panel.vue:177:48
-msgid "Change password"
-msgstr "Змінити пароль"
-
-#: lib/components/account/panel.vue:6:41
+#: lib/components/account/panel.vue:6:58
 msgid "Security"
 msgstr "Безпека"
 
-#: lib/components/account/panel.vue:28:40
+#: lib/components/account/panel.vue:11:40
 #: lib/components/notifications/menu-sheet.vue:4:76
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: lib/components/account/panel.vue:33:40
+#: lib/components/account/panel.vue:16:83
 msgid "Access tokens"
 msgstr "Токени доступу"
 
-#: lib/components/account/panel.vue:40:38
-#: lib/components/account/panel.vue:38:41
+#: lib/components/account/panel.vue:23:38
+#: lib/components/account/panel.vue:21:41
 msgid "Interface theme"
 msgstr "Тема інтерфейсу"
 
-#: lib/components/account/panel.vue:44:41
+#: lib/components/account/security.panel.vue:5:31
+#: lib/components/app-title/menu.vue:12:101
+#: lib/components/change-password.dialog.vue:11:21
+#: lib/components/reset-password.dialog.vue:11:31
+#: lib/components/users/panel.vue:177:48
+msgid "Change password"
+msgstr "Змінити пароль"
+
+#: lib/components/account/security.panel.vue:4:36
+#: lib/components/auth/signin.form.vue:12:39
+#: lib/components/auth/signup.form.vue:12:39
+#: lib/components/authorization.dialog.vue:6:39
+#: lib/components/change-password.dialog.vue:6:39
+#: lib/components/users/create-user.dialog.vue:5:39
+msgid "Password"
+msgstr "Пароль"
+
+#: lib/components/account/security.panel.vue:13:31
+#: lib/components/account/security.panel.vue:23:35
+msgid "Change"
+msgstr "Змінити"
+
+#: lib/components/account/security.panel.vue:16:76
+msgid "Confirm"
+msgstr "Підтвердити"
+
+#: lib/components/account/security.panel.vue:9:36
+#: lib/components/auth/password-recovery.form.vue:10:36
+#: lib/components/auth/signin.form.vue:10:36
+#: lib/components/auth/signup.form.vue:10:36
+msgid "Email address"
+msgstr "Адреса email"
+
+#: lib/components/account/security.panel.vue:24:149
+#: lib/components/notifications/panel.vue:13:93
+msgid "Open bot"
+msgstr "Відкрити бот"
+
+#: lib/components/account/security.panel.vue:25:148
+msgid "Connect bot"
+msgstr "Підключити бота"
+
+#: lib/components/account/security.panel.vue:31:63
+#: lib/components/reset-password.dialog.vue:10:31 lib/utils.js:83:36
+#: lib/utils.js:136:36
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: lib/components/account/security.panel.vue:32:63
+#: lib/components/user-tokens/roles/dialog.vue:12:62
+#: lib/components/users/user-roles.dialog.vue:12:62
+msgid "Save"
+msgstr "Зберегти"
+
+#: lib/components/account/security.panel.vue:20:83
+msgid "Telegram username"
+msgstr "Ім'я користувача Telegram"
+
+#: lib/components/account/security.panel.vue:87:35
+msgid "Confirmation email sent"
+msgstr "Лист із підтвердженням надіслано"
+
+#: lib/components/account/theme.panel.vue:3:33
 msgid "Use OS theme"
 msgstr "Використовувати тему ОС"
 
-#: lib/components/account/panel.vue:48:44
+#: lib/components/account/theme.panel.vue:7:36
 msgid "Base color"
 msgstr "Базовий колір"
 
-#: lib/components/account/panel.vue:52:44
+#: lib/components/account/theme.panel.vue:11:36
 msgid "Accent color"
 msgstr "Колір акценту"
-
-#: lib/components/account/panel.vue:145:35
-#: lib/components/change-password.dialog.vue:68:35
-#: lib/components/reset-password.dialog.vue:75:35
-msgid "Password changed"
-msgstr "Пароль змінено"
 
 #: lib/components/acl/dialog.vue:22:33
 msgid "Users"
@@ -116,11 +150,11 @@ msgstr "Жоден запис не відповідає критеріям по�
 msgid "Unable to load records"
 msgstr "Неможливо завантажити записи"
 
-#: lib/components/acl/panel.vue:21:99 lib/components/acl/user-dialog.vue:7:99
-#: lib/components/users/panel.vue:24:82
-#: lib/components/users/user-sessions.panel.vue:20:19
-msgid "Username"
-msgstr "Ім'я користувача"
+#: lib/components/acl/panel.vue:21:96 lib/components/acl/user-dialog.vue:7:96
+#: lib/components/users/create-user.dialog.vue:4:36
+#: lib/components/users/panel.vue:24:83
+msgid "Email"
+msgstr "Email"
 
 #: lib/components/acl/panel.vue:23:91 lib/components/users/panel.vue:72:33
 #: lib/components/users/panel.vue:349:52
@@ -159,7 +193,7 @@ msgstr "Ви впевнені, що хочете видалити користу
 msgid "User deleted"
 msgstr "Користувача видалено"
 
-#: lib/components/acl/user-dialog.vue:3:134
+#: lib/components/acl/user-dialog.vue:3:135
 msgid "Select user"
 msgstr "Виберіть користувача"
 
@@ -257,15 +291,11 @@ msgstr "Інформацію про версію скопійовано"
 msgid "Password recovery"
 msgstr "Відновлення паролю"
 
-#: lib/components/auth/password-recovery.form.vue:10:35
-#: lib/components/auth/signin.form.vue:10:35
-msgid "Username or email"
-msgstr "Ім'я користувача або email"
-
-#: lib/components/auth/password-recovery.form.vue:10:104
-#: lib/components/auth/signin.form.vue:10:104
-msgid "Enter your username or email"
-msgstr "Введіть ваше ім'я користувача або email"
+#: lib/components/auth/password-recovery.form.vue:10:98
+#: lib/components/auth/signin.form.vue:10:98
+#: lib/components/auth/signup.form.vue:10:98
+msgid "Enter your email address"
+msgstr "Введіть адресу вашої електронної пошти"
 
 #: lib/components/auth/password-recovery.form.vue:14:64
 #: lib/components/auth/signup.form.vue:17:64
@@ -276,7 +306,13 @@ msgstr "Назад"
 msgid "Recover"
 msgstr "Відновити"
 
-#: lib/components/auth/password-recovery.form.vue:64:39
+#: lib/components/auth/password-recovery.form.vue:50:35
+#: lib/components/auth/signin.form.vue:80:35
+#: lib/components/auth/signup.form.vue:55:35
+msgid "Please, correctly fill all required fields"
+msgstr "Будь ласка, правильно заповніть усі необхідні поля"
+
+#: lib/components/auth/password-recovery.form.vue:69:35
 msgid "Password change instructions were sent to the email address, associated with your account."
 msgstr "Інструкції щодо зміни пароля були надіслані на адресу електронної пошти, пов’язану з вашим обліковим записом."
 
@@ -284,14 +320,6 @@ msgstr "Інструкції щодо зміни пароля були наді�
 #: lib/components/auth/signin.form.vue:29:31
 msgid "Sign in"
 msgstr "Увійти"
-
-#: lib/components/auth/signin.form.vue:12:39
-#: lib/components/auth/signup.form.vue:12:39
-#: lib/components/authorization.dialog.vue:6:39
-#: lib/components/change-password.dialog.vue:6:39
-#: lib/components/users/create-user.dialog.vue:5:39
-msgid "Password"
-msgstr "Пароль"
 
 #: lib/components/auth/signin.form.vue:12:99
 #: lib/components/auth/signup.form.vue:12:99
@@ -323,15 +351,6 @@ msgstr "Немає облікового запису? зареєструвати
 msgid "Sign up"
 msgstr "Зареєструватися"
 
-#: lib/components/auth/signup.form.vue:10:36
-#: lib/components/users/create-user.dialog.vue:4:36
-msgid "Email"
-msgstr "Email"
-
-#: lib/components/auth/signup.form.vue:10:93
-msgid "Enter your email"
-msgstr "Введіть ваш email"
-
 #: lib/components/auth/signup.form.vue:13:61
 #: lib/components/change-password.dialog.vue:7:61
 #: lib/components/users/create-user.dialog.vue:6:39
@@ -341,6 +360,11 @@ msgstr "Підтвердіть пароль"
 #: lib/components/auth/signup.form.vue:13:113
 msgid "Confirm your password"
 msgstr "Підтвердіть ваш пароль"
+
+#: lib/components/auth/signup.form.vue:63:42
+#: lib/components/users/create-user.dialog.vue:46:56
+msgid "Passwords are not match"
+msgstr "Паролі не збігаються"
 
 #: lib/components/authorization.dialog.vue:3:30
 msgid "Authorization is required to perform this operation. Please, authorize and then perform action again."
@@ -357,6 +381,56 @@ msgstr "Авторизація"
 #: lib/components/authorization.dialog.vue:62:35
 msgid "Authorized"
 msgstr "Авторизовано"
+
+#: lib/components/change-email.dialog.vue:4:36
+msgid "New email address"
+msgstr "Нова електронна адреса"
+
+#: lib/components/change-email.dialog.vue:4:102
+msgid "Enter new email address"
+msgstr "Введіть нову електронну адресу"
+
+#: lib/components/change-email.dialog.vue:6:69
+msgid "We just sent email change token to the new email address. Please, check your inbox and enter token to the field below."
+msgstr "Ми щойно надіслали маркер зміни електронної пошти на нову електронну адресу. Будь ласка, перевірте свою поштову скриньку та введіть маркер у поле нижче."
+
+#: lib/components/change-email.dialog.vue:8:50
+msgid "Token"
+msgstr "Токен"
+
+#: lib/components/change-email.dialog.vue:8:104
+msgid "Enter token"
+msgstr "Введіть токен"
+
+#: lib/components/change-email.dialog.vue:12:53
+msgid "Send token"
+msgstr "Надіслати токен"
+
+#: lib/components/change-email.dialog.vue:13:67
+msgid "Change email"
+msgstr "Змінити email"
+
+#: lib/components/change-email.dialog.vue:24:19
+msgid "Email change"
+msgstr "Зміна email"
+
+#: lib/components/change-email.dialog.vue:68:35
+msgid "Change email token was sent to the new email address"
+msgstr "Токен зміни електронної пошти надіслано на нову адресу електронної пошти"
+
+#: lib/components/change-email.dialog.vue:95:35
+msgid "Email address changed"
+msgstr "Адреса електронної пошти змінена"
+
+#: lib/components/change-password.dialog.vue:22:19
+#: lib/components/reset-password.dialog.vue:2:53
+msgid "Password change"
+msgstr "Зміна пароля"
+
+#: lib/components/change-password.dialog.vue:68:35
+#: lib/components/reset-password.dialog.vue:75:35
+msgid "Password changed"
+msgstr "Пароль змінено"
 
 #: lib/components/dark-mode.button.vue:43:61
 msgid "Dark mode"
@@ -394,10 +468,6 @@ msgstr "Позначити все як непрочитане"
 #: lib/components/notifications/menu-sheet.vue:136:43
 msgid "Delete"
 msgstr "Видалити"
-
-#: lib/components/notifications/panel.vue:13:93
-msgid "Open bot"
-msgstr "Відкрити бот"
 
 #: lib/components/notifications/panel.vue:17:76
 msgid "Your Telegram username"
@@ -476,19 +546,17 @@ msgstr "Push-сповіщення ввімкнено"
 msgid "Push notifications disabled"
 msgstr "Push-повідомлення вимкнено"
 
-#: lib/components/reset-password.dialog.vue:10:31 lib/utils.js:83:36
-#: lib/utils.js:136:36
-msgid "Cancel"
-msgstr "Скасувати"
+#: lib/components/reset-password.dialog.vue:5:39
+msgid "New password"
+msgstr "Новий пароль"
 
-#: lib/components/reset-password.dialog.vue:11:31
-#: lib/components/reset-password.dialog.vue:2:53
-msgid "Reset password"
-msgstr "Скинути пароль"
+#: lib/components/reset-password.dialog.vue:6:61
+msgid "Confirm new password"
+msgstr "Підтвердити новий пароль"
 
 #: lib/components/reset-password.dialog.vue:38:35
-msgid "Password reset token was not found"
-msgstr "Токен скидання пароля не знайдено"
+msgid "Password recovery token was not found"
+msgstr "Токен відновлення пароля не знайдено"
 
 #: lib/components/user-sessions/panel.vue:6:66
 msgid "Sign out of all sessions"
@@ -605,11 +673,6 @@ msgstr "Токен видалено"
 msgid "Description"
 msgstr "Опис"
 
-#: lib/components/user-tokens/roles/dialog.vue:12:62
-#: lib/components/users/user-roles.dialog.vue:12:62
-msgid "Save"
-msgstr "Зберегти"
-
 #: lib/components/user-tokens/roles/dialog.vue:100:35
 msgid "Token roles updated"
 msgstr "Ролі токена оновлено"
@@ -656,6 +719,10 @@ msgstr "Ролі користувача оновлено"
 msgid "User sessions"
 msgstr "Сесії користувача"
 
+#: lib/components/users/user-sessions.panel.vue:20:19
+msgid "User"
+msgstr "Користувач"
+
 #: lib/index.js:74:28
 msgid "Unable to connect to the API server. Check, that you have internet connection."
 msgstr "Не вдається підключитися до сервера API. Перевірте, чи є у вас підключення до Інтернету."
@@ -691,6 +758,18 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "Username"
+#~ msgstr "Ім'я користувача"
+
+#~ msgid "Username or email"
+#~ msgstr "Ім'я користувача або email"
+
+#~ msgid "Enter your username or email"
+#~ msgstr "Введіть ваше ім'я користувача або email"
+
+#~ msgid "Reset password"
+#~ msgstr "Скинути пароль"
 
 #~ msgid "Select roles"
 #~ msgstr "Виберіть ролі"
@@ -795,9 +874,6 @@ msgstr "Електронна пошта успішно підтверджена"
 
 #~ msgid "From"
 #~ msgstr "Від"
-
-#~ msgid "Username <email@address>"
-#~ msgstr "Ім'я користувача <email@address>"
 
 #~ msgid "Format: username <email@address>."
 #~ msgstr "Формат: ім'я користувача <email@address>."

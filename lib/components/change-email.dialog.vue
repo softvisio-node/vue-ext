@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="destroy" height="300" :title="title" width="300" @ready="_ready">
+    <ext-dialog closeAction="destroy" height="400" :title="title" width="300" @ready="_ready">
         <ext-fieldpanel ref="form" @ready="formReady">
             <ext-emailfield :label="i18nd(`vue-ext`, `New email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter new email address`)" required="true" validators="email"/>
 

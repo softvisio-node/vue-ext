@@ -43,7 +43,7 @@ msgstr "Тема интерфейса"
 #: lib/components/reset-password.dialog.vue:11:31
 #: lib/components/users/panel.vue:177:48
 msgid "Change password"
-msgstr "Сменить пароль"
+msgstr "Изменить пароль"
 
 #: lib/components/account/security.panel.vue:4:36
 #: lib/components/auth/signin.form.vue:12:39
@@ -314,7 +314,7 @@ msgstr "Пожалуйста, правильно заполните все тр�
 
 #: lib/components/auth/password-recovery.form.vue:69:35
 msgid "Password change instructions were sent to the email address, associated with your account."
-msgstr "Инструкции по смене пароль отправлены на ваш email."
+msgstr "Инструкции по изменению пароль отправлены на ваш email."
 
 #: lib/components/auth/signin.form.vue:5:34
 #: lib/components/auth/signin.form.vue:29:31
@@ -412,7 +412,7 @@ msgstr "Изменить email"
 
 #: lib/components/change-email.dialog.vue:24:19
 msgid "Email change"
-msgstr "Смена email"
+msgstr "Изменение email"
 
 #: lib/components/change-email.dialog.vue:68:35
 msgid "Change email token was sent to the new email address"
@@ -425,7 +425,7 @@ msgstr "Адрес email изменен"
 #: lib/components/change-password.dialog.vue:22:19
 #: lib/components/reset-password.dialog.vue:2:53
 msgid "Password change"
-msgstr "Смена пароля"
+msgstr "Изменение пароля"
 
 #: lib/components/change-password.dialog.vue:68:35
 #: lib/components/reset-password.dialog.vue:75:35
