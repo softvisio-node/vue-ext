@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-19 00:47+0300\n"
+"POT-Creation-Date: 2022-09-19 01:23+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -71,7 +71,6 @@ msgid "Email address"
 msgstr "Адреса email"
 
 #: lib/components/account/security.panel.vue:24:149
-#: lib/components/notifications/panel.vue:13:93
 msgid "Open bot"
 msgstr "Відкрити бот"
 
@@ -469,54 +468,37 @@ msgstr "Позначити все як непрочитане"
 msgid "Delete"
 msgstr "Видалити"
 
-#: lib/components/notifications/panel.vue:17:76
-msgid "Your Telegram username"
-msgstr "Ваше ім'я користувача в Telegram"
-
-#: lib/components/notifications/panel.vue:18:35
-msgid "Save username"
-msgstr "Зберегти ім'я користувача"
-
-#: lib/components/notifications/panel.vue:25:38
+#: lib/components/notifications/panel.vue:6:38
 msgid "Push notifications"
 msgstr "Push-повідомлення"
 
-#: lib/components/notifications/panel.vue:29:47
+#: lib/components/notifications/panel.vue:10:47
 msgid "Receive push notifications on this device"
 msgstr "Отримувати push-сповіщення на цьому пристрої"
 
-#: lib/components/notifications/panel.vue:36:20
-#, javascript-format
-msgid "In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${n}</b> and press <b>\"Start\"</b>."
-msgstr "Щоб отримувати сповіщення Telegram, вам потрібно встановити своє ім’я користувача в Telegram. Потім відкрийте чат із <b>@${n}</b> і натисніть <b>\"Start\"</b>."
-
-#: lib/components/notifications/panel.vue:41:38
+#: lib/components/notifications/panel.vue:18:38
 msgid "Notification types"
 msgstr "Типи сповіщень"
 
-#: lib/components/notifications/panel.vue:44:95
+#: lib/components/notifications/panel.vue:21:95
 #, javascript-format
 msgid "Internal${n}notifications"
 msgstr "Внутрішні${n}сповіщення"
 
-#: lib/components/notifications/panel.vue:45:95
+#: lib/components/notifications/panel.vue:22:95
 #, javascript-format
 msgid "Email${n}notifications"
 msgstr "Email${n}сповіщення"
 
-#: lib/components/notifications/panel.vue:46:95
+#: lib/components/notifications/panel.vue:23:95
 #, javascript-format
 msgid "Telegram${n}notifications"
 msgstr "Telegram${n}сповіщення"
 
-#: lib/components/notifications/panel.vue:47:95
+#: lib/components/notifications/panel.vue:24:95
 #, javascript-format
 msgid "Push${n}notifications"
 msgstr "Push${n}сповіщення"
-
-#: lib/components/notifications/panel.vue:183:35
-msgid "Telegram username updated"
-msgstr "Ім’я користувача Telegram оновлено"
 
 #: lib/components/pdf/_panel.vue:78:35
 msgid "Maximize"
@@ -758,6 +740,19 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "Your Telegram username"
+#~ msgstr "Ваше ім'я користувача в Telegram"
+
+#~ msgid "Save username"
+#~ msgstr "Зберегти ім'я користувача"
+
+#, javascript-format
+#~ msgid "In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${n}</b> and press <b>\"Start\"</b>."
+#~ msgstr "Щоб отримувати сповіщення Telegram, вам потрібно встановити своє ім’я користувача в Telegram. Потім відкрийте чат із <b>@${n}</b> і натисніть <b>\"Start\"</b>."
+
+#~ msgid "Telegram username updated"
+#~ msgstr "Ім’я користувача Telegram оновлено"
 
 #~ msgid "Username"
 #~ msgstr "Ім'я користувача"
