@@ -1,9 +1,9 @@
 <template>
-    <ext-tabpanel defaults='{"padding":"0 10 0 10"}' layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":40,"padding":"0 10 0 0","textAlign":"right","width":170},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none" @ready="_ready">
+    <ext-tabpanel defaults='{"padding":"0 10 0 10"}' layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":40,"padding":"0 10 0 0","textAlign":"right","width":200},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none" @ready="_ready">
         <slot name="top"/>
 
         <!-- security -->
-        <ext-panel layout="vbox" padding="0 0 0 0" :title="i18nd(`vue-ext`, `Security`)">
+        <ext-panel layout="fit" padding="0 0 0 0" :title="i18nd(`vue-ext`, `Security`)">
             <SecurityPanel flex="1"/>
         </ext-panel>
 
@@ -13,7 +13,7 @@
         </ext-panel>
 
         <!-- tokens -->
-        <ext-panel layout="fit" :title="i18nd(`vue-ext`, `Access tokens`)">
+        <ext-panel iconAlign="left" iconCls="fa-solid fa-key" layout="fit" :title="i18nd(`vue-ext`, `Access tokens`)">
             <UserTokensPanel/>
         </ext-panel>
 

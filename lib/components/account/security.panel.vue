@@ -1,49 +1,42 @@
 <template>
     <ext-container layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
         <!-- password -->
-        <ext-container layout='{"align":"center","type":"hbox"}'>
-            <ext-displayfield :label="i18nd(`vue-ext`, `Password`)" labelAlign="left" labelWidth="200"/>
-
+        <ext-fieldcontainer :label="i18nd(`vue-ext`, `Password`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
             <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="_changePassword"/>
-        </ext-container>
+        </ext-fieldcontainer>
 
         <!-- telegram username -->
-        <ext-container ref="telegramContainer" layout='{"align":"center","type":"hbox"}'>
-            <ext-displayfield bind="{record.telegram_username}" :label="i18nd(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200" padding="0 10 0 0"/>
+        <ext-fieldcontainer bind='{"hidden":"{!record.telegram_enabled}"}' :label="i18nd(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200" layout="vbox">
+            <ext-container ref="displayTelegramUsernameContainer" layout='{"align":"center","type":"hbox"}'>
+                <ext-displayfield bind="{record.telegram_username}" width="200"/>
+                <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editTelegramUsername"/>
+            </ext-container>
 
-            <ext-button bind='{"hidden":"{!record.telegram_connected}"}' iconCls="fa-solid fa-check" :tooltip="i18nd(`vue-ext`, `Telegram bot connected`)"/>
-            <ext-button bind='{"hidden":"{record.telegram_connected}"}' :text="i18nd(`vue-ext`, `Confirm email`)" @tap="_confirmEmail"/>
+            <!-- edit telegram -->
+            <ext-container ref="editTelegramUsernameContainer" layout='{"align":"center","type":"hbox"}'>
+                <ext-textfield bind="{record.telegram_username}" width="200"/>
+                <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditTelegramUsername"/>
+                <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setTelegramUsername"/>
+            </ext-container>
 
-            <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editEmail"/>
-        </ext-container>
-
-        <ext-container :html='i18n(`vue-ext`, `Telegram bot is not connected. To connect bot open it in telegram and press "Start".`)'/>
-
-        <!-- edit telegram username -->
-        <ext-fieldpanel ref="editTelegramUsernameContainer" :hidden="true" layout='{"align":"center","type":"hbox"}'>
-            <ext-emailfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" padding="0 10 0 0" required="true" validators="email"/>
-
-            <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditEmail"/>
-            <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setEmail"/>
-        </ext-fieldpanel>
+            <!-- connect telegram -->
+            <ext-container bind='{"hidden":"{record.telegram_connected}"}' layout='{"align":"start","type":"vbox"}'>
+                <ext-container :html='i18n(`vue-ext`, `Telegram bot is not connected. To connect bot open it in telegram and press "Start".`)'/>
+                <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Connect bot`)" @tap="_openTelegramBot"/>
+            </ext-container>
+        </ext-fieldcontainer>
 
         <!-- email  -->
-        <ext-container ref="emailContainer" layout='{"align":"center","type":"hbox"}'>
-            <ext-displayfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" padding="0 10 0 0"/>
+        <ext-fieldcontainer :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+            <ext-displayfield bind="{record.email}" width="200"/>
 
+            <!-- confitm email -->
             <ext-button bind='{"hidden":"{!record.email_confirmed}"}' iconCls="fa-solid fa-check" :tooltip="i18nd(`vue-ext`, `Email address confirmed`)"/>
-            <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="i18nd(`vue-ext`, `Confirm email`)" @tap="_confirmEmail"/>
+            <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="i18nd(`vue-ext`, `Confirm`)" @tap="_confirmEmail"/>
 
-            <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editEmail"/>
-        </ext-container>
-
-        <!-- edit email -->
-        <ext-fieldpanel ref="editEmailContainer" :hidden="true" layout='{"align":"center","type":"hbox"}'>
-            <ext-emailfield bind="{record.email}" :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" padding="0 10 0 0" required="true" validators="email"/>
-
-            <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditEmail"/>
-            <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setEmail"/>
-        </ext-fieldpanel>
+            <!-- change email -->
+            <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_changeEmail"/>
+        </ext-fieldcontainer>
 
         <!-- sessions -->
         <UserSessionsPanel margin="20 0 0 0" maxHeight="500" minHeight="300"/>
@@ -65,21 +58,60 @@ export default {
             this.reload();
         },
 
-        _editEmail () {
-            this.$refs.emailContainer.ext.hide();
+        async reload () {
+            const res = await this.$api.call( "account/get-account" );
 
-            this.$refs.editEmailContainer.ext.show();
+            if ( !res.ok ) {
+                this.$utils.toast( res );
+            }
+            else {
+                const record = new AccountModel( res.data );
+
+                this.ext.getViewModel().set( "record", record );
+            }
         },
 
-        _cancelEditEmail () {
+        // email
+        async _changeEmail () {
+            const cmp = await this.$mount( ChangePasswordDialog );
+
+            cmp.ext.show();
+        },
+
+        async _confirmEmail ( e ) {
+            const button = e.detail.sender;
+
+            button.disable();
+
+            const res = await this.$api.call( "session/send-confirmation-email" );
+
+            button.enable();
+
+            if ( res.ok ) {
+                this.$utils.toast( this.i18nd( `vue-ext`, `Confirmation email sent` ) );
+            }
+            else {
+                this.$utils.toast( res );
+            }
+        },
+
+        // telegram
+        _editTelegramUsername () {
+            this.$refs.displayTelegramUsernameContainer.ext.hide();
+
+            this.$refs.editTelegramUsernameContainer.ext.show();
+        },
+
+        _cancelEditTelegramUsername () {
             this.ext.getViewModel().get( "record" ).reject();
 
-            this.$refs.emailContainer.ext.show();
+            this.$refs.displayTelegramUsernameContainer.ext.show();
 
-            this.$refs.editEmailContainer.ext.hide();
+            this.$refs.editTelegramUsernameContainer.ext.hide();
         },
 
-        async _setEmail () {
+        // XXX
+        async _setTelegramUsername () {
             const record = this.ext.getViewModel().get( "record" ),
                 form = this.$refs.editEmailContainer.ext;
 
@@ -109,36 +141,11 @@ export default {
             }
         },
 
-        async _confirmEmail ( e ) {
-            const button = e.detail.sender;
-
-            button.disable();
-
-            const res = await this.$api.call( "session/send-confirmation-email" );
-
-            button.enable();
-
-            if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, `Confirmation email sent` ) );
-            }
-            else {
-                this.$utils.toast( res );
-            }
+        _openTelegramBot () {
+            window.open( this.ext.getViewModel().get( "record" ).get( "telegram_bot_url" ), "_blank" ).focus();
         },
 
-        async reload () {
-            const res = await this.$api.call( "account/get-account" );
-
-            if ( !res.ok ) {
-                this.$utils.toast( res );
-            }
-            else {
-                const record = new AccountModel( res.data );
-
-                this.ext.getViewModel().set( "record", record );
-            }
-        },
-
+        // password
         async _changePassword () {
             const cmp = await this.$mount( ChangePasswordDialog );
 
