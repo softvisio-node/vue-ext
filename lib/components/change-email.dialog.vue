@@ -3,6 +3,8 @@
         <ext-fieldpanel ref="form" @ready="formReady">
             <ext-emailfield :label="i18nd(`vue-ext`, `New email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter new email address`)" required="true" validators="email"/>
 
+            <ext-container ref="tokenSentText" :hidden="true" :html="i18nd(`vue-ext`, `We just sent email change token to the new email address. Please, check your inbox and enter token to the field below.`)"/>
+
             <ext-textfield :hidden="true" :label="i18nd(`vue-ext`, `Token`)" name="token" :placeholder="i18nd(`vue-ext`, `Enter token`)" required="true"/>
         </ext-fieldpanel>
 
@@ -67,6 +69,7 @@ export default {
 
                 form.getFields( "email" ).setReadOnly( true );
                 form.getFields( "token" ).show();
+                this.$refs.tokenSentText.ext.show();
                 this.$refs.sendTokenButton.ext.hide();
                 this.$refs.setEmailButton.ext.show();
             }
