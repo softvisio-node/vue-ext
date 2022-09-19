@@ -7,10 +7,16 @@
 
         <slot name="title"/>
 
-        <ext-button ref="notificationsButton" align="right" :hidden="!notificationsButtonEnabled" iconCls="fa-regular fa-bell" margin="10 20 0 0" padding="0 0 10 0" width="55" @tap="showNotifications"/>
+        <!-- notifications button -->
+        <ext-button ref="notificationsButton" align="right" :hidden="!notificationsButtonEnabled" iconCls="fa-regular fa-bell" margin="10 20 0 0" width="55" @tap="showNotifications"/>
 
+        <!-- root label -->
+        <ext-button align="right" :hidden="!isRoot" iconAlign="top" iconCls="fa-solid fa-user-shield" text="root"/>
+
+        <!-- avatar -->
         <AvatarUser align="right" height="40" :hidden="!avatarEnabled" width="40"/>
 
+        <!-- menu button -->
         <ext-button align="right" height="50" :hidden="!menuEnabled" iconCls="fa-solid fa-bars" margin="0 0 0 5" width="40" @tap="showMenu"/>
 
         <Notifications ref="notifications"/>
@@ -71,6 +77,10 @@ export default {
     "computed": {
         title () {
             return this.$store.session.title;
+        },
+
+        isRoot () {
+            return this.$store.session.isRoot;
         },
 
         totalUndoneUnread () {
