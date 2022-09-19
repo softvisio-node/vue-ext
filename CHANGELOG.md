@@ -1,5 +1,13 @@
 # Changelog
 
+### 7.11.7 (2022-09-19)
+
+Fixes:
+
+-   fix: check authorization
+-   fix: user account
+-   fix: username is email
+
 ### 7.11.6 (2022-09-16)
 
 Fixes:
