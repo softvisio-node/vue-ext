@@ -3,10 +3,10 @@
         <ext-fieldpanel ref="form" @ready="formReady">
             <ext-emailfield :label="i18nd(`vue-ext`, `New email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter new email address`)" required="true" validators="email"/>
 
-            <ext-container ref="tokenSentText" :hidden="true" :html="i18nd(`vue-ext`, `We just sent email change token to the new email address. Please, check your inbox and enter token to the field below.`)"/>
-
-            <ext-textfield :hidden="true" :label="i18nd(`vue-ext`, `Token`)" name="token" :placeholder="i18nd(`vue-ext`, `Enter token`)" required="true"/>
+            <ext-textfield :hidden="true" :label="i18nd(`vue-ext`, `Confirmation token`)" name="token" :placeholder="i18nd(`vue-ext`, `Enter confirmation token`)" required="true"/>
         </ext-fieldpanel>
+
+        <ext-container ref="tokenSentText" :hidden="true" :html="i18nd(`vue-ext`, `We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above.`)" padding="20 0 0 0"/>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
             <ext-button ref="sendTokenButton" :text="i18nd(`vue-ext`, `Send token`)" ui="action" @tap="_sendToken"/>

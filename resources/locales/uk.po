@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-19 01:23+0300\n"
+"POT-Creation-Date: 2022-09-19 07:33+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -389,17 +389,17 @@ msgstr "Нова електронна адреса"
 msgid "Enter new email address"
 msgstr "Введіть нову електронну адресу"
 
-#: lib/components/change-email.dialog.vue:6:69
-msgid "We just sent email change token to the new email address. Please, check your inbox and enter token to the field below."
-msgstr "Ми щойно надіслали маркер зміни електронної пошти на нову електронну адресу. Будь ласка, перевірте свою поштову скриньку та введіть маркер у поле нижче."
+#: lib/components/change-email.dialog.vue:6:50
+msgid "Confirmation token"
+msgstr "Токен підтвердження"
 
-#: lib/components/change-email.dialog.vue:8:50
-msgid "Token"
-msgstr "Токен"
+#: lib/components/change-email.dialog.vue:6:117
+msgid "Enter confirmation token"
+msgstr "Введіть токен підтвердження"
 
-#: lib/components/change-email.dialog.vue:8:104
-msgid "Enter token"
-msgstr "Введіть токен"
+#: lib/components/change-email.dialog.vue:9:65
+msgid "We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above."
+msgstr "Ми щойно надіслали токен підтвердження зміни email на нову електронну адресу. Будь ласка, перевірте свою поштову скриньку та введіть токен у поле вище."
 
 #: lib/components/change-email.dialog.vue:12:53
 msgid "Send token"
@@ -740,6 +740,12 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "Token"
+#~ msgstr "Токен"
+
+#~ msgid "Enter token"
+#~ msgstr "Введіть токен"
 
 #~ msgid "Your Telegram username"
 #~ msgstr "Ваше ім'я користувача в Telegram"
