@@ -1,17 +1,17 @@
 <template>
     <ext-container layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
         <!-- locale -->
-        <ext-fieldcontainer :hidden="localeHidden" :label="i18nd(`vue-ext`, `Locale`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+        <ext-fieldcontainer container='{"defaults":null}' :hidden="localeHidden" :label="i18nd(`vue-ext`, `Locale`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
             <LocaleButton/>
         </ext-fieldcontainer>
 
         <!-- password -->
-        <ext-fieldcontainer :label="i18nd(`vue-ext`, `Password`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+        <ext-fieldcontainer container='{"defaults":null}' :label="i18nd(`vue-ext`, `Password`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
             <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="_changePassword"/>
         </ext-fieldcontainer>
 
         <!-- email  -->
-        <ext-fieldcontainer :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+        <ext-fieldcontainer container='{"defaults":null}' :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
             <ext-displayfield bind="{record.email}" width="200"/>
 
             <!-- change email -->
@@ -22,7 +22,7 @@
         </ext-fieldcontainer>
 
         <!-- telegram username -->
-        <ext-fieldcontainer bind='{"hidden":"{!record.telegram_enabled}"}' :label="i18nd(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+        <ext-fieldcontainer bind='{"hidden":"{!record.telegram_enabled}"}' container='{"defaults":null}' :label="i18nd(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
             <ext-container ref="displayTelegramUsernameContainer" layout='{"align":"center","type":"hbox"}'>
                 <ext-displayfield bind="{record.telegram_username}" width="200"/>
                 <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editTelegramUsername"/>

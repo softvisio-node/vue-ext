@@ -4,11 +4,11 @@
 
         <DarkModeButton :disabled="systemDarkMode"/>
 
-        <ext-fieldcontainer :label="i18nd(`vue-ext`, `Base color`)" layout="fit">
+        <ext-fieldcontainer container='{"defaults":null}' :label="i18nd(`vue-ext`, `Base color`)" layout="fit">
             <ext-dataview inline="true" @childtap="themeBaseChanged" @ready="themesColorsViewReady"/>
         </ext-fieldcontainer>
 
-        <ext-fieldcontainer :label="i18nd(`vue-ext`, `Accent color`)" layout="fit">
+        <ext-fieldcontainer container='{"defaults":null}' :label="i18nd(`vue-ext`, `Accent color`)" layout="fit">
             <ext-componentdataview inline="true" @childtap="themeAccentChanged" @ready="themesColorsViewReady"/>
         </ext-fieldcontainer>
     </ext-fieldset>
