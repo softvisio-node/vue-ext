@@ -1,50 +1,60 @@
 <template>
-    <ext-container layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
-        <!-- locale -->
-        <ext-fieldcontainer container='{"defaults":null}' :hidden="localeHidden" :label="i18nd(`vue-ext`, `Locale`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
-            <LocaleButton/>
-        </ext-fieldcontainer>
+    <ext-panel ref="cards" layout="card">
+        <!-- error card -->
+        <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
+            <ext-container :html="i18nd(`vue-ext`, `Unable to load records`)"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" ui="action" @tap="reload"/>
+        </ext-container>
 
-        <!-- password -->
-        <ext-fieldcontainer container='{"defaults":null}' :label="i18nd(`vue-ext`, `Password`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
-            <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="_changePassword"/>
-        </ext-fieldcontainer>
+        <!-- data -->
+        <ext-container ref="dataCard" layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
+            <!-- locale -->
+            <ext-fieldcontainer container='{"defaults":null}' :hidden="localeHidden" :label="i18nd(`vue-ext`, `Locale`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+                <LocaleButton/>
+            </ext-fieldcontainer>
 
-        <!-- email  -->
-        <ext-fieldcontainer container='{"defaults":null}' :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
-            <ext-displayfield bind="{record.email}" width="200"/>
+            <!-- password -->
+            <ext-fieldcontainer container='{"defaults":null}' :label="i18nd(`vue-ext`, `Password`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+                <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="_changePassword"/>
+            </ext-fieldcontainer>
 
-            <!-- change email -->
-            <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_changeEmail"/>
+            <!-- email  -->
+            <ext-fieldcontainer container='{"defaults":null}' :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+                <ext-displayfield bind="{record.email}" width="200"/>
 
-            <!-- confitm email -->
-            <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="i18nd(`vue-ext`, `Confirm`)" @tap="_confirmEmail"/>
-        </ext-fieldcontainer>
+                <!-- change email -->
+                <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_changeEmail"/>
 
-        <!-- telegram username -->
-        <ext-fieldcontainer bind='{"hidden":"{!record.telegram_enabled}"}' container='{"defaults":null}' :label="i18nd(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
-            <ext-container ref="displayTelegramUsernameContainer" layout='{"align":"center","type":"hbox"}'>
-                <ext-displayfield bind="{record.telegram_username}" width="200"/>
-                <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editTelegramUsername"/>
-                <ext-button bind='{"hidden":"{!record.has_telegram_username || !record.telegram_connected}"}' iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Open bot`)" @tap="_openTelegramBot"/>
-                <ext-button bind='{"hidden":"{!record.has_telegram_username || record.telegram_connected}"}' iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Connect bot`)" ui="decline" @tap="_openTelegramBot"/>
-            </ext-container>
+                <!-- confitm email -->
+                <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="i18nd(`vue-ext`, `Confirm`)" @tap="_confirmEmail"/>
+            </ext-fieldcontainer>
 
-            <!-- edit telegram -->
-            <ext-container ref="editTelegramUsernameContainer" :hidden="true" layout='{"align":"center","type":"hbox"}'>
-                <ext-textfield ref="telegramUsernameField" bind="{record.telegram_username}" width="200"/>
-                <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditTelegramUsername"/>
-                <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" ui="action" @tap="_setTelegramUsername"/>
-            </ext-container>
-        </ext-fieldcontainer>
+            <!-- telegram username -->
+            <ext-fieldcontainer bind='{"hidden":"{!record.telegram_enabled}"}' container='{"defaults":null}' :label="i18nd(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+                <ext-container ref="displayTelegramUsernameContainer" layout='{"align":"center","type":"hbox"}'>
+                    <ext-displayfield bind="{record.telegram_username}" width="200"/>
+                    <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editTelegramUsername"/>
+                    <ext-button bind='{"hidden":"{!record.has_telegram_username || !record.telegram_connected}"}' iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Open bot`)" @tap="_openTelegramBot"/>
+                    <ext-button bind='{"hidden":"{!record.has_telegram_username || record.telegram_connected}"}' iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Connect bot`)" ui="decline" @tap="_openTelegramBot"/>
+                </ext-container>
 
-        <!-- sessions -->
-        <UserSessionsPanel margin="20 0 0 0" maxHeight="500" minHeight="300"/>
-    </ext-container>
+                <!-- edit telegram -->
+                <ext-container ref="editTelegramUsernameContainer" :hidden="true" layout='{"align":"center","type":"hbox"}'>
+                    <ext-textfield ref="telegramUsernameField" bind="{record.telegram_username}" width="200"/>
+                    <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditTelegramUsername"/>
+                    <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" ui="action" @tap="_setTelegramUsername"/>
+                </ext-container>
+            </ext-fieldcontainer>
+
+            <!-- sessions -->
+            <UserSessionsPanel margin="20 0 0 0" maxHeight="500" minHeight="300"/>
+        </ext-container>
+    </ext-panel>
 </template>
 
 <script>
 import locale from "#vue/locale";
+import loadMask from "#vue/load-mask";
 import UserSessionsPanel from "#lib/components/user-sessions/panel";
 import AccountModel from "./models/account";
 import ChangePasswordDialog from "#lib/components/change-password.dialog";
@@ -68,12 +78,20 @@ export default {
         },
 
         async reload () {
+            this.$refs.cards.ext.mask( loadMask );
+
             const res = await this.$api.call( "account/get-account" );
 
+            this.$refs.cards.ext.unmask();
+
             if ( !res.ok ) {
+                this.$refs.cards.ext.setActiveItem( this.$refs.errorCard.ext );
+
                 this.$utils.toast( res );
             }
             else {
+                this.$refs.cards.ext.setActiveItem( this.$refs.dataCard.ext );
+
                 const record = new AccountModel( res.data );
 
                 this.ext.getViewModel().set( "record", record );
