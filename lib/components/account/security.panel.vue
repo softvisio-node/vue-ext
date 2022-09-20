@@ -1,5 +1,10 @@
 <template>
     <ext-container layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
+        <!-- locale -->
+        <ext-fieldcontainer :label="i18nd(`vue-ext`, `Locale`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+            <LocaleButton/>
+        </ext-fieldcontainer>
+
         <!-- password -->
         <ext-fieldcontainer :label="i18nd(`vue-ext`, `Password`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
             <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="_changePassword"/>
@@ -43,9 +48,10 @@ import UserSessionsPanel from "#lib/components/user-sessions/panel";
 import AccountModel from "./models/account";
 import ChangePasswordDialog from "#lib/components/change-password.dialog";
 import ChangeEmailDialog from "#lib/components/change-email.dialog";
+import LocaleButton from "#lib/components/locale.button";
 
 export default {
-    "components": { UserSessionsPanel },
+    "components": { LocaleButton, UserSessionsPanel },
 
     "methods": {
         _ready ( e ) {
