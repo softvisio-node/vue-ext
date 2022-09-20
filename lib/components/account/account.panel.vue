@@ -34,7 +34,7 @@
             <ext-container ref="editTelegramUsernameContainer" :hidden="true" layout='{"align":"center","type":"hbox"}'>
                 <ext-textfield ref="telegramUsernameField" bind="{record.telegram_username}" width="200"/>
                 <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditTelegramUsername"/>
-                <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" @tap="_setTelegramUsername"/>
+                <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" ui="action" @tap="_setTelegramUsername"/>
             </ext-container>
         </ext-fieldcontainer>
 
