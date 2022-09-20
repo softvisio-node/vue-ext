@@ -45,12 +45,11 @@ export default {
             for ( const [localeId, text] of Object.entries( locale.locales ) ) {
                 menu.push( {
                     "xtype": "menuradioitem",
-                    "id": localeId,
                     "value": localeId,
                     text,
                     "group": "locale",
                     "checked": localeId === locale.id,
-                    "handler": () => this._setLocale( localeId ),
+                    "handler": this._setLocale.bind( this ),
                 } );
             }
 
@@ -59,8 +58,9 @@ export default {
             cmp.setText( locale.name );
         },
 
-        async _setLocale ( localeId ) {
-            const menu = this.$refs.button.ext.getMenu();
+        async _setLocale ( menuItem ) {
+            const localeId = menuItem.getValue(),
+                menu = this.$refs.button.ext.getMenu();
 
             menu.mask();
 
@@ -71,8 +71,9 @@ export default {
             if ( !res.ok ) {
                 this.$utils.toast( res );
 
+                // revert locale
                 menu.getItems().each( item => {
-                    item.setChecked( item.id === locale.id, true );
+                    item.setChecked( item.getValue() === locale.id );
                 } );
             }
         },

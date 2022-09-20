@@ -1,7 +1,7 @@
 <template>
     <ext-container layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
         <!-- locale -->
-        <ext-fieldcontainer :label="i18nd(`vue-ext`, `Locale`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+        <ext-fieldcontainer :hidden="localeHidden" :label="i18nd(`vue-ext`, `Locale`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
             <LocaleButton/>
         </ext-fieldcontainer>
 
@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import locale from "#vue/locale";
 import UserSessionsPanel from "#lib/components/user-sessions/panel";
 import AccountModel from "./models/account";
 import ChangePasswordDialog from "#lib/components/change-password.dialog";
@@ -52,6 +53,12 @@ import LocaleButton from "#lib/components/locale.button";
 
 export default {
     "components": { LocaleButton, UserSessionsPanel },
+
+    "computed": {
+        localeHidden () {
+            return !locale.hasLocales;
+        },
+    },
 
     "methods": {
         _ready ( e ) {
