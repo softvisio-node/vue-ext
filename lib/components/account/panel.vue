@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import "#lib/components/avatar/ext.avatar";
 import SecurityPanel from "./security.panel";
 import NotificationsPanel from "#lib/components/notifications/panel";
 import UserTokensPanel from "#lib/components/user-tokens/panel";
