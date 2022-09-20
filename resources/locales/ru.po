@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-21 00:30+0300\n"
+"POT-Creation-Date: 2022-09-21 01:03+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,14 +14,91 @@ msgstr ""
 "X-Generator: Poedit 3.1.1\n"
 "X-Poedit-SearchPath-0: lib\n"
 
+#: lib/components/account/account.panel.vue:4:59
+msgid "Locale"
+msgstr "Локаль"
+
+#: lib/components/account/account.panel.vue:10:31
+#: lib/components/app-title/menu.vue:12:101
+#: lib/components/change-password.dialog.vue:11:21
+#: lib/components/reset-password.dialog.vue:11:31
+#: lib/components/users/panel.vue:177:48
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: lib/components/account/account.panel.vue:9:36
+#: lib/components/auth/signin.form.vue:12:39
+#: lib/components/auth/signup.form.vue:12:39
+#: lib/components/authorization.dialog.vue:6:39
+#: lib/components/change-password.dialog.vue:6:39
+#: lib/components/users/create-user.dialog.vue:5:39
+msgid "Password"
+msgstr "Пароль"
+
+#: lib/components/account/account.panel.vue:18:31
+#: lib/components/account/account.panel.vue:28:35
+msgid "Change"
+msgstr "Изменить"
+
+#: lib/components/account/account.panel.vue:21:76
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#: lib/components/account/account.panel.vue:14:36
+#: lib/components/auth/password-recovery.form.vue:10:36
+#: lib/components/auth/signin.form.vue:10:36
+#: lib/components/auth/signup.form.vue:10:36
+msgid "Email address"
+msgstr "Адрес email"
+
+#: lib/components/account/account.panel.vue:29:149
+msgid "Open bot"
+msgstr "Открыть бот"
+
+#: lib/components/account/account.panel.vue:30:148
+msgid "Connect bot"
+msgstr "Подключить бот"
+
+#: lib/components/account/account.panel.vue:36:63
+#: lib/components/reset-password.dialog.vue:10:31 lib/utils.js:83:36
+#: lib/utils.js:136:36
+msgid "Cancel"
+msgstr "Отменить"
+
+#: lib/components/account/account.panel.vue:37:63
+#: lib/components/user-tokens/roles/dialog.vue:12:62
+#: lib/components/users/user-roles.dialog.vue:12:62
+msgid "Save"
+msgstr "Сохранить"
+
+#: lib/components/account/account.panel.vue:25:83
+msgid "Telegram username"
+msgstr "Имя пользователя в Telegram"
+
+#: lib/components/account/account.panel.vue:100:35
+msgid "Confirmation email sent"
+msgstr "Письмо с подтверждением отправлено"
+
+#: lib/components/account/appearance.panel.vue:3:33
+msgid "Use OS theme"
+msgstr "Использовать тему ОС"
+
+#: lib/components/account/appearance.panel.vue:7:36
+msgid "Base color"
+msgstr "Базовый цвет"
+
+#: lib/components/account/appearance.panel.vue:11:36
+msgid "Accent color"
+msgstr "Цвет акцента"
+
 #: lib/components/account/dialog.vue:2:91
 #: lib/components/app-title/menu.vue:11:94
 msgid "Your account"
 msgstr "Ваш аккаунт"
 
 #: lib/components/account/panel.vue:6:58
-msgid "Security"
-msgstr "Безопастность"
+msgid "Account"
+msgstr "Аккаунт"
 
 #: lib/components/account/panel.vue:11:40
 #: lib/components/notifications/menu-sheet.vue:4:76
@@ -34,85 +111,8 @@ msgstr "Токены доступа"
 
 #: lib/components/account/panel.vue:23:38
 #: lib/components/account/panel.vue:21:41
-msgid "Interface theme"
-msgstr "Тема интерфейса"
-
-#: lib/components/account/security.panel.vue:4:59
-msgid "Locale"
-msgstr "Локаль"
-
-#: lib/components/account/security.panel.vue:10:31
-#: lib/components/app-title/menu.vue:12:101
-#: lib/components/change-password.dialog.vue:11:21
-#: lib/components/reset-password.dialog.vue:11:31
-#: lib/components/users/panel.vue:177:48
-msgid "Change password"
-msgstr "Изменить пароль"
-
-#: lib/components/account/security.panel.vue:9:36
-#: lib/components/auth/signin.form.vue:12:39
-#: lib/components/auth/signup.form.vue:12:39
-#: lib/components/authorization.dialog.vue:6:39
-#: lib/components/change-password.dialog.vue:6:39
-#: lib/components/users/create-user.dialog.vue:5:39
-msgid "Password"
-msgstr "Пароль"
-
-#: lib/components/account/security.panel.vue:18:31
-#: lib/components/account/security.panel.vue:28:35
-msgid "Change"
-msgstr "Изменить"
-
-#: lib/components/account/security.panel.vue:21:76
-msgid "Confirm"
-msgstr "Подтвердить"
-
-#: lib/components/account/security.panel.vue:14:36
-#: lib/components/auth/password-recovery.form.vue:10:36
-#: lib/components/auth/signin.form.vue:10:36
-#: lib/components/auth/signup.form.vue:10:36
-msgid "Email address"
-msgstr "Адрес email"
-
-#: lib/components/account/security.panel.vue:29:149
-msgid "Open bot"
-msgstr "Открыть бот"
-
-#: lib/components/account/security.panel.vue:30:148
-msgid "Connect bot"
-msgstr "Подключить бот"
-
-#: lib/components/account/security.panel.vue:36:63
-#: lib/components/reset-password.dialog.vue:10:31 lib/utils.js:83:36
-#: lib/utils.js:136:36
-msgid "Cancel"
-msgstr "Отменить"
-
-#: lib/components/account/security.panel.vue:37:63
-#: lib/components/user-tokens/roles/dialog.vue:12:62
-#: lib/components/users/user-roles.dialog.vue:12:62
-msgid "Save"
-msgstr "Сохранить"
-
-#: lib/components/account/security.panel.vue:25:83
-msgid "Telegram username"
-msgstr "Имя пользователя в Telegram"
-
-#: lib/components/account/security.panel.vue:100:35
-msgid "Confirmation email sent"
-msgstr "Письмо с подтверждением отправлено"
-
-#: lib/components/account/theme.panel.vue:3:33
-msgid "Use OS theme"
-msgstr "Использовать тему ОС"
-
-#: lib/components/account/theme.panel.vue:7:36
-msgid "Base color"
-msgstr "Базовый цвет"
-
-#: lib/components/account/theme.panel.vue:11:36
-msgid "Accent color"
-msgstr "Цвет акцента"
+msgid "Appearance"
+msgstr "Внешний вид"
 
 #: lib/components/acl/dialog.vue:22:33
 msgid "Users"
@@ -744,6 +744,12 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Security"
+#~ msgstr "Безопастность"
+
+#~ msgid "Interface theme"
+#~ msgstr "Тема интерфейса"
 
 #~ msgid "Token"
 #~ msgstr "Токен"

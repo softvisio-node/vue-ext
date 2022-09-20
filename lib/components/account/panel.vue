@@ -3,8 +3,8 @@
         <slot name="top"/>
 
         <!-- security -->
-        <ext-panel layout="fit" padding="0 0 0 0" :title="i18nd(`vue-ext`, `Security`)">
-            <SecurityPanel flex="1"/>
+        <ext-panel layout="fit" padding="0 0 0 0" :title="i18nd(`vue-ext`, `Account`)">
+            <AccountPanel flex="1"/>
         </ext-panel>
 
         <!-- notifications -->
@@ -17,13 +17,13 @@
             <UserTokensPanel/>
         </ext-panel>
 
-        <!-- theme -->
-        <ext-panel layout="vbox" :title="i18nd(`vue-ext`, `Interface theme`)" viewModel="true">
+        <!-- appearance -->
+        <ext-panel layout="vbox" :title="i18nd(`vue-ext`, `Appearance`)" viewModel="true">
             <ext-toolbar docked="top">
-                <ext-container :html="i18nd(`vue-ext`, `Interface theme`)"/>
+                <ext-container :html="i18nd(`vue-ext`, `Appearance`)"/>
             </ext-toolbar>
 
-            <ThemePanel/>
+            <AppearancePanel/>
         </ext-panel>
 
         <slot name="bottom"/>
@@ -32,13 +32,13 @@
 
 <script>
 import "#lib/components/avatar/ext.avatar";
-import SecurityPanel from "./security.panel";
+import AccountPanel from "./account.panel";
 import NotificationsPanel from "#lib/components/notifications/panel";
 import UserTokensPanel from "#lib/components/user-tokens/panel";
-import ThemePanel from "./theme.panel";
+import AppearancePanel from "./appearance.panel";
 
 export default {
-    "components": { SecurityPanel, NotificationsPanel, UserTokensPanel, ThemePanel },
+    "components": { AccountPanel, NotificationsPanel, UserTokensPanel, AppearancePanel },
 
     "methods": {
         _ready ( e ) {
