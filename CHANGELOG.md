@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.11.8 (2022-09-20)
+
+Fixes:
+
+-   fix: account avatar
+
 ### 7.11.7 (2022-09-19)
 
 Fixes:
