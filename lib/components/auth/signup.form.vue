@@ -9,8 +9,8 @@
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}'>
             <ext-emailfield :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
 
-            <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true"/>
-            <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" :placeholder="i18nd(`vue-ext`, `Confirm your password`)" required="true"/>
+            <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true" revealable="true"/>
+            <ext-passwordfield :label="i18nd(`vue-ext`, `Confirm password`)" name="confirmedPassword" :placeholder="i18nd(`vue-ext`, `Confirm your password`)" required="true" revealable="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"align":"center","type":"hbox"}'>
@@ -44,12 +44,13 @@ export default {
             this.$emit( "signin" );
 
             this.$refs.form.ext.reset();
-            this.$refs.passwordConfirm.ext.clearValue();
+
+            this.$refs.form.ext.getFields( "password" ).setRevealed( false );
+            this.$refs.form.ext.getFields( "confirmedPassword" ).setRevealed( false );
         },
 
         async _submit () {
-            const form = this.$refs.form.ext,
-                passwordCondirm = this.$refs.passwordConfirm.ext;
+            const form = this.$refs.form.ext;
 
             if ( !form.validate() ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, `Please, correctly fill all required fields` ) );
@@ -59,11 +60,13 @@ export default {
 
             const values = form.getValues();
 
-            if ( values.password !== passwordCondirm.getValue() ) {
-                passwordCondirm.setError( this.i18nd( "vue-ext", "Passwords are not match" ) );
+            if ( values.password !== values.confirmedPassword ) {
+                form.getFields( "confirmedPassword" ).setError( this.i18nd( "vue-ext", "Passwords are not match" ) );
 
                 return;
             }
+
+            delete values.confirmedPassword;
 
             Ext.Viewport.mask();
 
