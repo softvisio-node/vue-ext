@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-23 10:46+0300\n"
+"POT-Creation-Date: 2022-09-23 10:51+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -367,6 +367,8 @@ msgid "Confirm your password"
 msgstr "Подтвердите ваш пароль"
 
 #: lib/components/auth/signup.form.vue:77:64
+#: lib/components/change-password.dialog.vue:69:64
+#: lib/components/reset-password.dialog.vue:76:64
 #: lib/components/users/create-user.dialog.vue:46:56
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
