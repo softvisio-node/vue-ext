@@ -1,9 +1,9 @@
 <template>
     <ext-dialog closeAction="destroy" height="400" :title="title" width="300" @ready="_ready">
         <ext-fieldpanel ref="form" @ready="formReady">
-            <ext-emailfield :label="i18nd(`vue-ext`, `New email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter new email address`)" required="true" validators="email"/>
+            <ext-emailfield errorTarget="under" :label="i18nd(`vue-ext`, `New email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter new email address`)" required="true" validators="email"/>
 
-            <ext-textfield :hidden="true" :label="i18nd(`vue-ext`, `Confirmation token`)" name="token" :placeholder="i18nd(`vue-ext`, `Enter confirmation token`)" required="true"/>
+            <ext-textfield errorTarget="under" :hidden="true" :label="i18nd(`vue-ext`, `Confirmation token`)" name="token" :placeholder="i18nd(`vue-ext`, `Enter confirmation token`)" required="true"/>
         </ext-fieldpanel>
 
         <ext-container ref="tokenSentText" :hidden="true" :html="i18nd(`vue-ext`, `We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above.`)" padding="20 0 0 0"/>
