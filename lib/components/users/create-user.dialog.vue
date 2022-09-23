@@ -1,10 +1,13 @@
 <template>
-    <ext-dialog closeAction="hide" height="400" scrollable="true" :title="i18nd(`vue-ext`, `Create user`)" width="350" @ready="_ready">
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":150}' @ready="formReady">
-            <ext-emailfield :label="i18nd(`vue-ext`, `Email`)" name="email" required="true"/>
-            <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" required="true"/>
-            <ext-passwordfield :label="i18nd(`vue-ext`, `Confirm password`)" name="password1" required="true"/>
-            <ext-togglefield :label="i18nd(`vue-ext`, `Access enabled`)" name="enabled" value="true"/>
+    <ext-dialog closeAction="hide" height="450" scrollable="true" :title="i18nd(`vue-ext`, `Create user`)" width="350" @ready="_ready">
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
+            <ext-emailfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Email`)" name="email" required="true" validators="email"/>
+
+            <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Password`)" name="password" required="true" revealable="true"/>
+
+            <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Confirm password`)" name="confirmedPassword" required="true" revealable="true"/>
+
+            <ext-togglefield :label="i18nd(`vue-ext`, `Access enabled`)" labelAlign="left" labelWidth="150" name="enabled" value="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
@@ -16,13 +19,30 @@
 
 <script>
 export default {
+    "props": {
+        "errorTarget": {
+            "type": String,
+            "default": "under",
+        },
+    },
+
     "emits": ["created"],
 
     "methods": {
         async _ready ( e ) {
             this.ext = e.detail.cmp;
 
-            this.ext.on( "hide", () => this.$refs.form.ext.reset() );
+            this.$refs.form.ext.getFields( "password" ).setValidators( {
+                "type": "password-strength",
+                "strength": this.$store.session.settings.passwordsStrength,
+            } );
+
+            this.ext.on( "hide", () => {
+                this.$refs.form.ext.reset();
+
+                this.$refs.form.ext.getFields( "password" ).setRevealed( false );
+                this.$refs.form.ext.getFields( "confirmedPassword" ).setRevealed( false );
+            } );
         },
 
         formReady ( e ) {
@@ -42,13 +62,13 @@ export default {
 
             const values = form.getValues();
 
-            if ( values.password !== values.password1 ) {
-                form.getFields( "password1" ).setError( this.i18nd( "vue-ext", "Passwords do not match" ) );
+            if ( values.password !== values.confirmedPassword ) {
+                form.getFields( "confirmedPassword" ).setError( this.i18nd( "vue-ext", "Passwords do not match" ) );
 
                 return;
             }
 
-            delete values.password1;
+            delete values.confirmedPassword;
 
             var res = await this.$api.call( "admin/users/create", values );
 
