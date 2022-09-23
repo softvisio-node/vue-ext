@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-23 21:22+0300\n"
+"POT-Creation-Date: 2022-09-23 21:27+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -51,7 +51,6 @@ msgstr "Изменить пароль"
 #: lib/components/auth/signin.form.vue:12:66
 #: lib/components/auth/signup.form.vue:12:66
 #: lib/components/authorization.dialog.vue:6:39
-#: lib/components/change-password.dialog.vue:6:66
 #: lib/components/users/create-user.dialog.vue:6:66
 msgid "Password"
 msgstr "Пароль"
@@ -357,8 +356,6 @@ msgid "Sign up"
 msgstr "Зарегистрироваться"
 
 #: lib/components/auth/signup.form.vue:14:66
-#: lib/components/change-password.dialog.vue:8:66
-#: lib/components/change-password.dialog.vue:8:143
 #: lib/components/users/create-user.dialog.vue:8:66
 #: lib/components/users/create-user.dialog.vue:8:143
 msgid "Confirm password"
@@ -431,10 +428,22 @@ msgstr "Токен изменения электронной почты был �
 msgid "Email address changed"
 msgstr "Адрес email изменен"
 
-#: lib/components/change-password.dialog.vue:6:126
-#: lib/components/users/create-user.dialog.vue:6:126
-msgid "Enter password"
-msgstr "Введите пароль"
+#: lib/components/change-password.dialog.vue:6:66
+#: lib/components/reset-password.dialog.vue:6:66
+msgid "New password"
+msgstr "Новый пароль"
+
+#: lib/components/change-password.dialog.vue:6:130
+#: lib/components/reset-password.dialog.vue:6:130
+msgid "Enter new password"
+msgstr "Введите новый пароль"
+
+#: lib/components/change-password.dialog.vue:8:66
+#: lib/components/change-password.dialog.vue:8:147
+#: lib/components/reset-password.dialog.vue:8:66
+#: lib/components/reset-password.dialog.vue:8:147
+msgid "Confirm new password"
+msgstr "Подтвердите новый пароль"
 
 #: lib/components/change-password.dialog.vue:30:19
 #: lib/components/reset-password.dialog.vue:2:53
@@ -542,19 +551,6 @@ msgstr "Push-уведомления включены"
 #: lib/components/push-notifications.button.vue:75:39
 msgid "Push notifications disabled"
 msgstr "Push-уведомления выключены"
-
-#: lib/components/reset-password.dialog.vue:6:66
-msgid "New password"
-msgstr "Новый пароль"
-
-#: lib/components/reset-password.dialog.vue:6:130
-msgid "Enter new password"
-msgstr "Введите новый пароль"
-
-#: lib/components/reset-password.dialog.vue:8:66
-#: lib/components/reset-password.dialog.vue:8:147
-msgid "Confirm new password"
-msgstr "Подтвердите новый пароль"
 
 #: lib/components/reset-password.dialog.vue:47:35
 msgid "Password recovery token was not found"
@@ -686,6 +682,10 @@ msgstr "Изменить пароль для пользователя"
 #: lib/components/users/create-user.dialog.vue:4:117
 msgid "Enter email"
 msgstr "Введите email"
+
+#: lib/components/users/create-user.dialog.vue:6:126
+msgid "Enter password"
+msgstr "Введите пароль"
 
 #: lib/components/users/create-user.dialog.vue:15:31
 #: lib/components/users/create-user.dialog.vue:2:74
