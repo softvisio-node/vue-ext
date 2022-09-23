@@ -30,6 +30,11 @@ export default {
         _ready ( e ) {
             const cmp = e.detail.cmp;
 
+            this.$refs.form.ext.getFields( "password" ).setValidators( {
+                "type": "password-strength",
+                "strength": this.$store.session.settings.passwordsStrength,
+            } );
+
             this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": this._submit.bind( this ) } } );
 
             this._backListener = this.back.bind( this );
