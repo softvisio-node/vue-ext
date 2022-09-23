@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-23 10:19+0300\n"
+"POT-Creation-Date: 2022-09-23 10:47+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -42,7 +42,7 @@ msgstr "Локаль"
 #: lib/components/account/account.panel.vue:18:35
 #: lib/components/app-title/menu.vue:12:101
 #: lib/components/change-password.dialog.vue:12:21
-#: lib/components/reset-password.dialog.vue:11:31
+#: lib/components/reset-password.dialog.vue:13:31
 #: lib/components/users/panel.vue:177:48
 msgid "Change password"
 msgstr "Змінити пароль"
@@ -81,7 +81,7 @@ msgid "Connect bot"
 msgstr "Підключити бота"
 
 #: lib/components/account/account.panel.vue:44:67
-#: lib/components/reset-password.dialog.vue:10:31 lib/utils.js:83:36
+#: lib/components/reset-password.dialog.vue:12:31 lib/utils.js:83:36
 #: lib/utils.js:136:36
 msgid "Cancel"
 msgstr "Скасувати"
@@ -311,13 +311,13 @@ msgstr "Назад"
 msgid "Recover"
 msgstr "Відновити"
 
-#: lib/components/auth/password-recovery.form.vue:55:35
+#: lib/components/auth/password-recovery.form.vue:56:35
 #: lib/components/auth/signin.form.vue:84:35
 #: lib/components/auth/signup.form.vue:69:35
 msgid "Please, correctly fill all required fields"
 msgstr "Будь ласка, правильно заповніть усі необхідні поля"
 
-#: lib/components/auth/password-recovery.form.vue:74:35
+#: lib/components/auth/password-recovery.form.vue:75:35
 msgid "Password change instructions were sent to the email address, associated with your account."
 msgstr "Інструкції щодо зміни пароля були надіслані на адресу електронної пошти, пов’язану з вашим обліковим записом."
 
@@ -367,6 +367,7 @@ msgid "Confirm your password"
 msgstr "Підтвердіть ваш пароль"
 
 #: lib/components/auth/signup.form.vue:77:64
+#: lib/components/users/create-user.dialog.vue:46:56
 msgid "Passwords do not match"
 msgstr "Паролі не збігаються"
 
@@ -432,7 +433,7 @@ msgid "Password change"
 msgstr "Зміна пароля"
 
 #: lib/components/change-password.dialog.vue:81:35
-#: lib/components/reset-password.dialog.vue:75:35
+#: lib/components/reset-password.dialog.vue:88:35
 msgid "Password changed"
 msgstr "Пароль змінено"
 
@@ -533,15 +534,15 @@ msgstr "Push-сповіщення ввімкнено"
 msgid "Push notifications disabled"
 msgstr "Push-повідомлення вимкнено"
 
-#: lib/components/reset-password.dialog.vue:5:39
+#: lib/components/reset-password.dialog.vue:6:66
 msgid "New password"
 msgstr "Новий пароль"
 
-#: lib/components/reset-password.dialog.vue:6:61
+#: lib/components/reset-password.dialog.vue:8:66
 msgid "Confirm new password"
 msgstr "Підтвердити новий пароль"
 
-#: lib/components/reset-password.dialog.vue:38:35
+#: lib/components/reset-password.dialog.vue:47:35
 msgid "Password recovery token was not found"
 msgstr "Токен відновлення пароля не знайдено"
 
@@ -674,10 +675,6 @@ msgstr "Змінити пароль користувача"
 msgid "Create user"
 msgstr "Створити користувача"
 
-#: lib/components/users/create-user.dialog.vue:46:56
-msgid "Passwords are not match"
-msgstr "Паролі не збігаються"
-
 #: lib/components/users/create-user.dialog.vue:56:35
 msgid "User created"
 msgstr "Користувач створений"
@@ -749,6 +746,9 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "Passwords are not match"
+#~ msgstr "Паролі не збігаються"
 
 #~ msgid "Security"
 #~ msgstr "Безпека"
