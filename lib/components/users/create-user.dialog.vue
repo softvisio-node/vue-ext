@@ -1,6 +1,6 @@
 <template>
-    <ext-dialog closeAction="hide" height="450" scrollable="true" :title="i18nd(`vue-ext`, `Create user`)" width="350" @ready="_ready">
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
+    <ext-dialog closeAction="hide" height="450" layout='{"align":"center","type":"vbox"}' scrollable="true" :title="i18nd(`vue-ext`, `Create user`)" width="350" @ready="_ready">
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' width="100%" @ready="formReady">
             <ext-emailfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Email`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter email`)" required="true" validators="email"/>
 
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter password`)" required="true" revealable="true"/>
@@ -10,6 +10,8 @@
             <ext-togglefield :label="i18nd(`vue-ext`, `Access enabled`)" labelAlign="left" labelWidth="150" name="enabled" value="true"/>
         </ext-fieldpanel>
 
+        <ext-button :text="i18nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
+
         <ext-toolbar docked="bottom">
             <ext-spacer/>
             <ext-button :text="i18nd(`vue-ext`, `Create user`)" ui="action" @tap="submit"/>
@@ -18,6 +20,8 @@
 </template>
 
 <script>
+import passwords from "#core/utils/passwords";
+
 export default {
     "props": {
         "errorTarget": {
@@ -82,6 +86,17 @@ export default {
             else {
                 this.$utils.toast( res );
             }
+        },
+
+        _generatePassword () {
+            const password = passwords.generatePassword().password;
+
+            this.$utils.copyToClipboard( password );
+
+            this.$utils.toast( this.i18nd( `vue-ext`, `Password copied to the clipboard` ) );
+
+            this.$refs.form.ext.getFields( "password" ).setValue( password );
+            this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );
         },
     },
 };
