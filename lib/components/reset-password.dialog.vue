@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog layout="fit" minHeight="450" :title="i18nd(`vue-ext`, `Password change`)" width="300" @destroy="close" @ready="_ready">
+    <ext-dialog layout="fit" minHeight="450" :title="i18nd(`vue-ext`, `Password change`)" width="350" @destroy="close" @ready="_ready">
         <ext-fieldpanel ref="form" defaults1='{"labelAlign":"left","labelWidth":120}'>
             <ext-hiddenfield name="token" :value="token"/>
 
