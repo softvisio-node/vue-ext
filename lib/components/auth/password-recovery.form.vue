@@ -20,12 +20,13 @@
 
 <script>
 export default {
-    "emits": ["signin"],
-
-    "errorTarget": {
-        "type": String,
-        "default": "qtip",
+    "props": {
+        "errorTarget": {
+            "type": String,
+            "default": "qtip",
+        },
     },
+    "emits": ["signin"],
 
     "methods": {
         _ready ( e ) {
