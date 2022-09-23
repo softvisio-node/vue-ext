@@ -1,12 +1,14 @@
 <template>
-    <ext-dialog closeAction="hide" height="400" :title="title" width="350" @ready="_ready">
+    <ext-dialog closeAction="hide" height="400" layout='{"align":"center","type":"vbox"}' :title="title" width="350" @ready="_ready">
         <ext-container :html="header" style="text-align: center"/>
 
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' width="100%" @ready="formReady">
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `New password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter new password`)" required="true" revealable="true"/>
 
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Confirm new password`)" name="confirmedPassword" :placeholder="i18nd(`vue-ext`, `Confirm new password`)" required="true" revealable="true"/>
         </ext-fieldpanel>
+
+        <ext-button :text="i18nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
 \ <ext-button :text="i18nd(`vue-ext`, `Change password`)" ui="action" @tap="submit"/>
@@ -16,6 +18,7 @@
 
 <script>
 import loadMask from "#lib/load-mask";
+import passwords from "#core/utils/passwords";
 
 export default {
     "props": {
@@ -89,6 +92,17 @@ export default {
 
         async _changePassword ( password ) {
             return this.$api.call( "account/set-password", password );
+        },
+
+        _generatePassword () {
+            const password = passwords.generatePassword().password;
+
+            this.$utils.copyToClipboard( password );
+
+            this.$utils.toast( this.i18nd( `vue-ext`, `Password copied to the clipboard` ) );
+
+            this.$refs.form.ext.getFields( "password" ).setValue( password );
+            this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );
         },
     },
 };

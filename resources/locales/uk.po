@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-23 22:27+0300\n"
+"POT-Creation-Date: 2022-09-23 22:48+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -41,7 +41,7 @@ msgstr "Локаль"
 
 #: lib/components/account/account.panel.vue:18:35
 #: lib/components/app-title/menu.vue:12:101
-#: lib/components/change-password.dialog.vue:12:21
+#: lib/components/change-password.dialog.vue:14:21
 #: lib/components/reset-password.dialog.vue:13:31
 #: lib/components/users/panel.vue:177:48
 msgid "Change password"
@@ -367,7 +367,7 @@ msgid "Confirm password"
 msgstr "Підтвердіть пароль"
 
 #: lib/components/auth/signup.form.vue:77:64
-#: lib/components/change-password.dialog.vue:69:64
+#: lib/components/change-password.dialog.vue:72:64
 #: lib/components/reset-password.dialog.vue:76:64
 #: lib/components/users/create-user.dialog.vue:66:64
 msgid "Passwords do not match"
@@ -446,15 +446,23 @@ msgstr "Введіть новий пароль"
 msgid "Confirm new password"
 msgstr "Підтвердити новий пароль"
 
-#: lib/components/change-password.dialog.vue:30:19
+#: lib/components/change-password.dialog.vue:11:27
+msgid "Generate random password"
+msgstr "Згенерувати випадковий пароль"
+
+#: lib/components/change-password.dialog.vue:33:19
 #: lib/components/reset-password.dialog.vue:2:53
 msgid "Password change"
 msgstr "Зміна пароля"
 
-#: lib/components/change-password.dialog.vue:81:35
+#: lib/components/change-password.dialog.vue:84:35
 #: lib/components/reset-password.dialog.vue:88:35
 msgid "Password changed"
 msgstr "Пароль змінено"
+
+#: lib/components/change-password.dialog.vue:102:31
+msgid "Password copied to the clipboard"
+msgstr "Пароль скопійовано в буфер обміну"
 
 #: lib/components/dark-mode.button.vue:43:61
 msgid "Dark mode"
