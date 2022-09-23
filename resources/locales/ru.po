@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-21 01:03+0300\n"
+"POT-Creation-Date: 2022-09-23 10:19+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,68 +14,89 @@ msgstr ""
 "X-Generator: Poedit 3.1.1\n"
 "X-Poedit-SearchPath-0: lib\n"
 
-#: lib/components/account/account.panel.vue:4:59
+#: lib/components/account/account.panel.vue:5:34
+#: lib/components/acl/panel.vue:14:34
+#: lib/components/user-sessions/panel.vue:15:34
+#: lib/components/user-tokens/panel.vue:15:34
+#: lib/components/users/panel.vue:16:34
+msgid "Unable to load records"
+msgstr "Не удалось загрузить записи"
+
+#: lib/components/account/account.panel.vue:6:58
+#: lib/components/acl/panel.vue:7:58 lib/components/acl/panel.vue:15:58
+#: lib/components/api-call-log/history/dialog.vue:5:58
+#: lib/components/api-call-log/log/dialog.vue:5:58
+#: lib/components/api-call-log/panel.vue:7:78
+#: lib/components/user-sessions/panel.vue:7:58
+#: lib/components/user-sessions/panel.vue:16:58
+#: lib/components/user-tokens/panel.vue:7:58
+#: lib/components/user-tokens/panel.vue:16:58
+#: lib/components/users/panel.vue:8:58 lib/components/users/panel.vue:17:58
+msgid "Refresh"
+msgstr "Обновить"
+
+#: lib/components/account/account.panel.vue:12:93
 msgid "Locale"
 msgstr "Локаль"
 
-#: lib/components/account/account.panel.vue:10:31
+#: lib/components/account/account.panel.vue:18:35
 #: lib/components/app-title/menu.vue:12:101
-#: lib/components/change-password.dialog.vue:11:21
+#: lib/components/change-password.dialog.vue:12:21
 #: lib/components/reset-password.dialog.vue:11:31
 #: lib/components/users/panel.vue:177:48
 msgid "Change password"
 msgstr "Изменить пароль"
 
-#: lib/components/account/account.panel.vue:9:36
-#: lib/components/auth/signin.form.vue:12:39
-#: lib/components/auth/signup.form.vue:12:39
+#: lib/components/account/account.panel.vue:17:70
+#: lib/components/auth/signin.form.vue:12:66
+#: lib/components/auth/signup.form.vue:12:66
 #: lib/components/authorization.dialog.vue:6:39
-#: lib/components/change-password.dialog.vue:6:39
+#: lib/components/change-password.dialog.vue:6:66
 #: lib/components/users/create-user.dialog.vue:5:39
 msgid "Password"
 msgstr "Пароль"
 
-#: lib/components/account/account.panel.vue:18:31
-#: lib/components/account/account.panel.vue:28:35
+#: lib/components/account/account.panel.vue:26:35
+#: lib/components/account/account.panel.vue:36:39
 msgid "Change"
 msgstr "Изменить"
 
-#: lib/components/account/account.panel.vue:21:76
+#: lib/components/account/account.panel.vue:29:80
 msgid "Confirm"
 msgstr "Подтвердить"
 
-#: lib/components/account/account.panel.vue:14:36
-#: lib/components/auth/password-recovery.form.vue:10:36
-#: lib/components/auth/signin.form.vue:10:36
-#: lib/components/auth/signup.form.vue:10:36
+#: lib/components/account/account.panel.vue:22:70
+#: lib/components/auth/password-recovery.form.vue:10:63
+#: lib/components/auth/signin.form.vue:10:63
+#: lib/components/auth/signup.form.vue:10:63
 msgid "Email address"
 msgstr "Адрес email"
 
-#: lib/components/account/account.panel.vue:29:149
+#: lib/components/account/account.panel.vue:37:153
 msgid "Open bot"
 msgstr "Открыть бот"
 
-#: lib/components/account/account.panel.vue:30:148
+#: lib/components/account/account.panel.vue:38:152
 msgid "Connect bot"
 msgstr "Подключить бот"
 
-#: lib/components/account/account.panel.vue:36:63
+#: lib/components/account/account.panel.vue:44:67
 #: lib/components/reset-password.dialog.vue:10:31 lib/utils.js:83:36
 #: lib/utils.js:136:36
 msgid "Cancel"
 msgstr "Отменить"
 
-#: lib/components/account/account.panel.vue:37:63
+#: lib/components/account/account.panel.vue:45:67
 #: lib/components/user-tokens/roles/dialog.vue:12:62
 #: lib/components/users/user-roles.dialog.vue:12:62
 msgid "Save"
 msgstr "Сохранить"
 
-#: lib/components/account/account.panel.vue:25:83
+#: lib/components/account/account.panel.vue:33:117
 msgid "Telegram username"
 msgstr "Имя пользователя в Telegram"
 
-#: lib/components/account/account.panel.vue:100:35
+#: lib/components/account/account.panel.vue:118:35
 msgid "Confirmation email sent"
 msgstr "Письмо с подтверждением отправлено"
 
@@ -83,11 +104,11 @@ msgstr "Письмо с подтверждением отправлено"
 msgid "Use OS theme"
 msgstr "Использовать тему ОС"
 
-#: lib/components/account/appearance.panel.vue:7:36
+#: lib/components/account/appearance.panel.vue:7:66
 msgid "Base color"
 msgstr "Базовый цвет"
 
-#: lib/components/account/appearance.panel.vue:11:36
+#: lib/components/account/appearance.panel.vue:11:66
 msgid "Accent color"
 msgstr "Цвет акцента"
 
@@ -130,28 +151,9 @@ msgstr "Искать пользователей"
 msgid "Add user"
 msgstr "Добавить пользователя"
 
-#: lib/components/acl/panel.vue:7:58 lib/components/acl/panel.vue:15:58
-#: lib/components/api-call-log/history/dialog.vue:5:58
-#: lib/components/api-call-log/log/dialog.vue:5:58
-#: lib/components/api-call-log/panel.vue:7:78
-#: lib/components/user-sessions/panel.vue:7:58
-#: lib/components/user-sessions/panel.vue:16:58
-#: lib/components/user-tokens/panel.vue:7:58
-#: lib/components/user-tokens/panel.vue:16:58
-#: lib/components/users/panel.vue:8:58 lib/components/users/panel.vue:17:58
-msgid "Refresh"
-msgstr "Обновить"
-
 #: lib/components/acl/panel.vue:10:43
 msgid "No records matched search criteria"
 msgstr "Нет записей, соответствующих критериям поиска"
-
-#: lib/components/acl/panel.vue:14:34
-#: lib/components/user-sessions/panel.vue:15:34
-#: lib/components/user-tokens/panel.vue:15:34
-#: lib/components/users/panel.vue:16:34
-msgid "Unable to load records"
-msgstr "Не удалось загрузить записи"
 
 #: lib/components/acl/panel.vue:21:96 lib/components/acl/user-dialog.vue:7:96
 #: lib/components/users/create-user.dialog.vue:4:36
@@ -294,14 +296,14 @@ msgstr "Информация о версии скопирована в буфе�
 msgid "Password recovery"
 msgstr "Восстановление пароля"
 
-#: lib/components/auth/password-recovery.form.vue:10:98
-#: lib/components/auth/signin.form.vue:10:98
-#: lib/components/auth/signup.form.vue:10:98
+#: lib/components/auth/password-recovery.form.vue:10:125
+#: lib/components/auth/signin.form.vue:10:125
+#: lib/components/auth/signup.form.vue:10:125
 msgid "Enter your email address"
 msgstr "Введите ваш адрес email"
 
 #: lib/components/auth/password-recovery.form.vue:14:64
-#: lib/components/auth/signup.form.vue:17:64
+#: lib/components/auth/signup.form.vue:18:64
 msgid "Back"
 msgstr "Назад"
 
@@ -309,13 +311,13 @@ msgstr "Назад"
 msgid "Recover"
 msgstr "Восстановить"
 
-#: lib/components/auth/password-recovery.form.vue:50:35
-#: lib/components/auth/signin.form.vue:80:35
-#: lib/components/auth/signup.form.vue:55:35
+#: lib/components/auth/password-recovery.form.vue:55:35
+#: lib/components/auth/signin.form.vue:84:35
+#: lib/components/auth/signup.form.vue:69:35
 msgid "Please, correctly fill all required fields"
 msgstr "Пожалуйста, правильно заполните все требуемые поля"
 
-#: lib/components/auth/password-recovery.form.vue:69:35
+#: lib/components/auth/password-recovery.form.vue:74:35
 msgid "Password change instructions were sent to the email address, associated with your account."
 msgstr "Инструкции по изменению пароль отправлены на ваш email."
 
@@ -324,8 +326,8 @@ msgstr "Инструкции по изменению пароль отправл
 msgid "Sign in"
 msgstr "Войти"
 
-#: lib/components/auth/signin.form.vue:12:99
-#: lib/components/auth/signup.form.vue:12:99
+#: lib/components/auth/signin.form.vue:12:126
+#: lib/components/auth/signup.form.vue:12:126
 msgid "Enter your password"
 msgstr "Введите ваш пароль"
 
@@ -350,23 +352,22 @@ msgid "Do not have account? Sign up"
 msgstr "Нет аккаута? Зарегистрируйтесь"
 
 #: lib/components/auth/signup.form.vue:5:34
-#: lib/components/auth/signup.form.vue:19:31
+#: lib/components/auth/signup.form.vue:20:31
 msgid "Sign up"
 msgstr "Зарегистрироваться"
 
-#: lib/components/auth/signup.form.vue:13:61
-#: lib/components/change-password.dialog.vue:7:61
+#: lib/components/auth/signup.form.vue:14:66
+#: lib/components/change-password.dialog.vue:8:66
 #: lib/components/users/create-user.dialog.vue:6:39
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
-#: lib/components/auth/signup.form.vue:13:113
+#: lib/components/auth/signup.form.vue:14:143
 msgid "Confirm your password"
 msgstr "Подтвердите ваш пароль"
 
-#: lib/components/auth/signup.form.vue:63:42
-#: lib/components/users/create-user.dialog.vue:46:56
-msgid "Passwords are not match"
+#: lib/components/auth/signup.form.vue:77:64
+msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
 #: lib/components/authorization.dialog.vue:3:30
@@ -425,12 +426,12 @@ msgstr "Токен изменения электронной почты был �
 msgid "Email address changed"
 msgstr "Адрес email изменен"
 
-#: lib/components/change-password.dialog.vue:22:19
+#: lib/components/change-password.dialog.vue:30:19
 #: lib/components/reset-password.dialog.vue:2:53
 msgid "Password change"
 msgstr "Изменение пароля"
 
-#: lib/components/change-password.dialog.vue:68:35
+#: lib/components/change-password.dialog.vue:81:35
 #: lib/components/reset-password.dialog.vue:75:35
 msgid "Password changed"
 msgstr "Пароль изменен"
@@ -672,6 +673,10 @@ msgstr "Изменить пароль для пользователя"
 #: lib/components/users/panel.vue:7:81
 msgid "Create user"
 msgstr "Создать пользователя"
+
+#: lib/components/users/create-user.dialog.vue:46:56
+msgid "Passwords are not match"
+msgstr "Пароли не совпадают"
 
 #: lib/components/users/create-user.dialog.vue:56:35
 msgid "User created"
