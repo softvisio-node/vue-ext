@@ -43,7 +43,7 @@ export default {
             const values = form.getValues();
 
             if ( values.password !== values.password1 ) {
-                form.getFields( "password1" ).setError( this.i18nd( "vue-ext", "Passwords are not match" ) );
+                form.getFields( "password1" ).setError( this.i18nd( "vue-ext", "Passwords do not match" ) );
 
                 return;
             }

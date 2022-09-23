@@ -51,7 +51,7 @@ export default {
 
             this.$refs.form.ext.getFields( "password" ).setValidators( {
                 "type": "password-strength",
-                "strength": "strong", // this.$store.session.settings.passwordsStrength,
+                "strength": this.$store.session.settings.passwordsStrength,
             } );
 
             this.ext.on( "hide", () => this.close() );
@@ -73,7 +73,7 @@ export default {
             const values = form.getValues();
 
             if ( values.password !== values.confirmedPassword ) {
-                form.getFields( "confirmedPassword" ).setError( "Passwords are not match" );
+                form.getFields( "confirmedPassword" ).setError( "Passwords do not match" );
 
                 return;
             }

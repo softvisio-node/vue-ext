@@ -37,7 +37,7 @@ export default {
 
             this.$refs.form.ext.getFields( "password" ).setValidators( {
                 "type": "password-strength",
-                "strength": "strong", // this.$store.session.settings.passwordsStrength,
+                "strength": this.$store.session.settings.passwordsStrength,
             } );
 
             this.ext.on( "hide", () => {
