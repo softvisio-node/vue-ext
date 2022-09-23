@@ -7,7 +7,7 @@
         </ext-toolbar>
 
         <ext-fieldpanel ref="form">
-            <ext-emailfield :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
+            <ext-emailfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
@@ -21,6 +21,11 @@
 <script>
 export default {
     "emits": ["signin"],
+
+    "errorTarget": {
+        "type": String,
+        "default": "qtip",
+    },
 
     "methods": {
         _ready ( e ) {

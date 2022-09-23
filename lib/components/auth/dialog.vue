@@ -1,6 +1,6 @@
 <template>
     <ext-dialog bodyPadding="0" :closable="closable">
-        <AuthPanel :closable="closable" :resetPasswordEnabled="resetPasswordEnabled" :shadow="shadow" @close="onClose"/>
+        <AuthPanel :closable="closable" :errorTarget="errorTarget" :resetPasswordEnabled="resetPasswordEnabled" :shadow="shadow" @close="onClose"/>
     </ext-dialog>
 </template>
 
@@ -11,6 +11,10 @@ export default {
     "components": { AuthPanel },
 
     "props": {
+        "errorTarget": {
+            "type": String,
+            "default": "qtip",
+        },
         "resetPasswordEnabled": {
             "type": Boolean,
             "default": true,

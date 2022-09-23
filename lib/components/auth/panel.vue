@@ -4,11 +4,11 @@
             <LocaleButton :absolute="true"/>
         </ext-titlebar>
 
-        <SigninForm :resetPasswordEnabled="resetPasswordEnabled" :signinFacebookEnabled="signinFacebookEnabled" :signinGitHubEnabled="signinGitHubEnabled" :signinGoogleEnabled="signinGoogleEnabled" :signupEnabled="signupEnabled" @reset="showResetPassword" @signup="showSignup"/>
+        <SigninForm :errorTarget="errorTarget" :resetPasswordEnabled="resetPasswordEnabled" :signinFacebookEnabled="signinFacebookEnabled" :signinGitHubEnabled="signinGitHubEnabled" :signinGoogleEnabled="signinGoogleEnabled" :signupEnabled="signupEnabled" @reset="showResetPassword" @signup="showSignup"/>
 
-        <PasswordRecoveryForm @signin="showSignin"/>
+        <PasswordRecoveryForm :errorTarget="errorTarget" @signin="showSignin"/>
 
-        <SignupForm @signin="showSignin"/>
+        <SignupForm :errorTarget="errorTarget" @signin="showSignin"/>
     </ext-panel>
 </template>
 
@@ -22,6 +22,10 @@ export default {
     "components": { LocaleButton, SigninForm, PasswordRecoveryForm, SignupForm },
 
     "props": {
+        "errorTarget": {
+            "type": String,
+            "default": "qtip",
+        },
         "resetPasswordEnabled": {
             "type": Boolean,
             "default": true,
