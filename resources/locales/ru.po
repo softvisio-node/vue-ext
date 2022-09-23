@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-23 22:09+0300\n"
+"POT-Creation-Date: 2022-09-23 22:15+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,10 +15,6 @@ msgstr ""
 "X-Poedit-SearchPath-0: lib\n"
 
 #: lib/components/account/account.panel.vue:5:34
-#: lib/components/acl/panel.vue:14:34
-#: lib/components/user-sessions/panel.vue:15:34
-#: lib/components/user-tokens/panel.vue:15:34
-#: lib/components/users/panel.vue:16:34
 msgid "Unable to load records"
 msgstr "Не удалось загрузить записи"
 
@@ -151,8 +147,18 @@ msgid "Add user"
 msgstr "Добавить пользователя"
 
 #: lib/components/acl/panel.vue:10:43
-msgid "No records matched search criteria"
-msgstr "Нет записей, соответствующих критериям поиска"
+#: lib/components/user-sessions/panel.vue:11:47
+#: lib/components/user-tokens/panel.vue:11:47
+#: lib/components/users/panel.vue:12:47
+msgid "No data match search criteria"
+msgstr "Нет данных, соответствующих критериям поиска"
+
+#: lib/components/acl/panel.vue:14:34
+#: lib/components/user-sessions/panel.vue:15:34
+#: lib/components/user-tokens/panel.vue:15:34
+#: lib/components/users/panel.vue:16:34
+msgid "Unable to load data"
+msgstr "Не удалось загрузить данные"
 
 #: lib/components/acl/panel.vue:21:96 lib/components/acl/user-dialog.vue:7:96
 #: lib/components/users/create-user.dialog.vue:4:63
@@ -558,12 +564,6 @@ msgstr "Токен восстановления пароля не найден"
 msgid "Sign out of all sessions"
 msgstr "Выйти из всех сессий"
 
-#: lib/components/user-sessions/panel.vue:11:47
-#: lib/components/user-tokens/panel.vue:11:47
-#: lib/components/users/panel.vue:12:47
-msgid "No records match search criteria"
-msgstr "Нет записей, соответствующих критериям поиска"
-
 #: lib/components/user-sessions/panel.vue:21:130
 msgid "Device"
 msgstr "Устройство"
@@ -758,6 +758,9 @@ msgstr "Токен подтверждения email неверен"
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "No records matched search criteria"
+#~ msgstr "Нет записей, соответствующих критериям поиска"
 
 #~ msgid "Enter your password"
 #~ msgstr "Введите ваш пароль"
