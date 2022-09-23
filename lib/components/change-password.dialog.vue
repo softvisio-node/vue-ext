@@ -1,8 +1,8 @@
 <template>
-    <ext-dialog closeAction="hide" height="400" :title="title" width="300" @ready="_ready">
+    <ext-dialog closeAction="hide" height="400" :title="title" width="350" @ready="_ready">
         <ext-container :html="header" style="text-align: center"/>
 
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":150}' @ready="formReady">
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Password`)" name="password" required="true" revealable="true"/>
 
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Confirm password`)" name="confirmedPassword" required="true" revealable="true"/>

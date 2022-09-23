@@ -1,13 +1,13 @@
 <template>
     <ext-dialog closeAction="hide" height="450" scrollable="true" :title="i18nd(`vue-ext`, `Create user`)" width="350" @ready="_ready">
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":150}' @ready="formReady">
             <ext-emailfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Email`)" name="email" required="true" validators="email"/>
 
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Password`)" name="password" required="true" revealable="true"/>
 
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Confirm password`)" name="confirmedPassword" required="true" revealable="true"/>
 
-            <ext-togglefield :label="i18nd(`vue-ext`, `Access enabled`)" labelAlign="left" labelWidth="150" name="enabled" value="true"/>
+            <ext-togglefield :label="i18nd(`vue-ext`, `Access enabled`)" name="enabled" value="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
