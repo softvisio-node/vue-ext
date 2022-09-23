@@ -1,5 +1,14 @@
 # Changelog
 
+### 7.11.9 (2022-09-23)
+
+Fixes:
+
+-   fix: account locale
+-   fix: password
+-   fix: revealable password
+-   fix: translations
+
 ### 7.11.8 (2022-09-20)
 
 Fixes:
