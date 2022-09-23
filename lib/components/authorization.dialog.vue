@@ -1,9 +1,9 @@
 <template>
-    <ext-dialog closeAction="hide" height="300" :title="i18nd(`vue-ext`, `Authorization`)" width="300" @ready="_ready">
-        <ext-container :html="i18nd(`vue-ext`, `Authorization is required to perform this operation. Please, authorize and then perform action again.`)"/>
+    <ext-dialog closeAction="hide" height="350" :title="i18nd(`vue-ext`, `Authorization`)" width="300" @ready="_ready">
+        <ext-container :html="i18nd(`vue-ext`, `Authorization is required to perform this operation. Please, authorize and then repeat action again.`)"/>
 
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="_formReady">
-            <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" required="true"/>
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="_formReady">
+            <ext-passwordfield errorTarget="under" :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter password`)" required="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
