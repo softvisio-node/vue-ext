@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-23 10:51+0300\n"
+"POT-Creation-Date: 2022-09-23 21:23+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -52,7 +52,7 @@ msgstr "Змінити пароль"
 #: lib/components/auth/signup.form.vue:12:66
 #: lib/components/authorization.dialog.vue:6:39
 #: lib/components/change-password.dialog.vue:6:66
-#: lib/components/users/create-user.dialog.vue:5:39
+#: lib/components/users/create-user.dialog.vue:6:66
 msgid "Password"
 msgstr "Пароль"
 
@@ -156,7 +156,7 @@ msgid "No records matched search criteria"
 msgstr "Жоден запис не відповідає критеріям пошуку"
 
 #: lib/components/acl/panel.vue:21:96 lib/components/acl/user-dialog.vue:7:96
-#: lib/components/users/create-user.dialog.vue:4:36
+#: lib/components/users/create-user.dialog.vue:4:63
 #: lib/components/users/panel.vue:24:83
 msgid "Email"
 msgstr "Email"
@@ -170,7 +170,7 @@ msgstr "Ролі"
 #: lib/components/acl/user-dialog.vue:5:90
 #: lib/components/user-tokens/panel.vue:27:84
 #: lib/components/user-tokens/panel.vue:152:45
-#: lib/components/users/create-user.dialog.vue:7:37
+#: lib/components/users/create-user.dialog.vue:10:37
 #: lib/components/users/panel.vue:30:84 lib/components/users/panel.vue:215:45
 msgid "Access enabled"
 msgstr "Доступ увімкнено"
@@ -358,7 +358,9 @@ msgstr "Зареєструватися"
 
 #: lib/components/auth/signup.form.vue:14:66
 #: lib/components/change-password.dialog.vue:8:66
-#: lib/components/users/create-user.dialog.vue:6:39
+#: lib/components/change-password.dialog.vue:8:143
+#: lib/components/users/create-user.dialog.vue:8:66
+#: lib/components/users/create-user.dialog.vue:8:143
 msgid "Confirm password"
 msgstr "Підтвердіть пароль"
 
@@ -369,7 +371,7 @@ msgstr "Підтвердіть ваш пароль"
 #: lib/components/auth/signup.form.vue:77:64
 #: lib/components/change-password.dialog.vue:69:64
 #: lib/components/reset-password.dialog.vue:76:64
-#: lib/components/users/create-user.dialog.vue:46:56
+#: lib/components/users/create-user.dialog.vue:66:64
 msgid "Passwords do not match"
 msgstr "Паролі не збігаються"
 
@@ -389,19 +391,19 @@ msgstr "Авторизація"
 msgid "Authorized"
 msgstr "Авторизовано"
 
-#: lib/components/change-email.dialog.vue:4:36
+#: lib/components/change-email.dialog.vue:4:56
 msgid "New email address"
 msgstr "Нова електронна адреса"
 
-#: lib/components/change-email.dialog.vue:4:102
+#: lib/components/change-email.dialog.vue:4:122
 msgid "Enter new email address"
 msgstr "Введіть нову електронну адресу"
 
-#: lib/components/change-email.dialog.vue:6:50
+#: lib/components/change-email.dialog.vue:6:70
 msgid "Confirmation token"
 msgstr "Токен підтвердження"
 
-#: lib/components/change-email.dialog.vue:6:117
+#: lib/components/change-email.dialog.vue:6:137
 msgid "Enter confirmation token"
 msgstr "Введіть токен підтвердження"
 
@@ -428,6 +430,11 @@ msgstr "Токен зміни електронної пошти надіслан
 #: lib/components/change-email.dialog.vue:95:35
 msgid "Email address changed"
 msgstr "Адреса електронної пошти змінена"
+
+#: lib/components/change-password.dialog.vue:6:126
+#: lib/components/users/create-user.dialog.vue:6:126
+msgid "Enter password"
+msgstr "Введіть пароль"
 
 #: lib/components/change-password.dialog.vue:30:19
 #: lib/components/reset-password.dialog.vue:2:53
@@ -540,7 +547,12 @@ msgstr "Push-повідомлення вимкнено"
 msgid "New password"
 msgstr "Новий пароль"
 
+#: lib/components/reset-password.dialog.vue:6:130
+msgid "Enter new password"
+msgstr "Введіть новий пароль"
+
 #: lib/components/reset-password.dialog.vue:8:66
+#: lib/components/reset-password.dialog.vue:8:147
 msgid "Confirm new password"
 msgstr "Підтвердити новий пароль"
 
@@ -671,13 +683,17 @@ msgstr "Ролі токена оновлено"
 msgid "Change password for user"
 msgstr "Змінити пароль користувача"
 
-#: lib/components/users/create-user.dialog.vue:12:31
+#: lib/components/users/create-user.dialog.vue:4:117
+msgid "Enter email"
+msgstr "Введіть email"
+
+#: lib/components/users/create-user.dialog.vue:15:31
 #: lib/components/users/create-user.dialog.vue:2:74
 #: lib/components/users/panel.vue:7:81
 msgid "Create user"
 msgstr "Створити користувача"
 
-#: lib/components/users/create-user.dialog.vue:56:35
+#: lib/components/users/create-user.dialog.vue:76:35
 msgid "User created"
 msgstr "Користувач створений"
 
