@@ -24,7 +24,7 @@ export default {
     "props": {
         "errorTarget": {
             "type": String,
-            "default": "qtip",
+            "default": "under",
         },
         "resetPasswordEnabled": {
             "type": Boolean,
