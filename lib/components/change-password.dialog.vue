@@ -21,7 +21,7 @@ export default {
     "props": {
         "errorTarget": {
             "type": String,
-            "default": "qtip",
+            "default": "undeer",
         },
     },
 
@@ -37,7 +37,7 @@ export default {
 
             this.$refs.form.ext.getFields( "password" ).setValidators( {
                 "type": "password-strength",
-                "strength": this.$store.session.settings.passwordsStrength,
+                "strength": "strong", // this.$store.session.settings.passwordsStrength,
             } );
 
             this.ext.on( "hide", () => {
