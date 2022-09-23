@@ -2,7 +2,7 @@
     <ext-dialog closeAction="hide" height="300" :title="title" width="300" @ready="_ready">
         <ext-container :html="header" style="text-align: center"/>
 
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Password`)" name="password" required="true" revealable="true"/>
 
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Confirm password`)" name="confirmedPassword" required="true" revealable="true"/>
@@ -21,7 +21,7 @@ export default {
     "props": {
         "errorTarget": {
             "type": String,
-            "default": "undeer",
+            "default": "under",
         },
     },
 
@@ -66,7 +66,7 @@ export default {
             const values = form.getValues();
 
             if ( values.password !== values.confirmedPassword ) {
-                form.getFields( "confirmedPassword" ).setError( "Passwords are not match" );
+                form.getFields( "confirmedPassword" ).setError( "Passwords do not match" );
 
                 return;
             }
