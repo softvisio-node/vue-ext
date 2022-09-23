@@ -3,8 +3,9 @@
         <ext-container :html="header" style="text-align: center"/>
 
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"left","labelWidth":120}' @ready="formReady">
-            <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" required="true"/>
-            <ext-passwordfield ref="passwordConfirm" :label="i18nd(`vue-ext`, `Confirm password`)" required="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Password`)" name="password" required="true" revealable="true"/>
+
+            <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Confirm password`)" name="confirmedPassword" required="true" revealable="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
@@ -17,6 +18,13 @@
 import loadMask from "#lib/load-mask";
 
 export default {
+    "props": {
+        "errorTarget": {
+            "type": String,
+            "default": "qtip",
+        },
+    },
+
     "computed": {
         title () {
             return this.i18nd( `vue-ext`, `Password change` );
@@ -27,10 +35,16 @@ export default {
         _ready ( e ) {
             this.ext = e.detail.cmp;
 
+            this.$refs.form.ext.getFields( "password" ).setValidators( {
+                "type": "password-strength",
+                "strength": this.$store.session.settings.passwordsStrength,
+            } );
+
             this.ext.on( "hide", () => {
                 this.$refs.form.ext.reset();
 
-                this.$refs.passwordConfirm.ext.clearValue();
+                this.$refs.form.ext.getFields( "password" ).setRevealed( false );
+                this.$refs.form.ext.getFields( "confirmedPassword" ).setRevealed( false );
             } );
         },
 
@@ -45,15 +59,14 @@ export default {
         },
 
         async submit () {
-            const form = this.$refs.form.ext,
-                passwordCondirm = this.$refs.passwordConfirm.ext;
+            const form = this.$refs.form.ext;
 
             if ( !form.validate() ) return;
 
             const values = form.getValues();
 
-            if ( values.password !== passwordCondirm.getValue() ) {
-                passwordCondirm.setError( "Passwords are not match" );
+            if ( values.password !== values.confirmedPassword ) {
+                form.getFields( "confirmedPassword" ).setError( "Passwords are not match" );
 
                 return;
             }

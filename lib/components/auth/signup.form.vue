@@ -30,6 +30,7 @@ export default {
             "default": "qtip",
         },
     },
+
     "emits": ["signin"],
 
     "methods": {
