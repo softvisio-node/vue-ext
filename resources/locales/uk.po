@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-23 22:16+0300\n"
+"POT-Creation-Date: 2022-09-23 22:27+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,8 +15,12 @@ msgstr ""
 "X-Poedit-SearchPath-0: lib\n"
 
 #: lib/components/account/account.panel.vue:5:34
-msgid "Unable to load records"
-msgstr "Неможливо завантажити записи"
+#: lib/components/acl/panel.vue:14:34
+#: lib/components/user-sessions/panel.vue:15:34
+#: lib/components/user-tokens/panel.vue:15:34
+#: lib/components/users/panel.vue:16:34
+msgid "Unable to load data"
+msgstr "Не вдалося завантажити дані"
 
 #: lib/components/account/account.panel.vue:6:58
 #: lib/components/acl/panel.vue:7:58 lib/components/acl/panel.vue:15:58
@@ -152,13 +156,6 @@ msgstr "Додати користувача"
 #: lib/components/users/panel.vue:12:47
 msgid "No data match search criteria"
 msgstr "Жодні дані не відповідають критеріям пошуку"
-
-#: lib/components/acl/panel.vue:14:34
-#: lib/components/user-sessions/panel.vue:15:34
-#: lib/components/user-tokens/panel.vue:15:34
-#: lib/components/users/panel.vue:16:34
-msgid "Unable to load data"
-msgstr "Не вдалося завантажити дані"
 
 #: lib/components/acl/panel.vue:21:96 lib/components/acl/user-dialog.vue:7:96
 #: lib/components/users/create-user.dialog.vue:4:63
@@ -758,6 +755,9 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "Unable to load records"
+#~ msgstr "Неможливо завантажити записи"
 
 #~ msgid "No records matched search criteria"
 #~ msgstr "Жоден запис не відповідає критеріям пошуку"

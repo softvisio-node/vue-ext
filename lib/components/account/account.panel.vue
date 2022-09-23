@@ -2,7 +2,7 @@
     <ext-panel ref="cards" layout="card">
         <!-- error card -->
         <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
-            <ext-container :html="i18nd(`vue-ext`, `Unable to load records`)"/>
+            <ext-container :html="i18nd(`vue-ext`, `Unable to load data`)"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" ui="action" @tap="reload"/>
         </ext-container>
 
