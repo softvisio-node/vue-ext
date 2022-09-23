@@ -7,10 +7,11 @@
         </ext-toolbar>
 
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}'>
-            <ext-emailfield :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
+            <ext-emailfield errorTarget="under" :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
 
-            <ext-passwordfield :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true" revealable="true"/>
-            <ext-passwordfield :label="i18nd(`vue-ext`, `Confirm password`)" name="confirmedPassword" :placeholder="i18nd(`vue-ext`, `Confirm your password`)" required="true" revealable="true"/>
+            <ext-passwordfield errorTarget="under" :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true" revealable="true"/>
+
+            <ext-passwordfield errorTarget="under" :label="i18nd(`vue-ext`, `Confirm password`)" name="confirmedPassword" :placeholder="i18nd(`vue-ext`, `Confirm your password`)" required="true" revealable="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"align":"center","type":"hbox"}'>
