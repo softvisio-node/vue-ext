@@ -6,10 +6,10 @@
             <ext-spacer/>
         </ext-toolbar>
 
-        <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}' width="100%" @ready="_ready">
+        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top","margin":"0 0 0 0"}' width="100%" @ready="_ready">
             <ext-emailfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter your password`)" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter password`)" required="true" revealable="true"/>
         </ext-fieldpanel>
 
         <ext-button :hidden="!resetPasswordEnabled" padding="10 0 0 0" :text="i18nd(`vue-ext`, `Forgot password?`)" @tap="showReset"/>
