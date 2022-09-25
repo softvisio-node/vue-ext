@@ -4,7 +4,7 @@
             <LocaleButton :absolute="true"/>
         </ext-titlebar>
 
-        <SigninForm :errorTarget="errorTarget" :resetPasswordEnabled="resetPasswordEnabled" :signupEnabled="signupEnabled" @reset="showResetPassword" @signup="showSignup"/>
+        <SigninForm :errorTarget="errorTarget" :passwordRecoveryEnabled="passwordRecoveryEnabled" :signupEnabled="signupEnabled" @recover="showPasswordRecovery" @signup="showSignup"/>
 
         <PasswordRecoveryForm :errorTarget="errorTarget" @signin="showSignin"/>
 
@@ -26,7 +26,7 @@ export default {
             "type": String,
             "default": "under",
         },
-        "resetPasswordEnabled": {
+        "passwordRecoveryEnabled": {
             "type": Boolean,
             "default": true,
         },
@@ -77,7 +77,7 @@ export default {
             this.ext.setActiveItem( 0 );
         },
 
-        showResetPassword () {
+        showPasswordRecovery () {
             this.ext.setActiveItem( 1 );
         },
 

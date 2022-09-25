@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import OauthContainer from "#lib/components/oaut.container";
+import OauthContainer from "#lib/components/oauth.container";
 import passwords from "#core/utils/passwords";
 
 export default {

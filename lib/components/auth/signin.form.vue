@@ -12,7 +12,7 @@
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter password`)" required="true" revealable="true"/>
         </ext-fieldpanel>
 
-        <ext-button :hidden="!resetPasswordEnabled" padding="10 0 0 0" :text="i18nd(`vue-ext`, `Forgot password?`)" @tap="showReset"/>
+        <ext-button :hidden="!passwordRecoveryEnabled" padding="10 0 0 0" :text="i18nd(`vue-ext`, `Forgot password?`)" @tap="showPasswordRecovery"/>
 
         <!-- oauth -->
         <OauthContainer/>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import OauthContainer from "#lib/components/oaut.container";
+import OauthContainer from "#lib/components/oauth.container";
 
 export default {
     "components": { OauthContainer },
@@ -41,13 +41,13 @@ export default {
             "type": Boolean,
             "default": false,
         },
-        "resetPasswordEnabled": {
+        "passwordRecoveryEnabled": {
             "type": Boolean,
             "default": false,
         },
     },
 
-    "emits": ["reset", "signup"],
+    "emits": ["recover", "signup"],
 
     "methods": {
         _ready ( e ) {
@@ -56,8 +56,8 @@ export default {
             cmp.setKeyMap( { "ENTER": { "handler": "_submit", "scope": this } } );
         },
 
-        showReset () {
-            this.$emit( "reset" );
+        showPasswordRecovery () {
+            this.$emit( "recover" );
         },
 
         showSignup () {
