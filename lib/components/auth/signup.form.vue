@@ -16,6 +16,9 @@
 
         <ext-button :text="i18nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
 
+        <!-- oauth -->
+        <OauthContainer/>
+
         <ext-toolbar docked="bottom" layout='{"align":"center","type":"hbox"}'>
             <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" @tap="back"/>
             <ext-spacer/>
@@ -25,9 +28,12 @@
 </template>
 
 <script>
+import OauthContainer from "#lib/components/oaut.container";
 import passwords from "#core/utils/passwords";
 
 export default {
+    "components": { OauthContainer },
+
     "props": {
         "errorTarget": {
             "type": String,
