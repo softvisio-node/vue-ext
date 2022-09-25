@@ -15,11 +15,11 @@
         <ext-button :hidden="!resetPasswordEnabled" padding="10 0 0 0" :text="i18nd(`vue-ext`, `Forgot password?`)" @tap="showReset"/>
 
         <ext-container defaults='{"margin":"0 20 0 20","ui":"action"}' layout='{"pack":"center","type":"hbox"}' padding="10 0 0 0">
-            <ext-button :hidden="!signinGoogleEnabled" iconCls="fa-brands fa-google" :tooltip="i18nd(`vue-ext`, `Sign in with Google`)"/>
+            <ext-button :hidden="!signinGoogleEnabled" iconCls="fa-brands fa-google" :tooltip="i18nd(`vue-ext`, `Sign in with Google`)" @tap="_signinGoogle"/>
 
             <ext-button :hidden="!signinFacebookEnabled" iconCls="fa-brands fa-square-facebook" :tooltip="i18nd(`vue-ext`, `Sign in with Facebook`)"/>
 
-            <ext-button :hidden="!signinGitHubEnabled" iconCls="fa-brands fa-github" :tooltip="i18nd(`vue-ext`, `Sign in with GitHub`)"/>
+            <ext-button :hidden="!signinGitHubEnabled" iconCls="fa-brands fa-github" :tooltip="i18nd(`vue-ext`, `Sign in with GitHub`)" @tap="_signinGitHub"/>
         </ext-container>
 
         <ext-button :hidden="!signupEnabled" padding="10 0 0 0" :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" @tap="showSignup"/>
@@ -32,6 +32,9 @@
 </template>
 
 <script>
+import { initializeApp } from "@firebase/app";
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "@firebase/auth";
+
 export default {
     "props": {
         "errorTarget": {
@@ -96,6 +99,69 @@ export default {
                 Ext.Viewport.unmask();
 
                 this.$utils.toast( res );
+            }
+        },
+
+        // https://firebase.google.com/docs/reference/js/v8/firebase.auth.GoogleAuthProvider
+        async _signinGoogle () {
+            const provider = new GoogleAuthProvider();
+
+            // provider.addScope( "https://www.googleapis.com/auth/contacts.readonly" );
+
+            provider.setCustomParameters( {
+
+                // "login_hint": "zdm@softvisio.net",
+            } );
+
+            return this._signinFirebase( provider );
+        },
+
+        // https://firebase.google.com/docs/reference/js/v8/firebase.auth.GithubAuthProvider
+        async _signinGitHub () {
+            const provider = new GithubAuthProvider();
+
+            // provider.addScope( "repo" );
+
+            // provider.setCustomParameters( {
+
+            //     // "login_hint": "zdm@softvisio.net",
+            // } );
+
+            return this._signinFirebase( provider );
+        },
+
+        async _signinFirebase ( provider ) {
+            const firebaseApp = initializeApp( process.config.firebase.browser );
+
+            const auth = getAuth( firebaseApp );
+
+            auth.languageCode = "en-GB";
+
+            // To apply the default browser preference instead of explicitly setting it.
+            // firebase.auth().useDeviceLanguage();
+
+            try {
+
+                // https://firebase.google.com/docs/reference/js/v8/firebase.auth#usercredential
+                var res = await signInWithPopup( auth, provider );
+            }
+            catch ( e ) {
+                this.$utils.toast( this.i18nd( `vue-ext`, `Authorization error` ) );
+
+                return;
+            }
+
+            console.log( JSON.stringify( res.user, null, 4 ) );
+
+            const res1 = await this.$app.signin( {
+                "email": res.user.providerData[0].email,
+                "firebaseUserAccessToken": res.user.accessToken,
+            } );
+
+            if ( !res1.ok ) {
+                Ext.Viewport.unmask();
+
+                this.$utils.toast( res1 );
             }
         },
     },
