@@ -43,6 +43,7 @@ export default {
             return this._signinFirebase( provider );
         },
 
+        // https://firebase.google.com/docs/reference/js/v8/firebase.auth.FacebookAuthProvider
         async _oauthFacebook () {},
 
         // https://firebase.google.com/docs/reference/js/v8/firebase.auth.GithubAuthProvider
