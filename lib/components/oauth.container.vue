@@ -81,8 +81,6 @@ export default {
                 return;
             }
 
-            console.log( JSON.stringify( res.user, null, 4 ) );
-
             const res1 = await this.$app.signin( {
                 "email": res.user.providerData[0].email,
                 "firebaseUserAccessToken": res.user.accessToken,
