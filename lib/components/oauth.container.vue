@@ -9,10 +9,9 @@
 </template>
 
 <script>
-import { initializeApp } from "@firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "@firebase/auth";
-
 export default {
+    "emits": ["begin", "end"],
+
     "computed": {
         signinGoogleEnabled () {
             return this.$store.session.settings.signin_google_enabled;
@@ -28,69 +27,24 @@ export default {
     },
 
     "methods": {
-
-        // https://firebase.google.com/docs/reference/js/v8/firebase.auth.GoogleAuthProvider
-        async _oauthGoogle () {
-            const provider = new GoogleAuthProvider();
-
-            // provider.addScope( "https://www.googleapis.com/auth/contacts.readonly" );
-
-            provider.setCustomParameters( {
-
-                // "login_hint": "zdm@softvisio.net",
-            } );
-
-            return this._signinFirebase( provider );
+        _oauthGoogle () {
+            this._oauth( "google" );
         },
 
-        // https://firebase.google.com/docs/reference/js/v8/firebase.auth.FacebookAuthProvider
-        async _oauthFacebook () {},
-
-        // https://firebase.google.com/docs/reference/js/v8/firebase.auth.GithubAuthProvider
-        async _oauthGitHub () {
-            const provider = new GithubAuthProvider();
-
-            // provider.addScope( "repo" );
-
-            // provider.setCustomParameters( {
-
-            //     // "login_hint": "zdm@softvisio.net",
-            // } );
-
-            return this._signinFirebase( provider );
+        _oauthFacebook () {
+            this._oauth( "facebook" );
         },
 
-        async _signinFirebase ( provider ) {
-            const firebaseApp = initializeApp( process.config.firebase.browser );
+        _oauthGitHub () {
+            this._oauth( "github" );
+        },
 
-            const auth = getAuth( firebaseApp );
+        async _oauth ( provider ) {
+            this.$emit( "begin" );
 
-            auth.languageCode = "en-GB";
+            const res = await this.$store.session.oauth( provider );
 
-            // To apply the default browser preference instead of explicitly setting it.
-            // firebase.auth().useDeviceLanguage();
-
-            try {
-
-                // https://firebase.google.com/docs/reference/js/v8/firebase.auth#usercredential
-                var res = await signInWithPopup( auth, provider );
-            }
-            catch ( e ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, `Authorization error` ) );
-
-                return;
-            }
-
-            const res1 = await this.$app.signin( {
-                "email": res.user.providerData[0].email,
-                "firebaseUserAccessToken": res.user.accessToken,
-            } );
-
-            if ( !res1.ok ) {
-                Ext.Viewport.unmask();
-
-                this.$utils.toast( res1 );
-            }
+            this.$emit( "end", res );
         },
     },
 };
