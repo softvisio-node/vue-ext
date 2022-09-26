@@ -39,10 +39,10 @@ export default {
             this._oauth( "github" );
         },
 
-        async _oauth ( provider ) {
+        async _oauth ( oauthProvider ) {
             this.$emit( "begin" );
 
-            const res = await this.$store.session.oauth( provider );
+            const res = await this.$store.session.oauth( oauthProvider );
 
             this.$emit( "end", res );
         },
