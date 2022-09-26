@@ -42,7 +42,7 @@ export default {
         async _oauth ( oauthProvider ) {
             this.$emit( "begin" );
 
-            const res = await this.$store.session.oauth( oauthProvider );
+            const res = await this.$store.session.signin( { oauthProvider } );
 
             this.$emit( "end", res );
         },
