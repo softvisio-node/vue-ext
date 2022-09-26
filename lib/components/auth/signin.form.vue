@@ -15,7 +15,7 @@
         <ext-button :hidden="!passwordRecoveryEnabled" padding="10 0 0 0" :text="i18nd(`vue-ext`, `Forgot password?`)" @tap="showPasswordRecovery"/>
 
         <!-- oauth -->
-        <OauthContainer/>
+        <OauthContainer @begin="_oauthBegin" @end="_oauthEnd"/>
 
         <ext-button :hidden="!signupEnabled" padding="10 0 0 0" :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" @tap="showSignup"/>
 
@@ -79,6 +79,18 @@ export default {
 
             const res = await this.$app.signin( values );
 
+            if ( !res.ok ) {
+                Ext.Viewport.unmask();
+
+                this.$utils.toast( res );
+            }
+        },
+
+        _oauthBegin () {
+            Ext.Viewport.mask();
+        },
+
+        _oauthEnd ( res ) {
             if ( !res.ok ) {
                 Ext.Viewport.unmask();
 
