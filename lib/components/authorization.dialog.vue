@@ -6,6 +6,9 @@
             <ext-passwordfield errorTarget="under" :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter password`)" required="true" revealable="true"/>
         </ext-fieldpanel>
 
+        <!-- oauth -->
+        <OauthContainer @tap="_oauthTap"/>
+
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
 \ <ext-button :text="i18nd(`vue-ext`, `Authorize`)" ui="action" @tap="_submit"/>
 </ext-toolbar>
@@ -14,10 +17,13 @@
 
 <script>
 import loadMask from "#lib/load-mask";
+import OauthContainer from "#lib/components/oauth.container";
 
 var shown = false;
 
 export default {
+    "components": { OauthContainer },
+
     "methods": {
         _ready ( e ) {
             this.ext = e.detail.cmp;
@@ -45,16 +51,24 @@ export default {
             this.ext.hide();
         },
 
-        async _submit () {
+        _submit () {
             const form = this.$refs.form.ext;
 
             if ( !form.validate() ) return;
 
             const values = form.getValues();
 
+            this._authorize( { "password": values.password } );
+        },
+
+        _oauthTap ( oauthProvider ) {
+            this._authorize( { oauthProvider } );
+        },
+
+        async _authorize ( options ) {
             this.ext.mask( loadMask );
 
-            const res = await this.$api.call( "session/authorize", values.password );
+            const res = await this.$api.call( "session/authorize", options );
 
             this.ext.unmask();
 

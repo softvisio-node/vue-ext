@@ -17,7 +17,7 @@
         <ext-button :text="i18nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
 
         <!-- oauth -->
-        <OauthContainer/>
+        <OauthContainer @tap="_oauthTap"/>
 
         <ext-toolbar docked="bottom" layout='{"align":"center","type":"hbox"}'>
             <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" @tap="back"/>
@@ -72,7 +72,18 @@ export default {
             this.$refs.form.ext.getFields( "confirmedPassword" ).setRevealed( false );
         },
 
-        async _submit () {
+        _generatePassword () {
+            const password = passwords.generatePassword().password;
+
+            this.$utils.copyToClipboard( password );
+
+            this.$utils.toast( this.i18nd( `vue-ext`, `Password copied to the clipboard` ) );
+
+            this.$refs.form.ext.getFields( "password" ).setValue( password );
+            this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );
+        },
+
+        _submit () {
             const form = this.$refs.form.ext;
 
             if ( !form.validate() ) {
@@ -91,9 +102,17 @@ export default {
 
             delete values.confirmedPassword;
 
+            this._signup( values );
+        },
+
+        _oauthTap ( oauthProvider ) {
+            this._signup( { oauthProvider } );
+        },
+
+        async _signup ( options ) {
             Ext.Viewport.mask();
 
-            const res = await this.$app.signup( values );
+            const res = await this.$app.signup( options );
 
             Ext.Viewport.unmask();
 
@@ -105,17 +124,6 @@ export default {
             else {
                 this.$utils.toast( res );
             }
-        },
-
-        _generatePassword () {
-            const password = passwords.generatePassword().password;
-
-            this.$utils.copyToClipboard( password );
-
-            this.$utils.toast( this.i18nd( `vue-ext`, `Password copied to the clipboard` ) );
-
-            this.$refs.form.ext.getFields( "password" ).setValue( password );
-            this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );
         },
     },
 };

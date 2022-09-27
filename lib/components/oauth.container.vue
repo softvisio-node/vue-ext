@@ -10,7 +10,7 @@
 
 <script>
 export default {
-    "emits": ["begin", "end"],
+    "emits": ["tap"],
 
     "computed": {
         signinGoogleEnabled () {
@@ -40,11 +40,7 @@ export default {
         },
 
         async _oauth ( oauthProvider ) {
-            this.$emit( "begin" );
-
-            const res = await this.$store.session.signin( { oauthProvider } );
-
-            this.$emit( "end", res );
+            this.$emit( "tap", oauthProvider );
         },
     },
 };

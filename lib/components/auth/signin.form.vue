@@ -15,7 +15,7 @@
         <ext-button :hidden="!passwordRecoveryEnabled" padding="10 0 0 0" :text="i18nd(`vue-ext`, `Forgot password?`)" @tap="showPasswordRecovery"/>
 
         <!-- oauth -->
-        <OauthContainer @begin="_oauthBegin" @end="_oauthEnd"/>
+        <OauthContainer @tap="_oauthTap"/>
 
         <ext-button :hidden="!signupEnabled" padding="10 0 0 0" :text="i18nd(`vue-ext`, `Do not have account? Sign up`)" @tap="showSignup"/>
 
@@ -64,7 +64,7 @@ export default {
             this.$emit( "signup" );
         },
 
-        async _submit () {
+        _submit () {
             const form = this.$refs.form.ext;
 
             if ( !form.validate() ) {
@@ -75,22 +75,18 @@ export default {
 
             const values = form.getValues();
 
-            Ext.Viewport.mask();
-
-            const res = await this.$app.signin( values );
-
-            if ( !res.ok ) {
-                Ext.Viewport.unmask();
-
-                this.$utils.toast( res );
-            }
+            this._signin( values );
         },
 
-        _oauthBegin () {
-            Ext.Viewport.mask();
+        _oauthTap ( oauthProvider ) {
+            this._signin( { oauthProvider } );
         },
 
-        _oauthEnd ( res ) {
+        async _signin ( options ) {
+            Ext.Viewport.mask();
+
+            const res = await this.$app.signin( options );
+
             if ( !res.ok ) {
                 Ext.Viewport.unmask();
 
