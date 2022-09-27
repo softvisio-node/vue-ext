@@ -102,17 +102,20 @@ export default {
 
             delete values.confirmedPassword;
 
-            this._signup( values );
+            const email = values.email;
+            delete values.email;
+
+            this._signup( email, values );
         },
 
         _oauthTap ( oauthProvider ) {
             this._signup( { oauthProvider } );
         },
 
-        async _signup ( options ) {
+        async _signup ( email, fields ) {
             Ext.Viewport.mask();
 
-            const res = await this.$app.signup( options );
+            const res = await this.$app.signup( email, fields );
 
             Ext.Viewport.unmask();
 
