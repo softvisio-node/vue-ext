@@ -33,7 +33,7 @@ export default {
         },
     },
 
-    "emits": ["reload", "storeLoad", "storeDataChange"],
+    "emits": ["reload", "storeLoad"],
 
     mounted () {
         if ( this.store ) this.watchStore( this.store );
@@ -118,9 +118,7 @@ export default {
             }
         },
 
-        _onStoreDataChanged ( store, eOpts ) {
-            this.$emit( "storeDataChange", store, eOpts );
-
+        _onStoreDataChanged ( store ) {
             if ( !store.getCount() ) {
                 this.showNoDataCard();
             }
