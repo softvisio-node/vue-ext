@@ -10,7 +10,7 @@
         </template>
 
         <template #data>
-            <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridviewoptions":true}' @ready="_gridReady">
+            <ext-grid layout="fit" multicolumnSort="true" plugins='{"gridviewoptions":true}' @ready="_gridReady">
                 <ext-column cell='{"encodeHtml":false}' dataIndex="device_text" flex="1" sorter='{"property":"device_vendor"}' :text="i18nd(`vue-ext`, `Device`)"/>
 
                 <ext-column cell='{"encodeHtml":false}' dataIndex="os_text" flex="1" sorter='{"property":"os_name"}' :text="i18nd(`vue-ext`, `Platform`)"/>

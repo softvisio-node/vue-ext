@@ -10,7 +10,7 @@
         </template>
 
         <template #data>
-            <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
+            <ext-grid layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
                 <ext-column dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Token name`)"/>
 
                 <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
