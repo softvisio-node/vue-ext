@@ -109,7 +109,7 @@ export default {
             this.$emit( "storeLoad", store, records, success, eOpts );
 
             if ( !success ) {
-                this.showErrorCard();
+                this.showErrorCard( eOpts );
             }
             else if ( !this.store.count() ) {
                 this.showNoDataCard();
