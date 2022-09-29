@@ -1,5 +1,5 @@
 <template>
-    <ext-panel ref="cards" layout="card" viewModel="true" @ready="_ready">
+    <ext-panel ref="cards" layout="card" @ready="_ready">
         <!-- empty card -->
         <ext-panel ref="emptyCard"/>
 
@@ -58,6 +58,10 @@ export default {
     },
 
     "methods": {
+        _ready ( e ) {
+            this.ext = e.detail.cmp;
+        },
+
         reload () {
             this.$emit( "reload" );
         },
