@@ -164,6 +164,11 @@ export default {
                                 },
                                 "items": [
                                     {
+                                        "iconCls": "fa-solid fa-copy",
+                                        "text": this.i18nd( `vue-ext`, "Copy email to clipboard" ),
+                                        "handler": this._copyEmail.bind( this ),
+                                    },
+                                    {
                                         "text": this.i18nd( `vue-ext`, "View user sessions" ),
                                         "handler": this._showUserSessionsDialog.bind( this ),
                                     },
@@ -306,6 +311,14 @@ export default {
             } );
 
             cmp.ext.show();
+        },
+
+        _copyEmail ( button ) {
+            const record = button.lookupViewModel().get( "record" );
+
+            this.$utils.copyToClipboard( record.get( "email" ) );
+
+            this.$utils.toast( this.i18nd( `vue-ext`, `User email copied` ) );
         },
 
         // roles filter
