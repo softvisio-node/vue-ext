@@ -1,5 +1,5 @@
 <template>
-    <ext-panel ref="cards" layout="card" @ready="_ready">
+    <ext-panel layout="card" @ready="_ready">
         <!-- default card -->
         <ext-panel ref="defaultCard" :html="defaultMessage" layout="center" style="text-align: center"/>
 
@@ -14,6 +14,7 @@
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" ui="action" @tap="reload"/>
         </ext-container>
 
+        <!-- data card -->
         <ext-panel ref="dataCard" layout="fit">
             <slot name="data"/>
         </ext-panel>
@@ -75,11 +76,11 @@ export default {
         },
 
         mask ( mask ) {
-            this.$refs.cards.ext.mask( mask || this.loadMask );
+            this.ext.mask( mask || this.loadMask );
         },
 
         unmask () {
-            this.$refs.cards.ext.unmask();
+            this.ext.unmask();
         },
 
         watchStore ( store ) {
@@ -112,7 +113,7 @@ export default {
         },
 
         showDefaultCard () {
-            this.$refs.cards.ext.setActiveItem( this.$refs.defaultCard.ext );
+            this.ext.setActiveItem( this.$refs.defaultCard.ext );
         },
 
         showErrorCard ( message ) {
@@ -123,15 +124,15 @@ export default {
                 this.$refs.errorMessage.ext.setHtml( "" );
             }
 
-            this.$refs.cards.ext.setActiveItem( this.$refs.errorCard.ext );
+            this.ext.setActiveItem( this.$refs.errorCard.ext );
         },
 
         showNoDataCard () {
-            this.$refs.cards.ext.setActiveItem( this.$refs.noDataCard.ext );
+            this.ext.setActiveItem( this.$refs.noDataCard.ext );
         },
 
         showDataCard () {
-            this.$refs.cards.ext.setActiveItem( this.$refs.dataCard.ext );
+            this.ext.setActiveItem( this.$refs.dataCard.ext );
         },
 
         _onStoreLoad ( store, records, success, eOpts ) {
