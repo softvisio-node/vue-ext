@@ -1,32 +1,28 @@
 <template>
-    <ext-panel ref="cards" layout="card" viewModel="true" @ready="_ready">
-        <ext-toolbar docked="top">
-            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
-            <ext-spacer/>
-            <ext-button bind='{"hidden":"{!acl.can_add_user}"}' iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_addUser"/>
-            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
-        </ext-toolbar>
+    <CardsErrorPanel ref="cards" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
+        <template #items>
+            <ext-toolbar docked="top">
+                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
+                <ext-spacer/>
+                <ext-button bind='{"hidden":"{!acl.can_add_user}"}' iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_addUser"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
+            </ext-toolbar>
+        </template>
 
-        <ext-panel ref="noDataCard" :html="i18nd(`vue-ext`, `No data match search criteria`)" layout="center"/>
+        <template #data>
+            <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true" viewModel="true" @ready="_ready">
+                <ext-column width="40" @ready="_avatarColReady"/>
 
-        <!-- error card -->
-        <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
-            <ext-container :html="i18nd(`vue-ext`, `Unable to load data`)"/>
-            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" ui="action" @tap="reload"/>
-        </ext-container>
+                <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)"/>
 
-        <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true">
-            <ext-column width="40" @ready="_avatarColReady"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="roles_text" flex="1" :text="i18nd(`vue-ext`, `Roles`)"/>
 
-            <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)"/>
+                <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
 
-            <ext-column cell='{"encodeHtml":false}' dataIndex="roles_text" flex="1" :text="i18nd(`vue-ext`, `Roles`)"/>
-
-            <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
-
-            <ext-column width="80" @ready="_actionColReady"/>
-        </ext-grid>
-    </ext-panel>
+                <ext-column width="80" @ready="_actionColReady"/>
+            </ext-grid>
+        </template>
+    </CardsErrorPanel>
 </template>
 
 <script>
@@ -34,35 +30,28 @@ import "#lib/components/avatar/ext.avatar";
 import AclModel from "./models/acl";
 import UserModel from "./models/user";
 import UserDialog from "./user-dialog";
-import loadMask from "#vue/load-mask";
+import CardsErrorPanel from "#lib/components/cards-error.panel";
 
 export default {
+    "components": { CardsErrorPanel },
+
     created () {
         this.store = Ext.create( "Ext.data.Store", {
             "model": UserModel,
             "remoteFilter": false,
             "remoteSort": false,
         } );
-
-        this.store.on( "datachanged", store => {
-            if ( !store.getCount() ) {
-                this.$refs.cards.ext.setActiveItem( this.$refs.noDataCard.ext );
-            }
-            else {
-                this.$refs.cards.ext.setActiveItem( this.$refs.grid.ext );
-            }
-        } );
     },
 
     "methods": {
+        _ready ( e ) {
+            this.$refs.grid.ext.setStore( this.store );
+        },
+
         setAclId ( aclId ) {
             this.aclId = aclId;
 
             this.reload();
-        },
-
-        _ready ( e ) {
-            this.$refs.grid.ext.setStore( this.store );
         },
 
         _avatarColReady ( e ) {
@@ -133,29 +122,29 @@ export default {
         },
 
         async reload () {
-            this.$refs.cards.ext.mask( loadMask );
+            this.$refs.cards.mask();
 
             this.store.loadRawData( [] );
 
             var res = await this.$api.call( "acl/get-acl-permissions", this.aclId, "acl" );
 
             if ( !res.ok ) {
-                this.$refs.cards.ext.unmask();
+                this.$refs.cards.unmask();
 
-                this.$refs.cards.ext.setActiveItem( this.$refs.errorCard.ext );
+                this.$refs.cards.setResult( res );
 
                 this.$utils.toast( res );
             }
 
             const acl = new AclModel( res.data );
-            this.$refs.cards.ext.getViewModel().set( "acl", acl );
+            this.$refs.grid.ext.getViewModel().set( "acl", acl );
 
             res = await this.$api.call( "acl/get-users", this.aclId );
 
-            this.$refs.cards.ext.unmask();
+            this.$refs.cards.unmask();
 
             if ( !res.ok ) {
-                this.$refs.cards.ext.setActiveItem( this.$refs.errorCard.ext );
+                this.$refs.cards.setResult( res );
 
                 this.$utils.toast( res );
             }
@@ -232,11 +221,11 @@ export default {
         },
 
         async _addUser () {
-            this.$refs.cards.ext.mask();
+            this.$refs.cards.mask();
 
             const res = await this.$api.call( "acl/get-roles", this.aclId );
 
-            this.$refs.cards.ext.unmask();
+            this.$refs.cards.unmask();
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
