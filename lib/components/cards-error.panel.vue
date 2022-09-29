@@ -68,8 +68,8 @@ export default {
         unwatchStore () {
             if ( !this._store ) return;
 
-            this._store.off( "load", this._storeLoadCallback );
-            this._store.off( "datachanged", this._storeDataChangedCallback );
+            this._store.removeListener( "load", this._storeLoadCallback );
+            this._store.removeListener( "datachanged", this._storeDataChangedCallback );
 
             this._store = null;
             this._storeLoadCallback = null;
