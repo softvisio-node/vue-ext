@@ -128,7 +128,7 @@ export default {
             if ( !success ) {
                 this.showErrorCard( eOpts );
             }
-            else if ( !this.store.getCount() ) {
+            else if ( !store.getCount() ) {
                 this.showNoDataCard();
             }
             else {
