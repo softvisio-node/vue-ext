@@ -11,8 +11,10 @@
         </ext-container>
 
         <ext-panel ref="dataCard" layout="fit">
-            <slot/>
+            <slot name="data"/>
         </ext-panel>
+
+        <slot name="items"/>
     </ext-panel>
 </template>
 
