@@ -104,14 +104,13 @@ export default {
             this.$refs.cards.ext.setActiveItem( this.$refs.dataCard.ext );
         },
 
-        // XXX event args
         _onStoreLoad ( store, records, success, eOpts ) {
             this.$emit( "storeLoad", store, records, success, eOpts );
 
             if ( !success ) {
                 this.showErrorCard( eOpts );
             }
-            else if ( !this.store.count() ) {
+            else if ( !this.store.getCount() ) {
                 this.showNoDataCard();
             }
             else {
@@ -119,7 +118,6 @@ export default {
             }
         },
 
-        // XXX event args
         _onStoreDataChanged ( store, eOpts ) {
             this.$emit( "storeDataChange", store, eOpts );
 
