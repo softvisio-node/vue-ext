@@ -117,14 +117,20 @@ export default {
 
             const res = await this.$app.signup( email, fields );
 
-            Ext.Viewport.unmask();
-
             if ( res.ok ) {
+
+                // sign in
+                if ( res.data?.token ) return;
+
+                Ext.Viewport.unmask();
+
                 this.$utils.toast( res, 5000 );
 
                 this.back();
             }
             else {
+                Ext.Viewport.unmask();
+
                 this.$utils.toast( res );
             }
         },
