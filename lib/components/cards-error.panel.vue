@@ -104,7 +104,7 @@ export default {
             this.$refs.cards.ext.setActiveItem( this.$refs.dataCard.ext );
         },
 
-        // XXX
+        // XXX event args
         _onStoreLoad ( store, records, success ) {
             this.$emit( "storeLoad" );
 
@@ -119,6 +119,7 @@ export default {
             }
         },
 
+        // XXX event args
         _onStoreDataChanged ( store ) {
             if ( !store.getCount() ) {
                 this.showNoDataCard();
