@@ -165,7 +165,7 @@ export default {
                                 "items": [
                                     {
                                         "iconCls": "fa-solid fa-copy",
-                                        "text": this.i18nd( `vue-ext`, "Copy email to clipboard" ),
+                                        "text": this.i18nd( `vue-ext`, "Copy email to the clipboard" ),
                                         "handler": this._copyEmail.bind( this ),
                                     },
                                     {
