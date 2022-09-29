@@ -4,7 +4,7 @@
         <ext-panel ref="emptyCard"/>
 
         <!-- no data card -->
-        <ext-panel ref="noDataCard" :html="i18nd(`vue-ext`, `No data match search criteria`)" layout="center"/>
+        <ext-panel ref="noDataCard" :html="noDataMessage" layout="center"/>
 
         <!-- error card -->
         <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
@@ -34,6 +34,10 @@ export default {
         "showErrorMessage": {
             "type": Boolean,
             "default": true,
+        },
+        "noDataMessage": {
+            "type": String,
+            "default": this.i18nd( `vue-ext`, `No data match search criteria` ),
         },
     },
 
