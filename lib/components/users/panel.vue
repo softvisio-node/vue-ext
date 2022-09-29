@@ -249,7 +249,6 @@ export default {
             }
         },
 
-        // XXX
         reload () {
             this.$refs.cards.mask();
 

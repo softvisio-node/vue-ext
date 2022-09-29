@@ -1,51 +1,45 @@
 <template>
-    <ext-panel ref="cards" layout="card">
-        <ext-toolbar docked="top">
-            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
-            <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Create token`)" @tap="showCreateTokenDialog"/>
-            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
-        </ext-toolbar>
+    <CardsErrorPanel ref="cards" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
+        <template #items>
+            <ext-toolbar docked="top">
+                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
+                <ext-spacer/>
+                <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Create token`)" @tap="showCreateTokenDialog"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
+            </ext-toolbar>
+        </template>
 
-        <!-- no-data card -->
-        <ext-container ref="noDataCard" :html="i18nd(`vue-ext`, `No data match search criteria`)" layout="center" style="text-align: center"/>
+        <template #data>
+            <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
+                <ext-column dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Token name`)"/>
 
-        <!-- error card -->
-        <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
-            <ext-container :html="i18nd(`vue-ext`, `Unable to load data`)"/>
-            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" ui="action" @tap="reload"/>
-        </ext-container>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
 
-        <!-- data card -->
-        <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
-            <ext-column dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Token name`)"/>
+                <ext-column dataIndex="created" formatter='date("dateStyle:short,timeStyle:short")' :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
 
-            <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
+                <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="enabledColReady"/>
 
-            <ext-column dataIndex="created" formatter='date("dateStyle:short,timeStyle:short")' :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
-
-            <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="enabledColReady"/>
-
-            <ext-column width="80" @ready="actionColReady"/>
-        </ext-grid>
-    </ext-panel>
+                <ext-column width="80" @ready="actionColReady"/>
+            </ext-grid>
+        </template>
+    </CardsErrorPanel>
 </template>
 
 <script>
 import CreateDialog from "./create/dialog";
 import RolesDialog from "./roles/dialog";
 import TokenModel from "./models/token";
-import loadMask from "#vue/load-mask";
+import CardsErrorPanel from "#lib/components/cards-error.panel";
 
 export default {
+    "components": { CardsErrorPanel },
+
     created () {
         this.store = Ext.create( "Ext.data.Store", {
             "model": TokenModel,
             "autoLoad": false,
             "pageSize": 100,
         } );
-
-        this.store.on( "load", this._onStoreLoad.bind( this ) );
     },
 
     "methods": {
@@ -123,9 +117,13 @@ export default {
         },
 
         reload () {
-            this.$refs.cards.ext.mask( loadMask );
+            this.$refs.cards.mask();
 
             this.store.loadPage( 1 );
+        },
+
+        _onStoreLoad () {
+            this.$refs.cards.unmask();
         },
 
         async setEnabled ( button, enabled ) {
@@ -192,20 +190,6 @@ export default {
             cmp.setRecord( record );
 
             cmp.ext.show();
-        },
-
-        _onStoreLoad ( store, records, success ) {
-            this.$refs.cards.ext.unmask();
-
-            if ( !success ) {
-                this.$refs.cards.ext.setActiveItem( this.$refs.errorCard.ext );
-            }
-            else if ( !this.store.count() ) {
-                this.$refs.cards.ext.setActiveItem( this.$refs.noDataCard.ext );
-            }
-            else {
-                this.$refs.cards.ext.setActiveItem( this.$refs.dataCard.ext );
-            }
         },
     },
 };
