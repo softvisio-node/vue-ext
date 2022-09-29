@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-24 00:18+0300\n"
+"POT-Creation-Date: 2022-09-29 15:17+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,10 +15,9 @@ msgstr ""
 "X-Poedit-SearchPath-0: lib\n"
 
 #: lib/components/account/account.panel.vue:5:34
-#: lib/components/acl/panel.vue:14:34
+#: lib/components/acl/panel.vue:14:34 lib/components/cards-error.panel.vue:8:34
 #: lib/components/user-sessions/panel.vue:15:34
 #: lib/components/user-tokens/panel.vue:15:34
-#: lib/components/users/panel.vue:16:34
 msgid "Unable to load data"
 msgstr "Не вдалося завантажити дані"
 
@@ -27,11 +26,12 @@ msgstr "Не вдалося завантажити дані"
 #: lib/components/api-call-log/history/dialog.vue:5:58
 #: lib/components/api-call-log/log/dialog.vue:5:58
 #: lib/components/api-call-log/panel.vue:7:78
+#: lib/components/cards-error.panel.vue:10:58
 #: lib/components/user-sessions/panel.vue:7:58
 #: lib/components/user-sessions/panel.vue:16:58
 #: lib/components/user-tokens/panel.vue:7:58
 #: lib/components/user-tokens/panel.vue:16:58
-#: lib/components/users/panel.vue:8:58 lib/components/users/panel.vue:17:58
+#: lib/components/users/panel.vue:9:62
 msgid "Refresh"
 msgstr "Оновити"
 
@@ -43,7 +43,7 @@ msgstr "Локаль"
 #: lib/components/app-title/menu.vue:12:101
 #: lib/components/change-password.dialog.vue:14:21
 #: lib/components/reset-password.dialog.vue:15:31
-#: lib/components/users/panel.vue:177:48
+#: lib/components/users/panel.vue:171:48
 msgid "Change password"
 msgstr "Змінити пароль"
 
@@ -142,7 +142,7 @@ msgstr "Користувачі"
 msgid "No roles assigned"
 msgstr "Ролі не призначено"
 
-#: lib/components/acl/panel.vue:4:43 lib/components/users/panel.vue:4:43
+#: lib/components/acl/panel.vue:4:43 lib/components/users/panel.vue:5:47
 msgid "Search users"
 msgstr "Пошук користувачів"
 
@@ -150,21 +150,20 @@ msgstr "Пошук користувачів"
 msgid "Add user"
 msgstr "Додати користувача"
 
-#: lib/components/acl/panel.vue:10:43
+#: lib/components/acl/panel.vue:10:43 lib/components/cards-error.panel.vue:4:43
 #: lib/components/user-sessions/panel.vue:11:47
 #: lib/components/user-tokens/panel.vue:11:47
-#: lib/components/users/panel.vue:12:47
 msgid "No data match search criteria"
 msgstr "Жодні дані не відповідають критеріям пошуку"
 
 #: lib/components/acl/panel.vue:21:96 lib/components/acl/user-dialog.vue:7:96
 #: lib/components/users/create-user.dialog.vue:4:63
-#: lib/components/users/panel.vue:24:83
+#: lib/components/users/panel.vue:17:87
 msgid "Email"
 msgstr "Email"
 
-#: lib/components/acl/panel.vue:23:91 lib/components/users/panel.vue:72:33
-#: lib/components/users/panel.vue:349:52
+#: lib/components/acl/panel.vue:23:91 lib/components/users/panel.vue:66:33
+#: lib/components/users/panel.vue:334:52
 msgid "Roles"
 msgstr "Ролі"
 
@@ -173,30 +172,30 @@ msgstr "Ролі"
 #: lib/components/user-tokens/panel.vue:27:84
 #: lib/components/user-tokens/panel.vue:152:45
 #: lib/components/users/create-user.dialog.vue:10:37
-#: lib/components/users/panel.vue:30:84 lib/components/users/panel.vue:215:45
+#: lib/components/users/panel.vue:23:88 lib/components/users/panel.vue:209:45
 msgid "Access enabled"
 msgstr "Доступ увімкнено"
 
-#: lib/components/acl/panel.vue:114:39 lib/components/users/panel.vue:159:39
+#: lib/components/acl/panel.vue:114:39 lib/components/users/panel.vue:153:39
 #: lib/components/users/user-roles.dialog.vue:2:69
 msgid "Edit user roles"
 msgstr "Редагувати ролі користувача"
 
-#: lib/components/acl/panel.vue:124:39 lib/components/users/panel.vue:183:48
+#: lib/components/acl/panel.vue:124:39 lib/components/users/panel.vue:177:48
 msgid "Delete user"
 msgstr "Видалити користувача"
 
 #: lib/components/acl/panel.vue:201:89
 #: lib/components/user-tokens/panel.vue:152:89
-#: lib/components/users/panel.vue:215:89
+#: lib/components/users/panel.vue:209:89
 msgid "Access disabled"
 msgstr "Доступ вимкнено"
 
-#: lib/components/acl/panel.vue:210:47 lib/components/users/panel.vue:225:47
+#: lib/components/acl/panel.vue:210:47 lib/components/users/panel.vue:219:47
 msgid "Are you sure you want to delete user?"
 msgstr "Ви впевнені, що хочете видалити користувача?"
 
-#: lib/components/acl/panel.vue:219:35 lib/components/users/panel.vue:234:35
+#: lib/components/acl/panel.vue:219:35 lib/components/users/panel.vue:228:35
 msgid "User deleted"
 msgstr "Користувача видалено"
 
@@ -305,7 +304,7 @@ msgid "Enter your email address"
 msgstr "Введіть адресу вашої електронної пошти"
 
 #: lib/components/auth/password-recovery.form.vue:14:64
-#: lib/components/auth/signup.form.vue:20:64
+#: lib/components/auth/signup.form.vue:23:64
 msgid "Back"
 msgstr "Назад"
 
@@ -314,8 +313,8 @@ msgid "Recover"
 msgstr "Відновити"
 
 #: lib/components/auth/password-recovery.form.vue:56:35
-#: lib/components/auth/signin.form.vue:84:35
-#: lib/components/auth/signup.form.vue:73:35
+#: lib/components/auth/signin.form.vue:71:35
+#: lib/components/auth/signup.form.vue:90:35
 msgid "Please, correctly fill all required fields"
 msgstr "Будь ласка, правильно заповніть усі необхідні поля"
 
@@ -324,7 +323,7 @@ msgid "Password change instructions were sent to the email address, associated w
 msgstr "Інструкції щодо зміни пароля були надіслані на адресу електронної пошти, пов’язану з вашим обліковим записом."
 
 #: lib/components/auth/signin.form.vue:5:34
-#: lib/components/auth/signin.form.vue:29:31
+#: lib/components/auth/signin.form.vue:24:31
 msgid "Sign in"
 msgstr "Увійти"
 
@@ -335,28 +334,16 @@ msgstr "Увійти"
 msgid "Enter password"
 msgstr "Введіть пароль"
 
-#: lib/components/auth/signin.form.vue:15:78
+#: lib/components/auth/signin.form.vue:15:81
 msgid "Forgot password?"
 msgstr "Забули пароль?"
 
-#: lib/components/auth/signin.form.vue:18:95
-msgid "Sign in with Google"
-msgstr "Увійдіть через Google"
-
-#: lib/components/auth/signin.form.vue:20:106
-msgid "Sign in with Facebook"
-msgstr "Увійдіть через Facebook"
-
-#: lib/components/auth/signin.form.vue:22:95
-msgid "Sign in with GitHub"
-msgstr "Увійдіть через GitHub"
-
-#: lib/components/auth/signin.form.vue:25:71
+#: lib/components/auth/signin.form.vue:20:71
 msgid "Do not have account? Sign up"
 msgstr "Немає облікового запису? зареєструватися"
 
 #: lib/components/auth/signup.form.vue:5:34
-#: lib/components/auth/signup.form.vue:22:31
+#: lib/components/auth/signup.form.vue:25:31
 msgid "Sign up"
 msgstr "Зареєструватися"
 
@@ -374,25 +361,25 @@ msgstr "Підтвердіть пароль"
 msgid "Generate random password"
 msgstr "Згенерувати випадковий пароль"
 
-#: lib/components/auth/signup.form.vue:81:64
-#: lib/components/change-password.dialog.vue:72:64
-#: lib/components/reset-password.dialog.vue:80:64
-#: lib/components/users/create-user.dialog.vue:70:64
-msgid "Passwords do not match"
-msgstr "Паролі не збігаються"
-
-#: lib/components/auth/signup.form.vue:109:31
+#: lib/components/auth/signup.form.vue:80:31
 #: lib/components/change-password.dialog.vue:102:31
 #: lib/components/reset-password.dialog.vue:106:31
 #: lib/components/users/create-user.dialog.vue:96:31
 msgid "Password copied to the clipboard"
 msgstr "Пароль скопійовано в буфер обміну"
 
+#: lib/components/auth/signup.form.vue:98:64
+#: lib/components/change-password.dialog.vue:72:64
+#: lib/components/reset-password.dialog.vue:80:64
+#: lib/components/users/create-user.dialog.vue:70:64
+msgid "Passwords do not match"
+msgstr "Паролі не збігаються"
+
 #: lib/components/authorization.dialog.vue:3:30
 msgid "Authorization is required to perform this operation. Please, authorize and then repeat action again."
 msgstr "Для виконання цієї операції потрібна авторизація. Авторизуйтесь, а потім повторіть дію ще раз."
 
-#: lib/components/authorization.dialog.vue:10:21
+#: lib/components/authorization.dialog.vue:13:21
 msgid "Authorize"
 msgstr "Авторизуватися"
 
@@ -400,7 +387,7 @@ msgstr "Авторизуватися"
 msgid "Authorization"
 msgstr "Авторизація"
 
-#: lib/components/authorization.dialog.vue:62:35
+#: lib/components/authorization.dialog.vue:76:35
 msgid "Authorized"
 msgstr "Авторизовано"
 
@@ -540,6 +527,12 @@ msgstr "Telegram${n}сповіщення"
 msgid "Push${n}notifications"
 msgstr "Push${n}сповіщення"
 
+#: lib/components/oauth.container.vue:3:91
+#: lib/components/oauth.container.vue:5:102
+#: lib/components/oauth.container.vue:7:91
+msgid "Sign in with"
+msgstr "Увійдіть через"
+
 #: lib/components/pdf/_panel.vue:78:35
 msgid "Maximize"
 msgstr "Максимізувати"
@@ -594,13 +587,13 @@ msgstr "IP адреса"
 
 #: lib/components/user-sessions/panel.vue:29:128
 #: lib/components/user-tokens/panel.vue:23:128
-#: lib/components/users/panel.vue:26:163
+#: lib/components/users/panel.vue:19:167
 msgid "Last activity"
 msgstr "Останній активность"
 
 #: lib/components/user-sessions/panel.vue:31:70
 #: lib/components/user-tokens/panel.vue:25:103
-#: lib/components/users/panel.vue:28:100
+#: lib/components/users/panel.vue:21:104
 msgid "Creation date"
 msgstr "Дата створення"
 
@@ -695,7 +688,7 @@ msgstr "Введіть email"
 
 #: lib/components/users/create-user.dialog.vue:17:31
 #: lib/components/users/create-user.dialog.vue:2:116
-#: lib/components/users/panel.vue:7:81
+#: lib/components/users/panel.vue:8:85
 msgid "Create user"
 msgstr "Створити користувача"
 
@@ -703,19 +696,19 @@ msgstr "Створити користувача"
 msgid "User created"
 msgstr "Користувач створений"
 
-#: lib/components/users/panel.vue:88:28
+#: lib/components/users/panel.vue:82:28
 msgid "Clear filter"
 msgstr "Очистити фільтр"
 
-#: lib/components/users/panel.vue:165:39
+#: lib/components/users/panel.vue:159:39
 msgid "Actions"
 msgstr "Дії"
 
-#: lib/components/users/panel.vue:173:48
+#: lib/components/users/panel.vue:167:48
 msgid "View user sessions"
 msgstr "Перегляд сесій користувача"
 
-#: lib/components/users/panel.vue:340:52
+#: lib/components/users/panel.vue:325:52
 #, javascript-format
 msgid "${n} role"
 msgid_plural "${n} roles"
@@ -770,6 +763,12 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "Sign in with Facebook"
+#~ msgstr "Увійдіть через Facebook"
+
+#~ msgid "Sign in with GitHub"
+#~ msgstr "Увійдіть через GitHub"
 
 #~ msgid "Unable to load records"
 #~ msgstr "Неможливо завантажити записи"

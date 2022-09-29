@@ -1,10 +1,10 @@
 <template>
     <ext-container defaults='{"margin":"0 20 0 20","ui":"action"}' layout='{"pack":"center","type":"hbox"}' padding="10 0 0 0">
-        <ext-button :hidden="!signinGoogleEnabled" iconCls="fa-brands fa-google" :tooltip="i18nd(`vue-ext`, `Sign up with Google`)" @tap="_oauthGoogle"/>
+        <ext-button :hidden="!signinGoogleEnabled" iconCls="fa-brands fa-google" :tooltip="i18nd(`vue-ext`, `Sign in with`) + ` Google`" @tap="_oauthGoogle"/>
 
-        <ext-button :hidden="!signinFacebookEnabled" iconCls="fa-brands fa-square-facebook" :tooltip="i18nd(`vue-ext`, `Sign up with Facebook`)" @tap="_oauthFacebook"/>
+        <ext-button :hidden="!signinFacebookEnabled" iconCls="fa-brands fa-square-facebook" :tooltip="i18nd(`vue-ext`, `Sign in with`) + ` Facebook`" @tap="_oauthFacebook"/>
 
-        <ext-button :hidden="!signinGitHubEnabled" iconCls="fa-brands fa-github" :tooltip="i18nd(`vue-ext`, `Sign up with GitHub`)" @tap="_oauthGitHub"/>
+        <ext-button :hidden="!signinGitHubEnabled" iconCls="fa-brands fa-github" :tooltip="i18nd(`vue-ext`, `Sign in with`) + ` GitHub`" @tap="_oauthGitHub"/>
     </ext-container>
 </template>
 
