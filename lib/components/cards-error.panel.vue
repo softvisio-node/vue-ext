@@ -78,7 +78,7 @@ export default {
 
         setResult ( res ) {
             if ( !res.ok ) {
-                this.showErrorCard( res );
+                this.showErrorCard( res.statusText );
             }
             else {
                 this.showDataCard();
