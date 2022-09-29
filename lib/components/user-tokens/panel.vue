@@ -1,5 +1,5 @@
 <template>
-    <CardsErrorPanel ref="cards" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
+    <CardsPanel ref="cards" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
@@ -22,17 +22,17 @@
                 <ext-column width="80" @ready="actionColReady"/>
             </ext-grid>
         </template>
-    </CardsErrorPanel>
+    </CardsPanel>
 </template>
 
 <script>
 import CreateDialog from "./create/dialog";
 import RolesDialog from "./roles/dialog";
 import TokenModel from "./models/token";
-import CardsErrorPanel from "#lib/components/cards-error.panel";
+import CardsPanel from "#lib/components/cards.panel";
 
 export default {
-    "components": { CardsErrorPanel },
+    "components": { CardsPanel },
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {

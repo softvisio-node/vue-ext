@@ -1,5 +1,5 @@
 <template>
-    <CardsErrorPanel ref="cards" :store="store" @reload="reload">
+    <CardsPanel ref="cards" :store="store" @reload="reload">
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
@@ -22,7 +22,7 @@
                 <ext-column width="80" @ready="_actionColReady"/>
             </ext-grid>
         </template>
-    </CardsErrorPanel>
+    </CardsPanel>
 </template>
 
 <script>
@@ -30,10 +30,10 @@ import "#lib/components/avatar/ext.avatar";
 import AclModel from "./models/acl";
 import UserModel from "./models/user";
 import UserDialog from "./user-dialog";
-import CardsErrorPanel from "#lib/components/cards-error.panel";
+import CardsPanel from "#lib/components/cards.panel";
 
 export default {
-    "components": { CardsErrorPanel },
+    "components": { CardsPanel },
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {

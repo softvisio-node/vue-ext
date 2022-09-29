@@ -1,5 +1,5 @@
 <template>
-    <CardsErrorPanel ref="cards" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
+    <CardsPanel ref="cards" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
@@ -25,7 +25,7 @@
                 <ext-column width="80" @ready="_actionColReady"/>
             </ext-grid>
         </template>
-    </CardsErrorPanel>
+    </CardsPanel>
 </template>
 
 <script>
@@ -35,10 +35,10 @@ import UserRolesDialog from "./user-roles.dialog";
 import UserModel from "./models/user";
 import ChangePasswordDialog from "./change-password.dialog";
 import UserSessionsDialog from "./user-sessions.dialog";
-import CardsErrorPanel from "#lib/components/cards-error.panel";
+import CardsPanel from "#lib/components/cards.panel";
 
 export default {
-    "components": { CardsErrorPanel },
+    "components": { CardsPanel },
 
     "props": {
         "lastActivityColumnHidden": {

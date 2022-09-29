@@ -1,5 +1,5 @@
 <template>
-    <CardsErrorPanel ref="cards" :store="store" @reload="reload">
+    <CardsPanel ref="cards" :store="store" @reload="reload">
         <template #items>
             <ext-toolbar docked="top">
                 <ext-container :html="title"/>
@@ -26,15 +26,15 @@
                 <ext-column width="50" @ready="_actionColReady"/>
             </ext-grid>
         </template>
-    </CardsErrorPanel>
+    </CardsPanel>
 </template>
 
 <script>
 import SessionModel from "./models/session";
-import CardsErrorPanel from "#lib/components/cards-error.panel";
+import CardsPanel from "#lib/components/cards.panel";
 
 export default {
-    "components": { CardsErrorPanel },
+    "components": { CardsPanel },
 
     "computed": {
         title () {

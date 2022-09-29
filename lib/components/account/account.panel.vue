@@ -1,5 +1,5 @@
 <template>
-    <CardsErrorPanel ref="cards" @reload="reload">
+    <CardsPanel ref="cards" @reload="reload">
         <template #data>
             <ext-container ref="dataCard" layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
                 <!-- locale -->
@@ -44,12 +44,12 @@
                 <UserSessionsPanel margin="20 0 0 0" maxHeight="500" minHeight="300"/>
             </ext-container>
         </template>
-    </CardsErrorPanel>
+    </CardsPanel>
 </template>
 
 <script>
 import locale from "#vue/locale";
-import CardsErrorPanel from "#lib/components/cards-error.panel";
+import CardsPanel from "#lib/components/cards.panel";
 import UserSessionsPanel from "#lib/components/user-sessions/panel";
 import AccountModel from "./models/account";
 import ChangePasswordDialog from "#lib/components/change-password.dialog";
@@ -57,7 +57,7 @@ import ChangeEmailDialog from "#lib/components/change-email.dialog";
 import LocaleButton from "#lib/components/locale.button";
 
 export default {
-    "components": { CardsErrorPanel, LocaleButton, UserSessionsPanel },
+    "components": { CardsPanel, LocaleButton, UserSessionsPanel },
 
     "computed": {
         localeHidden () {
