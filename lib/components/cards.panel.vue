@@ -4,7 +4,7 @@
         <ext-panel ref="emptyCard"/>
 
         <!-- no data card -->
-        <ext-panel ref="noDataCard" :html="noDataMessage" layout="center"/>
+        <ext-panel ref="noDataCard" :html="noDataMessageText" layout="center"/>
 
         <!-- error card -->
         <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
@@ -37,11 +37,17 @@ export default {
         },
         "noDataMessage": {
             "type": String,
-            "default": this.i18nd( `vue-ext`, `No data match search criteria` ),
+            "default": "",
         },
     },
 
     "emits": ["reload", "storeLoad"],
+
+    "computed": {
+        noDataMessageText () {
+            return this.noDataMessage || this.i18nd( `vue-ext`, `No data match search criteria` );
+        },
+    },
 
     mounted () {
         if ( this.store ) this.watchStore( this.store );
