@@ -1,5 +1,8 @@
 <template>
     <ext-panel ref="cards" layout="card" viewModel="true" @ready="_ready">
+        <!-- empty card -->
+        <ext-panel ref="emptyCard"/>
+
         <!-- no data card -->
         <ext-panel ref="noDataCard" :html="i18nd(`vue-ext`, `No data match search criteria`)" layout="center"/>
 
@@ -7,6 +10,7 @@
         <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
             <ext-container :html="i18nd(`vue-ext`, `Unable to load data`)"/>
             <ext-container ref="errorMessage"/>
+            <ext-container height="10"/>
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" ui="action" @tap="reload"/>
         </ext-container>
 
