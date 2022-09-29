@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import loadMask from "#vue/load-mask";
+
 export default {
     "props": {
         "store": {
@@ -42,6 +44,14 @@ export default {
     "methods": {
         reload () {
             this.$emit( "reload" );
+        },
+
+        mask ( mask ) {
+            this.$refs.cards.ext.mask( mask ?? loadMask );
+        },
+
+        unmask () {
+            this.$refs.cards.ext.unmask();
         },
 
         watchStore ( store ) {
@@ -75,10 +85,10 @@ export default {
 
         showErrorCard ( message ) {
             if ( message && this.showErrorMessage ) {
-                this.$refs.errorMessage.setHtml( message + "" );
+                this.$refs.errorMessage.ext.setHtml( message + "" );
             }
             else {
-                this.$refs.errorMessage.setHtml( "" );
+                this.$refs.errorMessage.ext.setHtml( "" );
             }
 
             this.$refs.cards.ext.setActiveItem( this.$refs.errorCard.ext );

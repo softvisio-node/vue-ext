@@ -1,5 +1,5 @@
 <template>
-    <ext-panel ref="cards" layout="card">
+    <CardsErrorPanel ref="cards" :store="store" @reload="reload">
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
             <ext-button ref="rolesFilter" width="120"/>
@@ -8,17 +8,7 @@
             <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
         </ext-toolbar>
 
-        <!-- no-data card -->
-        <ext-container ref="noDataCard" :html="i18nd(`vue-ext`, `No data match search criteria`)" layout="center" style="text-align: center"/>
-
-        <!-- error card -->
-        <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
-            <ext-container :html="i18nd(`vue-ext`, `Unable to load data`)"/>
-            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" ui="action" @tap="reload"/>
-        </ext-container>
-
-        <!-- data card -->
-        <ext-grid ref="dataCard" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="_gridReady">
+        <ext-grid layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="_gridReady">
             <ext-column width="40" @ready="_avatarColReady"/>
 
             <ext-column dataIndex="email" flex="1" summaryDataIndex="total" :text="i18nd(`vue-ext`, `Email`)" @ready="_emailColReady"/>
@@ -31,7 +21,7 @@
 
             <ext-column width="80" @ready="_actionColReady"/>
         </ext-grid>
-    </ext-panel>
+    </CardsErrorPanel>
 </template>
 
 <script>
@@ -39,11 +29,13 @@ import "#lib/components/avatar/ext.avatar";
 import CreateUserDialog from "./create-user.dialog";
 import UserRolesDialog from "./user-roles.dialog";
 import UserModel from "./models/user";
-import loadMask from "#vue/load-mask";
 import ChangePasswordDialog from "./change-password.dialog";
 import UserSessionsDialog from "./user-sessions.dialog";
+import CardsErrorPanel from "#lib/components/cards-error.panel";
 
 export default {
+    "components": { CardsErrorPanel },
+
     "props": {
         "lastActivityColumnHidden": {
             "type": Boolean,
@@ -61,8 +53,6 @@ export default {
             "autoLoad": false,
             "pageSize": 50,
         } );
-
-        this.store.on( "load", this._onStoreLoad.bind( this ) );
     },
 
     "methods": {
@@ -255,8 +245,11 @@ export default {
             }
         },
 
+        // XXX
         reload () {
-            this.$refs.cards.ext.mask( loadMask );
+            this.$refs.cards.mask();
+
+            this.$refs.cards.unmask();
 
             this.store.loadPage( 1 );
         },
@@ -280,20 +273,6 @@ export default {
             cmp.setRecord( record );
 
             cmp.ext.show();
-        },
-
-        _onStoreLoad ( store, records, success ) {
-            this.$refs.cards.ext.unmask();
-
-            if ( !success ) {
-                this.$refs.cards.ext.setActiveItem( this.$refs.errorCard.ext );
-            }
-            else if ( !this.store.count() ) {
-                this.$refs.cards.ext.setActiveItem( this.$refs.noDataCard.ext );
-            }
-            else {
-                this.$refs.cards.ext.setActiveItem( this.$refs.dataCard.ext );
-            }
         },
 
         async _showChangePasswordDialog ( button ) {
