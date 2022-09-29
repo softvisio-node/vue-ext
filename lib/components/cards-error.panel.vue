@@ -31,7 +31,7 @@ export default {
         },
     },
 
-    "emits": ["reload"],
+    "emits": ["reload", "storeLoad"],
 
     mounted () {
         if ( this.store ) this.watchStore( this.store );
@@ -104,6 +104,8 @@ export default {
 
         // XXX
         _onStoreLoad ( store, records, success ) {
+            this.$emit( "storeLoad" );
+
             if ( !success ) {
                 this.showErrorCard();
             }

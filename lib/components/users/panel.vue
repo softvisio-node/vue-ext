@@ -1,5 +1,5 @@
 <template>
-    <CardsErrorPanel ref="cards" :store="store" @reload="reload">
+    <CardsErrorPanel ref="cards" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
             <ext-button ref="rolesFilter" width="120"/>
@@ -249,9 +249,11 @@ export default {
         reload () {
             this.$refs.cards.mask();
 
-            this.$refs.cards.unmask();
-
             this.store.loadPage( 1 );
+        },
+
+        _onStoreLoad () {
+            this.$refs.cards.unmask();
         },
 
         async showCreateUserDialog () {
