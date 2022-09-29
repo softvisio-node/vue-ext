@@ -4,7 +4,7 @@
         <ext-panel ref="emptyCard"/>
 
         <!-- no data card -->
-        <ext-panel ref="noDataCard" :html="noDataMessageText" layout="center"/>
+        <ext-panel ref="noDataCard" :html="noDataMessageText" layout="center" style="text-align: center"/>
 
         <!-- error card -->
         <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
