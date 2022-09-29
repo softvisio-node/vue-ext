@@ -33,7 +33,7 @@ export default {
         },
     },
 
-    "emits": ["reload", "storeLoad"],
+    "emits": ["reload", "storeLoad", "storeDataChange"],
 
     mounted () {
         if ( this.store ) this.watchStore( this.store );
@@ -105,8 +105,8 @@ export default {
         },
 
         // XXX event args
-        _onStoreLoad ( store, records, success ) {
-            this.$emit( "storeLoad" );
+        _onStoreLoad ( store, records, success, eOpts ) {
+            this.$emit( "storeLoad", store, records, success, eOpts );
 
             if ( !success ) {
                 this.showErrorCard();
@@ -120,7 +120,9 @@ export default {
         },
 
         // XXX event args
-        _onStoreDataChanged ( store ) {
+        _onStoreDataChanged ( store, eOpts ) {
+            this.$emit( "storeDataChange", store, eOpts );
+
             if ( !store.getCount() ) {
                 this.showNoDataCard();
             }
