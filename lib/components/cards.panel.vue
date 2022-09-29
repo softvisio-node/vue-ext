@@ -1,7 +1,7 @@
 <template>
     <ext-panel ref="cards" layout="card" @ready="_ready">
-        <!-- empty card -->
-        <ext-panel ref="emptyCard"/>
+        <!-- default card -->
+        <ext-panel ref="defaultCard" :html="defaultMessage" layout="center" style="text-align: center"/>
 
         <!-- no data card -->
         <ext-panel ref="noDataCard" :html="noDataMessageText" layout="center" style="text-align: center"/>
@@ -35,9 +35,17 @@ export default {
             "type": Boolean,
             "default": true,
         },
+        "defaultMessage": {
+            "type": String,
+            "default": "",
+        },
         "noDataMessage": {
             "type": String,
             "default": "",
+        },
+        "loadMask": {
+            "type": Object,
+            "default": loadMask,
         },
     },
 
@@ -67,7 +75,7 @@ export default {
         },
 
         mask ( mask ) {
-            this.$refs.cards.ext.mask( mask ?? loadMask );
+            this.$refs.cards.ext.mask( mask || this.loadMask );
         },
 
         unmask () {
@@ -101,6 +109,10 @@ export default {
             else {
                 this.showDataCard();
             }
+        },
+
+        showDefaultCard () {
+            this.$refs.cards.ext.setActiveItem( this.$refs.defaultCard.ext );
         },
 
         showErrorCard ( message ) {
