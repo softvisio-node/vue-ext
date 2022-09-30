@@ -1,5 +1,23 @@
 # Changelog
 
+### 7.12.0 (2022-09-30)
+
+Features:
+
+-   feat: app config
+-   feat: firebase auth
+-   feat: oauth
+
+Fixes:
+
+-   fix: card error panel
+-   fix: card panel
+-   fix: cards panel
+-   fix: forms
+-   fix: translations
+-   fix: unmask on sugnup
+-   fix: webpack log
+
 ### 7.11.9 (2022-09-23)
 
 Fixes:
