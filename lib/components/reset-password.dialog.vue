@@ -1,6 +1,6 @@
 <template>
     <ext-dialog layout='{"align":"center","type":"vbox"}' minHeight="450" :title="i18nd(`vue-ext`, `Password change`)" width="350" @destroy="close" @ready="_ready">
-        <ext-fieldpanel ref="form" defaults1='{"labelAlign":"top"}' width="100%">
+        <ext-fieldpanel ref="form" width="100%">
             <ext-hiddenfield name="token" :value="token"/>
 
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `New password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter new password`)" required="true" revealable="true"/>

@@ -1,6 +1,6 @@
 <template>
     <ext-dialog closeAction="destroy" height="400" :title="title" width="350" @ready="_ready">
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
+        <ext-fieldpanel ref="form" @ready="formReady">
             <ext-emailfield errorTarget="under" :label="i18nd(`vue-ext`, `New email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter new email address`)" required="true" validators="email"/>
 
             <ext-textfield errorTarget="under" :hidden="true" :label="i18nd(`vue-ext`, `Confirmation token`)" name="token" :placeholder="i18nd(`vue-ext`, `Enter confirmation token`)" required="true"/>

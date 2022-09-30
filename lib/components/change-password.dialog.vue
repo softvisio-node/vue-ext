@@ -2,7 +2,7 @@
     <ext-dialog closeAction="hide" height="400" layout='{"align":"center","type":"vbox"}' :title="title" width="350" @ready="_ready">
         <ext-container :html="header" style="text-align: center"/>
 
-        <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' width="100%" @ready="formReady">
+        <ext-fieldpanel ref="form" width="100%" @ready="formReady">
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `New password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter new password`)" required="true" revealable="true"/>
 
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Confirm new password`)" name="confirmedPassword" :placeholder="i18nd(`vue-ext`, `Confirm new password`)" required="true" revealable="true"/>
