@@ -28,8 +28,8 @@
                     <ext-container ref="displayTelegramUsernameContainer" layout='{"align":"center","type":"hbox"}'>
                         <ext-displayfield bind="{record.telegram_username}" width="200"/>
                         <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editTelegramUsername"/>
-                        <ext-button bind='{"hidden":"{!record.has_telegram_username || !record.telegram_connected}"}' iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Open bot`)" @tap="_openTelegramBot"/>
-                        <ext-button bind='{"hidden":"{!record.has_telegram_username || record.telegram_connected}"}' iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Connect bot`)" ui="decline" @tap="_openTelegramBot"/>
+                        <ext-button bind='{"hidden":"{!record.has_telegram_username || !record.telegram_user_id}"}' iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Open bot`)" @tap="_openTelegramBot"/>
+                        <ext-button bind='{"hidden":"{!record.has_telegram_username || record.telegram_user_id}"}' iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Connect bot`)" ui="decline" @tap="_openTelegramBot"/>
                     </ext-container>
 
                     <!-- edit telegram -->
@@ -150,7 +150,10 @@ export default {
             if ( res.ok ) {
                 this.$utils.toast( res );
 
+                record.set( "telegram_user_id", res.data.telegram_user_id );
+
                 record.commit( false, "telegram_username" );
+                record.commit( false, "telegram_user_id" );
 
                 this._cancelEditTelegramUsername();
             }
