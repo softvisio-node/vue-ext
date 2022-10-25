@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-29 23:10+0300\n"
+"POT-Creation-Date: 2022-10-25 08:02+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Poedit-Basepath: ../..\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 "X-Poedit-SearchPath-0: lib\n"
 
 #: lib/components/account/account.panel.vue:6:97
@@ -375,13 +375,13 @@ msgstr "Авторизація"
 msgid "Authorized"
 msgstr "Авторизовано"
 
-#: lib/components/cards.panel.vue:7:43
-msgid "No data match search criteria"
-msgstr "Жодні дані не відповідають критеріям пошуку"
-
 #: lib/components/cards.panel.vue:11:34
 msgid "Unable to load data"
 msgstr "Не вдалося завантажити дані"
+
+#: lib/components/cards.panel.vue:57:41
+msgid "No data match search criteria"
+msgstr "Жодні дані не відповідають критеріям пошуку"
 
 #: lib/components/change-email.dialog.vue:4:56
 msgid "New email address"
