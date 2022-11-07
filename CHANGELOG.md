@@ -1,5 +1,14 @@
 # Changelog
 
+### 7.12.1 (2022-11-07)
+
+Fixes:
+
+-   fix: notifications model
+-   fix: pdfjs update
+-   fix: telegram username api
+-   fix: translations
+
 ### 7.12.0 (2022-09-30)
 
 Features:
