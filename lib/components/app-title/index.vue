@@ -80,7 +80,7 @@ export default {
         },
 
         isRoot () {
-            return this.$store.session.isRoot;
+            return this.$app.isRoot;
         },
 
         totalUndoneUnread () {

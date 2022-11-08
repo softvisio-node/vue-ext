@@ -55,7 +55,7 @@ export default {
                     "items": [
                         {
                             "xtype": "avatar",
-                            "src": this.$store.session.avatar,
+                            "src": this.$app.user.avatar,
                             "width": 60,
                             "height": 60,
                         },

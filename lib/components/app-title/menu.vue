@@ -64,7 +64,7 @@ export default {
 
     "computed": {
         email () {
-            return this.$store.session.email;
+            return this.$app.user.email;
         },
 
         version () {

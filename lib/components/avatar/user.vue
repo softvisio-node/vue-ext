@@ -21,7 +21,7 @@ export default {
 
     "computed": {
         src () {
-            return this.$store.session.avatar;
+            return this.$app.user.avatar;
         },
     },
 };
