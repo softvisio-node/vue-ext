@@ -24,7 +24,7 @@ export default {
 
             viewport.mask( this.defaultMask );
 
-            await this.$app.checkAuthorization();
+            await this.$app.initSession();
 
             viewport.unmask();
 
@@ -47,7 +47,7 @@ export default {
         },
 
         async _onRoute ( route ) {
-            if ( this.isAuthenticated ) {
+            if ( this.$app.isAuthenticated ) {
                 this.routePrivate( route );
             }
             else {
