@@ -68,8 +68,8 @@ export default {
         },
 
         version () {
-            const backendGitId = this.$store.session.backendGitId || {},
-                frontendGitId = this.$store.session.frontendGitId || {};
+            const backendGitId = this.$app.backendGitId || {},
+                frontendGitId = this.$app.frontendGitId || {};
 
             return `<b>ui</b>: ${this._createVersionString( frontendGitId )}, <b>api</b>: ${this._createVersionString( backendGitId )}`;
         },
@@ -119,8 +119,8 @@ export default {
         _copyVersion () {
             this.$utils.copyToClipboard( JSON.stringify(
                 {
-                    "backend": this.$store.session.backendGitId,
-                    "frontend": this.$store.session.frontendGitId,
+                    "backend": this.$app.backendGitId,
+                    "frontend": this.$app.frontendGitId,
                 },
                 null,
                 4
