@@ -68,7 +68,7 @@ export default {
         async _authorize ( options ) {
             this.ext.mask( loadMask );
 
-            const res = await this.$store.session.authorize( options );
+            const res = await this.$app.authorize( options );
 
             this.ext.unmask();
 
