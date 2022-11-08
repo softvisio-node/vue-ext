@@ -64,7 +64,7 @@ export default {
 
             menu.mask();
 
-            const res = await this.$store.session.setLocale( localeId );
+            const res = await this.$app.setLocale( localeId );
 
             menu.unmask();
 
