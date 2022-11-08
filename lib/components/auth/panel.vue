@@ -48,7 +48,7 @@ export default {
         },
 
         signupEnabled () {
-            return this.$store.session.signupEnabled;
+            return this.$app.signupEnabled;
         },
     },
 
