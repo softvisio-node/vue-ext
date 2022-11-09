@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-10-25 08:01+0300\n"
+"POT-Creation-Date: 2022-11-09 07:02+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,11 +50,11 @@ msgstr "Подтвердить"
 msgid "Email address"
 msgstr "Адрес email"
 
-#: lib/components/account/account.panel.vue:31:157
+#: lib/components/account/account.panel.vue:31:155
 msgid "Open bot"
 msgstr "Открыть бот"
 
-#: lib/components/account/account.panel.vue:32:156
+#: lib/components/account/account.panel.vue:32:154
 msgid "Connect bot"
 msgstr "Подключить бот"
 
@@ -371,7 +371,7 @@ msgstr "Авторизоваться"
 msgid "Authorization"
 msgstr "Авторизация"
 
-#: lib/components/authorization.dialog.vue:76:35
+#: lib/components/authorization.dialog.vue:80:35
 msgid "Authorized"
 msgstr "Авторизованно"
 
@@ -728,19 +728,19 @@ msgstr "Сессии пользователя"
 msgid "User"
 msgstr "Пользователь"
 
-#: lib/index.js:74:28
+#: lib/index.js:73:33
 msgid "Unable to connect to the API server. Check, that you have internet connection."
 msgstr "Не удалось подключиться к серверу API. Проверьте, что у вас есть подключение к интернет."
 
-#: lib/index.js:75:21
+#: lib/index.js:74:21
 msgid "Connection error"
 msgstr "Ошибка подключения"
 
-#: lib/index.js:103:28
+#: lib/index.js:81:32
 msgid "Your session was terminated on the API server."
 msgstr "Ваша сессия былп прервана API серввером."
 
-#: lib/index.js:104:21
+#: lib/index.js:82:21
 msgid "Session closed"
 msgstr "Сессия закрыта"
 

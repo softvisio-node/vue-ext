@@ -120,6 +120,10 @@ export default {
         },
 
         _setNotificationsBadgeText () {
+
+            // not ready
+            if ( !this.$refs.notificationsButton.ext ) return;
+
             this.$refs.notificationsButton.ext.setBadgeText( this.$store.notifications.totalUndoneUnread || "" );
         },
     },
