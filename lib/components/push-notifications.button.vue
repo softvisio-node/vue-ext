@@ -25,7 +25,7 @@ export default {
 
     "computed": {
         hidden () {
-            return !this.$store.session.pushNotificationsSupported;
+            return !this.$app.pushNotificationsSupported;
         },
 
         label () {
@@ -54,10 +54,10 @@ export default {
             var res;
 
             if ( value ) {
-                res = await this.$store.session.enablePushNotifications();
+                res = await this.$app.enablePushNotifications();
             }
             else {
-                res = await this.$store.session.disablePushNotifications();
+                res = await this.$app.disablePushNotifications();
             }
 
             if ( !res.ok ) {

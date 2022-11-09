@@ -34,7 +34,7 @@ export default {
 
     "computed": {
         pusHidden () {
-            return !this.$store.session.pushNotificationsSupported;
+            return !this.$app.pushNotificationsSupported;
         },
     },
 
