@@ -223,6 +223,10 @@ export default {
         },
 
         _onTotalUndoneUpdate () {
+
+            // not ready
+            if ( !this.$refs.card.ext ) return;
+
             const value = this.totalUndone;
 
             if ( !value ) {
