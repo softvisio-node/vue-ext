@@ -19,8 +19,6 @@
 import loadMask from "#lib/load-mask";
 import OauthContainer from "#lib/components/oauth.container";
 
-var shown = false;
-
 export default {
     "components": { OauthContainer },
 
@@ -29,9 +27,11 @@ export default {
             this.ext = e.detail.cmp;
 
             this.ext.on( "hide", () => {
-                shown = false;
-
                 this.$refs.form.ext.reset();
+
+                this._resolve( false );
+
+                this._resolve = null;
             } );
         },
 
@@ -41,13 +41,17 @@ export default {
             cmp.setKeyMap( { "ENTER": { "handler": this._submit.bind( this ) } } );
         },
 
-        show () {
-            if ( shown ) return;
-
+        async show () {
             this.ext.show();
+
+            return new Promise( resolve => {
+                this._resolve = resolve;
+            } );
         },
 
-        close () {
+        close ( res ) {
+            this._resolve( res );
+
             this.ext.hide();
         },
 
@@ -75,7 +79,7 @@ export default {
             if ( res.ok ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, "Authorized" ) );
 
-                this.close();
+                this.close( true );
             }
             else {
                 this.$utils.toast( res );
