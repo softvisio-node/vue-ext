@@ -1,14 +1,16 @@
 <template>
-    <ext-dialog closeAction="hide" height="400" layout='{"align":"center","type":"vbox"}' :title="title" width="350" @ready="_ready">
+    <ext-dialog closeAction="hide" height="400" layout="vbox" :title="title" width="350" @ready="_ready">
         <ext-container :html="header" style="text-align: center"/>
 
-        <ext-fieldpanel ref="form" width="100%" @ready="formReady">
+        <ext-fieldpanel ref="form" @ready="formReady">
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `New password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter new password`)" required="true" revealable="true"/>
 
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Confirm new password`)" name="confirmedPassword" :placeholder="i18nd(`vue-ext`, `Confirm new password`)" required="true" revealable="true"/>
         </ext-fieldpanel>
 
-        <ext-button :text="i18nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
+        <ext-container layout="center">
+            <ext-button :text="i18nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
+        </ext-container>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
 \ <ext-button :text="i18nd(`vue-ext`, `Change password`)" ui="action" @tap="submit"/>
