@@ -1,20 +1,22 @@
 <template>
-    <ext-panel layout='{"align":"center","type":"vbox"}' scrollable="true" @ready="_ready">
+    <ext-panel layout="vbox" scrollable="true" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
             <ext-container :html="i18nd(`vue-ext`, `Sign up`)"/>
             <ext-spacer/>
         </ext-toolbar>
 
-        <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}' width="100%">
+        <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}'>
             <ext-emailfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
 
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter password`)" required="true" revealable="true"/>
 
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Confirm password`)" name="confirmedPassword" :placeholder="i18nd(`vue-ext`, `Confirm password`)" required="true" revealable="true"/>
-        </ext-fieldpanel>
 
-        <ext-button :text="i18nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
+            <ext-container layout="center">
+                <ext-button :text="i18nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
+            </ext-container>
+        </ext-fieldpanel>
 
         <!-- oauth -->
         <OauthContainer @tap="_oauthTap"/>
