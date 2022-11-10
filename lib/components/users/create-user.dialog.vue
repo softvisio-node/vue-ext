@@ -7,10 +7,10 @@
 
             <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Confirm password`)" name="confirmedPassword" :placeholder="i18nd(`vue-ext`, `Confirm password`)" required="true" revealable="true"/>
 
+            <ext-button :text="i18nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
+
             <ext-togglefield :label="i18nd(`vue-ext`, `Access enabled`)" labelAlign="left" labelWidth="150" name="enabled" value="true"/>
         </ext-fieldpanel>
-
-        <ext-button :text="i18nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
