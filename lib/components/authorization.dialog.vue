@@ -7,7 +7,7 @@
         </ext-fieldpanel>
 
         <!-- oauth -->
-        <OauthContainer @tap="_oauthTap"/>
+        <OauthContainer margin="10 0 0 0" @tap="_oauthTap"/>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
 \ <ext-button :text="i18nd(`vue-ext`, `Authorize`)" ui="action" @tap="_submit"/>
