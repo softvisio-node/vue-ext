@@ -18,7 +18,7 @@
         </ext-container>
 
         <!-- oauth -->
-        <OauthContainer @tap="_oauthTap"/>
+        <OauthContainer margin="10 0 0 0" @tap="_oauthTap"/>
 
         <!-- sign up -->
         <ext-container :hidden="!signupEnabled" layout="center" margin="10 0 0 0">

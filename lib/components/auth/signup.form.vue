@@ -19,7 +19,7 @@
         </ext-fieldpanel>
 
         <!-- oauth -->
-        <OauthContainer @tap="_oauthTap"/>
+        <OauthContainer margin="10 0 0 0" @tap="_oauthTap"/>
 
         <ext-toolbar docked="bottom" layout='{"align":"center","type":"hbox"}'>
             <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" @tap="back"/>
