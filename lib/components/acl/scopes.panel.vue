@@ -91,19 +91,19 @@ export default {
             } );
         },
 
-        // XXX
         async _setScopeEnabled ( button, enabled ) {
-            const user = this.record;
 
-            if ( user.phantom ) return;
+            // user is phantom
+            if ( !this.userId ) return;
 
             const record = button.lookupViewModel().get( "record" );
 
+            // not changed
             if ( enabled === record.get( "enabled" ) ) return;
 
             button.disable();
 
-            const res = await this.$api.call( "acl/set-role-enabled", this.aclId, user.id, record.id, enabled );
+            const res = await this.$api.call( "acl/set-acl-user-scope-enabled", this.aclId, this.userId, record.id, enabled );
 
             if ( !res.ok ) {
                 await this.$utils.sleep( 500 );
@@ -116,9 +116,6 @@ export default {
                 record.commit();
 
                 this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Role enabled` ) : this.i18nd( `vue-ext`, `Role disabled` ) );
-
-                user.set( { "roles": JSON.parse( JSON.stringify( Ext.pluck( this.store.data.items, "data" ) ) ) } );
-                user.commit();
             }
 
             button.enable();
