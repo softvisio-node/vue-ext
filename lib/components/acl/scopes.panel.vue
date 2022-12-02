@@ -24,8 +24,7 @@ import ScopeModel from "./models/scope";
 export default {
     "components": { CardsPanel },
 
-    // XXX
-    "emits": ["reload"],
+    "emits": ["update"],
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {
@@ -61,7 +60,7 @@ export default {
         },
 
         // XXX
-        getScopes () {},
+        getEnabledScopes () {},
 
         _gridReady ( e ) {
             const grid = e.detail.cmp;
@@ -116,6 +115,8 @@ export default {
                 record.commit();
 
                 this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Role enabled` ) : this.i18nd( `vue-ext`, `Role disabled` ) );
+
+                this.$emit( "update" );
             }
 
             button.enable();
