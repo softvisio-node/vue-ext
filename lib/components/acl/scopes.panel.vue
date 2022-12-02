@@ -1,0 +1,128 @@
+<template>
+    <CardsPanel ref="cards" :store="store" @reload="reload">
+        <template #items>
+            <ext-toolbar docked="top">
+                <ext-spacer/>
+                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
+            </ext-toolbar>
+        </template>
+
+        <template #data>
+            <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_gridReady">
+                <ext-column cell='{"encodeHtml":false}' dataIndex="title_html" flex="1" sorter='{"property":"name"}' :text="i18nd(`vue-ext`, `Scope`)"/>
+
+                <ext-column align="center" sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
+            </ext-grid>
+        </template>
+    </CardsPanel>
+</template>
+
+<script>
+import CardsPanel from "#lib/components/cards.panel";
+import ScopeModel from "./models/scope";
+
+export default {
+    "components": { CardsPanel },
+
+    // XXX
+    "emits": ["reload"],
+
+    created () {
+        this.store = Ext.create( "Ext.data.Store", {
+            "model": ScopeModel,
+            "remoteFilter": false,
+            "remoteSort": false,
+        } );
+    },
+
+    "methods": {
+        setAclUser ( aclId, userId ) {
+            this.aclId = aclId;
+            this.userId = userId;
+
+            this.reload();
+        },
+
+        async reload () {
+            this.$refs.cards.mask();
+
+            const res = await this.$api.call( "acl/get-acl-user-scopes", this.aclId, this.userId );
+
+            this.$refs.cards.unmask();
+
+            if ( !res.ok ) {
+                this.$refs.cards.setResult( res );
+
+                this.$utils.toast( res );
+            }
+            else {
+                this.store.loadRawData( res.data );
+            }
+        },
+
+        // XXX
+        getScopes () {},
+
+        _gridReady ( e ) {
+            const grid = e.detail.cmp;
+
+            grid.setStore( this.store );
+        },
+
+        _enabledColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "layout": { "type": "hbox", "pack": "center", "align": "top" },
+                    "items": [
+                        {
+                            "xtype": "togglefield",
+                            "bind": {
+                                "value": "{record.enabled}",
+                                "disabled": "{record.readonly}",
+                            },
+                            "listeners": { "change": this._setScopeEnabled.bind( this ) },
+                        },
+                    ],
+                },
+            } );
+        },
+
+        // XXX
+        async _setScopeEnabled ( button, enabled ) {
+            const user = this.record;
+
+            if ( user.phantom ) return;
+
+            const record = button.lookupViewModel().get( "record" );
+
+            if ( enabled === record.get( "enabled" ) ) return;
+
+            button.disable();
+
+            const res = await this.$api.call( "acl/set-role-enabled", this.aclId, user.id, record.id, enabled );
+
+            if ( !res.ok ) {
+                await this.$utils.sleep( 500 );
+
+                record.set( "enabled", !enabled );
+
+                this.$utils.toast( res );
+            }
+            else {
+                record.commit();
+
+                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Role enabled` ) : this.i18nd( `vue-ext`, `Role disabled` ) );
+
+                user.set( { "roles": JSON.parse( JSON.stringify( Ext.pluck( this.store.data.items, "data" ) ) ) } );
+                user.commit();
+            }
+
+            button.enable();
+        },
+    },
+};
+</script>

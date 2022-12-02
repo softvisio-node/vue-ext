@@ -31,7 +31,7 @@
 <script>
 import "#lib/components/avatar/ext.avatar";
 import CreateUserDialog from "./create-user.dialog";
-import UserRolesDialog from "./user-roles.dialog";
+import UserScopesDialog from "./user-scopes.dialog";
 import UserModel from "./models/user";
 import ChangePasswordDialog from "./change-password.dialog";
 import UserSessionsDialog from "./user-sessions.dialog";
@@ -150,8 +150,8 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Edit user roles" ),
-                            "handler": this.showUserRolesDialog.bind( this ),
+                            "tooltip": this.i18nd( `vue-ext`, "Edit user scopes" ),
+                            "handler": this.showUserScopesDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
@@ -274,11 +274,11 @@ export default {
             cmp.ext.show();
         },
 
-        async showUserRolesDialog ( button ) {
+        async showUserScopesDialog ( button ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            const cmp = await this.$mount( UserRolesDialog );
+            const cmp = await this.$mount( UserScopesDialog );
 
             cmp.setRecord( record );
 
