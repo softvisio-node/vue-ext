@@ -102,7 +102,14 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "acl/set-acl-user-scope-enabled", this.aclId, this.userId, record.id, enabled );
+            var res;
+
+            if ( enabled ) {
+                res = await this.$api.call( "acl/add-acl-user-scopes", this.aclId, this.userId, [record.id] );
+            }
+            else {
+                res = await this.$api.call( "acl/delete-acl-user-scopes", this.aclId, this.userId, [record.id] );
+            }
 
             if ( !res.ok ) {
                 await this.$utils.sleep( 500 );
