@@ -27,7 +27,6 @@
 
 <script>
 import CreateDialog from "./create/dialog";
-import RolesDialog from "./roles/dialog";
 import TokenModel from "./models/token";
 import CardsPanel from "#lib/components/cards.panel";
 
@@ -85,12 +84,13 @@ export default {
                     "xtype": "container",
                     "layout": { "type": "hbox", "pack": "center", "align": "center" },
                     "items": [
-                        {
-                            "xtype": "button",
-                            "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Edit token roles" ),
-                            "handler": this.showTokenRolesDialog.bind( this ),
-                        },
+
+                        // {
+                        //     "xtype": "button",
+                        //     "iconCls": "fa-solid fa-unlock-alt",
+                        //     "tooltip": this.i18nd( `vue-ext`, "Edit token roles" ),
+                        //     "handler": this.showTokenRolesDialog.bind( this ),
+                        // },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
@@ -181,16 +181,16 @@ export default {
             cmp.ext.show();
         },
 
-        async showTokenRolesDialog ( button ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord();
+        // async showTokenRolesDialog ( button ) {
+        //     const gridrow = button.up( "gridrow" ),
+        //         record = gridrow.getRecord();
 
-            const cmp = await this.$mount( RolesDialog );
+        //     const cmp = await this.$mount( RolesDialog );
 
-            cmp.setRecord( record );
+        //     cmp.setRecord( record );
 
-            cmp.ext.show();
-        },
+        //     cmp.ext.show();
+        // },
     },
 };
 </script>
