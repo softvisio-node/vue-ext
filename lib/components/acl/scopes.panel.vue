@@ -121,7 +121,7 @@ export default {
             else {
                 record.commit();
 
-                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Role enabled` ) : this.i18nd( `vue-ext`, `Role disabled` ) );
+                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Scope enabled` ) : this.i18nd( `vue-ext`, `Scope disabled` ) );
 
                 this.$emit( "update" );
             }
