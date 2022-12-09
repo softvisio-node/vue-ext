@@ -3,7 +3,7 @@
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
-                <ext-button ref="rolesFilter" width="120"/>
+                <ext-button ref="scopessFilter" width="120" @ready="_scopesFilterReady"/>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="i18nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
@@ -61,29 +61,6 @@ export default {
 
     "methods": {
         _gridReady ( e ) {
-            const rolesFilter = this.$refs.rolesFilter.ext;
-
-            rolesFilter.setText( this.i18nd( "vue-ext", "Scopes" ) );
-
-            rolesFilter.setMenu( [
-                {
-                    "xtype": "menucheckitem",
-                    "id": "admin",
-                    "text": "Administrators",
-                    "listeners": {
-                        "checkchange": this._rolesFilterChange.bind( this ),
-                    },
-                },
-                { "xtype": "menuseparator" },
-                {
-                    "xtype": "menuitem",
-                    "separator": true,
-                    "iconCls": "fa-solid fa-xmark",
-                    "text": this.i18nd( "vue-ext", "Clear filter" ),
-                    "handler": this._clearRolesFilter.bind( this ),
-                },
-            ] );
-
             const grid = e.detail.cmp;
 
             grid.setPlugins( ["gridviewoptions", "autopaging"] );
@@ -321,10 +298,46 @@ export default {
             this.$utils.toast( this.i18nd( `vue-ext`, `User email copied` ) );
         },
 
-        // roles filter
-        _rolesFilterChange () {
-            const rolesFilter = this.$refs.rolesFilter.ext,
-                items = rolesFilter.getMenu().getItems(),
+        // scopes filter
+        async _scopesFilterReady ( e ) {
+            const scopessFilter = this.$refs.scopessFilter.ext;
+
+            scopessFilter.setText( this.i18nd( "vue-ext", "Scopes" ) );
+
+            const res = await this.$api.call( "acl/get-acl-scopes", -1 );
+
+            if ( !res.ok ) alert( "Unable to load scopes" );
+
+            const menu = [];
+
+            for ( const scope of res.data || [] ) {
+                menu.push( {
+                    "xtype": "menucheckitem",
+                    "id": scope.id,
+                    "text": scope.name,
+                    "listeners": {
+                        "checkchange": this._scopessFilterChange.bind( this ),
+                    },
+                } );
+            }
+
+            menu.push(
+                { "xtype": "menuseparator" },
+                {
+                    "xtype": "menuitem",
+                    "separator": true,
+                    "iconCls": "fa-solid fa-xmark",
+                    "text": this.i18nd( "vue-ext", "Clear filter" ),
+                    "handler": this._clearScopesFilter.bind( this ),
+                }
+            );
+
+            scopessFilter.setMenu( menu );
+        },
+
+        _scopessFilterChange () {
+            const scopessFilter = this.$refs.scopessFilter.ext,
+                items = scopessFilter.getMenu().getItems(),
                 checkedItems = [];
 
             items.each( item => {
@@ -334,24 +347,24 @@ export default {
             } );
 
             if ( checkedItems.length ) {
-                this.$refs.rolesFilter.ext.setText( this.i18nd( "vue-ext", msgid`${checkedItems.length} role`, msgid`${checkedItems.length} roles`, checkedItems.length ) );
+                this.$refs.scopessFilter.ext.setText( this.i18nd( "vue-ext", msgid`${checkedItems.length} scppe`, msgid`${checkedItems.length} scopes`, checkedItems.length ) );
 
                 this.store.addFilter( {
-                    "property": "roles",
+                    "property": "scopes",
                     "operator": "in",
                     "value": checkedItems,
                 } );
             }
             else {
-                this.$refs.rolesFilter.ext.setText( this.i18nd( "vue-ext", "Roles" ) );
+                this.$refs.scopessFilter.ext.setText( this.i18nd( "vue-ext", "Scopes" ) );
 
-                this.store.removeFilter( "roles" );
+                this.store.removeFilter( "scopes" );
             }
         },
 
-        _clearRolesFilter () {
-            const rolesFilter = this.$refs.rolesFilter.ext,
-                items = rolesFilter.getMenu().getItems();
+        _clearScopesFilter () {
+            const scopessFilter = this.$refs.scopessFilter.ext,
+                items = scopessFilter.getMenu().getItems();
 
             items.each( item => {
                 if ( item.xtype !== "menucheckitem" ) return;
@@ -359,7 +372,7 @@ export default {
                 item.setChecked( false );
             } );
 
-            this._rolesFilterChange();
+            this._scopessFilterChange();
         },
     },
 };
