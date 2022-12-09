@@ -59,8 +59,19 @@ export default {
             }
         },
 
-        // XXX
-        getEnabledScopes () {},
+        getEnabledScopes () {
+            var scopes;
+
+            this.store.each( record => {
+                if ( !record.get( "endbled" ) ) return;
+
+                scopes ??= [];
+
+                scopes.push( record.id );
+            } );
+
+            return scopes;
+        },
 
         _gridReady ( e ) {
             const grid = e.detail.cmp;
