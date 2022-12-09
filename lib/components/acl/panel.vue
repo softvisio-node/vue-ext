@@ -27,7 +27,7 @@
 
 <script>
 import "#lib/components/avatar/ext.avatar";
-import AclModel from "./models/acl";
+import PermissionsModel from "./models/permissions";
 import UserModel from "./models/user";
 import UserDialog from "./user-dialog";
 import CardsPanel from "#lib/components/cards.panel";
@@ -136,7 +136,7 @@ export default {
                 this.$utils.toast( res );
             }
 
-            const acl = new AclModel( res.data );
+            const acl = new PermissionsModel( { "permissions": res.data } );
             this.$refs.grid.ext.getViewModel().set( "acl", acl );
 
             res = await this.$api.call( "acl/get-users", this.aclId );
