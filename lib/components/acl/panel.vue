@@ -38,8 +38,6 @@ export default {
     created () {
         this.store = Ext.create( "Ext.data.Store", {
             "model": UserModel,
-            "remoteFilter": false,
-            "remoteSort": false,
         } );
     },
 
@@ -68,18 +66,24 @@ export default {
             const acl = new PermissionsModel( { "permissions": res.data } );
             this.$refs.grid.ext.getViewModel().set( "acl", acl );
 
-            res = await this.$api.call( "acl/get-users", this.aclId );
+            this.store.addFilter( {
+                "property": "acl_id",
+                "operator": "=",
+                "value": this.aclId,
+            } );
 
-            this.$refs.cards.unmask();
+            // res = await this.$api.call( "acl/get-users", this.aclId );
 
-            if ( !res.ok ) {
-                this.$refs.cards.setResult( res );
+            // this.$refs.cards.unmask();
 
-                this.$utils.toast( res );
-            }
-            else {
-                this.store.loadRawData( res.data );
-            }
+            // if ( !res.ok ) {
+            //     this.$refs.cards.setResult( res );
+
+            //     this.$utils.toast( res );
+            // }
+            // else {
+            //     this.store.loadRawData( res.data );
+            // }
         },
 
         _ready ( e ) {
