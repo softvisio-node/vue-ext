@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @reload="reload">
+    <CardsPanel ref="cards" :store="store" viewModel="true" @reload="reload">
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
@@ -44,14 +44,46 @@ export default {
     },
 
     "methods": {
-        _ready ( e ) {
-            this.$refs.grid.ext.setStore( this.store );
-        },
-
         setAclId ( aclId ) {
             this.aclId = aclId;
 
             this.reload();
+        },
+
+        async reload () {
+            this.$refs.cards.mask();
+
+            this.store.loadRawData( [] );
+
+            var res = await this.$api.call( "acl/get-acl-user-permissions", this.aclId );
+
+            if ( !res.ok ) {
+                this.$refs.cards.unmask();
+
+                this.$refs.cards.setResult( res );
+
+                this.$utils.toast( res );
+            }
+
+            const acl = new PermissionsModel( { "permissions": res.data } );
+            this.$refs.grid.ext.getViewModel().set( "acl", acl );
+
+            res = await this.$api.call( "acl/get-users", this.aclId );
+
+            this.$refs.cards.unmask();
+
+            if ( !res.ok ) {
+                this.$refs.cards.setResult( res );
+
+                this.$utils.toast( res );
+            }
+            else {
+                this.store.loadRawData( res.data );
+            }
+        },
+
+        _ready ( e ) {
+            this.$refs.grid.ext.setStore( this.store );
         },
 
         _avatarColReady ( e ) {
@@ -119,38 +151,6 @@ export default {
                     ],
                 },
             } );
-        },
-
-        async reload () {
-            this.$refs.cards.mask();
-
-            this.store.loadRawData( [] );
-
-            var res = await this.$api.call( "acl/get-acl-permissions", this.aclId, "acl" );
-
-            if ( !res.ok ) {
-                this.$refs.cards.unmask();
-
-                this.$refs.cards.setResult( res );
-
-                this.$utils.toast( res );
-            }
-
-            const acl = new PermissionsModel( { "permissions": res.data } );
-            this.$refs.grid.ext.getViewModel().set( "acl", acl );
-
-            res = await this.$api.call( "acl/get-users", this.aclId );
-
-            this.$refs.cards.unmask();
-
-            if ( !res.ok ) {
-                this.$refs.cards.setResult( res );
-
-                this.$utils.toast( res );
-            }
-            else {
-                this.store.loadRawData( res.data );
-            }
         },
 
         _searchUsers ( e ) {
