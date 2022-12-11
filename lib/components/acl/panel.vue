@@ -49,6 +49,10 @@ export default {
         },
 
         async reload () {
+            if ( !this.aclId ) return;
+
+            if ( !this.isReady ) return;
+
             this.$refs.cards.mask();
 
             this.store.loadRawData( [] );
@@ -74,7 +78,11 @@ export default {
         },
 
         _ready ( e ) {
+            this.isReady = true;
+
             this.$refs.grid.ext.setStore( this.store );
+
+            this.reload();
         },
 
         _avatarColReady ( e ) {
