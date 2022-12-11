@@ -15,7 +15,7 @@
 
                 <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="roles_text" flex="1" :text="i18nd(`vue-ext`, `Scopes`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="scopes_text" flex="1" :text="i18nd(`vue-ext`, `Scopes`)"/>
 
                 <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
 
@@ -110,9 +110,10 @@ export default {
                             "xtype": "togglefield",
                             "bind": {
                                 "value": "{record.enabled}",
-                                "disabled": "{!record.can_set_enabled}",
+
+                                // "disabled": "{!record.can_set_enabled}",
                             },
-                            "listeners": { "change": this._setUserEnabled.bind( this ) },
+                            "listeners": { "change": this._setAclUserEnabled.bind( this ) },
                         },
                     ],
                 },
@@ -134,18 +135,20 @@ export default {
                             "tooltip": this.i18nd( "vue-ext", "Edit user roles" ),
                             "padding": "0 0 0 3",
                             "handler": this._editUser.bind( this ),
-                            "bind": {
-                                "disabled": "{!record.can_edit_roles}",
-                            },
+
+                            // "bind": {
+                            //     "disabled": "{!record.can_edit_roles}",
+                            // },
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
                             "tooltip": this.i18nd( "vue-ext", "Delete user" ),
-                            "handler": this._deleteUser.bind( this ),
-                            "bind": {
-                                "disabled": "{!record.can_delete}",
-                            },
+                            "handler": this._deleteAclUser.bind( this ),
+
+                            // "bind": {
+                            //     "disabled": "{!record.can_delete}",
+                            // },
                         },
                     ],
                 },
@@ -167,14 +170,14 @@ export default {
             }
         },
 
-        async _setUserEnabled ( button, enabled ) {
+        async _setAclUserEnabled ( button, enabled ) {
             const record = button.up( "gridrow" ).getRecord();
 
             if ( enabled === record.get( "enabled" ) ) return;
 
             button.disable();
 
-            const res = await this.$api.call( "acl/set-user-enabled", this.aclId, record.id, enabled );
+            const res = await this.$api.call( "acl/set-acl-user-enabled", this.aclId, record.id, enabled );
 
             if ( !res.ok ) {
                 await this.$utils.sleep( 500 );
@@ -192,14 +195,14 @@ export default {
             button.enable();
         },
 
-        async _deleteUser ( button ) {
+        async _deleteAclUser ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
             if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete user?" ) ) ) ) return;
 
             button.disable();
 
-            var res = await this.$api.call( "acl/delete-user", this.aclId, record.id );
+            var res = await this.$api.call( "acl/delete-acl-user", this.aclId, record.id );
 
             button.enable();
 
