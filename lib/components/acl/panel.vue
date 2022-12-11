@@ -15,7 +15,7 @@
 
                 <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="roles_text" flex="1" :text="i18nd(`vue-ext`, `Roles`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="roles_text" flex="1" :text="i18nd(`vue-ext`, `Scopes`)"/>
 
                 <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
 
@@ -56,8 +56,6 @@ export default {
             var res = await this.$api.call( "acl/get-acl-user-permissions", this.aclId );
 
             if ( !res.ok ) {
-                this.$refs.cards.unmask();
-
                 this.$refs.cards.setResult( res );
 
                 this.$utils.toast( res );
@@ -66,24 +64,13 @@ export default {
             const acl = new PermissionsModel( { "permissions": res.data } );
             this.$refs.grid.ext.getViewModel().set( "acl", acl );
 
+            this.$refs.cards.unmask();
+
             this.store.addFilter( {
                 "property": "acl_id",
                 "operator": "=",
                 "value": this.aclId,
             } );
-
-            // res = await this.$api.call( "acl/get-users", this.aclId );
-
-            // this.$refs.cards.unmask();
-
-            // if ( !res.ok ) {
-            //     this.$refs.cards.setResult( res );
-
-            //     this.$utils.toast( res );
-            // }
-            // else {
-            //     this.store.loadRawData( res.data );
-            // }
         },
 
         _ready ( e ) {
