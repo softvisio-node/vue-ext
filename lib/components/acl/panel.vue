@@ -3,6 +3,7 @@
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
+                <ScopesButton :aclId="aclId" @change="_onScopesFilterChange"/>
                 <ext-spacer/>
                 <ext-button bind='{"hidden":"{!acl.can_add_user}"}' iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_addUser"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
@@ -31,9 +32,16 @@ import PermissionsModel from "./models/permissions";
 import UserModel from "./models/user";
 import UserDialog from "./user-dialog";
 import CardsPanel from "#lib/components/cards.panel";
+import ScopesButton from "#lib/components/acl/scopes.button";
 
 export default {
-    "components": { CardsPanel },
+    "components": { CardsPanel, ScopesButton },
+
+    data () {
+        return {
+            "aclId": "",
+        };
+    },
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {
@@ -249,6 +257,10 @@ export default {
             cmp.setRecord( record, this.aclId );
 
             cmp.ext.show();
+        },
+
+        _onScopesFilterChange ( scopes ) {
+            alert( scopes );
         },
     },
 };
