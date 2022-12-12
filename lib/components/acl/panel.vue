@@ -261,7 +261,7 @@ export default {
 
         // XXX
         _onScopesFilterChange ( scopes ) {
-            alert( "--- scopes changed", scopes );
+            console.log( "--- scopes changed", scopes );
         },
     },
 };

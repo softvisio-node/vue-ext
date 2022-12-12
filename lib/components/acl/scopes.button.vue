@@ -37,7 +37,7 @@ export default {
                 if ( item.xtype !== "menucheckitem" ) return;
 
                 if ( item.getChecked() ) {
-                    item.setChecked( false );
+                    item.setChecked( false, true );
 
                     changed = true;
                 }
