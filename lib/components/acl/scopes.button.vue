@@ -1,5 +1,5 @@
 <template>
-    <ext-button ref="button" :text="i18nd(`vue-ext`, `Scopes`)" width="120" @ready="_ready"/>
+    <ext-button ref="button" :text="i18nd(`vue-ext`, `Scopes`)" width="160" @ready="_ready"/>
 </template>
 
 <script>
