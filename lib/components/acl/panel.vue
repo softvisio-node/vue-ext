@@ -259,8 +259,9 @@ export default {
             cmp.ext.show();
         },
 
+        // XXX
         _onScopesFilterChange ( scopes ) {
-            alert( scopes );
+            alert( "--- scopes changed", scopes );
         },
     },
 };
