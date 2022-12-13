@@ -47,6 +47,8 @@ export default {
         async reload () {
             this.$refs.cards.mask();
 
+            this.store.loadRawData( [] );
+
             const res = await this.$api.call( "acl/get-acl-user-scopes", this.aclId, this.userId );
 
             this.$refs.cards.unmask();
@@ -61,13 +63,10 @@ export default {
             }
         },
 
-        // XXX
         getEnabledScopes () {
             var scopes;
 
             this.store.each( record => {
-                console.log( "--- scioe:", record.get( "id" ), record.get( "enabled" ) );
-
                 if ( !record.get( "enabled" ) ) return;
 
                 scopes ??= [];
@@ -128,19 +127,17 @@ export default {
                 res = await this.$api.call( "acl/delete-acl-user-scopes", this.aclId, this.userId, [record.id] );
             }
 
-            if ( !res.ok ) {
+            if ( res.ok ) {
+                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Scope enabled` ) : this.i18nd( `vue-ext`, `Scope disabled` ) );
+
+                this.$emit( "update", this.getEnabledScopes() );
+            }
+            else {
                 await this.$utils.sleep( 500 );
 
                 record.set( "enabled", !enabled );
 
                 this.$utils.toast( res );
-            }
-            else {
-                record.commit();
-
-                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Scope enabled` ) : this.i18nd( `vue-ext`, `Scope disabled` ) );
-
-                this.$emit( "update", this.getEnabledScopes() );
             }
 
             button.enable();
