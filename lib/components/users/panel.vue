@@ -3,7 +3,7 @@
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
-                <ScopesButton aclId="-1" @change="_onScopesChange"/>
+                <ScopesButton aclId="-1" @change="_onScopesFilterChange"/>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="i18nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
@@ -61,6 +61,15 @@ export default {
     },
 
     "methods": {
+
+        // public
+        reload () {
+            this.$refs.cards.mask();
+
+            this.store.loadPage( 1 );
+        },
+
+        // protected
         _gridReady ( e ) {
             const grid = e.detail.cmp;
 
@@ -232,12 +241,6 @@ export default {
             }
         },
 
-        reload () {
-            this.$refs.cards.mask();
-
-            this.store.loadPage( 1 );
-        },
-
         _onStoreLoad () {
             this.$refs.cards.unmask();
         },
@@ -300,7 +303,7 @@ export default {
         },
 
         // scopes filter
-        _onScopesChange ( scopes ) {
+        _onScopesFilterChange ( scopes ) {
             if ( scopes ) {
                 this.store.addFilter( {
                     "property": "scopes",
