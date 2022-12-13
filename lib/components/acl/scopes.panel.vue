@@ -61,11 +61,14 @@ export default {
             }
         },
 
+        // XXX
         getEnabledScopes () {
             var scopes;
 
             this.store.each( record => {
-                if ( !record.get( "endbled" ) ) return;
+                console.log( "--- scioe:", record.get( "id" ), record.get( "enabled" ) );
+
+                if ( !record.get( "enabled" ) ) return;
 
                 scopes ??= [];
 
