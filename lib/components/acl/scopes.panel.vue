@@ -35,6 +35,8 @@ export default {
     },
 
     "methods": {
+
+        // public
         setAclUser ( aclId, userId ) {
             this.aclId = aclId;
             this.userId = userId;
@@ -73,6 +75,7 @@ export default {
             return scopes;
         },
 
+        // protected
         _gridReady ( e ) {
             const grid = e.detail.cmp;
 
@@ -134,7 +137,7 @@ export default {
 
                 this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Scope enabled` ) : this.i18nd( `vue-ext`, `Scope disabled` ) );
 
-                this.$emit( "update" );
+                this.$emit( "update", this.getEnabledScopes() );
             }
 
             button.enable();
