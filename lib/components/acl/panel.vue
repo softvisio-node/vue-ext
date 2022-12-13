@@ -82,7 +82,6 @@ export default {
             }
         },
 
-        // XXX
         async reload () {
             if ( !this.aclId ) return;
 
@@ -99,7 +98,11 @@ export default {
                 if ( res.ok ) {
                     this._scopesLoaded = true;
 
-                    // XXX store scopes
+                    this.scopes = {};
+
+                    for ( const scope of res.data ) {
+                        this.scopes[scope.id] = scope.name;
+                    }
                 }
             }
 
