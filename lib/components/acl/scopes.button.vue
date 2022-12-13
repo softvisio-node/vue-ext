@@ -96,7 +96,7 @@ export default {
                         "separator": true,
                         "iconCls": "fa-solid fa-xmark",
                         "text": this.i18nd( "vue-ext", "Clear filter" ),
-                        "handler": this.clear.bind( this ),
+                        "handler": this.clear.bind( this, false ),
                     }
                 );
             }

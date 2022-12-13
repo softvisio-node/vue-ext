@@ -52,15 +52,34 @@ export default {
     "methods": {
 
         // public
+        // XXX drop search filter
         setAclId ( aclId ) {
             if ( this.aclId === aclId ) {
                 return;
             }
             else {
-                this.aclId = aclId;
-            }
 
-            this.reload();
+                // cleat store
+                this.store.loadRawData( [] );
+
+                this._scopesLoaded = false;
+                this._permissionsLoaded = false;
+
+                this.aclId = aclId;
+
+                this.store.clearFilter( true );
+
+                this.store.addFilter(
+                    {
+                        "property": "acl_id",
+                        "operator": "=",
+                        "value": this.aclId,
+                    },
+                    true
+                );
+
+                this.reload();
+            }
         },
 
         // XXX
@@ -69,28 +88,48 @@ export default {
 
             if ( !this.isReady ) return;
 
-            this.$refs.cards.mask();
+            var res;
 
-            this.store.loadRawData( [] );
+            // load scopes
+            if ( !this._scopesLoaded ) {
+                this.$refs.cards.mask();
 
-            var res = await this.$api.call( "acl/get-acl-user-permissions", this.aclId );
+                res = await this.$api.call( "acl/get-acl-scopes", this.aclId );
 
-            if ( !res.ok ) {
-                this.$refs.cards.setResult( res );
+                if ( res.ok ) {
+                    this._scopesLoaded = true;
 
-                this.$utils.toast( res );
+                    // XXX store scopes
+                }
             }
 
-            const acl = new PermissionsModel( { "permissions": res.data } );
-            this.$refs.grid.ext.getViewModel().set( "acl", acl );
+            // load permissions
+            if ( !this._permissionsLoaded ) {
+                this.$refs.cards.mask();
+
+                res = await this.$api.call( "acl/get-acl-user-permissions", this.aclId );
+
+                if ( res.ok ) {
+                    this._permissionsLoaded = true;
+
+                    const acl = new PermissionsModel( { "permissions": res.data } );
+                    this.$refs.grid.ext.getViewModel().set( "acl", acl );
+                }
+            }
 
             this.$refs.cards.unmask();
 
-            this.store.addFilter( {
-                "property": "acl_id",
-                "operator": "=",
-                "value": this.aclId,
-            } );
+            // error
+            if ( res && !res.ok ) {
+                this.$refs.cards.setResult( res );
+
+                this.$utils.toast( res );
+
+                return;
+            }
+
+            // reload users
+            this.store.loadPage( 1 );
         },
 
         // protected
@@ -268,9 +307,19 @@ export default {
             cmp.ext.show();
         },
 
-        // XXX
         _onScopesFilterChange ( scopes ) {
             console.log( "--- scopes changed", scopes );
+
+            if ( scopes ) {
+                this.store.addFilter( {
+                    "property": "scopes",
+                    "operator": "in",
+                    "value": scopes,
+                } );
+            }
+            else {
+                this.store.removeFilter( "scopes" );
+            }
         },
     },
 };
