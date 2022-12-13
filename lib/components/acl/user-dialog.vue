@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import RoleModel from "./models/role";
+import RoleModel from "./models/permission";
 
 export default {
     "emits": ["reload"],

@@ -28,7 +28,7 @@
 
 <script>
 import "#lib/components/avatar/ext.avatar";
-import PermissionsModel from "./models/permissions";
+import PermissionModel from "./models/permission";
 import UserModel from "./models/user";
 import UserDialog from "./user-dialog";
 import CardsPanel from "#lib/components/cards.panel";
@@ -115,7 +115,7 @@ export default {
                 if ( res.ok ) {
                     this._permissionsLoaded = true;
 
-                    const acl = new PermissionsModel( { "permissions": res.data } );
+                    const acl = new PermissionModel( { "permissions": res.data } );
                     this.$refs.grid.ext.getViewModel().set( "acl", acl );
                 }
             }
