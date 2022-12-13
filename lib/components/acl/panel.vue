@@ -204,7 +204,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18nd( "vue-ext", "Edit user roles" ),
+                            "tooltip": this.i18nd( "vue-ext", "Edit user scopes" ),
                             "padding": "0 0 0 3",
                             "handler": this._editUser.bind( this ),
 
@@ -294,6 +294,7 @@ export default {
             this._showUserDialog( record );
         },
 
+        // XXX
         async _addUser () {
             this.$refs.cards.mask();
 
