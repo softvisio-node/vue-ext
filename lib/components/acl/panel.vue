@@ -50,12 +50,20 @@ export default {
     },
 
     "methods": {
+
+        // public
         setAclId ( aclId ) {
-            this.aclId = aclId;
+            if ( this.aclId === aclId ) {
+                return;
+            }
+            else {
+                this.aclId = aclId;
+            }
 
             this.reload();
         },
 
+        // XXX
         async reload () {
             if ( !this.aclId ) return;
 
@@ -85,6 +93,7 @@ export default {
             } );
         },
 
+        // protected
         _ready ( e ) {
             this.isReady = true;
 

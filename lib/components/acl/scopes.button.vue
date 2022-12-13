@@ -16,7 +16,7 @@ export default {
     "watch": {
         aclId ( newValue, oldValue ) {
             if ( newValue === oldValue ) {
-                this.clear();
+                this.clear( true );
             }
             else {
                 this._loadScopes();
@@ -25,7 +25,9 @@ export default {
     },
 
     "methods": {
-        clear () {
+
+        // public
+        clear ( silent ) {
             if ( !this.isReady ) return;
 
             const button = this.$refs.button.ext,
@@ -43,9 +45,10 @@ export default {
                 }
             } );
 
-            if ( changed ) this._onChange();
+            if ( !silent && changed ) this._onChange();
         },
 
+        // protected
         async _ready ( e ) {
             this.isReady = true;
 
