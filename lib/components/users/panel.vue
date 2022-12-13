@@ -16,6 +16,8 @@
 
                 <ext-column dataIndex="email" flex="1" summaryDataIndex="total" :text="i18nd(`vue-ext`, `Email`)" @ready="_emailColReady"/>
 
+                <ext-column dataIndex="scopes" flex="1" sortable="false" :text="i18nd(`vue-ext`, `Scopes`)" @ready="_scopesColReady"/>
+
                 <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" :hidden="lastActivityColumnHidden" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
 
                 <ext-column dataIndex="created" formatter="date()" :hidden="createdColumnHidden" :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
@@ -63,7 +65,37 @@ export default {
     "methods": {
 
         // public
-        reload () {
+        async reload () {
+            var res;
+
+            // load scopes
+            if ( !this._scopesLoaded ) {
+                this.$refs.cards.mask();
+
+                res = await this.$api.call( "acl/get-acl-scopes", -1 );
+
+                if ( res.ok ) {
+                    this._scopesLoaded = true;
+
+                    this.scopes = {};
+
+                    for ( const scope of res.data ) {
+                        this.scopes[scope.id] = scope.name;
+                    }
+                }
+            }
+
+            this.$refs.cards.unmask();
+
+            // error
+            if ( res && !res.ok ) {
+                this.$refs.cards.setResult( res );
+
+                this.$utils.toast( res );
+
+                return;
+            }
+
             this.$refs.cards.mask();
 
             this.store.loadPage( 1 );
@@ -103,6 +135,19 @@ export default {
 
             cmp.setSummaryRenderer( function ( val ) {
                 return "Total Users: " + val;
+            } );
+        },
+
+        _scopesColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setRenderer( ( value, record ) => {
+                if ( !value ) {
+                    return this.i18nd( "vue-ext", `No scopes assigned` );
+                }
+                else {
+                    return value.map( scope => this.scopes[scope] ).join( ", " );
+                }
             } );
         },
 
