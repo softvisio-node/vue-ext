@@ -308,8 +308,6 @@ export default {
         },
 
         _onScopesFilterChange ( scopes ) {
-            console.log( "--- scopes changed", scopes );
-
             if ( scopes ) {
                 this.store.addFilter( {
                     "property": "scopes",
