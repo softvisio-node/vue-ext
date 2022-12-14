@@ -116,6 +116,7 @@ export default {
                     this._permissionsLoaded = true;
 
                     const permissions = new PermissionModel( { "permissions": res.data } );
+
                     this.$refs.cards.ext.getViewModel().set( "permissions", permissions );
                     this.$refs.grid.ext.getViewModel().set( "permissions", permissions );
                 }
