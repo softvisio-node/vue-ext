@@ -33,7 +33,7 @@
 <script>
 import "#lib/components/avatar/ext.avatar";
 import CreateUserDialog from "./create-user.dialog";
-import UserScopesDialog from "./user-scopes.dialog";
+import UserScopesDialog from "#lib/components/acl/scopes.dialog";
 import UserModel from "./models/user";
 import ChangePasswordDialog from "./change-password.dialog";
 import UserSessionsDialog from "./user-sessions.dialog";
@@ -298,7 +298,7 @@ export default {
 
             const cmp = await this.$mount( UserScopesDialog );
 
-            cmp.setRecord( record );
+            cmp.setRecord( -1, record );
 
             cmp.ext.show();
         },
