@@ -5,7 +5,7 @@
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
                 <ScopesButton :aclId="aclId" @change="_onScopesFilterChange"/>
                 <ext-spacer/>
-                <ext-button bind='{"hidden":"{!permissions.create}"}' iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_addUser"/>
+                <ext-button bind='{"hidden":"{!permissions.create}"}' iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_showCreateUserDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
             </ext-toolbar>
         </template>
@@ -30,7 +30,7 @@
 import "#lib/components/avatar/ext.avatar";
 import PermissionModel from "./models/permission";
 import UserModel from "./models/user";
-import UserDialog from "./user-dialog";
+import CreateUserDialog from "./create-user.dialog";
 import CardsPanel from "#lib/components/cards.panel";
 import ScopesButton from "#lib/components/acl/scopes.button";
 import ScopesDialog from "#lib/components/acl/scopes.dialog";
@@ -210,7 +210,7 @@ export default {
                             "iconCls": "fa-solid fa-unlock-alt",
                             "tooltip": this.i18nd( "vue-ext", "Edit user scopes" ),
                             "padding": "0 0 0 3",
-                            "handler": this._editUserScopes.bind( this ),
+                            "handler": this._showUserScopesDialog.bind( this ),
                             "bind": {
                                 "disabled": "{!permissions.update}",
                             },
@@ -290,7 +290,7 @@ export default {
             }
         },
 
-        async _editUserScopes ( button ) {
+        async _showUserScopesDialog ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
             const cmp = await this.$mount( ScopesDialog );
@@ -300,33 +300,14 @@ export default {
             cmp.ext.show();
         },
 
-        // XXX
-        async _addUser () {
-            this.$refs.cards.mask();
-
-            const res = await this.$api.call( "acl/get-roles", this.aclId );
-
-            this.$refs.cards.unmask();
-
-            if ( !res.ok ) {
-                this.$utils.toast( res );
-            }
-            else {
-                const record = new UserModel( {
-                    "roles": res.data,
-                } );
-
-                this._showUserDialog( record );
-            }
-        },
-
-        // XXX
-        async _showUserDialog ( record ) {
-            const cmp = await this.$mount( UserDialog, {
-                "props": { "onReload": () => this.reload() },
+        async _showCreateUserDialog () {
+            const cmp = await this.$mount( CreateUserDialog, {
+                "cache": false,
+                "props": {
+                    "aclId": this.aclId,
+                    "onCreate": () => this.reload(),
+                },
             } );
-
-            cmp.setRecord( record, this.aclId );
 
             cmp.ext.show();
         },
