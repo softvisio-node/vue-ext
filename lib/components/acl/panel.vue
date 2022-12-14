@@ -5,7 +5,7 @@
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
                 <ScopesButton :aclId="aclId" @change="_onScopesFilterChange"/>
                 <ext-spacer/>
-                <ext-button bind='{"hidden":"{!acl.can_add_user}"}' iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_addUser"/>
+                <ext-button bind='{"hidden":"{!permissions.create}"}' iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_addUser"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
             </ext-toolbar>
         </template>
@@ -115,8 +115,8 @@ export default {
                 if ( res.ok ) {
                     this._permissionsLoaded = true;
 
-                    const acl = new PermissionModel( { "permissions": res.data } );
-                    this.$refs.grid.ext.getViewModel().set( "acl", acl );
+                    const permissions = new PermissionModel( { "permissions": res.data } );
+                    this.$refs.grid.ext.getViewModel().set( "permissions", permissions );
                 }
             }
 
@@ -171,8 +171,7 @@ export default {
                             "xtype": "togglefield",
                             "bind": {
                                 "value": "{record.enabled}",
-
-                                // "disabled": "{!record.can_set_enabled}",
+                                "disabled": "{!permissions.update}",
                             },
                             "listeners": { "change": this._setAclUserEnabled.bind( this ) },
                         },
@@ -209,20 +208,18 @@ export default {
                             "tooltip": this.i18nd( "vue-ext", "Edit user scopes" ),
                             "padding": "0 0 0 3",
                             "handler": this._editUser.bind( this ),
-
-                            // "bind": {
-                            //     "disabled": "{!record.can_edit_roles}",
-                            // },
+                            "bind": {
+                                "disabled": "{!permissions.update}",
+                            },
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
                             "tooltip": this.i18nd( "vue-ext", "Delete user" ),
                             "handler": this._deleteAclUser.bind( this ),
-
-                            // "bind": {
-                            //     "disabled": "{!record.can_delete}",
-                            // },
+                            "bind": {
+                                "disabled": "{!permissions.delete}",
+                            },
                         },
                     ],
                 },
