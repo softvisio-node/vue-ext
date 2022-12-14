@@ -11,10 +11,10 @@
         </template>
 
         <template #data>
-            <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridsummaryrow","gridviewoptions", "autopaging"]' @ready="_ready">
+            <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_ready">
                 <ext-column width="40" @ready="_avatarColReady"/>
 
-                <ext-column dataIndex="email" flex="1" summaryDataIndex="total" :text="i18nd(`vue-ext`, `Email`)" @ready="_emailColReady"/>
+                <ext-column dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)" @ready="_emailColReady"/>
 
                 <ext-column dataIndex="scopes" flex="1" sortable="false" :text="i18nd(`vue-ext`, `Scopes`)" @ready="_scopesColReady"/>
 
@@ -22,7 +22,7 @@
 
                 <ext-column dataIndex="created" formatter="date()" :hidden="createdColumnHidden" :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
 
-                <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
+                <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
 
                 <ext-column width="80" @ready="_actionColReady"/>
             </ext-grid>
@@ -128,10 +128,6 @@ export default {
             const cmp = e.detail.cmp;
 
             cmp.setCell( { "encodeHtml": false } );
-
-            cmp.setSummaryRenderer( function ( val ) {
-                return "Total Users: " + val;
-            } );
         },
 
         _scopesColReady ( e ) {
