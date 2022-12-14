@@ -33,6 +33,7 @@ import UserModel from "./models/user";
 import UserDialog from "./user-dialog";
 import CardsPanel from "#lib/components/cards.panel";
 import ScopesButton from "#lib/components/acl/scopes.button";
+import ScopesDialog from "#lib/components/acl/scopes.dialog";
 
 export default {
     "components": { CardsPanel, ScopesButton },
@@ -209,7 +210,7 @@ export default {
                             "iconCls": "fa-solid fa-unlock-alt",
                             "tooltip": this.i18nd( "vue-ext", "Edit user scopes" ),
                             "padding": "0 0 0 3",
-                            "handler": this._editUser.bind( this ),
+                            "handler": this._editUserScopes.bind( this ),
                             "bind": {
                                 "disabled": "{!permissions.update}",
                             },
@@ -289,10 +290,14 @@ export default {
             }
         },
 
-        async _editUser ( button ) {
+        async _editUserScopes ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            this._showUserDialog( record );
+            const cmp = await this.$mount( ScopesDialog );
+
+            cmp.setRecord( this.aclId, record );
+
+            cmp.ext.show();
         },
 
         // XXX
@@ -315,6 +320,7 @@ export default {
             }
         },
 
+        // XXX
         async _showUserDialog ( record ) {
             const cmp = await this.$mount( UserDialog, {
                 "props": { "onReload": () => this.reload() },
