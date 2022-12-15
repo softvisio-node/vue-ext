@@ -293,9 +293,13 @@ export default {
         async _showUserScopesDialog ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            const cmp = await this.$mount( ScopesDialog );
-
-            cmp.setRecord( this.aclId, record );
+            const cmp = await this.$mount( ScopesDialog, {
+                "cache": false,
+                "props": {
+                    "aclId": this.aclId,
+                    "user": record,
+                },
+            } );
 
             cmp.ext.show();
         },

@@ -25,6 +25,17 @@ import ScopeModel from "./models/scope";
 export default {
     "components": { CardsPanel },
 
+    "props": {
+        "aclId": {
+            "type": String,
+            "required": true,
+        },
+        "userId": {
+            "type": String,
+            "default": "",
+        },
+    },
+
     "emits": ["update"],
 
     created () {
@@ -38,13 +49,6 @@ export default {
     "methods": {
 
         // public
-        setAclUser ( aclId, userId ) {
-            this.aclId = aclId;
-            this.userId = userId;
-
-            this.reload();
-        },
-
         async reload () {
             if ( !this.isReady ) return;
 

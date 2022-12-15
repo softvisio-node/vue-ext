@@ -296,9 +296,13 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            const cmp = await this.$mount( UserScopesDialog );
-
-            cmp.setRecord( -1, record );
+            const cmp = await this.$mount( UserScopesDialog, {
+                "cache": false,
+                "props": {
+                    "aclId": "-1",
+                    "user": record,
+                },
+            } );
 
             cmp.ext.show();
         },
