@@ -11,7 +11,7 @@
         </template>
 
         <template #data>
-            <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_ready">
+            <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
                 <ext-column width="40" @ready="_avatarColReady"/>
 
                 <ext-column dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)" @ready="_emailColReady"/>
@@ -102,7 +102,7 @@ export default {
         },
 
         // protected
-        _ready ( e ) {
+        _onGridReady ( e ) {
             const cmp = e.detail.cmp;
 
             // cmp.setColumnMenu( null );
