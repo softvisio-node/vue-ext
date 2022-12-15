@@ -61,7 +61,7 @@ export default {
 
         async _addUser () {
             if ( !this.$refs.addUserCombo.ext.validate() ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, `Fill all required fields` ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, `Please, correctly fill all required fields` ) );
 
                 return;
             }
