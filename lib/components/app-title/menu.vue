@@ -26,9 +26,9 @@
 
             <ext-container height="10"/>
 
-            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
-
             <ext-button iconCls="fa-solid fa-circle-info" :text="i18nd(`vue-ext`, `About the project`)" textAlign="left" @tap="showAboutDialog"/>
+
+            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
         </ext-panel>
     </ext-sheet>
 </template>
