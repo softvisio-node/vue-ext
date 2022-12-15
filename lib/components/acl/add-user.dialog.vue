@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="90%" layout="vbox" :title="i18nd(`vue-ext`, `Adding a user`)" width="800">
-        <ext-comboboxfield ref="addUserCombo" displayField="email" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" labelAlign="left" labelWidth="150" minChars="1" primaryFilter='{"operator":"like","property":"email"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
+        <ext-comboboxfield ref="addUserCombo" displayField="email" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" labelAlign="left" labelWidth="150" minChars="1" primaryFilter='{"operator":"like","property":"email"}' required="true" triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
 
         <ext-togglefield ref="enabledField" :label="i18nd(`vue-ext`, `Access enabled`)" labelAlign="left" labelWidth="150" value="true"/>
 
@@ -59,21 +59,14 @@ export default {
             cmp.setStore( this.store );
         },
 
-        // XXX
         async _addUser () {
-            const userId = this.$refs.addUserCombo.ext.getValue();
-
-            if ( !userId ) {
-
-                // XXX
-                // this.$refs.addUserCombo.ext.SetError("sssssssssssss");
-
+            if ( !this.$refs.addUserCombo.ext.validate() ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, `Fill all required fields` ) );
 
                 return;
             }
 
-            const res = await this.$api.call( "acl/add-acl-user", this.aclId, userId, {
+            const res = await this.$api.call( "acl/add-acl-user", this.aclId, this.$refs.addUserCombo.ext.getValue(), {
                 "enabled": this.$refs.enabledField.ext.getValue(),
                 "scopes": this.$refs.scopesPanel.getEnabledScopes(),
             } );
