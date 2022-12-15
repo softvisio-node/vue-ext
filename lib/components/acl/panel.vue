@@ -5,7 +5,7 @@
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
                 <ScopesButton :aclId="aclId" @change="_onScopesFilterChange"/>
                 <ext-spacer/>
-                <ext-button bind='{"hidden":"{!permissions.create}"}' iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_showCreateUserDialog"/>
+                <ext-button bind='{"hidden":"{!permissions.create}"}' iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_showAddUserDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
             </ext-toolbar>
         </template>
@@ -30,7 +30,7 @@
 import "#lib/components/avatar/ext.avatar";
 import PermissionModel from "./models/permission";
 import UserModel from "./models/user";
-import CreateUserDialog from "./create-user.dialog";
+import AddUserDialog from "./add-user.dialog";
 import CardsPanel from "#lib/components/cards.panel";
 import ScopesButton from "#lib/components/acl/scopes.button";
 import ScopesDialog from "#lib/components/acl/scopes.dialog";
@@ -300,8 +300,8 @@ export default {
             cmp.ext.show();
         },
 
-        async _showCreateUserDialog () {
-            const cmp = await this.$mount( CreateUserDialog );
+        async _showAddUserDialog () {
+            const cmp = await this.$mount( AddUserDialog );
 
             cmp.setAclId( this.aclId );
 
