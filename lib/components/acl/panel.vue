@@ -11,7 +11,7 @@
         </template>
 
         <template #data>
-            <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' viewModel="true" @ready="_ready">
+            <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' viewModel="true" @ready="_onReady">
                 <ext-column width="40" @ready="_avatarColReady"/>
 
                 <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)"/>
@@ -38,56 +38,31 @@ import ScopesDialog from "#lib/components/acl/scopes.dialog";
 export default {
     "components": { CardsPanel, ScopesButton },
 
-    data () {
-        return {
-            "aclId": "",
-        };
+    "props": {
+        "aclId": {
+            "type": String,
+            "required": true,
+        },
     },
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {
             "model": UserModel,
+            "filters": [
+                {
+                    "property": "acl_id",
+                    "operator": "=",
+                    "value": this.aclId,
+                },
+            ],
         } );
     },
 
     "methods": {
 
         // public
-        // XXX drop search filter
-        setAclId ( aclId ) {
-            if ( this.aclId === aclId ) {
-                return;
-            }
-            else {
-
-                // cleat store
-                this.store.loadRawData( [] );
-
-                this._scopesLoaded = false;
-                this._permissionsLoaded = false;
-
-                this.aclId = aclId;
-
-                this.store.clearFilter( true );
-
-                this.store.addFilter(
-                    {
-                        "property": "acl_id",
-                        "operator": "=",
-                        "value": this.aclId,
-                    },
-                    true
-                );
-
-                this.reload();
-            }
-        },
 
         async reload () {
-            if ( !this.aclId ) return;
-
-            if ( !this.isReady ) return;
-
             var res;
 
             // load scopes
@@ -139,10 +114,8 @@ export default {
         },
 
         // protected
-        _ready ( e ) {
+        _onReady ( e ) {
             const cmp = e.detail.cmp;
-
-            this.isReady = true;
 
             cmp.setStore( this.store );
 
@@ -297,7 +270,7 @@ export default {
                 "cache": false,
                 "props": {
                     "aclId": this.aclId,
-                    "user": record,
+                    "userRecord": record,
                 },
             } );
 

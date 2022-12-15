@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="90%" layout="fit" :title="i18nd(`vue-ext`, `Edit user scopes`)" width="800">
+    <ext-dialog height="90%" layout="fit" :title="i18nd(`vue-ext`, `Edit user scopes`)" width="600">
         <ScopesPanel ref="scopesPanel" :aclId="aclId" :userId="userId" @update="_onScopesUpdate"/>
     </ext-dialog>
 </template>
@@ -15,7 +15,7 @@ export default {
             "type": String,
             "required": true,
         },
-        "user": {
+        "userRecord": {
             "type": Object,
             "required": true,
         },
@@ -23,20 +23,15 @@ export default {
 
     "computed": {
         userId () {
-            return this.user.id;
+            return this.userRecord.id;
         },
     },
 
     "methods": {
 
-        // public
-        close () {
-            this.ext.hide();
-        },
-
         // protected
         _onScopesUpdate ( scopes ) {
-            this.user.set( "scopes", scopes );
+            this.userRecord.set( "scopes", scopes );
         },
     },
 };

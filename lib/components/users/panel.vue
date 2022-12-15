@@ -300,7 +300,7 @@ export default {
                 "cache": false,
                 "props": {
                     "aclId": "-1",
-                    "user": record,
+                    "userRecord": record,
                 },
             } );
 

@@ -1,6 +1,6 @@
 <template>
-    <ext-dialog closeAction="hide" height="90%" layout="fit" :title="titleText" width="800">
-        <AclPanel ref="panel"/>
+    <ext-dialog height="90%" layout="fit" :title="titleText" width="800">
+        <AclPanel :aclId="aclId"/>
     </ext-dialog>
 </template>
 
@@ -11,6 +11,10 @@ export default {
     "components": { AclPanel },
 
     "props": {
+        "aclId": {
+            "type": String,
+            "required": true,
+        },
         "title": {
             "type": String,
             "default": "",
@@ -20,12 +24,6 @@ export default {
     "computed": {
         titleText () {
             return this.title || this.i18nd( "vue-ext", "Users" );
-        },
-    },
-
-    "methods": {
-        setAclId ( aclId ) {
-            this.$refs.panel.setAclId( aclId );
         },
     },
 };
