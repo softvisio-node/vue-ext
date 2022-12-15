@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @reload="reload">
+    <CardsPanel ref="cards" :store="store" @ready="_onReady" @reload="reload">
         <template #items>
             <ext-toolbar docked="top">
                 <ext-container :html="i18nd(`vue-ext`, `Scopes`)"/>
@@ -46,6 +46,10 @@ export default {
         },
 
         async reload () {
+            if ( !this.isReady ) return;
+
+            if ( !this.aclId ) return;
+
             this.$refs.cards.mask();
 
             this.store.loadRawData( [] );
@@ -79,6 +83,12 @@ export default {
         },
 
         // protected
+        _onReady ( e ) {
+            this.isReady = true;
+
+            this.reload();
+        },
+
         _gridReady ( e ) {
             const grid = e.detail.cmp;
 
