@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="400" layout="vbox" :title="title" width="350" @ready="_ready">
+    <ext-dialog closeAction="hide" height="400" layout="vbox" :title="i18nd(`vue-ext`, `About the project`)" width="350" @ready="_ready">
         <ext-container :html="header" style="text-align: center"/>
 
         <ext-fieldpanel ref="form" @ready="formReady">
@@ -13,26 +13,17 @@
         </ext-container>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-\ <ext-button :text="i18nd(`vue-ext`, `Change password`)" ui="action" @tap="submit"/>
-</ext-toolbar>
+            <ext-button iconCls="fa-regular fa-copy" :text="i18nd(`vue-ext`, `Copy to clipboard`)" ui="action" @tap="_copy"/>
+        </ext-toolbar>
     </ext-dialog>
 </template>
 
 <script>
-import loadMask from "#lib/load-mask";
-import passwords from "#core/utils/passwords";
-
 export default {
     "props": {
         "errorTarget": {
             "type": String,
             "default": "under",
-        },
-    },
-
-    "computed": {
-        title () {
-            return this.i18nd( `vue-ext`, `Password change` );
         },
     },
 
@@ -63,48 +54,17 @@ export default {
             this.ext.hide();
         },
 
-        async submit () {
-            const form = this.$refs.form.ext;
+        _copy () {
+            this.$utils.copyToClipboard( JSON.stringify(
+                {
+                    "backend": this.$app.backendGitId,
+                    "frontend": this.$app.frontendGitId,
+                },
+                null,
+                4
+            ) );
 
-            if ( !form.validate() ) return;
-
-            const values = form.getValues();
-
-            if ( values.password !== values.confirmedPassword ) {
-                form.getFields( "confirmedPassword" ).setError( this.i18nd( "vue-ext", "Passwords do not match" ) );
-
-                return;
-            }
-
-            this.ext.mask( loadMask );
-
-            const res = await this._changePassword( values.password );
-
-            this.ext.unmask();
-
-            if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Password changed" ) );
-
-                this.close();
-            }
-            else {
-                this.$utils.toast( res );
-            }
-        },
-
-        async _changePassword ( password ) {
-            return this.$api.call( "account/set-password", password );
-        },
-
-        _generatePassword () {
-            const password = passwords.generatePassword().password;
-
-            this.$utils.copyToClipboard( password );
-
-            this.$utils.toast( this.i18nd( `vue-ext`, `Password copied to the clipboard` ) );
-
-            this.$refs.form.ext.getFields( "password" ).setValue( password );
-            this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );
+            this.$utils.toast( this.i18nd( "vue-ext", "Version info copied" ) );
         },
     },
 };
