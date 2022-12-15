@@ -16,7 +16,7 @@
 
                 <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)"/>
 
-                <ext-column dataIndex="scopes" flex="1" sortable="false" :text="i18nd(`vue-ext`, `Scopes`)" @ready="_scopesColReady"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="scopes" flex="1" sortable="false" :text="i18nd(`vue-ext`, `Scopes`)" @ready="_scopesColReady"/>
 
                 <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
 
@@ -161,7 +161,7 @@ export default {
 
             cmp.setRenderer( ( value, record ) => {
                 if ( !value ) {
-                    return this.i18nd( "vue-ext", `No scopes assigned` );
+                    return "&mdash;";
                 }
                 else {
                     return value.map( scope => this.scopes[scope] ).join( ", " );
