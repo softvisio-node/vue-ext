@@ -1,14 +1,14 @@
 <template>
     <ext-dialog closeAction="hide" height="90%" layout="fit" :title="titleText" width="800">
-        <ObjectUsersPanel ref="panel"/>
+        <AclPanel ref="panel"/>
     </ext-dialog>
 </template>
 
 <script>
-import ObjectUsersPanel from "#lib/components/acl/panel";
+import AclPanel from "#lib/components/acl/panel";
 
 export default {
-    "components": { ObjectUsersPanel },
+    "components": { AclPanel },
 
     "props": {
         "title": {
