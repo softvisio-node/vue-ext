@@ -301,13 +301,9 @@ export default {
         },
 
         async _showCreateUserDialog () {
-            const cmp = await this.$mount( CreateUserDialog, {
-                "cache": false,
-                "props": {
-                    "aclId": this.aclId,
-                    "onCreate": () => this.reload(),
-                },
-            } );
+            const cmp = await this.$mount( CreateUserDialog );
+
+            cmp.setAclId( this.aclId );
 
             cmp.ext.show();
         },
