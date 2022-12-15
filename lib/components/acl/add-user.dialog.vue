@@ -26,7 +26,7 @@ export default {
         },
     },
 
-    "emits": ["create"],
+    "emits": ["add"],
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {
@@ -64,7 +64,35 @@ export default {
         },
 
         // XXX
-        async _addUser () {},
+        async _addUser () {
+            const userId = this.$refs.addUserCombo.ext.getValue();
+
+            if ( !userId ) {
+
+                // XXX
+                // this.$refs.addUserCombo.ext.SetError("sssssssssssss");
+
+                this.$utils.toast( this.i18nd( `vue-ext`, `Fill all required fields` ) );
+
+                return;
+            }
+
+            const res = await this.$api.call( "acl/add-acl-user", this.aclId, userId, {
+                "enabled": this.$refs.enabledField.ext.getValue(),
+                "scopes": this.$refs.scopesPanel.getEnabledScopes(),
+            } );
+
+            if ( res.ok ) {
+                this.$utils.toast( this.i18nd( `vue-ext`, `User added` ) );
+
+                this.$emit( "add" );
+
+                this.close();
+            }
+            else {
+                this.$utils.toast( res );
+            }
+        },
     },
 };
 </script>

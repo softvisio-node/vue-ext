@@ -305,6 +305,7 @@ export default {
                 "cache": false,
                 "props": {
                     "aclId": this.aclId,
+                    "onAdd": () => this.reload(),
                 },
             } );
 
