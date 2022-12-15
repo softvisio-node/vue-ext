@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="90%" layout="vbox" :title="i18nd(`vue-ext`, `Add user`)" width="800">
+    <ext-dialog height="90%" layout="vbox" :title="i18nd(`vue-ext`, `Adding a user`)" width="800">
         <ext-comboboxfield ref="addUserCombo" displayField="email" forceSelection="true" :label="i18nd(`vue-ext`, `Select user`)" labelAlign="left" labelWidth="150" minChars="1" primaryFilter='{"operator":"like","property":"email"}' triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
 
         <ext-togglefield ref="enabledField" :label="i18nd(`vue-ext`, `Access enabled`)" labelAlign="left" labelWidth="150" value="true"/>
