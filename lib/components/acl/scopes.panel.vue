@@ -2,6 +2,7 @@
     <CardsPanel ref="cards" :store="store" @reload="reload">
         <template #items>
             <ext-toolbar docked="top">
+                <ext-container :html="i18nd(`vue-ext`, `Scopes`)"/>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
             </ext-toolbar>

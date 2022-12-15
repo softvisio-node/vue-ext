@@ -301,9 +301,12 @@ export default {
         },
 
         async _showAddUserDialog () {
-            const cmp = await this.$mount( AddUserDialog );
-
-            cmp.setAclId( this.aclId );
+            const cmp = await this.$mount( AddUserDialog, {
+                "cache": false,
+                "props": {
+                    "aclId": this.aclId,
+                },
+            } );
 
             cmp.ext.show();
         },
