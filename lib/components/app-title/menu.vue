@@ -1,8 +1,9 @@
 <template>
     <ext-sheet layout="vbox" modal="true" side="right" width="300" @ready="ready">
-        <ext-panel height="130" innerCls="x-tabbar" layout="vbox" padding="30 10 10 30">
+        <ext-panel height="120" innerCls="x-tabbar" layout="vbox" padding="10 10 10 30">
             <AvatarUser height="60" width="60"/>
             <ext-container :html="email" margin="5 0 0 0" style="font-size: 1.3em; color: white"/>
+            <ext-container :hidden="!isRoot" :html="i18nd(`vue-ext`, `root user`)" style="font-size: 1.3em; color: white"/>
         </ext-panel>
 
         <ext-panel flex="1" layout="vbox" padding="10 10 10 30">
@@ -63,6 +64,10 @@ export default {
     "emits": ["showAccountDialog"],
 
     "computed": {
+        isRoot () {
+            return this.$app.isRoot;
+        },
+
         email () {
             return this.$app.user.email;
         },

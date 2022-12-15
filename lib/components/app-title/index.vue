@@ -10,9 +10,6 @@
         <!-- notifications button -->
         <ext-button ref="notificationsButton" align="right" :hidden="!notificationsButtonEnabled" iconCls="fa-regular fa-bell" margin="10 20 0 0" width="55" @tap="showNotifications"/>
 
-        <!-- root label -->
-        <ext-button align="right" :hidden="!isRoot" iconAlign="top" iconCls="fa-solid fa-user-shield" text="root"/>
-
         <!-- avatar -->
         <AvatarUser align="right" height="40" :hidden="!avatarEnabled" width="40"/>
 
@@ -77,10 +74,6 @@ export default {
     "computed": {
         title () {
             return this.$store.session.title;
-        },
-
-        isRoot () {
-            return this.$app.isRoot;
         },
 
         totalUndoneUnread () {
