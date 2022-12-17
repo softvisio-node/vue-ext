@@ -77,7 +77,7 @@ export default {
                 for ( const scope of res.data ) {
                     menu.push( {
                         "xtype": "menucheckitem",
-                        "id": scope.id,
+                        "value": scope.id,
                         "text": scope.name,
                         "listeners": {
                             "checkchange": this._onChange.bind( this ),
@@ -108,7 +108,7 @@ export default {
             items.each( item => {
                 if ( item.xtype !== "menucheckitem" ) return;
 
-                if ( item.getChecked() ) checkedItems.push( item.getId() );
+                if ( item.getChecked() ) checkedItems.push( item.getValue() );
             } );
 
             if ( checkedItems.length ) {
