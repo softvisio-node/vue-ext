@@ -1,5 +1,5 @@
 <template>
-    <ext-button ref="button" :text="i18nd(`vue-ext`, `Scopes`)" width="160" @ready="_ready"/>
+    <ext-button ref="button" :text="i18nd(`vue-ext`, `Scopes`)" width="160" @ready="_onReady"/>
 </template>
 
 <script>
@@ -49,7 +49,7 @@ export default {
         },
 
         // protected
-        async _ready ( e ) {
+        async _onReady ( e ) {
             this.isReady = true;
 
             this._loadScopes();
@@ -59,10 +59,6 @@ export default {
 
         async _loadScopes () {
             if ( !this.isReady ) return;
-
-            if ( !this.aclId ) return;
-
-            const button = this.$refs.button.ext;
 
             const res = await this.$api.call( "acl/get-acl-scopes", -1 );
 
@@ -101,7 +97,7 @@ export default {
                 );
             }
 
-            button.setMenu( menu );
+            this.$refs.button.ext.setMenu( menu );
         },
 
         _onChange () {
