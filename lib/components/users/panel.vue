@@ -5,7 +5,7 @@
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
                 <ScopesButton aclId="-1" @change="_onScopesFilterChange"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="i18nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
+                <ext-button :disabled="canCreateUser ? '' : true" iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="i18nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
             </ext-toolbar>
         </template>
@@ -52,6 +52,19 @@ export default {
             "type": Boolean,
             "default": false,
         },
+    },
+
+    data () {
+        const r = {
+            "canCreateUser": this.$app.hasPermissions( "admin:create" ),
+            "canUpdateUser": this.$app.hasPermissions( "admin:update" ),
+            "canDeleteUser": this.$app.hasPermissions( "admin:delete" ),
+            "canUpdateUserScopes": this.$app.hasPermissions( "admin:update" ) && this.$app.hasPermissions( "acl:update" ),
+        };
+
+        console.log( r );
+
+        return r;
     },
 
     created () {
@@ -156,6 +169,7 @@ export default {
                             "xtype": "togglefield",
                             "bind": { "value": "{record.enabled}" },
                             "listeners": { "change": this.setUserEnabled.bind( this ) },
+                            "disabled": !this.canUpdateUser,
                         },
                     ],
                 },
@@ -176,6 +190,7 @@ export default {
                             "iconCls": "fa-solid fa-unlock-alt",
                             "tooltip": this.i18nd( `vue-ext`, "Edit user scopes" ),
                             "handler": this.showUserScopesDialog.bind( this ),
+                            "disabled": !this.canUpdateUserScopes,
                         },
                         {
                             "xtype": "button",
@@ -199,12 +214,14 @@ export default {
                                     {
                                         "text": this.i18nd( `vue-ext`, "Change password" ),
                                         "handler": this._showChangePasswordDialog.bind( this ),
+                                        "disabled": !this.canUpdateUser,
                                     },
                                     {
                                         "separator": true,
                                         "iconCls": "fa-solid fa-trash-alt",
                                         "text": this.i18nd( `vue-ext`, "Delete user" ),
                                         "handler": this.deleteUser.bind( this ),
+                                        "disabled": !this.canDeleteUser,
                                     },
                                 ],
                             },
