@@ -55,16 +55,12 @@ export default {
     },
 
     data () {
-        const r = {
+        return {
             "canCreateUser": this.$app.hasPermissions( "admin:create" ),
             "canUpdateUser": this.$app.hasPermissions( "admin:update" ),
             "canDeleteUser": this.$app.hasPermissions( "admin:delete" ),
             "canUpdateUserScopes": this.$app.hasPermissions( "admin:update" ) && this.$app.hasPermissions( "acl:update" ),
         };
-
-        console.log( r );
-
-        return r;
     },
 
     created () {
