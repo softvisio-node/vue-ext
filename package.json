@@ -46,6 +46,6 @@
         "pdfjs-dist": "^3.0.279"
     },
     "peerDependencies": {
-        "@softvisio/vue": "^6.0.0"
+        "@softvisio/vue": "^7.0.0"
     }
 }
