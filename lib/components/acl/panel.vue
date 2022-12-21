@@ -65,6 +65,27 @@ export default {
         async reload () {
             var res;
 
+            // load permissions
+            if ( !this._permissionsLoaded ) {
+                this.$refs.cards.mask();
+
+                res = await this.$api.call( "acl/get-acl-user-permissions", this.aclId );
+
+                let permissions;
+
+                if ( res.ok ) {
+                    this._permissionsLoaded = true;
+
+                    permissions = new PermissionModel( { "permissions": res.data } );
+                }
+                else {
+                    permissions = new PermissionModel( { "permissions": [] } );
+                }
+
+                this.$refs.cards.ext.getViewModel().set( "permissions", permissions );
+                this.$refs.grid.ext.getViewModel().set( "permissions", permissions );
+            }
+
             // load roles
             if ( !this._rolesLoaded ) {
                 this.$refs.cards.mask();
@@ -79,22 +100,6 @@ export default {
                     for ( const role of res.data ) {
                         this.roles[role.id] = role.name;
                     }
-                }
-            }
-
-            // load permissions
-            if ( !this._permissionsLoaded ) {
-                this.$refs.cards.mask();
-
-                res = await this.$api.call( "acl/get-acl-user-permissions", this.aclId );
-
-                if ( res.ok ) {
-                    this._permissionsLoaded = true;
-
-                    const permissions = new PermissionModel( { "permissions": res.data } );
-
-                    this.$refs.cards.ext.getViewModel().set( "permissions", permissions );
-                    this.$refs.grid.ext.getViewModel().set( "permissions", permissions );
                 }
             }
 
