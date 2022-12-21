@@ -71,19 +71,14 @@ export default {
 
                 res = await this.$api.call( "acl/get-acl-user-permissions", this.aclId );
 
-                let permissions;
-
                 if ( res.ok ) {
                     this._permissionsLoaded = true;
 
-                    permissions = new PermissionModel( { "permissions": res.data } );
+                    this.$refs.cards.ext.getViewModel().get( "permissions" ).set( "permissions", res.data );
                 }
                 else {
-                    permissions = new PermissionModel( { "permissions": [] } );
+                    this.$refs.cards.ext.getViewModel().get( "permissions" ).set( "permissions", [] );
                 }
-
-                this.$refs.cards.ext.getViewModel().set( "permissions", permissions );
-                this.$refs.grid.ext.getViewModel().set( "permissions", permissions );
             }
 
             // load roles
@@ -121,6 +116,11 @@ export default {
         // protected
         _onReady ( e ) {
             const cmp = e.detail.cmp;
+
+            const permissions = new PermissionModel( { "permissions": [] } );
+
+            this.$refs.cards.ext.getViewModel().set( "permissions", permissions );
+            this.$refs.grid.ext.getViewModel().set( "permissions", permissions );
 
             cmp.setStore( this.store );
 
