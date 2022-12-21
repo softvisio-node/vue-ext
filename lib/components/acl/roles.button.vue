@@ -1,5 +1,5 @@
 <template>
-    <ext-button ref="button" :text="i18nd(`vue-ext`, `Scopes`)" width="160" @ready="_onReady"/>
+    <ext-button ref="button" :text="i18nd(`vue-ext`, `Roles`)" width="160" @ready="_onReady"/>
 </template>
 
 <script>
@@ -19,7 +19,7 @@ export default {
                 this.clear( true );
             }
             else {
-                this._loadScopes();
+                this._loadRoles();
             }
         },
     },
@@ -52,15 +52,15 @@ export default {
         async _onReady ( e ) {
             this.isReady = true;
 
-            this._loadScopes();
+            this._loadRoles();
 
             this.$emit( "ready" );
         },
 
-        async _loadScopes () {
+        async _loadRoles () {
             if ( !this.isReady ) return;
 
-            const res = await this.$api.call( "acl/get-acl-scopes", -1 );
+            const res = await this.$api.call( "acl/get-acl-roles", -1 );
 
             const menu = [];
 
@@ -70,15 +70,15 @@ export default {
                     "separator": true,
                     "iconCls": "fa-solid fa-redo",
                     "text": this.i18nd( "vue-ext", "Refresh" ),
-                    "handler": this._loadScopes.bind( this ),
+                    "handler": this._loadRoles.bind( this ),
                 } );
             }
             else if ( res.data ) {
-                for ( const scope of res.data ) {
+                for ( const role of res.data ) {
                     menu.push( {
                         "xtype": "menucheckitem",
-                        "value": scope.id,
-                        "text": scope.name,
+                        "value": role.id,
+                        "text": role.name,
                         "listeners": {
                             "checkchange": this._onChange.bind( this ),
                         },
@@ -112,12 +112,12 @@ export default {
             } );
 
             if ( checkedItems.length ) {
-                button.setText( this.i18nd( "vue-ext", msgid`${checkedItems.length} scppe`, msgid`${checkedItems.length} scopes`, checkedItems.length ) );
+                button.setText( this.i18nd( "vue-ext", msgid`${checkedItems.length} scppe`, msgid`${checkedItems.length} roles`, checkedItems.length ) );
 
                 this.$emit( "change", checkedItems );
             }
             else {
-                button.setText( this.i18nd( "vue-ext", "Scopes" ) );
+                button.setText( this.i18nd( "vue-ext", "Roles" ) );
 
                 this.$emit( "change" );
             }

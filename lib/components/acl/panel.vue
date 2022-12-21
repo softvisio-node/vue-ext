@@ -3,7 +3,7 @@
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
-                <ScopesButton :aclId="aclId" @change="_onScopesFilterChange"/>
+                <RolesButton :aclId="aclId" @change="_onRolesFilterChange"/>
                 <ext-spacer/>
                 <ext-button bind='{"hidden":"{!permissions.create}"}' iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_showAddUserDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
@@ -16,7 +16,7 @@
 
                 <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="scopes" flex="1" sortable="false" :text="i18nd(`vue-ext`, `Scopes`)" @ready="_scopesColReady"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="roles" flex="1" sortable="false" :text="i18nd(`vue-ext`, `Roles`)" @ready="_rolesColReady"/>
 
                 <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
 
@@ -32,11 +32,11 @@ import PermissionModel from "./models/permission";
 import UserModel from "./models/user";
 import AddUserDialog from "./add-user.dialog";
 import CardsPanel from "#lib/components/cards.panel";
-import ScopesButton from "#lib/components/acl/scopes.button";
-import ScopesDialog from "#lib/components/acl/scopes.dialog";
+import RolesButton from "#lib/components/acl/roles.button";
+import RolesDialog from "#lib/components/acl/roles.dialog";
 
 export default {
-    "components": { CardsPanel, ScopesButton },
+    "components": { CardsPanel, RolesButton },
 
     "props": {
         "aclId": {
@@ -65,19 +65,19 @@ export default {
         async reload () {
             var res;
 
-            // load scopes
-            if ( !this._scopesLoaded ) {
+            // load roles
+            if ( !this._rolesLoaded ) {
                 this.$refs.cards.mask();
 
-                res = await this.$api.call( "acl/get-acl-scopes", this.aclId );
+                res = await this.$api.call( "acl/get-acl-roles", this.aclId );
 
                 if ( res.ok ) {
-                    this._scopesLoaded = true;
+                    this._rolesLoaded = true;
 
-                    this.scopes = {};
+                    this.roles = {};
 
-                    for ( const scope of res.data ) {
-                        this.scopes[scope.id] = scope.name;
+                    for ( const role of res.data ) {
+                        this.roles[role.id] = role.name;
                     }
                 }
             }
@@ -156,7 +156,7 @@ export default {
             } );
         },
 
-        _scopesColReady ( e ) {
+        _rolesColReady ( e ) {
             const cmp = e.detail.cmp;
 
             cmp.setRenderer( ( value, record ) => {
@@ -164,7 +164,7 @@ export default {
                     return "&mdash;";
                 }
                 else {
-                    return value.map( scope => this.scopes[scope] ).join( ", " );
+                    return value.map( role => this.roles[role] ).join( ", " );
                 }
             } );
         },
@@ -181,9 +181,9 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18nd( "vue-ext", "Edit user scopes" ),
+                            "tooltip": this.i18nd( "vue-ext", "Edit user roles" ),
                             "padding": "0 0 0 3",
-                            "handler": this._showUserScopesDialog.bind( this ),
+                            "handler": this._showUserRolesDialog.bind( this ),
                             "bind": {
                                 "disabled": "{!permissions.update}",
                             },
@@ -263,10 +263,10 @@ export default {
             }
         },
 
-        async _showUserScopesDialog ( button ) {
+        async _showUserRolesDialog ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            const cmp = await this.$mount( ScopesDialog, {
+            const cmp = await this.$mount( RolesDialog, {
                 "cache": false,
                 "props": {
                     "aclId": this.aclId,
@@ -289,16 +289,16 @@ export default {
             cmp.ext.show();
         },
 
-        _onScopesFilterChange ( scopes ) {
-            if ( scopes ) {
+        _onRolesFilterChange ( roles ) {
+            if ( roles ) {
                 this.store.addFilter( {
-                    "property": "scopes",
+                    "property": "roles",
                     "operator": "in",
-                    "value": scopes,
+                    "value": roles,
                 } );
             }
             else {
-                this.store.removeFilter( "scopes" );
+                this.store.removeFilter( "roles" );
             }
         },
     },

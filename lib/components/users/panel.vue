@@ -3,7 +3,7 @@
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
-                <ScopesButton aclId="-1" @change="_onScopesFilterChange"/>
+                <RolesButton aclId="-1" @change="_onRolesFilterChange"/>
                 <ext-spacer/>
                 <ext-button :disabled="!canCreateUser" iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="i18nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
@@ -16,7 +16,7 @@
 
                 <ext-column dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)" @ready="_emailColReady"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="scopes" flex="1" sortable="false" :text="i18nd(`vue-ext`, `Scopes`)" @ready="_scopesColReady"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="roles" flex="1" sortable="false" :text="i18nd(`vue-ext`, `Roles`)" @ready="_rolesColReady"/>
 
                 <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" :hidden="lastActivityColumnHidden" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
 
@@ -33,15 +33,15 @@
 <script>
 import "#lib/components/avatar/ext.avatar";
 import CreateUserDialog from "./create-user.dialog";
-import UserScopesDialog from "#lib/components/acl/scopes.dialog";
+import UserRolesDialog from "#lib/components/acl/roles.dialog";
 import UserModel from "./models/user";
 import ChangePasswordDialog from "./change-password.dialog";
 import UserSessionsDialog from "./user-sessions.dialog";
 import CardsPanel from "#lib/components/cards.panel";
-import ScopesButton from "#lib/components/acl/scopes.button";
+import RolesButton from "#lib/components/acl/roles.button";
 
 export default {
-    "components": { CardsPanel, ScopesButton },
+    "components": { CardsPanel, RolesButton },
 
     "props": {
         "lastActivityColumnHidden": {
@@ -59,7 +59,7 @@ export default {
             "canCreateUser": this.$app.hasPermissions( "admin:create" ),
             "canUpdateUser": this.$app.hasPermissions( "admin:update" ),
             "canDeleteUser": this.$app.hasPermissions( "admin:delete" ),
-            "canUpdateUserScopes": this.$app.hasPermissions( "admin:update" ) && this.$app.hasPermissions( "acl:update" ),
+            "canUpdateUserRoles": this.$app.hasPermissions( "admin:update" ) && this.$app.hasPermissions( "acl:update" ),
         };
     },
 
@@ -77,19 +77,19 @@ export default {
         async reload () {
             var res;
 
-            // load scopes
-            if ( !this._scopesLoaded ) {
+            // load roles
+            if ( !this._rolesLoaded ) {
                 this.$refs.cards.mask();
 
-                res = await this.$api.call( "acl/get-acl-scopes", -1 );
+                res = await this.$api.call( "acl/get-acl-roles", -1 );
 
                 if ( res.ok ) {
-                    this._scopesLoaded = true;
+                    this._rolesLoaded = true;
 
-                    this.scopes = {};
+                    this.roles = {};
 
-                    for ( const scope of res.data ) {
-                        this.scopes[scope.id] = scope.name;
+                    for ( const role of res.data ) {
+                        this.roles[role.id] = role.name;
                     }
                 }
             }
@@ -139,7 +139,7 @@ export default {
             cmp.setCell( { "encodeHtml": false } );
         },
 
-        _scopesColReady ( e ) {
+        _rolesColReady ( e ) {
             const cmp = e.detail.cmp;
 
             cmp.setRenderer( ( value, record ) => {
@@ -147,7 +147,7 @@ export default {
                     return "&mdash;";
                 }
                 else {
-                    return value.map( scope => this.scopes[scope] ).join( ", " );
+                    return value.map( role => this.roles[role] ).join( ", " );
                 }
             } );
         },
@@ -184,9 +184,9 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Edit user scopes" ),
-                            "handler": this.showUserScopesDialog.bind( this ),
-                            "disabled": !this.canUpdateUserScopes,
+                            "tooltip": this.i18nd( `vue-ext`, "Edit user roles" ),
+                            "handler": this.showUserRolesDialog.bind( this ),
+                            "disabled": !this.canUpdateUserRoles,
                         },
                         {
                             "xtype": "button",
@@ -305,11 +305,11 @@ export default {
             cmp.ext.show();
         },
 
-        async showUserScopesDialog ( button ) {
+        async showUserRolesDialog ( button ) {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            const cmp = await this.$mount( UserScopesDialog, {
+            const cmp = await this.$mount( UserRolesDialog, {
                 "cache": false,
                 "props": {
                     "aclId": "-1",
@@ -356,17 +356,17 @@ export default {
             this.$utils.toast( this.i18nd( `vue-ext`, `User email copied` ) );
         },
 
-        // scopes filter
-        _onScopesFilterChange ( scopes ) {
-            if ( scopes ) {
+        // roles filter
+        _onRolesFilterChange ( roles ) {
+            if ( roles ) {
                 this.store.addFilter( {
-                    "property": "scopes",
+                    "property": "roles",
                     "operator": "in",
-                    "value": scopes,
+                    "value": roles,
                 } );
             }
             else {
-                this.store.removeFilter( "scopes" );
+                this.store.removeFilter( "roles" );
             }
         },
     },

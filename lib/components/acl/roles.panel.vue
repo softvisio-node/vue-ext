@@ -2,7 +2,7 @@
     <CardsPanel ref="cards" :store="store" @ready="_onReady" @reload="reload">
         <template #items>
             <ext-toolbar docked="top">
-                <ext-container :html="i18nd(`vue-ext`, `Scopes`)"/>
+                <ext-container :html="i18nd(`vue-ext`, `Roles`)"/>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
             </ext-toolbar>
@@ -10,7 +10,7 @@
 
         <template #data>
             <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_gridReady">
-                <ext-column cell='{"encodeHtml":false}' dataIndex="title_html" flex="1" sorter='{"property":"name"}' :text="i18nd(`vue-ext`, `Scope`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="title_html" flex="1" sorter='{"property":"name"}' :text="i18nd(`vue-ext`, `Role`)"/>
 
                 <ext-column align="center" sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
             </ext-grid>
@@ -20,7 +20,7 @@
 
 <script>
 import CardsPanel from "#lib/components/cards.panel";
-import ScopeModel from "./models/scope";
+import RoleModel from "./models/role";
 
 export default {
     "components": { CardsPanel },
@@ -40,7 +40,7 @@ export default {
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {
-            "model": ScopeModel,
+            "model": RoleModel,
             "remoteFilter": false,
             "remoteSort": false,
         } );
@@ -58,7 +58,7 @@ export default {
 
             this.store.loadRawData( [] );
 
-            const res = await this.$api.call( "acl/get-acl-user-scopes", this.aclId, this.userId );
+            const res = await this.$api.call( "acl/get-acl-user-roles", this.aclId, this.userId );
 
             this.$refs.cards.unmask();
 
@@ -72,18 +72,18 @@ export default {
             }
         },
 
-        getEnabledScopes () {
-            var scopes;
+        getEnabledRoles () {
+            var roles;
 
             this.store.each( record => {
                 if ( !record.get( "enabled" ) ) return;
 
-                scopes ??= [];
+                roles ??= [];
 
-                scopes.push( record.id );
+                roles.push( record.id );
             } );
 
-            return scopes;
+            return roles;
         },
 
         // protected
@@ -114,14 +114,14 @@ export default {
                                 "value": "{record.enabled}",
                                 "disabled": "{record.readonly}",
                             },
-                            "listeners": { "change": this._setScopeEnabled.bind( this ) },
+                            "listeners": { "change": this._setRoleEnabled.bind( this ) },
                         },
                     ],
                 },
             } );
         },
 
-        async _setScopeEnabled ( button, enabled ) {
+        async _setRoleEnabled ( button, enabled ) {
 
             // user is phantom
             if ( !this.userId ) return;
@@ -136,16 +136,16 @@ export default {
             var res;
 
             if ( enabled ) {
-                res = await this.$api.call( "acl/add-acl-user-scopes", this.aclId, this.userId, [record.id] );
+                res = await this.$api.call( "acl/add-acl-user-roles", this.aclId, this.userId, [record.id] );
             }
             else {
-                res = await this.$api.call( "acl/delete-acl-user-scopes", this.aclId, this.userId, [record.id] );
+                res = await this.$api.call( "acl/delete-acl-user-roles", this.aclId, this.userId, [record.id] );
             }
 
             if ( res.ok ) {
-                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Scope enabled` ) : this.i18nd( `vue-ext`, `Scope disabled` ) );
+                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Role enabled` ) : this.i18nd( `vue-ext`, `Role disabled` ) );
 
-                this.$emit( "update", this.getEnabledScopes() );
+                this.$emit( "update", this.getEnabledRoles() );
             }
             else {
                 await this.$utils.sleep( 500 );

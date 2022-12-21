@@ -1,14 +1,14 @@
 <template>
-    <ext-dialog height="90%" layout="fit" :title="i18nd(`vue-ext`, `Edit user scopes`)" width="600">
-        <ScopesPanel ref="scopesPanel" :aclId="aclId" :userId="userId" @update="_onScopesUpdate"/>
+    <ext-dialog height="90%" layout="fit" :title="i18nd(`vue-ext`, `Edit user roles`)" width="600">
+        <RolesPanel ref="rolesPanel" :aclId="aclId" :userId="userId" @update="_onRolesUpdate"/>
     </ext-dialog>
 </template>
 
 <script>
-import ScopesPanel from "#lib/components/acl/scopes.panel";
+import RolesPanel from "#lib/components/acl/roles.panel";
 
 export default {
-    "components": { ScopesPanel },
+    "components": { RolesPanel },
 
     "props": {
         "aclId": {
@@ -30,8 +30,8 @@ export default {
     "methods": {
 
         // protected
-        _onScopesUpdate ( scopes ) {
-            this.userRecord.set( "scopes", scopes );
+        _onRolesUpdate ( roles ) {
+            this.userRecord.set( "roles", roles );
         },
     },
 };

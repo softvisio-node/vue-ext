@@ -4,7 +4,7 @@
 
         <ext-togglefield ref="enabledField" :label="i18nd(`vue-ext`, `Access enabled`)" labelAlign="left" labelWidth="150" value="true"/>
 
-        <ScopesPanel ref="scopesPanel" :aclId="aclId" flex="1"/>
+        <RolesPanel ref="rolesPanel" :aclId="aclId" flex="1"/>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import ScopesPanel from "#lib/components/acl/scopes.panel";
+import RolesPanel from "#lib/components/acl/roles.panel";
 
 export default {
-    "components": { ScopesPanel },
+    "components": { RolesPanel },
 
     "props": {
         "aclId": {
@@ -68,7 +68,7 @@ export default {
 
             const res = await this.$api.call( "acl/add-acl-user", this.aclId, this.$refs.addUserCombo.ext.getValue(), {
                 "enabled": this.$refs.enabledField.ext.getValue(),
-                "scopes": this.$refs.scopesPanel.getEnabledScopes(),
+                "roles": this.$refs.rolesPanel.getEnabledRoles(),
             } );
 
             if ( res.ok ) {
