@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import constants from "#core/app/constants";
+
 export default {
     "props": {
         "aclId": {
@@ -60,7 +62,7 @@ export default {
         async _loadRoles () {
             if ( !this.isReady ) return;
 
-            const res = await this.$api.call( "acl/get-acl-roles", -1 );
+            const res = await this.$api.call( "acl/get-acl-roles", constants.defaultAclId );
 
             const menu = [];
 

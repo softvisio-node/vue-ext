@@ -3,7 +3,7 @@
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
-                <RolesButton aclId="-1" @change="_onRolesFilterChange"/>
+                <RolesButton aclId="aclId" @change="_onRolesFilterChange"/>
                 <ext-spacer/>
                 <ext-button :disabled="!canCreateUser" iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="i18nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import constants from "#core/app/constants";
 import "#lib/components/avatar/ext.avatar";
 import CreateUserDialog from "./create-user.dialog";
 import UserRolesDialog from "#lib/components/acl/roles.dialog";
@@ -56,6 +57,8 @@ export default {
 
     data () {
         return {
+            "aclId": constants.defaultAclId,
+
             "canCreateUser": this.$app.hasPermissions( "admin:create" ),
             "canUpdateUser": this.$app.hasPermissions( "admin:update" ),
             "canDeleteUser": this.$app.hasPermissions( "admin:delete" ),
@@ -81,7 +84,7 @@ export default {
             if ( !this._rolesLoaded ) {
                 this.$refs.cards.mask();
 
-                res = await this.$api.call( "acl/get-acl-roles", -1 );
+                res = await this.$api.call( "acl/get-acl-roles", constants.defaultAclId );
 
                 if ( res.ok ) {
                     this._rolesLoaded = true;
@@ -312,7 +315,7 @@ export default {
             const cmp = await this.$mount( UserRolesDialog, {
                 "cache": false,
                 "props": {
-                    "aclId": "-1",
+                    "aclId": constants.defaultAclId,
                     "userRecord": record,
                 },
             } );
