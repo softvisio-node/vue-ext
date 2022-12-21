@@ -12,7 +12,7 @@
             <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_gridReady">
                 <ext-column cell='{"encodeHtml":false}' dataIndex="title_html" flex="1" sorter='{"property":"name"}' :text="i18nd(`vue-ext`, `Role`)"/>
 
-                <ext-column align="center" sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
+                <ext-column align="center" sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Role enabled`)" width="160" @ready="_enabledColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
