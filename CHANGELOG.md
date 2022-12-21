@@ -1,5 +1,22 @@
 # Changelog
 
+### 8.0.0 (2022-12-21)
+
+Breaking changes:
+
+-   feat!: app refactored
+
+Features:
+
+-   feat: acl refactored
+-   feat: app components
+
+Fixes:
+
+-   fix: vue link
+
+Migration:
+
 ### 7.12.1 (2022-11-07)
 
 Fixes:
