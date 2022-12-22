@@ -1,5 +1,14 @@
 # Changelog
 
+### 8.0.1 (2022-12-22)
+
+Fixes:
+
+-   fix: acl permissions load
+-   fix: app constants
+-   fix: root label
+-   fix: translations
+
 ### 8.0.0 (2022-12-21)
 
 Breaking changes:
