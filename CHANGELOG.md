@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.0.2 (2022-12-23)
+
+Fixes:
+
+-   fix: roles filter
+
 ### 8.0.1 (2022-12-22)
 
 Fixes:
