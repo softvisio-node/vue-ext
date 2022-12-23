@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-12-21 09:00+0200\n"
+"POT-Creation-Date: 2022-12-23 07:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -34,7 +34,7 @@ msgstr "Режим сервера"
 msgid "Copy to clipboard"
 msgstr "Скопіювати у буфер обміну"
 
-#: lib/components/about.dialog.vue:2:70 lib/components/app-title/menu.vue:29:65
+#: lib/components/about.dialog.vue:2:70 lib/components/app-title/menu.vue:33:65
 msgid "About the project"
 msgstr "Про проект"
 
@@ -47,10 +47,10 @@ msgid "Locale"
 msgstr "Локаль"
 
 #: lib/components/account/account.panel.vue:12:39
-#: lib/components/app-title/menu.vue:13:101
+#: lib/components/app-title/menu.vue:17:101
 #: lib/components/change-password.dialog.vue:16:21
 #: lib/components/reset-password.dialog.vue:17:31
-#: lib/components/users/panel.vue:211:48
+#: lib/components/users/panel.vue:214:48
 msgid "Change password"
 msgstr "Змінити пароль"
 
@@ -117,7 +117,7 @@ msgid "Accent color"
 msgstr "Колір акценту"
 
 #: lib/components/account/dialog.vue:2:91
-#: lib/components/app-title/menu.vue:12:94
+#: lib/components/app-title/menu.vue:16:94
 msgid "Your account"
 msgstr "Ваш аккаунт"
 
@@ -144,12 +144,11 @@ msgid "Select user"
 msgstr "Виберіть користувача"
 
 #: lib/components/acl/add-user.dialog.vue:5:52
-#: lib/components/acl/panel.vue:21:67 lib/components/acl/panel.vue:239:45
-#: lib/components/acl/roles.panel.vue:15:82
+#: lib/components/acl/panel.vue:21:67 lib/components/acl/panel.vue:244:45
 #: lib/components/user-tokens/panel.vue:20:88
 #: lib/components/user-tokens/panel.vue:150:45
 #: lib/components/users/create-user.dialog.vue:14:37
-#: lib/components/users/panel.vue:25:67 lib/components/users/panel.vue:251:45
+#: lib/components/users/panel.vue:25:67 lib/components/users/panel.vue:254:45
 msgid "Access enabled"
 msgstr "Доступ увімкнено"
 
@@ -181,7 +180,7 @@ msgstr "Користувачі"
 msgid "Search users"
 msgstr "Пошук користувачів"
 
-#: lib/components/acl/panel.vue:9:62 lib/components/acl/roles.button.vue:72:28
+#: lib/components/acl/panel.vue:9:62 lib/components/acl/roles.button.vue:74:28
 #: lib/components/acl/roles.panel.vue:7:62
 #: lib/components/api-call-log/history/dialog.vue:5:58
 #: lib/components/api-call-log/log/dialog.vue:5:58
@@ -199,52 +198,56 @@ msgstr "Оновити"
 msgid "Email"
 msgstr "Email"
 
-#: lib/components/acl/panel.vue:19:107 lib/components/acl/roles.button.vue:2:36
-#: lib/components/acl/roles.button.vue:120:32
-#: lib/components/acl/roles.panel.vue:5:38
+#: lib/components/acl/panel.vue:19:107 lib/components/acl/roles.panel.vue:5:38
 #: lib/components/users/panel.vue:19:107
 msgid "Roles"
 msgstr "Ролі"
 
-#: lib/components/acl/panel.vue:184:39 lib/components/acl/roles.dialog.vue:2:50
-#: lib/components/users/panel.vue:187:39
+#: lib/components/acl/panel.vue:189:39 lib/components/acl/roles.dialog.vue:2:50
+#: lib/components/users/panel.vue:190:39
 msgid "Edit user roles"
 msgstr "Редагувати ролі користувача"
 
-#: lib/components/acl/panel.vue:194:39 lib/components/users/panel.vue:218:48
+#: lib/components/acl/panel.vue:199:39 lib/components/users/panel.vue:221:48
 msgid "Delete user"
 msgstr "Видалити користувача"
 
-#: lib/components/acl/panel.vue:239:89
+#: lib/components/acl/panel.vue:244:89
 #: lib/components/user-tokens/panel.vue:150:89
-#: lib/components/users/panel.vue:251:89
+#: lib/components/users/panel.vue:254:89
 msgid "Access disabled"
 msgstr "Доступ вимкнено"
 
-#: lib/components/acl/panel.vue:248:47 lib/components/users/panel.vue:261:47
+#: lib/components/acl/panel.vue:253:47 lib/components/users/panel.vue:264:47
 msgid "Are you sure you want to delete user?"
 msgstr "Ви впевнені, що хочете видалити користувача?"
 
-#: lib/components/acl/panel.vue:257:35 lib/components/users/panel.vue:270:35
+#: lib/components/acl/panel.vue:262:35 lib/components/users/panel.vue:273:35
 msgid "User deleted"
 msgstr "Користувача видалено"
 
-#: lib/components/acl/roles.button.vue:94:32
+#: lib/components/acl/roles.button.vue:2:36
+#: lib/components/acl/roles.button.vue:122:32
+msgid "Roles filter"
+msgstr "Фільтр ролей"
+
+#: lib/components/acl/roles.button.vue:96:32
 msgid "Clear filter"
 msgstr "Очистити фільтр"
 
-#: lib/components/acl/roles.button.vue:115:32
+#: lib/components/acl/roles.button.vue:117:32
 #, javascript-format
-msgid "${n} scppe"
-msgid_plural "${n} roles"
-msgstr[0] "${n} роль"
-msgstr[1] "${n} ролі"
-msgstr[2] "${n} ролей"
+msgid "${n} role selected"
+msgid_plural "${n} roles selected"
+msgstr[0] "${n} роль вибрано"
+msgstr[1] "${n} ролі вибрано"
+msgstr[2] "${n} ролей вибрано"
 
 #: lib/components/acl/roles.panel.vue:13:124
 msgid "Role"
 msgstr "Роль"
 
+#: lib/components/acl/roles.panel.vue:15:82
 #: lib/components/acl/roles.panel.vue:146:45
 msgid "Role enabled"
 msgstr "Роль увімкнено"
@@ -301,11 +304,7 @@ msgstr "Середня тривалість виконання запиту за
 msgid "Exceptions for last 60 minutes (%)"
 msgstr "Помилки за останні 60 хвилин (%)"
 
-#: lib/components/app-title/menu.vue:6:52
-msgid "root user"
-msgstr "root користувач"
-
-#: lib/components/app-title/menu.vue:31:66
+#: lib/components/app-title/menu.vue:35:66
 #: lib/components/user-sessions/panel.vue:78:39
 msgid "Sign out"
 msgstr "Вийти"
@@ -704,19 +703,19 @@ msgstr "Створення користувача"
 msgid "User created"
 msgstr "Користувач створений"
 
-#: lib/components/users/panel.vue:194:39
+#: lib/components/users/panel.vue:197:39
 msgid "Actions"
 msgstr "Дії"
 
-#: lib/components/users/panel.vue:203:48
+#: lib/components/users/panel.vue:206:48
 msgid "Copy email to the clipboard"
 msgstr "Копіювати email в буфер обміну"
 
-#: lib/components/users/panel.vue:207:48
+#: lib/components/users/panel.vue:210:48
 msgid "View user sessions"
 msgstr "Перегляд сесій користувача"
 
-#: lib/components/users/panel.vue:356:31
+#: lib/components/users/panel.vue:359:31
 msgid "User email copied"
 msgstr "Email користувача скопійовано"
 
@@ -763,6 +762,16 @@ msgstr "Токен підтвердження електронної пошти 
 #: lib/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#, javascript-format
+#~ msgid "${n} scppe"
+#~ msgid_plural "${n} roles"
+#~ msgstr[0] "${n} роль"
+#~ msgstr[1] "${n} ролі"
+#~ msgstr[2] "${n} ролей"
+
+#~ msgid "root user"
+#~ msgstr "root користувач"
 
 #~ msgid "Scopes"
 #~ msgstr "Дозволи"

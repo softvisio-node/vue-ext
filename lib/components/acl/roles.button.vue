@@ -1,5 +1,5 @@
 <template>
-    <ext-button ref="button" :text="i18nd(`vue-ext`, `Roles`)" width="160" @ready="_onReady"/>
+    <ext-button ref="button" :text="i18nd(`vue-ext`, `Roles filter`)" width="180" @ready="_onReady"/>
 </template>
 
 <script>
@@ -114,12 +114,12 @@ export default {
             } );
 
             if ( checkedItems.length ) {
-                button.setText( this.i18nd( "vue-ext", msgid`${checkedItems.length} scppe`, msgid`${checkedItems.length} roles`, checkedItems.length ) );
+                button.setText( this.i18nd( "vue-ext", msgid`${checkedItems.length} role selected`, msgid`${checkedItems.length} roles selected`, checkedItems.length ) );
 
                 this.$emit( "change", checkedItems );
             }
             else {
-                button.setText( this.i18nd( "vue-ext", "Roles" ) );
+                button.setText( this.i18nd( "vue-ext", "Roles filter" ) );
 
                 this.$emit( "change" );
             }
