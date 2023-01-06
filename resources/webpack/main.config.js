@@ -15,11 +15,11 @@ export class Main extends Super {
             ...config.resolve.alias,
             "#vue": "@softvisio/vue-ext",
 
-            "#ext$": "@softvisio/ext/ext-" + options.buildOptions.extVersion,
-            "#ext": "@softvisio/ext/resources/ext-" + options.buildOptions.extVersion,
-            "#ewc$": "@softvisio/ext/ewc-" + options.buildOptions.ewcVersion,
-            "#ewc": "@softvisio/ext/resources/ewc-" + options.buildOptions.ewcVersion,
-            "#ext-charts$": "@softvisio/ext/ext-charts-" + options.buildOptions.extVersion,
+            "#ext$": "@softvisio/ext/ext-" + this.buildOptions.extVersion,
+            "#ext": "@softvisio/ext/resources/ext-" + this.buildOptions.extVersion,
+            "#ewc$": "@softvisio/ext/ewc-" + this.buildOptions.ewcVersion,
+            "#ewc": "@softvisio/ext/resources/ewc-" + this.buildOptions.ewcVersion,
+            "#ext-charts$": "@softvisio/ext/ext-charts-" + this.buildOptions.extVersion,
         };
 
         // config.module.rules[1].exclude.push( /[\\/]resources[\\/]ext-[\d.]+[\\/]/, /[\\/]resources[\\/]ewc-[\d.]+[\\/]/ );
@@ -33,7 +33,7 @@ export class Main extends Super {
 
         //         if ( resource.includes( "@softvisio/ext/lib/ext-charts-" ) ) return true;
 
-        //         if ( resource.includes( "@softvisio/ext/resources/ext-" + options.buildOptions.extVersion + "/charts.js" ) ) return true;
+        //         if ( resource.includes( "@softvisio/ext/resources/ext-" + this.buildOptions.extVersion + "/charts.js" ) ) return true;
         //     },
         //     "priority": -9,
         //     "chunks": "all",
