@@ -93,11 +93,12 @@ export default {
                 return;
             }
 
+            const email = values.email;
+            delete values.email;
+
             delete values.confirmedPassword;
 
-            values.roles = this.$refs.rolesPanel.getEnabledRoles();
-
-            const res = await this.$api.call( "admin/users/create", values );
+            const res = await this.$api.call( "admin/users/create", email, values, this.$refs.rolesPanel.getEnabledRoles() );
 
             if ( res.ok ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, "User created" ) );
