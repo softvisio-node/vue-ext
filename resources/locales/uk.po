@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-12-23 07:48+0200\n"
+"POT-Creation-Date: 2023-01-07 23:50+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -198,8 +198,7 @@ msgstr "Оновити"
 msgid "Email"
 msgstr "Email"
 
-#: lib/components/acl/panel.vue:19:107 lib/components/acl/roles.panel.vue:5:38
-#: lib/components/users/panel.vue:19:107
+#: lib/components/acl/panel.vue:19:107 lib/components/users/panel.vue:19:107
 msgid "Roles"
 msgstr "Ролі"
 
@@ -243,16 +242,20 @@ msgstr[0] "${n} роль вибрано"
 msgstr[1] "${n} ролі вибрано"
 msgstr[2] "${n} ролей вибрано"
 
+#: lib/components/acl/roles.panel.vue:5:47
+msgid "Search roles"
+msgstr "Пошук ролей"
+
 #: lib/components/acl/roles.panel.vue:13:124
 msgid "Role"
 msgstr "Роль"
 
 #: lib/components/acl/roles.panel.vue:15:82
-#: lib/components/acl/roles.panel.vue:146:45
+#: lib/components/acl/roles.panel.vue:161:45
 msgid "Role enabled"
 msgstr "Роль увімкнено"
 
-#: lib/components/acl/roles.panel.vue:146:87
+#: lib/components/acl/roles.panel.vue:161:87
 msgid "Role disabled"
 msgstr "Роль вимкнено"
 
