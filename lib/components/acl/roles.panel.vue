@@ -2,7 +2,7 @@
     <CardsPanel ref="cards" :store="store" @ready="_onReady" @reload="reload">
         <template #items>
             <ext-toolbar docked="top">
-                <ext-container :html="i18nd(`vue-ext`, `Roles`)"/>
+                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search roles`)" width="200" @change="_searchRoles"/>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
             </ext-toolbar>
@@ -119,6 +119,21 @@ export default {
                     ],
                 },
             } );
+        },
+
+        _searchRoles ( e ) {
+            const value = e.detail.newValue.trim();
+
+            if ( value !== "" ) {
+                this.store.addFilter( {
+                    "property": "name",
+                    "operator": "like",
+                    "value": value,
+                } );
+            }
+            else {
+                this.store.removeFilter( "name" );
+            }
         },
 
         async _setRoleEnabled ( button, enabled ) {
