@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.0.3 (2023-01-07)
+
+Fixes:
+
+-   fix: webpack config refactored
+
 ### 8.0.2 (2022-12-23)
 
 Fixes:
