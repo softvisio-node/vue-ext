@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.0.4 (2023-01-07)
+
+Fixes:
+
+-   fix: acl roles panel
+-   fix: create user roles
+
 ### 8.0.3 (2023-01-07)
 
 Fixes:
