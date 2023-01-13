@@ -1,0 +1,68 @@
+<template>
+    <ext-tabpanel defaults='{"padding":"0 10 0 10"}' layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":40,"padding":"0 10 0 0","textAlign":"right","width":200},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none" @ready="_ready">
+        <slot name="top"/>
+
+        <!-- security -->
+        <ext-panel layout="fit" padding="0 0 0 0" :title="i18nd(`vue-ext`, `Account`)">
+            <AccountPanel flex="1"/>
+        </ext-panel>
+
+        <!-- notifications -->
+        <ext-panel layout="fit" :title="i18nd(`vue-ext`, `Notifications`)">
+            <NotificationsPanel/>
+        </ext-panel>
+
+        <!-- tokens -->
+        <ext-panel iconAlign="left" iconCls="fa-solid fa-key" layout="fit" :title="i18nd(`vue-ext`, `Access tokens`)">
+            <UserTokensPanel/>
+        </ext-panel>
+
+        <!-- appearance -->
+        <ext-panel layout="vbox" :title="i18nd(`vue-ext`, `Appearance`)" viewModel="true">
+            <ext-toolbar docked="top">
+                <ext-container :html="i18nd(`vue-ext`, `Appearance`)"/>
+            </ext-toolbar>
+
+            <AppearancePanel/>
+        </ext-panel>
+
+        <slot name="bottom"/>
+    </ext-tabpanel>
+</template>
+
+<script>
+import "#src/components/avatar/ext.avatar";
+import AccountPanel from "./account.panel";
+import NotificationsPanel from "#src/components/notifications/panel";
+import UserTokensPanel from "#src/components/user-tokens/panel";
+import AppearancePanel from "./appearance.panel";
+
+export default {
+    "components": { AccountPanel, NotificationsPanel, UserTokensPanel, AppearancePanel },
+
+    "methods": {
+        _ready ( e ) {
+            const cmp = e.detail.cmp,
+                tabBar = cmp.getTabBar();
+
+            tabBar.add( [
+                {
+                    "xtype": "container",
+                    "layout": "center",
+                    "margin": "10 0 20 0",
+                    "height": 70,
+                    "docked": "top",
+                    "items": [
+                        {
+                            "xtype": "avatar",
+                            "src": this.$app.user.avatar,
+                            "width": 60,
+                            "height": 60,
+                        },
+                    ],
+                },
+            ] );
+        },
+    },
+};
+</script>

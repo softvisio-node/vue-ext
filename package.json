@@ -22,19 +22,19 @@
     "imports": {
         "#core/*": "@softvisio/core/*",
         "#resources/*": "./resources/*",
-        "#lib/*": [
-            "./lib/*.vue",
-            "./lib/*.js",
-            "./lib/*.cjs"
+        "#src/*": [
+            "./src/*.vue",
+            "./src/*.js",
+            "./src/*.cjs"
         ]
     },
     "exports": {
-        ".": "./lib/app.js",
+        ".": "./src/app.js",
         "./*": [
-            "./lib/*.js",
-            "./lib/*.vue",
-            "./lib/*/index.js",
-            "./lib/*/index.vue"
+            "./src/*.js",
+            "./src/*.vue",
+            "./src/*/index.js",
+            "./src/*/index.vue"
         ],
         "./resources/*": "./resources/*"
     },
