@@ -8,7 +8,6 @@ export default {
     "methods": {
         async maximize () {
             const cmp = await this.$mount( PdfDialog, {
-                "cache": false,
                 "props": {
                     "src": this.currentSrc,
                 },

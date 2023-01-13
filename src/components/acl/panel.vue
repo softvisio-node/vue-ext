@@ -272,7 +272,6 @@ export default {
             const record = button.up( "gridrow" ).getRecord();
 
             const cmp = await this.$mount( RolesDialog, {
-                "cache": false,
                 "props": {
                     "aclId": this.aclId,
                     "userRecord": record,
@@ -284,7 +283,6 @@ export default {
 
         async _showAddUserDialog () {
             const cmp = await this.$mount( AddUserDialog, {
-                "cache": false,
                 "props": {
                     "aclId": this.aclId,
                     "onAdd": () => this.reload(),

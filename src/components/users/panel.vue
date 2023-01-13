@@ -313,7 +313,6 @@ export default {
                 record = gridrow.getRecord();
 
             const cmp = await this.$mount( UserRolesDialog, {
-                "cache": false,
                 "props": {
                     "aclId": constants.defaultAclId,
                     "userRecord": record,
@@ -327,7 +326,6 @@ export default {
             const record = button.lookupViewModel().get( "record" );
 
             const cmp = await this.$mount( ChangePasswordDialog, {
-                "cache": false,
                 "props": {
                     "userId": record.id,
                     "userEmail": record.get( "email" ),
@@ -341,7 +339,6 @@ export default {
             const record = button.lookupViewModel().get( "record" );
 
             const cmp = await this.$mount( UserSessionsDialog, {
-                "cache": false,
                 "props": {
                     "userId": record.id,
                     "userEmail": record.get( "email" ),
