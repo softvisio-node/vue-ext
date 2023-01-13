@@ -29,7 +29,7 @@
         ]
     },
     "exports": {
-        ".": "./lib/index.js",
+        ".": "./lib/app.js",
         "./*": [
             "./lib/*.js",
             "./lib/*.vue",
