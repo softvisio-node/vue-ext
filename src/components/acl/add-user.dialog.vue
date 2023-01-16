@@ -47,11 +47,6 @@ export default {
 
     "methods": {
 
-        // public
-        close () {
-            this.ext.destroy();
-        },
-
         // protected
         _addUserComboReady ( e ) {
             const cmp = e.detail.cmp;
@@ -76,7 +71,7 @@ export default {
 
                 this.$emit( "add" );
 
-                this.close();
+                this.ext.close();
             }
             else {
                 this.$utils.toast( res );
