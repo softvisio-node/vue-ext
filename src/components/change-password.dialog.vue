@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="400" layout="vbox" :title="title" width="350" @ready="_ready">
+    <ext-dialog height="400" layout="vbox" :title="title" width="350" @ready="_ready">
         <ext-container :html="header" style="text-align: center"/>
 
         <ext-fieldpanel ref="form" @ready="formReady">
@@ -44,23 +44,12 @@ export default {
                 "type": "password-strength",
                 "strength": this.$app.settings.passwordsStrength,
             } );
-
-            this.ext.on( "hide", () => {
-                this.$refs.form.ext.reset();
-
-                this.$refs.form.ext.getFields( "password" ).setRevealed( false );
-                this.$refs.form.ext.getFields( "confirmedPassword" ).setRevealed( false );
-            } );
         },
 
         formReady ( e ) {
             var cmp = e.detail.cmp;
 
             cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
-        },
-
-        close () {
-            this.ext.hide();
         },
 
         async submit () {
@@ -85,7 +74,7 @@ export default {
             if ( res.ok ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, "Password changed" ) );
 
-                this.close();
+                this.ext.close();
             }
             else {
                 this.$utils.toast( res );

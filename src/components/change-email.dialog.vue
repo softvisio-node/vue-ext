@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="destroy" height="400" :title="title" width="350" @ready="_ready">
+    <ext-dialog height="400" :title="title" width="350" @ready="_ready">
         <ext-fieldpanel ref="form" @ready="formReady">
             <ext-emailfield errorTarget="under" :label="i18nd(`vue-ext`, `New email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter new email address`)" required="true" validators="email"/>
 
@@ -47,10 +47,6 @@ export default {
             } );
         },
 
-        close () {
-            this.ext.destroy();
-        },
-
         async _sendToken () {
             const form = this.$refs.form.ext;
 
@@ -94,7 +90,7 @@ export default {
             if ( res.ok ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, "Email address changed" ) );
 
-                this.close();
+                this.ext.close();
             }
             else {
                 this.$utils.toast( res );
