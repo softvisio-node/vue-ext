@@ -318,7 +318,7 @@ export default {
             if ( !res.ok ) {
                 this.$utils.toast( res );
 
-                this.ext.hide();
+                this.ext.close();
             }
 
             this._loadChart.setData( res.data );
