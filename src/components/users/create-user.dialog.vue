@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="destroy" height="90%" layout="vbox" scrollable="true" :title="i18nd(`vue-ext`, `User creation`)" width="600" @ready="_onReady">
+    <ext-dialog height="90%" layout="vbox" scrollable="true" :title="i18nd(`vue-ext`, `User creation`)" width="600" @ready="_onReady">
         <ext-fieldpanel ref="form" @ready="_onFormReady">
             <ext-emailfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Email`)" labelAlign="left" labelWidth="150" name="email" :placeholder="i18nd(`vue-ext`, `Enter email`)" required="true" validators="email"/>
 
@@ -47,11 +47,6 @@ export default {
     },
 
     "methods": {
-
-        // public
-        close () {
-            this.ext.destroy();
-        },
 
         // protected
         async _onReady ( e ) {
@@ -105,7 +100,7 @@ export default {
 
                 this.$emit( "created" );
 
-                this.close();
+                this.ext.close();
             }
             else {
                 this.$utils.toast( res );

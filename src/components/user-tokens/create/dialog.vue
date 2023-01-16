@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="400" layout="vbox" :title="i18nd(`vue-ext`, `Create token`)" width="400" @ready="ready">
+    <ext-dialog height="400" layout="vbox" :title="i18nd(`vue-ext`, `Create token`)" width="400" @ready="ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
             <ext-textfield ref="name" :label="i18nd(`vue-ext`, `Token name`)" name="name" :placeholder="i18nd(`vue-ext`, `Enter new token name`)" required="true"/>
         </ext-fieldpanel>
@@ -31,18 +31,6 @@ export default {
     "methods": {
         async ready ( e ) {
             this.ext = e.detail.cmp;
-
-            this.ext.on( "hide", () => {
-                this.$refs.form.ext.reset();
-
-                this.$refs.token.ext.setValue( null );
-
-                this.$refs.name.ext.setReadOnly( false );
-                this.$refs.done.ext.setHidden( true );
-
-                this.$refs.submit.ext.setHidden( false );
-                this.$refs.close.ext.setHidden( true );
-            } );
         },
 
         formReady ( e ) {
@@ -52,7 +40,7 @@ export default {
         },
 
         close () {
-            this.ext.hide();
+            this.ext.close();
         },
 
         async submit () {
