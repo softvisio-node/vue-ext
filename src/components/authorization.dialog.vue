@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="350" :title="i18nd(`vue-ext`, `Authorization`)" width="300" @ready="_ready">
+    <ext-dialog height="350" :title="i18nd(`vue-ext`, `Authorization`)" width="300" @ready="_ready">
         <ext-container :html="i18nd(`vue-ext`, `Authorization is required to perform this operation. Please, authorize and then repeat action again.`)"/>
 
         <ext-fieldpanel ref="form" @ready="_formReady">
@@ -26,12 +26,8 @@ export default {
         _ready ( e ) {
             this.ext = e.detail.cmp;
 
-            this.ext.on( "hide", () => {
-                this.$refs.form.ext.reset();
-
-                this._resolve( false );
-
-                this._resolve = null;
+            this.ext.on( "destroy", () => {
+                if ( this._resolve ) this._resolve( false );
             } );
         },
 
@@ -47,12 +43,6 @@ export default {
             return new Promise( resolve => {
                 this._resolve = resolve;
             } );
-        },
-
-        close ( res ) {
-            this._resolve( res );
-
-            this.ext.hide();
         },
 
         _submit () {
@@ -79,7 +69,11 @@ export default {
             if ( res.ok ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, "Authorized" ) );
 
-                this.close( true );
+                this._resolve( true );
+
+                this._resolve = null;
+
+                this.ext.close();
             }
             else {
                 this.$utils.toast( res );
