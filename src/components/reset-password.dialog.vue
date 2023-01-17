@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog layout="vbox" minHeight="450" :title="i18nd(`vue-ext`, `Password change`)" width="350" @destroy="close" @ready="_ready">
+    <ext-dialog layout="vbox" minHeight="450" :title="i18nd(`vue-ext`, `Password change`)" width="350" @destroy="_onDestroy" @ready="_onReady">
         <ext-fieldpanel ref="form">
             <ext-hiddenfield name="token" :value="token"/>
 
@@ -46,7 +46,7 @@ export default {
     },
 
     "methods": {
-        _ready ( e ) {
+        _onReady ( e ) {
             this.ext = e.detail.cmp;
 
             if ( !this.token ) {
@@ -60,15 +60,15 @@ export default {
                 "strength": this.$app.settings.passwordsStrength,
             } );
 
-            this.ext.on( "hide", () => this.close() );
-
             this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "_submit", "scope": this } } );
         },
 
-        close () {
+        _onDestroy () {
             this.$router.redirectTo( "/", { "replace": true } );
+        },
 
-            this.$unmount();
+        close () {
+            this.ext.close();
         },
 
         async _submit () {
