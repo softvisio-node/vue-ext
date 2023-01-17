@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="400" layout="vbox" :title="i18nd(`vue-ext`, `About the project`)" width="350">
+    <ext-dialog height="400" layout="vbox" :title="i18nd(`vue-ext`, `About the project`)" width="350">
         <ext-fieldpanel defaults='{"labelAlign":"left"}'>
             <ext-displayfield :label="i18nd(`vue-ext`, `UI version`)" :value="'v' + frontend.currentVersion"/>
             <ext-displayfield :label="i18nd(`vue-ext`, `UI mode`)" :value="frontend.mode"/>

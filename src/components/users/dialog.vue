@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" :height="height" :layout="layout" scrollable="true" :title="title" :width="width">
+    <ext-dialog :height="height" :layout="layout" scrollable="true" :title="title" :width="width">
         <UsersPanel/>
     </ext-dialog>
 </template>
