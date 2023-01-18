@@ -1,4 +1,4 @@
-import { Main as Super } from "@softvisio/vue/webpack/main";
+import { Main as Super } from "@softvisio/webpack/configs/main";
 
 export class Main extends Super {
     constructor ( options ) {
