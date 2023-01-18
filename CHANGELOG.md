@@ -1,5 +1,16 @@
 # Changelog
 
+### 8.0.5 (2023-01-18)
+
+Fixes:
+
+-   fix: app module
+-   fix: dialog close
+-   fix: init viewport
+-   fix: mount cache
+-   fix: src location
+-   fix: webpack configs
+
 ### 8.0.4 (2023-01-07)
 
 Fixes:
