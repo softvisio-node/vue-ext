@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.0.8 (2023-01-24)
+
+Fixes:
+
+-   fix: git repo relocated
+
 ### 8.0.7 (2023-01-24)
 
 Fixes:
