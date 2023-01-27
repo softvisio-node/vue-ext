@@ -1,8 +1,8 @@
 import { Main as Super } from "@softvisio/vue/webpack/main";
 
 export class Main extends Super {
-    constructor ( options ) {
-        super( options );
+    constructor ( webpack, options ) {
+        super( webpack, options );
 
         this.addSchema( new URL( "env.schema.yaml", import.meta.url ) );
     }
