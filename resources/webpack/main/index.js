@@ -7,12 +7,10 @@ export class Main extends Super {
         this.addSchema( new URL( "env.schema.yaml", import.meta.url ) );
     }
 
-    // protected
-    _generate ( options ) {
-        const config = super._generate( options );
-
-        config.resolve.alias = {
-            ...config.resolve.alias,
+    // properties
+    get resolveAlias () {
+        return {
+            ...super.resolveAlias,
             "#vue": "@softvisio/vue-ext",
 
             "#ext$": "@softvisio/ext/ext-" + this.buildOptions.extVersion,
@@ -21,6 +19,11 @@ export class Main extends Super {
             "#ewc": "@softvisio/ext/resources/ewc-" + this.buildOptions.ewcVersion,
             "#ext-charts$": "@softvisio/ext/ext-charts-" + this.buildOptions.extVersion,
         };
+    }
+
+    // protected
+    _generate ( options ) {
+        const config = super._generate( options );
 
         // config.module.rules[1].exclude.push( /[\\/]resources[\\/]ext-[\d.]+[\\/]/, /[\\/]resources[\\/]ewc-[\d.]+[\\/]/ );
 

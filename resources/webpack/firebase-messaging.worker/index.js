@@ -2,15 +2,11 @@ import { FirebaseMessagingWorker as Super } from "@softvisio/vue/webpack/firebas
 
 export class FirebaseMessagingWorker extends Super {
 
-    // protected
-    _generate ( options ) {
-        const config = super._generate( options );
-
-        config.resolve.alias = {
-            ...config.resolve.alias,
+    // properties
+    get resolveAlias () {
+        return {
+            ...super.resolveAlias,
             "#vue": "@softvisio/vue-ext",
         };
-
-        return config;
     }
 }
