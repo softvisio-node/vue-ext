@@ -1,6 +1,6 @@
-import { FirebaseMessagingWorker as Super } from "@softvisio/vue/webpack/firebase-messaging.worker";
+import WebpackComponent from "@softvisio/vue/webpack-components/firebase-messaging-worker";
 
-export class FirebaseMessagingWorker extends Super {
+export default class extends WebpackComponent {
 
     // properties
     get resolveAlias () {

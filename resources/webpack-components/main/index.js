@@ -1,6 +1,6 @@
-import { Main as Super } from "@softvisio/vue/webpack/main";
+import WebpackComponent from "@softvisio/vue/webpack-components/main";
 
-export class Main extends Super {
+export default class extends WebpackComponent {
 
     // properties
     get schemas () {

@@ -26,8 +26,7 @@
             "./src/*.vue",
             "./src/*.js",
             "./src/*.cjs"
-        ],
-        "#webpack/*": "./resources/webpack/*/index.js"
+        ]
     },
     "exports": {
         "./*": [
@@ -37,7 +36,7 @@
             "./src/*/index.vue"
         ],
         "./resources/*": "./resources/*",
-        "./webpack/*": "./resources/webpack/*/index.js"
+        "./webpack-components/*": "./resources/webpack-components/*/index.js"
     },
     "dependencies": {
         "@amcharts/amcharts5": "^5.1.10",
