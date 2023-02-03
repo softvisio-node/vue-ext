@@ -3,9 +3,9 @@ import WebpackComponent from "@softvisio/vue/webpack-components/firebase-messagi
 export default class extends WebpackComponent {
 
     // properties
-    get resolveAlias () {
+    get webpackResolveAlias () {
         return {
-            ...super.resolveAlias,
+            ...super.webpackResolveAlias,
             "#vue": "@softvisio/vue-ext",
         };
     }

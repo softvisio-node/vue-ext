@@ -12,9 +12,9 @@ export default class extends WebpackComponent {
         ];
     }
 
-    get resolveAlias () {
+    get webpackResolveAlias () {
         return {
-            ...super.resolveAlias,
+            ...super.webpackResolveAlias,
             "#vue": "@softvisio/vue-ext",
 
             "#ext$": "@softvisio/ext/ext-" + this.buildOptions.extVersion,
