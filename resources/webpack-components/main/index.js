@@ -26,8 +26,8 @@ export default class extends WebpackComponent {
     }
 
     // protected
-    _buildWebpackConfig ( options ) {
-        const config = super._buildWebpackConfig( options );
+    _buildWebpackConfig () {
+        const config = super._buildWebpackConfig();
 
         // config.module.rules[1].exclude.push( /[\\/]resources[\\/]ext-[\d.]+[\\/]/, /[\\/]resources[\\/]ewc-[\d.]+[\\/]/ );
 
