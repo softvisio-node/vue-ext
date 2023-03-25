@@ -2,9 +2,10 @@ import VueStore from "#vue/store";
 import NotificationModel from "#src/models/notification";
 import NotificationTypeModel from "#src/models/notification-type";
 import locale from "#vue/locale";
+import app from "@/app";
 
-const api = null,
-    utils = null;
+const api = app.api,
+    utils = app.utils;
 
 class Store extends VueStore {
     totalUndone = 0;
