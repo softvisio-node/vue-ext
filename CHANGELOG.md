@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.1.0 (2023-03-25)
+
+Features:
+
+-   feat: store refactored
+
 ### 8.0.11 (2023-02-04)
 
 Fixes:
