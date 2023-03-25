@@ -35,6 +35,7 @@ import AvatarUser from "#src/components/avatar/user";
 import AppMenu from "./menu";
 import Notifications from "#src/components/notifications/menu-sheet";
 import sessionStore from "#vue/store1/session";
+import notificationsStore from "#vue/store1/notifications";
 
 export default {
     "components": { AvatarUser, AppMenu, Notifications },
@@ -78,7 +79,7 @@ export default {
         },
 
         totalUndoneUnread () {
-            return this.$store.notifications.totalUndoneUnread;
+            return notificationsStore.totalUndoneUnread;
         },
     },
 
@@ -118,7 +119,7 @@ export default {
             // not ready
             if ( !this.$refs.notificationsButton.ext ) return;
 
-            this.$refs.notificationsButton.ext.setBadgeText( this.$store.notifications.totalUndoneUnread || "" );
+            this.$refs.notificationsButton.ext.setBadgeText( notificationsStore.totalUndoneUnread || "" );
         },
     },
 };

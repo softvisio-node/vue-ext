@@ -20,15 +20,16 @@
 
 <script>
 import NotificationsSettingsDialog from "#src/components/notifications/dialog";
+import notificationsStore from "#vue/store1/notifications";
 
 export default {
     "computed": {
         totalUndone () {
-            return !!this.$store.notifications.totalUndone;
+            return !!notificationsStore.totalUndone;
         },
 
         totalUndoneUnread () {
-            return !!this.$store.notifications.totalUndoneUnread;
+            return !!notificationsStore.totalUndoneUnread;
         },
     },
 
@@ -37,7 +38,7 @@ export default {
     },
 
     created () {
-        this.store = this.$store.notifications.store;
+        this.store = notificationsStore.store;
 
         this.store.reload();
     },
@@ -151,7 +152,7 @@ export default {
         },
 
         show () {
-            this.$store.notifications.refreshRelativeTime();
+            notificationsStore.refreshRelativeTime();
 
             this.ext.show();
         },
@@ -165,7 +166,7 @@ export default {
 
             button.disable();
 
-            await this.$store.notifications.reload();
+            await notificationsStore.reload();
 
             button.enable();
         },
@@ -175,13 +176,13 @@ export default {
 
             button.disable();
 
-            await this.$store.notifications.setRead( record.id );
+            await notificationsStore.setRead( record.id );
 
             button.enable();
         },
 
         async setReadAll () {
-            this.$store.notifications.setReadAll();
+            notificationsStore.setReadAll();
         },
 
         async _setUnread ( button ) {
@@ -189,7 +190,7 @@ export default {
 
             button.disable();
 
-            await this.$store.notifications.setUnread( record.id );
+            await notificationsStore.setUnread( record.id );
 
             button.enable();
         },
@@ -199,13 +200,13 @@ export default {
 
             button.disable();
 
-            await this.$store.notifications.setDone( record.id );
+            await notificationsStore.setDone( record.id );
 
             button.enable();
         },
 
         async setDoneAll () {
-            this.$store.notifications.setDoneAll();
+            notificationsStore.setDoneAll();
         },
 
         async _delete ( button ) {
@@ -213,13 +214,13 @@ export default {
 
             button.disable();
 
-            await this.$store.notifications.delete( record.id );
+            await notificationsStore.delete( record.id );
 
             button.enable();
         },
 
         async deleteAll () {
-            this.$store.notifications.deleteAll();
+            notificationsStore.deleteAll();
         },
 
         _onTotalUndoneUpdate () {

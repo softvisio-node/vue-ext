@@ -28,6 +28,7 @@
 
 <script>
 import PushNotificationsButton from "#src/components/push-notifications.button";
+import notificationsStore from "#vue/store1/notifications";
 
 export default {
     "components": { PushNotificationsButton },
@@ -46,7 +47,7 @@ export default {
         _gridReady ( e ) {
             const cmp = e.detail.cmp;
 
-            cmp.setStore( this.$store.notifications.settingsStore );
+            cmp.setStore( notificationsStore.settingsStore );
         },
 
         _internalColReady ( e ) {
@@ -88,7 +89,7 @@ export default {
         },
 
         async reload () {
-            await this.$store.notifications.reloadSettings();
+            await notificationsStore.reloadSettings();
         },
 
         async toggleChannelEnabled ( channel, button, newVal, oldVal ) {

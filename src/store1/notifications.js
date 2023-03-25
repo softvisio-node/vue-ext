@@ -3,6 +3,9 @@ import NotificationModel from "#src/models/notification";
 import NotificationTypeModel from "#src/models/notification-type";
 import locale from "#vue/locale";
 
+const api = null,
+    utils = null;
+
 class Store extends VueStore {
     totalUndone = 0;
     totalUndoneUnread = 0;
@@ -15,12 +18,12 @@ class Store extends VueStore {
     constructor () {
         super();
 
-        this.$api.on( "connect", () => {
+        api.on( "connect", () => {
             if ( !this.#storeLoaded ) return;
 
             this.reload();
         } );
-        this.$api.on( "notifications", this.reload.bind( this ) );
+        api.on( "notifications", this.reload.bind( this ) );
     }
 
     // properties
@@ -65,10 +68,10 @@ class Store extends VueStore {
     }
 
     async reloadSettings () {
-        const res = await this.$api.call( "account/notifications/get-user-notifications-profile" );
+        const res = await api.call( "account/notifications/get-user-notifications-profile" );
 
         if ( !res.ok ) {
-            this.$utils.toast( res );
+            utils.toast( res );
         }
         else {
             this.settingsStore.loadRawData( res.data );
@@ -84,10 +87,10 @@ class Store extends VueStore {
     async setRead ( notifications ) {
         if ( !Array.isArray( notifications ) ) notifications = [notifications];
 
-        const res = await this.$api.call( "account/notifications/set-read", notifications );
+        const res = await api.call( "account/notifications/set-read", notifications );
 
         if ( !res.ok ) {
-            this.$utils.toast( res );
+            utils.toast( res );
         }
         else {
             this.#applyStats( res.meta );
@@ -101,10 +104,10 @@ class Store extends VueStore {
     }
 
     async setReadAll () {
-        const res = await this.$api.call( "account/notifications/set-read-all" );
+        const res = await api.call( "account/notifications/set-read-all" );
 
         if ( !res.ok ) {
-            this.$utils.toast( res );
+            utils.toast( res );
         }
         else {
             this.#applyStats( res.meta );
@@ -116,10 +119,10 @@ class Store extends VueStore {
     async setUnread ( notifications ) {
         if ( !Array.isArray( notifications ) ) notifications = [notifications];
 
-        const res = await this.$api.call( "account/notifications/set-unread", notifications );
+        const res = await api.call( "account/notifications/set-unread", notifications );
 
         if ( !res.ok ) {
-            this.$utils.toast( res );
+            utils.toast( res );
         }
         else {
             this.#applyStats( res.meta );
@@ -133,10 +136,10 @@ class Store extends VueStore {
     }
 
     async setUnreadAll () {
-        const res = await this.$api.call( "account/notifications/set-unread-all" );
+        const res = await api.call( "account/notifications/set-unread-all" );
 
         if ( !res.ok ) {
-            this.$utils.toast( res );
+            utils.toast( res );
         }
         else {
             this.#applyStats( res.meta );
@@ -148,10 +151,10 @@ class Store extends VueStore {
     async setDone ( notifications ) {
         if ( !Array.isArray( notifications ) ) notifications = [notifications];
 
-        const res = await this.$api.call( "account/notifications/set-done", notifications );
+        const res = await api.call( "account/notifications/set-done", notifications );
 
         if ( !res.ok ) {
-            this.$utils.toast( res );
+            utils.toast( res );
         }
         else {
             this.#applyStats( res.meta );
@@ -169,10 +172,10 @@ class Store extends VueStore {
     async setDoneAll () {
         if ( !this.totalUndone ) return;
 
-        const res = await this.$api.call( "account/notifications/set-done-all" );
+        const res = await api.call( "account/notifications/set-done-all" );
 
         if ( !res.ok ) {
-            this.$utils.toast( res );
+            utils.toast( res );
         }
         else {
             this.#applyStats( res.meta );
@@ -184,10 +187,10 @@ class Store extends VueStore {
     async setUndone ( notifications ) {
         if ( !Array.isArray( notifications ) ) notifications = [notifications];
 
-        const res = await this.$api.call( "account/notifications/set-undone", notifications );
+        const res = await api.call( "account/notifications/set-undone", notifications );
 
         if ( !res.ok ) {
-            this.$utils.toast( res );
+            utils.toast( res );
         }
         else {
             this.#applyStats( res.meta );
@@ -201,10 +204,10 @@ class Store extends VueStore {
     }
 
     async setUndoneAll () {
-        const res = await this.$api.call( "account/notifications/set-undone-all" );
+        const res = await api.call( "account/notifications/set-undone-all" );
 
         if ( !res.ok ) {
-            this.$utils.toast( res );
+            utils.toast( res );
         }
         else {
             this.#applyStats( res.meta );
@@ -216,10 +219,10 @@ class Store extends VueStore {
     async delete ( notifications ) {
         if ( !Array.isArray( notifications ) ) notifications = [notifications];
 
-        const res = await this.$api.call( "account/notifications/delete", notifications );
+        const res = await api.call( "account/notifications/delete", notifications );
 
         if ( !res.ok ) {
-            this.$utils.toast( res );
+            utils.toast( res );
         }
         else {
             this.#applyStats( res.meta );
@@ -233,10 +236,10 @@ class Store extends VueStore {
     }
 
     async deleteAll () {
-        const res = await this.$api.call( "account/notifications/delete-all" );
+        const res = await api.call( "account/notifications/delete-all" );
 
         if ( !res.ok ) {
-            this.$utils.toast( res );
+            utils.toast( res );
         }
         else {
             this.#applyStats( res.meta );
