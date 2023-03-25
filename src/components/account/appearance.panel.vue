@@ -16,6 +16,7 @@
 
 <script>
 import DarkModeButton from "#src/components/dark-mode.button";
+import themeStore from "#vue/store1/theme";
 
 export default {
     "components": { DarkModeButton },
@@ -23,11 +24,11 @@ export default {
     "computed": {
         "systemDarkMode": {
             get () {
-                return this.$store.theme.systemDarkMode;
+                return themeStore.systemDarkMode;
             },
 
             set ( e ) {
-                this.$store.theme.setSystemDarkMode( e.detail.newValue );
+                themeStore.setSystemDarkMode( e.detail.newValue );
             },
         },
     },
@@ -62,13 +63,13 @@ export default {
         themeBaseChanged ( e ) {
             const record = e.detail.location.record;
 
-            this.$store.theme.setTheme( { "base": record.get( "name" ) } );
+            themeStore.setTheme( { "base": record.get( "name" ) } );
         },
 
         themeAccentChanged ( e ) {
             const record = e.detail.location.record;
 
-            this.$store.theme.setTheme( { "accent": record.get( "name" ) } );
+            themeStore.setTheme( { "accent": record.get( "name" ) } );
         },
     },
 };
