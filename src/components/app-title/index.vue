@@ -34,6 +34,7 @@
 import AvatarUser from "#src/components/avatar/user";
 import AppMenu from "./menu";
 import Notifications from "#src/components/notifications/menu-sheet";
+import sessionStore from "#vue/store1/session";
 
 export default {
     "components": { AvatarUser, AppMenu, Notifications },
@@ -73,7 +74,7 @@ export default {
 
     "computed": {
         title () {
-            return this.$store.session.title;
+            return sessionStore.title;
         },
 
         totalUndoneUnread () {

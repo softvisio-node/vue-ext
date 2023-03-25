@@ -17,6 +17,7 @@ import LocaleButton from "#src/components/locale.button";
 import SigninForm from "./signin.form";
 import PasswordRecoveryForm from "./password-recovery.form";
 import SignupForm from "./signup.form";
+import sessionStore from "#vue/store1/session";
 
 export default {
     "components": { LocaleButton, SigninForm, PasswordRecoveryForm, SignupForm },
@@ -44,7 +45,7 @@ export default {
 
     "computed": {
         title () {
-            return this.$store.session.title;
+            return sessionStore.title;
         },
 
         signupEnabled () {

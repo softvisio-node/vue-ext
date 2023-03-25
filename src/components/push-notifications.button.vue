@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import sessionStore from "#vue/store1/session";
+
 export default {
     "props": {
         "hideLabel": {
@@ -38,7 +40,7 @@ export default {
         },
 
         value () {
-            return this.$store.session.pushNotificationsEnabled ? "true" : "";
+            return sessionStore.pushNotificationsEnabled ? "true" : "";
         },
     },
 
@@ -47,7 +49,7 @@ export default {
             const button = e.detail.sender,
                 value = e.detail.newValue;
 
-            if ( value === this.$store.session.pushNotificationsEnabled ) return;
+            if ( value === sessionStore.pushNotificationsEnabled ) return;
 
             button.disable();
 
