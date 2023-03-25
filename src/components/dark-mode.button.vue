@@ -48,7 +48,7 @@ export default {
 
         "value": {
             get () {
-                return themeStore.darkMode ? "true" : "";
+                return themeStore.darkMode;
             },
 
             set ( e ) {
