@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import themeStore from "#vue/store1/theme";
+import themeStore from "#vue/store/theme";
 
 export default {
     "props": {

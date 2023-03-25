@@ -1,7 +1,1 @@
-import Store from "@softvisio/vue/store";
-
-export default class VueExtStore extends Store {
-    initMainStore () {
-        super.initMainStore();
-    }
-}
+export { default } from "@softvisio/vue/store";

@@ -1,4 +1,4 @@
-import VueStore from "#vue/store1";
+import VueStore from "#vue/store";
 import themeRegistry from "#src/theme";
 import config from "#vue/config";
 

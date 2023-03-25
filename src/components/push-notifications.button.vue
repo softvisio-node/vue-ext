@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import sessionStore from "#vue/store1/session";
+import sessionStore from "#vue/store/session";
 
 export default {
     "props": {

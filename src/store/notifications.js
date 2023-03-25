@@ -1,4 +1,4 @@
-import VueStore from "#vue/store1";
+import VueStore from "#vue/store";
 import NotificationModel from "#src/models/notification";
 import NotificationTypeModel from "#src/models/notification-type";
 import locale from "#vue/locale";
