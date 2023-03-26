@@ -1,6 +1,6 @@
 import VueStore from "#vue/store";
-import themeRegistry from "#src/theme";
 import config from "#vue/config";
+import Events from "#core/events";
 
 const DARK_MODE_KEY = "darkMode";
 const SYSTEM_DARK_MODE_KEY = "systemDarkMode";
@@ -10,12 +10,18 @@ const DEFAULT_THEME = {
     "accent": config.theme.accentColor,
 };
 
+Ext.manifest.material = Ext.manifest.material || {};
+Ext.manifest.material.toolbar = Ext.manifest.material.toolbar || {};
+Ext.manifest.material.toolbar.dynamic = true;
+
 class Store extends VueStore {
 
     // state
     systemDarkMode;
     darkMode;
     theme;
+
+    #events = new Events( { "maxListeners": Infinity } );
 
     constructor () {
         super();
@@ -89,6 +95,18 @@ class Store extends VueStore {
     }
 
     // public
+    on ( event, listener ) {
+        return this.#events.on( event, listener );
+    }
+
+    once ( event, listener ) {
+        return this.#events.once( event, listener );
+    }
+
+    off ( event, listener ) {
+        return this.#events.off( event, listener );
+    }
+
     setSystemDarkMode ( systemDarkMode ) {
         this.#setSystemDarkMode( systemDarkMode );
 
@@ -144,7 +162,7 @@ class Store extends VueStore {
     #applyTheme ( theme ) {
         Ext.theme.Material.setColors( theme );
 
-        themeRegistry.theme = theme;
+        this.#events.emit( "theme", theme );
     }
 }
 
