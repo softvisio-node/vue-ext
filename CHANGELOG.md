@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.1.2 (2023-03-26)
+
+Fixes:
+
+-   fix: stores renamed
+-   fix: theme store
+
 ### 8.1.1 (2023-03-26)
 
 Fixes:
