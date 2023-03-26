@@ -16,7 +16,7 @@
 
 <script>
 import DarkModeButton from "#src/components/dark-mode.button";
-import themeStore from "#vue/store/theme";
+import themeStore from "#vue/stores/theme";
 
 export default {
     "components": { DarkModeButton },

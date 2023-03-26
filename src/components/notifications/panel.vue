@@ -28,7 +28,7 @@
 
 <script>
 import PushNotificationsButton from "#src/components/push-notifications.button";
-import notificationsStore from "#vue/store/notifications";
+import notificationsStore from "#vue/stores/notifications";
 
 export default {
     "components": { PushNotificationsButton },

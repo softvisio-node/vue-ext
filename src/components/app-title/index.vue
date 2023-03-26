@@ -34,8 +34,8 @@
 import AvatarUser from "#src/components/avatar/user";
 import AppMenu from "./menu";
 import Notifications from "#src/components/notifications/menu-sheet";
-import sessionStore from "#vue/store/session";
-import notificationsStore from "#vue/store/notifications";
+import sessionStore from "#vue/stores/session";
+import notificationsStore from "#vue/stores/notifications";
 
 export default {
     "components": { AvatarUser, AppMenu, Notifications },
