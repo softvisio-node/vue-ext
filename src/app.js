@@ -2,6 +2,7 @@ import "#vue/locale";
 
 await import( /* webpackMode: "eager" */ "#ext" );
 await import( /* webpackMode: "eager" */ "#ewc" );
+import( "#src/store/theme" );
 import( /* webpackChunkName: "fa" */ "@fortawesome/fontawesome-free/css/all.min.css" );
 import AuthorizationDialog from "#src/components/authorization.dialog";
 
