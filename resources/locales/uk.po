@@ -534,11 +534,11 @@ msgstr "Видалити"
 
 #: src/components/notifications/panel.vue:6:38
 msgid "Push notifications"
-msgstr "Push-повідомлення"
+msgstr "Push повідомлення"
 
 #: src/components/notifications/panel.vue:10:47
 msgid "Receive push notifications on this device"
-msgstr "Отримувати push-сповіщення на цьому пристрої"
+msgstr "Отримувати push повідомлення на цьому пристрої"
 
 #: src/components/notifications/panel.vue:18:38
 msgid "Notification types"
@@ -588,15 +588,15 @@ msgstr "Зменшити"
 
 #: src/components/push-notifications.button.vue:36:23
 msgid "Receive push notifications"
-msgstr "Отримувати push-повідомлення"
+msgstr "Отримувати push повідомлення"
 
 #: src/components/push-notifications.button.vue:72:39
 msgid "Push notifications enabled"
-msgstr "Push-сповіщення ввімкнено"
+msgstr "Push повідомлення ввімкнено"
 
 #: src/components/push-notifications.button.vue:75:39
 msgid "Push notifications disabled"
-msgstr "Push-повідомлення вимкнено"
+msgstr "Push повідомлення вимкнено"
 
 #: src/components/reset-password.dialog.vue:53:35
 msgid "Password recovery token was not found"
@@ -924,7 +924,7 @@ msgstr "Електронна пошта успішно підтверджена"
 #~ msgstr "Відкрити @${n}"
 
 #~ msgid "Enable push notifications"
-#~ msgstr "Увімкнути push-сповіщення"
+#~ msgstr "Увімкнути push повідомлення"
 
 #~ msgid "Administrator"
 #~ msgstr "Адміністратор"

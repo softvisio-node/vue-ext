@@ -534,11 +534,11 @@ msgstr "Удалить"
 
 #: src/components/notifications/panel.vue:6:38
 msgid "Push notifications"
-msgstr "Push-уведомления"
+msgstr "Push уведомления"
 
 #: src/components/notifications/panel.vue:10:47
 msgid "Receive push notifications on this device"
-msgstr "Получать push-уведомления на этом устройстве"
+msgstr "Получать push уведомления на этом устройстве"
 
 #: src/components/notifications/panel.vue:18:38
 msgid "Notification types"
@@ -588,15 +588,15 @@ msgstr "Уменьшить"
 
 #: src/components/push-notifications.button.vue:36:23
 msgid "Receive push notifications"
-msgstr "Получать push-уведомления"
+msgstr "Получать push уведомления"
 
 #: src/components/push-notifications.button.vue:72:39
 msgid "Push notifications enabled"
-msgstr "Push-уведомления включены"
+msgstr "Push уведомления включены"
 
 #: src/components/push-notifications.button.vue:75:39
 msgid "Push notifications disabled"
-msgstr "Push-уведомления выключены"
+msgstr "Push уведомления выключены"
 
 #: src/components/reset-password.dialog.vue:53:35
 msgid "Password recovery token was not found"
@@ -937,7 +937,7 @@ msgstr "Email подтвержден успешно"
 #~ msgstr "Открыть @${n}"
 
 #~ msgid "Enable push notifications"
-#~ msgstr "Включить push-уведомления"
+#~ msgstr "Включить push уведомления"
 
 #, fuzzy
 #~| msgid "No records matched search criteria"
