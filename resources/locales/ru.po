@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-01-13 08:43+0200\n"
+"POT-Creation-Date: 2023-04-06 08:05+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,19 +14,19 @@ msgstr ""
 "X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SearchPath-0: src\n"
 
-#: src/app.js:56:33
+#: src/app.js:57:33
 msgid "Unable to connect to the API server. Check, that you have internet connection."
 msgstr "Не удалось подключиться к серверу API. Проверьте, что у вас есть подключение к интернет."
 
-#: src/app.js:57:21
+#: src/app.js:58:21
 msgid "Connection error"
 msgstr "Ошибка подключения"
 
-#: src/app.js:64:32
+#: src/app.js:65:32
 msgid "Your session was terminated on the API server."
 msgstr "Ваша сессия былп прервана API серввером."
 
-#: src/app.js:65:21
+#: src/app.js:66:21
 msgid "Session closed"
 msgstr "Сессия закрыта"
 
@@ -50,7 +50,7 @@ msgstr "Режим сервера"
 msgid "Copy to clipboard"
 msgstr "Копировать в буфер"
 
-#: src/components/about.dialog.vue:2:70 src/components/app-title/menu.vue:33:65
+#: src/components/about.dialog.vue:2:51 src/components/app-title/menu.vue:33:65
 msgid "About the project"
 msgstr "О проекте"
 
@@ -132,7 +132,7 @@ msgstr "Базовый цвет"
 msgid "Accent color"
 msgstr "Цвет акцента"
 
-#: src/components/account/dialog.vue:2:91
+#: src/components/account/dialog.vue:2:72
 #: src/components/app-title/menu.vue:16:94
 msgid "Your account"
 msgstr "Ваш аккаунт"
@@ -177,14 +177,14 @@ msgstr "Добавить пользователя"
 msgid "Adding a user"
 msgstr "Добавлкние пользователя"
 
-#: src/components/acl/add-user.dialog.vue:64:35
+#: src/components/acl/add-user.dialog.vue:59:35
 #: src/components/auth/password-recovery.form.vue:56:35
 #: src/components/auth/signin.form.vue:77:35
 #: src/components/auth/signup.form.vue:92:35
 msgid "Please, correctly fill all required fields"
 msgstr "Пожалуйста, правильно заполните все требуемые поля"
 
-#: src/components/acl/add-user.dialog.vue:75:35
+#: src/components/acl/add-user.dialog.vue:70:35
 msgid "User added"
 msgstr "Пользователь добавлен"
 
@@ -275,7 +275,7 @@ msgstr "Роль включена"
 msgid "Role disabled"
 msgstr "Роль отключена"
 
-#: src/components/api-call-log/dialog.vue:2:87
+#: src/components/api-call-log/dialog.vue:2:68
 msgid "API call log"
 msgstr "Лог вызовов API"
 
@@ -391,16 +391,16 @@ msgid "Generate random password"
 msgstr "Сгенерировать случайный пароль"
 
 #: src/components/auth/signup.form.vue:82:31
-#: src/components/change-password.dialog.vue:104:31
+#: src/components/change-password.dialog.vue:93:31
 #: src/components/reset-password.dialog.vue:108:31
-#: src/components/users/create-user.dialog.vue:77:31
+#: src/components/users/create-user.dialog.vue:72:31
 msgid "Password copied to the clipboard"
 msgstr "Пароль скопирован в буфер обмена"
 
 #: src/components/auth/signup.form.vue:100:64
-#: src/components/change-password.dialog.vue:74:64
+#: src/components/change-password.dialog.vue:63:64
 #: src/components/reset-password.dialog.vue:82:64
-#: src/components/users/create-user.dialog.vue:91:64
+#: src/components/users/create-user.dialog.vue:86:64
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
@@ -412,11 +412,11 @@ msgstr "Для выполнения этой операции требуется
 msgid "Authorize"
 msgstr "Авторизоваться"
 
-#: src/components/authorization.dialog.vue:2:56
+#: src/components/authorization.dialog.vue:2:37
 msgid "Authorization"
 msgstr "Авторизация"
 
-#: src/components/authorization.dialog.vue:80:35
+#: src/components/authorization.dialog.vue:70:35
 msgid "Authorized"
 msgstr "Авторизованно"
 
@@ -460,11 +460,11 @@ msgstr "Изменить email"
 msgid "Email change"
 msgstr "Изменение email"
 
-#: src/components/change-email.dialog.vue:68:35
+#: src/components/change-email.dialog.vue:64:35
 msgid "Change email token was sent to the new email address"
 msgstr "Токен изменения электронной почты был отправлен на новый адрес электронной почты"
 
-#: src/components/change-email.dialog.vue:95:35
+#: src/components/change-email.dialog.vue:91:35
 msgid "Email address changed"
 msgstr "Адрес email изменен"
 
@@ -490,12 +490,12 @@ msgstr "Подтвердите новый пароль"
 msgid "Password change"
 msgstr "Изменение пароля"
 
-#: src/components/change-password.dialog.vue:86:35
+#: src/components/change-password.dialog.vue:75:35
 #: src/components/reset-password.dialog.vue:94:35
 msgid "Password changed"
 msgstr "Пароль изменен"
 
-#: src/components/dark-mode.button.vue:43:61
+#: src/components/dark-mode.button.vue:45:61
 msgid "Dark mode"
 msgstr "Тёмный режим"
 
@@ -520,15 +520,15 @@ msgstr "Обновить уведомления"
 msgid "You have no notifications"
 msgstr "У вас нет уведомлений"
 
-#: src/components/notifications/menu-sheet.vue:115:43
+#: src/components/notifications/menu-sheet.vue:116:43
 msgid "Mark as read"
 msgstr "Отметить как прочитанное"
 
-#: src/components/notifications/menu-sheet.vue:122:43
+#: src/components/notifications/menu-sheet.vue:123:43
 msgid "Mark as unread"
 msgstr "Отметить как непрочитанное"
 
-#: src/components/notifications/menu-sheet.vue:136:43
+#: src/components/notifications/menu-sheet.vue:137:43
 msgid "Delete"
 msgstr "Удалить"
 
@@ -586,15 +586,15 @@ msgstr "Размер по умолчанию"
 msgid "Zoom out"
 msgstr "Уменьшить"
 
-#: src/components/push-notifications.button.vue:36:23
+#: src/components/push-notifications.button.vue:38:23
 msgid "Receive push notifications"
 msgstr "Получать push уведомления"
 
-#: src/components/push-notifications.button.vue:72:39
+#: src/components/push-notifications.button.vue:74:39
 msgid "Push notifications enabled"
 msgstr "Push уведомления включены"
 
-#: src/components/push-notifications.button.vue:75:39
+#: src/components/push-notifications.button.vue:77:39
 msgid "Push notifications disabled"
 msgstr "Push уведомления выключены"
 
@@ -668,7 +668,7 @@ msgid "Copy token to the clipboard"
 msgstr "Копировать токен в буфер"
 
 #: src/components/user-tokens/create/dialog.vue:21:44
-#: src/components/user-tokens/create/dialog.vue:2:70
+#: src/components/user-tokens/create/dialog.vue:2:51
 #: src/components/user-tokens/panel.vue:7:62
 msgid "Create token"
 msgstr "Создать токен"
@@ -677,15 +677,15 @@ msgstr "Создать токен"
 msgid "Close"
 msgstr "Закрыть"
 
-#: src/components/user-tokens/create/dialog.vue:83:35
+#: src/components/user-tokens/create/dialog.vue:71:35
 msgid "Token created"
 msgstr "Токен создан"
 
-#: src/components/user-tokens/create/dialog.vue:95:31
+#: src/components/user-tokens/create/dialog.vue:83:31
 msgid "Token copied to the clipboard"
 msgstr "Токен скопирован"
 
-#: src/components/user-tokens/dialog.vue:2:87
+#: src/components/user-tokens/dialog.vue:2:68
 msgid "API keys"
 msgstr "Ключи API"
 
@@ -714,11 +714,11 @@ msgstr "Введите email"
 msgid "Create user"
 msgstr "Создать пользователя"
 
-#: src/components/users/create-user.dialog.vue:2:91
+#: src/components/users/create-user.dialog.vue:2:69
 msgid "User creation"
 msgstr "Создание пользователя"
 
-#: src/components/users/create-user.dialog.vue:104:35
+#: src/components/users/create-user.dialog.vue:99:35
 msgid "User created"
 msgstr "Пользователь создан"
 
@@ -734,11 +734,11 @@ msgstr "Копировать email в буфер обмена"
 msgid "View user sessions"
 msgstr "Просмотр сессий пользователя"
 
-#: src/components/users/panel.vue:359:31
+#: src/components/users/panel.vue:356:31
 msgid "User email copied"
 msgstr "Email пользователя скопирована"
 
-#: src/components/users/user-sessions.dialog.vue:2:91
+#: src/components/users/user-sessions.dialog.vue:2:72
 msgid "User sessions"
 msgstr "Сессии пользователя"
 
