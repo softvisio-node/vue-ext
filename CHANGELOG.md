@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.1.3 (2023-04-07)
+
+Fixes:
+
+-   fix: tramslations
+
 ### 8.1.2 (2023-03-26)
 
 Fixes:
