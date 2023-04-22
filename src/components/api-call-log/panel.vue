@@ -1,5 +1,5 @@
 <template>
-    <ext-grid ref="grid" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
+    <ext-grid ref="grid" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="_ready">
         <ext-toolbar docked="top">
             <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for methods by name`)" width="200" @change="search"/>
             <ext-spacer/>
@@ -34,16 +34,21 @@ export default {
     },
 
     "methods": {
-        gridReady ( e ) {
-            var grid = e.detail.cmp;
+        _ready ( e ) {
+            const cmp = e.detail.cmp;
 
-            // grid.setColumnMenu( null );
+            // cmp.setColumnMenu( null );
 
-            grid.setItemConfig( { "viewModel": true } );
+            cmp.setItemConfig( { "viewModel": true } );
 
-            grid.setStore( this.store );
+            cmp.setStore( this.store );
 
-            this.reload();
+            if ( cmp.rendered ) {
+                this.reload();
+            }
+            else {
+                cmp.afterRender = () => this.reload();
+            }
         },
 
         idColReady ( e ) {
