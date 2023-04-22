@@ -56,6 +56,8 @@ export default {
                 "operator": "=",
                 "value": record.getId(),
             } );
+
+            this.reload();
         },
 
         async reload () {
