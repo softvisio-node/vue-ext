@@ -7,14 +7,9 @@
             <UsersPanel/>
         </ext-panel>
 
-        <!-- notifications -->
-        <ext-panel layout="fit" :title="i18nd(`vue-ext`, `Notifications`)">
-            <NotificationsPanel/>
-        </ext-panel>
-
-        <!-- tokens -->
-        <ext-panel iconAlign="left" iconCls="fa-solid fa-key" layout="fit" :title="i18nd(`vue-ext`, `Access tokens`)">
-            <UserTokensPanel/>
+        <!-- api call log -->
+        <ext-panel iconAlign="left" iconCls="fa-solid fa-heart-pulse" layout="fit" :title="i18nd(`vue-ext`, `API call log`)">
+            <ApiCallLogPanel/>
         </ext-panel>
 
         <slot name="bottom"/>
@@ -23,11 +18,10 @@
 
 <script>
 import UsersPanel from "#src/components/users/panel";
-import NotificationsPanel from "#src/components/notifications/panel";
-import UserTokensPanel from "#src/components/user-tokens/panel";
+import ApiCallLogPanel from "#src/components/api-call-log/panel";
 
 export default {
-    "components": { UsersPanel, NotificationsPanel, UserTokensPanel },
+    "components": { UsersPanel, ApiCallLogPanel },
 
     "methods": {
         _ready ( e ) {
