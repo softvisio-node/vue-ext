@@ -134,8 +134,6 @@ export default {
                 "centerX": am5.percent( 50 ),
             } ) );
             legend.data.setAll( chart.series.values );
-
-            this.reload();
         },
 
         _createRuntimeChart ( cmp ) {
@@ -211,8 +209,6 @@ export default {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
-
-            this.reload();
         },
 
         _createExceptionsChart ( cmp ) {
@@ -302,8 +298,6 @@ export default {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
-
-            this.reload();
         },
 
         _updateChart ( cmp, data ) {
