@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cardsPanel" @reload="reload">
+    <CardsPanel ref="cardsPanel" @reload="reload" @render="reload">
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for methods by name`)" width="200" @change="search"/>
