@@ -13,7 +13,7 @@
         </ext-panel>
 
         <!-- notification types -->
-        <CardsPanel ref="cardsPanel" @reload="reload">
+        <CardsPanel ref="cardsPanel" flex="1" @reload="reload">
             <template #items>
                 <ext-toolbar docked="top">
                     <ext-container :html="i18nd(`vue-ext`, `Notification types`)"/>
@@ -21,7 +21,7 @@
             </template>
 
             <template #data>
-                <ext-grid columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' sortable="false" @ready="_gridReady">
+                <ext-grid columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' layout="fit" sortable="false" @ready="_gridReady">
                     <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1"/>
                     <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>
                     <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_emailColReady"/>
