@@ -12,9 +12,13 @@
         <template #data>
             <ext-grid ref="grid" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="_ready">
                 <ext-column sorter='{"property":"id"}' :text="i18nd(`vue-ext`, `API method id`)" width="300" @ready="idColReady"/>
+
                 <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Load for last 60 minutes`)" @ready="_loadColReady"/>
+
                 <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Average request runtime for last 60 minutes`)" @ready="_avgRuntimeColReady"/>
+
                 <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Exceptions for last 60 minutes (%)`)" @ready="_exceptionsColReady"/>
+
                 <ext-column width="40" @ready="_actionColReady"/>
             </ext-grid>
         </template>
