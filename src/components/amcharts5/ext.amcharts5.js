@@ -31,7 +31,10 @@ Ext.define( "Ext.amcharts5", {
             this.root = null;
         }
 
-        this.callParent( arguments );
+        try {
+            this.callParent( arguments );
+        }
+        catch ( e ) {}
     },
 
     setData ( data ) {
