@@ -33,6 +33,8 @@ import LogDialog from "./log.dialog";
 import "#vue/components/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
+const DEFAULT_AUTOREFRESH_INTERVAL = 60_000;
+
 export default {
     "components": { CardsPanel },
 
@@ -45,6 +47,8 @@ export default {
             "remoteFilter": false,
         } );
     },
+
+    unmounted () {},
 
     "methods": {
         _ready ( e ) {
@@ -400,7 +404,7 @@ export default {
             const val = e.detail.newValue;
 
             if ( val ) {
-                this._setAutoRefreshInterval( 60000 );
+                this._setAutoRefreshInterval( DEFAULT_AUTOREFRESH_INTERVAL );
             }
             else {
                 this._setAutoRefreshInterval( 0 );
