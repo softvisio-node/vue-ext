@@ -1,22 +1,18 @@
 <template>
     <ext-dialog :height="height" layout="fit" scrollable="true" :title="i18nd(`vue-ext`, `Your account`)" :width="width">
-        <Panel>
-            <template #top>
-                <slot name="top"/>
+        <AccountPanel>
+            <template #tabs>
+                <slot name="tabs"/>
             </template>
-
-            <template #bottom>
-                <slot name="bottom"/>
-            </template>
-        </Panel>
+        </AccountPanel>
     </ext-dialog>
 </template>
 
 <script>
-import Panel from "./panel";
+import AccountPanel from "./panel";
 
 export default {
-    "components": { Panel },
+    "components": { AccountPanel },
 
     "props": {
         "width": {
