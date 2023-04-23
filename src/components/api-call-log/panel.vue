@@ -454,8 +454,6 @@ export default {
             }
             else {
                 this.$refs.cardsPanel.showNoDataCard();
-
-                this.store.setData( res.data );
             }
 
             this.$refs.cardsPanel.unmask();

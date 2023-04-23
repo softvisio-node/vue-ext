@@ -1,22 +1,31 @@
 <template>
-    <ext-dialog height="95%" layout="vbox" scrollable="true" :title="title" viewModel="true" width="95%">
-        <ext-toolbar docked="top">
-            <ext-spacer/>
-            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
-        </ext-toolbar>
+    <ext-dialog height="95%" layout="fit" scrollable="true" :title="title" viewModel="true" width="95%">
+        <CardsPanel ref="cardsPanel" @reload="reload" @render="_onRender">
+            <template #items>
+                <ext-toolbar docked="top">
+                    <ext-spacer/>
+                    <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
+                </ext-toolbar>
+            </template>
 
-        <Amcharts5 height="250" @ready="_createLoadChart"/>
-        <Amcharts5 height="250" @ready="_createRuntimeChart"/>
-        <Amcharts5 height="250" @ready="_createExceptionsChart"/>
+            <template #data>
+                <ext-container layput="vbox" scrollable="true">
+                    <Amcharts5 height="250" @ready="_createLoadChart"/>
+                    <Amcharts5 height="250" @ready="_createRuntimeChart"/>
+                    <Amcharts5 height="250" @ready="_createExceptionsChart"/>
+                </ext-container>
+            </template>
+        </CardsPanel>
     </ext-dialog>
 </template>
 
 <script>
+import CardsPanel from "#src/components/cards.panel";
 import Amcharts5 from "#vue/components/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 export default {
-    "components": { Amcharts5 },
+    "components": { CardsPanel, Amcharts5 },
 
     "props": {
         "methodId": {
@@ -32,6 +41,12 @@ export default {
     },
 
     "methods": {
+        _onRender () {
+            this.isRendered = true;
+
+            this.reload();
+        },
+
         _createLoadChart ( cmp ) {
             cmp.updateChart = this._updateChart.bind( this );
 
@@ -308,23 +323,25 @@ export default {
         },
 
         async reload () {
-            if ( !this._loadChart || !this._runtimeChart || !this._exceptionsChart ) return;
-
-            this.ext.mask();
+            this.$refs.cardsPanel.mask();
 
             const res = await this.$api.call( "admin/api-call-log/get-history-stats", this.methodId );
 
-            this.ext.unmask();
+            this.$refs.cardsPanel.unmask();
 
             if ( !res.ok ) {
-                this.$utils.toast( res );
-
-                this.ext.close();
+                this.$refs.cardsPanel.setResult( res );
             }
+            else if ( !res.data?.length ) {
+                this.$refs.cardsPanel.showNoDataCard();
+            }
+            else {
+                this.$refs.cardsPanel.setResult( res );
 
-            this._loadChart.setData( res.data );
-            this._runtimeChart.setData( res.data );
-            this._exceptionsChart.setData( res.data );
+                this._loadChart.setData( res.data );
+                this._runtimeChart.setData( res.data );
+                this._exceptionsChart.setData( res.data );
+            }
         },
     },
 };
