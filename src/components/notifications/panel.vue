@@ -1,5 +1,5 @@
 <template>
-    <ext-panel defaults='{"padding":"0 0 30 0"}' layout="vbox" @ready="_ready">
+    <ext-panel defaults='{"padding":"0 0 30 0"}' layout="vbox">
         <!-- push notifications -->
         <ext-panel :hidden="pusHidden">
             <ext-toolbar docked="top">
@@ -13,25 +13,33 @@
         </ext-panel>
 
         <!-- notification types -->
-        <ext-grid columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' sortable="false" @ready="_gridReady">
-            <ext-toolbar docked="top">
-                <ext-container :html="i18nd(`vue-ext`, `Notification types`)"/>
-            </ext-toolbar>
-            <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1"/>
-            <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>
-            <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_emailColReady"/>
-            <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Telegram${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_telegramColReady"/>
-            <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Push${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_pushColReady"/>
-        </ext-grid>
+        <CardsPanel ref="cardsPanel" @reload="reload">
+            <template #items>
+                <ext-toolbar docked="top">
+                    <ext-container :html="i18nd(`vue-ext`, `Notification types`)"/>
+                </ext-toolbar>
+            </template>
+
+            <template #data>
+                <ext-grid columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' sortable="false" @ready="_gridReady">
+                    <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1"/>
+                    <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>
+                    <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_emailColReady"/>
+                    <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Telegram${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_telegramColReady"/>
+                    <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Push${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_pushColReady"/>
+                </ext-grid>
+            </template>
+        </CardsPanel>
     </ext-panel>
 </template>
 
 <script>
 import PushNotificationsButton from "#src/components/push-notifications.button";
-import notificationsStore from "#vue/stores/notifications";
+import CardsPanel from "#src/components/cards.panel";
+import Model from "./models/notification-type";
 
 export default {
-    "components": { PushNotificationsButton },
+    "components": { PushNotificationsButton, CardsPanel },
 
     "computed": {
         pusHidden () {
@@ -39,15 +47,19 @@ export default {
         },
     },
 
-    "methods": {
-        _ready ( e ) {
-            this.reload();
-        },
+    created () {
+        this.store = Ext.create( "Ext.data.Store", {
+            "model": Model,
+            "autoLoad": false,
+            "pageSize": null,
+        } );
+    },
 
+    "methods": {
         _gridReady ( e ) {
             const cmp = e.detail.cmp;
 
-            cmp.setStore( notificationsStore.settingsStore );
+            cmp.setStore( this.store );
         },
 
         _internalColReady ( e ) {
@@ -89,7 +101,15 @@ export default {
         },
 
         async reload () {
-            await notificationsStore.reloadSettings();
+            this.$refs.cardsPanel.mask();
+
+            const res = await this.$api.call( "account/notifications/get-user-notifications-profile" );
+
+            this.$refs.cardsPanel.unmask();
+
+            this.$refs.cardsPanel.setResult( res );
+
+            if ( res.ok ) this.store.loadRawData( res.data );
         },
 
         async toggleChannelEnabled ( channel, button, newVal, oldVal ) {
