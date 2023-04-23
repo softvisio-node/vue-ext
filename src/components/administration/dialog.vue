@@ -1,6 +1,6 @@
 <template>
     <ext-dialog :height="height" layout="fit" scrollable="true" :title="i18nd(`vue-ext`, `Administration`)" :width="width">
-        <AdministrationPanel>
+        <AdministrationPanel :apiCallLogEnabled="apiCallLogEnabled">
             <template #tabs>
                 <slot name="tabs"/>
             </template>
@@ -22,6 +22,10 @@ export default {
         "height": {
             "type": String,
             "default": "95%",
+        },
+        "apiCallLogEnabled": {
+            "type": Boolean,
+            "default": true,
         },
     },
 };

@@ -6,7 +6,7 @@
         </ext-panel>
 
         <!-- api call log -->
-        <ext-panel iconAlign="left" iconCls="fa-solid fa-heart-pulse" layout="fit" :title="i18nd(`vue-ext`, `API call log`)">
+        <ext-panel :hidden="!apiCallLogEnabled" iconAlign="left" iconCls="fa-solid fa-heart-pulse" layout="fit" :title="i18nd(`vue-ext`, `API call log`)">
             <ApiCallLogPanel/>
         </ext-panel>
 
@@ -20,6 +20,13 @@ import ApiCallLogPanel from "#src/components/api-call-log/panel";
 
 export default {
     "components": { UsersPanel, ApiCallLogPanel },
+
+    "props": {
+        "apiCallLogEnabled": {
+            "type": Boolean,
+            "default": true,
+        },
+    },
 
     "methods": {
         _ready ( e ) {
