@@ -35,8 +35,12 @@ Ext.define( "Ext.amcharts5", {
     },
 
     setData ( data ) {
-        if ( this.updateChart ) this.updateChart( this, data );
-        else this._defaultUpdateChart( data );
+        if ( this.updateChart ) {
+            this.updateChart( this, data );
+        }
+        else {
+            this._defaultUpdateChart( data );
+        }
     },
 
     updateStore ( newStore, oldStore ) {
