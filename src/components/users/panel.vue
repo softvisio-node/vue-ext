@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
+    <CardsPanel ref="cards" :store="store" @reload="reload" @render="reload" @storeLoad="_onStoreLoad">
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
@@ -120,8 +120,6 @@ export default {
             // cmp.setColumnMenu( null );
 
             cmp.setStore( this.store );
-
-            this.reload();
         },
 
         _avatarColReady ( e ) {
