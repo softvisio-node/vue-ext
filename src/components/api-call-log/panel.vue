@@ -1,21 +1,28 @@
 <template>
-    <ext-grid ref="grid" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="_ready">
-        <ext-toolbar docked="top">
-            <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for methods by name`)" width="200" @change="search"/>
-            <ext-spacer/>
-            <ext-togglefield :label="i18nd(`vue-ext`, `Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
-            <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
-        </ext-toolbar>
+    <CardsPanel ref="cardsPanel" @reload="reload">
+        <template #items>
+            <ext-toolbar docked="top">
+                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for methods by name`)" width="200" @change="search"/>
+                <ext-spacer/>
+                <ext-togglefield :label="i18nd(`vue-ext`, `Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
+                <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
+            </ext-toolbar>
+        </template>
 
-        <ext-column sorter='{"property":"id"}' :text="i18nd(`vue-ext`, `API method id`)" width="300" @ready="idColReady"/>
-        <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Load for last 60 minutes`)" @ready="_loadColReady"/>
-        <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Average request runtime for last 60 minutes`)" @ready="_avgRuntimeColReady"/>
-        <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Exceptions for last 60 minutes (%)`)" @ready="_exceptionsColReady"/>
-        <ext-column width="40" @ready="_actionColReady"/>
-    </ext-grid>
+        <template #data>
+            <ext-grid ref="grid" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="_ready">
+                <ext-column sorter='{"property":"id"}' :text="i18nd(`vue-ext`, `API method id`)" width="300" @ready="idColReady"/>
+                <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Load for last 60 minutes`)" @ready="_loadColReady"/>
+                <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Average request runtime for last 60 minutes`)" @ready="_avgRuntimeColReady"/>
+                <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Exceptions for last 60 minutes (%)`)" @ready="_exceptionsColReady"/>
+                <ext-column width="40" @ready="_actionColReady"/>
+            </ext-grid>
+        </template>
+    </CardsPanel>
 </template>
 
 <script>
+import CardsPanel from "#src/components/cards.panel";
 import StatModel from "./models/stat";
 import HistoryDialog from "./history.dialog";
 import LogDialog from "./log.dialog";
@@ -23,6 +30,8 @@ import "#vue/components/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 export default {
+    "components": { CardsPanel },
+
     created () {
         this.store = new Ext.data.Store( {
             "model": StatModel,
@@ -42,13 +51,6 @@ export default {
             cmp.setItemConfig( { "viewModel": true } );
 
             cmp.setStore( this.store );
-
-            if ( cmp.rendered ) {
-                this.reload();
-            }
-            else {
-                cmp.afterRender = () => this.reload();
-            }
         },
 
         idColReady ( e ) {
@@ -430,15 +432,29 @@ export default {
             this.$refs.refreshButton.ext.setDisabled( true );
             this._pauseAutoRefresh();
 
+            this.$refs.cardsPanel.mask();
+
             const res = await this.$api.call( "admin/api-call-log/get-latest-stats" );
 
             this.refreshing = false;
             this.$refs.refreshButton.ext.setDisabled( false );
             this._resumeAutoRefresh();
 
-            if ( !res.ok ) return;
+            if ( !res.ok ) {
+                this.$refs.cardsPanel.setResult( res );
+            }
+            else if ( res.data?.length ) {
+                this.$refs.cardsPanel.setResult( res );
 
-            this.store.setData( res.data );
+                this.store.setData( res.data );
+            }
+            else {
+                this.$refs.cardsPanel.showNoDataCard();
+
+                this.store.setData( res.data );
+            }
+
+            this.$refs.cardsPanel.unmask();
         },
 
         async showHistory ( button ) {

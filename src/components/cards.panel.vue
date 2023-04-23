@@ -50,7 +50,7 @@ export default {
         },
     },
 
-    "emits": ["reload", "storeLoad"],
+    "emits": ["render", "reload", "storeLoad"],
 
     "computed": {
         noDataMessageText () {
@@ -68,7 +68,14 @@ export default {
 
     "methods": {
         _ready ( e ) {
-            this.ext = e.detail.cmp;
+            const cmp = ( this.ext = e.detail.cmp );
+
+            if ( cmp.rendered ) {
+                this.$emit( "render" );
+            }
+            else {
+                cmp.afterRender = () => this.$emit( "render" );
+            }
         },
 
         reload () {
