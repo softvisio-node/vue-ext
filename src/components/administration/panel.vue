@@ -1,7 +1,5 @@
 <template>
     <ext-tabpanel defaults='{"padding":"0 10 0 10"}' layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":40,"padding":"0 10 0 0","textAlign":"right","width":200},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none" @ready="_ready">
-        <slot name="top"/>
-
         <!-- users -->
         <ext-panel iconAlign="left" iconCls="fa-solid fa-users" layout="fit" :title="i18nd(`vue-ext`, `Users`)">
             <UsersPanel/>
@@ -12,7 +10,7 @@
             <ApiCallLogPanel/>
         </ext-panel>
 
-        <slot name="bottom"/>
+        <slot name="tabs"/>
     </ext-tabpanel>
 </template>
 

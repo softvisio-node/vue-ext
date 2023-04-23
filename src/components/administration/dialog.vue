@@ -1,22 +1,18 @@
 <template>
     <ext-dialog :height="height" layout="fit" scrollable="true" :title="i18nd(`vue-ext`, `Administration`)" :width="width">
-        <Panel>
-            <template #top>
-                <slot name="top"/>
+        <AdministrationPanel>
+            <template #tabs>
+                <slot name="tabs"/>
             </template>
-
-            <template #bottom>
-                <slot name="bottom"/>
-            </template>
-        </Panel>
+        </AdministrationPanel>
     </ext-dialog>
 </template>
 
 <script>
-import Panel from "./panel";
+import AdministrationPanel from "./panel";
 
 export default {
-    "components": { Panel },
+    "components": { AdministrationPanel },
 
     "props": {
         "width": {
