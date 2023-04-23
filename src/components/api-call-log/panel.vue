@@ -48,7 +48,11 @@ export default {
         } );
     },
 
-    unmounted () {},
+    unmounted () {
+        this.autoRefreshEnabled = true;
+
+        this._stopAutoRefresh();
+    },
 
     "methods": {
         _ready ( e ) {
@@ -404,33 +408,29 @@ export default {
             const val = e.detail.newValue;
 
             if ( val ) {
-                this._setAutoRefreshInterval( DEFAULT_AUTOREFRESH_INTERVAL );
+                this.autoRefreshEnabled = true;
+
+                this._startAutoRefresh();
             }
             else {
-                this._setAutoRefreshInterval( 0 );
+                this.autoRefreshEnabled = false;
+
+                this._stopAutoRefresh();
             }
         },
 
-        _setAutoRefreshInterval ( interval ) {
-            this.autoRefreshInterval = interval;
+        _startAutoRefresh () {
+            this._stopAutoRefresh();
 
-            this._resumeAutoRefresh();
+            if ( !this.autoRefreshEnabled ) return;
+
+            this.autoRefreshInterval = setInterval( this.reload.bind( this ), DEFAULT_AUTOREFRESH_INTERVAL );
         },
 
-        _pauseAutoRefresh () {
-            if ( this.autoRefreshIntervalClean ) {
-                clearInterval( this.autoRefreshIntervalClean );
+        _stopAutoRefresh () {
+            clearInterval( this.autoRefreshInterval );
 
-                this.autoRefreshIntervalClean = null;
-            }
-        },
-
-        _resumeAutoRefresh () {
-            this._pauseAutoRefresh();
-
-            if ( !this.autoRefreshInterval ) return;
-
-            this.autoRefreshIntervalClean = setInterval( () => this.reload(), this.autoRefreshInterval );
+            this.autoRefreshInterval = null;
         },
 
         async reload () {
@@ -438,7 +438,7 @@ export default {
 
             this.refreshing = true;
             this.$refs.refreshButton.ext.setDisabled( true );
-            this._pauseAutoRefresh();
+            this._stopAutoRefresh();
 
             this.$refs.cardsPanel.mask();
 
@@ -446,7 +446,7 @@ export default {
 
             this.refreshing = false;
             this.$refs.refreshButton.ext.setDisabled( false );
-            this._resumeAutoRefresh();
+            this._startAutoRefresh();
 
             if ( !res.ok ) {
                 this.$refs.cardsPanel.setResult( res );
