@@ -1,6 +1,5 @@
 import VueStore from "#vue/store";
 import NotificationModel from "#src/models/notification";
-import NotificationTypeModel from "#src/models/notification-type";
 import locale from "#vue/locale";
 import app from "@/app";
 
@@ -13,8 +12,6 @@ class Store extends VueStore {
 
     #store;
     #storeLoaded;
-
-    #settingsStore;
 
     constructor () {
         super();
@@ -53,32 +50,9 @@ class Store extends VueStore {
         return this.#store;
     }
 
-    get settingsStore () {
-        if ( !this.#settingsStore ) {
-            this.#settingsStore = Ext.create( "Ext.data.Store", {
-                "model": NotificationTypeModel,
-            } );
-        }
-
-        return this.#settingsStore;
-    }
-
     // public
     refreshRelativeTime () {
         this.store.each( record => record.set( "relative_time", this._getRelativeTime( record.get( "created" ) ) ) );
-    }
-
-    async reloadSettings () {
-        const res = await api.call( "account/notifications/get-user-notifications-profile" );
-
-        if ( !res.ok ) {
-            utils.toast( res );
-        }
-        else {
-            this.settingsStore.loadRawData( res.data );
-        }
-
-        return res;
     }
 
     reload () {
