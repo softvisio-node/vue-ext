@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="95%" layout="fit" scrollable="true" :title="title" viewModel="true" width="95%">
-        <CardsPanel ref="cardsPanel" :store="store" @reload="reload" @render="reload">
+        <CardsPanel ref="cardsPanel" :store="store" @reload="reload">
             <template #items>
                 <ext-toolbar docked="top">
                     <ext-spacer/>

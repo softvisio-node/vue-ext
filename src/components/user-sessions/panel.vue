@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @reload="reload" @render="reload">
+    <CardsPanel ref="cards" :store="store" @reload="reload">
         <template #items>
             <ext-toolbar docked="top">
                 <ext-container :html="title"/>

@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="95%" layout="fit" scrollable="true" :title="title" viewModel="true" width="95%">
-        <CardsPanel ref="cardsPanel" @reload="reload" @render="_onRender">
+        <CardsPanel ref="cardsPanel" @reload="reload">
             <template #items>
                 <ext-toolbar docked="top">
                     <ext-spacer/>
@@ -41,12 +41,6 @@ export default {
     },
 
     "methods": {
-        _onRender () {
-            this.isRendered = true;
-
-            this.reload();
-        },
-
         _createLoadChart ( cmp ) {
             cmp.updateChart = this._updateChart.bind( this );
 

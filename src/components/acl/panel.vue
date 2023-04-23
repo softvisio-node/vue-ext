@@ -122,8 +122,6 @@ export default {
             this.$refs.grid.ext.getViewModel().set( "permissions", permissions );
 
             cmp.setStore( this.store );
-
-            this.reload();
         },
 
         _avatarColReady ( e ) {

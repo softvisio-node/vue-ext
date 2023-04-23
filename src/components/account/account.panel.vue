@@ -68,8 +68,6 @@ export default {
     "methods": {
         _ready ( e ) {
             this.ext = e.detail.cmp;
-
-            this.reload();
         },
 
         async reload () {

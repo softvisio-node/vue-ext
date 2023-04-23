@@ -48,6 +48,10 @@ export default {
             "type": Object,
             "default": loadMask,
         },
+        "reloadOnRender": {
+            "type": Boolean,
+            "default": true,
+        },
     },
 
     "emits": ["render", "reload", "storeLoad"],
@@ -71,11 +75,17 @@ export default {
             const cmp = ( this.ext = e.detail.cmp );
 
             if ( cmp.rendered ) {
-                this.$emit( "render" );
+                this._onRender();
             }
             else {
-                cmp.afterRender = () => this.$emit( "render" );
+                cmp.afterRender = () => this._onRender();
             }
+        },
+
+        _onRender () {
+            this.$emit( "render" );
+
+            if ( this.reloadOnRender ) this.$emit( "reload" );
         },
 
         reload () {

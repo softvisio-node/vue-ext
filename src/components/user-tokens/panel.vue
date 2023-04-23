@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @reload="reload" @render="reload" @storeLoad="_onStoreLoad">
+    <CardsPanel ref="cards" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>

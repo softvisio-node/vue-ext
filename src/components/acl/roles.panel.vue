@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @ready="_onReady" @reload="reload">
+    <CardsPanel ref="cards" :store="store" @reload="reload">
         <template #items>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search roles`)" width="200" @change="_searchRoles"/>
@@ -50,8 +50,6 @@ export default {
 
         // public
         async reload () {
-            if ( !this.isReady ) return;
-
             if ( !this.aclId ) return;
 
             this.$refs.cards.mask();
@@ -87,12 +85,6 @@ export default {
         },
 
         // protected
-        _onReady ( e ) {
-            this.isReady = true;
-
-            this.reload();
-        },
-
         _gridReady ( e ) {
             const grid = e.detail.cmp;
 
