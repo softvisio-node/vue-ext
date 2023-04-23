@@ -442,12 +442,13 @@ export default {
         },
 
         async showHistory ( button ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord();
+            const record = button.up( "gridrow" ).getRecord();
 
-            const cmp = await this.$mount( HistoryDialog );
-
-            cmp.setRecord( record );
+            const cmp = await this.$mount( HistoryDialog, {
+                "props": {
+                    "methodId": record.id,
+                },
+            } );
 
             cmp.ext.show();
         },

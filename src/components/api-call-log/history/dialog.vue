@@ -18,19 +18,20 @@ import * as am5xy from "@amcharts/amcharts5/xy";
 export default {
     "components": { Amcharts5 },
 
-    data () {
-        return { "title": "History" };
+    "props": {
+        "methodId": {
+            "type": String,
+            "required": true,
+        },
+    },
+
+    "computed": {
+        title () {
+            return this.i18nd( "vue-ext", `History for method "${this.methodId}"` );
+        },
     },
 
     "methods": {
-        setRecord ( record ) {
-            this.record = record;
-
-            this.title = `History for Method "${record.id}"`;
-
-            this.reload();
-        },
-
         _createLoadChart ( cmp ) {
             cmp.updateChart = this._updateChart.bind( this );
 
@@ -307,11 +308,11 @@ export default {
         },
 
         async reload () {
-            if ( !this.record || !this._loadChart || !this._runtimeChart || !this._exceptionsChart ) return;
+            if ( !this._loadChart || !this._runtimeChart || !this._exceptionsChart ) return;
 
             this.ext.mask();
 
-            const res = await this.$api.call( "admin/api-call-log/get-history-stats", this.record.id );
+            const res = await this.$api.call( "admin/api-call-log/get-history-stats", this.methodId );
 
             this.ext.unmask();
 
