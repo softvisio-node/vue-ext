@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @reload="reload">
+    <CardsPanel ref="cards" :store="store" @reload="reload" @render="reload">
         <template #items>
             <ext-toolbar docked="top">
                 <ext-container :html="title"/>
@@ -59,8 +59,6 @@ export default {
             grid.setItemConfig( { "viewModel": true } );
 
             grid.setStore( this.store );
-
-            this.reload();
         },
 
         _actionColReady ( e ) {
