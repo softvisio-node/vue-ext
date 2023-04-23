@@ -23,10 +23,17 @@
 import EntryModel from "../models/entry";
 
 export default {
-    data () {
-        return {
-            "title": "API call log",
-        };
+    "props": {
+        "methodId": {
+            "type": String,
+            "required": true,
+        },
+    },
+
+    "computed": {
+        title () {
+            return this.i18nd( "vue-ext", `API call log for method "${this.methodId}"` );
+        },
     },
 
     created () {
@@ -34,6 +41,13 @@ export default {
             "model": EntryModel,
             "autoLoad": false,
             "pageSize": 50,
+            "filters": [
+                {
+                    "property": "method_id",
+                    "operator": "=",
+                    "value": this.methodId,
+                },
+            ],
         } );
     },
 
@@ -46,16 +60,6 @@ export default {
             // grid.setColumnMenu( null );
 
             this.grid.setStore( this.store );
-        },
-
-        setRecord ( record ) {
-            this.title = `API call log for Method "${record.id}"`;
-
-            this.store.addFilter( {
-                "property": "method_id",
-                "operator": "=",
-                "value": record.getId(),
-            } );
 
             this.reload();
         },

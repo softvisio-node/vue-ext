@@ -453,12 +453,13 @@ export default {
         },
 
         async showLog ( button ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord();
+            const record = button.up( "gridrow" ).getRecord();
 
-            const cmp = await this.$mount( LogDialog );
-
-            cmp.setRecord( record );
+            const cmp = await this.$mount( LogDialog, {
+                "props": {
+                    "methodId": record.id,
+                },
+            } );
 
             cmp.ext.show();
         },
