@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import EntryModel from "../models/entry";
+import EntryModel from "./models/entry";
 
 export default {
     "props": {

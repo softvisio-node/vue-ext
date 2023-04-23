@@ -17,8 +17,8 @@
 
 <script>
 import StatModel from "./models/stat";
-import HistoryDialog from "./history/dialog";
-import LogDialog from "./log/dialog";
+import HistoryDialog from "./history.dialog";
+import LogDialog from "./log.dialog";
 import "#vue/components/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
