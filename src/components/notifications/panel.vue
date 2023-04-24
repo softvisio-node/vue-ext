@@ -128,12 +128,11 @@ export default {
         reload ( e ) {
             this.$refs.cardsPanel.mask();
 
-            // const button = e.detail.sender;
-            // button.disable();
-
             notificationsStore.reload();
+        },
 
-            // button.enable();
+        _onStoreLoad () {
+            this.$refs.cardsPanel.unmask();
         },
 
         async _setRead ( button ) {
@@ -186,10 +185,6 @@ export default {
 
         async deleteAll () {
             notificationsStore.deleteAll();
-        },
-
-        _onStoreLoad () {
-            this.$refs.cardsPanel.unmask();
         },
 
         // XXX
