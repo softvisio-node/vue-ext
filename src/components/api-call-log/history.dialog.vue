@@ -313,7 +313,7 @@ export default {
         async reload () {
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "admin/api-call-log/get-history-stats", this.methodId );
+            const res = await this.$api.call( "administration/api-call-log/get-history-stats", this.methodId );
 
             this.$refs.cardsPanel.unmask();
 

@@ -3,10 +3,10 @@ export default Ext.define( "", {
 
     "proxy": {
         "api": {
-            "create": "admin/users/create",
-            "read": "admin/users/read",
-            "update": "admin/users/update",
-            "destroy": "admin/users/delete",
+            "create": "administration/users/create",
+            "read": "administration/users/read",
+            "update": "administration/users/update",
+            "destroy": "administration/users/delete",
         },
     },
 

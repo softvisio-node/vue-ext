@@ -93,7 +93,7 @@ export default {
 
             delete values.confirmedPassword;
 
-            const res = await this.$api.call( "admin/users/create", email, values, this.$refs.rolesPanel.getEnabledRoles() );
+            const res = await this.$api.call( "administration/users/create", email, values, this.$refs.rolesPanel.getEnabledRoles() );
 
             if ( res.ok ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, "User created" ) );

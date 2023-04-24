@@ -23,15 +23,15 @@ export default {
 
     "methods": {
         async _loadSessions () {
-            return this.$api.call( "admin/users/get-sessions", this.userId );
+            return this.$api.call( "administration/users/get-sessions", this.userId );
         },
 
         async _signOutSessionRequest ( sessionId ) {
-            return this.$api.call( "admin/users/signout-session", this.userId, sessionId );
+            return this.$api.call( "administration/users/signout-session", this.userId, sessionId );
         },
 
         async _signOutAllSessionsRequest ( e ) {
-            return this.$api.call( "admin/users/signout-all-sessions", this.userId );
+            return this.$api.call( "administration/users/signout-all-sessions", this.userId );
         },
     },
 };

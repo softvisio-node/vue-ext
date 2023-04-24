@@ -23,7 +23,7 @@ export default {
 
     "methods": {
         async _changePassword ( password ) {
-            return this.$api.call( "admin/users/set-password", this.userId, password );
+            return this.$api.call( "administration/users/set-password", this.userId, password );
         },
     },
 };

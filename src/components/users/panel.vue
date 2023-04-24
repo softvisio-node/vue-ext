@@ -237,7 +237,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "admin/users/set-enabled", record.get( "id" ), enabled );
+            const res = await this.$api.call( "administration/users/set-enabled", record.get( "id" ), enabled );
 
             if ( !res.ok ) {
                 await this.$utils.sleep( 500 );
@@ -263,7 +263,7 @@ export default {
 
             button.disable();
 
-            var res = await this.$api.call( "admin/users/delete", record.getId() );
+            var res = await this.$api.call( "administration/users/delete", record.getId() );
 
             button.enable();
 
