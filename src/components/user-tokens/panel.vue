@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
+    <CardsPanel ref="cards" :store="store" @reload="reload">
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
@@ -118,10 +118,6 @@ export default {
             this.$refs.cards.mask();
 
             this.store.loadPage( 1 );
-        },
-
-        _onStoreLoad () {
-            this.$refs.cards.unmask();
         },
 
         async setEnabled ( button, enabled ) {

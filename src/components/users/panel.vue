@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
+    <CardsPanel ref="cards" :store="store" @reload="reload">
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
@@ -290,10 +290,6 @@ export default {
             else {
                 this.store.removeFilter( "search" );
             }
-        },
-
-        _onStoreLoad () {
-            this.$refs.cards.unmask();
         },
 
         async showCreateUserDialog () {
