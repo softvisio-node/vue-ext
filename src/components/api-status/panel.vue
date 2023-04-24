@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cardsPanel" @reload="reload">
+    <CardsPanel ref="cardsPanel" :store="store" @reload="reload">
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for methods by name`)" width="200" @change="search"/>
@@ -7,19 +7,23 @@
                 <ext-togglefield :label="i18nd(`vue-ext`, `Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
                 <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
             </ext-toolbar>
+
+            <ext-panel collapsed="true" collapsible="right" docked="right" resizable='{"edges":"west","split":true}' :title="i18nd(`vue-ext`, `Method details`)">
+                <!-- <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Load for last 60 minutes`)" @ready="_loadColReady"/> -->
+                <!-- <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Average request runtime for last 60 minutes`)" @ready="_avgRuntimeColReady"/> -->
+                <!-- <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Exceptions for last 60 minutes (%)`)" @ready="_exceptionsColReady"/> -->
+            </ext-panel>
         </template>
 
         <template #data>
-            <ext-grid ref="grid" layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="_ready">
-                <ext-column sorter='{"property":"id"}' :text="i18nd(`vue-ext`, `API method id`)" width="300" @ready="idColReady"/>
+            <ext-grid ref="grid" layout="fit" multicolumnSort="true" @ready="_ready">
+                <ext-column dataIndex="id" flex="1" :text="i18nd(`vue-ext`, `Method name`)"/>
 
-                <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Load for last 60 minutes`)" @ready="_loadColReady"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="active_requests_limit_text" sorter='{"property":"active_requests_limit"}' :text="i18nd(`vue-ext`, `Acrive requests limit`)"/>
 
-                <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Average request runtime for last 60 minutes`)" @ready="_avgRuntimeColReady"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="active_requests_text" sorter='{"property":"active_requests"}' :text="i18nd(`vue-ext`, `Acrive requests`)"/>
 
-                <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Exceptions for last 60 minutes (%)`)" @ready="_exceptionsColReady"/>
-
-                <ext-column width="40" @ready="_actionColReady"/>
+                <ext-column width="80" @ready="_actionColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
@@ -27,7 +31,7 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import StatModel from "./models/stat";
+import MethodModel from "./models/method";
 import HistoricDialog from "./historic.dialog";
 import LogDialog from "./log.dialog";
 import "#vue/components/amcharts5";
@@ -40,7 +44,7 @@ export default {
 
     created () {
         this.store = new Ext.data.Store( {
-            "model": StatModel,
+            "model": MethodModel,
             "autoLoad": false,
             "pageSize": null,
             "remoteSort": false,
@@ -185,7 +189,7 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "layout": { "type": "vbox", "pack": "start", "align": "center" },
+                    "layout": { "type": "hbox", "pack": "end", "align": "center" },
                     "items": [
                         {
                             "xtype": "button",
@@ -197,7 +201,6 @@ export default {
                             "iconCls": "fa-solid fa-list",
                             "handler": this.showLog.bind( this ),
                         },
-                        { "xtype": "container", "height": 80 },
                     ],
                 },
             } );
@@ -390,13 +393,13 @@ export default {
         },
 
         search ( e ) {
-            var val = e.detail.newValue.trim();
+            const value = e.detail.newValue.trim();
 
-            if ( val !== "" ) {
+            if ( value !== "" ) {
                 this.store.addFilter( {
                     "property": "id",
                     "operator": "like",
-                    "value": val,
+                    value,
                 } );
             }
             else {
@@ -434,33 +437,7 @@ export default {
         },
 
         async reload () {
-            if ( this.refreshing ) return;
-
-            this.refreshing = true;
-            this.$refs.refreshButton.ext.setDisabled( true );
-            this._stopAutoRefresh();
-
-            this.$refs.cardsPanel.mask();
-
-            const res = await this.$api.call( "administration/api-status/get-latest-stats" );
-
-            this.refreshing = false;
-            this.$refs.refreshButton.ext.setDisabled( false );
-            this._startAutoRefresh();
-
-            if ( !res.ok ) {
-                this.$refs.cardsPanel.setResult( res );
-            }
-            else if ( res.data?.length ) {
-                this.$refs.cardsPanel.setResult( res );
-
-                this.store.setData( res.data );
-            }
-            else {
-                this.$refs.cardsPanel.showNoDataCard();
-            }
-
-            this.$refs.cardsPanel.unmask();
+            this.store.load();
         },
 
         async showHistory ( button ) {
