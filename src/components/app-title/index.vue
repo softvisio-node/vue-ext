@@ -16,7 +16,7 @@
         <!-- menu button -->
         <ext-button align="right" height="50" :hidden="!menuEnabled" iconCls="fa-solid fa-bars" margin="0 0 0 5" width="40" @tap="showMenu"/>
 
-        <Notifications ref="notifications"/>
+        <NotificationsMenu ref="notifications"/>
 
         <AppMenu ref="menu" :accountButtonEnabled="menuAccountButtonEnabled" :changePasswordButtonEnabled="menuChangePasswordButtonEnabled" :pushNotificationsButtonEnabled="menuPushNotificationsButtonEnabled" @showAccountDialog="showAccountDialog">
             <template #top>
@@ -33,12 +33,12 @@
 <script>
 import AvatarUser from "#src/components/avatar/user";
 import AppMenu from "./menu";
-import Notifications from "#src/components/notifications/menu-sheet";
+import NotificationsMenu from "#src/components/notifications/menu";
 import sessionStore from "#vue/stores/session";
 import notificationsStore from "#vue/stores/notifications";
 
 export default {
-    "components": { AvatarUser, AppMenu, Notifications },
+    "components": { AvatarUser, AppMenu, NotificationsMenu },
 
     "props": {
         "notificationsButtonEnabled": {

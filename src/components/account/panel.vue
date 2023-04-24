@@ -7,7 +7,7 @@
 
         <!-- notifications -->
         <ext-panel layout="fit" :title="i18nd(`vue-ext`, `Notifications`)">
-            <NotificationsPanel/>
+            <NotificationsSettingsPanel/>
         </ext-panel>
 
         <!-- tokens -->
@@ -31,12 +31,12 @@
 <script>
 import "#src/components/avatar/ext.avatar";
 import AccountPanel from "./account.panel";
-import NotificationsPanel from "#src/components/notifications/panel";
+import NotificationsSettingsPanel from "#src/components/notifications/settings.panel";
 import UserTokensPanel from "#src/components/user-tokens/panel";
 import AppearancePanel from "./appearance.panel";
 
 export default {
-    "components": { AccountPanel, NotificationsPanel, UserTokensPanel, AppearancePanel },
+    "components": { AccountPanel, NotificationsSettingsPanel, UserTokensPanel, AppearancePanel },
 
     "methods": {
         _ready ( e ) {

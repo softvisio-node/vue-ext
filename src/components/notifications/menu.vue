@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import NotificationsSettingsDialog from "#src/components/notifications/dialog";
+import NotificationsSettingsDialog from "#src/components/notifications/settings.dialog";
 import notificationsStore from "#vue/stores/notifications";
 
 export default {
