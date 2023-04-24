@@ -21,6 +21,7 @@ class Store extends VueStore {
 
             this.reload();
         } );
+
         api.on( "notifications", this.reload.bind( this ) );
     }
 
@@ -51,12 +52,12 @@ class Store extends VueStore {
     }
 
     // public
-    refreshRelativeTime () {
-        this.store.each( record => record.set( "relative_time", this.#getRelativeTime( record.get( "created" ) ) ) );
-    }
-
     reload () {
         this.store.loadPage( 1 );
+    }
+
+    refreshRelativeTime () {
+        this.store.each( record => record.set( "relative_time", this.#getRelativeTime( record.get( "created" ) ) ) );
     }
 
     async setRead ( notifications ) {
