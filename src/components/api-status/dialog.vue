@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="95%" layout="fit" scrollable="true" :title="i18nd(`vue-ext`, `API call log`)" width="95%">
+    <ext-dialog height="95%" layout="fit" scrollable="true" :title="i18nd(`vue-ext`, `API status`)" width="95%">
         <Panel/>
     </ext-dialog>
 </template>

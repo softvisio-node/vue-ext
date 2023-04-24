@@ -5,8 +5,8 @@
             <UsersPanel/>
         </ext-panel>
 
-        <!-- api call log -->
-        <ext-panel :hidden="!apiCallLogEnabled" layout="fit" :title="i18nd(`vue-ext`, `API call log`)">
+        <!-- api status -->
+        <ext-panel :hidden="!apiCallLogEnabled" layout="fit" :title="i18nd(`vue-ext`, `API status`)">
             <ApiCallLogPanel/>
         </ext-panel>
 

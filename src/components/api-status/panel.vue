@@ -28,7 +28,7 @@
 <script>
 import CardsPanel from "#src/components/cards.panel";
 import StatModel from "./models/stat";
-import HistoryDialog from "./history.dialog";
+import HistoricDialog from "./historic.dialog";
 import LogDialog from "./log.dialog";
 import "#vue/components/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
@@ -466,7 +466,7 @@ export default {
         async showHistory ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            const cmp = await this.$mount( HistoryDialog, {
+            const cmp = await this.$mount( HistoricDialog, {
                 "props": {
                     "methodId": record.id,
                 },
