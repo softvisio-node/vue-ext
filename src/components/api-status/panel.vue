@@ -403,7 +403,7 @@ export default {
                 } );
             }
             else {
-                this.store.removeFilter( "search" );
+                this.store.removeFilter( "id" );
             }
         },
 
