@@ -52,7 +52,7 @@ class Store extends VueStore {
 
     // public
     refreshRelativeTime () {
-        this.store.each( record => record.set( "relative_time", this._getRelativeTime( record.get( "created" ) ) ) );
+        this.store.each( record => record.set( "relative_time", this.#getRelativeTime( record.get( "created" ) ) ) );
     }
 
     reload () {
@@ -233,7 +233,7 @@ class Store extends VueStore {
         this.totalUndoneUnread = this.store.getSummaryRecord().get( "total_undone_unread" );
     }
 
-    _getRelativeTime ( date ) {
+    #getRelativeTime ( date ) {
         return locale.formatRelativeTime( date, "style:short" );
     }
 
