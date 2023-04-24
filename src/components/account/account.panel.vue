@@ -71,11 +71,7 @@ export default {
         },
 
         async reload () {
-            this.$refs.cards.mask();
-
             const res = await this.$api.call( "account/get-account" );
-
-            this.$refs.cards.unmask();
 
             this.$refs.cards.setResult( res );
 

@@ -1,6 +1,6 @@
 <template>
     <CardsPanel ref="cardsPanel" :noDataMessage='`<div style="font-size:1.5em;">` + i18nd(`vue-ext`, `You have no notifications`) + `</div>`' :reloadOnRender="false" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
-        <template #items>
+        <template #docked>
             <ext-titlebar docked="top" iconCls="fa-regular fa-bell" :title="i18nd(`vue-ext`, `Notifications`)">
                 <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/>
                 <!-- <ext-button align="right" iconCls="fa-solid fa-check-double" :tooltip="i18nd( `vue-ext`,`Mark all as done`)" :hidden="!totalUndone" @tap="setDoneAll"/> -->

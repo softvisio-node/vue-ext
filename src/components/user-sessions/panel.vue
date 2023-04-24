@@ -1,6 +1,6 @@
 <template>
     <CardsPanel ref="cards" :store="store" @reload="reload">
-        <template #items>
+        <template #docked>
             <ext-toolbar docked="top">
                 <ext-container :html="title"/>
                 <ext-spacer/>

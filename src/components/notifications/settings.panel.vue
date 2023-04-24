@@ -14,7 +14,7 @@
 
         <!-- notification types -->
         <CardsPanel ref="cardsPanel" flex="1" @reload="reload">
-            <template #items>
+            <template #docked>
                 <ext-toolbar docked="top">
                     <ext-container :html="i18nd(`vue-ext`, `Notification types`)"/>
                 </ext-toolbar>

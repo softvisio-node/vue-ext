@@ -1,6 +1,6 @@
 <template>
     <CardsPanel ref="cards" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
-        <template #items>
+        <template #docked>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
                 <RolesButton aclId="aclId" @change="_onRolesFilterChange"/>

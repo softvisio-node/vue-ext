@@ -1,7 +1,7 @@
 <template>
     <ext-dialog height="95%" layout="fit" scrollable="true" :title="title" viewModel="true" width="95%">
         <CardsPanel ref="cardsPanel" @reload="reload">
-            <template #items>
+            <template #docked>
                 <ext-toolbar docked="top">
                     <ext-spacer/>
                     <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>

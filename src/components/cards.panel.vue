@@ -19,7 +19,7 @@
             <slot name="data"/>
         </ext-panel>
 
-        <slot name="items"/>
+        <slot name="docked"/>
     </ext-panel>
 </template>
 
@@ -49,6 +49,10 @@ export default {
             "default": loadMask,
         },
         "reloadOnRender": {
+            "type": Boolean,
+            "default": true,
+        },
+        "autoMask": {
             "type": Boolean,
             "default": true,
         },
@@ -89,6 +93,8 @@ export default {
         },
 
         reload () {
+            if ( this.autoMask ) this.mask();
+
             this.$emit( "reload" );
         },
 
@@ -131,6 +137,8 @@ export default {
 
         showDefaultCard () {
             this.ext.setActiveItem( this.$refs.defaultCard.ext );
+
+            if ( this.autoMask ) this.unmask();
         },
 
         showErrorCard ( message ) {
@@ -142,14 +150,20 @@ export default {
             }
 
             this.ext.setActiveItem( this.$refs.errorCard.ext );
+
+            if ( this.autoMask ) this.unmask();
         },
 
         showNoDataCard () {
             this.ext.setActiveItem( this.$refs.noDataCard.ext );
+
+            if ( this.autoMask ) this.unmask();
         },
 
         showDataCard () {
             this.ext.setActiveItem( this.$refs.dataCard.ext );
+
+            if ( this.autoMask ) this.unmask();
         },
 
         _onStoreLoad ( store, records, success, eOpts ) {
