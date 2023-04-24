@@ -3,7 +3,7 @@ export default Ext.define( "", {
 
     "proxy": {
         "api": {
-            "read": "administration/api-call-log/read-api-method-access-log",
+            "read": "administration/api-status/read-api-method-access-log",
         },
     },
 

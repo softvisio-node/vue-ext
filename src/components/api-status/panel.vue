@@ -442,7 +442,7 @@ export default {
 
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "administration/api-call-log/get-latest-stats" );
+            const res = await this.$api.call( "administration/api-status/get-latest-stats" );
 
             this.refreshing = false;
             this.$refs.refreshButton.ext.setDisabled( false );

@@ -16,7 +16,7 @@
 
 <script>
 import UsersPanel from "#src/components/users/panel";
-import ApiCallLogPanel from "#src/components/api-call-log/panel";
+import ApiCallLogPanel from "#src/components/api-status/panel";
 
 export default {
     "components": { UsersPanel, ApiCallLogPanel },
