@@ -19,9 +19,9 @@
             <ext-grid ref="grid" layout="fit" multicolumnSort="true" @ready="_ready">
                 <ext-column dataIndex="id" flex="1" :text="i18nd(`vue-ext`, `Method name`)"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="active_requests_limit_text" sorter='{"property":"active_requests_limit"}' :text="i18nd(`vue-ext`, `Acrive requests limit`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="active_requests_limit_text" sorter='{"property":"active_requests_limit"}' :text="i18nd(`vue-ext`, `Acrive<br/>requests limit`)"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="active_requests_text" sorter='{"property":"active_requests"}' :text="i18nd(`vue-ext`, `Acrive requests`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="active_requests_text" sorter='{"property":"active_requests"}' :text="i18nd(`vue-ext`, `Acrive<br/>requests`)"/>
 
                 <ext-column width="80" @ready="_actionColReady"/>
             </ext-grid>
