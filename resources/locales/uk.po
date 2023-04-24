@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-04-06 08:05+0300\n"
+"POT-Creation-Date: 2023-04-24 13:06+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -66,7 +66,7 @@ msgstr "Локаль"
 #: src/components/app-title/menu.vue:17:101
 #: src/components/change-password.dialog.vue:16:21
 #: src/components/reset-password.dialog.vue:17:31
-#: src/components/users/panel.vue:214:48
+#: src/components/users/panel.vue:212:48
 msgid "Change password"
 msgstr "Змінити пароль"
 
@@ -116,7 +116,7 @@ msgstr "Зберегти"
 msgid "Telegram username"
 msgstr "Ім'я користувача Telegram"
 
-#: src/components/account/account.panel.vue:111:35
+#: src/components/account/account.panel.vue:105:35
 msgid "Confirmation email sent"
 msgstr "Лист із підтвердженням надіслано"
 
@@ -137,21 +137,21 @@ msgstr "Колір акценту"
 msgid "Your account"
 msgstr "Ваш аккаунт"
 
-#: src/components/account/panel.vue:6:58
+#: src/components/account/panel.vue:4:58
 msgid "Account"
 msgstr "Аккаунт"
 
-#: src/components/account/panel.vue:11:40
-#: src/components/notifications/menu-sheet.vue:4:76
+#: src/components/account/panel.vue:9:40
+#: src/components/notifications/panel.vue:4:76
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: src/components/account/panel.vue:16:83
+#: src/components/account/panel.vue:14:83
 msgid "Access tokens"
 msgstr "Токени доступу"
 
-#: src/components/account/panel.vue:23:38
-#: src/components/account/panel.vue:21:41
+#: src/components/account/panel.vue:21:38
+#: src/components/account/panel.vue:19:41
 msgid "Appearance"
 msgstr "Зовнішній вигляд"
 
@@ -160,11 +160,11 @@ msgid "Select user"
 msgstr "Виберіть користувача"
 
 #: src/components/acl/add-user.dialog.vue:5:52
-#: src/components/acl/panel.vue:21:67 src/components/acl/panel.vue:244:45
+#: src/components/acl/panel.vue:21:67 src/components/acl/panel.vue:241:45
 #: src/components/user-tokens/panel.vue:20:88
-#: src/components/user-tokens/panel.vue:150:45
+#: src/components/user-tokens/panel.vue:144:45
 #: src/components/users/create-user.dialog.vue:14:37
-#: src/components/users/panel.vue:25:67 src/components/users/panel.vue:254:45
+#: src/components/users/panel.vue:25:67 src/components/users/panel.vue:252:45
 msgid "Access enabled"
 msgstr "Доступ увімкнено"
 
@@ -189,6 +189,7 @@ msgid "User added"
 msgstr "Користувача додано"
 
 #: src/components/acl/dialog.vue:26:33
+#: src/components/administration/panel.vue:4:40
 msgid "Users"
 msgstr "Користувачі"
 
@@ -198,9 +199,9 @@ msgstr "Пошук користувачів"
 
 #: src/components/acl/panel.vue:9:62 src/components/acl/roles.button.vue:74:28
 #: src/components/acl/roles.panel.vue:7:62
-#: src/components/api-call-log/history/dialog.vue:5:58
-#: src/components/api-call-log/log/dialog.vue:5:58
-#: src/components/api-call-log/panel.vue:7:78
+#: src/components/api-call-log/history.dialog.vue:7:66
+#: src/components/api-call-log/log.dialog.vue:7:66
+#: src/components/api-call-log/panel.vue:8:82
 #: src/components/cards.panel.vue:14:58
 #: src/components/user-sessions/panel.vue:8:62
 #: src/components/user-tokens/panel.vue:8:62
@@ -218,26 +219,26 @@ msgstr "Email"
 msgid "Roles"
 msgstr "Ролі"
 
-#: src/components/acl/panel.vue:189:39 src/components/acl/roles.dialog.vue:2:50
-#: src/components/users/panel.vue:190:39
+#: src/components/acl/panel.vue:186:39 src/components/acl/roles.dialog.vue:2:50
+#: src/components/users/panel.vue:188:39
 msgid "Edit user roles"
 msgstr "Редагувати ролі користувача"
 
-#: src/components/acl/panel.vue:199:39 src/components/users/panel.vue:221:48
+#: src/components/acl/panel.vue:196:39 src/components/users/panel.vue:219:48
 msgid "Delete user"
 msgstr "Видалити користувача"
 
-#: src/components/acl/panel.vue:244:89
-#: src/components/user-tokens/panel.vue:150:89
-#: src/components/users/panel.vue:254:89
+#: src/components/acl/panel.vue:241:89
+#: src/components/user-tokens/panel.vue:144:89
+#: src/components/users/panel.vue:252:89
 msgid "Access disabled"
 msgstr "Доступ вимкнено"
 
-#: src/components/acl/panel.vue:253:47 src/components/users/panel.vue:264:47
+#: src/components/acl/panel.vue:250:47 src/components/users/panel.vue:262:47
 msgid "Are you sure you want to delete user?"
 msgstr "Ви впевнені, що хочете видалити користувача?"
 
-#: src/components/acl/panel.vue:262:35 src/components/users/panel.vue:273:35
+#: src/components/acl/panel.vue:259:35 src/components/users/panel.vue:271:35
 msgid "User deleted"
 msgstr "Користувача видалено"
 
@@ -267,64 +268,83 @@ msgid "Role"
 msgstr "Роль"
 
 #: src/components/acl/roles.panel.vue:15:82
-#: src/components/acl/roles.panel.vue:161:45
+#: src/components/acl/roles.panel.vue:153:45
 msgid "Role enabled"
 msgstr "Роль увімкнено"
 
-#: src/components/acl/roles.panel.vue:161:87
+#: src/components/acl/roles.panel.vue:153:87
 msgid "Role disabled"
 msgstr "Роль вимкнено"
 
+#: src/components/administration/dialog.vue:2:72
+msgid "Administration"
+msgstr "Адміністрування"
+
+#: src/components/administration/panel.vue:9:69
 #: src/components/api-call-log/dialog.vue:2:68
 msgid "API call log"
 msgstr "Журнал викликів API"
 
-#: src/components/api-call-log/log/dialog.vue:9:103
+#: src/components/api-call-log/history.dialog.vue:39:19
+#, javascript-format
+msgid "History for method \"${n}\""
+msgstr "Історія методу \"${n}\""
+
+#: src/components/api-call-log/log.dialog.vue:13:111
 msgid "Started"
 msgstr "Розпочато"
 
-#: src/components/api-call-log/log/dialog.vue:10:104
+#: src/components/api-call-log/log.dialog.vue:14:112
 msgid "Finished"
 msgstr "Завершено(Edited)Restore original"
 
-#: src/components/api-call-log/log/dialog.vue:11:87
+#: src/components/api-call-log/log.dialog.vue:15:95
 msgid "Runtime (sec.)"
 msgstr "Час виконання (сек.)"
 
-#: src/components/api-call-log/log/dialog.vue:13:141
+#: src/components/api-call-log/log.dialog.vue:17:149
 msgid "Exception"
 msgstr "Помилка"
 
-#: src/components/api-call-log/log/dialog.vue:15:116
+#: src/components/api-call-log/log.dialog.vue:19:124
 msgid "Status"
 msgstr "Статус"
 
-#: src/components/api-call-log/log/dialog.vue:17:81
+#: src/components/api-call-log/log.dialog.vue:21:89
 msgid "Status text"
 msgstr "Текст статусу"
 
-#: src/components/api-call-log/panel.vue:4:43
+#: src/components/api-call-log/log.dialog.vue:44:19
+#, javascript-format
+msgid "API call log for method \"${n}\""
+msgstr "Журнал викликів API для методу \"${n}\""
+
+#: src/components/api-call-log/panel.vue:5:47
 msgid "Search for methods by name"
 msgstr "Пошук методів за назвою"
 
-#: src/components/api-call-log/panel.vue:10:54
+#: src/components/api-call-log/panel.vue:7:41
+msgid "Auto refresh"
+msgstr "Автоматичне оновлення"
+
+#: src/components/api-call-log/panel.vue:14:62
 msgid "API method id"
 msgstr "Ідентифікатор методу API"
 
-#: src/components/api-call-log/panel.vue:11:51
+#: src/components/api-call-log/panel.vue:16:59
 msgid "Load for last 60 minutes"
 msgstr "Завантаження за останні 60 хвилин"
 
-#: src/components/api-call-log/panel.vue:12:51
+#: src/components/api-call-log/panel.vue:18:59
 msgid "Average request runtime for last 60 minutes"
 msgstr "Середня тривалість виконання запиту за останні 60 хвилин"
 
-#: src/components/api-call-log/panel.vue:13:51
+#: src/components/api-call-log/panel.vue:20:59
 msgid "Exceptions for last 60 minutes (%)"
 msgstr "Помилки за останні 60 хвилин (%)"
 
 #: src/components/app-title/menu.vue:35:66
-#: src/components/user-sessions/panel.vue:78:39
+#: src/components/user-sessions/panel.vue:76:39
 msgid "Sign out"
 msgstr "Вийти"
 
@@ -424,7 +444,7 @@ msgstr "Авторизовано"
 msgid "Unable to load data"
 msgstr "Не вдалося завантажити дані"
 
-#: src/components/cards.panel.vue:57:41
+#: src/components/cards.panel.vue:65:41
 msgid "No data match search criteria"
 msgstr "Жодні дані не відповідають критеріям пошуку"
 
@@ -499,67 +519,67 @@ msgstr "Пароль змінено"
 msgid "Dark mode"
 msgstr "Темний режим"
 
-#: src/components/notifications/dialog.vue:2:50
-#: src/components/notifications/menu-sheet.vue:8:78
-msgid "Notifications settings"
-msgstr "Налаштування сповіщень"
-
-#: src/components/notifications/menu-sheet.vue:5:107
+#: src/components/notifications/panel.vue:5:107
 msgid "Mark all as read"
 msgstr "Позначити все як прочитане"
 
-#: src/components/notifications/menu-sheet.vue:7:107
+#: src/components/notifications/panel.vue:7:107
 msgid "Delete all"
 msgstr "Видалити все"
 
-#: src/components/notifications/menu-sheet.vue:9:79
+#: src/components/notifications/panel.vue:8:78
+#: src/components/notifications/settings.dialog.vue:2:50
+msgid "Notifications settings"
+msgstr "Налаштування сповіщень"
+
+#: src/components/notifications/panel.vue:9:79
 msgid "Refresh notifications"
 msgstr "Оновити сповіщення"
 
-#: src/components/notifications/menu-sheet.vue:12:73
+#: src/components/notifications/panel.vue:2:84
 msgid "You have no notifications"
 msgstr "У вас немає сповіщень"
 
-#: src/components/notifications/menu-sheet.vue:116:43
+#: src/components/notifications/panel.vue:92:43
 msgid "Mark as read"
 msgstr "Позначити як прочитане"
 
-#: src/components/notifications/menu-sheet.vue:123:43
+#: src/components/notifications/panel.vue:99:43
 msgid "Mark as unread"
 msgstr "Позначити все як непрочитане"
 
-#: src/components/notifications/menu-sheet.vue:137:43
+#: src/components/notifications/panel.vue:113:43
 msgid "Delete"
 msgstr "Видалити"
 
-#: src/components/notifications/panel.vue:6:38
+#: src/components/notifications/settings.panel.vue:6:38
 msgid "Push notifications"
 msgstr "Push повідомлення"
 
-#: src/components/notifications/panel.vue:10:47
+#: src/components/notifications/settings.panel.vue:10:47
 msgid "Receive push notifications on this device"
 msgstr "Отримувати push повідомлення на цьому пристрої"
 
-#: src/components/notifications/panel.vue:18:38
+#: src/components/notifications/settings.panel.vue:19:42
 msgid "Notification types"
 msgstr "Типи сповіщень"
 
-#: src/components/notifications/panel.vue:21:95
+#: src/components/notifications/settings.panel.vue:26:103
 #, javascript-format
 msgid "Internal${n}notifications"
 msgstr "Внутрішні${n}сповіщення"
 
-#: src/components/notifications/panel.vue:22:95
+#: src/components/notifications/settings.panel.vue:27:103
 #, javascript-format
 msgid "Email${n}notifications"
 msgstr "Email${n}сповіщення"
 
-#: src/components/notifications/panel.vue:23:95
+#: src/components/notifications/settings.panel.vue:28:103
 #, javascript-format
 msgid "Telegram${n}notifications"
 msgstr "Telegram${n}сповіщення"
 
-#: src/components/notifications/panel.vue:24:95
+#: src/components/notifications/settings.panel.vue:29:103
 #, javascript-format
 msgid "Push${n}notifications"
 msgstr "Push${n}сповіщення"
@@ -638,11 +658,11 @@ msgstr "Дата створення"
 msgid "Your sessions"
 msgstr "Ваші сесії"
 
-#: src/components/user-sessions/panel.vue:97:35
+#: src/components/user-sessions/panel.vue:95:35
 msgid "Session was deleted"
 msgstr "Сесію видалено"
 
-#: src/components/user-sessions/panel.vue:119:35
+#: src/components/user-sessions/panel.vue:117:35
 msgid "Sessions were deleted"
 msgstr "Сесії видалено"
 
@@ -693,11 +713,11 @@ msgstr "Ключі API"
 msgid "Search tokens by name"
 msgstr "Пошук токенів за назвою"
 
-#: src/components/user-tokens/panel.vue:160:47
+#: src/components/user-tokens/panel.vue:154:47
 msgid "Are you sure you want to delete this token?"
 msgstr "Ви впевнені, що хочете видалити цей токен?"
 
-#: src/components/user-tokens/panel.vue:165:35
+#: src/components/user-tokens/panel.vue:159:35
 msgid "Token deleted"
 msgstr "Токен видалено"
 
@@ -722,19 +742,19 @@ msgstr "Створення користувача"
 msgid "User created"
 msgstr "Користувач створений"
 
-#: src/components/users/panel.vue:197:39
+#: src/components/users/panel.vue:195:39
 msgid "Actions"
 msgstr "Дії"
 
-#: src/components/users/panel.vue:206:48
+#: src/components/users/panel.vue:204:48
 msgid "Copy email to the clipboard"
 msgstr "Копіювати email в буфер обміну"
 
-#: src/components/users/panel.vue:210:48
+#: src/components/users/panel.vue:208:48
 msgid "View user sessions"
 msgstr "Перегляд сесій користувача"
 
-#: src/components/users/panel.vue:356:31
+#: src/components/users/panel.vue:350:31
 msgid "User email copied"
 msgstr "Email користувача скопійовано"
 
@@ -925,9 +945,6 @@ msgstr "Електронна пошта успішно підтверджена"
 
 #~ msgid "Enable push notifications"
 #~ msgstr "Увімкнути push повідомлення"
-
-#~ msgid "Administrator"
-#~ msgstr "Адміністратор"
 
 #~ msgid "User permissions updated"
 #~ msgstr "Дозволи користувача оновлено"
