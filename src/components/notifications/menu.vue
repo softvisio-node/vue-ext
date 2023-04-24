@@ -1,28 +1,31 @@
 <template>
     <ext-sheet layout="fit" modal="true" side="right" width="300" @ready="ready">
-        <ext-panel ref="card" layout='{"animation":"fade","type":"card"}'>
-            <ext-titlebar docked="top" iconCls="fa-regular fa-bell" :title="i18nd(`vue-ext`, `Notifications`)">
-                <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/>
-                <!-- <ext-button align="right" iconCls="fa-solid fa-check-double" :tooltip="i18nd( `vue-ext`,`Mark all as done`)" :hidden="!totalUndone" @tap="setDoneAll"/> -->
-                <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
-                <ext-button align="right" iconCls="fa-solid fa-cog" :tooltip="i18nd(`vue-ext`, `Notifications settings`)" @tap="showNotificationsSettingsDialog"/>
-                <ext-button align="right" iconCls="fa-solid fa-redo" :tooltip="i18nd(`vue-ext`, `Refresh notifications`)" @tap="reload"/>
-            </ext-titlebar>
-            <ext-panel layout="center">
-                <ext-container :html='`<div style="font-size:1.5em;">` + i18nd(`vue-ext`, `You have no notifications`) + `</div>`'/>
-            </ext-panel>
-            <ext-panel layout="fit">
+        <CardsPanel ref="cardsPanel" :noDataMessage='`<div style="font-size:1.5em;">` + i18nd(`vue-ext`, `You have no notifications`) + `</div>`' :reloadOnRender="false" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
+            <template #items>
+                <ext-titlebar docked="top" iconCls="fa-regular fa-bell" :title="i18nd(`vue-ext`, `Notifications`)">
+                    <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/>
+                    <!-- <ext-button align="right" iconCls="fa-solid fa-check-double" :tooltip="i18nd( `vue-ext`,`Mark all as done`)" :hidden="!totalUndone" @tap="setDoneAll"/> -->
+                    <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
+                    <ext-button align="right" iconCls="fa-solid fa-cog" :tooltip="i18nd(`vue-ext`, `Notifications settings`)" @tap="showNotificationsSettingsDialog"/>
+                    <ext-button align="right" iconCls="fa-solid fa-redo" :tooltip="i18nd(`vue-ext`, `Refresh notifications`)" @tap="reload"/>
+                </ext-titlebar>
+            </template>
+
+            <template #data>
                 <ext-componentdataview itemCls="x-listitem" layout="vbox" scrollable="true" @ready="listReady"/>
-            </ext-panel>
-        </ext-panel>
+            </template>
+        </CardsPanel>
     </ext-sheet>
 </template>
 
 <script>
 import NotificationsSettingsDialog from "#src/components/notifications/settings.dialog";
 import notificationsStore from "#vue/stores/notifications";
+import CardsPanel from "#src/components/cards.panel";
 
 export default {
+    "components": { CardsPanel },
+
     "computed": {
         totalUndone () {
             return !!notificationsStore.totalUndone;
@@ -31,10 +34,6 @@ export default {
         totalUndoneUnread () {
             return !!notificationsStore.totalUndoneUnread;
         },
-    },
-
-    "watch": {
-        "totalUndone": "_onTotalUndoneUpdate",
     },
 
     created () {
@@ -61,8 +60,6 @@ export default {
                 "duration": 250,
                 "easing": "ease-in",
             } );
-
-            this._onTotalUndoneUpdate();
         },
 
         listReady ( e ) {
@@ -161,14 +158,15 @@ export default {
             this.ext.hide();
         },
 
-        async reload ( e ) {
-            const button = e.detail.sender;
+        reload ( e ) {
+            this.$refs.cardsPanel.mask();
 
-            button.disable();
+            // const button = e.detail.sender;
+            // button.disable();
 
-            await notificationsStore.reload();
+            notificationsStore.reload();
 
-            button.enable();
+            // button.enable();
         },
 
         async _setRead ( button ) {
@@ -223,19 +221,8 @@ export default {
             notificationsStore.deleteAll();
         },
 
-        _onTotalUndoneUpdate () {
-
-            // not ready
-            if ( !this.$refs.card.ext ) return;
-
-            const value = this.totalUndone;
-
-            if ( !value ) {
-                this.$refs.card.ext.setActiveItem( 0 );
-            }
-            else {
-                this.$refs.card.ext.setActiveItem( 1 );
-            }
+        _onStoreLoad () {
+            this.$refs.cardsPanel.unmask();
         },
 
         // XXX
