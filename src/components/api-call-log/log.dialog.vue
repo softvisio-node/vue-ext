@@ -41,7 +41,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", `API call log for method "${this.methodId}"` );
+            return this.i18nd( "vue-ext", msgid`API call log for method "${this.methodId}"` );
         },
     },
 

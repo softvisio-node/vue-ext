@@ -36,7 +36,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", `History for method "${this.methodId}"` );
+            return this.i18nd( "vue-ext", msgid`History for method "${this.methodId}"` );
         },
     },
 
