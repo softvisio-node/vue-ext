@@ -128,6 +128,9 @@ export default {
                     "locked": "right",
 
                     // @ready="_actionColReady"
+                    "listeners": {
+                        "added": cmp => this._actionColReady( { "detail": { cmp } } ),
+                    },
                 },
             ] );
         },
