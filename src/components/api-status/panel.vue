@@ -16,23 +16,23 @@
         </template>
 
         <template #data>
-            <ext-grid ref="grid" itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" @ready="_ready">
-                <ext-column dataIndex="id" flex="1" minWidth="290" :text="i18nd(`vue-ext`, `Method name`)"/>
+            <ext-lockedgrid ref="grid" itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" @ready="_ready">
+                <!-- <ext-column dataIndex="id" flex="1" locked="left" minWidth="290" :text="i18nd(`vue-ext`, `Method name`)"/> -->
 
-                <ext-column align="right" dataIndex="active_calls" :text="i18nd(`vue-ext`, `Acrive calls`)" width="100"/>
+                <!-- <ext-column align="right" dataIndex="active_calls" :text="i18nd(`vue-ext`, `Acrive calls`)" width="100"/> -->
 
-                <ext-column align="right" dataIndex="calls_text" sorter='{"property":"calls"}' :text="i18nd(`vue-ext`, `Calls`)" width="140"/>
+                <!-- <ext-column align="right" dataIndex="calls_text" sorter='{"property":"calls"}' :text="i18nd(`vue-ext`, `Calls`)" width="140"/> -->
 
-                <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="i18nd(`vue-ext`, `Duration (%)`)" width="140"/>
+                <!-- <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="i18nd(`vue-ext`, `Duration (%)`)" width="140"/> -->
 
-                <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="i18nd(`vue-ext`, `Duration / call (ms)`)" width="140"/>
+                <!-- <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="i18nd(`vue-ext`, `Duration / call (ms)`)" width="140"/> -->
 
-                <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="i18nd(`vue-ext`, `Exceptions`)" width="140"/>
+                <!-- <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="i18nd(`vue-ext`, `Exceptions`)" width="140"/> -->
 
-                <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="i18nd(`vue-ext`, `Exceptions / call`)" width="140"/>
+                <!-- <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="i18nd(`vue-ext`, `Exceptions / call`)" width="140"/> -->
 
-                <ext-column width="80" @ready="_actionColReady"/>
-            </ext-grid>
+                <!-- <ext-column locked="right" width="80" @ready="_actionColReady"/> -->
+            </ext-lockedgrid>
         </template>
     </CardsPanel>
 </template>
@@ -73,6 +73,63 @@ export default {
             // cmp.setColumnMenu( null );
 
             cmp.setStore( this.store );
+
+            cmp.setColumns( [
+                {
+                    "dataIndex": "id",
+                    "flex": 1,
+                    "minWidth": 290,
+                    "text": this.i18nd( `vue-ext`, `Method name` ),
+                    "locked": "left",
+                },
+                {
+                    "align": "right",
+                    "dataIndex": "active_calls",
+                    "text": this.i18nd( `vue-ext`, `Acrive calls` ),
+                    "width": 100,
+                },
+                {
+                    "align": "right",
+                    "dataIndex": "calls_text",
+                    "sorter": { "property": "calls" },
+                    "text": this.i18nd( `vue-ext`, `Calls` ),
+                    "width": 140,
+                },
+                {
+                    "align": "right",
+                    "dataIndex": "duration_text",
+                    "sorter": { "property": "duration_share" },
+                    "text": this.i18nd( `vue-ext`, `Duration (%)` ),
+                    "width": 140,
+                },
+                {
+                    "align": "right",
+                    "dataindex": "duration_per_call_text",
+                    "sorter": { "property": "duration_per_call" },
+                    "text": this.i18nd( `vue-ext`, `duration / call (ms)` ),
+                    "width": 140,
+                },
+                {
+                    "align": "right",
+                    "dataIndex": "exceptions_text",
+                    "sorter": { "property": "exceptions" },
+                    "text": this.i18nd( `vue-ext`, `Exceptions` ),
+                    "width": 140,
+                },
+                {
+                    "align": "right",
+                    "dataIndex": "exceptions_per_call_text",
+                    "sorter": { "property": "exceptions_per_call" },
+                    "text": this.i18nd( `vue-ext`, `Exceptions / call` ),
+                    "width": 140,
+                },
+                {
+                    "width": 80,
+                    "locked": "right",
+
+                    // @ready="_actionColReady"
+                },
+            ] );
         },
 
         idColReady ( e ) {
