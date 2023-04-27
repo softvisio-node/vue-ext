@@ -75,7 +75,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": "Calls for the last 30 days",
+                "text": this.i18nd( "vue-ext", "Calls for the last 30 days" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -106,7 +106,7 @@ export default {
                 "fill": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Calls: {valueY}",
+                    "labelText": this.i18md( "vue-ext", "Calls" ) + ": {valueY}",
                 } ),
             } ) );
 
