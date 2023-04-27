@@ -10,8 +10,8 @@
 
             <template #data>
                 <ext-container layput="vbox" scrollable="true">
-                    <Amcharts5 height="250" @ready="_createLoadChart"/>
-                    <Amcharts5 height="250" @ready="_createRuntimeChart"/>
+                    <Amcharts5 height="250" @ready="_createCallsChart"/>
+                    <Amcharts5 height="250" @ready="_createDurationChart"/>
                     <Amcharts5 height="250" @ready="_createExceptionsChart"/>
                 </ext-container>
             </template>
@@ -41,7 +41,7 @@ export default {
     },
 
     "methods": {
-        _createLoadChart ( cmp ) {
+        _createCallsChart ( cmp ) {
             cmp.updateChart = this._updateChart.bind( this );
 
             this._loadChart = cmp;
@@ -137,7 +137,7 @@ export default {
             // legend.data.setAll( chart.series.values );
         },
 
-        _createRuntimeChart ( cmp ) {
+        _createDurationChart ( cmp ) {
             cmp.updateChart = this._updateChart.bind( this );
 
             this._runtimeChart = cmp;
@@ -246,7 +246,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": "Exceptions Percent for Last 30 Days",
+                "text": this.i18nd( "vue-ext", "Exceptions percent for the last 30 days" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -272,28 +272,28 @@ export default {
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
-                "valueYField": "errors_percent",
+                "valueYField": "exceptions_percent",
                 "stroke": "red",
                 "fill": "red",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Exceptions: {valueY}%",
+                    "labelText": this.i18nd( "vue-ext", "Exceptions" ) + ": {valueY}%",
                 } ),
             } ) );
 
-            chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Declined",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
-                "valueXField": "date",
-                "valueYField": "total_declined",
-                "fill": "red",
-                "stroke": "red",
-                "stacked": true,
-                "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Declined requests: {valueY}",
-                } ),
-            } ) );
+            // chart.series.push( am5xy.ColumnSeries.new( root, {
+            //     "name": "Declined",
+            //     "xAxis": xAxis,
+            //     "yAxis": yAxis,
+            //     "valueXField": "date",
+            //     "valueYField": "total_declined",
+            //     "fill": "red",
+            //     "stroke": "red",
+            //     "stacked": true,
+            //     "tooltip": am5.Tooltip.new( root, {
+            //         "labelText": "Declined requests: {valueY}",
+            //     } ),
+            // } ) );
 
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
