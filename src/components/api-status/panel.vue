@@ -8,7 +8,7 @@
                 <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
             </ext-toolbar>
 
-            <ext-panel collapsed="true" collapsible="right" docked="right" resizable='{"edges":"west","split":true}' :title="i18nd(`vue-ext`, `Method details`)">
+            <ext-panel collapsed="true" collapsible="right" docked="right" resizable='{"edges":"west","split":true}' :title="i18nd(`vue-ext`, `Latest data charts`)">
                 <!-- <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Load for last 60 minutes`)" @ready="_loadColReady"/> -->
                 <!-- <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Average request runtime for last 60 minutes`)" @ready="_avgRuntimeColReady"/> -->
                 <!-- <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Exceptions for last 60 minutes (%)`)" @ready="_exceptionsColReady"/> -->
@@ -25,11 +25,11 @@
 
                 <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="i18nd(`vue-ext`, `Duration (%)`)" width="100"/>
 
-                <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="i18nd(`vue-ext`, `Duration (ms)`)" width="100"/>
+                <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="i18nd(`vue-ext`, `Duration / call (ms)`)" width="100"/>
 
                 <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="i18nd(`vue-ext`, `Exceptions`)" width="100"/>
 
-                <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="i18nd(`vue-ext`, `Exceptions avg.`)" width="100"/>
+                <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="i18nd(`vue-ext`, `Exceptions / call`)" width="100"/>
 
                 <ext-column width="80" @ready="_actionColReady"/>
             </ext-grid>
@@ -202,11 +202,13 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
+                            "tooltip": this.i18nd( `vue-ext`, `Historic charts` ),
                             "handler": this.showHistory.bind( this ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-triangle-exclamation",
+                            "tooltip": this.i18nd( `vue-ext`, `Exceptions log` ),
                             "handler": this.showExceptions.bind( this ),
                         },
                     ],

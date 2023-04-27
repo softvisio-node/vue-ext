@@ -23,12 +23,12 @@ export default Ext.define( "", {
         // calculated
         {
             "name": "calls_text",
-            "calculate": data => data.calls + " / " + Ext.util.Format.percent( data.calls_share, "maximumFractionDigits:2,minimumFractionDigits:2" ),
+            "calculate": data => data.calls + " / " + Ext.util.Format.percent( data.calls_share, "minimumFractionDigits:1,maximumFractionDigits:1" ),
         },
 
         {
             "name": "duration_text",
-            "calculate": data => Ext.util.Format.percent( data.duration_share, "maximumFractionDigits:2,minimumFractionDigits:2" ),
+            "calculate": data => Ext.util.Format.percent( data.duration_share, "minimumFractionDigits:1,maximumFractionDigits:1" ),
         },
 
         {
@@ -38,7 +38,7 @@ export default Ext.define( "", {
 
         {
             "name": "exceptions_text",
-            "calculate": data => data.exceptions + " / " + Ext.util.Format.percent( data.exceptions_share, "maximumFractionDigits:2,minimumFractionDigits:2" ),
+            "calculate": data => data.exceptions + " / " + Ext.util.Format.percent( data.exceptions_share, "minimumFractionDigits:1,maximumFractionDigits:1" ),
         },
 
         {
