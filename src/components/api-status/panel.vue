@@ -104,9 +104,9 @@ export default {
                 },
                 {
                     "align": "right",
-                    "dataindex": "duration_per_call_text",
+                    "dataIndex": "duration_per_call_text",
                     "sorter": { "property": "duration_per_call" },
-                    "text": this.i18nd( `vue-ext`, `duration / call (ms)` ),
+                    "text": this.i18nd( `vue-ext`, `Duration / call (ms)` ),
                     "width": 140,
                 },
                 {
@@ -125,9 +125,8 @@ export default {
                 },
                 {
                     "width": 80,
-                    "locked": "right",
 
-                    // @ready="_actionColReady"
+                    // "locked": "riht",
                     "listeners": {
                         "added": cmp => this._actionColReady( { "detail": { cmp } } ),
                     },

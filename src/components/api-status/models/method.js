@@ -33,7 +33,7 @@ export default Ext.define( "", {
 
         {
             "name": "duration_per_call_text",
-            "calculate": data => Ext.util.Format.number( data.duration_per_call, "maximumFractionDigits:1,minimumFractionDigits:1" ),
+            "calculate": data => Ext.util.Format.number( data.duration_per_call, "minimumFractionDigits:1,maximumFractionDigits:1" ),
         },
 
         {
@@ -43,7 +43,7 @@ export default Ext.define( "", {
 
         {
             "name": "exceptions_per_call_text",
-            "calculate": data => Ext.util.Format.number( data.exceptions_per_call, "maximumFractionDigits:1,minimumFractionDigits:1" ),
+            "calculate": data => Ext.util.Format.number( data.exceptions_per_call, "minimumFractionDigits:1,maximumFractionDigits:1" ),
         },
     ],
 } );
