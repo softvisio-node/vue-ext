@@ -10,24 +10,40 @@ export default Ext.define( "", {
     "fields": [
         "id",
 
-        //
+        // fields
         "active_calls",
         "calls",
-        "duration",
+        "duration_per_call",
         "exceptions",
-        "avg_duration",
+        "exceptions_per_call",
         "calls_share",
         "duration_share",
         "exceptions_share",
 
-        // { "name": "active_requests_limit", "type": "integer", "allowNull": true },
-        // { "name": "active_requests_limit_text", "calculate": data => data.active_requests_limit || "&mdash;" },
+        // calculated
+        {
+            "name": "calls_text",
+            "calculate": data => data.calls + " / " + Ext.util.Format.percent( data.calls_share, "maximumFractionDigits:2,minimumFractionDigits:2" ),
+        },
 
-        // { "name": "active_requests_user_limit", "type": "integer", "allowNull": true },
-        // { "name": "active_requests_user_limit_text", "calculate": data => data.active_requests_user_limit || "&mdash;" },
+        {
+            "name": "duration_text",
+            "calculate": data => Ext.util.Format.percent( data.duration_share, "maximumFractionDigits:2,minimumFractionDigits:2" ),
+        },
 
-        // { "name": "total_active_requests", "type": "integer" },
-        // { "name": "active_requests_text", "calculate": data => `${data.total_active_requests} / ${data.active_requests_limit_text}` },
-        // { "name": "active_requests_value", "calculate": data => ( data.active_requests_limit ? data.total_active_requests / data.active_requests_limit : 0.5 ) },
+        {
+            "name": "duration_per_call_text",
+            "calculate": data => Ext.util.Format.number( data.duration_per_call, "maximumFractionDigits:1,minimumFractionDigits:1" ),
+        },
+
+        {
+            "name": "exceptions_text",
+            "calculate": data => data.exceptions + " / " + Ext.util.Format.percent( data.exceptions_share, "maximumFractionDigits:2,minimumFractionDigits:2" ),
+        },
+
+        {
+            "name": "exceptions_per_call_text",
+            "calculate": data => Ext.util.Format.number( data.exceptions_per_call, "maximumFractionDigits:1,minimumFractionDigits:1" ),
+        },
     ],
 } );
