@@ -33,7 +33,7 @@
 import CardsPanel from "#src/components/cards.panel";
 import MethodModel from "./models/method";
 import HistoricDialog from "./historic.dialog";
-import LogDialog from "./log.dialog";
+import ExceptionsDialog from "./exceptions.dialog";
 import "#vue/components/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
@@ -199,7 +199,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-list",
-                            "handler": this.showLog.bind( this ),
+                            "handler": this.showExceptions.bind( this ),
                         },
                     ],
                 },
@@ -452,10 +452,10 @@ export default {
             cmp.ext.show();
         },
 
-        async showLog ( button ) {
+        async showExceptions ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            const cmp = await this.$mount( LogDialog, {
+            const cmp = await this.$mount( ExceptionsDialog, {
                 "props": {
                     "methodId": record.id,
                 },
