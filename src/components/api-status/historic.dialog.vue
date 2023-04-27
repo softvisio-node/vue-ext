@@ -36,7 +36,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", msgid`Historic stats for API method "${this.methodId}"` );
+            return this.i18nd( "vue-ext", msgid`Historic charts for API method "${this.methodId}"` );
         },
     },
 
@@ -75,7 +75,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": "Acceptes / Declined Requests for Last 30 Days",
+                "text": "Calls for the last 30 days",
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -97,43 +97,44 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Accepted",
+                "name": "Calls",
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
-                "valueYField": "total_accepted",
+                "valueYField": "calls",
                 "stroke": "green",
                 "fill": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Accepted requests: {valueY}",
+                    "labelText": "Calls: {valueY}",
                 } ),
             } ) );
 
-            chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Declined",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
-                "valueXField": "date",
-                "valueYField": "total_declined",
-                "fill": "red",
-                "stroke": "red",
-                "stacked": true,
-                "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Declined requests: {valueY}",
-                } ),
-            } ) );
+            // chart.series.push( am5xy.ColumnSeries.new( root, {
+            //     "name": "Declined",
+            //     "xAxis": xAxis,
+            //     "yAxis": yAxis,
+            //     "valueXField": "date",
+            //     "valueYField": "total_declined",
+            //     "fill": "red",
+            //     "stroke": "red",
+            //     "stacked": true,
+            //     "tooltip": am5.Tooltip.new( root, {
+            //         "labelText": "Declined requests: {valueY}",
+            //     } ),
+            // } ) );
 
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
 
-            const legend = chart.children.push( am5.Legend.new( root, {
-                "x": am5.percent( 50 ),
-                "centerX": am5.percent( 50 ),
-            } ) );
-            legend.data.setAll( chart.series.values );
+            // const legend = chart.children.push( am5.Legend.new( root, {
+            //     "x": am5.percent( 50 ),
+            //     "centerX": am5.percent( 50 ),
+            // } ) );
+
+            // legend.data.setAll( chart.series.values );
         },
 
         _createRuntimeChart ( cmp ) {
@@ -170,7 +171,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": "Average Runtime for Last 30 Days",
+                "text": this.i18nd( "vue-ext", "Average duration per call for the last 30 days (ms)" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -196,12 +197,12 @@ export default {
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
-                "valueYField": "avg_runtime",
+                "valueYField": "duration_per_call",
                 "stroke": "green",
                 "fill": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Average runtime: {valueY} sec.",
+                    "labelText": this.i18nd( "vue-ext", "Duration" ) + ": {valueY} ms",
                 } ),
             } ) );
 
@@ -313,7 +314,7 @@ export default {
         async reload () {
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "administration/api-status/get-historic-stats", this.methodId );
+            const res = await this.$api.call( "administration/health/get-historic-time-series", this.methodId );
 
             this.$refs.cardsPanel.unmask();
 
