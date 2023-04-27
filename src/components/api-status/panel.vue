@@ -16,7 +16,7 @@
         </template>
 
         <template #data>
-            <ext-grid ref="grid" layout="fit" multicolumnSort="true" @ready="_ready">
+            <ext-grid ref="grid" itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" @ready="_ready">
                 <ext-column dataIndex="id" flex="1" minWidth="290" :text="i18nd(`vue-ext`, `Method name`)"/>
 
                 <ext-column align="right" dataIndex="active_calls" :text="i18nd(`vue-ext`, `Acrive calls`)" width="100"/>
@@ -71,8 +71,6 @@ export default {
             const cmp = e.detail.cmp;
 
             // cmp.setColumnMenu( null );
-
-            cmp.setItemConfig( { "viewModel": true } );
 
             cmp.setStore( this.store );
         },
