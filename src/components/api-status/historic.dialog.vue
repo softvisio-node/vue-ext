@@ -106,7 +106,7 @@ export default {
                 "fill": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18md( "vue-ext", "Calls" ) + ": {valueY}",
+                    "labelText": this.i18nd( "vue-ext", "Calls" ) + ": {valueY}",
                 } ),
             } ) );
 
