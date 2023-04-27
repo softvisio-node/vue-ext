@@ -17,19 +17,19 @@
 
         <template #data>
             <ext-grid ref="grid" layout="fit" multicolumnSort="true" @ready="_ready">
-                <ext-column dataIndex="id" flex="1" :text="i18nd(`vue-ext`, `Method name`)"/>
+                <ext-column dataIndex="id" flex="1" minWidth="290" :text="i18nd(`vue-ext`, `Method name`)"/>
 
                 <ext-column align="right" dataIndex="active_calls" :text="i18nd(`vue-ext`, `Acrive calls`)" width="100"/>
 
-                <ext-column align="right" dataIndex="calls_text" sorter='{"property":"calls"}' :text="i18nd(`vue-ext`, `Calls`)" width="100"/>
+                <ext-column align="right" dataIndex="calls_text" sorter='{"property":"calls"}' :text="i18nd(`vue-ext`, `Calls`)" width="140"/>
 
-                <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="i18nd(`vue-ext`, `Duration (%)`)" width="100"/>
+                <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="i18nd(`vue-ext`, `Duration (%)`)" width="140"/>
 
-                <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="i18nd(`vue-ext`, `Duration / call (ms)`)" width="100"/>
+                <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="i18nd(`vue-ext`, `Duration / call (ms)`)" width="140"/>
 
-                <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="i18nd(`vue-ext`, `Exceptions`)" width="100"/>
+                <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="i18nd(`vue-ext`, `Exceptions`)" width="140"/>
 
-                <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="i18nd(`vue-ext`, `Exceptions / call`)" width="100"/>
+                <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="i18nd(`vue-ext`, `Exceptions / call`)" width="140"/>
 
                 <ext-column width="80" @ready="_actionColReady"/>
             </ext-grid>
