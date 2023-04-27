@@ -10,13 +10,11 @@
 
             <template #data>
                 <ext-grid ref="grid" layout="fit" multicolumnSort="true" @ready="gridReady">
-                    <ext-column dataIndex="started" formatter='date("dateStyle:short,timeStyle:short")' :text="i18nd(`vue-ext`, `Started`)" width="150"/>
-                    <ext-column dataIndex="finished" formatter='date("dateStyle:short,timeStyle:short")' :text="i18nd(`vue-ext`, `Finished`)" width="150"/>
-                    <ext-column align="right" dataIndex="runtime_text" sortable="false" :text="i18nd(`vue-ext`, `Runtime (sec.)`)" width="150"/>
+                    <ext-column dataIndex="date" formatter='date("dateStyle:short,timeStyle:short")' :text="i18nd(`vue-ext`, `Started`)" width="150"/>
 
-                    <ext-column align="center" cell='{"encodeHtml":false}' dataIndex="is_exception_text" sorter='{"property":"is_exception"}' :text="i18nd(`vue-ext`, `Exception`)" width="100"/>
+                    <ext-column align="right" dataIndex="duration" sortable="false" :text="i18nd(`vue-ext`, `Duration (ms)`)" width="150"/>
 
-                    <ext-column align="center" cell='{"encodeHtml":false}' dataIndex="status_label" sortable="false" :text="i18nd(`vue-ext`, `Status`)" width="100"/>
+                    <ext-column align="center" dataIndex="status" sortable="false" :text="i18nd(`vue-ext`, `Status`)" width="100"/>
 
                     <ext-column dataIndex="status_text" flex="1" sortable="false" :text="i18nd(`vue-ext`, `Status text`)"/>
                 </ext-grid>
@@ -41,7 +39,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", msgid`API call log for method "${this.methodId}"` );
+            return this.i18nd( "vue-ext", msgid`Exceptions log for the API method "${this.methodId}"` );
         },
     },
 

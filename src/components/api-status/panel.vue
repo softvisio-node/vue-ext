@@ -206,7 +206,7 @@ export default {
                         },
                         {
                             "xtype": "button",
-                            "iconCls": "fa-solid fa-list",
+                            "iconCls": "fa-solid fa-triangle-exclamation",
                             "handler": this.showExceptions.bind( this ),
                         },
                     ],
