@@ -27,7 +27,7 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import EntryModel from "./models/entry";
+import ExceptionModel from "./models/exception";
 
 export default {
     "components": { CardsPanel },
@@ -47,7 +47,7 @@ export default {
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {
-            "model": EntryModel,
+            "model": ExceptionModel,
             "autoLoad": false,
             "pageSize": 50,
             "filters": [
