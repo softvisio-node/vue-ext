@@ -16,7 +16,7 @@
         </template>
 
         <template #data>
-            <ext-lockedgrid ref="grid" itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" @ready="_ready">
+            <ext-lockedgrid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
                 <!-- <ext-column dataIndex="id" flex="1" locked="left" minWidth="290" :text="i18nd(`vue-ext`, `Method name`)"/> -->
 
                 <!-- <ext-column align="right" dataIndex="active_calls" :text="i18nd(`vue-ext`, `Acrive calls`)" width="100"/> -->
@@ -125,8 +125,7 @@ export default {
                 },
                 {
                     "width": 80,
-
-                    // "locked": "riht",
+                    "locked": "left",
                     "listeners": {
                         "added": cmp => this._actionColReady( { "detail": { cmp } } ),
                     },
