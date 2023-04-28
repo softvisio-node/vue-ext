@@ -41,8 +41,6 @@ import MethodModel from "./models/method";
 import LatestPanel from "./latest.panel";
 import HistoricDialog from "./historic.dialog";
 import ExceptionsDialog from "./exceptions.dialog";
-import "#vue/components/amcharts5";
-import * as am5xy from "@amcharts/amcharts5/xy";
 
 const DEFAULT_AUTOREFRESH_INTERVAL = 60_000;
 
@@ -146,50 +144,21 @@ export default {
             ] );
         },
 
-        _loadColReady ( e ) {
-            const cmp = e.detail.cmp;
+        // XXX
+        // _exceptionsColReady ( e ) {
+        //     const cmp = e.detail.cmp;
 
-            cmp.setCell( {
-                "xtype": "widgetcell",
-                "widget": {
-                    "xtype": "amcharts5",
-                    "height": 150,
-                    "createChart": this._createLoadChart.bind( this ),
-                    "updateChart": this._updateChart.bind( this ),
-                    "bind": { "data": "{record.series}" },
-                },
-            } );
-        },
-
-        _avgRuntimeColReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setCell( {
-                "xtype": "widgetcell",
-                "widget": {
-                    "xtype": "amcharts5",
-                    "height": 150,
-                    "createChart": this._createAvgRuntimeChart.bind( this ),
-                    "updateChart": this._updateChart.bind( this ),
-                    "bind": { "data": "{record.series}" },
-                },
-            } );
-        },
-
-        _exceptionsColReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setCell( {
-                "xtype": "widgetcell",
-                "widget": {
-                    "xtype": "amcharts5",
-                    "height": 150,
-                    "createChart": this._createExceptionsChart.bind( this ),
-                    "updateChart": this._updateChart.bind( this ),
-                    "bind": { "data": "{record.series}" },
-                },
-            } );
-        },
+        //     cmp.setCell( {
+        //         "xtype": "widgetcell",
+        //         "widget": {
+        //             "xtype": "amcharts5",
+        //             "height": 150,
+        //             "createChart": this._createExceptionsChart.bind( this ),
+        //             "updateChart": this._updateChart.bind( this ),
+        //             "bind": { "data": "{record.series}" },
+        //         },
+        //     } );
+        // },
 
         _actionColReady ( e ) {
             var cmp = e.detail.cmp;
@@ -215,192 +184,6 @@ export default {
                     ],
                 },
             } );
-        },
-
-        _createLoadChart ( cmp ) {
-            const root = cmp.root,
-                am5 = cmp.am5;
-
-            const chart = root.container.children.push( am5xy.XYChart.new( root, {
-
-                // "panX": true,
-                // "panY": true,
-                // "wheelX": "panX",
-                // "wheelY": "zoomX",
-                // "pinchZoomX": true,
-            } ) );
-
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
-                } )
-            );
-
-            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
-                "baseInterval": {
-                    "timeUnit": "minute",
-                    "count": 1,
-                },
-                "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltipDateFormat": "HH:mm",
-                "tooltip": am5.Tooltip.new( root, {} ),
-            } ) );
-
-            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
-                "renderer": am5xy.AxisRendererY.new( root, {} ),
-            } ) );
-
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Accepted",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
-                "valueXField": "date",
-                "valueYField": "total_accepted",
-                "fill": "green",
-                "stroke": "green",
-                "stacked": true,
-                "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Accepted requests: {valueY}",
-                } ),
-            } ) );
-
-            chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Declined",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
-                "valueXField": "date",
-                "valueYField": "total_declined",
-                "fill": "red",
-                "stroke": "red",
-                "stacked": true,
-                "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Declined requests: {valueY}",
-                } ),
-            } ) );
-
-            series1.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
-            } );
-        },
-
-        _createAvgRuntimeChart ( cmp ) {
-            const root = cmp.root,
-                am5 = cmp.am5;
-
-            const chart = root.container.children.push( am5xy.XYChart.new( root, {
-
-                // "panX": true,
-                // "panY": true,
-                // "wheelX": "panX",
-                // "wheelY": "zoomX",
-                // "pinchZoomX": true,
-            } ) );
-
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
-                } )
-            );
-
-            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
-                "baseInterval": {
-                    "timeUnit": "minute",
-                    "count": 1,
-                },
-                "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltipDateFormat": "HH:mm",
-                "tooltip": am5.Tooltip.new( root, {} ),
-            } ) );
-
-            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
-                "renderer": am5xy.AxisRendererY.new( root, {} ),
-            } ) );
-
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Avg. runtime",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
-                "valueXField": "date",
-                "valueYField": "avg_runtime",
-                "fill": "green",
-                "stroke": "green",
-                "stacked": true,
-                "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Avg. runtime: {valueY} sec.",
-                } ),
-            } ) );
-
-            series1.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
-            } );
-        },
-
-        _createExceptionsChart ( cmp ) {
-            const root = cmp.root,
-                am5 = cmp.am5;
-
-            const chart = root.container.children.push( am5xy.XYChart.new( root, {
-
-                // "panX": true,
-                // "panY": true,
-                // "wheelX": "panX",
-                // "wheelY": "zoomX",
-                // "pinchZoomX": true,
-            } ) );
-
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
-                } )
-            );
-
-            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
-                "baseInterval": {
-                    "timeUnit": "minute",
-                    "count": 1,
-                },
-                "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltipDateFormat": "HH:mm",
-                "tooltip": am5.Tooltip.new( root, {} ),
-            } ) );
-
-            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
-                "renderer": am5xy.AxisRendererY.new( root, {} ),
-            } ) );
-
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Exceptions (%)",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
-                "valueYField": "errors_percent",
-                "valueXField": "date",
-                "fill": "red",
-                "stroke": "red",
-                "stacked": true,
-                "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Exceptions: {valueY}%",
-                } ),
-            } ) );
-
-            series1.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
-            } );
-        },
-
-        _updateChart ( cmp, data ) {
-            const chart = cmp.root.container.children.values[0];
-
-            chart.xAxes.values[0].data.setAll( data || [] );
-
-            for ( const serie of chart.series ) {
-                serie.data.setAll( data || [] );
-            }
         },
 
         search ( e ) {

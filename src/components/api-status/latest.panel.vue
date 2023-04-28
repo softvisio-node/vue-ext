@@ -100,7 +100,7 @@ export default {
                 "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Accepted requests: {valueY}",
+                    "labelText": this.i18nd( "vue-ext", "Calls" ) + ": {valueY}",
                 } ),
             } ) );
 
@@ -165,7 +165,7 @@ export default {
                 "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Avg. runtime: {valueY} sec.",
+                    "labelText": this.i18nd( "vue-ext", "Duration" ) + ": {valueY} ms",
                 } ),
             } ) );
 
@@ -230,7 +230,7 @@ export default {
                 "stroke": "red",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": "Exceptions: {valueY}%",
+                    "labelText": this.i18nd( "vue-ext", "Exceptions" ) + ": {valueY}%",
                 } ),
             } ) );
 
