@@ -3,7 +3,7 @@ export default Ext.define( "", {
 
     "proxy": {
         "api": {
-            "read": "administration/health/read-api-method-exceptions",
+            "read": "administration/api-status/read-api-method-exceptions",
         },
     },
 

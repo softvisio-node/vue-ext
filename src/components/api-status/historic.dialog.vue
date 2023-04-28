@@ -314,7 +314,7 @@ export default {
         async reload () {
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "administration/health/get-historic-time-series", this.methodId );
+            const res = await this.$api.call( "administration/api-status/get-historic-time-series", this.methodId );
 
             this.$refs.cardsPanel.unmask();
 
