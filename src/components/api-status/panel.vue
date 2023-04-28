@@ -9,9 +9,7 @@
             </ext-toolbar>
 
             <ext-panel collapsed="true" collapsible="right" docked="right" resizable='{"edges":"west","split":true}' :title="i18nd(`vue-ext`, `Latest data charts`)">
-                <!-- <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Load for last 60 minutes`)" @ready="_loadColReady"/> -->
-                <!-- <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Average request runtime for last 60 minutes`)" @ready="_avgRuntimeColReady"/> -->
-                <!-- <ext-column align="center" flex="1" :text="i18nd(`vue-ext`, `Exceptions for last 60 minutes (%)`)" @ready="_exceptionsColReady"/> -->
+                <LatestPanel layout="fit" :methodId="selectedMethodId"/>
             </ext-panel>
         </template>
 
@@ -40,6 +38,7 @@
 <script>
 import CardsPanel from "#src/components/cards.panel";
 import MethodModel from "./models/method";
+import LatestPanel from "./latest.panel";
 import HistoricDialog from "./historic.dialog";
 import ExceptionsDialog from "./exceptions.dialog";
 import "#vue/components/amcharts5";
@@ -48,11 +47,11 @@ import * as am5xy from "@amcharts/amcharts5/xy";
 const DEFAULT_AUTOREFRESH_INTERVAL = 60_000;
 
 export default {
-    "components": { CardsPanel },
+    "components": { CardsPanel, LatestPanel },
 
     data () {
         return {
-            "selectedMethod": "",
+            "selectedMethodId": "",
         };
     },
 
@@ -84,7 +83,7 @@ export default {
 
             cmp.getRegion( "left" )
                 .getGrid()
-                .on( "select", ( grid, selection ) => ( this.selectedMethod = selection.id ) );
+                .on( "select", ( grid, selection ) => ( this.selectedMethodId = selection.id ) );
 
             cmp.setStore( this.store );
 
