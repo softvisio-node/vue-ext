@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-04-28 18:15+0300\n"
+"POT-Creation-Date: 2023-04-28 19:35+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -292,7 +292,7 @@ msgstr "Запущен"
 
 #: src/components/api-status/exceptions.dialog.vue:15:91
 msgid "Duration (ms)"
-msgstr ""
+msgstr "Длительность (мс)"
 
 #: src/components/api-status/exceptions.dialog.vue:17:90
 msgid "Status"
@@ -309,14 +309,13 @@ msgid "Exceptions log for the API method \"${n}\""
 msgstr "Лог вызовов API для метода \"${n}\""
 
 #: src/components/api-status/historic.dialog.vue:39:19
-#, fuzzy, javascript-format
-#| msgid "History for method \"${n}\""
+#, javascript-format
 msgid "Historic charts for API method: ${n}"
-msgstr "История для метода \"${n}\""
+msgstr "Исторические диаграммы для API метода \"${n}\""
 
 #: src/components/api-status/historic.dialog.vue:78:24
 msgid "Calls for the last 30 days"
-msgstr ""
+msgstr "Вызовы за последние 30 дней"
 
 #: src/components/api-status/historic.dialog.vue:109:33
 #: src/components/api-status/latest.panel.vue:104:33
@@ -330,10 +329,8 @@ msgstr ""
 
 #: src/components/api-status/historic.dialog.vue:205:33
 #: src/components/api-status/latest.panel.vue:169:33
-#, fuzzy
-#| msgid "Authorization"
 msgid "Duration"
-msgstr "Авторизация"
+msgstr "Длительность"
 
 #: src/components/api-status/historic.dialog.vue:249:24
 #, fuzzy
@@ -399,20 +396,16 @@ msgid "Duration (%)"
 msgstr "Длительность (%)"
 
 #: src/components/api-status/panel.vue:173:28
-#, fuzzy
-#| msgid "Exceptions for last 60 minutes (%)"
 msgid "Exceptions / call (%)"
-msgstr "Исключения за последние 60 минут"
+msgstr "Исключения / вызов (%)"
 
 #: src/components/api-status/panel.vue:198:39
 msgid "Historic charts"
 msgstr "Исторические диаграммы"
 
 #: src/components/api-status/panel.vue:204:39
-#, fuzzy
-#| msgid "Exception"
 msgid "Exceptions log"
-msgstr "Исключение"
+msgstr "Журнал исключений"
 
 #: src/components/app-title/menu.vue:35:66
 #: src/components/user-sessions/panel.vue:76:39
