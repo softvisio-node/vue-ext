@@ -6,5 +6,7 @@ export { default as themeResponsive } from "@amcharts/amcharts5/themes/Responsiv
 export { default as themeMicro } from "@amcharts/amcharts5/themes/Micro";
 export { default as theme } from "@amcharts/amcharts5/themes/Dark";
 
+// export { default as theme } from "@amcharts/amcharts5/themes/Dataviz";
+
 am5.addLicense( "AM5C-xxxxx" );
 am5.addLicense( "AM5M-xxxxx" );

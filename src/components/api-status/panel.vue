@@ -1,8 +1,8 @@
 <template>
-    <CardsPanel ref="cardsPanel" :store="store" @reload="reload">
+    <CardsPanel ref="cardsPanel" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for methods by name`)" width="200" @change="search"/>
+                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for methods by name`)" width="200" @change="_search"/>
                 <ext-spacer/>
                 <ext-togglefield :label="i18nd(`vue-ext`, `Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
                 <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
@@ -70,6 +70,39 @@ export default {
     },
 
     "methods": {
+
+        // public
+        async reload () {
+            this._stopAutoRefresh();
+
+            this.store.load();
+        },
+
+        async showHistory ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
+
+            const cmp = await this.$mount( HistoricDialog, {
+                "props": {
+                    "methodId": record.id,
+                },
+            } );
+
+            cmp.ext.show();
+        },
+
+        async showExceptions ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
+
+            const cmp = await this.$mount( ExceptionsDialog, {
+                "props": {
+                    "methodId": record.id,
+                },
+            } );
+
+            cmp.ext.show();
+        },
+
+        // protected
         _ready ( e ) {
             const cmp = e.detail.cmp;
 
@@ -170,7 +203,7 @@ export default {
             } );
         },
 
-        search ( e ) {
+        _search ( e ) {
             const value = e.detail.newValue.trim();
 
             if ( value !== "" ) {
@@ -218,32 +251,8 @@ export default {
             this.autoRefreshInterval = null;
         },
 
-        async reload () {
-            this.store.load();
-        },
-
-        async showHistory ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
-
-            const cmp = await this.$mount( HistoricDialog, {
-                "props": {
-                    "methodId": record.id,
-                },
-            } );
-
-            cmp.ext.show();
-        },
-
-        async showExceptions ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
-
-            const cmp = await this.$mount( ExceptionsDialog, {
-                "props": {
-                    "methodId": record.id,
-                },
-            } );
-
-            cmp.ext.show();
+        _onStoreLoad () {
+            this._startAutoRefresh();
         },
     },
 };
