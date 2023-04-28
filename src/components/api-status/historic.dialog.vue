@@ -44,7 +44,7 @@ export default {
         _createCallsChart ( cmp ) {
             cmp.updateChart = this._updateChart.bind( this );
 
-            this._loadChart = cmp;
+            this._callsChart = cmp;
 
             const root = cmp.root,
                 am5 = cmp.am5;
@@ -140,7 +140,7 @@ export default {
         _createDurationChart ( cmp ) {
             cmp.updateChart = this._updateChart.bind( this );
 
-            this._runtimeChart = cmp;
+            this._durationChart = cmp;
 
             const root = cmp.root,
                 am5 = cmp.am5;
@@ -327,8 +327,8 @@ export default {
             else {
                 this.$refs.cardsPanel.setResult( res );
 
-                this._loadChart.setData( res.data );
-                this._runtimeChart.setData( res.data );
+                this._callsChart.setData( res.data );
+                this._durationChart.setData( res.data );
                 this._exceptionsChart.setData( res.data );
             }
         },

@@ -9,9 +9,9 @@
 
         <template #data>
             <ext-container layput="vbox" scrollable="true">
-                <Amcharts5 height="250" @ready="_createCallsChart"/>
-                <Amcharts5 height="250" @ready="_createDurationChart"/>
-                <Amcharts5 height="250" @ready="_createExceptionsChart"/>
+                <Amcharts5 height="150" @ready="_createCallsChart"/>
+                <Amcharts5 height="150" @ready="_createDurationChart"/>
+                <Amcharts5 height="150" @ready="_createExceptionsChart"/>
             </ext-container>
         </template>
     </CardsPanel>
@@ -48,51 +48,41 @@ export default {
         _createCallsChart ( cmp ) {
             cmp.updateChart = this._updateChart.bind( this );
 
-            this._loadChart = cmp;
+            this._callsChart = cmp;
 
             const root = cmp.root,
                 am5 = cmp.am5;
 
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
-                "layout": root.verticalLayout,
-                "panX": true,
-                "panY": true,
-                "pinchZoomX": true,
 
+                // "panX": true,
+                // "panY": true,
                 // "wheelX": "panX",
                 // "wheelY": "zoomX",
+                // "pinchZoomX": true,
             } ) );
 
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
-                } )
-            );
-
-            // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
-            chart.set(
-                "scrollbarX",
-                am5.Scrollbar.new( root, {
-                    "orientation": "horizontal",
+                    "behavior": "none", // "zoomX",
                 } )
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Calls for the last 30 days" ),
+                "text": this.i18nd( "vue-ext", "Calls for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
             } ) );
 
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
-                "maxDeviation": 0,
                 "baseInterval": {
-                    "timeUnit": "hour",
+                    "timeUnit": "minute",
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltipDateFormat": "I",
+                "tooltipDateFormat": "HH:mm",
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
@@ -101,50 +91,29 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Calls",
+                "name": "Accepted",
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
                 "valueYField": "calls",
-                "stroke": "green",
                 "fill": "green",
+                "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "Calls" ) + ": {valueY}",
+                    "labelText": "Accepted requests: {valueY}",
                 } ),
             } ) );
-
-            // chart.series.push( am5xy.ColumnSeries.new( root, {
-            //     "name": "Declined",
-            //     "xAxis": xAxis,
-            //     "yAxis": yAxis,
-            //     "valueXField": "date",
-            //     "valueYField": "total_declined",
-            //     "fill": "red",
-            //     "stroke": "red",
-            //     "stacked": true,
-            //     "tooltip": am5.Tooltip.new( root, {
-            //         "labelText": "Declined requests: {valueY}",
-            //     } ),
-            // } ) );
 
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
-
-            // const legend = chart.children.push( am5.Legend.new( root, {
-            //     "x": am5.percent( 50 ),
-            //     "centerX": am5.percent( 50 ),
-            // } ) );
-
-            // legend.data.setAll( chart.series.values );
         },
 
         _createDurationChart ( cmp ) {
             cmp.updateChart = this._updateChart.bind( this );
 
-            this._runtimeChart = cmp;
+            this._durationChart = cmp;
 
             const root = cmp.root,
                 am5 = cmp.am5;
@@ -337,8 +306,8 @@ export default {
             else {
                 this.$refs.cardsPanel.setResult( res );
 
-                this._loadChart.setData( res.data );
-                this._runtimeChart.setData( res.data );
+                this._callsChart.setData( res.data );
+                this._durationChart.setData( res.data );
                 this._exceptionsChart.setData( res.data );
             }
         },
