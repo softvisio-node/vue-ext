@@ -60,6 +60,12 @@ export default {
             "pageSize": null,
             "remoteSort": false,
             "remoteFilter": false,
+            "sorters": [
+                {
+                    "property": "calls",
+                    "direction": "DESC",
+                },
+            ],
         } );
     },
 
