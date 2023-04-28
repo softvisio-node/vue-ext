@@ -144,22 +144,6 @@ export default {
             ] );
         },
 
-        // XXX
-        // _exceptionsColReady ( e ) {
-        //     const cmp = e.detail.cmp;
-
-        //     cmp.setCell( {
-        //         "xtype": "widgetcell",
-        //         "widget": {
-        //             "xtype": "amcharts5",
-        //             "height": 150,
-        //             "createChart": this._createExceptionsChart.bind( this ),
-        //             "updateChart": this._updateChart.bind( this ),
-        //             "bind": { "data": "{record.series}" },
-        //         },
-        //     } );
-        // },
-
         _actionColReady ( e ) {
             var cmp = e.detail.cmp;
 
