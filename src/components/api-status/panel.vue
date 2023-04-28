@@ -135,7 +135,7 @@ export default {
                 {
                     "align": "right",
                     "dataIndex": "active_calls",
-                    "text": this.i18nd( `vue-ext`, `Acrive calls` ),
+                    "text": this.i18nd( `vue-ext`, `Active calls` ),
                     "width": 100,
                 },
                 {
