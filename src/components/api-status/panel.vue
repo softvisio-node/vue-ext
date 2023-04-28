@@ -23,9 +23,9 @@
 
                 <!-- <ext-column align="right" dataIndex="calls_text" sorter='{"property":"calls"}' :text="i18nd(`vue-ext`, `Calls`)" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="i18nd(`vue-ext`, `Duration (%)`)" width="140"/> -->
-
                 <!-- <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="i18nd(`vue-ext`, `Duration / call (ms)`)" width="140"/> -->
+
+                <!-- <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="i18nd(`vue-ext`, `Duration (%)`)" width="140"/> -->
 
                 <!-- <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="i18nd(`vue-ext`, `Exceptions`)" width="140"/> -->
 
@@ -97,16 +97,16 @@ export default {
                 },
                 {
                     "align": "right",
-                    "dataIndex": "duration_text",
-                    "sorter": { "property": "duration_share" },
-                    "text": this.i18nd( `vue-ext`, `Duration (%)` ),
+                    "dataIndex": "duration_per_call_text",
+                    "sorter": { "property": "duration_per_call" },
+                    "text": this.i18nd( `vue-ext`, `Duration / call (ms)` ),
                     "width": 140,
                 },
                 {
                     "align": "right",
-                    "dataIndex": "duration_per_call_text",
-                    "sorter": { "property": "duration_per_call" },
-                    "text": this.i18nd( `vue-ext`, `Duration / call (ms)` ),
+                    "dataIndex": "duration_text",
+                    "sorter": { "property": "duration_share" },
+                    "text": this.i18nd( `vue-ext`, `Duration (%)` ),
                     "width": 140,
                 },
                 {
