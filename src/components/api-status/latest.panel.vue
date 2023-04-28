@@ -324,7 +324,7 @@ export default {
 
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "administration/api-status/get-historic-time-series", this.methodId );
+            const res = await this.$api.call( "administration/api-status/get-latest-time-series", this.methodId );
 
             this.$refs.cardsPanel.unmask();
 
