@@ -9,7 +9,7 @@
             </ext-toolbar>
 
             <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","split":true}' :title="i18nd(`vue-ext`, `Latest data charts`)" width="500">
-                <LatestPanel :methodId="selectedMethodId"/>
+                <LatestPanel ref="latestPanel" :methodId="selectedMethodId"/>
             </ext-panel>
         </template>
 
@@ -221,7 +221,11 @@ export default {
 
             if ( !this.autoRefreshEnabled ) return;
 
-            this.autoRefreshInterval = setInterval( this.reload.bind( this ), DEFAULT_AUTOREFRESH_INTERVAL );
+            this.autoRefreshInterval = setInterval( () => {
+                this.reload();
+
+                this.$refs.latestPanel.reload();
+            }, DEFAULT_AUTOREFRESH_INTERVAL );
         },
 
         _stopAutoRefresh () {
