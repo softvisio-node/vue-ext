@@ -5,6 +5,7 @@
 <script>
 import * as amcharts from "./loader.js";
 import "./ext.amcharts5.js";
+import themeStore from "#src/stores/theme";
 
 export default {
     "props": {
@@ -24,7 +25,13 @@ export default {
 
     "emits": ["ready"],
 
+    mounted () {
+        themeStore.on( "theme", ( this.themeListener ??= this.onThemeChange.bind( this ) ) );
+    },
+
     beforeUnmount () {
+        themeStore.off( "theme", this.themeListener );
+        this.themeListener = null;
 
         // destroy chart
         if ( this.root ) {
@@ -106,7 +113,14 @@ export default {
             if ( this.animated ) themes.push( amcharts.themeAnimated.new( this.root ) );
             if ( this.responsive ) themes.push( amcharts.themeResponsive.new( this.root ) );
             if ( this.micro ) themes.push( amcharts.themeMicro.new( this.root ) );
-            themes.push( amcharts.theme.new( this.root ) );
+
+            // color theme
+            if ( themeStore.darkMode ) {
+                themes.push( amcharts.darkTheme.new( this.root ) );
+            }
+            else {
+                themes.push( amcharts.lightTheme.new( this.root ) );
+            }
 
             this.root.setThemes( themes );
 
@@ -118,6 +132,9 @@ export default {
 
             this.setData( data );
         },
+
+        // XXX
+        onThemeChange ( theme ) {},
     },
 };
 </script>

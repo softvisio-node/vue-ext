@@ -1,4 +1,5 @@
 import * as amcharts from "./loader.js";
+import themeStore from "#src/stores/theme";
 
 Ext.define( "Ext.amcharts5", {
     "extend": "Ext.Panel",
@@ -82,7 +83,14 @@ Ext.define( "Ext.amcharts5", {
         if ( this.animated ) themes.push( amcharts.themeAnimated.new( this.root ) );
         if ( this.responsive ) themes.push( amcharts.themeResponsive.new( this.root ) );
         if ( this.micro ) themes.push( amcharts.themeMicro.new( this.root ) );
-        themes.push( amcharts.theme.new( this.root ) );
+
+        // color theme
+        if ( themeStore.darkMode ) {
+            themes.push( amcharts.darkTheme.new( this.root ) );
+        }
+        else {
+            themes.push( amcharts.lightTheme.new( this.root ) );
+        }
 
         this.root.setThemes( themes );
 
