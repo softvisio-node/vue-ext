@@ -8,7 +8,7 @@
                 <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
             </ext-toolbar>
 
-            <ext-panel collapsed1="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","split":true}' :title="i18nd(`vue-ext`, `Latest data charts`)" width="500">
+            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","split":true}' :title="i18nd(`vue-ext`, `Latest data charts`)" width="500">
                 <LatestPanel :methodId="selectedMethodId"/>
             </ext-panel>
         </template>

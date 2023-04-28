@@ -2,6 +2,7 @@
     <CardsPanel ref="cardsPanel" scrollable="true" @reload="reload">
         <template #docked>
             <ext-toolbar docked="top">
+                <ext-container :html="title"/>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
             </ext-toolbar>
@@ -34,7 +35,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", msgid`Historic charts for API method "${this.methodId}"` );
+            return this.i18nd( "vue-ext", msgid`API method: ${this.methodId}` );
         },
     },
 
