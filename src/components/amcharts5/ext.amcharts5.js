@@ -27,7 +27,7 @@ Ext.define( "Ext.amcharts5", {
     },
 
     doDestroy () {
-        themeStore.off( "theme", this.themeListener );
+        themeStore.off( "darkMode", this.themeListener );
         this.themeListener = null;
 
         if ( this.root ) {
@@ -79,7 +79,7 @@ Ext.define( "Ext.amcharts5", {
     _createRoot () {
         if ( this.root ) return;
 
-        if ( !this.themeListener ) themeStore.on( "theme", ( this.themeListener = this.onThemeChange.bind( this ) ) );
+        if ( !this.themeListener ) themeStore.on( "darkMode", ( this.themeListener = this.onThemeChange.bind( this ) ) );
 
         this.root = amcharts.am5.Root.new( this.innerElement.dom );
 
