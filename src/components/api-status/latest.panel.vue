@@ -38,6 +38,12 @@ export default {
         },
     },
 
+    "watch": {
+        methodId ( newValue, OldValue ) {
+            if ( newValue !== OldValue ) this.reload();
+        },
+    },
+
     "methods": {
         _createCallsChart ( cmp ) {
             cmp.updateChart = this._updateChart.bind( this );
@@ -310,6 +316,12 @@ export default {
         },
 
         async reload () {
+            if ( !this.methodId ) {
+                this.$refs.cardsPanel.showNoDataCard();
+
+                return;
+            }
+
             this.$refs.cardsPanel.mask();
 
             const res = await this.$api.call( "administration/api-status/get-historic-time-series", this.methodId );
