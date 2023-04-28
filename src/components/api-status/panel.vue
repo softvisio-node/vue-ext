@@ -29,7 +29,7 @@
 
                 <!-- <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="i18nd(`vue-ext`, `Exceptions`)" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="i18nd(`vue-ext`, `Exceptions / call`)" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="i18nd(`vue-ext`, `Exceptions / call (%)`)" width="140"/> -->
 
                 <!-- <ext-column locked="right" width="80" @ready="_actionColReady"/> -->
             </ext-lockedgrid>
@@ -120,7 +120,7 @@ export default {
                     "align": "right",
                     "dataIndex": "exceptions_per_call_text",
                     "sorter": { "property": "exceptions_per_call" },
-                    "text": this.i18nd( `vue-ext`, `Exceptions / call` ),
+                    "text": this.i18nd( `vue-ext`, `Exceptions / call (%)` ),
                     "width": 140,
                 },
                 {

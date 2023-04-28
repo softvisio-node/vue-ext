@@ -43,7 +43,7 @@ export default Ext.define( "", {
 
         {
             "name": "exceptions_per_call_text",
-            "calculate": data => Ext.util.Format.number( data.exceptions_per_call, "minimumFractionDigits:1,maximumFractionDigits:1" ),
+            "calculate": data => Ext.util.Format.percent( data.exceptions_per_call, "minimumFractionDigits:1,maximumFractionDigits:1" ),
         },
     ],
 } );

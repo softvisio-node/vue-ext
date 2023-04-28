@@ -246,7 +246,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Exceptions percent for the last 30 days" ),
+                "text": this.i18nd( "vue-ext", "Exceptions percent for the last 30 days (%)" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
