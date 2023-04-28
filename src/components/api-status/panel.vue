@@ -50,6 +50,12 @@ const DEFAULT_AUTOREFRESH_INTERVAL = 60_000;
 export default {
     "components": { CardsPanel },
 
+    data () {
+        return {
+            "selectedMethod": "",
+        };
+    },
+
     created () {
         this.store = new Ext.data.Store( {
             "model": MethodModel,
@@ -71,6 +77,14 @@ export default {
             const cmp = e.detail.cmp;
 
             // cmp.setColumnMenu( null );
+
+            cmp.getRegion( "left" ).getGrid().setSelectable( {
+                "mode": "single",
+            } );
+
+            cmp.getRegion( "left" )
+                .getGrid()
+                .on( "select", ( grid, selection ) => ( this.selectedMethod = selection.id ) );
 
             cmp.setStore( this.store );
 
@@ -131,74 +145,6 @@ export default {
                     },
                 },
             ] );
-        },
-
-        idColReady ( e ) {
-            var cmp = e.detail.cmp;
-
-            cmp.setCell( {
-                "xtype": "widgetcell",
-                "layout": "fit",
-                "widget": {
-                    "xtype": "container",
-                    "layout": { "type": "vbox", "pack": "start", "align": "start" },
-                    "padding": "0 10 0 10",
-                    "items": [
-                        {
-                            "xtype": "displayfield",
-                            "encodeHtml": false,
-                            "bind": "{record.id_text}",
-                        },
-                        {
-                            "xtype": "fieldcontainer",
-                            "width": "100%",
-                            "labelCls": "no-padding",
-                            "label": "Active Requests",
-
-                            // "labelAlign": "left",
-                            // "labelWidth": 180,
-                            "items": [
-                                {
-                                    "xtype": "progress",
-                                    "width": "100%",
-                                    "animate": true,
-                                    "bind": {
-                                        "text": "{record.active_requests_text}",
-                                        "value": "{record.active_requests_value}",
-                                    },
-                                    "listeners": {
-                                        change ( progress, newValue, oldValue ) {
-                                            if ( newValue === 1 ) progress.setColor( "red" );
-                                            else if ( newValue >= 0.7 ) progress.setColor( "salmon" );
-                                            else progress.setColor();
-                                        },
-                                    },
-                                },
-                            ],
-                        },
-                        {
-                            "xtype": "displayfield",
-                            "label": "Active Requests Limit",
-                            "labelAlign": "left",
-                            "labelWidth": 180,
-                            "height": 18,
-                            "labelCls": "no-padding",
-                            "encodeHtml": false,
-                            "bind": "{record.active_requests_limit_text}",
-                        },
-                        {
-                            "xtype": "displayfield",
-                            "label": "Active Requests Limit per User",
-                            "labelAlign": "left",
-                            "labelWidth": 180,
-                            "height": 18,
-                            "labelCls": "no-padding",
-                            "encodeHtml": false,
-                            "bind": "{record.active_requests_user_limit_text}",
-                        },
-                    ],
-                },
-            } );
         },
 
         _loadColReady ( e ) {
