@@ -25,10 +25,6 @@ export default {
 
     "emits": ["ready"],
 
-    mounted () {
-        themeStore.on( "theme", ( this.themeListener ??= this.onThemeChange.bind( this ) ) );
-    },
-
     beforeUnmount () {
         themeStore.off( "theme", this.themeListener );
         this.themeListener = null;
@@ -36,7 +32,6 @@ export default {
         // destroy chart
         if ( this.root ) {
             this.root.dispose();
-
             this.root = null;
         }
 
@@ -86,6 +81,8 @@ export default {
         },
 
         _ready ( e ) {
+            themeStore.on( "theme", ( this.themeListener ??= this.onThemeChange.bind( this ) ) );
+
             this.ext = e.detail.cmp;
             this.am5 = amcharts.am5;
 
@@ -133,8 +130,14 @@ export default {
             this.setData( data );
         },
 
-        // XXX
-        onThemeChange ( theme ) {},
+        onThemeChange ( theme ) {
+            if ( this.root ) {
+                this.root.dispose();
+                this.root = null;
+
+                this._afterRender();
+            }
+        },
     },
 };
 </script>
