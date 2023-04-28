@@ -26,8 +26,10 @@ export default {
     "emits": ["ready"],
 
     beforeUnmount () {
-        themeStore.off( "darkMode", this.themeListener );
-        this.themeListener = null;
+        if ( this.themeListener ) {
+            themeStore.off( "darkMode", this.themeListener );
+            this.themeListener = null;
+        }
 
         // destroy chart
         if ( this.root ) {

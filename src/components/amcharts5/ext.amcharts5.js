@@ -27,8 +27,10 @@ Ext.define( "Ext.amcharts5", {
     },
 
     doDestroy () {
-        themeStore.off( "darkMode", this.themeListener );
-        this.themeListener = null;
+        if ( this.themeListener ) {
+            themeStore.off( "darkMode", this.themeListener );
+            this.themeListener = null;
+        }
 
         if ( this.root ) {
             this.root.dispose();
