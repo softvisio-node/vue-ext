@@ -27,6 +27,9 @@ Ext.define( "Ext.amcharts5", {
     },
 
     doDestroy () {
+        themeStore.off( "theme", this.themeListener );
+        this.themeListener = null;
+
         if ( this.root ) {
             this.root.dispose();
             this.root = null;
@@ -76,6 +79,8 @@ Ext.define( "Ext.amcharts5", {
     _createRoot () {
         if ( this.root ) return;
 
+        if ( !this.themeListener ) themeStore.on( "theme", ( this.themeListener = this.onThemeChange.bind( this ) ) );
+
         this.root = amcharts.am5.Root.new( this.innerElement.dom );
 
         const themes = [];
@@ -101,5 +106,14 @@ Ext.define( "Ext.amcharts5", {
         const data = Ext.Array.pluck( this.getStore()?.data.items, "data" );
 
         this.setData( data );
+    },
+
+    onThemeChange ( theme ) {
+        if ( this.root ) {
+            this.root.dispose();
+            this.root = null;
+
+            this._createRoot();
+        }
     },
 } );

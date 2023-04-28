@@ -81,8 +81,6 @@ export default {
         },
 
         _ready ( e ) {
-            themeStore.on( "theme", ( this.themeListener ??= this.onThemeChange.bind( this ) ) );
-
             this.ext = e.detail.cmp;
             this.am5 = amcharts.am5;
 
@@ -102,6 +100,8 @@ export default {
 
         _createRoot () {
             if ( this.root ) return;
+
+            if ( !this.themeListener ) themeStore.on( "theme", ( this.themeListener = this.onThemeChange.bind( this ) ) );
 
             this.root = amcharts.am5.Root.new( this.ext.innerElement.dom );
 
@@ -135,7 +135,7 @@ export default {
                 this.root.dispose();
                 this.root = null;
 
-                this._afterRender();
+                this._createRoot();
             }
         },
     },
