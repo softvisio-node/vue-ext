@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cardsPanel" :store="store" @reload="reload" @storeLoad="_onStoreLoad">
+    <CardsPanel ref="cardsPanel" @reload="reload">
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for methods by name`)" width="200" @change="_search"/>
@@ -79,9 +79,19 @@ export default {
 
         // public
         async reload () {
+            const cardsPanel = this.$refs.cardsPanel;
+
+            cardsPanel.mask();
+
             this._stopAutoRefresh();
 
-            this.store.load();
+            const res = await this.$api.call( "administration/api-status/get-api-methods", { "period": 1 } );
+
+            this._startAutoRefresh();
+
+            cardsPanel.setResult( res );
+
+            if ( res.ok ) this.store.loadRawData( res.data );
         },
 
         async showHistory ( button ) {
@@ -255,10 +265,6 @@ export default {
             clearInterval( this.autoRefreshInterval );
 
             this.autoRefreshInterval = null;
-        },
-
-        _onStoreLoad () {
-            this._startAutoRefresh();
         },
     },
 };

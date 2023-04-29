@@ -1,12 +1,6 @@
 export default Ext.define( "", {
     "extend": "Ext.data.Model",
 
-    "proxy": {
-        "api": {
-            "read": "administration/api-status/get-api-methods",
-        },
-    },
-
     "fields": [
         "id",
 
