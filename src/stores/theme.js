@@ -158,13 +158,13 @@ class Store extends VueStore {
 
         this.#applyTheme( { ...this.theme, "darkMode": this.darkMode } );
 
-        this.#events.emit( "darkMode", this.darkMode );
+        this.#events.emit( "darkModeChange", this.darkMode );
     }
 
     #applyTheme ( theme ) {
         Ext.theme.Material.setColors( theme );
 
-        this.#events.emit( "theme", theme );
+        this.#events.emit( "themeChange", theme );
     }
 }
 
