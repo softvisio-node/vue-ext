@@ -206,7 +206,7 @@ export default {
             this.period = defaultPeriod;
 
             for ( const period of periods ) {
-                const text = this.i18nd( `vue-ext`, msgid`${period} day`, msgid`${period} days` );
+                const text = this.i18nd( `vue-ext`, msgid`${period} day`, msgid`${period} days`, period );
 
                 if ( period === defaultPeriod ) cmp.setText( this.i18nd( `vue-ext`, `Period: ` ) + text );
 
