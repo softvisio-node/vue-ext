@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-04-30 16:29+0300\n"
+"POT-Creation-Date: 2023-04-30 16:31+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -284,16 +284,12 @@ msgstr "Адміністрування"
 
 #: src/components/administration/panel.vue:9:69
 #: src/components/api-status/dialog.vue:2:68
-#, fuzzy
-#| msgid "Status"
 msgid "API status"
-msgstr "Статус"
+msgstr "Статус API"
 
 #: src/components/api-status/exceptions.dialog.vue:6:39
-#, fuzzy
-#| msgid "Exception"
 msgid "Clear exceptions"
-msgstr "Помилка"
+msgstr "Чіткі винятки"
 
 #: src/components/api-status/exceptions.dialog.vue:14:108
 msgid "Started"
@@ -301,7 +297,7 @@ msgstr "Розпочато"
 
 #: src/components/api-status/exceptions.dialog.vue:16:91
 msgid "Duration (ms)"
-msgstr ""
+msgstr "Тривалість (мс)"
 
 #: src/components/api-status/exceptions.dialog.vue:18:90
 msgid "Status"
@@ -312,75 +308,60 @@ msgid "Status text"
 msgstr "Текст статусу"
 
 #: src/components/api-status/exceptions.dialog.vue:43:19
-#, fuzzy, javascript-format
-#| msgid "API call log for method \"${n}\""
+#, javascript-format
 msgid "Exceptions log for the API method: ${n}"
-msgstr "Журнал викликів API для методу \"${n}\""
+msgstr "Журнал винятків для методу API: ${n}"
 
 #: src/components/api-status/historic.dialog.vue:39:19
-#, fuzzy, javascript-format
-#| msgid "History for method \"${n}\""
+#, javascript-format
 msgid "Historic charts for the API method: ${n}"
-msgstr "Історія методу \"${n}\""
+msgstr "Історичні діаграми для методу API: ${n}"
 
 #: src/components/api-status/historic.dialog.vue:78:24
 msgid "Calls for the last 30 days"
-msgstr ""
+msgstr "Виклики за останні 30 днів"
 
 #: src/components/api-status/historic.dialog.vue:109:33
 #: src/components/api-status/latest.panel.vue:104:33
 #: src/components/api-status/panel.vue:160:28
 msgid "Calls"
-msgstr ""
+msgstr "Виклики"
 
 #: src/components/api-status/historic.dialog.vue:174:24
 msgid "Average duration per call for the last 30 days (ms)"
-msgstr ""
+msgstr "Середня тривалість виклика за останні 30 днів (мс)"
 
 #: src/components/api-status/historic.dialog.vue:205:33
 #: src/components/api-status/latest.panel.vue:169:33
-#, fuzzy
-#| msgid "Authorization"
 msgid "Duration"
-msgstr "Авторизація"
+msgstr "Тривалість"
 
 #: src/components/api-status/historic.dialog.vue:249:24
-#, fuzzy
-#| msgid "Exceptions for last 60 minutes (%)"
 msgid "Exceptions percent for the last 30 days (%)"
-msgstr "Помилки за останні 60 хвилин (%)"
+msgstr "Відсоток винятків за останні 30 днів (%)"
 
 #: src/components/api-status/historic.dialog.vue:280:33
 #: src/components/api-status/latest.panel.vue:234:33
 #: src/components/api-status/panel.vue:181:28
-#, fuzzy
-#| msgid "Exception"
 msgid "Exceptions"
-msgstr "Помилка"
+msgstr "Винятки"
 
 #: src/components/api-status/latest.panel.vue:38:19
-#, fuzzy, javascript-format
-#| msgid "API method id"
+#, javascript-format
 msgid "API method: ${n}"
-msgstr "Ідентифікатор методу API"
+msgstr "Метод API: ${n}"
 
 #: src/components/api-status/latest.panel.vue:74:24
-#, fuzzy
-#| msgid "Load for last 60 minutes"
 msgid "Calls for the last 60 minutes"
-msgstr "Завантаження за останні 60 хвилин"
+msgstr "Виклики за останні 60 хвилин"
 
 #: src/components/api-status/latest.panel.vue:139:24
-#, fuzzy
-#| msgid "Average request runtime for last 60 minutes"
 msgid "Average duration per call for the last 60 minutes (ms)"
-msgstr "Середня тривалість виконання запиту за останні 60 хвилин"
+msgstr "Середня тривалість виклику за останні 60 хвилин (мс)"
 
 #: src/components/api-status/latest.panel.vue:204:24
-#, fuzzy
-#| msgid "Exceptions for last 60 minutes (%)"
 msgid "Exceptions percent for the last 60 minutes (%)"
-msgstr "Помилки за останні 60 хвилин (%)"
+msgstr "Відсоток винятків за останні 60 хвилин (%)"
 
 #: src/components/api-status/panel.vue:5:47
 msgid "Search for methods by name"
@@ -392,54 +373,48 @@ msgstr "Автоматичне оновлення"
 
 #: src/components/api-status/panel.vue:13:138
 msgid "Latest data charts"
-msgstr ""
+msgstr "Останні діаграми даних"
 
 #: src/components/api-status/panel.vue:147:28
-#, fuzzy
-#| msgid "Key name"
 msgid "Method name"
-msgstr "Ім'я ключа"
+msgstr "Назва методу"
 
 #: src/components/api-status/panel.vue:153:28
 msgid "Active calls"
-msgstr ""
+msgstr "Активні виклики"
 
 #: src/components/api-status/panel.vue:167:28
 msgid "Duration / call (ms)"
-msgstr ""
+msgstr "Тривалість / виклик (мс)"
 
 #: src/components/api-status/panel.vue:174:28
 msgid "Duration (%)"
-msgstr ""
+msgstr "Тривалість (%)"
 
 #: src/components/api-status/panel.vue:188:28
-#, fuzzy
-#| msgid "Exceptions for last 60 minutes (%)"
 msgid "Exceptions / call (%)"
-msgstr "Помилки за останні 60 хвилин (%)"
+msgstr "Винятки / виклик (%)"
 
 #: src/components/api-status/panel.vue:209:29
 #, javascript-format
 msgid "${n} day"
 msgid_plural "${n} days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "${n} день"
+msgstr[1] "${n} дня"
+msgstr[2] "${n} днів"
 
 #: src/components/api-status/panel.vue:211:61
 #: src/components/api-status/panel.vue:307:49
 msgid "Period:"
-msgstr ""
+msgstr "Період:"
 
 #: src/components/api-status/panel.vue:238:39
 msgid "Historic charts"
-msgstr ""
+msgstr "Історичні діаграми"
 
 #: src/components/api-status/panel.vue:244:39
-#, fuzzy
-#| msgid "Exception"
 msgid "Exceptions log"
-msgstr "Помилка"
+msgstr "Журнал винятків"
 
 #: src/components/app-title/menu.vue:38:66
 #: src/components/user-sessions/panel.vue:76:39
