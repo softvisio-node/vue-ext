@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-04-28 20:28+0300\n"
+"POT-Creation-Date: 2023-04-30 15:47+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,7 +50,7 @@ msgstr "Режим сервера"
 msgid "Copy to clipboard"
 msgstr "Скопіювати у буфер обміну"
 
-#: src/components/about.dialog.vue:2:51 src/components/app-title/menu.vue:33:65
+#: src/components/about.dialog.vue:2:51 src/components/app-title/menu.vue:36:65
 msgid "About the project"
 msgstr "Про проект"
 
@@ -63,7 +63,7 @@ msgid "Locale"
 msgstr "Локаль"
 
 #: src/components/account/account.panel.vue:12:39
-#: src/components/app-title/menu.vue:17:101
+#: src/components/app-title/menu.vue:18:101
 #: src/components/change-password.dialog.vue:16:21
 #: src/components/reset-password.dialog.vue:17:31
 #: src/components/users/panel.vue:212:48
@@ -199,10 +199,10 @@ msgstr "Пошук користувачів"
 
 #: src/components/acl/panel.vue:9:62 src/components/acl/roles.button.vue:74:28
 #: src/components/acl/roles.panel.vue:7:62
-#: src/components/api-status/exceptions.dialog.vue:7:66
+#: src/components/api-status/exceptions.dialog.vue:8:66
 #: src/components/api-status/historic.dialog.vue:7:66
 #: src/components/api-status/latest.panel.vue:7:62
-#: src/components/api-status/panel.vue:8:82
+#: src/components/api-status/panel.vue:10:82
 #: src/components/cards.panel.vue:14:58
 #: src/components/user-sessions/panel.vue:8:62
 #: src/components/user-tokens/panel.vue:8:62
@@ -278,6 +278,7 @@ msgid "Role disabled"
 msgstr "Роль вимкнено"
 
 #: src/components/administration/dialog.vue:2:72
+#: src/components/app-title/menu.vue:20:70
 msgid "Administration"
 msgstr "Адміністрування"
 
@@ -288,23 +289,29 @@ msgstr "Адміністрування"
 msgid "API status"
 msgstr "Статус"
 
-#: src/components/api-status/exceptions.dialog.vue:13:108
+#: src/components/api-status/exceptions.dialog.vue:6:39
+#, fuzzy
+#| msgid "Exception"
+msgid "Clear exceptions"
+msgstr "Помилка"
+
+#: src/components/api-status/exceptions.dialog.vue:14:108
 msgid "Started"
 msgstr "Розпочато"
 
-#: src/components/api-status/exceptions.dialog.vue:15:91
+#: src/components/api-status/exceptions.dialog.vue:16:91
 msgid "Duration (ms)"
 msgstr ""
 
-#: src/components/api-status/exceptions.dialog.vue:17:90
+#: src/components/api-status/exceptions.dialog.vue:18:90
 msgid "Status"
 msgstr "Статус"
 
-#: src/components/api-status/exceptions.dialog.vue:19:89
+#: src/components/api-status/exceptions.dialog.vue:20:89
 msgid "Status text"
 msgstr "Текст статусу"
 
-#: src/components/api-status/exceptions.dialog.vue:42:19
+#: src/components/api-status/exceptions.dialog.vue:43:19
 #, fuzzy, javascript-format
 #| msgid "API call log for method \"${n}\""
 msgid "Exceptions log for the API method \"${n}\""
@@ -322,7 +329,7 @@ msgstr ""
 
 #: src/components/api-status/historic.dialog.vue:109:33
 #: src/components/api-status/latest.panel.vue:104:33
-#: src/components/api-status/panel.vue:145:28
+#: src/components/api-status/panel.vue:160:28
 msgid "Calls"
 msgstr ""
 
@@ -345,7 +352,7 @@ msgstr "Помилки за останні 60 хвилин (%)"
 
 #: src/components/api-status/historic.dialog.vue:280:33
 #: src/components/api-status/latest.panel.vue:234:33
-#: src/components/api-status/panel.vue:166:28
+#: src/components/api-status/panel.vue:181:28
 #, fuzzy
 #| msgid "Exception"
 msgid "Exceptions"
@@ -379,49 +386,62 @@ msgstr "Помилки за останні 60 хвилин (%)"
 msgid "Search for methods by name"
 msgstr "Пошук методів за назвою"
 
-#: src/components/api-status/panel.vue:7:41
+#: src/components/api-status/panel.vue:9:41
 msgid "Auto refresh"
 msgstr "Автоматичне оновлення"
 
-#: src/components/api-status/panel.vue:11:138
+#: src/components/api-status/panel.vue:13:138
 msgid "Latest data charts"
 msgstr ""
 
-#: src/components/api-status/panel.vue:132:28
+#: src/components/api-status/panel.vue:147:28
 #, fuzzy
 #| msgid "Key name"
 msgid "Method name"
 msgstr "Ім'я ключа"
 
-#: src/components/api-status/panel.vue:138:28
+#: src/components/api-status/panel.vue:153:28
 msgid "Active calls"
 msgstr ""
 
-#: src/components/api-status/panel.vue:152:28
+#: src/components/api-status/panel.vue:167:28
 msgid "Duration / call (ms)"
 msgstr ""
 
-#: src/components/api-status/panel.vue:159:28
+#: src/components/api-status/panel.vue:174:28
 msgid "Duration (%)"
 msgstr ""
 
-#: src/components/api-status/panel.vue:173:28
+#: src/components/api-status/panel.vue:188:28
 #, fuzzy
 #| msgid "Exceptions for last 60 minutes (%)"
 msgid "Exceptions / call (%)"
 msgstr "Помилки за останні 60 хвилин (%)"
 
-#: src/components/api-status/panel.vue:198:39
+#: src/components/api-status/panel.vue:209:29
+#, javascript-format
+msgid "${n} day"
+msgid_plural "${n} days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/components/api-status/panel.vue:211:61
+#: src/components/api-status/panel.vue:307:49
+msgid "Period:"
+msgstr ""
+
+#: src/components/api-status/panel.vue:238:39
 msgid "Historic charts"
 msgstr ""
 
-#: src/components/api-status/panel.vue:204:39
+#: src/components/api-status/panel.vue:244:39
 #, fuzzy
 #| msgid "Exception"
 msgid "Exceptions log"
 msgstr "Помилка"
 
-#: src/components/app-title/menu.vue:35:66
+#: src/components/app-title/menu.vue:38:66
 #: src/components/user-sessions/panel.vue:76:39
 msgid "Sign out"
 msgstr "Вийти"
