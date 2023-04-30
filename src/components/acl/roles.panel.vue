@@ -1,10 +1,10 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @reload="reload">
+    <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search roles`)" width="200" @change="_searchRoles"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -49,7 +49,7 @@ export default {
     "methods": {
 
         // public
-        async reload () {
+        async refresh () {
             if ( !this.aclId ) return;
 
             this.$refs.cards.mask();

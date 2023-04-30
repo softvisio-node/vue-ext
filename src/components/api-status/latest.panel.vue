@@ -1,10 +1,10 @@
 <template>
-    <CardsPanel ref="cardsPanel" scrollable="true" @reload="reload">
+    <CardsPanel ref="cardsPanel" scrollable="true" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-container :html="title"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -41,7 +41,7 @@ export default {
 
     "watch": {
         methodId ( newValue, OldValue ) {
-            if ( newValue !== OldValue ) this.reload();
+            if ( newValue !== OldValue ) this.refresh();
         },
     },
 
@@ -251,7 +251,7 @@ export default {
             }
         },
 
-        async reload () {
+        async refresh () {
             if ( !this.methodId ) {
                 this.$refs.cardsPanel.showNoDataCard();
 

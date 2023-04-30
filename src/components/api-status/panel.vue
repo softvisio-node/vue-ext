@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cardsPanel" @reload="reload">
+    <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for methods by name`)" width="200" @change="_search"/>
@@ -7,7 +7,7 @@
                 <ext-button ref="periodButton" @ready="_periodButtonReady"/>
                 <ext-spacer/>
                 <ext-togglefield :label="i18nd(`vue-ext`, `Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
-                <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
+                <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
 
             <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","split":true}' :title="i18nd(`vue-ext`, `Latest charts`)" width="500">
@@ -83,7 +83,7 @@ export default {
     "methods": {
 
         // public
-        async reload () {
+        async refresh () {
             const cardsPanel = this.$refs.cardsPanel;
 
             cardsPanel.mask();
@@ -285,9 +285,9 @@ export default {
             if ( !this.autoRefreshEnabled ) return;
 
             this.autoRefreshInterval = setInterval( () => {
-                this.reload();
+                this.refresh();
 
-                this.$refs.latestPanel.reload();
+                this.$refs.latestPanel.refresh();
             }, DEFAULT_AUTOREFRESH_INTERVAL );
         },
 
@@ -306,7 +306,7 @@ export default {
 
             this.$refs.periodButton.ext.setText( this.i18nd( `vue-ext`, `Period` ) + ": " + menuItem.getText() );
 
-            this.reload();
+            this.refresh();
         },
     },
 };

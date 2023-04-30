@@ -1,11 +1,11 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @reload="reload">
+    <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-container :html="title"/>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out of all sessions`)" @tap="_signOutAllSessions"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -116,11 +116,11 @@ export default {
             else {
                 this.$utils.toast( this.i18nd( `vue-ext`, "Sessions were deleted" ) );
 
-                this.reload();
+                this.refresh();
             }
         },
 
-        async reload () {
+        async refresh () {
             this.$refs.cards.mask();
 
             const res = await this._loadSessions();

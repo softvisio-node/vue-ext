@@ -11,7 +11,7 @@
             <ext-container :html="i18nd(`vue-ext`, `Unable to load data`)"/>
             <ext-container ref="errorMessage"/>
             <ext-container height="10"/>
-            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" ui="action" @tap="reload"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" ui="action" @tap="refresh"/>
         </ext-container>
 
         <!-- data card -->
@@ -48,7 +48,7 @@ export default {
             "type": Object,
             "default": loadMask,
         },
-        "reloadOnRender": {
+        "refreshOnRender": {
             "type": Boolean,
             "default": true,
         },
@@ -58,7 +58,7 @@ export default {
         },
     },
 
-    "emits": ["render", "reload", "storeLoad"],
+    "emits": ["render", "refresh", "storeLoad"],
 
     "computed": {
         noDataMessageText () {
@@ -89,13 +89,13 @@ export default {
         _onRender () {
             this.$emit( "render" );
 
-            if ( this.reloadOnRender ) this.$emit( "reload" );
+            if ( this.refreshOnRender ) this.$emit( "refresh" );
         },
 
-        reload () {
+        refresh () {
             if ( this.autoMask ) this.mask();
 
-            this.$emit( "reload" );
+            this.$emit( "refresh" );
         },
 
         mask ( mask ) {

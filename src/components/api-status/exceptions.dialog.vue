@@ -1,11 +1,11 @@
 <template>
     <ext-dialog height="95%" layout="fit" scrollable="true" :title="title" viewModel="true" width="95%">
-        <CardsPanel ref="cardsPanel" :store="store" @reload="reload">
+        <CardsPanel ref="cardsPanel" :store="store" @refresh="refresh">
             <template #docked>
                 <ext-toolbar docked="top">
                     <ext-button :text="i18nd(`vue-ext`, `Clear log`)" @tap="_clearLog"/>
                     <ext-spacer/>
-                    <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
+                    <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
             </template>
 
@@ -70,7 +70,7 @@ export default {
             this.grid.setStore( this.store );
         },
 
-        async reload () {
+        async refresh () {
             this.store.loadPage( 1 );
         },
 

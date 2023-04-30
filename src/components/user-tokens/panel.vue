@@ -1,11 +1,11 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @reload="reload">
+    <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Create token`)" @tap="showCreateTokenDialog"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -114,7 +114,7 @@ export default {
             }
         },
 
-        reload () {
+        refresh () {
             this.$refs.cards.mask();
 
             this.store.loadPage( 1 );
@@ -168,7 +168,7 @@ export default {
         async showCreateTokenDialog () {
             const cmp = await this.$mount( CreateDialog, {
                 "props": {
-                    "onCreated": () => this.reload(),
+                    "onCreated": () => this.refresh(),
                 },
             } );
 

@@ -204,7 +204,7 @@ export default {
             this.currentZoom = 1;
         },
 
-        reload () {
+        refresh () {
             this._renderPdfDoc();
         },
 

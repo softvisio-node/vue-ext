@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cards" @reload="reload">
+    <CardsPanel ref="cards" @refresh="refresh">
         <template #data>
             <ext-container ref="dataCard" layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
                 <!-- locale -->
@@ -70,7 +70,7 @@ export default {
             this.ext = e.detail.cmp;
         },
 
-        async reload () {
+        async refresh () {
             const res = await this.$api.call( "account/get-account" );
 
             this.$refs.cards.setResult( res );

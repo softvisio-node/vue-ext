@@ -1,12 +1,12 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @reload="reload">
+    <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
                 <RolesButton aclId="aclId" @change="_onRolesFilterChange"/>
                 <ext-spacer/>
                 <ext-button :disabled="!canCreateUser" iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="i18nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -77,7 +77,7 @@ export default {
     "methods": {
 
         // public
-        async reload () {
+        async refresh () {
             var res;
 
             // load roles
@@ -295,7 +295,7 @@ export default {
         async showCreateUserDialog () {
             const cmp = await this.$mount( CreateUserDialog, {
                 "props": {
-                    "onCreated": () => this.reload(),
+                    "onCreated": () => this.refresh(),
                 },
             } );
 

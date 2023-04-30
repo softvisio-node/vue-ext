@@ -13,7 +13,7 @@
         </ext-panel>
 
         <!-- notification types -->
-        <CardsPanel ref="cardsPanel" flex="1" @reload="reload">
+        <CardsPanel ref="cardsPanel" flex="1" @refresh="refresh">
             <template #docked>
                 <ext-toolbar docked="top">
                     <ext-container :html="i18nd(`vue-ext`, `Notification types`)"/>
@@ -100,7 +100,7 @@ export default {
             } );
         },
 
-        async reload () {
+        async refresh () {
             this.$refs.cardsPanel.mask();
 
             const res = await this.$api.call( "account/notifications/get-user-notifications-profile" );

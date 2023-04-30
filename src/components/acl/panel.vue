@@ -1,12 +1,12 @@
 <template>
-    <CardsPanel ref="cards" :store="store" viewModel="true" @reload="reload">
+    <CardsPanel ref="cards" :store="store" viewModel="true" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
                 <RolesButton :aclId="aclId" @change="_onRolesFilterChange"/>
                 <ext-spacer/>
                 <ext-button bind='{"hidden":"{!permissions.create}"}' iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_showAddUserDialog"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -61,7 +61,7 @@ export default {
     "methods": {
 
         // public
-        async reload () {
+        async refresh () {
             var res;
 
             // load permissions
@@ -108,7 +108,7 @@ export default {
                 return;
             }
 
-            // reload users
+            // refresh users
             this.store.loadPage( 1 );
         },
 
@@ -282,7 +282,7 @@ export default {
             const cmp = await this.$mount( AddUserDialog, {
                 "props": {
                     "aclId": this.aclId,
-                    "onAdd": () => this.reload(),
+                    "onAdd": () => this.refresh(),
                 },
             } );
 
