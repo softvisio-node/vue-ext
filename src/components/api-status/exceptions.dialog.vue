@@ -3,6 +3,7 @@
         <CardsPanel ref="cardsPanel" :store="store" @reload="reload">
             <template #docked>
                 <ext-toolbar docked="top">
+                    <ext-button :text="i18nd(`vue-ext`, `Clear exceptions`)" @tap="_clearExceptions"/>
                     <ext-spacer/>
                     <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
                 </ext-toolbar>
@@ -71,6 +72,17 @@ export default {
 
         async reload () {
             this.store.loadPage( 1 );
+        },
+
+        async _clearExceptions () {
+            const res = await this.$api.call( "administration/api-status/clear-api-method-exceptions", this.methodId );
+
+            if ( res.ok ) {
+                this.store.removeAll();
+            }
+            else {
+                this.$utils.toast( res );
+            }
         },
     },
 };
