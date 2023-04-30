@@ -1,5 +1,27 @@
 # Changelog
 
+### 8.2.0 (2023-04-30)
+
+Features:
+
+-   feat: administration component
+-   feat: api-status
+-   feat: health
+
+Fixes:
+
+-   fix: account templates renamed
+-   fix: amcharts theme
+-   fix: api admin namespace
+-   fix: api clear exceptions method added
+-   fix: api status
+-   fix: api status period
+-   fix: menu admin dialog
+-   fix: notifications
+-   fix: theme events
+-   fix: translation
+-   fix: translations
+
 ### 8.1.3 (2023-04-07)
 
 Fixes:
