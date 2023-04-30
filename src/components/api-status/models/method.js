@@ -5,7 +5,6 @@ export default Ext.define( "", {
         "id",
 
         // fields
-        "active_calls",
         "calls",
         "duration_per_call",
         "exceptions",

@@ -19,8 +19,6 @@
             <ext-lockedgrid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
                 <!-- <ext-column dataIndex="id" flex="1" locked="left" minWidth="290" :text="i18nd(`vue-ext`, `Method name`)"/> -->
 
-                <!-- <ext-column align="right" dataIndex="active_calls" :text="i18nd(`vue-ext`, `Active calls`)" width="100"/> -->
-
                 <!-- <ext-column align="right" dataIndex="calls_text" sorter='{"property":"calls"}' :text="i18nd(`vue-ext`, `Calls`)" width="140"/> -->
 
                 <!-- <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="i18nd(`vue-ext`, `Duration / call (ms)`)" width="140"/> -->
@@ -146,12 +144,6 @@ export default {
                     "minWidth": 290,
                     "text": this.i18nd( `vue-ext`, `Method name` ),
                     "locked": "left",
-                },
-                {
-                    "align": "right",
-                    "dataIndex": "active_calls",
-                    "text": this.i18nd( `vue-ext`, `Active calls` ),
-                    "width": 100,
                 },
                 {
                     "align": "right",

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-04-30 17:37+0300\n"
+"POT-Creation-Date: 2023-05-01 02:14+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -323,7 +323,7 @@ msgstr "Вызовы за последние 30 дней"
 
 #: src/components/api-status/historical.dialog.vue:109:33
 #: src/components/api-status/latest.panel.vue:104:33
-#: src/components/api-status/panel.vue:160:28
+#: src/components/api-status/panel.vue:152:28
 msgid "Calls"
 msgstr "Вызовы"
 
@@ -342,7 +342,7 @@ msgstr "Процент Исключений за последние 30 дней"
 
 #: src/components/api-status/historical.dialog.vue:280:33
 #: src/components/api-status/latest.panel.vue:234:33
-#: src/components/api-status/panel.vue:181:28
+#: src/components/api-status/panel.vue:173:28
 msgid "Exceptions"
 msgstr "Исключения"
 
@@ -375,27 +375,23 @@ msgstr "Обновлять автоматически"
 msgid "Latest charts"
 msgstr "Последние графики"
 
-#: src/components/api-status/panel.vue:147:28
+#: src/components/api-status/panel.vue:145:28
 msgid "Method name"
 msgstr "Имя метода"
 
-#: src/components/api-status/panel.vue:153:28
-msgid "Active calls"
-msgstr "Активные вызовы"
-
-#: src/components/api-status/panel.vue:167:28
+#: src/components/api-status/panel.vue:159:28
 msgid "Duration / call (ms)"
 msgstr "Длительность вызова (мс)"
 
-#: src/components/api-status/panel.vue:174:28
+#: src/components/api-status/panel.vue:166:28
 msgid "Duration (%)"
 msgstr "Длительность (%)"
 
-#: src/components/api-status/panel.vue:188:28
+#: src/components/api-status/panel.vue:180:28
 msgid "Exceptions / call (%)"
 msgstr "Исключения / вызов (%)"
 
-#: src/components/api-status/panel.vue:209:29
+#: src/components/api-status/panel.vue:201:29
 #, javascript-format
 msgid "${n} day"
 msgid_plural "${n} days"
@@ -403,16 +399,16 @@ msgstr[0] "${n} день"
 msgstr[1] "${n} дня"
 msgstr[2] "${n} дней"
 
-#: src/components/api-status/panel.vue:211:61
-#: src/components/api-status/panel.vue:307:49
+#: src/components/api-status/panel.vue:203:61
+#: src/components/api-status/panel.vue:299:49
 msgid "Period"
 msgstr "Период"
 
-#: src/components/api-status/panel.vue:238:39
+#: src/components/api-status/panel.vue:230:39
 msgid "Historical charts"
 msgstr "Исторические графики"
 
-#: src/components/api-status/panel.vue:244:39
+#: src/components/api-status/panel.vue:236:39
 msgid "Exceptions log"
 msgstr "Журнал исключений"
 
@@ -858,6 +854,9 @@ msgstr "Токен подтверждения email неверен"
 #: src/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Active calls"
+#~ msgstr "Активные вызовы"
 
 #~ msgid "Clear exceptions"
 #~ msgstr "Очистить исключения"
