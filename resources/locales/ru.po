@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-04-30 11:43+0300\n"
+"POT-Creation-Date: 2023-04-30 15:33+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,7 +50,7 @@ msgstr "Режим сервера"
 msgid "Copy to clipboard"
 msgstr "Копировать в буфер"
 
-#: src/components/about.dialog.vue:2:51 src/components/app-title/menu.vue:33:65
+#: src/components/about.dialog.vue:2:51 src/components/app-title/menu.vue:36:65
 msgid "About the project"
 msgstr "О проекте"
 
@@ -63,7 +63,7 @@ msgid "Locale"
 msgstr "Локаль"
 
 #: src/components/account/account.panel.vue:12:39
-#: src/components/app-title/menu.vue:17:101
+#: src/components/app-title/menu.vue:18:101
 #: src/components/change-password.dialog.vue:16:21
 #: src/components/reset-password.dialog.vue:17:31
 #: src/components/users/panel.vue:212:48
@@ -199,7 +199,7 @@ msgstr "Искать пользователей"
 
 #: src/components/acl/panel.vue:9:62 src/components/acl/roles.button.vue:74:28
 #: src/components/acl/roles.panel.vue:7:62
-#: src/components/api-status/exceptions.dialog.vue:7:66
+#: src/components/api-status/exceptions.dialog.vue:8:66
 #: src/components/api-status/historic.dialog.vue:7:66
 #: src/components/api-status/latest.panel.vue:7:62
 #: src/components/api-status/panel.vue:10:82
@@ -278,6 +278,7 @@ msgid "Role disabled"
 msgstr "Роль отключена"
 
 #: src/components/administration/dialog.vue:2:72
+#: src/components/app-title/menu.vue:20:70
 msgid "Administration"
 msgstr "Администрирование"
 
@@ -286,27 +287,30 @@ msgstr "Администрирование"
 msgid "API status"
 msgstr "Статус API"
 
-#: src/components/api-status/exceptions.dialog.vue:13:108
+#: src/components/api-status/exceptions.dialog.vue:6:39
+msgid "Clear exceptions"
+msgstr "Очистить исключения"
+
+#: src/components/api-status/exceptions.dialog.vue:14:108
 msgid "Started"
 msgstr "Запущен"
 
-#: src/components/api-status/exceptions.dialog.vue:15:91
+#: src/components/api-status/exceptions.dialog.vue:16:91
 msgid "Duration (ms)"
 msgstr "Длительность (мс)"
 
-#: src/components/api-status/exceptions.dialog.vue:17:90
+#: src/components/api-status/exceptions.dialog.vue:18:90
 msgid "Status"
 msgstr "Статус"
 
-#: src/components/api-status/exceptions.dialog.vue:19:89
+#: src/components/api-status/exceptions.dialog.vue:20:89
 msgid "Status text"
 msgstr "Текст статуса"
 
-#: src/components/api-status/exceptions.dialog.vue:42:19
-#, fuzzy, javascript-format
-#| msgid "API call log for method \"${n}\""
+#: src/components/api-status/exceptions.dialog.vue:43:19
+#, javascript-format
 msgid "Exceptions log for the API method \"${n}\""
-msgstr "Лог вызовов API для метода \"${n}\""
+msgstr "Журнал исключений для API метода \"${n}\""
 
 #: src/components/api-status/historic.dialog.vue:39:19
 #, javascript-format
@@ -325,7 +329,7 @@ msgstr "Вызовы"
 
 #: src/components/api-status/historic.dialog.vue:174:24
 msgid "Average duration per call for the last 30 days (ms)"
-msgstr ""
+msgstr "Средняя длительнрсть вызова за последние 30 дней (мс)"
 
 #: src/components/api-status/historic.dialog.vue:205:33
 #: src/components/api-status/latest.panel.vue:169:33
@@ -333,10 +337,8 @@ msgid "Duration"
 msgstr "Длительность"
 
 #: src/components/api-status/historic.dialog.vue:249:24
-#, fuzzy
-#| msgid "Exceptions for last 60 minutes (%)"
 msgid "Exceptions percent for the last 30 days (%)"
-msgstr "Исключения за последние 60 минут"
+msgstr "Процент Исключений за последние 30 дней"
 
 #: src/components/api-status/historic.dialog.vue:280:33
 #: src/components/api-status/latest.panel.vue:234:33
@@ -350,22 +352,16 @@ msgid "API method: ${n}"
 msgstr "API метод: ${n}"
 
 #: src/components/api-status/latest.panel.vue:74:24
-#, fuzzy
-#| msgid "Load for last 60 minutes"
 msgid "Calls for the last 60 minutes"
-msgstr "Загрузка за последние 60 минут"
+msgstr "Вызовы за последние 60 минут"
 
 #: src/components/api-status/latest.panel.vue:139:24
-#, fuzzy
-#| msgid "Average request runtime for last 60 minutes"
 msgid "Average duration per call for the last 60 minutes (ms)"
-msgstr "Среднее количество запросов за последние 60 минут"
+msgstr "Средняя длительнрсть вызова за последние 60 минут (мс)"
 
 #: src/components/api-status/latest.panel.vue:204:24
-#, fuzzy
-#| msgid "Exceptions for last 60 minutes (%)"
 msgid "Exceptions percent for the last 60 minutes (%)"
-msgstr "Исключения за последние 60 минут"
+msgstr "Процент Исключений за последние 60 минут"
 
 #: src/components/api-status/panel.vue:5:47
 msgid "Search for methods by name"
@@ -377,7 +373,7 @@ msgstr "Обновлять автоматически"
 
 #: src/components/api-status/panel.vue:13:138
 msgid "Latest data charts"
-msgstr ""
+msgstr "Диагоаммы последних данных"
 
 #: src/components/api-status/panel.vue:147:28
 msgid "Method name"
@@ -409,8 +405,8 @@ msgstr[2] "${n} дней"
 
 #: src/components/api-status/panel.vue:211:61
 #: src/components/api-status/panel.vue:307:49
-msgid "Period: "
-msgstr ""
+msgid "Period:"
+msgstr "Период:"
 
 #: src/components/api-status/panel.vue:238:39
 msgid "Historic charts"
@@ -420,7 +416,7 @@ msgstr "Исторические диаграммы"
 msgid "Exceptions log"
 msgstr "Журнал исключений"
 
-#: src/components/app-title/menu.vue:35:66
+#: src/components/app-title/menu.vue:38:66
 #: src/components/user-sessions/panel.vue:76:39
 msgid "Sign out"
 msgstr "Выйти"
