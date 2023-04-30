@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-04-30 15:47+0300\n"
+"POT-Creation-Date: 2023-04-30 16:29+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -314,13 +314,13 @@ msgstr "Текст статусу"
 #: src/components/api-status/exceptions.dialog.vue:43:19
 #, fuzzy, javascript-format
 #| msgid "API call log for method \"${n}\""
-msgid "Exceptions log for the API method \"${n}\""
+msgid "Exceptions log for the API method: ${n}"
 msgstr "Журнал викликів API для методу \"${n}\""
 
 #: src/components/api-status/historic.dialog.vue:39:19
 #, fuzzy, javascript-format
 #| msgid "History for method \"${n}\""
-msgid "Historic charts for API method: ${n}"
+msgid "Historic charts for the API method: ${n}"
 msgstr "Історія методу \"${n}\""
 
 #: src/components/api-status/historic.dialog.vue:78:24

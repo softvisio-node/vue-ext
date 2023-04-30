@@ -40,7 +40,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", msgid`Exceptions log for the API method "${this.methodId}"` );
+            return this.i18nd( "vue-ext", msgid`Exceptions log for the API method: ${this.methodId}` );
         },
     },
 
