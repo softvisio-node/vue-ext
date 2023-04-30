@@ -208,7 +208,7 @@ export default {
             for ( const period of periods ) {
                 const text = this.i18nd( `vue-ext`, msgid`${period} day`, msgid`${period} days`, period );
 
-                if ( period === defaultPeriod ) cmp.setText( this.i18nd( `vue-ext`, `Period:` ) + " " + text );
+                if ( period === defaultPeriod ) cmp.setText( this.i18nd( `vue-ext`, `Period` ) + ": " + text );
 
                 menu.push( {
                     "xtype": "menuradioitem",
@@ -304,7 +304,7 @@ export default {
 
             this.period = period;
 
-            this.$refs.periodButton.ext.setText( this.i18nd( `vue-ext`, `Period:` ) + " " + menuItem.getText() );
+            this.$refs.periodButton.ext.setText( this.i18nd( `vue-ext`, `Period` ) + ": " + menuItem.getText() );
 
             this.reload();
         },

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-04-30 17:05+0300\n"
+"POT-Creation-Date: 2023-04-30 17:37+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -405,8 +405,8 @@ msgstr[2] "${n} дней"
 
 #: src/components/api-status/panel.vue:211:61
 #: src/components/api-status/panel.vue:307:49
-msgid "Period:"
-msgstr "Период:"
+msgid "Period"
+msgstr "Период"
 
 #: src/components/api-status/panel.vue:238:39
 msgid "Historical charts"
