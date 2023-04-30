@@ -90,7 +90,7 @@ export default {
 
             this._stopAutoRefresh();
 
-            const res = await this.$api.call( "administration/api-status/get-api-methods", { "period": 1 } );
+            const res = await this.$api.call( "administration/api-status/get-api-methods", { "period": this.period } );
 
             this._startAutoRefresh();
 
