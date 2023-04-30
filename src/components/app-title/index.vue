@@ -18,7 +18,7 @@
 
         <NotificationsMenu ref="notifications"/>
 
-        <AppMenu ref="menu" :accountButtonEnabled="menuAccountButtonEnabled" :changePasswordButtonEnabled="menuChangePasswordButtonEnabled" :pushNotificationsButtonEnabled="menuPushNotificationsButtonEnabled" @showAccountDialog="showAccountDialog">
+        <AppMenu ref="menu" :accountButtonEnabled="menuAccountButtonEnabled" :administrationButtonEnabled="menuAdministrationButtonEnabled" :changePasswordButtonEnabled="menuChangePasswordButtonEnabled" :pushNotificationsButtonEnabled="menuPushNotificationsButtonEnabled" @showAccountDialog="showAccountDialog">
             <template #top>
                 <slot name="menuTop"/>
             </template>
@@ -60,6 +60,10 @@ export default {
         "menuAccountButtonEnabled": {
             "type": Boolean,
             "default": true,
+        },
+        "menuAdministrationButtonEnabled": {
+            "type": Boolean,
+            "default": false,
         },
         "menuChangePasswordButtonEnabled": {
             "type": Boolean,

@@ -14,7 +14,10 @@
             <slot name="top"/>
 
             <ext-button :hidden="!accountButtonEnabled" iconCls="fa-solid fa-user-tie" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
+
             <ext-button :hidden="!changePasswordButtonEnabled" iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
+
+            <ext-button :hidden="!administrationButtonEnabled" :text="i18nd(`vue-ext`, `Administration`)" textAlign="left" @tap="showAdministrationDialog"/>
 
             <slot name="bottom"/>
 
@@ -52,6 +55,10 @@ export default {
         "accountButtonEnabled": {
             "type": Boolean,
             "default": true,
+        },
+        "administrationButtonEnabled": {
+            "type": Boolean,
+            "default": false,
         },
         "changePasswordButtonEnabled": {
             "type": Boolean,
@@ -106,6 +113,16 @@ export default {
             this.hide();
 
             const cmp = await this.$mount( ChangePasswordDialog );
+
+            cmp.ext.show();
+        },
+
+        async showAdministrationDialog () {
+            this.hide();
+
+            const module = await import( "#src/components/administration/dialog" );
+
+            const cmp = await this.$mount( module.default );
 
             cmp.ext.show();
         },
