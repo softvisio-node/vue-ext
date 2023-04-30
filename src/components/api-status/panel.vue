@@ -10,7 +10,7 @@
                 <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="reload"/>
             </ext-toolbar>
 
-            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","split":true}' :title="i18nd(`vue-ext`, `Latest data charts`)" width="500">
+            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","split":true}' :title="i18nd(`vue-ext`, `Latest charts`)" width="500">
                 <LatestPanel ref="latestPanel" :methodId="selectedMethodId"/>
             </ext-panel>
         </template>
@@ -41,7 +41,7 @@
 import CardsPanel from "#src/components/cards.panel";
 import MethodModel from "./models/method";
 import LatestPanel from "./latest.panel";
-import HistoricDialog from "./historic.dialog";
+import HistoricalDialog from "./historical.dialog";
 import ExceptionsDialog from "./exceptions.dialog";
 
 const DEFAULT_AUTOREFRESH_INTERVAL = 60_000;
@@ -99,10 +99,10 @@ export default {
             if ( res.ok ) this.store.loadRawData( res.data );
         },
 
-        async showHistory ( button ) {
+        async showHistoricalDialog ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            const cmp = await this.$mount( HistoricDialog, {
+            const cmp = await this.$mount( HistoricalDialog, {
                 "props": {
                     "methodId": record.id,
                 },
@@ -235,8 +235,8 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
-                            "tooltip": this.i18nd( `vue-ext`, `Historic charts` ),
-                            "handler": this.showHistory.bind( this ),
+                            "tooltip": this.i18nd( `vue-ext`, `Historical charts` ),
+                            "handler": this.showHistoricalDialog.bind( this ),
                         },
                         {
                             "xtype": "button",

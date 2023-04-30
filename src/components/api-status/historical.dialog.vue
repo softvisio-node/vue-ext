@@ -36,7 +36,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", msgid`Historic charts for the API method: ${this.methodId}` );
+            return this.i18nd( "vue-ext", msgid`Historical charts for the API method: ${this.methodId}` );
         },
     },
 
@@ -314,7 +314,7 @@ export default {
         async reload () {
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "administration/api-status/get-historic-time-series", this.methodId );
+            const res = await this.$api.call( "administration/api-status/get-historical-time-series", this.methodId );
 
             this.$refs.cardsPanel.unmask();
 
