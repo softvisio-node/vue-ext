@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.2.1 (2023-04-30)
+
+Fixes:
+
+-   fix: reload -> refresh
+-   fix: translation
+
 ### 8.2.0 (2023-04-30)
 
 Features:
