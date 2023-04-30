@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-04-30 16:29+0300\n"
+"POT-Creation-Date: 2023-04-30 17:05+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -200,7 +200,7 @@ msgstr "Искать пользователей"
 #: src/components/acl/panel.vue:9:62 src/components/acl/roles.button.vue:74:28
 #: src/components/acl/roles.panel.vue:7:62
 #: src/components/api-status/exceptions.dialog.vue:8:66
-#: src/components/api-status/historic.dialog.vue:7:66
+#: src/components/api-status/historical.dialog.vue:7:66
 #: src/components/api-status/latest.panel.vue:7:62
 #: src/components/api-status/panel.vue:10:82
 #: src/components/cards.panel.vue:14:58
@@ -288,8 +288,8 @@ msgid "API status"
 msgstr "Статус API"
 
 #: src/components/api-status/exceptions.dialog.vue:6:39
-msgid "Clear exceptions"
-msgstr "Очистить исключения"
+msgid "Clear log"
+msgstr "Очистить журнал"
 
 #: src/components/api-status/exceptions.dialog.vue:14:108
 msgid "Started"
@@ -312,35 +312,35 @@ msgstr "Текст статуса"
 msgid "Exceptions log for the API method: ${n}"
 msgstr "Журнал исключений для API метода: ${n}"
 
-#: src/components/api-status/historic.dialog.vue:39:19
+#: src/components/api-status/historical.dialog.vue:39:19
 #, javascript-format
-msgid "Historic charts for the API method: ${n}"
-msgstr "Исторические диаграммы для API метода: ${n}"
+msgid "Historical charts for the API method: ${n}"
+msgstr "Исторические диаграммы для метода API: ${n}"
 
-#: src/components/api-status/historic.dialog.vue:78:24
+#: src/components/api-status/historical.dialog.vue:78:24
 msgid "Calls for the last 30 days"
 msgstr "Вызовы за последние 30 дней"
 
-#: src/components/api-status/historic.dialog.vue:109:33
+#: src/components/api-status/historical.dialog.vue:109:33
 #: src/components/api-status/latest.panel.vue:104:33
 #: src/components/api-status/panel.vue:160:28
 msgid "Calls"
 msgstr "Вызовы"
 
-#: src/components/api-status/historic.dialog.vue:174:24
+#: src/components/api-status/historical.dialog.vue:174:24
 msgid "Average duration per call for the last 30 days (ms)"
 msgstr "Средняя длительнрсть вызова за последние 30 дней (мс)"
 
-#: src/components/api-status/historic.dialog.vue:205:33
+#: src/components/api-status/historical.dialog.vue:205:33
 #: src/components/api-status/latest.panel.vue:169:33
 msgid "Duration"
 msgstr "Длительность"
 
-#: src/components/api-status/historic.dialog.vue:249:24
+#: src/components/api-status/historical.dialog.vue:249:24
 msgid "Exceptions percent for the last 30 days (%)"
 msgstr "Процент Исключений за последние 30 дней"
 
-#: src/components/api-status/historic.dialog.vue:280:33
+#: src/components/api-status/historical.dialog.vue:280:33
 #: src/components/api-status/latest.panel.vue:234:33
 #: src/components/api-status/panel.vue:181:28
 msgid "Exceptions"
@@ -372,8 +372,8 @@ msgid "Auto refresh"
 msgstr "Обновлять автоматически"
 
 #: src/components/api-status/panel.vue:13:138
-msgid "Latest data charts"
-msgstr "Диагоаммы последних данных"
+msgid "Latest charts"
+msgstr "Последние графики"
 
 #: src/components/api-status/panel.vue:147:28
 msgid "Method name"
@@ -409,8 +409,8 @@ msgid "Period:"
 msgstr "Период:"
 
 #: src/components/api-status/panel.vue:238:39
-msgid "Historic charts"
-msgstr "Исторические диаграммы"
+msgid "Historical charts"
+msgstr "Исторические графики"
 
 #: src/components/api-status/panel.vue:244:39
 msgid "Exceptions log"
@@ -858,6 +858,9 @@ msgstr "Токен подтверждения email неверен"
 #: src/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Clear exceptions"
+#~ msgstr "Очистить исключения"
 
 #~ msgid "API call log"
 #~ msgstr "Лог вызовов API"
