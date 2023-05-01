@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.2 (2023-05-01)
+
+Fixes:
+
+-   fix: api status active calls removed
+
 ### 8.2.1 (2023-04-30)
 
 Fixes:
