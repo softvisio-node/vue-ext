@@ -131,6 +131,8 @@ export default {
 
         showDefaultCard () {
             this.ext.setActiveItem( this.$refs.defaultCard.ext );
+
+            this.unmask();
         },
 
         showErrorCard ( message ) {
@@ -142,14 +144,20 @@ export default {
             }
 
             this.ext.setActiveItem( this.$refs.errorCard.ext );
+
+            this.unmask();
         },
 
         showNoDataCard () {
             this.ext.setActiveItem( this.$refs.noDataCard.ext );
+
+            this.unmask();
         },
 
         showDataCard () {
             this.ext.setActiveItem( this.$refs.dataCard.ext );
+
+            this.unmask();
         },
 
         _onStoreLoad ( store, records, success, eOpts ) {
