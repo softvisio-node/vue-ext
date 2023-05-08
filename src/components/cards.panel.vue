@@ -52,10 +52,6 @@ export default {
             "type": Boolean,
             "default": true,
         },
-        "autoMask": {
-            "type": Boolean,
-            "default": true,
-        },
     },
 
     "emits": ["render", "refresh", "storeLoad"],
@@ -93,8 +89,6 @@ export default {
         },
 
         refresh () {
-            if ( this.autoMask ) this.mask();
-
             this.$emit( "refresh" );
         },
 
@@ -137,8 +131,6 @@ export default {
 
         showDefaultCard () {
             this.ext.setActiveItem( this.$refs.defaultCard.ext );
-
-            if ( this.autoMask ) this.unmask();
         },
 
         showErrorCard ( message ) {
@@ -150,20 +142,14 @@ export default {
             }
 
             this.ext.setActiveItem( this.$refs.errorCard.ext );
-
-            if ( this.autoMask ) this.unmask();
         },
 
         showNoDataCard () {
             this.ext.setActiveItem( this.$refs.noDataCard.ext );
-
-            if ( this.autoMask ) this.unmask();
         },
 
         showDataCard () {
             this.ext.setActiveItem( this.$refs.dataCard.ext );
-
-            if ( this.autoMask ) this.unmask();
         },
 
         _onStoreLoad ( store, records, success, eOpts ) {
