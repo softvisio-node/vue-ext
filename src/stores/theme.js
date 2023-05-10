@@ -10,6 +10,7 @@ const DEFAULT_THEME = {
     "accent": config.theme.accentColor,
 };
 
+// XXX move to viewport
 Ext.manifest.material = Ext.manifest.material || {};
 Ext.manifest.material.toolbar = Ext.manifest.material.toolbar || {};
 Ext.manifest.material.toolbar.dynamic = true;
@@ -95,16 +96,22 @@ class Store extends VueStore {
     }
 
     // public
-    on ( event, listener ) {
-        return this.#events.on( event, listener );
+    on ( name, listener ) {
+        this.#events.on( name, listener );
+
+        return this;
     }
 
-    once ( event, listener ) {
-        return this.#events.once( event, listener );
+    once ( name, listener ) {
+        this.#events.once( name, listener );
+
+        return this;
     }
 
-    off ( event, listener ) {
-        return this.#events.off( event, listener );
+    off ( name, listener ) {
+        this.#events.off( name, listener );
+
+        return this;
     }
 
     setSystemDarkMode ( systemDarkMode ) {
@@ -124,6 +131,7 @@ class Store extends VueStore {
         this.#setDarkMode( darkMode );
     }
 
+    // XXX withour dark mode
     setTheme ( theme ) {
         this.theme = { ...this.theme, ...theme };
 
