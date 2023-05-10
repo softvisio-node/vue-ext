@@ -148,6 +148,7 @@ class Store extends VueStore {
     #setSystemDarkMode ( systemDarkMode ) {
         systemDarkMode = !!systemDarkMode;
 
+        // not changed
         if ( systemDarkMode === this.systemDarkMode ) return;
 
         window.localStorage.setItem( SYSTEM_DARK_MODE_KEY, systemDarkMode );
@@ -158,6 +159,7 @@ class Store extends VueStore {
     #setDarkMode ( darkMode ) {
         darkMode = !!darkMode;
 
+        // not changed
         if ( darkMode === this.darkMode ) return;
 
         window.localStorage.setItem( DARK_MODE_KEY, darkMode );
