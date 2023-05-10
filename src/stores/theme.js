@@ -92,7 +92,7 @@ class Store extends VueStore {
             this.theme = { ...DEFAULT_THEME, ...JSON.parse( this.theme ) };
         }
 
-        this.#applyTheme( { ...this.theme, "darkMode": this.darkMode } );
+        this.#applyExtTheme();
     }
 
     // public
@@ -131,13 +131,14 @@ class Store extends VueStore {
         this.#setDarkMode( darkMode );
     }
 
-    // XXX withour dark mode
     setTheme ( theme ) {
         this.theme = { ...this.theme, ...theme };
 
         window.localStorage.setItem( THEME_KEY, JSON.stringify( this.theme ) );
 
-        this.#applyTheme( { ...this.theme, "darkMode": this.darkMode } );
+        this.#applyExtTheme();
+
+        this.#events.emit( "themeChange", this.theme );
     }
 
     // private
@@ -166,15 +167,13 @@ class Store extends VueStore {
 
         this.darkMode = darkMode;
 
-        this.#applyTheme( { ...this.theme, "darkMode": this.darkMode } );
+        this.#applyExtTheme();
 
         this.#events.emit( "darkModeChange", this.darkMode );
     }
 
-    #applyTheme ( theme ) {
-        Ext.theme.Material.setColors( theme );
-
-        this.#events.emit( "themeChange", theme );
+    #applyExtTheme () {
+        Ext.theme.Material.setColors( { ...this.theme, "darkMode": this.darkMode } );
     }
 }
 
