@@ -26,9 +26,9 @@ export default {
     "emits": ["ready"],
 
     beforeUnmount () {
-        if ( this.themeListener ) {
-            themeStore.off( "darkModeChange", this.themeListener );
-            this.themeListener = null;
+        if ( this._themeListener ) {
+            themeStore.off( "darkModeChange", this._themeListener );
+            this._themeListener = null;
         }
 
         // destroy chart
@@ -103,7 +103,10 @@ export default {
         _createRoot () {
             if ( this.root ) return;
 
-            if ( !this.themeListener ) themeStore.on( "darkModeChange", ( this.themeListener = this.onThemeChange.bind( this ) ) );
+            if ( !this._themeListener ) {
+                this._themeListener = this.onThemeChange.bind( this );
+                themeStore.on( "darkModeChange", this._themeListener );
+            }
 
             this.root = amcharts.am5.Root.new( this.ext.innerElement.dom );
 

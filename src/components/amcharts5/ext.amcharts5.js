@@ -27,9 +27,9 @@ Ext.define( "Ext.amcharts5", {
     },
 
     doDestroy () {
-        if ( this.themeListener ) {
-            themeStore.off( "darkModeChange", this.themeListener );
-            this.themeListener = null;
+        if ( this._themeListener ) {
+            themeStore.off( "darkModeChange", this._themeListener );
+            this._themeListener = null;
         }
 
         if ( this.root ) {
@@ -37,6 +37,7 @@ Ext.define( "Ext.amcharts5", {
             this.root = null;
         }
 
+        // XXX
         try {
             this.callParent( arguments );
         }
@@ -81,7 +82,10 @@ Ext.define( "Ext.amcharts5", {
     _createRoot () {
         if ( this.root ) return;
 
-        if ( !this.themeListener ) themeStore.on( "darkModeChange", ( this.themeListener = this.onThemeChange.bind( this ) ) );
+        if ( !this._themeListener ) {
+            this._themeListener = this.onThemeChange.bind( this );
+            themeStore.on( "darkModeChange", this._themeListener );
+        }
 
         this.root = amcharts.am5.Root.new( this.innerElement.dom );
 
