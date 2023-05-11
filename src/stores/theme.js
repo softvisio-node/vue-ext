@@ -144,17 +144,15 @@ class Store extends VueStore {
         this.#setDarkMode( darkMode );
     }
 
-    setTheme ( theme = {} ) {
-        COMPARE: {
-            for ( const property in theme ) {
-                if ( theme[property] !== this._theme[property] ) break COMPARE;
-            }
+    setTheme ( { base, accent } = {} ) {
+        base ||= this._theme.base;
+        accent ||= this._theme.accent;
 
-            // not changed
-            return;
-        }
+        // not changed
+        if ( base === this._theme.base && accent === this._theme.accent ) return;
 
-        this._theme = { ...this._theme, ...theme };
+        this._theme.base = base;
+        this._theme.accent = accent;
 
         window.localStorage.setItem( THEME_KEY, JSON.stringify( this._theme ) );
 
