@@ -100,6 +100,12 @@ class Store extends VueStore {
         return this._systemDarkMode;
     }
 
+    set systemDarkMode ( systemDarkMode ) {
+        this.#setSystemDarkMode( systemDarkMode );
+
+        this.#setDarkMode( this.#getSystemDarkMode() );
+    }
+
     get darkMode () {
         return this._darkMode;
     }
@@ -125,12 +131,6 @@ class Store extends VueStore {
         this.#events.off( name, listener );
 
         return this;
-    }
-
-    setSystemDarkMode ( systemDarkMode ) {
-        this.#setSystemDarkMode( systemDarkMode );
-
-        this.#setDarkMode( this.#getSystemDarkMode() );
     }
 
     setDarkMode ( darkMode ) {

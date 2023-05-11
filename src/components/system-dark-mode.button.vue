@@ -36,7 +36,7 @@ export default {
             },
 
             set ( e ) {
-                themeStore.setSystemDarkMode( e.detail.newValue );
+                themeStore.systemDarkMode = e.detail.newValue;
             },
         },
     },
