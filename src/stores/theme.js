@@ -117,7 +117,7 @@ class Store extends VueStore {
     setSystemDarkMode ( systemDarkMode ) {
         this.#setSystemDarkMode( systemDarkMode );
 
-        if ( this.systemDarkMode ) this.#setDarkMode( this.#getSystemDarkMode() );
+        this.#setDarkMode( this.#getSystemDarkMode() );
     }
 
     setDarkMode ( darkMode ) {
