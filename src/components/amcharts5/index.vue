@@ -148,8 +148,6 @@ export default {
 
             this.createChart( this );
 
-            this.chartReady = true;
-
             // automatically set data from store
             if ( this.store ) {
                 this._setDataFromStore();
@@ -165,7 +163,6 @@ export default {
             this.root.dispose();
 
             this.root = null;
-            this.chartReady = false;
             this.hasData = false;
         },
 
@@ -196,7 +193,7 @@ export default {
         _setDataFromStore () {
             if ( !this.store ) return;
 
-            if ( !this.chartReady ) return;
+            if ( !this.root ) return;
 
             const data = Ext.Array.pluck( this.store.data.items, "data" );
 
