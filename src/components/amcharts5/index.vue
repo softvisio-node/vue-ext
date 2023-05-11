@@ -115,11 +115,10 @@ export default {
         },
 
         _createChart () {
-            var refresh, hasData;
+            var hasData;
 
             if ( this.root ) {
                 hasData = this.hasData;
-                refresh = true;
 
                 this._destroyChart();
             }
@@ -156,20 +155,18 @@ export default {
                 this._setDataFromStore();
             }
             else if ( hasData ) {
-                if ( refresh ) {
-                    this.$emit( "refresh", this );
-                }
+                this.$emit( "refresh", this );
             }
         },
 
         _destroyChart () {
             if ( !this.root ) return;
 
+            this.root.dispose();
+
+            this.root = null;
             this.chartReady = false;
             this.hasData = false;
-
-            this.root.dispose();
-            this.root = null;
         },
 
         _linkStore ( store ) {
