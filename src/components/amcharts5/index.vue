@@ -117,10 +117,10 @@ export default {
         _afterRender () {
             this.ext.afterRender = null;
 
-            this._createRoot();
+            this._createChart();
         },
 
-        _createRoot () {
+        _createChart () {
             if ( this.root ) return;
 
             if ( !this._themeListener ) {
@@ -171,7 +171,7 @@ export default {
 
             this._destroyRoot();
 
-            this._createRoot();
+            this._createChart();
         },
 
         _destroyRoot () {
