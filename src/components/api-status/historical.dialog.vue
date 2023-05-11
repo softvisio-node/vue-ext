@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="95%" layout="fit" scrollable="true" :title="title" viewModel="true" width="95%">
+    <ext-dialog height="90%" layout="fit" scrollable="true" :title="title" viewModel="true" width="90%">
         <CardsPanel ref="cardsPanel" @refresh="refresh">
             <template #docked>
                 <ext-toolbar docked="top">
