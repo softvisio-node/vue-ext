@@ -162,22 +162,6 @@ export default {
             }
         },
 
-        _setDataFromStore () {
-            if ( !this.store ) return;
-
-            if ( !this.chartReady ) return;
-
-            const data = Ext.Array.pluck( this.store.data.items, "data" );
-
-            this.setData( data );
-        },
-
-        _onThemeChange ( theme ) {
-            if ( !this.root ) return;
-
-            this._createChart();
-        },
-
         _destroyChart () {
             if ( !this.root ) return;
 
@@ -210,6 +194,22 @@ export default {
             };
 
             store.un( events );
+        },
+
+        _setDataFromStore () {
+            if ( !this.store ) return;
+
+            if ( !this.chartReady ) return;
+
+            const data = Ext.Array.pluck( this.store.data.items, "data" );
+
+            this.setData( data );
+        },
+
+        _onThemeChange ( theme ) {
+            if ( !this.root ) return;
+
+            this._createChart();
         },
     },
 };
