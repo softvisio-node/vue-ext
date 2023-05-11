@@ -1,6 +1,6 @@
 <template>
     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}'>
-        <ext-togglefield :label="i18nd(`vue-ext`, `Use OS theme`)" :value="systemDarkMode" @change="systemDarkMode = $event"/>
+        <SystemDarkModeButton/>
 
         <DarkModeButton :disabled="systemDarkMode"/>
 
@@ -16,20 +16,15 @@
 
 <script>
 import DarkModeButton from "#src/components/dark-mode.button";
+import SystemDarkModeButton from "#src/components/system-dark-mode.button";
 import themeStore from "#vue/stores/theme";
 
 export default {
-    "components": { DarkModeButton },
+    "components": { DarkModeButton, SystemDarkModeButton },
 
     "computed": {
-        "systemDarkMode": {
-            get () {
-                return themeStore.systemDarkMode;
-            },
-
-            set ( e ) {
-                themeStore.setSystemDarkMode( e.detail.newValue );
-            },
+        systemDarkMode () {
+            return themeStore.systemDarkMode;
         },
     },
 
