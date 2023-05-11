@@ -240,13 +240,9 @@ export default {
         },
 
         _chartRefresh () {
-            const callsChart = this.$refs.callsChart,
-                durationChart = this.$refs.durationChart,
-                exceptionsChart = this.$refs.exceptionsChart;
-
-            if ( callsChart.hasData ) return;
-            if ( durationChart.hasData ) return;
-            if ( exceptionsChart.hasData ) return;
+            if ( this.$refs.callsChart.hasData ) return;
+            if ( this.$refs.durationChart.hasData ) return;
+            if ( this.$refs.exceptionsChart.hasData ) return;
 
             this.refresh();
         },
