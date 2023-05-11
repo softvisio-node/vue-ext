@@ -18,7 +18,7 @@ Ext.manifest.material.toolbar.dynamic = true;
 class Store extends VueStore {
 
     // state
-    systemDarkMode;
+    _systemDarkMode;
     _darkMode;
     theme;
 
@@ -29,21 +29,21 @@ class Store extends VueStore {
 
         // listen for system dark mode change
         window.matchMedia( "(prefers-color-scheme: dark)" ).addEventListener( "change", e => {
-            if ( !this.systemDarkMode ) return;
+            if ( !this._systemDarkMode ) return;
 
             this.#setDarkMode( e.matches );
         } );
 
         // darkMode
-        this.systemDarkMode = window.localStorage.getItem( SYSTEM_DARK_MODE_KEY );
+        this._systemDarkMode = window.localStorage.getItem( SYSTEM_DARK_MODE_KEY );
         this._darkMode = window.localStorage.getItem( DARK_MODE_KEY );
 
         // system dark mode is not set
-        if ( this.systemDarkMode == null ) {
+        if ( this._systemDarkMode == null ) {
 
             // user-defined dark mode is set
             if ( this._darkMode != null ) {
-                this.systemDarkMode = false;
+                this._systemDarkMode = false;
             }
 
             // user-defined dark mode is not set
@@ -51,21 +51,21 @@ class Store extends VueStore {
 
                 // follow system dark mode
                 if ( config.theme.darkMode === "auto" ) {
-                    this.systemDarkMode = true;
+                    this._systemDarkMode = true;
                 }
 
                 // use user-defined dark mode
                 else {
-                    this.systemDarkMode = false;
+                    this._systemDarkMode = false;
                 }
             }
         }
         else {
-            this.systemDarkMode = !!JSON.parse( this.systemDarkMode );
+            this._systemDarkMode = !!JSON.parse( this._systemDarkMode );
         }
 
         // follow system dark mode settings
-        if ( this.systemDarkMode ) {
+        if ( this._systemDarkMode ) {
             this._darkMode = this.#getSystemDarkMode();
         }
 
@@ -96,6 +96,10 @@ class Store extends VueStore {
     }
 
     // properties
+    get systemDarkMode () {
+        return this._systemDarkMode;
+    }
+
     get darkMode () {
         return this._darkMode;
     }
@@ -164,11 +168,11 @@ class Store extends VueStore {
         systemDarkMode = !!systemDarkMode;
 
         // not changed
-        if ( systemDarkMode === this.systemDarkMode ) return;
+        if ( systemDarkMode === this._systemDarkMode ) return;
 
         window.localStorage.setItem( SYSTEM_DARK_MODE_KEY, systemDarkMode );
 
-        this.systemDarkMode = systemDarkMode;
+        this._systemDarkMode = systemDarkMode;
     }
 
     #setDarkMode ( darkMode ) {
