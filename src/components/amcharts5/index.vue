@@ -111,7 +111,13 @@ export default {
         },
 
         _createChart () {
-            if ( this.root ) return;
+            var refresh;
+
+            if ( this.root ) {
+                this._destroyChart();
+
+                refresh = true;
+            }
 
             if ( !this._themeListener ) {
                 this._themeListener = this._onThemeChange.bind( this );
@@ -138,8 +144,6 @@ export default {
 
             this.createChart( this );
 
-            this.chartReady = true;
-
             // automatically set data from store
             if ( this.store ) {
                 this._setDataFromStore();
@@ -147,7 +151,9 @@ export default {
             else if ( this.hasData ) {
                 this.hasData = false;
 
-                this.$emit( "refresh", this );
+                if ( refresh ) {
+                    this.$emit( "refresh", this );
+                }
             }
         },
 
@@ -162,15 +168,11 @@ export default {
         _onThemeChange ( theme ) {
             if ( !this.root ) return;
 
-            this._destroyChart();
-
             this._createChart();
         },
 
         _destroyChart () {
             if ( !this.root ) return;
-
-            this.chartReady = false;
 
             this.root.dispose();
             this.root = null;
