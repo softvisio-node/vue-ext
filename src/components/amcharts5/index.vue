@@ -169,12 +169,10 @@ export default {
         _linkStore ( store ) {
             if ( !store ) return;
 
-            const events = {
+            store.on( {
                 "scope": this,
                 "dataChanged": this._setDataFromStore,
-            };
-
-            store.on( events );
+            } );
 
             this._setDataFromStore();
         },
@@ -182,12 +180,10 @@ export default {
         _unlinkStore ( store ) {
             if ( !store ) return;
 
-            const events = {
+            store.un( {
                 "scope": this,
                 "dataChanged": this._setDataFromStore,
-            };
-
-            store.un( events );
+            } );
         },
 
         _setDataFromStore () {
