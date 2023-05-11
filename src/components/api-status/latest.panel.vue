@@ -10,9 +10,9 @@
 
         <template #data>
             <ext-container layput="vbox" scrollable="true">
-                <Amcharts5 ref="callsChart" :createChart="_createCallsChart" height="150" :updateChart="_updateChart" @chartDataReset="_chartDataReset"/>
-                <Amcharts5 ref="durationChart" :createChart="_createDurationChart" height="150" :updateChart="_updateChart" @chartDataReset="_chartDataReset"/>
-                <Amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart" height="150" :updateChart="_updateChart" @chartDataReset="_chartDataReset"/>
+                <Amcharts5 ref="callsChart" :createChart="_createCallsChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="durationChart" :createChart="_createDurationChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
             </ext-container>
         </template>
     </CardsPanel>
@@ -239,7 +239,7 @@ export default {
             }
         },
 
-        _chartDataReset () {
+        _chartRefresh () {
             const callsChart = this.$refs.callsChart,
                 durationChart = this.$refs.durationChart,
                 exceptionsChart = this.$refs.exceptionsChart;

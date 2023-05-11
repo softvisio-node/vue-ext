@@ -35,10 +35,22 @@ export default {
         },
     },
 
-    "emits": ["chartDataReset"],
+    "emits": ["refresh"],
 
-    // XXX unlink store
+    "watch": {
+        store ( newValue, oldValue ) {
+            this._unlinkStore( oldValue );
+
+            this._linkStore( newValue );
+        },
+    },
+
     beforeUnmount () {
+
+        // unlink store
+        this._unlinkStore( this.store );
+
+        // unlink theme
         if ( this._themeListener ) {
             themeStore.off( "darkModeChange", this._themeListener );
             this._themeListener = null;
@@ -77,30 +89,6 @@ export default {
 
             for ( const serie of chart.series ) {
                 serie.data.setAll( data || [] );
-            }
-        },
-
-        // XXX
-        _setStore ( store ) {
-            const events = {
-                "scope": this,
-                "dataChanged": this._setDataFromStore,
-            };
-
-            // remove old store
-            if ( this._store ) {
-                this._store.un( events );
-
-                this._store = null;
-            }
-
-            // set new store
-            if ( store ) {
-                this._store = store;
-
-                this._store.on( events );
-
-                this._setDataFromStore();
             }
         },
 
@@ -153,20 +141,20 @@ export default {
             this.chartReady = true;
 
             // automatically set data from store
-            if ( this._store ) {
+            if ( this.store ) {
                 this._setDataFromStore();
             }
             else if ( this.hasData ) {
                 this.hasData = false;
 
-                this.$emit( "chartDataReset", this );
+                this.$emit( "refresh", this );
             }
         },
 
         _setDataFromStore () {
-            if ( !this._store ) return;
+            if ( !this.store ) return;
 
-            const data = Ext.Array.pluck( this._store?.data.items, "data" );
+            const data = Ext.Array.pluck( this.store.data.items, "data" );
 
             this.setData( data );
         },
@@ -186,6 +174,30 @@ export default {
 
             this.root.dispose();
             this.root = null;
+        },
+
+        _linkStore ( store ) {
+            if ( !store ) return;
+
+            const events = {
+                "scope": this,
+                "dataChanged": this._setDataFromStore,
+            };
+
+            store.on( events );
+
+            this._setDataFromStore();
+        },
+
+        _unlinkStore ( store ) {
+            if ( !store ) return;
+
+            const events = {
+                "scope": this,
+                "dataChanged": this._setDataFromStore,
+            };
+
+            store.un( events );
         },
     },
 };
