@@ -206,7 +206,7 @@ export default {
             this.setData( data );
         },
 
-        _onThemeChange ( theme ) {
+        _onThemeChange () {
             if ( !this.root ) return;
 
             this._createChart();
