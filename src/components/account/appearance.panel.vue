@@ -58,13 +58,13 @@ export default {
         themeBaseChanged ( e ) {
             const record = e.detail.location.record;
 
-            themeStore.setTheme( { "base": record.get( "name" ) } );
+            themeStore.theme = { "base": record.get( "name" ) };
         },
 
         themeAccentChanged ( e ) {
             const record = e.detail.location.record;
 
-            themeStore.setTheme( { "accent": record.get( "name" ) } );
+            themeStore.theme = { "accent": record.get( "name" ) };
         },
     },
 };

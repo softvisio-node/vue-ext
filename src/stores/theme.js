@@ -125,6 +125,23 @@ class Store extends VueStore {
         return this._theme;
     }
 
+    set theme ( { base, accent } = {} ) {
+        base ||= this._theme.base;
+        accent ||= this._theme.accent;
+
+        // not changed
+        if ( base === this._theme.base && accent === this._theme.accent ) return;
+
+        this._theme.base = base;
+        this._theme.accent = accent;
+
+        window.localStorage.setItem( THEME_KEY, JSON.stringify( this._theme ) );
+
+        this.#applyExtTheme();
+
+        this.#events.emit( "themeChange", this._theme );
+    }
+
     // public
     on ( name, listener ) {
         this.#events.on( name, listener );
@@ -142,23 +159,6 @@ class Store extends VueStore {
         this.#events.off( name, listener );
 
         return this;
-    }
-
-    setTheme ( { base, accent } = {} ) {
-        base ||= this._theme.base;
-        accent ||= this._theme.accent;
-
-        // not changed
-        if ( base === this._theme.base && accent === this._theme.accent ) return;
-
-        this._theme.base = base;
-        this._theme.accent = accent;
-
-        window.localStorage.setItem( THEME_KEY, JSON.stringify( this._theme ) );
-
-        this.#applyExtTheme();
-
-        this.#events.emit( "themeChange", this._theme );
     }
 
     // private
