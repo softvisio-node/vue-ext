@@ -110,6 +110,17 @@ class Store extends VueStore {
         return this._darkMode;
     }
 
+    set darkMode ( darkMode ) {
+        darkMode = !!darkMode;
+
+        if ( darkMode === this._darkMode ) return;
+
+        // turn off system dark mode
+        this.#setSystemDarkMode( false );
+
+        this.#setDarkMode( darkMode );
+    }
+
     get theme () {
         return this._theme;
     }
@@ -131,17 +142,6 @@ class Store extends VueStore {
         this.#events.off( name, listener );
 
         return this;
-    }
-
-    setDarkMode ( darkMode ) {
-        darkMode = !!darkMode;
-
-        if ( darkMode === this._darkMode ) return;
-
-        // turn off system dark mode
-        this.#setSystemDarkMode( false );
-
-        this.#setDarkMode( darkMode );
     }
 
     setTheme ( { base, accent } = {} ) {

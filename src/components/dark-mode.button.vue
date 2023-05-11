@@ -63,7 +63,7 @@ export default {
         },
 
         _onChange ( e ) {
-            themeStore.setDarkMode( e.detail.newValue );
+            themeStore.darkMode = e.detail.newValue;
         },
     },
 };
