@@ -241,9 +241,12 @@ export default {
 
         // XXX
         _chartReady () {
-            this.refresh();
+            console.log( "--- ready" );
+
+            // this.refresh();
         },
 
+        // XXX
         async refresh () {
             if ( !this.methodId ) {
                 this.$refs.cardsPanel.showNoDataCard();
@@ -256,10 +259,12 @@ export default {
                 exceptionsChart = this.$refs.exceptionsChart;
 
             // XXX
-            this.$refs.cardsPanel.setResult( { "ok": 1 } );
-            if ( !callsChart.chartReady || !durationChart.chartReady || !exceptionsChart.chartReady ) return;
+            // this.$refs.cardsPanel.showDataPsnel();
+            // if ( !callsChart.chartReady || !durationChart.chartReady || !exceptionsChart.chartReady ) return;
 
             this.$refs.cardsPanel.mask();
+
+            console.log( "--- REQUEST" );
 
             const res = await this.$api.call( "administration/api-status/get-latest-time-series", this.methodId );
 
