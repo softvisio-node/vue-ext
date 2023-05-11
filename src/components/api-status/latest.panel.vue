@@ -10,9 +10,9 @@
 
         <template #data>
             <ext-container layput="vbox" scrollable="true">
-                <Amcharts5 :createChart="_createCallsChart" height="150" :updateChart="_updateChart"/>
-                <Amcharts5 :createChart="_createDurationChart" height="150" :updateChart="_updateChart"/>
-                <Amcharts5 :createChart="_createExceptionsChart" height="150" :updateChart="_updateChart"/>
+                <Amcharts5 ref="callsChart" :createChart="_createCallsChart" height="150" :updateChart="_updateChart" @chartReady="_chartReady"/>
+                <Amcharts5 ref="durationChart" :createChart="_createDurationChart" height="150" :updateChart="_updateChart" @chartReady="_chartReady"/>
+                <Amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart" height="150" :updateChart="_updateChart" @chartReady="_chartReady"/>
             </ext-container>
         </template>
     </CardsPanel>
@@ -47,8 +47,6 @@ export default {
 
     "methods": {
         _createCallsChart ( cmp ) {
-            this._callsChart = cmp;
-
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -110,8 +108,6 @@ export default {
         },
 
         _createDurationChart ( cmp ) {
-            this._durationChart = cmp;
-
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -173,8 +169,6 @@ export default {
         },
 
         _createExceptionsChart ( cmp ) {
-            this._exceptionsChart = cmp;
-
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -245,12 +239,25 @@ export default {
             }
         },
 
+        // XXX
+        _chartReady () {
+            this.refresh();
+        },
+
         async refresh () {
             if ( !this.methodId ) {
                 this.$refs.cardsPanel.showNoDataCard();
 
                 return;
             }
+
+            const callsChart = this.$refs.callsChart,
+                durationChart = this.$refs.durationChart,
+                exceptionsChart = this.$refs.exceptionsChart;
+
+            // XXX
+            this.$refs.cardsPanel.setResult( { "ok": 1 } );
+            if ( !callsChart.chartReady || !durationChart.chartReady || !exceptionsChart.chartReady ) return;
 
             this.$refs.cardsPanel.mask();
 
@@ -267,9 +274,9 @@ export default {
             else {
                 this.$refs.cardsPanel.setResult( res );
 
-                this._callsChart.setData( res.data );
-                this._durationChart.setData( res.data );
-                this._exceptionsChart.setData( res.data );
+                callsChart.setData( res.data );
+                durationChart.setData( res.data );
+                exceptionsChart.setData( res.data );
             }
         },
     },

@@ -37,6 +37,7 @@ export default {
 
     "emits": ["chartReady"],
 
+    // XXX unlink store
     beforeUnmount () {
         if ( this._themeListener ) {
             themeStore.off( "darkModeChange", this._themeListener );
@@ -44,10 +45,7 @@ export default {
         }
 
         // destroy chart
-        if ( this.root ) {
-            this.root.dispose();
-            this.root = null;
-        }
+        this._destroyRoot();
 
         // destroy ext component
         if ( this.ext ) {
@@ -126,7 +124,7 @@ export default {
             if ( this.root ) return;
 
             if ( !this._themeListener ) {
-                this._themeListener = this.onThemeChange.bind( this );
+                this._themeListener = this._onThemeChange.bind( this );
                 themeStore.on( "darkModeChange", this._themeListener );
             }
 
@@ -150,6 +148,8 @@ export default {
 
             this.createChart( this );
 
+            this.chartReady = true;
+
             // automatically set data from store
             if ( this._store ) {
                 this._setDataFromStore();
@@ -166,13 +166,21 @@ export default {
             this.setData( data );
         },
 
-        onThemeChange ( theme ) {
-            if ( this.root ) {
-                this.root.dispose();
-                this.root = null;
+        _onThemeChange ( theme ) {
+            if ( !this.root ) return;
 
-                this._createRoot();
-            }
+            this._destroyRoot();
+
+            this._createRoot();
+        },
+
+        _destroyRoot () {
+            if ( !this.root ) return;
+
+            this.chartReady = false;
+
+            this.root.dispose();
+            this.root = null;
         },
     },
 };
