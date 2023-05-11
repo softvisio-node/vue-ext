@@ -1,5 +1,5 @@
 <template>
-    <ext-togglefield :disabled="disabled" :label="label" :labelAlign="labelAlign" :labelTextAlign="labelTextAlign" :labelWidth="labelWidth" :value="value" @change="value = $event"/>
+    <ext-togglefield ref="button" :disabled="disabled" :label="label" :labelAlign="labelAlign" :labelTextAlign="labelTextAlign" :labelWidth="labelWidth" @change="_onChange" @ready="_ready"/>
 </template>
 
 <script>
@@ -46,14 +46,24 @@ export default {
             }
         },
 
-        "value": {
-            get () {
-                return themeStore.darkMode || null;
-            },
+        darkMode () {
+            return themeStore.darkMode;
+        },
+    },
 
-            set ( e ) {
-                themeStore.setDarkMode( e.detail.newValue );
-            },
+    "watch": {
+        darkMode ( value ) {
+            this.$refs.button.ext.setValue( value );
+        },
+    },
+
+    "methods": {
+        _ready () {
+            this.$refs.button.ext.setValue( this.darkMode );
+        },
+
+        _onChange ( e ) {
+            themeStore.setDarkMode( e.detail.newValue );
         },
     },
 };
