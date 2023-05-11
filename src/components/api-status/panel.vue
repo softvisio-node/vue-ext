@@ -73,8 +73,6 @@ export default {
     },
 
     unmounted () {
-        this.autoRefreshEnabled = true;
-
         this._stopAutoRefresh();
     },
 
