@@ -45,6 +45,10 @@ export default {
         },
     },
 
+    create () {
+        this._linkStore( this.store );
+    },
+
     beforeUnmount () {
 
         // unlink store
@@ -111,12 +115,13 @@ export default {
         },
 
         _createChart () {
-            var refresh;
+            var refresh, hasData;
 
             if ( this.root ) {
-                this._destroyChart();
-
+                hasData = this.hasData;
                 refresh = true;
+
+                this._destroyChart();
             }
 
             if ( !this._themeListener ) {
@@ -144,13 +149,13 @@ export default {
 
             this.createChart( this );
 
+            this.chartReady = true;
+
             // automatically set data from store
             if ( this.store ) {
                 this._setDataFromStore();
             }
-            else if ( this.hasData ) {
-                this.hasData = false;
-
+            else if ( hasData ) {
                 if ( refresh ) {
                     this.$emit( "refresh", this );
                 }
@@ -159,6 +164,8 @@ export default {
 
         _setDataFromStore () {
             if ( !this.store ) return;
+
+            if ( !this.chartReady ) return;
 
             const data = Ext.Array.pluck( this.store.data.items, "data" );
 
@@ -173,6 +180,9 @@ export default {
 
         _destroyChart () {
             if ( !this.root ) return;
+
+            this.chartReady = false;
+            this.hasData = false;
 
             this.root.dispose();
             this.root = null;
