@@ -57,7 +57,7 @@ export default {
         }
 
         // destroy chart
-        this._destroyRoot();
+        this._destroyChart();
 
         // destroy ext component
         if ( this.ext ) {
@@ -162,12 +162,12 @@ export default {
         _onThemeChange ( theme ) {
             if ( !this.root ) return;
 
-            this._destroyRoot();
+            this._destroyChart();
 
             this._createChart();
         },
 
-        _destroyRoot () {
+        _destroyChart () {
             if ( !this.root ) return;
 
             this.chartReady = false;
