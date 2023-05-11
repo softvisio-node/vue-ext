@@ -1,5 +1,5 @@
 <template>
-    <ext-togglefield :disabled="disabled" :label="label" :labelAlign="labelAlign" :labelTextAlign="labelTextAlign" :labelWidth="labelWidth" :value="value" @change="value = $event"/>
+    <ext-togglefield ref="button" :disabled="disabled" :label="label" :labelAlign="labelAlign" :labelTextAlign="labelTextAlign" :labelWidth="labelWidth" @change="_onChange" @ready="_ready"/>
 </template>
 
 <script>
@@ -30,14 +30,24 @@ export default {
             return this.i18nd( `vue-ext`, `Use OS theme` );
         },
 
-        "value": {
-            get () {
-                return themeStore.systemDarkMode || null;
-            },
+        darkMode () {
+            return themeStore.systemDarkMode;
+        },
+    },
 
-            set ( e ) {
-                themeStore.systemDarkMode = e.detail.newValue;
-            },
+    "watch": {
+        systemDarkMode ( value ) {
+            this.$refs.button.ext.setValue( value );
+        },
+    },
+
+    "methods": {
+        _ready () {
+            this.$refs.button.ext.setValue( this.darkMode );
+        },
+
+        _onChange ( e ) {
+            themeStore.systemDarkMode = e.detail.newValue;
         },
     },
 };
