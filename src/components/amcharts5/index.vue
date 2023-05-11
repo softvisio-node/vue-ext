@@ -9,6 +9,18 @@ import themeStore from "#src/stores/theme";
 
 export default {
     "props": {
+        "createChart": {
+            "type": Function,
+            "required": true,
+        },
+        "updateChart": {
+            "type": Function,
+            "default": null,
+        },
+        "store": {
+            "type": Object,
+            "default": null,
+        },
         "animated": {
             "type": Boolean,
             "default": false,
@@ -23,7 +35,7 @@ export default {
         },
     },
 
-    "emits": ["ready"],
+    "emits": ["chartReady"],
 
     beforeUnmount () {
         if ( this._themeListener ) {
@@ -48,24 +60,6 @@ export default {
     "methods": {
 
         // public
-        setStore ( newStore ) {
-            const oldStore = this.store,
-                events = {
-                    "scope": this,
-                    "dataChanged": this._onStoreDataChanged,
-                };
-
-            this.store = newStore;
-
-            if ( oldStore ) oldStore.un( events );
-
-            if ( newStore ) {
-                newStore.on( events );
-
-                this._onStoreDataChanged();
-            }
-        },
-
         setData ( data ) {
             if ( this.updateChart ) {
                 this.updateChart( this, data );
@@ -83,6 +77,30 @@ export default {
 
             for ( const serie of chart.series ) {
                 serie.data.setAll( data || [] );
+            }
+        },
+
+        // XXX
+        _setStore ( store ) {
+            const events = {
+                "scope": this,
+                "dataChanged": this._setDataFromStore,
+            };
+
+            // remove old store
+            if ( this._store ) {
+                this._store.un( events );
+
+                this._store = null;
+            }
+
+            // set new store
+            if ( store ) {
+                this._store = store;
+
+                this._store.on( events );
+
+                this._setDataFromStore();
             }
         },
 
@@ -130,11 +148,20 @@ export default {
 
             this.root.setThemes( themes );
 
-            this.$emit( "ready", this );
+            this.createChart( this );
+
+            // automatically set data from store
+            if ( this._store ) {
+                this._setDataFromStore();
+            }
+
+            this.$emit( "chartReady", this );
         },
 
-        _onStoreDataChanged () {
-            const data = Ext.Array.pluck( this.store?.data.items, "data" );
+        _setDataFromStore () {
+            if ( !this._store ) return;
+
+            const data = Ext.Array.pluck( this._store?.data.items, "data" );
 
             this.setData( data );
         },

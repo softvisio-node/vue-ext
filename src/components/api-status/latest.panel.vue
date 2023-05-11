@@ -10,9 +10,9 @@
 
         <template #data>
             <ext-container layput="vbox" scrollable="true">
-                <Amcharts5 height="150" @ready="_createCallsChart"/>
-                <Amcharts5 height="150" @ready="_createDurationChart"/>
-                <Amcharts5 height="150" @ready="_createExceptionsChart"/>
+                <Amcharts5 :createChart="_createCallsChart" height="150" :updateChart="_updateChart"/>
+                <Amcharts5 :createChart="_createDurationChart" height="150" :updateChart="_updateChart"/>
+                <Amcharts5 :createChart="_createExceptionsChart" height="150" :updateChart="_updateChart"/>
             </ext-container>
         </template>
     </CardsPanel>
@@ -47,8 +47,6 @@ export default {
 
     "methods": {
         _createCallsChart ( cmp ) {
-            cmp.updateChart = this._updateChart.bind( this );
-
             this._callsChart = cmp;
 
             const root = cmp.root,
@@ -112,8 +110,6 @@ export default {
         },
 
         _createDurationChart ( cmp ) {
-            cmp.updateChart = this._updateChart.bind( this );
-
             this._durationChart = cmp;
 
             const root = cmp.root,
@@ -177,8 +173,6 @@ export default {
         },
 
         _createExceptionsChart ( cmp ) {
-            cmp.updateChart = this._updateChart.bind( this );
-
             this._exceptionsChart = cmp;
 
             const root = cmp.root,
