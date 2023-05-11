@@ -258,10 +258,6 @@ export default {
                 return;
             }
 
-            const callsChart = this.$refs.callsChart,
-                durationChart = this.$refs.durationChart,
-                exceptionsChart = this.$refs.exceptionsChart;
-
             this.$refs.cardsPanel.mask();
 
             const res = await this.$api.call( "administration/api-status/get-latest-time-series", this.methodId );
@@ -277,9 +273,9 @@ export default {
             else {
                 this.$refs.cardsPanel.setResult( res );
 
-                callsChart.setData( res.data );
-                durationChart.setData( res.data );
-                exceptionsChart.setData( res.data );
+                this.$refs.callsChart.setData( res.data );
+                this.$refs.durationChart.setData( res.data );
+                this.$refs.exceptionsChart.setData( res.data );
             }
         },
     },
