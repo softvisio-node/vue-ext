@@ -10,9 +10,9 @@
 
         <template #data>
             <ext-container layput="vbox" scrollable="true">
-                <Amcharts5 ref="callsChart" :createChart="_createCallsChart" height="150" :updateChart="_updateChart" @chartReady="_chartReady"/>
-                <Amcharts5 ref="durationChart" :createChart="_createDurationChart" height="150" :updateChart="_updateChart" @chartReady="_chartReady"/>
-                <Amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart" height="150" :updateChart="_updateChart" @chartReady="_chartReady"/>
+                <Amcharts5 ref="callsChart" :createChart="_createCallsChart" height="150" :updateChart="_updateChart" @chartDataReset="_chartDataReset"/>
+                <Amcharts5 ref="durationChart" :createChart="_createDurationChart" height="150" :updateChart="_updateChart" @chartDataReset="_chartDataReset"/>
+                <Amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart" height="150" :updateChart="_updateChart" @chartDataReset="_chartDataReset"/>
             </ext-container>
         </template>
     </CardsPanel>
@@ -239,14 +239,18 @@ export default {
             }
         },
 
-        // XXX
-        _chartReady () {
-            console.log( "--- ready" );
+        _chartDataReset () {
+            const callsChart = this.$refs.callsChart,
+                durationChart = this.$refs.durationChart,
+                exceptionsChart = this.$refs.exceptionsChart;
 
-            // this.refresh();
+            if ( callsChart.hasData ) return;
+            if ( durationChart.hasData ) return;
+            if ( exceptionsChart.hasData ) return;
+
+            this.refresh();
         },
 
-        // XXX
         async refresh () {
             if ( !this.methodId ) {
                 this.$refs.cardsPanel.showNoDataCard();
@@ -258,13 +262,7 @@ export default {
                 durationChart = this.$refs.durationChart,
                 exceptionsChart = this.$refs.exceptionsChart;
 
-            // XXX
-            // this.$refs.cardsPanel.showDataPsnel();
-            // if ( !callsChart.chartReady || !durationChart.chartReady || !exceptionsChart.chartReady ) return;
-
             this.$refs.cardsPanel.mask();
-
-            console.log( "--- REQUEST" );
 
             const res = await this.$api.call( "administration/api-status/get-latest-time-series", this.methodId );
 

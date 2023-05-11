@@ -35,7 +35,7 @@ export default {
         },
     },
 
-    "emits": ["chartReady"],
+    "emits": ["chartDataReset"],
 
     // XXX unlink store
     beforeUnmount () {
@@ -59,6 +59,8 @@ export default {
 
         // public
         setData ( data ) {
+            this.hasData = true;
+
             if ( this.updateChart ) {
                 this.updateChart( this, data );
             }
@@ -154,8 +156,11 @@ export default {
             if ( this._store ) {
                 this._setDataFromStore();
             }
+            else if ( this.hasData ) {
+                this.hasData = false;
 
-            this.$emit( "chartReady", this );
+                this.$emit( "chartDataReset", this );
+            }
         },
 
         _setDataFromStore () {
