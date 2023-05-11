@@ -1,5 +1,15 @@
 # Changelog
 
+### 8.2.3 (2023-05-11)
+
+Fixes:
+
+-   fix: amcharts theme
+-   fix: amchats
+-   fix: autoMask prop removed
+-   fix: darkmode button
+-   fix: theme
+
 ### 8.2.2 (2023-05-01)
 
 Fixes:
