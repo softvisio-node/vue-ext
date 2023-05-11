@@ -20,7 +20,7 @@ class Store extends VueStore {
     // state
     _systemDarkMode;
     _darkMode;
-    theme;
+    _theme;
 
     #events = new Events( { "maxListeners": Infinity } );
 
@@ -83,13 +83,13 @@ class Store extends VueStore {
         }
 
         // theme
-        this.theme = window.localStorage.getItem( THEME_KEY );
+        this._theme = window.localStorage.getItem( THEME_KEY );
 
-        if ( this.theme == null ) {
-            this.theme = DEFAULT_THEME;
+        if ( this._theme == null ) {
+            this._theme = DEFAULT_THEME;
         }
         else {
-            this.theme = { ...DEFAULT_THEME, ...JSON.parse( this.theme ) };
+            this._theme = { ...DEFAULT_THEME, ...JSON.parse( this._theme ) };
         }
 
         this.#applyExtTheme();
@@ -102,6 +102,10 @@ class Store extends VueStore {
 
     get darkMode () {
         return this._darkMode;
+    }
+
+    get theme () {
+        return this._theme;
     }
 
     // public
@@ -143,20 +147,20 @@ class Store extends VueStore {
     setTheme ( theme = {} ) {
         COMPARE: {
             for ( const property in theme ) {
-                if ( theme[property] !== this.theme[property] ) break COMPARE;
+                if ( theme[property] !== this._theme[property] ) break COMPARE;
             }
 
             // not changed
             return;
         }
 
-        this.theme = { ...this.theme, ...theme };
+        this._theme = { ...this._theme, ...theme };
 
-        window.localStorage.setItem( THEME_KEY, JSON.stringify( this.theme ) );
+        window.localStorage.setItem( THEME_KEY, JSON.stringify( this._theme ) );
 
         this.#applyExtTheme();
 
-        this.#events.emit( "themeChange", this.theme );
+        this.#events.emit( "themeChange", this._theme );
     }
 
     // private
@@ -191,7 +195,7 @@ class Store extends VueStore {
     }
 
     #applyExtTheme () {
-        Ext.theme.Material.setColors( { ...this.theme, "darkMode": this._darkMode } );
+        Ext.theme.Material.setColors( { ...this._theme, "darkMode": this._darkMode } );
     }
 }
 
