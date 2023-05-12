@@ -10,13 +10,14 @@ export default class VueExtViewport extends VueViewport {
     async init () {
         await super.init();
 
-        this.vue.use( Router );
-
-        // components requires .toString() method,
-        // because ext is trying to convert component to string when component is passed as scope to .on() call
-        this.vue.config.globalProperties.toString = function () {
-            return null;
-        };
+        return new Promise( resolve => {
+            Ext.application( {
+                "name": "-",
+                "quickTips": true,
+                "app": this.app,
+                "launch": () => resolve(),
+            } );
+        } );
     }
 
     mount ( selector ) {
@@ -26,16 +27,17 @@ export default class VueExtViewport extends VueViewport {
     }
 
     // protected
-    async _initViewport () {
-        return new Promise( resolve => {
-            Ext.application( {
-                "name": "-",
-                "quickTips": true,
-                "app": this.app,
-                "launch": () => {
-                    resolve();
-                },
-            } );
-        } );
+    _createVauApp () {
+        const vue = super._createVauApp();
+
+        vue.use( Router );
+
+        // components requires .toString() method,
+        // because ext is trying to convert component to string when component is passed as scope to .on() call
+        vue.config.globalProperties.toString = function () {
+            return null;
+        };
+
+        return vue;
     }
 }
