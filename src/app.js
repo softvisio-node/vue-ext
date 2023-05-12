@@ -2,25 +2,17 @@ import "#vue/locale";
 import VueApp from "@softvisio/vue/app";
 import Router from "#src/app/router";
 import AuthorizationDialog from "#src/components/authorization.dialog";
-import Theme from "#src/app/theme";
 
 export default class VueExtApp extends VueApp {
-    #theme;
     #router;
 
     // properties
-    get theme () {
-        return this.#theme;
-    }
-
     get router () {
         return this.#router;
     }
 
     // public
     async init () {
-        this.#theme = new Theme( this );
-
         this.#router = new Router( this );
 
         return super.init();

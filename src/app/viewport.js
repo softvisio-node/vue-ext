@@ -7,6 +7,14 @@ export default class VueExtViewport extends VueViewport {
 
     // public
     async init () {
+
+        // set theme listeners
+        this.app.theme.on( "darkModeChange", this.#applyTheme.bind( this ) );
+        this.app.theme.on( "themeChange", this.#applyTheme.bind( this ) );
+
+        // apply theme
+        this.#applyTheme();
+
         await super.init();
 
         return new Promise( resolve => {
@@ -38,5 +46,10 @@ export default class VueExtViewport extends VueViewport {
         };
 
         return vue;
+    }
+
+    // private
+    #applyTheme () {
+        Ext.theme.Material.setColors( { ...this.app.theme.theme, "darkMode": this.app.theme.darkMode } );
     }
 }
