@@ -3,8 +3,6 @@
 </template>
 
 <script>
-import themeStore from "#vue/stores/theme";
-
 export default {
     "props": {
         "hideLabel": {
@@ -47,7 +45,7 @@ export default {
         },
 
         darkMode () {
-            return themeStore.darkMode;
+            return this.$app.theme.darkMode;
         },
     },
 
@@ -63,7 +61,7 @@ export default {
         },
 
         _onChange ( e ) {
-            themeStore.darkMode = e.detail.newValue;
+            this.$app.theme.darkMode = e.detail.newValue;
         },
     },
 };

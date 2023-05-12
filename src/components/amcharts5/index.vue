@@ -5,7 +5,6 @@
 <script>
 import * as amcharts from "./loader.js";
 import "./ext.amcharts5.js";
-import themeStore from "#src/stores/theme";
 
 export default {
     "props": {
@@ -56,7 +55,7 @@ export default {
 
         // unlink theme
         if ( this._themeListener ) {
-            themeStore.off( "darkModeChange", this._themeListener );
+            this.$app.theme.off( "darkModeChange", this._themeListener );
             this._themeListener = null;
         }
 
@@ -125,7 +124,7 @@ export default {
 
             if ( !this._themeListener ) {
                 this._themeListener = this._onThemeChange.bind( this );
-                themeStore.on( "darkModeChange", this._themeListener );
+                this.$app.theme.on( "darkModeChange", this._themeListener );
             }
 
             this.root = amcharts.am5.Root.new( this.ext.innerElement.dom );
@@ -137,7 +136,7 @@ export default {
             if ( this.micro ) themes.push( amcharts.themeMicro.new( this.root ) );
 
             // color theme
-            if ( themeStore.darkMode ) {
+            if ( this.$app.theme.darkMode ) {
                 themes.push( amcharts.darkTheme.new( this.root ) );
             }
             else {

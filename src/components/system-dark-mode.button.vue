@@ -3,8 +3,6 @@
 </template>
 
 <script>
-import themeStore from "#vue/stores/theme";
-
 export default {
     "props": {
         "labelAlign": {
@@ -31,7 +29,7 @@ export default {
         },
 
         darkMode () {
-            return themeStore.systemDarkMode;
+            return this.$app.theme.systemDarkMode;
         },
     },
 
@@ -47,7 +45,7 @@ export default {
         },
 
         _onChange ( e ) {
-            themeStore.systemDarkMode = e.detail.newValue;
+            this.$app.theme.systemDarkMode = e.detail.newValue;
         },
     },
 };

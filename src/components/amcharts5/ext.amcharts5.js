@@ -1,5 +1,5 @@
 import * as amcharts from "./loader.js";
-import themeStore from "#src/stores/theme";
+import app from "@/app";
 
 Ext.define( "Ext.amcharts5", {
     "extend": "Ext.Panel",
@@ -28,7 +28,7 @@ Ext.define( "Ext.amcharts5", {
 
     doDestroy () {
         if ( this._themeListener ) {
-            themeStore.off( "darkModeChange", this._themeListener );
+            app.theme.off( "darkModeChange", this._themeListener );
             this._themeListener = null;
         }
 
@@ -84,7 +84,7 @@ Ext.define( "Ext.amcharts5", {
 
         if ( !this._themeListener ) {
             this._themeListener = this.onThemeChange.bind( this );
-            themeStore.on( "darkModeChange", this._themeListener );
+            app.theme.on( "darkModeChange", this._themeListener );
         }
 
         this.root = amcharts.am5.Root.new( this.innerElement.dom );
@@ -96,7 +96,7 @@ Ext.define( "Ext.amcharts5", {
         if ( this.micro ) themes.push( amcharts.themeMicro.new( this.root ) );
 
         // color theme
-        if ( themeStore.darkMode ) {
+        if ( app.theme.darkMode ) {
             themes.push( amcharts.darkTheme.new( this.root ) );
         }
         else {

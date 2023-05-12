@@ -17,14 +17,13 @@
 <script>
 import DarkModeButton from "#src/components/dark-mode.button";
 import SystemDarkModeButton from "#src/components/system-dark-mode.button";
-import themeStore from "#vue/stores/theme";
 
 export default {
     "components": { DarkModeButton, SystemDarkModeButton },
 
     "computed": {
         systemDarkMode () {
-            return themeStore.systemDarkMode;
+            return this.$app.theme.systemDarkMode;
         },
     },
 
@@ -58,13 +57,13 @@ export default {
         themeBaseChanged ( e ) {
             const record = e.detail.location.record;
 
-            themeStore.theme = { "base": record.get( "name" ) };
+            this.$app.theme.theme = { "base": record.get( "name" ) };
         },
 
         themeAccentChanged ( e ) {
             const record = e.detail.location.record;
 
-            themeStore.theme = { "accent": record.get( "name" ) };
+            this.$app.theme.theme = { "accent": record.get( "name" ) };
         },
     },
 };
