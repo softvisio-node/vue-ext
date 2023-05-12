@@ -10,7 +10,6 @@ const DEFAULT_THEME = {
     "accent": config.theme.accentColor,
 };
 
-// XXX move to viewport
 Ext.manifest.material = Ext.manifest.material || {};
 Ext.manifest.material.toolbar = Ext.manifest.material.toolbar || {};
 Ext.manifest.material.toolbar.dynamic = true;

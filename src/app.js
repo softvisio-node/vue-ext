@@ -1,9 +1,16 @@
 import "#vue/locale";
 import VueApp from "@softvisio/vue/app";
-import( "#src/stores/theme" );
 import AuthorizationDialog from "#src/components/authorization.dialog";
 
+// XXX
+const theme = ( await import( "#src/stores/theme" ) ).default;
+
 export default class VueExtApp extends VueApp {
+
+    // properties
+    get theme () {
+        return theme;
+    }
 
     // public
     async signout () {
