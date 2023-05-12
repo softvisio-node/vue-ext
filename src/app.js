@@ -1,10 +1,12 @@
 import "#vue/locale";
 import VueApp from "@softvisio/vue/app";
-import Router from "#src/router";
+import Router from "#src/app/router";
 import AuthorizationDialog from "#src/components/authorization.dialog";
 
 // XXX
 const theme = ( await import( "#src/stores/theme" ) ).default;
+
+// import theme from "#src/stores/theme";
 
 export default class VueExtApp extends VueApp {
     #router;

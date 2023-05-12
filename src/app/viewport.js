@@ -1,7 +1,7 @@
 import "#ext";
 import "#ewc";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import VueViewport from "@softvisio/vue/viewport1";
+import VueViewport from "@softvisio/vue/app/viewport";
 
 export default class VueExtViewport extends VueViewport {
 
