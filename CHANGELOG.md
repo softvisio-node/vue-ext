@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.4 (2023-05-12)
+
+Fixes:
+
+-   fix: app refactored
+
 ### 8.2.3 (2023-05-11)
 
 Fixes:
