@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.6 (2023-05-12)
+
+Fixes:
+
+-   fix: webpack compoent validator
+
 ### 8.2.5 (2023-05-12)
 
 Fixes:
