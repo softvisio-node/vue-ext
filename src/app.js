@@ -1,34 +1,11 @@
 import "#vue/locale";
-
-await import( /* webpackMode: "eager" */ "#ext" );
-await import( /* webpackMode: "eager" */ "#ewc" );
+import VueApp from "@softvisio/vue/app";
 import( "#src/stores/theme" );
-import( /* webpackChunkName: "fa" */ "@fortawesome/fontawesome-free/css/all.min.css" );
 import AuthorizationDialog from "#src/components/authorization.dialog";
 
-const _App = ( await import( /* webpackMode: "eager" */ "@softvisio/vue/app" ) ).default;
-const Router = ( await import( /* webpackMode: "eager" */ "#src/router" ) ).default;
-
-export default class App extends _App {
+export default class VueExtApp extends VueApp {
 
     // public
-    async init () {
-        await super.init();
-
-        this.vue.use( Router );
-
-        // components requires .toString() method, because ext is trying to convert component to string when component is passed as scope to .on() call
-        this.vue.config.globalProperties.toString = function () {
-            return null;
-        };
-    }
-
-    mount ( selector ) {
-
-        // mount to the Ext.Viewport
-        super.mount( Ext.Viewport.el.dom );
-    }
-
     async signout () {
 
         // mask viewport immidiately, this is required, when api is not connected
@@ -38,19 +15,6 @@ export default class App extends _App {
     }
 
     // protected
-    async _initViewport () {
-        return new Promise( resolve => {
-            Ext.application( {
-                "name": "-",
-                "quickTips": true,
-                "app": this,
-                "launch": () => {
-                    resolve();
-                },
-            } );
-        } );
-    }
-
     async _onConnectionError ( res ) {
         if ( res ) this.utils.toast( res );
 
