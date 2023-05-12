@@ -133,14 +133,17 @@ const Route = class {
 };
 
 export default class Router {
-    constructor () {
-        this.root = null;
-        this.route = null;
+    root = null;
+    route = null;
+    #app;
+
+    constructor ( app ) {
+        this.#app = app;
     }
 
-    // static
-    static install ( app, options ) {
-        app.config.globalProperties.$router = new this();
+    // properties
+    get app () {
+        return this.#app;
     }
 
     // public

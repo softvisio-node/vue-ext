@@ -2,7 +2,6 @@ import "#ext";
 import "#ewc";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import VueViewport from "@softvisio/vue/viewport1";
-import Router from "#src/router";
 
 export default class VueExtViewport extends VueViewport {
 
@@ -30,7 +29,7 @@ export default class VueExtViewport extends VueViewport {
     _createVauApp () {
         const vue = super._createVauApp();
 
-        vue.use( Router );
+        vue.config.globalProperties.$router = this.app.router;
 
         // components requires .toString() method,
         // because ext is trying to convert component to string when component is passed as scope to .on() call

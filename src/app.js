@@ -1,18 +1,30 @@
 import "#vue/locale";
 import VueApp from "@softvisio/vue/app";
+import Router from "#src/router";
 import AuthorizationDialog from "#src/components/authorization.dialog";
 
 // XXX
 const theme = ( await import( "#src/stores/theme" ) ).default;
 
 export default class VueExtApp extends VueApp {
+    #router;
 
     // properties
     get theme () {
         return theme;
     }
 
+    get router () {
+        return this.#router;
+    }
+
     // public
+    async init () {
+        this.#router = new Router( this );
+
+        return super.init();
+    }
+
     async signout () {
 
         // mask viewport immidiately, this is required, when api is not connected
