@@ -2,18 +2,15 @@ import "#vue/locale";
 import VueApp from "@softvisio/vue/app";
 import Router from "#src/app/router";
 import AuthorizationDialog from "#src/components/authorization.dialog";
-
-// XXX
-const theme = ( await import( "#src/stores/theme" ) ).default;
-
-// import theme from "#src/stores/theme";
+import Theme from "#src/app/theme";
 
 export default class VueExtApp extends VueApp {
+    #theme;
     #router;
 
     // properties
     get theme () {
-        return theme;
+        return this.#theme;
     }
 
     get router () {
@@ -22,6 +19,8 @@ export default class VueExtApp extends VueApp {
 
     // public
     async init () {
+        this.#theme = new Theme( this );
+
         this.#router = new Router( this );
 
         return super.init();
