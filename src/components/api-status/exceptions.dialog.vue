@@ -3,7 +3,7 @@
         <CardsPanel ref="cardsPanel" :store="store" @refresh="refresh">
             <template #docked>
                 <ext-toolbar docked="top">
-                    <ext-button :text="i18nd(`vue-ext`, `Clear log`)" @tap="_clearLog"/>
+                    <ext-button iconCls="fa-solid fa-trash-alt" :text="i18nd(`vue-ext`, `Clear log`)" @tap="_clearLog"/>
                     <ext-spacer/>
                     <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
