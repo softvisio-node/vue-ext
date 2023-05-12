@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.5 (2023-05-12)
+
+Fixes:
+
+-   fix: fontawesome
+
 ### 8.2.4 (2023-05-12)
 
 Fixes:
