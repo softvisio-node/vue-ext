@@ -24,7 +24,7 @@ export default class VueExtViewport extends VueViewport {
                 "name": "-",
                 "quickTips": true,
                 "app": this.app,
-                "launch": () => resolve(),
+                "launch": resolve,
             } );
         } );
     }

@@ -38,7 +38,18 @@ export default {
         },
 
         toggleNotificationsDialog () {
-            this.$refs.dialog.ext.showBy( this.ext, "tr-br" );
+            const dialog = this.$refs.dialog.ext;
+
+            // XXX fix for case, when .showBy() coordinates are incorrect on first show
+            if ( !this._initialized ) {
+                this._initialized = true;
+
+                dialog.showBy( this.ext, "tr-br" );
+                if ( dialog.activeAnimation ) dialog.activeAnimation.stop();
+                dialog.hide( false );
+            }
+
+            dialog.showBy( this.ext, "tr-br" );
         },
 
         _setNotificationsBadgeText () {
