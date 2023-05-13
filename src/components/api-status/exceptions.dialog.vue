@@ -3,7 +3,7 @@
         <CardsPanel ref="cardsPanel" :store="store" @refresh="refresh">
             <template #docked>
                 <ext-toolbar docked="top">
-                    <ext-button iconCls="fa-solid fa-trash-alt" :text="i18nd(`vue-ext`, `Clear log`)" @tap="_clearLog"/>
+                    <ext-button :disabled="!canDelete" iconCls="fa-solid fa-trash-alt" :text="i18nd(`vue-ext`, `Clear log`)" @tap="_clearLog"/>
                     <ext-spacer/>
                     <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
@@ -36,6 +36,12 @@ export default {
             "type": String,
             "required": true,
         },
+    },
+
+    data () {
+        return {
+            "canDelete": this.$app.hasPermissions( "development:delete" ),
+        };
     },
 
     "computed": {
