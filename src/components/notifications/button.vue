@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import NotificationsDialog from "./dialog";
+import NotificationsDialog from "#src/components/notifications/dialog";
 import notificationsStore from "#vue/stores/notifications";
 
 export default {

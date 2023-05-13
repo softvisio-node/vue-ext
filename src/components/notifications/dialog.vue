@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="80%" layout="fit" :title="i18nd(`vue-ext`, `Notifications settings`)" width="700" @ready="ready">
+    <ext-dialog closeAction="hide" height="80%" layout="fit" :title="i18nd(`vue-ext`, `Notifications settings`)" width="700" @ready="_ready">
         <NotificationsPanel/>
     </ext-dialog>
 </template>
@@ -11,7 +11,7 @@ export default {
     "components": { NotificationsPanel },
 
     "methods": {
-        ready ( e ) {
+        _ready ( e ) {
             this.ext = e.detail.cmp;
         },
     },
