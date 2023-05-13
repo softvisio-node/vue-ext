@@ -8,6 +8,7 @@
         <slot name="title"/>
 
         <!-- notifications button -->
+        <NotificationsButton align="right"/>
         <ext-button ref="notificationsButton" align="right" :hidden="!notificationsButtonEnabled" iconCls="fa-regular fa-bell" margin="10 20 0 0" width="55" @tap="showNotifications"/>
 
         <!-- avatar -->
@@ -33,11 +34,12 @@
 <script>
 import AvatarUser from "#src/components/avatar/user";
 import AppMenu from "./menu";
+import NotificationsButton from "#src/components/notifications/button";
 import NotificationsMenu from "#src/components/notifications/menu";
 import notificationsStore from "#vue/stores/notifications";
 
 export default {
-    "components": { AvatarUser, AppMenu, NotificationsMenu },
+    "components": { AvatarUser, AppMenu, NotificationsMenu, NotificationsButton },
 
     "props": {
         "notificationsButtonEnabled": {
