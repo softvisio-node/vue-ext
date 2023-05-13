@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.2.9 (2023-05-13)
+
+Fixes:
+
+-   fix: notifications
+-   fix: session store integrated to app
+
 ### 8.2.8 (2023-05-12)
 
 Fixes:
