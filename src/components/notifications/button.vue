@@ -1,6 +1,6 @@
 <template>
     <ext-container :hidden="hidden" @ready="_ready">
-        <ext-button ref="button" iconCls="fa-regular fa-bell" margin="10 20 0 0" ui="action" width="55" @tap="toggleNotificationsDialog"/>
+        <ext-button ref="button" iconCls="fa-regular fa-bell" margin="10 20 0 0" ui="action" width="55" @tap="showNotificationsDialog"/>
 
         <NotificationsDialog ref="dialog"/>
     </ext-container>
@@ -37,7 +37,7 @@ export default {
             this._setNotificationsBadgeText();
         },
 
-        toggleNotificationsDialog () {
+        showNotificationsDialog () {
             const dialog = this.$refs.dialog.ext;
 
             // XXX fix for case, when .showBy() coordinates are incorrect on first show
@@ -49,7 +49,7 @@ export default {
                 dialog.hide( false );
             }
 
-            dialog.showBy( this.ext, "tr-br" );
+            dialog.showBy( this.ext, "tr-tl" );
 
             notificationsStore.refreshRelativeTime();
         },
