@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="80%" iconCls="fa-regular fa-bell" layout="fit" :title="i18nd(`vue-ext`, `Notifications settings`)" width="700" @ready="_ready">
+    <ext-dialog closeAction="hide" height="80%" layout="fit" :title="i18nd(`vue-ext`, `Notifications settings`)" width="700" @ready="_ready">
         <NotificationsPanel/>
     </ext-dialog>
 </template>
