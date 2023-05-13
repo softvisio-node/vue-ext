@@ -14,15 +14,16 @@
             <slot name="top"/>
 
             <!-- account buttin -->
-            <ext-button :hidden="!accountButtonEnabled" iconCls="fa-solid fa-user-tie" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
+            <ext-button :hidden="!showAccountButton" iconCls="fa-solid fa-user-tie" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
 
+            <!-- change password button -->
             <ext-button :hidden="!changePasswordButtonEnabled" iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
 
             <!-- administration button                 -->
-            <ext-button :hidden="!showAdministration" :text="i18nd(`vue-ext`, `Administration`)" textAlign="left" @tap="showAdministrationDialog"/>
+            <ext-button :hidden="!showAdministrationButton" :text="i18nd(`vue-ext`, `Administration`)" textAlign="left" @tap="showAdministrationDialog"/>
 
             <!-- development button                 -->
-            <ext-button :hidden="!showDevelopment" :text="i18nd(`vue-ext`, `Development`)" textAlign="left" @tap="showDevelopmentDialog"/>
+            <ext-button :hidden="!showDevelopmentButton" :text="i18nd(`vue-ext`, `Development`)" textAlign="left" @tap="showDevelopmentDialog"/>
 
             <slot name="bottom"/>
 
@@ -57,14 +58,6 @@ export default {
     "components": { AvatarUser, LocaleButton, PushNotificationsButton, DarkModeButton },
 
     "props": {
-        "accountButtonEnabled": {
-            "type": Boolean,
-            "default": true,
-        },
-        "administrationButtonEnabled": {
-            "type": Boolean,
-            "default": true,
-        },
         "changePasswordButtonEnabled": {
             "type": Boolean,
             "default": false,
@@ -90,11 +83,15 @@ export default {
     },
 
     "computed": {
-        showAdministration () {
-            return this.isAdministrator && this.administrationButtonEnabled;
+        showAccountButton () {
+            return true;
         },
 
-        showDevelopment () {
+        showAdministrationButton () {
+            return this.isAdministrator;
+        },
+
+        showDevelopmentButton () {
             return this.isDeveloper;
         },
     },

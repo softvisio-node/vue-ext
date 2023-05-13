@@ -16,7 +16,7 @@
         <!-- menu button -->
         <ext-button align="right" height="50" :hidden="!menuEnabled" iconCls="fa-solid fa-bars" margin="0 0 0 5" width="40" @tap="showMenu"/>
 
-        <AppMenu ref="menu" :accountButtonEnabled="menuAccountButtonEnabled" :administrationButtonEnabled="menuAdministrationButtonEnabled" :changePasswordButtonEnabled="menuChangePasswordButtonEnabled" :pushNotificationsButtonEnabled="menuPushNotificationsButtonEnabled" @showAccountDialog="showAccountDialog">
+        <AppMenu ref="menu" :changePasswordButtonEnabled="menuChangePasswordButtonEnabled" :pushNotificationsButtonEnabled="menuPushNotificationsButtonEnabled" @showAccountDialog="showAccountDialog">
             <template #top>
                 <slot name="menuTop"/>
             </template>
@@ -50,14 +50,6 @@ export default {
             "default": true,
         },
         "menuEnabled": {
-            "type": Boolean,
-            "default": true,
-        },
-        "menuAccountButtonEnabled": {
-            "type": Boolean,
-            "default": true,
-        },
-        "menuAdministrationButtonEnabled": {
             "type": Boolean,
             "default": true,
         },
