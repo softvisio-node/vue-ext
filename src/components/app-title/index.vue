@@ -8,7 +8,7 @@
         <slot name="title"/>
 
         <!-- notifications button -->
-        <NotificationsButton align="right" :hidden="!notificationsButtonEnabled"/>
+        <NotificationsButton align="right" :hidden="!showNotificationsButton"/>
 
         <!-- avatar -->
         <AvatarUser align="right" height="40" :hidden="!avatarEnabled" width="40"/>
@@ -68,6 +68,10 @@ export default {
     "computed": {
         title () {
             return this.$app.session.title;
+        },
+
+        showNotificationsButton () {
+            return this.notificationsButtonEnabled && Ext.os.deviceType !== "Phone";
         },
     },
 
