@@ -13,11 +13,16 @@
         <ext-panel flex="1" layout="vbox" padding="10 10 10 30">
             <slot name="top"/>
 
+            <!-- account buttin -->
             <ext-button :hidden="!accountButtonEnabled" iconCls="fa-solid fa-user-tie" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
 
             <ext-button :hidden="!changePasswordButtonEnabled" iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
 
-            <ext-button :hidden="!administrationButtonEnabled" :text="i18nd(`vue-ext`, `Administration`)" textAlign="left" @tap="showAdministrationDialog"/>
+            <!-- administration button                 -->
+            <ext-button :hidden="!showAdministration" :text="i18nd(`vue-ext`, `Administration`)" textAlign="left" @tap="showAdministrationDialog"/>
+
+            <!-- development button                 -->
+            <ext-button :hidden="!showDevelopment" :text="i18nd(`vue-ext`, `Development`)" textAlign="left" @tap="showDevelopmentDialog"/>
 
             <slot name="bottom"/>
 
@@ -58,7 +63,7 @@ export default {
         },
         "administrationButtonEnabled": {
             "type": Boolean,
-            "default": false,
+            "default": true,
         },
         "changePasswordButtonEnabled": {
             "type": Boolean,
@@ -72,13 +77,25 @@ export default {
 
     "emits": ["showAccountDialog"],
 
+    data () {
+        return {
+            "email": this.$app.user.email,
+
+            "isRoot": this.$app.isRoot,
+
+            "isAdministrator": this.$app.hasPermissions( "admin:read" ),
+
+            "isDeveloper": this.$app.hasPermissions( "developer:all" ),
+        };
+    },
+
     "computed": {
-        isRoot () {
-            return this.$app.isRoot;
+        showAdministration () {
+            return this.isAdministrator && this.administrationButtonEnabled;
         },
 
-        email () {
-            return this.$app.user.email;
+        showDeveliopment () {
+            return this.isDeveloper;
         },
     },
 
@@ -118,6 +135,17 @@ export default {
         },
 
         async showAdministrationDialog () {
+            this.hide();
+
+            const module = await import( "#src/components/administration/dialog" );
+
+            const cmp = await this.$mount( module.default );
+
+            cmp.ext.show();
+        },
+
+        // XXX
+        async showDevelopmentDialog () {
             this.hide();
 
             const module = await import( "#src/components/administration/dialog" );

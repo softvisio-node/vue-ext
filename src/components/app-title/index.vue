@@ -59,7 +59,7 @@ export default {
         },
         "menuAdministrationButtonEnabled": {
             "type": Boolean,
-            "default": false,
+            "default": true,
         },
         "menuChangePasswordButtonEnabled": {
             "type": Boolean,
