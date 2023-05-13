@@ -19,7 +19,7 @@
 
 <script>
 import NotificationsSettingsDialog from "#src/components/notifications/settings.dialog";
-import notificationsStore from "#vue/stores/notifications";
+import notificationsStore from "#src/components/notifications/store";
 import CardsPanel from "#src/components/cards.panel";
 
 export default {

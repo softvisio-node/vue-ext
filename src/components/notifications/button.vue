@@ -8,7 +8,7 @@
 
 <script>
 import NotificationsDialog from "#src/components/notifications/dialog";
-import notificationsStore from "#vue/stores/notifications";
+import notificationsStore from "#src/components/notifications/store";
 
 export default {
     "components": { NotificationsDialog },
