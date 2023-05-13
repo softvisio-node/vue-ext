@@ -78,7 +78,7 @@ export default {
 
             "isAdministrator": this.$app.hasPermissions( "admin:read" ),
 
-            "isDeveloper": this.$app.hasPermissions( "developer:all" ),
+            "isDeveloper": this.$app.hasPermissions( "development:all" ),
         };
     },
 
