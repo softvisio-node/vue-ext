@@ -50,6 +50,8 @@ export default {
             }
 
             dialog.showBy( this.ext, "tr-br" );
+
+            notificationsStore.refreshRelativeTime();
         },
 
         _setNotificationsBadgeText () {
