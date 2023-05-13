@@ -144,11 +144,10 @@ export default {
             cmp.ext.show();
         },
 
-        // XXX
         async showDevelopmentDialog () {
             this.hide();
 
-            const module = await import( "#src/components/administration/dialog" );
+            const module = await import( "#src/components/development/dialog" );
 
             const cmp = await this.$mount( module.default );
 
