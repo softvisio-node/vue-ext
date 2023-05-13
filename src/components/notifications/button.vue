@@ -42,10 +42,6 @@ export default {
         },
 
         _setNotificationsBadgeText () {
-
-            // not ready
-            // if ( !this.$refs.notificationsButton.ext ) return;
-
             this.$refs.button.ext.setBadgeText( notificationsStore.totalUndoneUnread || "" );
         },
     },
