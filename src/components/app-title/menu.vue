@@ -75,10 +75,6 @@ export default {
             "email": this.$app.user.email,
 
             "isRoot": this.$app.isRoot,
-
-            "isAdministrator": this.$app.hasPermissions( "administration:read" ),
-
-            "isDeveloper": this.$app.hasPermissions( "development:read" ),
         };
     },
 
@@ -88,11 +84,11 @@ export default {
         },
 
         showAdministrationButton () {
-            return this.isAdministrator && Ext.os.deviceType !== "Phone";
+            return this.$app.hasPermissions( "administration:read" ) && Ext.os.deviceType !== "Phone";
         },
 
         showDevelopmentButton () {
-            return this.isDeveloper && Ext.os.deviceType !== "Phone";
+            return this.$app.hasPermissions( "development:read" ) && Ext.os.deviceType !== "Phone";
         },
     },
 
