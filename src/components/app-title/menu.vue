@@ -84,15 +84,15 @@ export default {
 
     "computed": {
         showAccountButton () {
-            return true;
+            return Ext.os.deviceType !== "Phone";
         },
 
         showAdministrationButton () {
-            return this.isAdministrator;
+            return this.isAdministrator && Ext.os.deviceType !== "Phone";
         },
 
         showDevelopmentButton () {
-            return this.isDeveloper;
+            return this.isDeveloper && Ext.os.deviceType !== "Phone";
         },
     },
 
