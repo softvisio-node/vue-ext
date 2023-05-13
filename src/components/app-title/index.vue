@@ -8,7 +8,7 @@
         <slot name="title"/>
 
         <!-- notifications button -->
-        <NotificationsButton align="right" :hidden="!notificationsbuttonenabled"/>
+        <NotificationsButton align="right" :hidden="!notificationsButtonEnabled"/>
 
         <!-- avatar -->
         <AvatarUser align="right" height="40" :hidden="!avatarEnabled" width="40"/>

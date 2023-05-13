@@ -1,5 +1,5 @@
 <template>
-    <ext-container @ready="_ready">
+    <ext-container :hidden="hidden" @ready="_ready">
         <ext-button ref="button" iconCls="fa-regular fa-bell" margin="10 20 0 0" ui="action" width="55" @tap="toggleNotificationsDialog"/>
 
         <NotificationsDialog ref="dialog"/>
@@ -12,6 +12,13 @@ import notificationsStore from "#vue/stores/notifications";
 
 export default {
     "components": { NotificationsDialog },
+
+    "props": {
+        "hidden": {
+            "type": Boolean,
+            "default": false,
+        },
+    },
 
     "computed": {
         totalUndoneUnread () {
