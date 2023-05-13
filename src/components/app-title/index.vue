@@ -1,5 +1,5 @@
 <template>
-    <ext-titlebar docked="top" padding="0 0 0 10" :title="title" titleAlign="left" @ready="ready">
+    <ext-titlebar docked="top" padding="0 0 0 10" :title="title" titleAlign="left">
         <slot name="logo"/>
 
         <!-- XXX this div is required to align components in slot after title -->
@@ -8,16 +8,13 @@
         <slot name="title"/>
 
         <!-- notifications button -->
-        <NotificationsButton align="right"/>
-        <ext-button ref="notificationsButton" align="right" :hidden="!notificationsButtonEnabled" iconCls="fa-regular fa-bell" margin="10 20 0 0" width="55" @tap="showNotifications"/>
+        <NotificationsButton align="right" :hidden="!notificationsbuttonenabled"/>
 
         <!-- avatar -->
         <AvatarUser align="right" height="40" :hidden="!avatarEnabled" width="40"/>
 
         <!-- menu button -->
         <ext-button align="right" height="50" :hidden="!menuEnabled" iconCls="fa-solid fa-bars" margin="0 0 0 5" width="40" @tap="showMenu"/>
-
-        <NotificationsMenu ref="notifications"/>
 
         <AppMenu ref="menu" :accountButtonEnabled="menuAccountButtonEnabled" :administrationButtonEnabled="menuAdministrationButtonEnabled" :changePasswordButtonEnabled="menuChangePasswordButtonEnabled" :pushNotificationsButtonEnabled="menuPushNotificationsButtonEnabled" @showAccountDialog="showAccountDialog">
             <template #top>
@@ -35,11 +32,9 @@
 import AvatarUser from "#src/components/avatar/user";
 import AppMenu from "./menu";
 import NotificationsButton from "#src/components/notifications/button";
-import NotificationsMenu from "#src/components/notifications/menu";
-import notificationsStore from "#vue/stores/notifications";
 
 export default {
-    "components": { AvatarUser, AppMenu, NotificationsMenu, NotificationsButton },
+    "components": { AvatarUser, AppMenu, NotificationsButton },
 
     "props": {
         "notificationsButtonEnabled": {
@@ -82,21 +77,9 @@ export default {
         title () {
             return this.$app.session.title;
         },
-
-        totalUndoneUnread () {
-            return notificationsStore.totalUndoneUnread;
-        },
-    },
-
-    "watch": {
-        "totalUndoneUnread": "_setNotificationsBadgeText",
     },
 
     "methods": {
-        ready ( e ) {
-            this._setNotificationsBadgeText();
-        },
-
         showMenu () {
             this.$refs.menu.show();
         },
@@ -105,26 +88,10 @@ export default {
             this.$refs.menu.hide();
         },
 
-        showNotifications () {
-            this.$refs.notifications.show();
-        },
-
-        hideNotifications () {
-            this.$refs.notifications.hide();
-        },
-
         showAccountDialog () {
             this.hideMenu();
 
             this.$emit( "showAccountDialog" );
-        },
-
-        _setNotificationsBadgeText () {
-
-            // not ready
-            if ( !this.$refs.notificationsButton.ext ) return;
-
-            this.$refs.notificationsButton.ext.setBadgeText( notificationsStore.totalUndoneUnread || "" );
         },
     },
 };

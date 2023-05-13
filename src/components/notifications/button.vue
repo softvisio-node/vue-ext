@@ -1,6 +1,6 @@
 <template>
     <ext-container @ready="_ready">
-        <ext-button ref="button" iconCls="fa-regular fa-bell" margin="10 20 0 0" ui="action" width="55" @tap="toggleNotifications"/>
+        <ext-button ref="button" iconCls="fa-regular fa-bell" margin="10 20 0 0" ui="action" width="55" @tap="toggleNotificationsDialog"/>
 
         <NotificationsDialog ref="dialog"/>
     </ext-container>
@@ -30,7 +30,7 @@ export default {
             this._setNotificationsBadgeText();
         },
 
-        toggleNotifications () {
+        toggleNotificationsDialog () {
             this.$refs.dialog.ext.showBy( this.ext, "tr-br" );
         },
 
