@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-05-01 02:15+0300\n"
+"POT-Creation-Date: 2023-05-13 19:43+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,19 +14,19 @@ msgstr ""
 "X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SearchPath-0: src\n"
 
-#: src/app.js:57:33
+#: src/app.js:33:33
 msgid "Unable to connect to the API server. Check, that you have internet connection."
 msgstr "Не вдається підключитися до сервера API. Перевірте, чи є у вас підключення до Інтернету."
 
-#: src/app.js:58:21
+#: src/app.js:34:21
 msgid "Connection error"
 msgstr "Помилка з'єднання"
 
-#: src/app.js:65:32
+#: src/app.js:41:32
 msgid "Your session was terminated on the API server."
 msgstr "Ваша сесія був припинений на сервері API."
 
-#: src/app.js:66:21
+#: src/app.js:42:21
 msgid "Session closed"
 msgstr "Сесія закрита"
 
@@ -50,7 +50,7 @@ msgstr "Режим сервера"
 msgid "Copy to clipboard"
 msgstr "Скопіювати у буфер обміну"
 
-#: src/components/about.dialog.vue:2:51 src/components/app-title/menu.vue:36:65
+#: src/components/about.dialog.vue:2:51 src/components/app-title/menu.vue:42:65
 msgid "About the project"
 msgstr "Про проект"
 
@@ -63,7 +63,7 @@ msgid "Locale"
 msgstr "Локаль"
 
 #: src/components/account/account.panel.vue:12:39
-#: src/components/app-title/menu.vue:18:101
+#: src/components/app-title/menu.vue:20:101
 #: src/components/change-password.dialog.vue:16:21
 #: src/components/reset-password.dialog.vue:17:31
 #: src/components/users/panel.vue:212:48
@@ -120,10 +120,6 @@ msgstr "Ім'я користувача Telegram"
 msgid "Confirmation email sent"
 msgstr "Лист із підтвердженням надіслано"
 
-#: src/components/account/appearance.panel.vue:3:33
-msgid "Use OS theme"
-msgstr "Використовувати тему ОС"
-
 #: src/components/account/appearance.panel.vue:7:66
 msgid "Base color"
 msgstr "Базовий колір"
@@ -133,7 +129,7 @@ msgid "Accent color"
 msgstr "Колір акценту"
 
 #: src/components/account/dialog.vue:2:72
-#: src/components/app-title/menu.vue:16:94
+#: src/components/app-title/menu.vue:17:91
 msgid "Your account"
 msgstr "Ваш аккаунт"
 
@@ -142,7 +138,7 @@ msgid "Account"
 msgstr "Аккаунт"
 
 #: src/components/account/panel.vue:9:40
-#: src/components/notifications/panel.vue:4:76
+#: src/components/notifications/dialog.vue:2:87
 msgid "Notifications"
 msgstr "Сповіщення"
 
@@ -278,16 +274,16 @@ msgid "Role disabled"
 msgstr "Роль вимкнено"
 
 #: src/components/administration/dialog.vue:2:72
-#: src/components/app-title/menu.vue:20:70
+#: src/components/app-title/menu.vue:23:67
 msgid "Administration"
 msgstr "Адміністрування"
 
-#: src/components/administration/panel.vue:9:69
 #: src/components/api-status/dialog.vue:2:68
+#: src/components/development/panel.vue:4:40
 msgid "API status"
 msgstr "Статус API"
 
-#: src/components/api-status/exceptions.dialog.vue:6:39
+#: src/components/api-status/exceptions.dialog.vue:6:94
 msgid "Clear log"
 msgstr "Очистити журнал"
 
@@ -307,7 +303,7 @@ msgstr "Статус"
 msgid "Status text"
 msgstr "Текст статусу"
 
-#: src/components/api-status/exceptions.dialog.vue:43:19
+#: src/components/api-status/exceptions.dialog.vue:49:19
 #, javascript-format
 msgid "Exceptions log for the API method: ${n}"
 msgstr "Журнал винятків для методу API: ${n}"
@@ -317,32 +313,32 @@ msgstr "Журнал винятків для методу API: ${n}"
 msgid "Historical charts for the API method: ${n}"
 msgstr "Історичні діаграми для методу API: ${n}"
 
-#: src/components/api-status/historical.dialog.vue:78:24
+#: src/components/api-status/historical.dialog.vue:74:24
 msgid "Calls for the last 30 days"
 msgstr "Виклики за останні 30 днів"
 
-#: src/components/api-status/historical.dialog.vue:109:33
-#: src/components/api-status/latest.panel.vue:104:33
-#: src/components/api-status/panel.vue:152:28
+#: src/components/api-status/historical.dialog.vue:105:33
+#: src/components/api-status/latest.panel.vue:100:33
+#: src/components/api-status/panel.vue:150:28
 msgid "Calls"
 msgstr "Виклики"
 
-#: src/components/api-status/historical.dialog.vue:174:24
+#: src/components/api-status/historical.dialog.vue:166:24
 msgid "Average duration per call for the last 30 days (ms)"
 msgstr "Середня тривалість виклика за останні 30 днів (мс)"
 
-#: src/components/api-status/historical.dialog.vue:205:33
-#: src/components/api-status/latest.panel.vue:169:33
+#: src/components/api-status/historical.dialog.vue:197:33
+#: src/components/api-status/latest.panel.vue:161:33
 msgid "Duration"
 msgstr "Тривалість"
 
-#: src/components/api-status/historical.dialog.vue:249:24
+#: src/components/api-status/historical.dialog.vue:237:24
 msgid "Exceptions percent for the last 30 days (%)"
 msgstr "Відсоток винятків за останні 30 днів (%)"
 
-#: src/components/api-status/historical.dialog.vue:280:33
-#: src/components/api-status/latest.panel.vue:234:33
-#: src/components/api-status/panel.vue:173:28
+#: src/components/api-status/historical.dialog.vue:268:33
+#: src/components/api-status/latest.panel.vue:222:33
+#: src/components/api-status/panel.vue:171:28
 msgid "Exceptions"
 msgstr "Винятки"
 
@@ -351,15 +347,15 @@ msgstr "Винятки"
 msgid "API method: ${n}"
 msgstr "Метод API: ${n}"
 
-#: src/components/api-status/latest.panel.vue:74:24
+#: src/components/api-status/latest.panel.vue:70:24
 msgid "Calls for the last 60 minutes"
 msgstr "Виклики за останні 60 хвилин"
 
-#: src/components/api-status/latest.panel.vue:139:24
+#: src/components/api-status/latest.panel.vue:131:24
 msgid "Average duration per call for the last 60 minutes (ms)"
 msgstr "Середня тривалість виклику за останні 60 хвилин (мс)"
 
-#: src/components/api-status/latest.panel.vue:204:24
+#: src/components/api-status/latest.panel.vue:192:24
 msgid "Exceptions percent for the last 60 minutes (%)"
 msgstr "Відсоток винятків за останні 60 хвилин (%)"
 
@@ -375,23 +371,23 @@ msgstr "Автоматичне оновлення"
 msgid "Latest charts"
 msgstr "Останні діаграми"
 
-#: src/components/api-status/panel.vue:145:28
+#: src/components/api-status/panel.vue:143:28
 msgid "Method name"
 msgstr "Назва методу"
 
-#: src/components/api-status/panel.vue:159:28
+#: src/components/api-status/panel.vue:157:28
 msgid "Duration / call (ms)"
 msgstr "Тривалість / виклик (мс)"
 
-#: src/components/api-status/panel.vue:166:28
+#: src/components/api-status/panel.vue:164:28
 msgid "Duration (%)"
 msgstr "Тривалість (%)"
 
-#: src/components/api-status/panel.vue:180:28
+#: src/components/api-status/panel.vue:178:28
 msgid "Exceptions / call (%)"
 msgstr "Винятки / виклик (%)"
 
-#: src/components/api-status/panel.vue:201:29
+#: src/components/api-status/panel.vue:199:29
 #, javascript-format
 msgid "${n} day"
 msgid_plural "${n} days"
@@ -399,20 +395,25 @@ msgstr[0] "${n} день"
 msgstr[1] "${n} дня"
 msgstr[2] "${n} днів"
 
-#: src/components/api-status/panel.vue:203:61
-#: src/components/api-status/panel.vue:299:49
+#: src/components/api-status/panel.vue:201:61
+#: src/components/api-status/panel.vue:297:49
 msgid "Period"
 msgstr "Період"
 
-#: src/components/api-status/panel.vue:230:39
+#: src/components/api-status/panel.vue:228:39
 msgid "Historical charts"
 msgstr "Історичні діаграми"
 
-#: src/components/api-status/panel.vue:236:39
+#: src/components/api-status/panel.vue:234:39
 msgid "Exceptions log"
 msgstr "Журнал винятків"
 
-#: src/components/app-title/menu.vue:38:66
+#: src/components/app-title/menu.vue:26:64
+#: src/components/development/dialog.vue:2:72
+msgid "Development"
+msgstr "Розробка"
+
+#: src/components/app-title/menu.vue:44:66
 #: src/components/user-sessions/panel.vue:76:39
 msgid "Sign out"
 msgstr "Вийти"
@@ -513,7 +514,7 @@ msgstr "Авторизовано"
 msgid "Unable to load data"
 msgstr "Не вдалося завантажити дані"
 
-#: src/components/cards.panel.vue:65:41
+#: src/components/cards.panel.vue:61:41
 msgid "No data match search criteria"
 msgstr "Жодні дані не відповідають критеріям пошуку"
 
@@ -584,24 +585,24 @@ msgstr "Зміна пароля"
 msgid "Password changed"
 msgstr "Пароль змінено"
 
-#: src/components/dark-mode.button.vue:45:61
+#: src/components/dark-mode.button.vue:43:61
 msgid "Dark mode"
 msgstr "Темний режим"
 
-#: src/components/notifications/panel.vue:5:107
+#: src/components/notifications/panel.vue:6:107
 msgid "Mark all as read"
 msgstr "Позначити все як прочитане"
 
-#: src/components/notifications/panel.vue:7:107
+#: src/components/notifications/panel.vue:8:107
 msgid "Delete all"
 msgstr "Видалити все"
 
-#: src/components/notifications/panel.vue:8:78
+#: src/components/notifications/panel.vue:9:78
 #: src/components/notifications/settings.dialog.vue:2:50
 msgid "Notifications settings"
 msgstr "Налаштування сповіщень"
 
-#: src/components/notifications/panel.vue:9:79
+#: src/components/notifications/panel.vue:10:79
 msgid "Refresh notifications"
 msgstr "Оновити сповіщення"
 
@@ -609,15 +610,15 @@ msgstr "Оновити сповіщення"
 msgid "You have no notifications"
 msgstr "У вас немає сповіщень"
 
-#: src/components/notifications/panel.vue:92:43
+#: src/components/notifications/panel.vue:93:43
 msgid "Mark as read"
 msgstr "Позначити як прочитане"
 
-#: src/components/notifications/panel.vue:99:43
+#: src/components/notifications/panel.vue:100:43
 msgid "Mark as unread"
 msgstr "Позначити все як непрочитане"
 
-#: src/components/notifications/panel.vue:113:43
+#: src/components/notifications/panel.vue:114:43
 msgid "Delete"
 msgstr "Видалити"
 
@@ -675,21 +676,25 @@ msgstr "Розмір за замовчуванням"
 msgid "Zoom out"
 msgstr "Зменшити"
 
-#: src/components/push-notifications.button.vue:38:23
+#: src/components/push-notifications.button.vue:36:23
 msgid "Receive push notifications"
 msgstr "Отримувати push повідомлення"
 
-#: src/components/push-notifications.button.vue:74:39
+#: src/components/push-notifications.button.vue:72:39
 msgid "Push notifications enabled"
 msgstr "Push повідомлення ввімкнено"
 
-#: src/components/push-notifications.button.vue:77:39
+#: src/components/push-notifications.button.vue:75:39
 msgid "Push notifications disabled"
 msgstr "Push повідомлення вимкнено"
 
 #: src/components/reset-password.dialog.vue:53:35
 msgid "Password recovery token was not found"
 msgstr "Токен відновлення пароля не знайдено"
+
+#: src/components/system-dark-mode.button.vue:28:19
+msgid "Use OS theme"
+msgstr "Використовувати тему ОС"
 
 #: src/components/user-sessions/panel.vue:7:70
 msgid "Sign out of all sessions"
