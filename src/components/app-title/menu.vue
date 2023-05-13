@@ -94,7 +94,7 @@ export default {
             return this.isAdministrator && this.administrationButtonEnabled;
         },
 
-        showDeveliopment () {
+        showDevelopment () {
             return this.isDeveloper;
         },
     },
