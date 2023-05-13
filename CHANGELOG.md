@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.10 (2023-05-13)
+
+Fixes:
+
+-   fix: development panel
+
 ### 8.2.9 (2023-05-13)
 
 Fixes:
