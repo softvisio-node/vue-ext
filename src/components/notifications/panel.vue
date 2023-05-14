@@ -1,20 +1,32 @@
 <template>
-    <CardsPanel ref="cardsPanel" :noDataMessage='`<div style="font-size:1.5em;">` + i18nd(`vue-ext`, `You have no notifications`) + `</div>`' :refreshOnRender="false" :store="store" @refresh="refresh">
-        <template #docked>
-            <ext-toolbar docked="top">
-                <ext-spacer/>
-                <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/>
-                <!-- <ext-button align="right" iconCls="fa-solid fa-check-double" :tooltip="i18nd( `vue-ext`,`Mark all as done`)" :hidden="!totalUndone" @tap="setDoneAll"/> -->
-                <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
-                <ext-button align="right" iconCls="fa-solid fa-cog" :tooltip="i18nd(`vue-ext`, `Notifications settings`)" @tap="showNotificationsSettingsDialog"/>
-                <ext-button align="right" iconCls="fa-solid fa-redo" :tooltip="i18nd(`vue-ext`, `Refresh notifications`)" @tap="refresh"/>
-            </ext-toolbar>
-        </template>
+    <ext-tabpanel flex="1" layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":"100"},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left">
+        <!-- inbox             -->
+        <ext-panel layout="fit" :title="i18nd(`vue-ext`, `Inbox`)">
+            <CardsPanel ref="cardsPanel" :noDataMessage='`<div style="font-size:1.5em;">` + i18nd(`vue-ext`, `You have no notifications`) + `</div>`' :refreshOnRender="false" :store="store" @refresh="refresh">
+                <template #docked>
+                    <ext-toolbar docked="top">
+                        <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/>
+                        <!-- <ext-button align="right" iconCls="fa-solid fa-check-double" :tooltip="i18nd( `vue-ext`,`Mark all as done`)" :hidden="!totalUndone" @tap="setDoneAll"/> -->
+                        <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
 
-        <template #data>
-            <ext-componentdataview itemCls="x-listitem" layout="vbox" scrollable="true" @ready="_listReady"/>
-        </template>
-    </CardsPanel>
+                        <ext-spacer/>
+
+                        <ext-button align="right" iconCls="fa-solid fa-cog" :tooltip="i18nd(`vue-ext`, `Notifications settings`)" @tap="showNotificationsSettingsDialog"/>
+                        <ext-button align="right" iconCls="fa-solid fa-redo" :tooltip="i18nd(`vue-ext`, `Refresh notifications`)" @tap="refresh"/>
+                    </ext-toolbar>
+                </template>
+
+                <template #data>
+                    <ext-componentdataview itemCls="x-listitem" layout="vbox" scrollable="true" @ready="_listReady"/>
+                </template>
+            </CardsPanel>
+        </ext-panel>
+
+        <!-- done -->
+        <ext-panel iconAlign="left" iconCls="fa-regular fa-square-check" layout="fit" :title="i18nd(`vue-ext`, `Done`)">
+            <!-- - -->
+        </ext-panel>
+    </ext-tabpanel>
 </template>
 
 <script>
