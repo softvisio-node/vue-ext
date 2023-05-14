@@ -21,13 +21,13 @@ export default {
     "components": { InboxPanel, DonePanel },
 
     "computed": {
-        totalUndone () {
-            return notificationsStore.totalUndone;
+        totalInbox () {
+            return notificationsStore.totalInbox;
         },
     },
 
     "watch": {
-        "totalUndone": "_setNotificationsBadgeText",
+        "totalInbox": "_setNotificationsBadgeText",
     },
 
     "methods": {
@@ -38,7 +38,7 @@ export default {
         },
 
         _setNotificationsBadgeText () {
-            this._inboxTab.setBadgeText( notificationsStore.totalUndone || "" );
+            this._inboxTab.setBadgeText( notificationsStore.totalInbox || "" );
         },
     },
 };

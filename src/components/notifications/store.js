@@ -7,7 +7,7 @@ const api = app.api,
     utils = app.utils;
 
 class Store extends VueStore {
-    totalUndone = 0;
+    totalInbox = 0;
     totalDone = 0;
 
     #inboxStore;
@@ -120,7 +120,7 @@ class Store extends VueStore {
         this.refreshRelativeTime();
 
         if ( inbox ) {
-            this.totalUndone = this.inboxStore.getSummaryRecord().get( "total" );
+            this.totalInbox = this.inboxStore.getSummaryRecord().get( "total" );
         }
         else {
             this.totalDone = this.doneStore.getSummaryRecord().get( "total" );

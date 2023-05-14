@@ -27,7 +27,7 @@ export default {
 
     "computed": {
         hasNotifications () {
-            return !!notificationsStore.totalUndone;
+            return !!notificationsStore.totalInbox;
         },
     },
 

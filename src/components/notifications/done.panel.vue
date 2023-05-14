@@ -3,7 +3,7 @@
         <template #docked>
             <ext-toolbar docked="top">
                 <!-- set all as done                         -->
-                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-arrow-right" :text="i18nd(`vue-ext`, `Move all to inbox`)" @tap="setUndoneAll"/>
+                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-arrow-right" :text="i18nd(`vue-ext`, `Move all to inbox`)" @tap="moveAllToInbox"/>
 
                 <ext-spacer/>
 
@@ -87,7 +87,7 @@ export default {
                                 "xtype": "button",
                                 "iconCls": "fa-solid fa-arrow-right",
                                 "tooltip": this.i18nd( "vue-ext", "Move to inbox" ),
-                                "handler": this._setUndone.bind( this ),
+                                "handler": this._moveToInbox.bind( this ),
                             },
 
                             {
@@ -108,7 +108,7 @@ export default {
             this.store.loadPage( 1 );
         },
 
-        async setUndoneAll () {
+        async moveAllToInbox () {
             await notificationsStore.updateAllNotifications( { "done": false } );
         },
 
@@ -116,7 +116,7 @@ export default {
             await notificationsStore.deleteNotification( { "done": true } );
         },
 
-        async _setUndone ( button ) {
+        async _moveToInbox ( button ) {
             const record = button.lookupViewModel().get( "record" );
 
             button.disable();

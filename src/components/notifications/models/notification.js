@@ -24,6 +24,5 @@ export default Ext.define( "", {
 
     "summary": {
         "total": { "type": "integer" },
-        "total_undone_unread": { "type": "integer" },
     },
 } );
