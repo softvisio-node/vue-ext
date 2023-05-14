@@ -1,32 +1,30 @@
 <template>
-    <ext-panel layout="fit" :title="i18nd(`vue-ext`, `Inbox`)">
-        <CardsPanel ref="cardsPanel" :noDataMessage='`<div style="font-size:1.5em;">` + i18nd(`vue-ext`, `You have no notifications`) + `</div>`' :refreshOnRender="false" :store="store" @refresh="refresh">
-            <template #docked>
-                <ext-toolbar docked="top">
-                    <!-- mark all as read -->
-                    <!-- <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/> -->
+    <CardsPanel ref="cardsPanel" :noDataMessage='`<div style="font-size:1.5em;">` + i18nd(`vue-ext`, `You have no notifications`) + `</div>`' :refreshOnRender="false" :store="store" @refresh="refresh">
+        <template #docked>
+            <ext-toolbar docked="top">
+                <!-- mark all as read -->
+                <!-- <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/> -->
 
-                    <!-- set all as done                         -->
-                    <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-upload" :tooltip="i18nd(`vue-ext`, `Move all to inbox`)" @tap="setDoneAll"/>
+                <!-- set all as done                         -->
+                <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-upload" :tooltip="i18nd(`vue-ext`, `Move all to inbox`)" @tap="setDoneAll"/>
 
-                    <!-- delete all -->
-                    <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
+                <!-- delete all -->
+                <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
 
-                    <ext-spacer/>
+                <ext-spacer/>
 
-                    <!-- settings button                         -->
-                    <ext-button align="right" iconCls="fa-solid fa-cog" :tooltip="i18nd(`vue-ext`, `Notifications settings`)" @tap="showNotificationsSettingsDialog"/>
+                <!-- settings button                         -->
+                <ext-button align="right" iconCls="fa-solid fa-cog" :tooltip="i18nd(`vue-ext`, `Notifications settings`)" @tap="showNotificationsSettingsDialog"/>
 
-                    <!-- refresh button -->
-                    <ext-button align="right" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
-                </ext-toolbar>
-            </template>
+                <!-- refresh button -->
+                <ext-button align="right" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+            </ext-toolbar>
+        </template>
 
-            <template #data>
-                <ext-componentdataview itemCls="x-listitem" layout="vbox" scrollable="true" @ready="_listReady"/>
-            </template>
-        </CardsPanel>
-    </ext-panel>
+        <template #data>
+            <ext-componentdataview itemCls="x-listitem" layout="vbox" scrollable="true" @ready="_listReady"/>
+        </template>
+    </CardsPanel>
 </template>
 
 <script>
