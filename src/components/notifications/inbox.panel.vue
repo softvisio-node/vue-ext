@@ -84,21 +84,6 @@ export default {
 
                             { "xtype": "spacer" },
 
-                            // {
-                            //     "xtype": "button",
-                            //     "iconCls": "fa-solid fa-eye",
-                            //     "tooltip": this.i18nd( "vue-ext", "Mark as read" ),
-                            //     "bind": { "hidden": "{record.read}" },
-                            //     "handler": this._setRead.bind( this ),
-                            // },
-                            // {
-                            //     "xtype": "button",
-                            //     "iconCls": "fa-solid fa-eye-slash",
-                            //     "tooltip": this.i18nd( "vue-ext", "Mark as unread" ),
-                            //     "bind": { "hidden": "{!record.read}" },
-                            //     "handler": this._setUnread.bind( this ),
-                            // },
-
                             {
                                 "xtype": "button",
                                 "iconCls": "fa-solid fa-check",
