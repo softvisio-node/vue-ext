@@ -57,14 +57,14 @@ export default {
 
                         // subject
                         {
-                            "xtype": "component",
+                            "xtype": "container",
                             "cls": "notification-subject",
                             "bind": `• {record.subject}`,
                         },
 
                         // body
                         {
-                            "xtype": "component",
+                            "xtype": "container",
                             "cls": "notification-body",
                             "bind": `{record.body}`,
                         },
