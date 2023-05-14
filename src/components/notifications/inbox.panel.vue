@@ -58,13 +58,15 @@ export default {
                         // subject
                         {
                             "xtype": "component",
-                            "bind": `<span class="notification-subject">• {record.subject}</span>`,
+                            "cls": "notification-subject",
+                            "bind": `• {record.subject}`,
                         },
 
                         // body
                         {
                             "xtype": "component",
-                            "bind": `<span class="notification-body">{record.body}</span>`,
+                            "cls": "notification-body",
+                            "bind": `{record.body}`,
                         },
 
                         // status
