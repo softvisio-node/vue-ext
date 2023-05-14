@@ -82,8 +82,6 @@ class Store extends VueStore {
             utils.toast( res );
         }
         else {
-            this.#applyStats( res.meta );
-
             this.reload();
         }
     }
@@ -95,8 +93,6 @@ class Store extends VueStore {
             utils.toast( res );
         }
         else {
-            this.#applyStats( res.meta );
-
             this.reload();
         }
     }
@@ -108,8 +104,6 @@ class Store extends VueStore {
             utils.toast( res );
         }
         else {
-            this.#applyStats( res.meta );
-
             this.reload();
         }
     }
@@ -125,12 +119,6 @@ class Store extends VueStore {
 
     #getRelativeTime ( date ) {
         return locale.formatRelativeTime( date, "style:short" );
-    }
-
-    #applyStats ( meta ) {
-        if ( !meta.stats ) return;
-
-        this.totalUndone = meta.stats.total_undone;
     }
 }
 
