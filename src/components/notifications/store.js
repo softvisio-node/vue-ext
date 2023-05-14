@@ -36,7 +36,7 @@ class Store extends VueStore {
                 ],
             } );
 
-            this.#inboxStore.on( "load", this.#onLoad.bind( this ) );
+            this.#inboxStore.on( "load", this.#onLoad.bind( this, true ) );
         }
 
         return this.#inboxStore;
@@ -57,7 +57,7 @@ class Store extends VueStore {
                 ],
             } );
 
-            this.#doneStore.on( "load", this.#onLoad.bind( this ) );
+            this.#doneStore.on( "load", this.#onLoad.bind( this, false ) );
         }
 
         return this.#doneStore;
@@ -115,14 +115,12 @@ class Store extends VueStore {
     }
 
     // private
-    // XXX
-    #onLoad () {
-        return;
+    #onLoad ( inbox ) {
+        this.refreshRelativeTime();
 
-        // this.refreshRelativeTime();
-
-        // XXX
-        // this.totalUndone = this.inboxStore.getSummaryRecord().get( "total" );
+        if ( inbox ) {
+            this.totalUndone = this.inboxStore.getSummaryRecord().get( "total" );
+        }
     }
 
     #getRelativeTime ( date ) {
