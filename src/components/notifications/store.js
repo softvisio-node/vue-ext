@@ -64,7 +64,13 @@ class Store extends VueStore {
     }
 
     // public
+    // XXX
     reload () {
+
+        // XXX workaround for issue, when first lisr item clicked
+        this.inboxStore.loadRawData( [] );
+        this.doneStore.loadRawData( [] );
+
         this.inboxStore.loadPage( 1 );
         this.doneStore.loadPage( 1 );
     }
