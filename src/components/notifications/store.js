@@ -13,7 +13,7 @@ class Store extends VueStore {
     #store;
     #storeLoaded;
 
-    #doenStore;
+    #doneStore;
 
     constructor () {
         super();
@@ -54,8 +54,8 @@ class Store extends VueStore {
     }
 
     get doneStore () {
-        if ( !this.#doenStore ) {
-            this.#store = Ext.create( "Ext.data.Store", {
+        if ( !this.#doneStore ) {
+            this.#doneStore = Ext.create( "Ext.data.Store", {
                 "model": this.model,
                 "autoLoad": false,
                 "pageSize": 25,
@@ -68,10 +68,10 @@ class Store extends VueStore {
                 ],
             } );
 
-            this.#doenStore.on( "load", this.#onLoad.bind( this ) );
+            this.#doneStore.on( "load", this.#onLoad.bind( this ) );
         }
 
-        return this.#doenStore;
+        return this.#doneStore;
     }
 
     // public
