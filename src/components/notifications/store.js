@@ -10,7 +10,7 @@ class Store extends VueStore {
     totalUndone = 0;
     totalUndoneUnread = 0;
 
-    #store;
+    #inboxStore;
     #storeLoaded;
 
     #doneStore;
@@ -32,9 +32,9 @@ class Store extends VueStore {
         return NotificationModel;
     }
 
-    get store () {
-        if ( !this.#store ) {
-            this.#store = Ext.create( "Ext.data.Store", {
+    get inboxStore () {
+        if ( !this.#inboxStore ) {
+            this.#inboxStore = Ext.create( "Ext.data.Store", {
                 "model": this.model,
                 "autoLoad": false,
                 "pageSize": 25,
@@ -47,10 +47,10 @@ class Store extends VueStore {
                 ],
             } );
 
-            this.#store.on( "load", this.#onLoad.bind( this ) );
+            this.#inboxStore.on( "load", this.#onLoad.bind( this ) );
         }
 
-        return this.#store;
+        return this.#inboxStore;
     }
 
     get doneStore () {
@@ -76,12 +76,14 @@ class Store extends VueStore {
 
     // public
     reload () {
-        this.store.loadPage( 1 );
+        this.inboxStore.loadPage( 1 );
         this.doneStore.loadPage( 1 );
     }
 
     refreshRelativeTime () {
-        this.store.each( record => record.set( "relative_time", this.#getRelativeTime( record.get( "created" ) ) ) );
+        this.inboxStore.each( record => record.set( "relative_time", this.#getRelativeTime( record.get( "created" ) ) ) );
+
+        this.doneStore.each( record => record.set( "relative_time", this.#getRelativeTime( record.get( "created" ) ) ) );
     }
 
     async updateNotification ( notificationId, options ) {
@@ -124,13 +126,16 @@ class Store extends VueStore {
     }
 
     // private
+    // XXX
     #onLoad () {
-        this.#storeLoaded = true;
+        return;
 
-        this.refreshRelativeTime();
+        // this.#storeLoaded = true;
 
-        this.totalUndone = this.store.getSummaryRecord().get( "total" );
-        this.totalUndoneUnread = this.store.getSummaryRecord().get( "total_undone_unread" );
+        // this.refreshRelativeTime();
+
+        // this.totalUndone = this.inboxStore.getSummaryRecord().get( "total" );
+        // this.totalUndoneUnread = this.inboxStore.getSummaryRecord().get( "total_undone_unread" );
     }
 
     #getRelativeTime ( date ) {

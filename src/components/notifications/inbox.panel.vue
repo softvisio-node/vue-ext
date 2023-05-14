@@ -43,7 +43,7 @@ export default {
     },
 
     created () {
-        this.store = notificationsStore.store;
+        this.store = notificationsStore.inboxStore;
 
         this.store.reload();
     },
