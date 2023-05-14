@@ -34,7 +34,7 @@ export default {
         },
 
         refresh () {
-            notificationsStore.reload();
+            notificationsStore.refresh();
         },
 
         async showNotificationsSettingsDialog () {

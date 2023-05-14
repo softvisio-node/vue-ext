@@ -15,9 +15,9 @@ class Store extends VueStore {
     constructor () {
         super();
 
-        api.on( "connect", () => this.reload() );
+        api.on( "connect", this.refresh.bind( this ) );
 
-        api.on( "notifications", this.reload.bind( this ) );
+        api.on( "notifications", this.refresh.bind( this ) );
     }
 
     // properties
@@ -65,7 +65,7 @@ class Store extends VueStore {
 
     // public
     // XXX
-    reload () {
+    refresh () {
 
         // XXX workaround for issue, when first lisr item clicked
         this.inboxStore.loadRawData( [] );
@@ -88,7 +88,7 @@ class Store extends VueStore {
             utils.toast( res );
         }
         else {
-            this.reload();
+            this.refresh();
         }
     }
 
@@ -99,7 +99,7 @@ class Store extends VueStore {
             utils.toast( res );
         }
         else {
-            this.reload();
+            this.refresh();
         }
     }
 
@@ -110,7 +110,7 @@ class Store extends VueStore {
             utils.toast( res );
         }
         else {
-            this.reload();
+            this.refresh();
         }
     }
 
