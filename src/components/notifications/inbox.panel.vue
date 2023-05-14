@@ -13,7 +13,9 @@
         </template>
 
         <template #data>
-            <ext-componentdataview itemCls="x-listitem" layout="vbox" scrollable="true" @ready="_listReady"/>
+            <ext-grid hideHeaders="true" itemConfig='{"viewModel":true}' layout="fit" plugins='["autopaging"]' variableHeights="true" @ready="_gridReady">
+                <ext-column flex="1" @ready="_actionColReady"/>
+            </ext-grid>
         </template>
     </CardsPanel>
 </template>
@@ -36,69 +38,65 @@ export default {
     },
 
     "methods": {
-        _listReady ( e ) {
-            const ext = e.detail.cmp;
+        _gridReady ( e ) {
+            const cmp = e.detail.cmp;
 
-            ext.setPlugins( ["autopaging"] );
+            cmp.setStore( this.store );
+        },
 
-            ext.setStore( this.store );
+        _actionColReady ( e ) {
+            var cmp = e.detail.cmp;
 
-            const tapHandler = this.onNotificationClick.bind( this );
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "layout": "vbox",
+                    "padding": "5 10 0 10",
+                    "items": [
 
-            ext.setItemConfig( {
-                "xtype": "container",
-                "viewModel": true,
-                "layout": "vbox",
-                "padding": "5 10 0 10",
-                "items": [
-                    {
-                        "xtype": "component",
-                        "bind": `<span class="notification-subject">• {record.subject}</span>`,
-                        "listeners": {
-                            "tap": function () {
-                                tapHandler( this.component.lookupViewModel().get( "record" ) );
-                            },
-                            "element": "element",
+                        // subject
+                        {
+                            "xtype": "component",
+                            "bind": `<span class="notification-subject">• {record.subject}</span>`,
                         },
-                    },
-                    {
-                        "xtype": "component",
-                        "bind": `<span class="notification-body">{record.body}</span>`,
-                        "listeners": {
-                            "tap": function () {
-                                tapHandler( this.component.lookupViewModel().get( "record" ) );
-                            },
-                            "element": "element",
+
+                        // body
+                        {
+                            "xtype": "component",
+                            "bind": `<span class="notification-body">{record.body}</span>`,
                         },
-                    },
-                    {
-                        "xtype": "container",
-                        "layout": { "type": "hbox", "align": "center" },
-                        "margin": "5 0 0 0",
-                        "items": [
-                            {
-                                "xtype": "component",
-                                "bind": `<i class="fa-solid fa-clock"></i> {record.relative_time}`,
-                            },
 
-                            { "xtype": "spacer" },
+                        // status
+                        {
+                            "xtype": "container",
+                            "layout": { "type": "hbox", "align": "center" },
+                            "margin": "5 0 0 0",
+                            "items": [
+                                {
+                                    "xtype": "component",
+                                    "bind": `<i class="fa-solid fa-clock"></i> {record.relative_time}`,
+                                },
 
-                            {
-                                "xtype": "button",
-                                "iconCls": "fa-solid fa-check",
-                                "tooltip": this.i18nd( "vue-ext", "Mark as done" ),
-                                "handler": this._setDone.bind( this ),
-                            },
+                                { "xtype": "spacer" },
 
-                            {
-                                "xtype": "button",
-                                "iconCls": "fa-solid fa-trash-alt",
-                                "tooltip": this.i18nd( "vue-ext", "Delete" ),
-                                "handler": this._delete.bind( this ),
-                            },
-                        ],
-                    },
-                ],
+                                {
+                                    "xtype": "button",
+                                    "iconCls": "fa-solid fa-check",
+                                    "tooltip": this.i18nd( "vue-ext", "Mark as done" ),
+                                    "handler": this._setDone.bind( this ),
+                                },
+
+                                {
+                                    "xtype": "button",
+                                    "iconCls": "fa-solid fa-trash-alt",
+                                    "tooltip": this.i18nd( "vue-ext", "Delete" ),
+                                    "handler": this._delete.bind( this ),
+                                },
+                            ],
+                        },
+                    ],
+                },
             } );
         },
 
@@ -135,9 +133,6 @@ export default {
 
             button.enable();
         },
-
-        // XXX
-        onNotificationClick ( record ) {},
     },
 };
 </script>
