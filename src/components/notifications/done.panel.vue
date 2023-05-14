@@ -46,7 +46,7 @@ export default {
     },
 
     created () {
-        this.store = notificationsStore.store;
+        this.store = notificationsStore.doneStore;
 
         this.store.reload();
     },
