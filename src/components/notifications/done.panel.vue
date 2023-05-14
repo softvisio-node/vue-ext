@@ -115,6 +115,14 @@ export default {
             this.store.loadPage( 1 );
         },
 
+        async setUndoneAll () {
+            await notificationsStore.updateAllNotifications( { "done": false } );
+        },
+
+        async deleteAll () {
+            await notificationsStore.deleteNotification( { "done": true } );
+        },
+
         async _setUndone ( button ) {
             const record = button.lookupViewModel().get( "record" );
 
@@ -125,10 +133,6 @@ export default {
             button.enable();
         },
 
-        async setUndoneAll () {
-            await notificationsStore.updateAllNotifications( { "done": false } );
-        },
-
         async _delete ( button ) {
             const record = button.lookupViewModel().get( "record" );
 
@@ -137,10 +141,6 @@ export default {
             await notificationsStore.deleteNotification( { "id": record.id } );
 
             button.enable();
-        },
-
-        async deleteAll () {
-            await notificationsStore.deleteNotification( { "done": true } );
         },
 
         // XXX
