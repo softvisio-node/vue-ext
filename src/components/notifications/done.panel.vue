@@ -7,7 +7,7 @@
                     <!-- <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/> -->
 
                     <!-- set all as done                         -->
-                    <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-check" :tooltip="i18nd(`vue-ext`, `Mark all as done`)" @tap="setDoneAll"/>
+                    <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-upload" :tooltip="i18nd(`vue-ext`, `Move all to inbox`)" @tap="setDoneAll"/>
 
                     <!-- delete all -->
                     <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
@@ -118,8 +118,8 @@ export default {
 
                             {
                                 "xtype": "button",
-                                "iconCls": "fa-solid fa-check",
-                                "tooltip": this.i18nd( "vue-ext", "Mark as done" ),
+                                "iconCls": "fa-solid fa-upload",
+                                "tooltip": this.i18nd( "vue-ext", "Move to inbox" ),
                                 "handler": this._setDone.bind( this ),
                             },
 
