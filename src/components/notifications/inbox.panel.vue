@@ -3,10 +3,12 @@
         <template #docked>
             <ext-toolbar docked="top">
                 <!-- set all as done                         -->
-                <ext-button align="right" iconCls="fa-solid fa-check" :tooltip="i18nd(`vue-ext`, `Mark all notifications as done`)" @tap="setDoneAll"/>
+                <ext-button align="right" iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Mark all as done`)" @tap="setDoneAll"/>
+
+                <ext-spacer/>
 
                 <!-- delete all -->
-                <ext-button align="right" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all notifications in inbox`)" @tap="deleteAll"/>
+                <ext-button align="right" iconCls="fa-solid fa-trash-alt" :text="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
             </ext-toolbar>
         </template>
 

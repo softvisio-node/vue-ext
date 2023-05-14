@@ -3,10 +3,12 @@
         <template #docked>
             <ext-toolbar docked="top">
                 <!-- set all as done                         -->
-                <ext-button align="right" iconCls="fa-solid fa-upload" :tooltip="i18nd(`vue-ext`, `Move all notifications to the inbox`)" @tap="setUndoneAll"/>
+                <ext-button align="right" iconCls="fa-solid fa-arrow-right" :text="i18nd(`vue-ext`, `Move all to inbox`)" @tap="setUndoneAll"/>
+
+                <ext-spacer/>
 
                 <!-- delete all -->
-                <ext-button align="right" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all done notifications`)" @tap="deleteAll"/>
+                <ext-button align="right" iconCls="fa-solid fa-trash-alt" :text="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
             </ext-toolbar>
         </template>
 
@@ -77,7 +79,7 @@ export default {
 
                             {
                                 "xtype": "button",
-                                "iconCls": "fa-solid fa-upload",
+                                "iconCls": "fa-solid fa-arrow-right",
                                 "tooltip": this.i18nd( "vue-ext", "Move to inbox" ),
                                 "handler": this._setUndone.bind( this ),
                             },
