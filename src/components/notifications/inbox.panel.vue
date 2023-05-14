@@ -141,6 +141,7 @@ export default {
 
 <style>
 .notification-subject {
+    white-space: normal;
     cursor: pointer;
     font-size: 1.2em;
     font-weight: bold;
@@ -148,6 +149,7 @@ export default {
 
 .notification-body {
     cursor: pointer;
+    white-space: normal;
     /* font-weight: bold; */
     /* font-size: 1.2em; */
 }
