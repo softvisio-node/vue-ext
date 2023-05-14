@@ -112,7 +112,7 @@ export default {
         refresh ( e ) {
             this.$refs.cardsPanel.mask();
 
-            this.store.reload();
+            this.store.loadPage( 1 );
         },
 
         async _setUndone ( button ) {
