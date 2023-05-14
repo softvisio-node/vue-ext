@@ -28,14 +28,10 @@ class Store extends VueStore {
     }
 
     // properties
-    get model () {
-        return NotificationModel;
-    }
-
     get inboxStore () {
         if ( !this.#inboxStore ) {
             this.#inboxStore = Ext.create( "Ext.data.Store", {
-                "model": this.model,
+                "model": NotificationModel,
                 "autoLoad": false,
                 "pageSize": 25,
                 "filters": [
@@ -56,7 +52,7 @@ class Store extends VueStore {
     get doneStore () {
         if ( !this.#doneStore ) {
             this.#doneStore = Ext.create( "Ext.data.Store", {
-                "model": this.model,
+                "model": NotificationModel,
                 "autoLoad": false,
                 "pageSize": 25,
                 "filters": [
