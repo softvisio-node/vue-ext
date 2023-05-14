@@ -45,7 +45,7 @@ export default {
         },
 
         _actionColReady ( e ) {
-            var cmp = e.detail.cmp;
+            const cmp = e.detail.cmp;
 
             cmp.setCell( {
                 "xtype": "widgetcell",
