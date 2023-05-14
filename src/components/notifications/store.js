@@ -8,6 +8,7 @@ const api = app.api,
 
 class Store extends VueStore {
     totalUndone = 0;
+    totalDone = 0;
 
     #inboxStore;
     #doneStore;
@@ -120,6 +121,9 @@ class Store extends VueStore {
 
         if ( inbox ) {
             this.totalUndone = this.inboxStore.getSummaryRecord().get( "total" );
+        }
+        else {
+            this.totalDone = this.doneStore.getSummaryRecord().get( "total" );
         }
     }
 
