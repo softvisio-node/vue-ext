@@ -3,10 +3,10 @@
         <template #docked>
             <ext-toolbar docked="top">
                 <!-- set all as done                         -->
-                <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-upload" :tooltip="i18nd(`vue-ext`, `Move all to inbox`)" @tap="setUndoneAll"/>
+                <ext-button align="right" iconCls="fa-solid fa-upload" :tooltip="i18nd(`vue-ext`, `Move all to inbox`)" @tap="setUndoneAll"/>
 
                 <!-- delete all -->
-                <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
+                <ext-button align="right" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
 
                 <ext-spacer/>
 
@@ -31,16 +31,6 @@ import CardsPanel from "#src/components/cards.panel";
 
 export default {
     "components": { CardsPanel },
-
-    "computed": {
-        totalUndone () {
-            return !!notificationsStore.totalUndone;
-        },
-
-        totalUndoneUnread () {
-            return !!notificationsStore.totalUndoneUnread;
-        },
-    },
 
     created () {
         this.store = notificationsStore.doneStore;
