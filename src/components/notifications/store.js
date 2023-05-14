@@ -8,7 +8,6 @@ const api = app.api,
 
 class Store extends VueStore {
     totalUndone = 0;
-    totalUndoneUnread = 0;
 
     #inboxStore;
     #storeLoaded;
@@ -130,8 +129,8 @@ class Store extends VueStore {
 
         // this.refreshRelativeTime();
 
+        // XXX
         // this.totalUndone = this.inboxStore.getSummaryRecord().get( "total" );
-        // this.totalUndoneUnread = this.inboxStore.getSummaryRecord().get( "total_undone_unread" );
     }
 
     #getRelativeTime ( date ) {
@@ -142,7 +141,6 @@ class Store extends VueStore {
         if ( !meta.stats ) return;
 
         this.totalUndone = meta.stats.total_undone;
-        this.totalUndoneUnread = meta.stats.total_undone_unread;
     }
 }
 

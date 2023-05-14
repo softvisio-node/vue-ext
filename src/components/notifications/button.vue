@@ -21,13 +21,13 @@ export default {
     },
 
     "computed": {
-        totalUndoneUnread () {
-            return notificationsStore.totalUndoneUnread;
+        totalUndone () {
+            return notificationsStore.totalUndone;
         },
     },
 
     "watch": {
-        "totalUndoneUnread": "_setNotificationsBadgeText",
+        "totalUndone": "_setNotificationsBadgeText",
     },
 
     "methods": {
@@ -55,7 +55,7 @@ export default {
         },
 
         _setNotificationsBadgeText () {
-            this.$refs.button.ext.setBadgeText( notificationsStore.totalUndoneUnread || "" );
+            this.$refs.button.ext.setBadgeText( notificationsStore.totalUndone || "" );
         },
     },
 };
