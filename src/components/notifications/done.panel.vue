@@ -2,9 +2,6 @@
     <CardsPanel ref="cardsPanel" :noDataMessage='`<div style="font-size:1.5em;">` + i18nd(`vue-ext`, `You have no notifications`) + `</div>`' :refreshOnRender="false" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <!-- mark all as read -->
-                <!-- <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/> -->
-
                 <!-- set all as done                         -->
                 <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-upload" :tooltip="i18nd(`vue-ext`, `Move all to inbox`)" @tap="setUndoneAll"/>
 
@@ -99,21 +96,6 @@ export default {
 
                             { "xtype": "spacer" },
 
-                            // {
-                            //     "xtype": "button",
-                            //     "iconCls": "fa-solid fa-eye",
-                            //     "tooltip": this.i18nd( "vue-ext", "Mark as read" ),
-                            //     "bind": { "hidden": "{record.read}" },
-                            //     "handler": this._setRead.bind( this ),
-                            // },
-                            // {
-                            //     "xtype": "button",
-                            //     "iconCls": "fa-solid fa-eye-slash",
-                            //     "tooltip": this.i18nd( "vue-ext", "Mark as unread" ),
-                            //     "bind": { "hidden": "{!record.read}" },
-                            //     "handler": this._setUnread.bind( this ),
-                            // },
-
                             {
                                 "xtype": "button",
                                 "iconCls": "fa-solid fa-upload",
@@ -143,30 +125,6 @@ export default {
             this.$refs.cardsPanel.mask();
 
             this.store.reload();
-        },
-
-        async _setRead ( button ) {
-            const record = button.lookupViewModel().get( "record" );
-
-            button.disable();
-
-            await notificationsStore.setRead( record.id );
-
-            button.enable();
-        },
-
-        async setReadAll () {
-            notificationsStore.setReadAll();
-        },
-
-        async _setUnread ( button ) {
-            const record = button.lookupViewModel().get( "record" );
-
-            button.disable();
-
-            await notificationsStore.setUnread( record.id );
-
-            button.enable();
         },
 
         async _setUndone ( button ) {
