@@ -34,8 +34,6 @@ export default {
 
     created () {
         this.store = notificationsStore.inboxStore;
-
-        this.store.reload();
     },
 
     "methods": {

@@ -34,8 +34,6 @@ export default {
 
     created () {
         this.store = notificationsStore.doneStore;
-
-        this.store.reload();
     },
 
     "methods": {
