@@ -3,13 +3,21 @@
         <CardsPanel ref="cardsPanel" :noDataMessage='`<div style="font-size:1.5em;">` + i18nd(`vue-ext`, `You have no notifications`) + `</div>`' :refreshOnRender="false" :store="store" @refresh="refresh">
             <template #docked>
                 <ext-toolbar docked="top">
-                    <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/>
+                    <!-- mark all as read -->
+                    <!-- <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/> -->
+
+                    <!-- set all as done                         -->
                     <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-check" :tooltip="i18nd(`vue-ext`, `Mark all as done`)" @tap="setDoneAll"/>
+
+                    <!-- delete all -->
                     <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
 
                     <ext-spacer/>
 
+                    <!-- settings button                         -->
                     <ext-button align="right" iconCls="fa-solid fa-cog" :tooltip="i18nd(`vue-ext`, `Notifications settings`)" @tap="showNotificationsSettingsDialog"/>
+
+                    <!-- refresh button -->
                     <ext-button align="right" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
             </template>
@@ -90,21 +98,23 @@ export default {
                                 "xtype": "component",
                                 "bind": `<i class="fa-solid fa-clock"></i> {record.relative_time}`,
                             },
+
                             { "xtype": "spacer" },
-                            {
-                                "xtype": "button",
-                                "iconCls": "fa-solid fa-eye",
-                                "tooltip": this.i18nd( "vue-ext", "Mark as read" ),
-                                "bind": { "hidden": "{record.read}" },
-                                "handler": this._setRead.bind( this ),
-                            },
-                            {
-                                "xtype": "button",
-                                "iconCls": "fa-solid fa-eye-slash",
-                                "tooltip": this.i18nd( "vue-ext", "Mark as unread" ),
-                                "bind": { "hidden": "{!record.read}" },
-                                "handler": this._setUnread.bind( this ),
-                            },
+
+                            // {
+                            //     "xtype": "button",
+                            //     "iconCls": "fa-solid fa-eye",
+                            //     "tooltip": this.i18nd( "vue-ext", "Mark as read" ),
+                            //     "bind": { "hidden": "{record.read}" },
+                            //     "handler": this._setRead.bind( this ),
+                            // },
+                            // {
+                            //     "xtype": "button",
+                            //     "iconCls": "fa-solid fa-eye-slash",
+                            //     "tooltip": this.i18nd( "vue-ext", "Mark as unread" ),
+                            //     "bind": { "hidden": "{!record.read}" },
+                            //     "handler": this._setUnread.bind( this ),
+                            // },
 
                             {
                                 "xtype": "button",
@@ -112,6 +122,7 @@ export default {
                                 "tooltip": this.i18nd( "vue-ext", "Mark as done" ),
                                 "handler": this._setDone.bind( this ),
                             },
+
                             {
                                 "xtype": "button",
                                 "iconCls": "fa-solid fa-trash-alt",
