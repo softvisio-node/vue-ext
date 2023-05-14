@@ -83,95 +83,8 @@ class Store extends VueStore {
         this.store.each( record => record.set( "relative_time", this.#getRelativeTime( record.get( "created" ) ) ) );
     }
 
-    async setRead ( notifications ) {
-        if ( !Array.isArray( notifications ) ) notifications = [notifications];
-
-        const res = await api.call( "account/notifications/set-read", notifications );
-
-        if ( !res.ok ) {
-            utils.toast( res );
-        }
-        else {
-            this.#applyStats( res.meta );
-
-            for ( const id of notifications ) {
-                const record = this.store.getById( id );
-
-                if ( record ) record.set( "read", true );
-            }
-        }
-    }
-
-    async setReadAll () {
-        const res = await api.call( "account/notifications/set-read-all" );
-
-        if ( !res.ok ) {
-            utils.toast( res );
-        }
-        else {
-            this.#applyStats( res.meta );
-
-            this.store.each( record => record.set( "read", true ) );
-        }
-    }
-
-    async setUnread ( notifications ) {
-        if ( !Array.isArray( notifications ) ) notifications = [notifications];
-
-        const res = await api.call( "account/notifications/set-unread", notifications );
-
-        if ( !res.ok ) {
-            utils.toast( res );
-        }
-        else {
-            this.#applyStats( res.meta );
-
-            for ( const id of notifications ) {
-                const record = this.store.getById( id );
-
-                if ( record ) record.set( "read", false );
-            }
-        }
-    }
-
-    async setUnreadAll () {
-        const res = await api.call( "account/notifications/set-unread-all" );
-
-        if ( !res.ok ) {
-            utils.toast( res );
-        }
-        else {
-            this.#applyStats( res.meta );
-
-            this.store.each( record => record.set( "read", false ) );
-        }
-    }
-
-    async setDone ( notifications ) {
-        if ( !Array.isArray( notifications ) ) notifications = [notifications];
-
-        const res = await api.call( "account/notifications/set-done", notifications );
-
-        if ( !res.ok ) {
-            utils.toast( res );
-        }
-        else {
-            this.#applyStats( res.meta );
-
-            this.reload();
-
-            // for ( const id of notifications ) {
-            //     const record = this.store.getById( id );
-
-            //     if ( record ) this.store.remove( record );
-            // }
-        }
-    }
-
-    async setDoneAll () {
-        if ( !this.totalUndone ) return;
-
-        const res = await api.call( "account/notifications/set-done-all" );
+    async updateNotification ( notificationId, options ) {
+        const res = await api.call( "account/notifications/update", notificationId, options );
 
         if ( !res.ok ) {
             utils.toast( res );
@@ -183,10 +96,8 @@ class Store extends VueStore {
         }
     }
 
-    async setUndone ( notifications ) {
-        if ( !Array.isArray( notifications ) ) notifications = [notifications];
-
-        const res = await api.call( "account/notifications/set-undone", notifications );
+    async updateAllNotifications ( options ) {
+        const res = await api.call( "account/notifications/update-all", options );
 
         if ( !res.ok ) {
             utils.toast( res );
@@ -194,16 +105,12 @@ class Store extends VueStore {
         else {
             this.#applyStats( res.meta );
 
-            for ( const id of notifications ) {
-                const record = this.store.getById( id );
-
-                if ( record ) record.set( "done", false );
-            }
+            this.reload();
         }
     }
 
-    async setUndoneAll () {
-        const res = await api.call( "account/notifications/set-undone-all" );
+    async deleteNotification ( options ) {
+        const res = await api.call( "account/notifications/delete", options );
 
         if ( !res.ok ) {
             utils.toast( res );
@@ -211,39 +118,7 @@ class Store extends VueStore {
         else {
             this.#applyStats( res.meta );
 
-            this.store.each( record => record.set( "done", false ) );
-        }
-    }
-
-    async delete ( notifications ) {
-        if ( !Array.isArray( notifications ) ) notifications = [notifications];
-
-        const res = await api.call( "account/notifications/delete", notifications );
-
-        if ( !res.ok ) {
-            utils.toast( res );
-        }
-        else {
-            this.#applyStats( res.meta );
-
-            for ( const id of notifications ) {
-                const record = this.store.getById( id );
-
-                if ( record ) this.store.remove( record );
-            }
-        }
-    }
-
-    async deleteAll () {
-        const res = await api.call( "account/notifications/delete-all" );
-
-        if ( !res.ok ) {
-            utils.toast( res );
-        }
-        else {
-            this.#applyStats( res.meta );
-
-            this.store.each( record => this.store.remove( record ) );
+            this.reload();
         }
     }
 

@@ -2,9 +2,6 @@
     <CardsPanel ref="cardsPanel" :noDataMessage='`<div style="font-size:1.5em;">` + i18nd(`vue-ext`, `You have no notifications`) + `</div>`' :refreshOnRender="false" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <!-- mark all as read -->
-                <!-- <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/> -->
-
                 <!-- set all as done                         -->
                 <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-check" :tooltip="i18nd(`vue-ext`, `Mark all as done`)" @tap="setDoneAll"/>
 
@@ -145,42 +142,18 @@ export default {
             this.store.reload();
         },
 
-        async _setRead ( button ) {
-            const record = button.lookupViewModel().get( "record" );
-
-            button.disable();
-
-            await notificationsStore.setRead( record.id );
-
-            button.enable();
-        },
-
-        async setReadAll () {
-            notificationsStore.setReadAll();
-        },
-
-        async _setUnread ( button ) {
-            const record = button.lookupViewModel().get( "record" );
-
-            button.disable();
-
-            await notificationsStore.setUnread( record.id );
-
-            button.enable();
-        },
-
         async _setDone ( button ) {
             const record = button.lookupViewModel().get( "record" );
 
             button.disable();
 
-            await notificationsStore.setDone( record.id );
+            await notificationsStore.updateNotification( record.id, { "done": true } );
 
             button.enable();
         },
 
         async setDoneAll () {
-            notificationsStore.setDoneAll();
+            await notificationsStore.updateAllNotifications( { "done": true } );
         },
 
         async _delete ( button ) {
@@ -188,13 +161,13 @@ export default {
 
             button.disable();
 
-            await notificationsStore.delete( record.id );
+            await notificationsStore.deleteNotification( { "id": record.id } );
 
             button.enable();
         },
 
         async deleteAll () {
-            notificationsStore.deleteAll();
+            await notificationsStore.deleteNotification( { "done": false } );
         },
 
         // XXX
