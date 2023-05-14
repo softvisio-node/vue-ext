@@ -10,18 +10,12 @@ class Store extends VueStore {
     totalUndone = 0;
 
     #inboxStore;
-    #storeLoaded;
-
     #doneStore;
 
     constructor () {
         super();
 
-        api.on( "connect", () => {
-            if ( !this.#storeLoaded ) return;
-
-            this.reload();
-        } );
+        api.on( "connect", () => this.reload() );
 
         api.on( "notifications", this.reload.bind( this ) );
     }
@@ -124,8 +118,6 @@ class Store extends VueStore {
     // XXX
     #onLoad () {
         return;
-
-        // this.#storeLoaded = true;
 
         // this.refreshRelativeTime();
 
