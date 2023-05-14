@@ -132,13 +132,13 @@ export default {
 
             button.disable();
 
-            await notificationsStore.setUndone( record.id );
+            await notificationsStore.updateNotification( record.id, { "done": false } );
 
             button.enable();
         },
 
         async setUndoneAll () {
-            notificationsStore.setUndoneAll();
+            await notificationsStore.updateAllNotifications( { "done": false } );
         },
 
         async _delete ( button ) {
@@ -146,13 +146,13 @@ export default {
 
             button.disable();
 
-            await notificationsStore.delete( record.id );
+            await notificationsStore.deleteNotification( { "id": record.id } );
 
             button.enable();
         },
 
         async deleteAll () {
-            notificationsStore.deleteAll();
+            await notificationsStore.deleteNotification( { "done": true } );
         },
 
         // XXX
