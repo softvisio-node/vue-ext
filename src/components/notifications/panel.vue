@@ -6,13 +6,13 @@
                 <template #docked>
                     <ext-toolbar docked="top">
                         <ext-button align="right" :hidden="!totalUndoneUnread" iconCls="fa-solid fa-eye" :tooltip="i18nd(`vue-ext`, `Mark all as read`)" @tap="setReadAll"/>
-                        <!-- <ext-button align="right" iconCls="fa-solid fa-check-double" :tooltip="i18nd( `vue-ext`,`Mark all as done`)" :hidden="!totalUndone" @tap="setDoneAll"/> -->
+                        <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-check" :tooltip="i18nd(`vue-ext`, `Mark all as done`)" @tap="setDoneAll"/>
                         <ext-button align="right" :hidden="!totalUndone" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
 
                         <ext-spacer/>
 
                         <ext-button align="right" iconCls="fa-solid fa-cog" :tooltip="i18nd(`vue-ext`, `Notifications settings`)" @tap="showNotificationsSettingsDialog"/>
-                        <ext-button align="right" iconCls="fa-solid fa-redo" :tooltip="i18nd(`vue-ext`, `Refresh notifications`)" @tap="refresh"/>
+                        <ext-button align="right" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                     </ext-toolbar>
                 </template>
 
@@ -23,7 +23,7 @@
         </ext-panel>
 
         <!-- done -->
-        <ext-panel iconAlign="left" iconCls="fa-regular fa-square-check" layout="fit" :title="i18nd(`vue-ext`, `Done`)">
+        <ext-panel iconAlign="left" iconCls="fa-solid fa-check" layout="fit" :title="i18nd(`vue-ext`, `Done`)">
             <!-- - -->
         </ext-panel>
     </ext-tabpanel>
@@ -114,12 +114,12 @@ export default {
                                 "handler": this._setUnread.bind( this ),
                             },
 
-                            // {
-                            //     "xtype": "button",
-                            //     "iconCls": "fa-solid fa-check",
-                            //     "tooltip": this.i18nd( "vue-ext", "Mark as done" ),
-                            //     "handler": this._setDone.bind( this ),
-                            // },
+                            {
+                                "xtype": "button",
+                                "iconCls": "fa-solid fa-check",
+                                "tooltip": this.i18nd( "vue-ext", "Mark as done" ),
+                                "handler": this._setDone.bind( this ),
+                            },
                             {
                                 "xtype": "button",
                                 "iconCls": "fa-solid fa-trash-alt",
