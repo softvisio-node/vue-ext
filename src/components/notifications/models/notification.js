@@ -13,7 +13,6 @@ export default Ext.define( "", {
         { "name": "expired", "type": "date" },
 
         //
-        { "name": "read", "type": "bool" },
         { "name": "done", "type": "bool" },
 
         "subject",
