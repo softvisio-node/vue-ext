@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-05-13 19:42+0300\n"
+"POT-Creation-Date: 2023-05-15 01:11+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -200,6 +200,7 @@ msgstr "Искать пользователей"
 #: src/components/api-status/latest.panel.vue:7:62
 #: src/components/api-status/panel.vue:10:82
 #: src/components/cards.panel.vue:14:58
+#: src/components/notifications/dialog.vue:30:28
 #: src/components/user-sessions/panel.vue:8:62
 #: src/components/user-tokens/panel.vue:8:62
 #: src/components/users/panel.vue:9:62
@@ -589,38 +590,48 @@ msgstr "Пароль изменен"
 msgid "Dark mode"
 msgstr "Тёмный режим"
 
-#: src/components/notifications/panel.vue:6:107
-msgid "Mark all as read"
-msgstr "Отметить все как прочитанные"
+#: src/components/notifications/dialog.vue:23:28
+msgid "Settings"
+msgstr "Настройки"
 
-#: src/components/notifications/panel.vue:8:107
-msgid "Delete all"
-msgstr "Удалить все"
-
-#: src/components/notifications/panel.vue:9:78
+#: src/components/notifications/dialog.vue:24:31
 #: src/components/notifications/settings.dialog.vue:2:50
 msgid "Notifications settings"
 msgstr "Настройки уведомлений"
 
-#: src/components/notifications/panel.vue:10:79
-msgid "Refresh notifications"
-msgstr "Обновить уведомления"
+#: src/components/notifications/done.panel.vue:6:113
+msgid "Move all to inbox"
+msgstr "Переместить все во входящие"
 
-#: src/components/notifications/panel.vue:2:84
-msgid "You have no notifications"
-msgstr "У вас нет уведомлений"
+#: src/components/notifications/done.panel.vue:11:111
+#: src/components/notifications/inbox.panel.vue:11:111
+msgid "Delete all"
+msgstr "Удалить все"
 
-#: src/components/notifications/panel.vue:93:43
-msgid "Mark as read"
-msgstr "Отметить как прочитанное"
+#: src/components/notifications/done.panel.vue:89:43
+msgid "Move to inbox"
+msgstr "Переместить во входящие"
 
-#: src/components/notifications/panel.vue:100:43
-msgid "Mark as unread"
-msgstr "Отметить как непрочитанное"
-
-#: src/components/notifications/panel.vue:114:43
+#: src/components/notifications/done.panel.vue:96:43
+#: src/components/notifications/inbox.panel.vue:96:43
 msgid "Delete"
 msgstr "Удалить"
+
+#: src/components/notifications/inbox.panel.vue:6:107
+msgid "Mark all as done"
+msgstr "Отметить все как готовые"
+
+#: src/components/notifications/inbox.panel.vue:89:43
+msgid "Mark as done"
+msgstr "Отметить как готово"
+
+#: src/components/notifications/panel.vue:4:40
+msgid "Inbox"
+msgstr "Входяшие"
+
+#: src/components/notifications/panel.vue:9:85
+msgid "Done"
+msgstr "Готово"
 
 #: src/components/notifications/settings.panel.vue:6:38
 msgid "Push notifications"
@@ -860,6 +871,15 @@ msgstr "Токен подтверждения email неверен"
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
 
+#~ msgid "Refresh notifications"
+#~ msgstr "Обновить уведомления"
+
+#~ msgid "You have no notifications"
+#~ msgstr "У вас нет уведомлений"
+
+#~ msgid "Mark as read"
+#~ msgstr "Отметить как прочитанное"
+
 #~ msgid "Active calls"
 #~ msgstr "Активные вызовы"
 
@@ -1087,9 +1107,6 @@ msgstr "Email подтвержден успешно"
 
 #~ msgid "Create"
 #~ msgstr "Создать"
-
-#~ msgid "SMTP settings"
-#~ msgstr "Настройки SMTP"
 
 #~ msgid "Application URL"
 #~ msgstr "URL приложения"
