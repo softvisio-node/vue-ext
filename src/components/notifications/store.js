@@ -77,6 +77,7 @@ class Store extends VueStore {
     // public
     reload () {
         this.store.loadPage( 1 );
+        this.doneStore.loadPage( 1 );
     }
 
     refreshRelativeTime () {
