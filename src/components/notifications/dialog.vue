@@ -6,6 +6,8 @@
 
 <script>
 import NotificationsPanel from "#src/components/notifications/panel";
+import NotificationsSettingsDialog from "#src/components/notifications/settings.dialog";
+import notificationsStore from "#src/components/notifications/store";
 
 export default {
     "components": { NotificationsPanel },
@@ -13,6 +15,32 @@ export default {
     "methods": {
         _ready ( e ) {
             this.ext = e.detail.cmp;
+
+            this.ext.getHeader().add( [
+                {
+                    "xtype": "button",
+                    "iconCls": "fa-solid fa-cog",
+                    "text": this.i18nd( `vue-ext`, `Settings` ),
+                    "tooltip": this.i18nd( `vue-ext`, `Notifications settings` ),
+                    "handler": this.showNotificationsSettingsDialog.bind( this ),
+                },
+                {
+                    "xtype": "button",
+                    "iconCls": "fa-solid fa-redo",
+                    "text": this.i18nd( `vue-ext`, `Refresh` ),
+                    "handler": this.refresh.bind( this ),
+                },
+            ] );
+        },
+
+        refresh () {
+            notificationsStore.reload();
+        },
+
+        async showNotificationsSettingsDialog () {
+            const cmp = await this.$mount( NotificationsSettingsDialog );
+
+            cmp.ext.show();
         },
     },
 };

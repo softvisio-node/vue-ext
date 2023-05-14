@@ -7,14 +7,6 @@
 
                 <!-- delete all -->
                 <ext-button align="right" iconCls="fa-solid fa-trash-alt" :tooltip="i18nd(`vue-ext`, `Delete all notifications in inbox`)" @tap="deleteAll"/>
-
-                <ext-spacer/>
-
-                <!-- settings button                         -->
-                <ext-button align="right" iconCls="fa-solid fa-cog" :tooltip="i18nd(`vue-ext`, `Notifications settings`)" @tap="showNotificationsSettingsDialog"/>
-
-                <!-- refresh button -->
-                <ext-button align="right" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -25,7 +17,6 @@
 </template>
 
 <script>
-import NotificationsSettingsDialog from "#src/components/notifications/settings.dialog";
 import notificationsStore from "#src/components/notifications/store";
 import CardsPanel from "#src/components/cards.panel";
 
@@ -101,12 +92,6 @@ export default {
                     },
                 ],
             } );
-        },
-
-        async showNotificationsSettingsDialog () {
-            const cmp = await this.$mount( NotificationsSettingsDialog );
-
-            cmp.ext.show();
         },
 
         refresh ( e ) {
