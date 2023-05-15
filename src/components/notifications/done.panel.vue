@@ -12,7 +12,8 @@
 
         <template #data>
             <ext-grid hideHeaders="true" itemConfig='{"viewModel":true}' layout="fit" plugins='["autopaging"]' variableHeights="true" @ready="_gridReady">
-                <ext-column flex="1" @ready="_colReady"/>
+                <!-- XXX margin is required to prevent horizontal scrolling -->
+                <ext-column flex="1" margin="0 7 0 0" @ready="_colReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
@@ -50,7 +51,7 @@ export default {
                 "widget": {
                     "xtype": "container",
                     "layout": "vbox",
-                    "padding": "5 10 0 10",
+                    "padding": "5 0 0 10",
                     "items": [
 
                         // subject
