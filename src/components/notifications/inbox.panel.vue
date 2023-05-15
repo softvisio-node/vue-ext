@@ -2,13 +2,13 @@
     <CardsPanel ref="cardsPanel" :refreshOnRender="false" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <!-- set all as done                         -->
-                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Mark all as done`)" @tap="setDoneAll"/>
+                <!-- delete all -->
+                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-trash-alt" :text="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
 
                 <ext-spacer/>
 
-                <!-- delete all -->
-                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-trash-alt" :text="i18nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
+                <!-- set all as done                         -->
+                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Mark all as done`)" @tap="setDoneAll"/>
             </ext-toolbar>
         </template>
 
