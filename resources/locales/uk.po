@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-05-15 01:17+0300\n"
+"POT-Creation-Date: 2023-05-15 08:37+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -603,17 +603,17 @@ msgstr "Налаштування сповіщень"
 msgid "Move all to inbox"
 msgstr "Перемістити все до вхідних"
 
-#: src/components/notifications/done.panel.vue:11:111
-#: src/components/notifications/inbox.panel.vue:11:111
+#: src/components/notifications/done.panel.vue:9:111
+#: src/components/notifications/inbox.panel.vue:9:111
 msgid "Delete all"
 msgstr "Видалити все"
 
-#: src/components/notifications/done.panel.vue:89:43
+#: src/components/notifications/done.panel.vue:87:47
 msgid "Move to inbox"
 msgstr "Перемістити до вхідних"
 
-#: src/components/notifications/done.panel.vue:96:43
-#: src/components/notifications/inbox.panel.vue:96:43
+#: src/components/notifications/done.panel.vue:94:47
+#: src/components/notifications/inbox.panel.vue:94:47
 msgid "Delete"
 msgstr "Видалити"
 
@@ -621,7 +621,7 @@ msgstr "Видалити"
 msgid "Mark all as done"
 msgstr "Позначити все як виконане"
 
-#: src/components/notifications/inbox.panel.vue:89:43
+#: src/components/notifications/inbox.panel.vue:87:47
 msgid "Mark as done"
 msgstr "Позначити як виконане"
 
