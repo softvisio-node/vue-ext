@@ -14,7 +14,7 @@
 
         <template #data>
             <ext-grid hideHeaders="true" itemConfig='{"viewModel":true}' layout="fit" plugins='["autopaging"]' variableHeights="true" @ready="_gridReady">
-                <ext-column flex="1" @ready="_actionColReady"/>
+                <ext-column flex="1" @ready="_colReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
@@ -44,7 +44,7 @@ export default {
             cmp.setStore( this.store );
         },
 
-        _actionColReady ( e ) {
+        _colReady ( e ) {
             const cmp = e.detail.cmp;
 
             cmp.setCell( {
