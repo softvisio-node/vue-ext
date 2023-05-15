@@ -76,19 +76,8 @@ class Store extends VueStore {
         this.doneStore.each( record => record.set( "relative_time", this.#getRelativeTime( record.get( "created" ) ) ) );
     }
 
-    async updateNotification ( notificationId, options ) {
-        const res = await api.call( "account/notifications/update", notificationId, options );
-
-        if ( !res.ok ) {
-            utils.toast( res );
-        }
-        else {
-            this.refresh();
-        }
-    }
-
-    async updateAllNotifications ( options ) {
-        const res = await api.call( "account/notifications/update-all", options );
+    async updateNotifications ( options ) {
+        const res = await api.call( "account/notifications/update", options );
 
         if ( !res.ok ) {
             utils.toast( res );

@@ -108,7 +108,7 @@ export default {
         },
 
         async setDoneAll () {
-            await notificationsStore.updateAllNotifications( { "done": true } );
+            await notificationsStore.updateNotifications( { "done": true } );
         },
 
         async deleteAll () {
@@ -120,7 +120,7 @@ export default {
 
             button.disable();
 
-            await notificationsStore.updateNotification( record.id, { "done": true } );
+            await notificationsStore.updateNotifications( { "id": record.id, "done": true } );
 
             button.enable();
         },
