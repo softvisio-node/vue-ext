@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.14 (2023-05-15)
+
+Fixes:
+
+-   fix: notifications api'
+
 ### 8.2.13 (2023-05-15)
 
 Fixes:
