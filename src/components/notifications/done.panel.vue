@@ -76,7 +76,7 @@ export default {
                             "margin": "5 0 0 0",
                             "items": [
                                 {
-                                    "xtype": "component",
+                                    "xtype": "container",
                                     "bind": `<i class="fa-solid fa-clock"></i> {record.relative_time}`,
                                 },
 
