@@ -31,9 +31,9 @@ export default {
     },
 
     "watch": {
-        "totalInbox": "_setInboxNotificationsBadgeText",
+        "totalInbox": "_setInboxBadgeText",
 
-        "totaDone": "_setDoneNotificationsBadgeText",
+        "totaDone": "_setDoneBadgeText",
     },
 
     "methods": {
@@ -41,15 +41,15 @@ export default {
             this._inboxTab = e.detail.cmp.getTabBar().getTabs()[0];
             this._doneTab = e.detail.cmp.getTabBar().getTabs()[1];
 
-            this._setInboxNotificationsBadgeText();
-            this._setDoneNotificationsBadgeText();
+            this._setInboxBadgeText();
+            this._setDoneBadgeText();
         },
 
-        _setInboxNotificationsBadgeText () {
+        _setInboxBadgeText () {
             this._inboxTab.setBadgeText( this.totalInbox || "" );
         },
 
-        _setDoneNotificationsBadgeText () {
+        _setDoneBadgeText () {
             this._doneTab.setBadgeText( this.totalDone || "" );
         },
     },
