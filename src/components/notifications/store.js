@@ -37,7 +37,7 @@ class Store extends VueStore {
                 ],
             } );
 
-            this.#inboxStore.on( "load", this.#onLoad.bind( this, true ) );
+            this.#inboxStore.on( "load", this.#onLoad.bind( this, "inbox" ) );
         }
 
         return this.#inboxStore;
@@ -58,7 +58,7 @@ class Store extends VueStore {
                 ],
             } );
 
-            this.#doneStore.on( "load", this.#onLoad.bind( this, false ) );
+            this.#doneStore.on( "load", this.#onLoad.bind( this, "done" ) );
         }
 
         return this.#doneStore;
@@ -99,14 +99,16 @@ class Store extends VueStore {
     }
 
     // private
-    #onLoad ( inbox ) {
-        this.refreshRelativeTime();
-
-        if ( inbox ) {
+    #onLoad ( type ) {
+        if ( type === "inbox" ) {
             this.totalInbox = this.inboxStore.getSummaryRecord().get( "total" );
+
+            this.inboxStore.each( record => record.set( "relative_time", this.#getRelativeTime( record.get( "created" ) ) ) );
         }
-        else {
+        else if ( type === "done" ) {
             this.totalDone = this.doneStore.getSummaryRecord().get( "total" );
+
+            this.doneStore.each( record => record.set( "relative_time", this.#getRelativeTime( record.get( "created" ) ) ) );
         }
     }
 

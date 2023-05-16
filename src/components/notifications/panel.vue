@@ -24,21 +24,33 @@ export default {
         totalInbox () {
             return notificationsStore.totalInbox;
         },
+
+        totalDone () {
+            return notificationsStore.totalDone;
+        },
     },
 
     "watch": {
-        "totalInbox": "_setNotificationsBadgeText",
+        "totalInbox": "_setInboxNotificationsBadgeText",
+
+        "totaDone": "_setDoneNotificationsBadgeText",
     },
 
     "methods": {
         _ready ( e ) {
             this._inboxTab = e.detail.cmp.getTabBar().getTabs()[0];
+            this._doneTab = e.detail.cmp.getTabBar().getTabs()[1];
 
-            this._setNotificationsBadgeText();
+            this._setInboxNotificationsBadgeText();
+            this._setDoneNotificationsBadgeText();
         },
 
-        _setNotificationsBadgeText () {
-            this._inboxTab.setBadgeText( notificationsStore.totalInbox || "" );
+        _setInboxNotificationsBadgeText () {
+            this._inboxTab.setBadgeText( this.totalInbox || "" );
+        },
+
+        _setDoneNotificationsBadgeText () {
+            this._doneTab.setBadgeText( this.totalDone || "" );
         },
     },
 };
