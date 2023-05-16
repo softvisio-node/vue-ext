@@ -33,7 +33,7 @@ export default {
     "watch": {
         "totalInbox": "_setInboxBadgeText",
 
-        "totaDone": "_setDoneBadgeText",
+        "totalDone": "_setDoneBadgeText",
     },
 
     "methods": {
