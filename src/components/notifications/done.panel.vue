@@ -52,7 +52,7 @@ export default {
                 "widget": {
                     "xtype": "container",
                     "layout": "vbox",
-                    "padding": "0 5 20 5",
+                    "padding": "0 5 20 10",
                     "items": [
 
                         // subject
@@ -91,7 +91,7 @@ export default {
                         {
                             "xtype": "container",
                             "cls": "notification-body",
-                            "padding": "0 5 0 15",
+                            "padding": "0 0 0 5",
                             "bind": `{record.body}`,
                         },
                     ],
