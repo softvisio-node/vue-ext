@@ -1,6 +1,6 @@
 <template>
     <ext-dialog closeAction="hide" height="90%" layout="fit" padding="0 5 5 5" :title="i18nd(`vue-ext`, `Notifications`)" width="600" @ready="_ready">
-        <NotificationsPanel/>
+        <NotificationsPanel ref="panel"/>
     </ext-dialog>
 </template>
 
@@ -31,6 +31,8 @@ export default {
                     "handler": this.refresh.bind( this ),
                 },
             ] );
+
+            this.ext.on( "show", () => this.$refs.panel.showInbox() );
         },
 
         refresh () {

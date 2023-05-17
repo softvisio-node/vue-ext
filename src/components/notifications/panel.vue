@@ -37,9 +37,15 @@ export default {
     },
 
     "methods": {
+        showInbox () {
+            this.ext.setActiveItem( 0 );
+        },
+
         _ready ( e ) {
-            this._inboxTab = e.detail.cmp.getTabBar().getTabs()[0];
-            this._doneTab = e.detail.cmp.getTabBar().getTabs()[1];
+            this.ext = e.detail.cmp;
+
+            this._inboxTab = this.ext.getTabBar().getTabs()[0];
+            this._doneTab = this.ext.getTabBar().getTabs()[1];
 
             this._setInboxBadgeText();
             this._setDoneBadgeText();
