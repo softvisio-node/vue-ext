@@ -52,7 +52,7 @@ export default {
                 "widget": {
                     "xtype": "container",
                     "layout": "vbox",
-                    "padding": "5 0 0 10",
+                    "padding": "0 0 25 10",
                     "items": [
 
                         // subject
@@ -91,21 +91,9 @@ export default {
                         {
                             "xtype": "container",
                             "cls": "notification-body",
-                            "padding": "10 5 0 10",
+                            "padding": "5 5 0 5",
                             "bind": `{record.body}`,
                         },
-
-                        // status
-                        // {
-                        //     "xtype": "container",
-                        //     "layout": { "type": "hbox", "align": "center" },
-                        //     "items": [
-                        //         {
-                        //             "xtype": "container",
-                        //             "bind": `<i class="fa-solid fa-clock"></i> {record.relative_time}`,
-                        //         },
-                        //     ],
-                        // },
                     ],
                 },
             } );
