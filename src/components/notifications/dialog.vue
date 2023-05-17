@@ -7,7 +7,6 @@
 <script>
 import NotificationsPanel from "#src/components/notifications/panel";
 import NotificationsSettingsDialog from "#src/components/notifications/settings.dialog";
-import notificationsStore from "#src/components/notifications/store";
 
 export default {
     "components": { NotificationsPanel },
@@ -24,19 +23,9 @@ export default {
                     "tooltip": this.i18nd( `vue-ext`, `Notifications settings` ),
                     "handler": this.showNotificationsSettingsDialog.bind( this ),
                 },
-                {
-                    "xtype": "button",
-                    "iconCls": "fa-solid fa-redo",
-                    "text": this.i18nd( `vue-ext`, `Refresh` ),
-                    "handler": this.refresh.bind( this ),
-                },
             ] );
 
             this.ext.on( "show", () => this.$refs.panel.showInbox() );
-        },
-
-        refresh () {
-            notificationsStore.refresh();
         },
 
         async showNotificationsSettingsDialog () {
