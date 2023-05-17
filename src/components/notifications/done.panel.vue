@@ -52,43 +52,32 @@ export default {
                 "widget": {
                     "xtype": "container",
                     "layout": "vbox",
-                    "padding": "5 0 0 10",
+                    "padding": "0 5 20 5",
                     "items": [
 
                         // subject
                         {
                             "xtype": "container",
-                            "cls": "notification-subject",
-                            "bind": `• {record.subject}`,
-                        },
-
-                        // body
-                        {
-                            "xtype": "container",
-                            "cls": "notification-body",
-                            "bind": `{record.body}`,
-                        },
-
-                        // status
-                        {
-                            "xtype": "container",
                             "layout": { "type": "hbox", "align": "center" },
-                            "margin": "5 0 0 0",
                             "items": [
                                 {
                                     "xtype": "container",
-                                    "bind": `<i class="fa-solid fa-clock"></i> {record.relative_time}`,
+                                    "cls": "notification-subject",
+                                    "bind": `{record.subject}`,
                                 },
 
                                 { "xtype": "spacer" },
 
+                                {
+                                    "xtype": "container",
+                                    "bind": `<i class="fa-regular fa-clock"></i> {record.relative_time}`,
+                                },
                                 {
                                     "xtype": "button",
                                     "iconCls": "fa-solid fa-arrow-right",
                                     "tooltip": this.i18nd( "vue-ext", "Move to inbox" ),
                                     "handler": this._moveToInbox.bind( this ),
                                 },
-
                                 {
                                     "xtype": "button",
                                     "iconCls": "fa-solid fa-trash-alt",
@@ -96,6 +85,14 @@ export default {
                                     "handler": this._delete.bind( this ),
                                 },
                             ],
+                        },
+
+                        // body
+                        {
+                            "xtype": "container",
+                            "cls": "notification-body",
+                            "padding": "0 15 0 15",
+                            "bind": `{record.body}`,
                         },
                     ],
                 },
