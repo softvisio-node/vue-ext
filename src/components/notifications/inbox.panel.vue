@@ -58,8 +58,33 @@ export default {
                         // subject
                         {
                             "xtype": "container",
-                            "cls": "notification-subject",
-                            "bind": `{record.subject}`,
+                            "layout": { "type": "hbox", "align": "center" },
+                            "items": [
+                                {
+                                    "xtype": "container",
+                                    "cls": "notification-subject",
+                                    "bind": `{record.subject}`,
+                                },
+
+                                { "xtype": "spacer" },
+
+                                {
+                                    "xtype": "container",
+                                    "bind": `<i class="fa-solid fa-clock"></i> {record.relative_time}`,
+                                },
+                                {
+                                    "xtype": "button",
+                                    "iconCls": "fa-solid fa-check",
+                                    "tooltip": this.i18nd( "vue-ext", "Mark as done" ),
+                                    "handler": this._setDone.bind( this ),
+                                },
+                                {
+                                    "xtype": "button",
+                                    "iconCls": "fa-solid fa-trash-alt",
+                                    "tooltip": this.i18nd( "vue-ext", "Delete" ),
+                                    "handler": this._delete.bind( this ),
+                                },
+                            ],
                         },
 
                         // body
@@ -71,32 +96,16 @@ export default {
                         },
 
                         // status
-                        {
-                            "xtype": "container",
-                            "layout": { "type": "hbox", "align": "center" },
-                            "items": [
-                                {
-                                    "xtype": "container",
-                                    "bind": `<i class="fa-solid fa-clock"></i> {record.relative_time}`,
-                                },
-
-                                { "xtype": "spacer" },
-
-                                {
-                                    "xtype": "button",
-                                    "iconCls": "fa-solid fa-check",
-                                    "tooltip": this.i18nd( "vue-ext", "Mark as done" ),
-                                    "handler": this._setDone.bind( this ),
-                                },
-
-                                {
-                                    "xtype": "button",
-                                    "iconCls": "fa-solid fa-trash-alt",
-                                    "tooltip": this.i18nd( "vue-ext", "Delete" ),
-                                    "handler": this._delete.bind( this ),
-                                },
-                            ],
-                        },
+                        // {
+                        //     "xtype": "container",
+                        //     "layout": { "type": "hbox", "align": "center" },
+                        //     "items": [
+                        //         {
+                        //             "xtype": "container",
+                        //             "bind": `<i class="fa-solid fa-clock"></i> {record.relative_time}`,
+                        //         },
+                        //     ],
+                        // },
                     ],
                 },
             } );
