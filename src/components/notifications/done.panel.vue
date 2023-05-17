@@ -22,6 +22,7 @@
 <script>
 import notificationsStore from "#src/components/notifications/store";
 import CardsPanel from "#src/components/cards.panel";
+import "./assets/style.css";
 
 export default {
     "components": { CardsPanel },
@@ -137,19 +138,3 @@ export default {
     },
 };
 </script>
-
-<style>
-.notification-subject {
-    white-space: normal;
-    cursor: pointer;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.notification-body {
-    white-space: normal;
-    cursor: pointer;
-    /* font-weight: bold; */
-    /* font-size: 1.2em; */
-}
-</style>
