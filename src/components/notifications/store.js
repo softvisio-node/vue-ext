@@ -84,7 +84,7 @@ class Store extends VueStore {
             utils.toast( res );
         }
         else {
-            this.refresh();
+            this.refresh( res.data );
         }
     }
 
@@ -95,7 +95,7 @@ class Store extends VueStore {
             utils.toast( res );
         }
         else {
-            this.refresh();
+            this.refresh( res.data );
         }
     }
 
