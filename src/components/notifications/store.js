@@ -18,7 +18,7 @@ class Store extends VueStore {
 
         api.on( "connect", this.refresh.bind( this ) );
 
-        api.on( "notifications", this.refresh.bind( this ) );
+        api.on( "notifications/update", this.refresh.bind( this ) );
     }
 
     // properties
@@ -65,9 +65,10 @@ class Store extends VueStore {
     }
 
     // public
-    refresh () {
-        this.inboxStore.loadPage( 1 );
-        this.doneStore.loadPage( 1 );
+    refresh ( { done } = {} ) {
+        if ( done == null || done === false ) this.inboxStore.loadPage( 1 );
+
+        if ( done == null || done === true ) this.doneStore.loadPage( 1 );
     }
 
     refreshRelativeTime () {
