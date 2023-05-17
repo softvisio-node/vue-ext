@@ -91,7 +91,7 @@ export default {
                         {
                             "xtype": "container",
                             "cls": "notification-body",
-                            "padding": "5 5 0 5",
+                            "padding": "0 15 0 15",
                             "bind": `{record.body}`,
                         },
                     ],
