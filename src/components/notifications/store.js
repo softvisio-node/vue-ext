@@ -65,10 +65,10 @@ class Store extends VueStore {
     }
 
     // public
-    refresh ( { done } = {} ) {
-        if ( done == null || done === false ) this.inboxStore.loadPage( 1 );
+    refresh ( { inbox, done } = {} ) {
+        if ( inbox == null || inbox ) this.inboxStore.loadPage( 1 );
 
-        if ( done == null || done === true ) this.doneStore.loadPage( 1 );
+        if ( done == null || done ) this.doneStore.loadPage( 1 );
     }
 
     refreshRelativeTime () {
