@@ -58,13 +58,14 @@ export default {
                         {
                             "xtype": "container",
                             "cls": "notification-subject",
-                            "bind": `• {record.subject}`,
+                            "bind": `{record.subject}`,
                         },
 
                         // body
                         {
                             "xtype": "container",
                             "cls": "notification-body",
+                            "padding": "10 5 0 10",
                             "bind": `{record.body}`,
                         },
 
@@ -72,7 +73,6 @@ export default {
                         {
                             "xtype": "container",
                             "layout": { "type": "hbox", "align": "center" },
-                            "margin": "5 0 0 0",
                             "items": [
                                 {
                                     "xtype": "container",
@@ -141,13 +141,11 @@ export default {
 <style>
 .notification-subject {
     white-space: normal;
-    cursor: pointer;
-    font-size: 1.2em;
+    font-size: 3em;
     font-weight: bold;
 }
 
 .notification-body {
-    cursor: pointer;
     white-space: normal;
     /* font-weight: bold; */
     /* font-size: 1.2em; */
