@@ -1,11 +1,9 @@
 .notification-subject {
-    white-space: normal;
     font-size: 1.2em;
     font-weight: bold;
+    white-space: normal;
 }
 
 .notification-body {
     white-space: normal;
-    /* font-weight: bold; */
-    /* font-size: 1.2em; */
 }

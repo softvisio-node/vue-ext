@@ -52,7 +52,7 @@ export default {
                 "widget": {
                     "xtype": "container",
                     "layout": "vbox",
-                    "padding": "0 0 25 10",
+                    "padding": "0 5 20 5",
                     "items": [
 
                         // subject
@@ -70,7 +70,7 @@ export default {
 
                                 {
                                     "xtype": "container",
-                                    "bind": `<i class="fa-solid fa-clock"></i> {record.relative_time}`,
+                                    "bind": `<i class="fa-regular fa-clock"></i> {record.relative_time}`,
                                 },
                                 {
                                     "xtype": "button",
