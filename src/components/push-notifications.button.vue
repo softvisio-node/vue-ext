@@ -25,7 +25,7 @@ export default {
 
     "computed": {
         hidden () {
-            return !this.$app.pushNotificationsSupported;
+            return !this.$app.pushNotificationsEnabled;
         },
 
         label () {

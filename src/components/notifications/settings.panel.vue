@@ -62,7 +62,7 @@ export default {
 
     "computed": {
         pusHidden () {
-            return !this.$app.pushNotificationsSupported;
+            return !this.$app.pushNotificationsEnabled;
         },
     },
 
