@@ -47,7 +47,7 @@ export default {
         },
 
         async _onRoute ( route ) {
-            if ( this.$app.isAuthenticated ) {
+            if ( this.$app.user.isAuthenticated ) {
                 this.routePrivate( route );
             }
             else {
