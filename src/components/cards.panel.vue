@@ -1,5 +1,5 @@
 <template>
-    <ext-panel layout="card" @ready="_ready">
+    <ext-panel :hidden="hidden" layout="card" @ready="_ready">
         <!-- default card -->
         <ext-panel ref="defaultCard" :html="defaultMessage" layout="center" style="text-align: center"/>
 
@@ -28,6 +28,10 @@ import loadMask from "#vue/load-mask";
 
 export default {
     "props": {
+        "hidden": {
+            "type": Boolean,
+            "default": false,
+        },
         "store": {
             "type": Object,
             "default": null,

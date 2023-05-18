@@ -13,7 +13,7 @@
         </ext-panel>
 
         <!-- notification types -->
-        <CardsPanel ref="cardsPanel" flex="1" @refresh="refresh">
+        <CardsPanel ref="cardsPanel" flex="1" :hidden="notificationTypesHidden" @refresh="refresh">
             <template #docked>
                 <ext-toolbar docked="top">
                     <ext-container :html="i18nd(`vue-ext`, `Notification types`)"/>
@@ -22,11 +22,20 @@
 
             <template #data>
                 <ext-grid columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" sortable="false" @ready="_gridReady">
+                    <!-- type -->
                     <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1"/>
-                    <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>
-                    <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_emailColReady"/>
-                    <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Telegram${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_telegramColReady"/>
-                    <ext-column align="center" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Push${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_pushColReady"/>
+
+                    <!-- internal -->
+                    <ext-column align="center" :hidden="internalTypeHidden" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>
+
+                    <!-- email -->
+                    <ext-column align="center" :hidden="emailTypeHidden" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_emailColReady"/>
+
+                    <!-- telegram -->
+                    <ext-column align="center" :hidden="telegramTypeHidden" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Telegram${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_telegramColReady"/>
+
+                    <!-- push -->
+                    <ext-column align="center" :hidden="pushTypeHidden" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Push${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_pushColReady"/>
                 </ext-grid>
             </template>
         </CardsPanel>
@@ -40,6 +49,16 @@ import Model from "./models/notification-type";
 
 export default {
     "components": { PushNotificationsButton, CardsPanel },
+
+    data () {
+        return {
+            "notificationTypesHidden": false,
+            "internalTypeHidden": false,
+            "emailTypeHidden": false,
+            "telegramTypeHidden": false,
+            "pushTypeHidden": false,
+        };
+    },
 
     "computed": {
         pusHidden () {
@@ -105,11 +124,22 @@ export default {
 
             const res = await this.$api.call( "account/notifications/get-user-notifications-profile" );
 
-            this.$refs.cardsPanel.unmask();
-
             this.$refs.cardsPanel.setResult( res );
 
-            if ( res.ok ) this.store.loadRawData( res.data );
+            if ( res.ok ) {
+                if ( !res.data.types ) {
+                    this.notificationTypesHidden = true;
+                }
+                else {
+                    this.notificationTypesHidden = false;
+                    this.internalTypeHidden = !res.data.internalNotificationsEnabled;
+                    this.emailTypeHidden = !res.data.emailNotificationsEnabled;
+                    this.telegramTypeHidden = !res.data.telegramNotificationsEnabled;
+                    this.pushTypeHidden = !res.data.pushNotificationsEnabled;
+
+                    this.store.loadRawData( res.data.types );
+                }
+            }
         },
 
         async toggleChannelEnabled ( channel, button, newVal, oldVal ) {
