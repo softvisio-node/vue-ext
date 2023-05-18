@@ -48,9 +48,9 @@ export default class VueExtNotifications extends VueNotifications {
     }
 
     refresh ( { inbox, done } = {} ) {
-        if ( ( this.#inboxStore && inbox == null ) || inbox ) this.#inboxStore.loadPage( 1 );
+        if ( this.#inboxStore && ( inbox == null || inbox ) ) this.#inboxStore.loadPage( 1 );
 
-        if ( ( this.#doneStore && done == null ) || done ) this.#doneStore.loadPage( 1 );
+        if ( this.#doneStore && ( done == null || done ) ) this.#doneStore.loadPage( 1 );
     }
 
     refreshRelativeTime () {
