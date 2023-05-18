@@ -25,7 +25,7 @@ export default {
 
     "computed": {
         hidden () {
-            return !this.$app.pushNotificationsEnabled;
+            return !this.$app.notifications.pushNotificationsSupported;
         },
 
         label () {
@@ -38,7 +38,7 @@ export default {
         },
 
         value () {
-            return this.$app.session.pushNotificationsEnabled ? "true" : "";
+            return this.$app.notifications.pushNotificationsEnabled ? "true" : "";
         },
     },
 
@@ -47,17 +47,17 @@ export default {
             const button = e.detail.sender,
                 value = e.detail.newValue;
 
-            if ( value === this.$app.session.pushNotificationsEnabled ) return;
+            if ( value === this.$app.notifications.pushNotificationsEnabled ) return;
 
             button.disable();
 
             var res;
 
             if ( value ) {
-                res = await this.$app.enablePushNotifications();
+                res = await this.$app.notifications.enablePushNotifications();
             }
             else {
-                res = await this.$app.disablePushNotifications();
+                res = await this.$app.notifications.disablePushNotifications();
             }
 
             if ( !res.ok ) {
