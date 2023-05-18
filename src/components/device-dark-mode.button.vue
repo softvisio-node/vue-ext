@@ -25,7 +25,7 @@ export default {
 
     "computed": {
         label () {
-            return this.i18nd( `vue-ext`, `Use OS theme` );
+            return this.i18nd( `vue-ext`, `Use device dark mode` );
         },
 
         darkMode () {
