@@ -1,22 +1,25 @@
-import VueStore from "#vue/store";
+import Store from "#vue/store";
 import NotificationModel from "#src/components/notifications/models/notification";
 import locale from "#vue/locale";
 import app from "@/app";
 
-class Store extends VueStore {
+class NotificationsStore extends Store {
     totalInbox = 0;
     totalDone = 0;
 
+    #app;
     #inboxStore;
     #doneStore;
 
-    constructor () {
+    constructor ( app ) {
         super();
 
-        if ( app.internalNotificationsEnabled ) {
-            app.api.on( "connect", this.refresh.bind( this ) );
+        this.#app = app;
 
-            app.api.on( "notifications/update", this.refresh.bind( this ) );
+        if ( this.#app.internalNotificationsEnabled ) {
+            this.#app.api.on( "connect", this.refresh.bind( this ) );
+
+            this.#app.api.on( "notifications/update", this.refresh.bind( this ) );
         }
     }
 
@@ -25,7 +28,7 @@ class Store extends VueStore {
         if ( !this.#inboxStore ) {
             this.#inboxStore = Ext.create( "Ext.data.Store", {
                 "model": NotificationModel,
-                "autoLoad": app.internalNotificationsEnabled,
+                "autoLoad": this.#app.internalNotificationsEnabled,
                 "pageSize": 25,
                 "filters": [
                     {
@@ -46,7 +49,7 @@ class Store extends VueStore {
         if ( !this.#doneStore ) {
             this.#doneStore = Ext.create( "Ext.data.Store", {
                 "model": NotificationModel,
-                "autoLoad": app.internalNotificationsEnabled,
+                "autoLoad": this.#app.internalNotificationsEnabled,
                 "pageSize": 25,
                 "filters": [
                     {
@@ -77,10 +80,10 @@ class Store extends VueStore {
     }
 
     async updateNotifications ( options ) {
-        const res = await app.api.call( "account/notifications/update", options );
+        const res = await this.#app.api.call( "account/notifications/update", options );
 
         if ( !res.ok ) {
-            app.utils.toast( res );
+            this.#app.utils.toast( res );
         }
         else {
             this.refresh( res.data );
@@ -88,10 +91,10 @@ class Store extends VueStore {
     }
 
     async deleteNotification ( options ) {
-        const res = await app.api.call( "account/notifications/delete", options );
+        const res = await this.#app.api.call( "account/notifications/delete", options );
 
         if ( !res.ok ) {
-            app.utils.toast( res );
+            this.#app.utils.toast( res );
         }
         else {
             this.refresh( res.data );
@@ -117,4 +120,4 @@ class Store extends VueStore {
     }
 }
 
-export default Store.new( "notifications" );
+export default NotificationsStore.new( "notifications", app );
