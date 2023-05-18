@@ -1,5 +1,5 @@
 <template>
-    <ext-container :hidden="hidden" @ready="_ready">
+    <ext-container :hidden="_hidden" @ready="_ready">
         <ext-button ref="button" iconCls="fa-regular fa-bell" margin="10 20 0 0" ui="action" width="55" @tap="showNotificationsDialog"/>
 
         <NotificationsDialog ref="dialog"/>
@@ -23,6 +23,10 @@ export default {
     "computed": {
         totalInbox () {
             return notificationsStore.totalInbox;
+        },
+
+        _hidden () {
+            return !this.$app.internalNotificationsEnabled || this.hidden;
         },
     },
 
