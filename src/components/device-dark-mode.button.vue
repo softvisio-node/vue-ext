@@ -29,12 +29,12 @@ export default {
         },
 
         darkMode () {
-            return this.$app.theme.systemDarkMode;
+            return this.$app.theme.deviceDarkMode;
         },
     },
 
     "watch": {
-        systemDarkMode ( value ) {
+        deviceDarkMode ( value ) {
             this.$refs.button.ext.setValue( value );
         },
     },
@@ -45,7 +45,7 @@ export default {
         },
 
         _onChange ( e ) {
-            this.$app.theme.systemDarkMode = e.detail.newValue;
+            this.$app.theme.deviceDarkMode = e.detail.newValue;
         },
     },
 };

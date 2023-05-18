@@ -1,8 +1,8 @@
 <template>
     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}'>
-        <SystemDarkModeButton/>
+        <DeviceDarkModeButton/>
 
-        <DarkModeButton :disabled="systemDarkMode"/>
+        <DarkModeButton :disabled="deviceDarkMode"/>
 
         <ext-fieldcontainer container='{"defaults":null}' :label="i18nd(`vue-ext`, `Base color`)" layout="fit">
             <ext-dataview inline="true" @childtap="themeBaseChanged" @ready="themesColorsViewReady"/>
@@ -16,14 +16,14 @@
 
 <script>
 import DarkModeButton from "#src/components/dark-mode.button";
-import SystemDarkModeButton from "#src/components/system-dark-mode.button";
+import DeviceDarkModeButton from "#src/components/device-dark-mode.button";
 
 export default {
-    "components": { DarkModeButton, SystemDarkModeButton },
+    "components": { DarkModeButton, DeviceDarkModeButton },
 
     "computed": {
-        systemDarkMode () {
-            return this.$app.theme.systemDarkMode;
+        deviceDarkMode () {
+            return this.$app.theme.deviceDarkMode;
         },
     },
 
