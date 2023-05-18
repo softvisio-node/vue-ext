@@ -133,10 +133,10 @@ export default {
                 else {
                     this.notificationTypesHidden = false;
 
-                    this.internalNotificationsEnabled = !res.data.internalNotificationsEnabled;
-                    this.emailNotificationsEnabled = !res.data.emailNotificationsEnabled;
-                    this.telegramNotificationsEnabled = !res.data.telegramNotificationsEnabled;
-                    this.pushNotificationsEnabled = !res.data.pushNotificationsEnabled;
+                    this.internalNotificationsEnabled = res.data.internalNotificationsEnabled;
+                    this.emailNotificationsEnabled = res.data.emailNotificationsEnabled;
+                    this.telegramNotificationsEnabled = res.data.telegramNotificationsEnabled;
+                    this.pushNotificationsEnabled = res.data.pushNotificationsEnabled;
 
                     this.store.loadRawData( res.data.types );
                 }
