@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-05-15 08:37+0300\n"
+"POT-Creation-Date: 2023-05-19 02:13+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Poedit-Basepath: ../..\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.1\n"
 "X-Poedit-SearchPath-0: src\n"
 
 #: src/app.js:33:33
@@ -200,7 +200,6 @@ msgstr "Искать пользователей"
 #: src/components/api-status/latest.panel.vue:7:62
 #: src/components/api-status/panel.vue:10:82
 #: src/components/cards.panel.vue:14:58
-#: src/components/notifications/dialog.vue:30:28
 #: src/components/user-sessions/panel.vue:8:62
 #: src/components/user-tokens/panel.vue:8:62
 #: src/components/users/panel.vue:9:62
@@ -515,7 +514,7 @@ msgstr "Авторизованно"
 msgid "Unable to load data"
 msgstr "Не удалось загрузить данные"
 
-#: src/components/cards.panel.vue:61:41
+#: src/components/cards.panel.vue:65:41
 msgid "No data match search criteria"
 msgstr "Нет данных, соответствующих критериям поиска"
 
@@ -590,11 +589,15 @@ msgstr "Пароль изменен"
 msgid "Dark mode"
 msgstr "Тёмный режим"
 
-#: src/components/notifications/dialog.vue:23:28
+#: src/components/device-dark-mode.button.vue:28:19
+msgid "Use device dark mode"
+msgstr "Использовать темный режим устройства"
+
+#: src/components/notifications/dialog.vue:22:28
 msgid "Settings"
 msgstr "Настройки"
 
-#: src/components/notifications/dialog.vue:24:31
+#: src/components/notifications/dialog.vue:23:31
 #: src/components/notifications/settings.dialog.vue:2:50
 msgid "Notifications settings"
 msgstr "Настройки уведомлений"
@@ -608,12 +611,12 @@ msgstr "Переместить все во входящие"
 msgid "Delete all"
 msgstr "Удалить все"
 
-#: src/components/notifications/done.panel.vue:87:47
+#: src/components/notifications/done.panel.vue:78:47
 msgid "Move to inbox"
 msgstr "Переместить во входящие"
 
-#: src/components/notifications/done.panel.vue:94:47
-#: src/components/notifications/inbox.panel.vue:94:47
+#: src/components/notifications/done.panel.vue:84:47
+#: src/components/notifications/inbox.panel.vue:84:47
 msgid "Delete"
 msgstr "Удалить"
 
@@ -621,7 +624,7 @@ msgstr "Удалить"
 msgid "Mark all as done"
 msgstr "Отметить все как готовые"
 
-#: src/components/notifications/inbox.panel.vue:87:47
+#: src/components/notifications/inbox.panel.vue:78:47
 msgid "Mark as done"
 msgstr "Отметить как готово"
 
@@ -645,22 +648,22 @@ msgstr "Получать push уведомления на этом устрой�
 msgid "Notification types"
 msgstr "Типы уведомлений"
 
-#: src/components/notifications/settings.panel.vue:26:103
+#: src/components/notifications/settings.panel.vue:29:137
 #, javascript-format
 msgid "Internal${n}notifications"
 msgstr "Внутренние${n}уведомления"
 
-#: src/components/notifications/settings.panel.vue:27:103
+#: src/components/notifications/settings.panel.vue:32:134
 #, javascript-format
 msgid "Email${n}notifications"
 msgstr "Email${n}уведомления"
 
-#: src/components/notifications/settings.panel.vue:28:103
+#: src/components/notifications/settings.panel.vue:35:137
 #, javascript-format
 msgid "Telegram${n}notifications"
 msgstr "Telegram${n}уведомления"
 
-#: src/components/notifications/settings.panel.vue:29:103
+#: src/components/notifications/settings.panel.vue:38:133
 #, javascript-format
 msgid "Push${n}notifications"
 msgstr "Push${n}уведомления"
@@ -702,10 +705,6 @@ msgstr "Push уведомления выключены"
 #: src/components/reset-password.dialog.vue:53:35
 msgid "Password recovery token was not found"
 msgstr "Токен восстановления пароля не найден"
-
-#: src/components/system-dark-mode.button.vue:28:19
-msgid "Use OS theme"
-msgstr "Использовать тему ОС"
 
 #: src/components/user-sessions/panel.vue:7:70
 msgid "Sign out of all sessions"
@@ -870,6 +869,9 @@ msgstr "Токен подтверждения email неверен"
 #: src/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
+
+#~ msgid "Use OS theme"
+#~ msgstr "Использовать тему ОС"
 
 #~ msgid "Refresh notifications"
 #~ msgstr "Обновить уведомления"
