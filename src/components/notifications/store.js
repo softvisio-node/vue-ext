@@ -24,6 +24,10 @@ class NotificationsStore extends Store {
     }
 
     // properties
+    get app () {
+        return this.#app;
+    }
+
     get inboxStore () {
         if ( !this.#inboxStore ) {
             this.#inboxStore = Ext.create( "Ext.data.Store", {
