@@ -3,9 +3,6 @@ import NotificationModel from "#src/components/notifications/models/notification
 import locale from "#vue/locale";
 import app from "@/app";
 
-const api = app.api,
-    utils = app.utils;
-
 class Store extends VueStore {
     totalInbox = 0;
     totalDone = 0;
@@ -16,9 +13,11 @@ class Store extends VueStore {
     constructor () {
         super();
 
-        api.on( "connect", this.refresh.bind( this ) );
+        if ( app.internalNotificationsEnabled ) {
+            app.api.on( "connect", this.refresh.bind( this ) );
 
-        api.on( "notifications/update", this.refresh.bind( this ) );
+            app.api.on( "notifications/update", this.refresh.bind( this ) );
+        }
     }
 
     // properties
@@ -26,7 +25,7 @@ class Store extends VueStore {
         if ( !this.#inboxStore ) {
             this.#inboxStore = Ext.create( "Ext.data.Store", {
                 "model": NotificationModel,
-                "autoLoad": true,
+                "autoLoad": app.internalNotificationsEnabled,
                 "pageSize": 25,
                 "filters": [
                     {
@@ -47,7 +46,7 @@ class Store extends VueStore {
         if ( !this.#doneStore ) {
             this.#doneStore = Ext.create( "Ext.data.Store", {
                 "model": NotificationModel,
-                "autoLoad": true,
+                "autoLoad": app.internalNotificationsEnabled,
                 "pageSize": 25,
                 "filters": [
                     {
@@ -78,10 +77,10 @@ class Store extends VueStore {
     }
 
     async updateNotifications ( options ) {
-        const res = await api.call( "account/notifications/update", options );
+        const res = await app.api.call( "account/notifications/update", options );
 
         if ( !res.ok ) {
-            utils.toast( res );
+            app.utils.toast( res );
         }
         else {
             this.refresh( res.data );
@@ -89,10 +88,10 @@ class Store extends VueStore {
     }
 
     async deleteNotification ( options ) {
-        const res = await api.call( "account/notifications/delete", options );
+        const res = await app.api.call( "account/notifications/delete", options );
 
         if ( !res.ok ) {
-            utils.toast( res );
+            app.utils.toast( res );
         }
         else {
             this.refresh( res.data );
