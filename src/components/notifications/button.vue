@@ -26,7 +26,7 @@ export default {
         },
 
         _hidden () {
-            return !this.$app.internalNotificationsEnabled || this.hidden;
+            return !this.$app.internalChannelEnabled || this.hidden;
         },
     },
 

@@ -26,7 +26,7 @@
                     <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1"/>
 
                     <!-- internal -->
-                    <ext-column align="center" :hidden="!internalNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>
+                    <ext-column align="center" :hidden="!internalChannelEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>
 
                     <!-- email -->
                     <ext-column align="center" :hidden="!emailNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_emailColReady"/>
@@ -53,7 +53,7 @@ export default {
     data () {
         return {
             "notificationTypesHidden": false,
-            "internalNotificationsEnabled": false,
+            "internalChannelEnabled": false,
             "emailNotificationsEnabled": false,
             "telegramNotificationsEnabled": false,
             "pushNotificationsEnabled": false,
@@ -133,7 +133,7 @@ export default {
                 else {
                     this.notificationTypesHidden = false;
 
-                    this.internalNotificationsEnabled = res.data.internalNotificationsEnabled;
+                    this.internalChannelEnabled = res.data.internalChannelEnabled;
                     this.emailNotificationsEnabled = res.data.emailNotificationsEnabled;
                     this.telegramNotificationsEnabled = res.data.telegramNotificationsEnabled;
                     this.pushNotificationsEnabled = res.data.pushNotificationsEnabled;

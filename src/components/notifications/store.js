@@ -13,7 +13,7 @@ class Store extends VueStore {
     constructor () {
         super();
 
-        if ( app.internalNotificationsEnabled ) {
+        if ( app.internalChannelEnabled ) {
             app.api.on( "connect", this.refresh.bind( this ) );
 
             app.api.on( "notifications/update", this.refresh.bind( this ) );
@@ -25,7 +25,7 @@ class Store extends VueStore {
         if ( !this.#inboxStore ) {
             this.#inboxStore = Ext.create( "Ext.data.Store", {
                 "model": NotificationModel,
-                "autoLoad": app.internalNotificationsEnabled,
+                "autoLoad": app.internalChannelEnabled,
                 "pageSize": 25,
                 "filters": [
                     {
@@ -46,7 +46,7 @@ class Store extends VueStore {
         if ( !this.#doneStore ) {
             this.#doneStore = Ext.create( "Ext.data.Store", {
                 "model": NotificationModel,
-                "autoLoad": app.internalNotificationsEnabled,
+                "autoLoad": app.internalChannelEnabled,
                 "pageSize": 25,
                 "filters": [
                     {
