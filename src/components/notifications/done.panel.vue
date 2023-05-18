@@ -20,21 +20,21 @@
 </template>
 
 <script>
-import notificationsStore from "#src/components/notifications/store";
 import CardsPanel from "#src/components/cards.panel";
 import "./assets/style.css";
+import NotificationModel from "#src/components/notifications/models/notification";
 
 export default {
     "components": { CardsPanel },
 
     "computed": {
         hasNotifications () {
-            return !!notificationsStore.totalDone;
+            return !!this.$app.notifications.totalDone;
         },
     },
 
     created () {
-        this.store = notificationsStore.doneStore;
+        this.store = this.$app.notifications.getDoneStore( NotificationModel );
     },
 
     "methods": {
@@ -106,11 +106,11 @@ export default {
         },
 
         async moveAllToInbox () {
-            await notificationsStore.updateNotifications( { "done": false } );
+            await this.$app.notifications.updateNotifications( { "done": false } );
         },
 
         async deleteAll () {
-            await notificationsStore.deleteNotification( { "done": true } );
+            await this.$app.notifications.deleteNotification( { "done": true } );
         },
 
         async _moveToInbox ( button ) {
@@ -118,7 +118,7 @@ export default {
 
             button.disable();
 
-            await notificationsStore.updateNotifications( { "id": record.id, "done": false } );
+            await this.$app.notifications.updateNotifications( { "id": record.id, "done": false } );
 
             button.enable();
         },
@@ -128,7 +128,7 @@ export default {
 
             button.disable();
 
-            await notificationsStore.deleteNotification( { "id": record.id } );
+            await this.$app.notifications.deleteNotification( { "id": record.id } );
 
             button.enable();
         },

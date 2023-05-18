@@ -15,18 +15,17 @@
 <script>
 import InboxPanel from "#src/components/notifications/inbox.panel";
 import DonePanel from "#src/components/notifications/done.panel";
-import notificationsStore from "#src/components/notifications/store";
 
 export default {
     "components": { InboxPanel, DonePanel },
 
     "computed": {
         totalInbox () {
-            return notificationsStore.totalInbox;
+            return this.$app.notifications.totalInbox;
         },
 
         totalDone () {
-            return notificationsStore.totalDone;
+            return this.$app.notifications.totalDone;
         },
     },
 

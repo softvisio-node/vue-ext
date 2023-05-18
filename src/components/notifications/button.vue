@@ -8,7 +8,6 @@
 
 <script>
 import NotificationsDialog from "#src/components/notifications/dialog";
-import notificationsStore from "#src/components/notifications/store";
 
 export default {
     "components": { NotificationsDialog },
@@ -22,11 +21,11 @@ export default {
 
     "computed": {
         totalInbox () {
-            return notificationsStore.totalInbox;
+            return this.$app.notifications.totalInbox;
         },
 
         _hidden () {
-            return !this.$app.internalNotificationsEnabled || this.hidden;
+            return !this.$app.notifications.internalNotificationsEnabled || this.hidden;
         },
     },
 
@@ -55,11 +54,11 @@ export default {
 
             dialog.showBy( this.ext, "tr-tl" );
 
-            notificationsStore.refreshRelativeTime();
+            this.$app.notifications.refreshRelativeTime();
         },
 
         _setNotificationsBadgeText () {
-            this.$refs.button.ext.setBadgeText( notificationsStore.totalInbox || "" );
+            this.$refs.button.ext.setBadgeText( this.$app.notifications.totalInbox || "" );
         },
     },
 };

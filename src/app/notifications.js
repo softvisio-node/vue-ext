@@ -48,28 +48,28 @@ export default class VueExtNotifications extends VueNotifications {
     }
 
     refresh ( { inbox, done } = {} ) {
-        if ( ( this.#inboxStore && inbox == null ) || inbox ) this.inboxStore.loadPage( 1 );
+        if ( ( this.#inboxStore && inbox == null ) || inbox ) this.#inboxStore.loadPage( 1 );
 
-        if ( ( this.#doneStore && done == null ) || done ) this.doneStore.loadPage( 1 );
+        if ( ( this.#doneStore && done == null ) || done ) this.#doneStore.loadPage( 1 );
     }
 
     refreshRelativeTime () {
-        this.inboxStore.each( record => record.set( "relative_time", this._getRelativeTime( record.get( "created" ) ) ) );
+        this.#inboxStore?.each( record => record.set( "relative_time", this._getRelativeTime( record.get( "created" ) ) ) );
 
-        this.doneStore.each( record => record.set( "relative_time", this._getRelativeTime( record.get( "created" ) ) ) );
+        this.#doneStore?.each( record => record.set( "relative_time", this._getRelativeTime( record.get( "created" ) ) ) );
     }
 
     // private
     #onLoad ( type ) {
         if ( type === "inbox" ) {
-            this._totalInbox = this.inboxStore.getSummaryRecord().get( "total" );
+            this._totalInbox = this.#inboxStore.getSummaryRecord().get( "total" );
 
-            this.inboxStore.each( record => record.set( "relative_time", this._getRelativeTime( record.get( "created" ) ) ) );
+            this.#inboxStore.each( record => record.set( "relative_time", this._getRelativeTime( record.get( "created" ) ) ) );
         }
         else if ( type === "done" ) {
-            this._totalDone = this.doneStore.getSummaryRecord().get( "total" );
+            this._totalDone = this.#doneStore.getSummaryRecord().get( "total" );
 
-            this.doneStore.each( record => record.set( "relative_time", this._getRelativeTime( record.get( "created" ) ) ) );
+            this.#doneStore.each( record => record.set( "relative_time", this._getRelativeTime( record.get( "created" ) ) ) );
         }
     }
 }
