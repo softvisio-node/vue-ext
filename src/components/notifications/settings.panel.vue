@@ -132,6 +132,7 @@ export default {
                 }
                 else {
                     this.notificationTypesHidden = false;
+
                     this.internalTypeHidden = !res.data.internalNotificationsEnabled;
                     this.emailTypeHidden = !res.data.emailNotificationsEnabled;
                     this.telegramTypeHidden = !res.data.telegramNotificationsEnabled;
