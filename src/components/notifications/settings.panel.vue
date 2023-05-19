@@ -2,20 +2,16 @@
     <ext-panel defaults='{"padding":"0 0 30 0"}' layout="vbox">
         <!-- push notifications -->
         <ext-panel :hidden="pusHidden">
-            <ext-container layout="hbox">
-                <ext-container width="50">
-                    <PushNotificationsButton :hideLabel="true"/>
-                </ext-container>
-                <ext-container layout="vbox">
-                    <ext-container html="Push notifications"/>
+            <!-- push notifications -->
+            <ext-container layout='{"align":"start","type":"hbox"}'>
+                <ext-container layout="vbox" width="300">
+                    <ext-container html="Push notifications" style="font-weight: bold"/>
                     <ext-container :html="i18nd(`vue-ext`, `Receive push notifications on this device`)"/>
                 </ext-container>
+                <ext-container>
+                    <PushNotificationsButton :hideLabel="true"/>
+                </ext-container>
             </ext-container>
-
-            <!-- <ext-container layout="hbox"> -->
-            <!--     <ext-container flex="1" :html="i18nd(`vue-ext`, `Receive push notifications on this device`)"/> -->
-            <!--     <PushNotificationsButton :hideLabel="true"/> -->
-            <!-- </ext-container> -->
         </ext-panel>
 
         <!-- notification types -->
