@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="90%" layout="fit" :title="i18nd(`vue-ext`, `Notifications settings`)" width="700">
+    <ext-dialog height="500" layout="fit" :title="i18nd(`vue-ext`, `Notifications settings`)" width="700">
         <NotificationsSettingsPanel/>
     </ext-dialog>
 </template>
