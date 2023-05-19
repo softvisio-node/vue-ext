@@ -2,6 +2,7 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
+                <ext-container :hidden="hideTitle" :html="i18nd(`vue-ext`, `Access tokens`)"/>
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Create token`)" @tap="showCreateTokenDialog"/>
@@ -32,6 +33,13 @@ import CardsPanel from "#src/components/cards.panel";
 
 export default {
     "components": { CardsPanel },
+
+    "props": {
+        "hideTitle": {
+            "type": Boolean,
+            "default": false,
+        },
+    },
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {
