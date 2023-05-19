@@ -7,6 +7,10 @@
 
         <!-- notifications -->
         <ext-panel layout="fit" :title="i18nd(`vue-ext`, `Notifications`)">
+            <ext-toolbar docked="top">
+                <ext-container :html="i18nd(`vue-ext`, `Notifications settings`)"/>
+            </ext-toolbar>
+
             <NotificationsSettingsPanel/>
         </ext-panel>
 
