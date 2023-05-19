@@ -113,11 +113,9 @@ export default {
             this.ext.hide();
         },
 
-        close () {
-            this.ext.hide( false );
-        },
-
         async showAccountDialog () {
+            this.hide();
+
             this.$emit( "showAccountDialog" );
         },
 
@@ -156,6 +154,8 @@ export default {
         },
 
         async showAboutDialog () {
+            this.hide();
+
             const cmp = await this.$mount( AboutDialog );
 
             cmp.ext.show();
