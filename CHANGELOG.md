@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.19 (2023-05-19)
+
+Fixes:
+
+-   fix: notifications layout
+
 ### 8.2.18 (2023-05-19)
 
 Fixes:
