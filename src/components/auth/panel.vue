@@ -48,7 +48,7 @@ export default {
         },
 
         signupEnabled () {
-            return this.$app.signupEnabled;
+            return this.$app.settings.signupEnabled;
         },
     },
 

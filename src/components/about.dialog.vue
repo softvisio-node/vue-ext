@@ -18,11 +18,11 @@
 export default {
     "computed": {
         backend () {
-            return this.$app.backendGitId || {};
+            return this.$app.settings.backendGitId || {};
         },
 
         frontend () {
-            return this.$app.frontendGitId || {};
+            return this.$app.settings.frontendGitId || {};
         },
     },
 
@@ -30,8 +30,8 @@ export default {
         _copy () {
             this.$utils.copyToClipboard( JSON.stringify(
                 {
-                    "backend": this.$app.backendGitId,
-                    "frontend": this.$app.frontendGitId,
+                    "backend": this.$app.settings.backendGitId,
+                    "frontend": this.$app.settings.frontendGitId,
                 },
                 null,
                 4
