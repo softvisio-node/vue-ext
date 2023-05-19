@@ -14,15 +14,15 @@ export default {
 
     "computed": {
         signinGoogleEnabled () {
-            return !!this.$app.settings.oauth_google_client_id;
+            return !!this.$app.settings.oauthGoogleClientId;
         },
 
         signinFacebookEnabled () {
-            return !!this.$app.settings.oauth_facebook_client_id;
+            return !!this.$app.settings.oauthFacebookClientId;
         },
 
         signinGitHubEnabled () {
-            return !!this.$app.settings.oauth_github_client_id;
+            return !!this.$app.settings.oauthGithubClientId;
         },
     },
 
