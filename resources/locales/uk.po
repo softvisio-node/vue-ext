@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-05-19 02:15+0300\n"
+"POT-Creation-Date: 2023-05-19 13:12+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,7 +50,7 @@ msgstr "Режим сервера"
 msgid "Copy to clipboard"
 msgstr "Скопіювати у буфер обміну"
 
-#: src/components/about.dialog.vue:2:51 src/components/app-title/menu.vue:42:65
+#: src/components/about.dialog.vue:2:51 src/components/app-title/menu.vue:43:31
 msgid "About the project"
 msgstr "Про проект"
 
@@ -137,17 +137,24 @@ msgstr "Ваш аккаунт"
 msgid "Account"
 msgstr "Аккаунт"
 
+#: src/components/account/panel.vue:11:38
+#: src/components/notifications/dialog.vue:23:31
+#: src/components/notifications/settings.dialog.vue:2:50
+msgid "Notifications settings"
+msgstr "Налаштування сповіщень"
+
 #: src/components/account/panel.vue:9:40
 #: src/components/notifications/dialog.vue:2:87
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: src/components/account/panel.vue:14:83
+#: src/components/account/panel.vue:18:83
+#: src/components/user-tokens/panel.vue:5:58
 msgid "Access tokens"
 msgstr "Токени доступу"
 
-#: src/components/account/panel.vue:21:38
-#: src/components/account/panel.vue:19:41
+#: src/components/account/panel.vue:25:38
+#: src/components/account/panel.vue:23:41
 msgid "Appearance"
 msgstr "Зовнішній вигляд"
 
@@ -157,8 +164,8 @@ msgstr "Виберіть користувача"
 
 #: src/components/acl/add-user.dialog.vue:5:52
 #: src/components/acl/panel.vue:21:67 src/components/acl/panel.vue:241:45
-#: src/components/user-tokens/panel.vue:20:88
-#: src/components/user-tokens/panel.vue:144:45
+#: src/components/user-tokens/panel.vue:21:88
+#: src/components/user-tokens/panel.vue:152:45
 #: src/components/users/create-user.dialog.vue:14:37
 #: src/components/users/panel.vue:25:67 src/components/users/panel.vue:252:45
 msgid "Access enabled"
@@ -201,7 +208,7 @@ msgstr "Пошук користувачів"
 #: src/components/api-status/panel.vue:10:82
 #: src/components/cards.panel.vue:14:58
 #: src/components/user-sessions/panel.vue:8:62
-#: src/components/user-tokens/panel.vue:8:62
+#: src/components/user-tokens/panel.vue:9:62
 #: src/components/users/panel.vue:9:62
 msgid "Refresh"
 msgstr "Оновити"
@@ -226,7 +233,7 @@ msgid "Delete user"
 msgstr "Видалити користувача"
 
 #: src/components/acl/panel.vue:241:89
-#: src/components/user-tokens/panel.vue:144:89
+#: src/components/user-tokens/panel.vue:152:89
 #: src/components/users/panel.vue:252:89
 msgid "Access disabled"
 msgstr "Доступ вимкнено"
@@ -413,7 +420,7 @@ msgstr "Журнал винятків"
 msgid "Development"
 msgstr "Розробка"
 
-#: src/components/app-title/menu.vue:44:66
+#: src/components/app-title/menu.vue:46:66
 #: src/components/user-sessions/panel.vue:76:39
 msgid "Sign out"
 msgstr "Вийти"
@@ -597,11 +604,6 @@ msgstr "Використовуйте темний режим пристрою"
 msgid "Settings"
 msgstr "Налаштування"
 
-#: src/components/notifications/dialog.vue:23:31
-#: src/components/notifications/settings.dialog.vue:2:50
-msgid "Notifications settings"
-msgstr "Налаштування сповіщень"
-
 #: src/components/notifications/done.panel.vue:6:113
 msgid "Move all to inbox"
 msgstr "Перемістити все до вхідних"
@@ -636,34 +638,30 @@ msgstr "Вхідні"
 msgid "Done"
 msgstr "Готово"
 
-#: src/components/notifications/settings.panel.vue:6:38
-msgid "Push notifications"
-msgstr "Push повідомлення"
-
-#: src/components/notifications/settings.panel.vue:10:47
+#: src/components/notifications/settings.panel.vue:9:42
 msgid "Receive push notifications on this device"
 msgstr "Отримувати push повідомлення на цьому пристрої"
 
-#: src/components/notifications/settings.panel.vue:19:42
+#: src/components/notifications/settings.panel.vue:22:109
 msgid "Notification types"
 msgstr "Типи сповіщень"
 
-#: src/components/notifications/settings.panel.vue:29:137
+#: src/components/notifications/settings.panel.vue:25:137
 #, javascript-format
 msgid "Internal${n}notifications"
 msgstr "Внутрішні${n}сповіщення"
 
-#: src/components/notifications/settings.panel.vue:32:134
+#: src/components/notifications/settings.panel.vue:28:134
 #, javascript-format
 msgid "Email${n}notifications"
 msgstr "Email${n}сповіщення"
 
-#: src/components/notifications/settings.panel.vue:35:137
+#: src/components/notifications/settings.panel.vue:31:137
 #, javascript-format
 msgid "Telegram${n}notifications"
 msgstr "Telegram${n}сповіщення"
 
-#: src/components/notifications/settings.panel.vue:38:133
+#: src/components/notifications/settings.panel.vue:34:133
 #, javascript-format
 msgid "Push${n}notifications"
 msgstr "Push${n}сповіщення"
@@ -727,13 +725,13 @@ msgid "IP address"
 msgstr "IP адреса"
 
 #: src/components/user-sessions/panel.vue:22:132
-#: src/components/user-tokens/panel.vue:16:132
+#: src/components/user-tokens/panel.vue:17:132
 #: src/components/users/panel.vue:21:167
 msgid "Last activity"
 msgstr "Останній активность"
 
 #: src/components/user-sessions/panel.vue:24:74
-#: src/components/user-tokens/panel.vue:18:107
+#: src/components/user-tokens/panel.vue:19:107
 #: src/components/users/panel.vue:23:104
 msgid "Creation date"
 msgstr "Дата створення"
@@ -751,7 +749,7 @@ msgid "Sessions were deleted"
 msgstr "Сесії видалено"
 
 #: src/components/user-tokens/create/dialog.vue:4:46
-#: src/components/user-tokens/panel.vue:14:61
+#: src/components/user-tokens/panel.vue:15:61
 msgid "Token name"
 msgstr "Ім'я токена"
 
@@ -773,7 +771,7 @@ msgstr "Скопіюйте токен у буфер обміну"
 
 #: src/components/user-tokens/create/dialog.vue:21:44
 #: src/components/user-tokens/create/dialog.vue:2:51
-#: src/components/user-tokens/panel.vue:7:62
+#: src/components/user-tokens/panel.vue:8:62
 msgid "Create token"
 msgstr "Створити токен"
 
@@ -793,15 +791,15 @@ msgstr "Токен скопійовано в буфер обміну"
 msgid "API keys"
 msgstr "Ключі API"
 
-#: src/components/user-tokens/panel.vue:5:47
+#: src/components/user-tokens/panel.vue:6:47
 msgid "Search tokens by name"
 msgstr "Пошук токенів за назвою"
 
-#: src/components/user-tokens/panel.vue:154:47
+#: src/components/user-tokens/panel.vue:162:47
 msgid "Are you sure you want to delete this token?"
 msgstr "Ви впевнені, що хочете видалити цей токен?"
 
-#: src/components/user-tokens/panel.vue:159:35
+#: src/components/user-tokens/panel.vue:167:35
 msgid "Token deleted"
 msgstr "Токен видалено"
 
@@ -869,6 +867,9 @@ msgstr "Токен підтвердження електронної пошти 
 #: src/viewport.vue:82:39
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#~ msgid "Push notifications"
+#~ msgstr "Push повідомлення"
 
 #~ msgid "Use OS theme"
 #~ msgstr "Використовувати тему ОС"
