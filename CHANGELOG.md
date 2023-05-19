@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.2.16 (2023-05-19)
+
+Fixes:
+
+-   fix: app settings
+-   fix: translations
+
 ### 8.2.15 (2023-05-18)
 
 Fixes:
