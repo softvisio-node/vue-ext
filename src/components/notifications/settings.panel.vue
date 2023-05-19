@@ -16,16 +16,10 @@
 
         <!-- notification types -->
         <CardsPanel ref="cardsPanel" flex="1" :hidden="notificationTypesHidden" @refresh="refresh">
-            <template #docked>
-                <ext-toolbar docked="top">
-                    <ext-container :html="i18nd(`vue-ext`, `Notification types`)"/>
-                </ext-toolbar>
-            </template>
-
             <template #data>
                 <ext-grid columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" sortable="false" @ready="_gridReady">
                     <!-- type -->
-                    <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1" maxWidth="300"/>
+                    <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1" maxWidth="300" :text="i18nd(`vue-ext`, `Notification types`)"/>
 
                     <!-- internal -->
                     <ext-column align="center" :hidden="!internalChannelEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>
