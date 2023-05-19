@@ -85,8 +85,6 @@ export default {
         },
 
         showAccountDialog () {
-            this.hideMenu();
-
             this.$emit( "showAccountDialog" );
         },
     },
