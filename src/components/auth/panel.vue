@@ -44,7 +44,7 @@ export default {
 
     "computed": {
         title () {
-            return this.$app.session.title;
+            return this.$app.settings.title;
         },
 
         signupEnabled () {
