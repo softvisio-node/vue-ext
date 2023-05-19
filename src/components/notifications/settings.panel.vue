@@ -17,7 +17,7 @@
         <!-- notification types -->
         <CardsPanel ref="cardsPanel" flex="1" :hidden="notificationTypesHidden" @refresh="refresh">
             <template #data>
-                <ext-grid columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" sortable="false" @ready="_gridReady">
+                <ext-grid columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" selectable="false" sortable="false" @ready="_gridReady">
                     <!-- type -->
                     <ext-column cell='{"encodeHtml":false}' dataIndex="title" :text="i18nd(`vue-ext`, `Notification types`)" width="220"/>
 
