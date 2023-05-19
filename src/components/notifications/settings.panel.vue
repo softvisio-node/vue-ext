@@ -4,7 +4,7 @@
         <ext-panel :hidden="pusHidden">
             <!-- push notifications -->
             <ext-container layout='{"align":"start","type":"hbox"}'>
-                <ext-container layout="vbox" width="300">
+                <ext-container layout="vbox" width="260">
                     <ext-container html="Push notifications" style="font-weight: bold"/>
                     <ext-container :html="i18nd(`vue-ext`, `Receive push notifications on this device`)"/>
                 </ext-container>
@@ -19,7 +19,7 @@
             <template #data>
                 <ext-grid columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" sortable="false" @ready="_gridReady">
                     <!-- type -->
-                    <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1" maxWidth="300" :text="i18nd(`vue-ext`, `Notification types`)"/>
+                    <ext-column cell='{"encodeHtml":false}' dataIndex="title" :text="i18nd(`vue-ext`, `Notification types`)" width="220"/>
 
                     <!-- internal -->
                     <ext-column align="center" :hidden="!internalChannelEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>
