@@ -22,16 +22,16 @@
                     <ext-column cell='{"encodeHtml":false}' dataIndex="title" :text="i18nd(`vue-ext`, `Notification types`)" width="220"/>
 
                     <!-- internal -->
-                    <ext-column align="center" :hidden="!internalChannelEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>
+                    <ext-column align="center" :hidden="!internalNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>
 
                     <!-- email -->
-                    <ext-column align="center" :hidden="!emailChannelEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_emailColReady"/>
+                    <ext-column align="center" :hidden="!emailNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_emailColReady"/>
 
                     <!-- telegram -->
-                    <ext-column align="center" :hidden="!telegramChannelEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Telegram${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_telegramColReady"/>
+                    <ext-column align="center" :hidden="!telegramlNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Telegram${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_telegramColReady"/>
 
                     <!-- push -->
-                    <ext-column align="center" :hidden="!pushChannelEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Push${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_pushColReady"/>
+                    <ext-column align="center" :hidden="!pushNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Push${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_pushColReady"/>
                 </ext-grid>
             </template>
         </CardsPanel>
@@ -49,10 +49,10 @@ export default {
     data () {
         return {
             "notificationTypesHidden": false,
-            "internalChannelEnabled": false,
-            "emailChannelEnabled": false,
-            "telegramChannelEnabled": false,
-            "pushChannelEnabled": false,
+            "internalNotificationsEnabled": false,
+            "emailNotificationsEnabled": false,
+            "telegramlNotificationsEnabled": false,
+            "pushNotificationsEnabled": false,
         };
     },
 
@@ -129,10 +129,10 @@ export default {
                 else {
                     this.notificationTypesHidden = false;
 
-                    this.internalChannelEnabled = res.data.internalChannelEnabled;
-                    this.emailChannelEnabled = res.data.emailChannelEnabled;
-                    this.telegramChannelEnabled = res.data.telegramChannelEnabled;
-                    this.pushChannelEnabled = res.data.pushChannelEnabled;
+                    this.internalNotificationsEnabled = res.data.internalNotificationsEnabled;
+                    this.emailNotificationsEnabled = res.data.emailNotificationsEnabled;
+                    this.telegramlNotificationsEnabled = res.data.telegramlNotificationsEnabled;
+                    this.pushNotificationsEnabled = res.data.pushNotificationsEnabled;
 
                     this.store.loadRawData( res.data.types );
                 }
