@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.21 (2023-05-20)
+
+Fixes:
+
+-   fix: notifications
+
 ### 8.2.20 (2023-05-20)
 
 Fixes:
