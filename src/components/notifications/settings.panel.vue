@@ -28,7 +28,7 @@
                     <ext-column align="center" :hidden="!emailNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_emailColReady"/>
 
                     <!-- telegram -->
-                    <ext-column align="center" :hidden="!telegramlNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Telegram${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_telegramColReady"/>
+                    <ext-column align="center" :hidden="!telegramNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Telegram${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_telegramColReady"/>
 
                     <!-- push -->
                     <ext-column align="center" :hidden="!pushNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Push${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_pushColReady"/>
@@ -51,7 +51,7 @@ export default {
             "notificationTypesHidden": false,
             "internalNotificationsEnabled": false,
             "emailNotificationsEnabled": false,
-            "telegramlNotificationsEnabled": false,
+            "telegramNotificationsEnabled": false,
             "pushNotificationsEnabled": false,
         };
     },
@@ -131,7 +131,7 @@ export default {
 
                     this.internalNotificationsEnabled = res.data.internalNotificationsEnabled;
                     this.emailNotificationsEnabled = res.data.emailNotificationsEnabled;
-                    this.telegramlNotificationsEnabled = res.data.telegramlNotificationsEnabled;
+                    this.telegramNotificationsEnabled = res.data.telegramNotificationsEnabled;
                     this.pushNotificationsEnabled = res.data.pushNotificationsEnabled;
 
                     this.store.loadRawData( res.data.types );
