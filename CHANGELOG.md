@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.2.22 (2023-05-21)
+
+Fixes:
+
+-   fix: authentication import
+-   fix: translations
+
 ### 8.2.21 (2023-05-20)
 
 Fixes:
