@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-05-19 13:11+0300\n"
+"POT-Creation-Date: 2023-05-21 13:59+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -71,8 +71,8 @@ msgid "Change password"
 msgstr "Изменить пароль"
 
 #: src/components/account/account.panel.vue:11:74
-#: src/components/auth/signin.form.vue:12:66
-#: src/components/auth/signup.form.vue:12:66
+#: src/components/authentication/signin.form.vue:12:66
+#: src/components/authentication/signup.form.vue:12:66
 #: src/components/authorization.dialog.vue:6:59
 #: src/components/users/create-user.dialog.vue:6:66
 msgid "Password"
@@ -88,9 +88,9 @@ msgid "Confirm"
 msgstr "Подтвердить"
 
 #: src/components/account/account.panel.vue:16:74
-#: src/components/auth/password-recovery.form.vue:10:63
-#: src/components/auth/signin.form.vue:10:63
-#: src/components/auth/signup.form.vue:10:63
+#: src/components/authentication/password-recovery.form.vue:10:63
+#: src/components/authentication/signin.form.vue:10:63
+#: src/components/authentication/signup.form.vue:10:63
 msgid "Email address"
 msgstr "Адрес email"
 
@@ -181,9 +181,9 @@ msgid "Adding a user"
 msgstr "Добавлкние пользователя"
 
 #: src/components/acl/add-user.dialog.vue:59:35
-#: src/components/auth/password-recovery.form.vue:56:35
-#: src/components/auth/signin.form.vue:77:35
-#: src/components/auth/signup.form.vue:92:35
+#: src/components/authentication/password-recovery.form.vue:56:35
+#: src/components/authentication/signin.form.vue:77:35
+#: src/components/authentication/signup.form.vue:92:35
 msgid "Please, correctly fill all required fields"
 msgstr "Пожалуйста, правильно заполните все требуемые поля"
 
@@ -425,76 +425,76 @@ msgstr "Разработка"
 msgid "Sign out"
 msgstr "Выйти"
 
-#: src/components/auth/password-recovery.form.vue:5:34
+#: src/components/authentication/password-recovery.form.vue:5:34
 msgid "Password recovery"
 msgstr "Восстановление пароля"
 
-#: src/components/auth/password-recovery.form.vue:10:125
-#: src/components/auth/signin.form.vue:10:125
-#: src/components/auth/signup.form.vue:10:125
+#: src/components/authentication/password-recovery.form.vue:10:125
+#: src/components/authentication/signin.form.vue:10:125
+#: src/components/authentication/signup.form.vue:10:125
 msgid "Enter your email address"
 msgstr "Введите ваш адрес email"
 
-#: src/components/auth/password-recovery.form.vue:14:64
-#: src/components/auth/signup.form.vue:25:64
+#: src/components/authentication/password-recovery.form.vue:14:64
+#: src/components/authentication/signup.form.vue:25:64
 msgid "Back"
 msgstr "Назад"
 
-#: src/components/auth/password-recovery.form.vue:16:31
+#: src/components/authentication/password-recovery.form.vue:16:31
 msgid "Recover"
 msgstr "Восстановить"
 
-#: src/components/auth/password-recovery.form.vue:75:35
+#: src/components/authentication/password-recovery.form.vue:75:35
 msgid "Password change instructions were sent to the email address, associated with your account."
 msgstr "Инструкции по изменению пароль отправлены на ваш email."
 
-#: src/components/auth/signin.form.vue:5:34
-#: src/components/auth/signin.form.vue:30:31
+#: src/components/authentication/signin.form.vue:5:34
+#: src/components/authentication/signin.form.vue:30:31
 msgid "Sign in"
 msgstr "Войти"
 
-#: src/components/auth/signin.form.vue:12:126
-#: src/components/auth/signup.form.vue:12:126
+#: src/components/authentication/signin.form.vue:12:126
+#: src/components/authentication/signup.form.vue:12:126
 #: src/components/authorization.dialog.vue:6:119
 #: src/components/users/create-user.dialog.vue:6:161
 msgid "Enter password"
 msgstr "Введите пароль"
 
-#: src/components/auth/signin.form.vue:17:31
+#: src/components/authentication/signin.form.vue:17:31
 msgid "Forgot password?"
 msgstr "Забыли пароль?"
 
-#: src/components/auth/signin.form.vue:25:31
+#: src/components/authentication/signin.form.vue:25:31
 msgid "Do not have account? Sign up"
 msgstr "Нет аккаута? Зарегистрируйтесь"
 
-#: src/components/auth/signup.form.vue:5:34
-#: src/components/auth/signup.form.vue:27:31
+#: src/components/authentication/signup.form.vue:5:34
+#: src/components/authentication/signup.form.vue:27:31
 msgid "Sign up"
 msgstr "Зарегистрироваться"
 
-#: src/components/auth/signup.form.vue:14:66
-#: src/components/auth/signup.form.vue:14:143
+#: src/components/authentication/signup.form.vue:14:66
+#: src/components/authentication/signup.form.vue:14:143
 #: src/components/users/create-user.dialog.vue:8:66
 #: src/components/users/create-user.dialog.vue:8:178
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
-#: src/components/auth/signup.form.vue:17:35
+#: src/components/authentication/signup.form.vue:17:35
 #: src/components/change-password.dialog.vue:12:31
 #: src/components/reset-password.dialog.vue:11:35
 #: src/components/users/create-user.dialog.vue:11:35
 msgid "Generate random password"
 msgstr "Сгенерировать случайный пароль"
 
-#: src/components/auth/signup.form.vue:82:31
+#: src/components/authentication/signup.form.vue:82:31
 #: src/components/change-password.dialog.vue:93:31
 #: src/components/reset-password.dialog.vue:108:31
 #: src/components/users/create-user.dialog.vue:72:31
 msgid "Password copied to the clipboard"
 msgstr "Пароль скопирован в буфер обмена"
 
-#: src/components/auth/signup.form.vue:100:64
+#: src/components/authentication/signup.form.vue:100:64
 #: src/components/change-password.dialog.vue:63:64
 #: src/components/reset-password.dialog.vue:82:64
 #: src/components/users/create-user.dialog.vue:86:64
@@ -642,26 +642,26 @@ msgstr "Готово"
 msgid "Receive push notifications on this device"
 msgstr "Получать push уведомления на этом устройстве"
 
-#: src/components/notifications/settings.panel.vue:22:109
+#: src/components/notifications/settings.panel.vue:22:85
 msgid "Notification types"
 msgstr "Типы уведомлений"
 
-#: src/components/notifications/settings.panel.vue:25:137
+#: src/components/notifications/settings.panel.vue:25:143
 #, javascript-format
 msgid "Internal${n}notifications"
 msgstr "Внутренние${n}уведомления"
 
-#: src/components/notifications/settings.panel.vue:28:134
+#: src/components/notifications/settings.panel.vue:28:140
 #, javascript-format
 msgid "Email${n}notifications"
 msgstr "Email${n}уведомления"
 
-#: src/components/notifications/settings.panel.vue:31:137
+#: src/components/notifications/settings.panel.vue:31:143
 #, javascript-format
 msgid "Telegram${n}notifications"
 msgstr "Telegram${n}уведомления"
 
-#: src/components/notifications/settings.panel.vue:34:133
+#: src/components/notifications/settings.panel.vue:34:139
 #, javascript-format
 msgid "Push${n}notifications"
 msgstr "Push${n}уведомления"
