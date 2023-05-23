@@ -177,14 +177,12 @@ export default {
             return;
         },
 
-        // XXX
         _openTelegramBot () {
 
             // window.open( this.telegramUrl, "_blank" ).focus();
             this.$utils.clickUrl( this.telegramUrl );
         },
 
-        // XXX
         async _linkTelegramBot () {
             const res = await this.$api.call( "account/notifications/get-telegram-link-url" );
 
