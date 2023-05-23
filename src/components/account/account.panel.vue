@@ -23,23 +23,6 @@
                     <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="i18nd(`vue-ext`, `Confirm`)" @tap="_confirmEmail"/>
                 </ext-fieldcontainer>
 
-                <!-- telegram username -->
-                <ext-fieldcontainer bind='{"hidden":"{!record.telegram_enabled}"}' container='{"defaults":null}' :label="i18nd(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
-                    <ext-container ref="displayTelegramUsernameContainer" layout='{"align":"center","type":"hbox"}'>
-                        <ext-displayfield bind="{record.telegram_username}" width="200"/>
-                        <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_editTelegramUsername"/>
-                        <ext-button bind='{"hidden":"{!record.has_telegram_username || !record.telegram_user_id}"}' iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Open bot`)" @tap="_openTelegramBot"/>
-                        <ext-button bind='{"hidden":"{!record.has_telegram_username || record.telegram_user_id}"}' iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Connect bot`)" ui="decline" @tap="_openTelegramBot"/>
-                    </ext-container>
-
-                    <!-- edit telegram -->
-                    <ext-container ref="editTelegramUsernameContainer" :hidden="true" layout='{"align":"center","type":"hbox"}'>
-                        <ext-textfield ref="telegramUsernameField" bind="{record.telegram_username}" width="200"/>
-                        <ext-button iconCls="fa-solid fa-xmark" :text="i18nd(`vue-ext`, `Cancel`)" @tap="_cancelEditTelegramUsername"/>
-                        <ext-button iconCls="fa-solid fa-check" :text="i18nd(`vue-ext`, `Save`)" ui="action" @tap="_setTelegramUsername"/>
-                    </ext-container>
-                </ext-fieldcontainer>
-
                 <!-- sessions -->
                 <UserSessionsPanel margin="20 0 0 0" maxHeight="500" minHeight="300"/>
             </ext-container>
@@ -107,57 +90,6 @@ export default {
             else {
                 this.$utils.toast( res );
             }
-        },
-
-        // telegram
-        _editTelegramUsername () {
-            this.$refs.displayTelegramUsernameContainer.ext.hide();
-
-            this.$refs.editTelegramUsernameContainer.ext.show();
-        },
-
-        _cancelEditTelegramUsername () {
-            this.ext.getViewModel().get( "record" ).reject();
-
-            this.$refs.displayTelegramUsernameContainer.ext.show();
-
-            this.$refs.editTelegramUsernameContainer.ext.hide();
-        },
-
-        async _setTelegramUsername () {
-            const record = this.ext.getViewModel().get( "record" );
-
-            if ( !this.$refs.telegramUsernameField.ext.validate() ) return;
-
-            if ( !record.isModified( "telegram_username" ) ) {
-                this._cancelEditTelegramUsername();
-
-                return;
-            }
-
-            this.$refs.editTelegramUsernameContainer.ext.mask();
-
-            const res = await this.$api.call( "account/set-telegram-username", record.get( "telegram_username" ) );
-
-            this.$refs.editTelegramUsernameContainer.ext.unmask();
-
-            if ( res.ok ) {
-                this.$utils.toast( res );
-
-                record.set( "telegram_user_id", res.data.telegram_user_id );
-
-                record.commit( false, "telegram_username" );
-                record.commit( false, "telegram_user_id" );
-
-                this._cancelEditTelegramUsername();
-            }
-            else {
-                this.$utils.toast( res );
-            }
-        },
-
-        _openTelegramBot () {
-            window.open( this.ext.getViewModel().get( "record" ).get( "telegram_bot_url" ), "_blank" ).focus();
         },
 
         // password
