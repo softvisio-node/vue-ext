@@ -95,7 +95,10 @@ export default {
             "pageSize": null,
         } );
 
-        this._telegramLinkedListener = telegrgramLinked => ( this.telegramLinked = telegrgramLinked );
+        this._telegramLinkedListener = telegramLinked => {
+            this.telegramLinked = telegramLinked;
+        };
+
         this.$api.on( "notifications/telegram-linked", this._telegramLinkedListener );
     },
 
