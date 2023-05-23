@@ -23,6 +23,18 @@ export default {
         },
     },
 
+    created () {
+        this._telegramLinkedListener = telegramLinked => {
+            this.ext.close();
+        };
+
+        this.$api.on( "notifications/telegram-linked", this._telegramLinkedListener );
+    },
+
+    unmounted () {
+        this.$api.off( "notifications/telegram-linked", this._telegramLinkedListener );
+    },
+
     "methods": {
         _openTelegramBot () {
 
