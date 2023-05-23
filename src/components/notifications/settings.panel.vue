@@ -18,13 +18,13 @@
         <ext-container :hidden="!telegramSupported">
             <!-- link -->
             <ext-container :hidden="telegramLinked">
-                <ext-button iconCls="fa-brands fa-telegram" text="link" @tap="_linkTelegramBot"/>
+                <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Link telegram account`)" @tap="_linkTelegramBot"/>
             </ext-container>
 
             <!-- open -->
             <ext-container :hidden="!telegramLinked">
-                <ext-button iconCls="fa-brands fa-telegram" text="open" @tap="_openTelegramBot"/>
-                <ext-button iconCls="fa-brands fa-telegram" text="Unlink" @tap="_unlinkTelegramBot"/>
+                <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Open telegram bot`)" @tap="_openTelegramBot"/>
+                <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Unlink telegram account`)" @tap="_unlinkTelegramBot"/>
             </ext-container>
         </ext-container>
 
