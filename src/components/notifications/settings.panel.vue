@@ -207,17 +207,22 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                const cmp = await this.$mount( LinkTelegramDialig, {
-                    "props": {
-                        "localUrl": res.data.localUrl,
-                        "remoteUrl": res.data.remoteUrl,
-                    },
-                } );
+                if ( res.data.telegramLinked ) {
+                    this.telegramLinked = true;
+                }
+                else {
+                    const cmp = await this.$mount( LinkTelegramDialig, {
+                        "props": {
+                            "localUrl": res.data.localUrl,
+                            "remoteUrl": res.data.remoteUrl,
+                        },
+                    } );
 
-                cmp.ext.show();
+                    cmp.ext.show();
 
-                // XXX
-                // this.telegramLinked = true;
+                    // XXX
+                    // this.telegramLinked = true;
+                }
             }
         },
 
