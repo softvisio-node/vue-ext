@@ -1,7 +1,7 @@
 <template>
     <ext-panel defaults='{"padding":"0 0 30 0"}' layout="vbox">
         <!-- push notifications -->
-        <ext-panel :hidden="pusHidden">
+        <ext-container :hidden="pusHidden">
             <!-- push notifications -->
             <ext-container layout='{"align":"start","type":"hbox"}'>
                 <ext-container layout="vbox" width="260">
@@ -12,13 +12,21 @@
                     <PushNotificationsButton :hideLabel="true"/>
                 </ext-container>
             </ext-container>
-        </ext-panel>
+        </ext-container>
 
         <!-- telegram -->
-        <ext-panel :hidden="!telegramSupported">
-            <ext-button text="open" @tap="_openTelegramBot"/>
-            <ext-button text="link" @tap="_linkTelegramBot"/>
-        </ext-panel>
+        <ext-container :hidden="!telegramSupported">
+            <!-- link -->
+            <ext-container :hidden="telegramLinked">
+                <ext-button iconCls="fa-brands fa-telegram" text="link" @tap="_linkTelegramBot"/>
+            </ext-container>
+
+            <!-- open -->
+            <ext-container :hidden="!telegramLinked">
+                <ext-button iconCls="fa-brands fa-telegram" text="open" @tap="_openTelegramBot"/>
+                <ext-button iconCls="fa-brands fa-telegram" text="Unlink" @tap="_unlinkTelegramBot"/>
+            </ext-container>
+        </ext-container>
 
         <!-- notification types -->
         <CardsPanel ref="cardsPanel" flex="1" :hidden="notificationTypesHidden" @refresh="refresh">
@@ -183,6 +191,7 @@ export default {
             this.$utils.clickUrl( this.telegramUrl );
         },
 
+        // XXX watch link
         async _linkTelegramBot () {
             const res = await this.$api.call( "account/notifications/get-telegram-link-url" );
 
@@ -193,6 +202,20 @@ export default {
 
                 // window.open( res.data, "_blank" ).focus();
                 this.$utils.clickUrl( res.data );
+
+                // XXX
+                this.telegramLinked = true;
+            }
+        },
+
+        async _unlinkTelegramBot () {
+            const res = await this.$api.call( "account/notifications/unlink-telegram" );
+
+            if ( !res.ok ) {
+                this.$utils.toast( res );
+            }
+            else {
+                this.telegramLinked = false;
             }
         },
     },
