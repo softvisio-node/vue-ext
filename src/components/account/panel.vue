@@ -36,7 +36,7 @@
 import "#src/components/avatar/ext.avatar";
 import AccountPanel from "./account.panel";
 import NotificationsSettingsPanel from "#src/components/notifications/settings.panel";
-import UserTokensPanel from "#src/components/user-tokens/panel";
+import UserTokensPanel from "./tokens/panel";
 import AppearancePanel from "./appearance.panel";
 
 export default {
