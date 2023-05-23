@@ -209,7 +209,7 @@ export default {
             else {
 
                 // window.open( res.data, "_blank" ).focus();
-                this.$utils.clickUrl( res.data );
+                this.$utils.clickUrl( res.data.localUrl );
 
                 // XXX
                 this.telegramLinked = true;
