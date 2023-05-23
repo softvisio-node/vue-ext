@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import ApiStatusPanel from "#src/components/api-status/panel";
+import ApiStatusPanel from "./api-status/panel";
 
 export default {
     "components": { ApiStatusPanel },
