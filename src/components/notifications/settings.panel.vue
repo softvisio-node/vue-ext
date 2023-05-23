@@ -24,13 +24,13 @@
                 <ext-container>
                     <!-- link -->
                     <ext-container :hidden="telegramLinked">
-                        <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Link telegram account`)" @tap="_linkTelegramBot"/>
+                        <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Link telegram`)" @tap="_linkTelegramBot"/>
                     </ext-container>
 
                     <!-- open -->
-                    <ext-container :hidden="!telegramLinked">
+                    <ext-container :hidden="!telegramLinked" layout="vbox">
                         <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Open telegram bot`)" @tap="_openTelegramBot"/>
-                        <ext-button iconCls="fa-regular fa-trash-can" :text="i18nd(`vue-ext`, `Unlink telegram account`)" @tap="_unlinkTelegramBot"/>
+                        <ext-button iconCls="fa-regular fa-trash-can" :text="i18nd(`vue-ext`, `Unlink telegram`)" @tap="_unlinkTelegramBot"/>
                     </ext-container>
                 </ext-container>
             </ext-container>
