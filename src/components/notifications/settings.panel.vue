@@ -5,7 +5,7 @@
             <!-- push notifications -->
             <ext-container layout='{"align":"start","type":"hbox"}'>
                 <ext-container layout="vbox" width="260">
-                    <ext-container html="Push notifications" style="font-weight: bold"/>
+                    <ext-container :html="i18nd(`vue-ext`, `Push notifications`)" style="font-weight: bold"/>
                     <ext-container :html="i18nd(`vue-ext`, `Receive push notifications on this device`)"/>
                 </ext-container>
                 <ext-container>
@@ -16,15 +16,23 @@
 
         <!-- telegram -->
         <ext-container :hidden="!telegramSupported">
-            <!-- link -->
-            <ext-container :hidden="telegramLinked">
-                <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Link telegram account`)" @tap="_linkTelegramBot"/>
-            </ext-container>
+            <ext-container layout='{"align":"start","type":"hbox"}'>
+                <ext-container layout="vbox" width="260">
+                    <ext-container html="Telegram" style="font-weight: bold"/>
+                    <ext-container :html="i18nd(`vue-ext`, `To use Telegram support bot you need to link your Telegram account`)"/>
+                </ext-container>
+                <ext-container>
+                    <!-- link -->
+                    <ext-container :hidden="telegramLinked">
+                        <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Link telegram account`)" @tap="_linkTelegramBot"/>
+                    </ext-container>
 
-            <!-- open -->
-            <ext-container :hidden="!telegramLinked">
-                <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Open telegram bot`)" @tap="_openTelegramBot"/>
-                <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Unlink telegram account`)" @tap="_unlinkTelegramBot"/>
+                    <!-- open -->
+                    <ext-container :hidden="!telegramLinked">
+                        <ext-button iconCls="fa-brands fa-telegram" :text="i18nd(`vue-ext`, `Open telegram bot`)" @tap="_openTelegramBot"/>
+                        <ext-button iconCls="fa-regular fa-trash-can" :text="i18nd(`vue-ext`, `Unlink telegram account`)" @tap="_unlinkTelegramBot"/>
+                    </ext-container>
+                </ext-container>
             </ext-container>
         </ext-container>
 
