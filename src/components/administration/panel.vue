@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import UsersPanel from "#src/components/users/panel";
+import UsersPanel from "./users/panel";
 
 export default {
     "components": { UsersPanel },
