@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.23 (2023-05-23)
+
+Fixes:
+
+-   fix: components moved
+
 ### 8.2.22 (2023-05-21)
 
 Fixes:
