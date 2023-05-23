@@ -179,7 +179,9 @@ export default {
 
         // XXX
         _openTelegramBot () {
-            window.open( this.telegramUrl, "_blank" ).focus();
+
+            // window.open( this.telegramUrl, "_blank" ).focus();
+            this.$utils.clickUrl( this.telegramUrl );
         },
 
         // XXX
@@ -190,7 +192,9 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                window.open( res.data, "_blank" ).focus();
+
+                // window.open( res.data, "_blank" ).focus();
+                this.$utils.clickUrl( res.data );
             }
         },
     },
