@@ -23,13 +23,13 @@
                 <ext-container>
                     <!-- link -->
                     <ext-container :hidden="telegramLinked">
-                        <ext-button :text="i18nd(`vue-ext`, `Link telegram`)" @tap="_linkTelegramBot"/>
+                        <ext-button :text="i18nd(`vue-ext`, `Link Telegram`)" @tap="_linkTelegramBot"/>
                     </ext-container>
 
                     <!-- open -->
                     <ext-container :hidden="!telegramLinked" layout="vbox">
-                        <ext-button :text="i18nd(`vue-ext`, `Open telegram bot`)" @tap="_openTelegramBot"/>
-                        <ext-button iconCls="fa-regular fa-trash-can" :text="i18nd(`vue-ext`, `Unlink telegram`)" @tap="_unlinkTelegramBot"/>
+                        <ext-button :text="i18nd(`vue-ext`, `Open Telegram bot`)" @tap="_openTelegramBot"/>
+                        <ext-button iconCls="fa-regular fa-trash-can" :text="i18nd(`vue-ext`, `Unlink Telegram`)" @tap="_unlinkTelegramBot"/>
                     </ext-container>
                 </ext-container>
             </ext-container>
@@ -63,6 +63,7 @@
 import PushNotificationsButton from "#src/components/push-notifications.button";
 import CardsPanel from "#src/components/cards.panel";
 import Model from "./models/notification-type";
+import LinkTelegramDialig from "./link-telegram.dialig";
 
 export default {
     "components": { PushNotificationsButton, CardsPanel },
@@ -206,12 +207,17 @@ export default {
                 this.$utils.toast( res );
             }
             else {
+                const cmp = await this.$mount( LinkTelegramDialig, {
+                    "props": {
+                        "localUrl": res.data.localUrl,
+                        "remoteUrl": res.data.remoteUrl,
+                    },
+                } );
 
-                // window.open( res.data, "_blank" ).focus();
-                this.$utils.clickUrl( res.data.localUrl );
+                cmp.ext.show();
 
                 // XXX
-                this.telegramLinked = true;
+                // this.telegramLinked = true;
             }
         },
 
