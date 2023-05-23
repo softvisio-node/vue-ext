@@ -14,6 +14,12 @@
             </ext-container>
         </ext-panel>
 
+        <!-- telegram -->
+        <ext-panel :hidden="!telegramSupported">
+            <ext-button text="open" @tap="_openTelegramBot"/>
+            <ext-button text="link" @tap="_linkTelegramBot"/>
+        </ext-panel>
+
         <!-- notification types -->
         <CardsPanel ref="cardsPanel" flex="1" :hidden="notificationTypesHidden" @refresh="refresh">
             <template #data>
@@ -169,6 +175,23 @@ export default {
             }
 
             return;
+        },
+
+        // XXX
+        _openTelegramBot () {
+            window.open( this.telegramUrl, "_blank" ).focus();
+        },
+
+        // XXX
+        async _linkTelegramBot () {
+            const res = await this.$api.call( "account/notifications/get-link-telegram-account-url" );
+
+            if ( !res.ok ) {
+                this.$utils.toast( res );
+            }
+            else {
+                window.open( res.data, "_blank" ).focus();
+            }
         },
     },
 };
