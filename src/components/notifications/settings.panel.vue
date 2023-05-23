@@ -2,7 +2,6 @@
     <ext-panel defaults='{"padding":"0 0 30 0"}' layout="vbox">
         <!-- push notifications -->
         <ext-container :hidden="pusHidden">
-            <!-- push notifications -->
             <ext-container layout='{"align":"start","type":"hbox"}'>
                 <ext-container layout="vbox" width="260">
                     <ext-container :html="i18nd(`vue-ext`, `Push notifications`)" style="font-weight: bold"/>
