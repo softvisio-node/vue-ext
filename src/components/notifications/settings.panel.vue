@@ -53,6 +53,10 @@ export default {
             "emailNotificationsEnabled": false,
             "telegramNotificationsEnabled": false,
             "pushNotificationsEnabled": false,
+
+            "telegramSupported": false,
+            "telegramBotUsername": "",
+            "telegramUrl": "",
         };
     },
 
@@ -133,6 +137,10 @@ export default {
                     this.emailNotificationsEnabled = res.data.emailNotificationsEnabled;
                     this.telegramNotificationsEnabled = res.data.telegramNotificationsEnabled;
                     this.pushNotificationsEnabled = res.data.pushNotificationsEnabled;
+
+                    this.telegramSupported = res.data.telegramSupported;
+                    this.telegramBotUsername = res.data.telegramBotUsername;
+                    this.telegramUrl = res.data.telegramUrl;
 
                     this.store.loadRawData( res.data.types );
                 }
