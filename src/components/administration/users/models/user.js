@@ -19,7 +19,6 @@ export default Ext.define( "", {
         { "name": "enabled", "type": "bool" },
         "email",
         { "name": "email_confirmed", "type": "bool" },
-        "telegram_username",
         "avatar",
         { "name": "roles", "type": "array", "allowNull": true },
 
