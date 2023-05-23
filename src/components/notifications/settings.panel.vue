@@ -94,6 +94,13 @@ export default {
             "autoLoad": false,
             "pageSize": null,
         } );
+
+        this._telegramLinkedListener = telegrgramLinked => ( this.telegramLinked = telegrgramLinked );
+        this.$api.on( "notifications/telegram-linked", this._telegramLinkedListener );
+    },
+
+    unmounted () {
+        this.$api.off( "notifications/telegram-linked", this._telegramLinkedListener );
     },
 
     "methods": {
@@ -199,7 +206,6 @@ export default {
             this.$utils.clickUrl( this.telegramUrl );
         },
 
-        // XXX watch link
         async _linkTelegramBot () {
             const res = await this.$api.call( "account/notifications/get-telegram-link-url" );
 
@@ -219,9 +225,6 @@ export default {
                     } );
 
                     cmp.ext.show();
-
-                    // XXX
-                    // this.telegramLinked = true;
                 }
             }
         },
