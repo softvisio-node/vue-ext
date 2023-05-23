@@ -61,8 +61,8 @@ export default {
             "pushNotificationsEnabled": false,
 
             "telegramSupported": false,
-            "telegramBotUsername": "",
-            "telegramUrl": "",
+            "telegramUrl": null,
+            "telegramLinked": false,
         };
     },
 
@@ -145,8 +145,8 @@ export default {
                     this.pushNotificationsEnabled = res.data.pushNotificationsEnabled;
 
                     this.telegramSupported = res.data.telegramSupported;
-                    this.telegramBotUsername = res.data.telegramBotUsername;
                     this.telegramUrl = res.data.telegramUrl;
+                    this.telegramLinked = res.data.telegramLinked;
 
                     this.store.loadRawData( res.data.types );
                 }
@@ -186,7 +186,7 @@ export default {
 
         // XXX
         async _linkTelegramBot () {
-            const res = await this.$api.call( "account/notifications/get-link-telegram-account-url" );
+            const res = await this.$api.call( "account/notifications/get-telegram-link-url" );
 
             if ( !res.ok ) {
                 this.$utils.toast( res );
