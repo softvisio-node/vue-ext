@@ -1,16 +1,62 @@
 <template>
     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}'>
-        <DeviceDarkModeButton/>
+        <!-- device dart mode -->
+        <ext-container :hidden="pusHidden">
+            <ext-container layout='{"align":"start","type":"hbox"}'>
+                <ext-container layout="vbox" width="260">
+                    <ext-container :html="i18nd(`vue-ext`, `Device dark mode`)" style="font-size: 1.3em"/>
+                    <ext-container :html="i18nd(`vue-ext`, `User your device dark mode settings`)"/>
+                </ext-container>
+                <ext-container>
+                    <DeviceDarkModeButton label=""/>
+                </ext-container>
+            </ext-container>
+        </ext-container>
 
-        <DarkModeButton :disabled="deviceDarkMode"/>
+        <ext-spacer height="20"/>
 
-        <ext-fieldcontainer container='{"defaults":null}' :label="i18nd(`vue-ext`, `Base color`)" layout="fit">
-            <ext-dataview inline="true" @childtap="themeBaseChanged" @ready="themesColorsViewReady"/>
-        </ext-fieldcontainer>
+        <!-- dart mode -->
+        <ext-container :hidden="pusHidden">
+            <ext-container layout='{"align":"start","type":"hbox"}'>
+                <ext-container layout="vbox" width="260">
+                    <ext-container :html="i18nd(`vue-ext`, `Dark mode`)" style="font-size: 1.3em"/>
+                    <ext-container :html="i18nd(`vue-ext`, `Toggle dark mode`)"/>
+                </ext-container>
+                <ext-container>
+                    <DarkModeButton :disabled="deviceDarkMode" :hideLabel="true"/>
+                </ext-container>
+            </ext-container>
+        </ext-container>
 
-        <ext-fieldcontainer container='{"defaults":null}' :label="i18nd(`vue-ext`, `Accent color`)" layout="fit">
-            <ext-componentdataview inline="true" @childtap="themeAccentChanged" @ready="themesColorsViewReady"/>
-        </ext-fieldcontainer>
+        <ext-spacer height="20"/>
+
+        <!-- base color -->
+        <ext-container :hidden="pusHidden">
+            <ext-container layout='{"align":"start","type":"hbox"}'>
+                <ext-container layout="vbox" width="260">
+                    <ext-container :html="i18nd(`vue-ext`, `Base color`)" style="font-size: 1.3em"/>
+                    <ext-container :html="i18nd(`vue-ext`, `Interface base color`)"/>
+                </ext-container>
+                <ext-container>
+                    <ext-dataview inline="true" @childtap="themeBaseChanged" @ready="themesColorsViewReady"/>
+                </ext-container>
+            </ext-container>
+        </ext-container>
+
+        <ext-spacer height="20"/>
+
+        <!-- accent color -->
+        <ext-container :hidden="pusHidden">
+            <ext-container layout='{"align":"start","type":"hbox"}'>
+                <ext-container layout="vbox" width="260">
+                    <ext-container :html="i18nd(`vue-ext`, `Accent color`)" style="font-size: 1.3em"/>
+                    <ext-container :html="i18nd(`vue-ext`, `Color for badges, etc.`)"/>
+                </ext-container>
+                <ext-container>
+                    <ext-componentdataview inline="true" @childtap="themeAccentChanged" @ready="themesColorsViewReady"/>
+                </ext-container>
+            </ext-container>
+        </ext-container>
     </ext-fieldset>
 </template>
 

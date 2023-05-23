@@ -4,7 +4,7 @@
         <ext-container :hidden="pusHidden">
             <ext-container layout='{"align":"start","type":"hbox"}'>
                 <ext-container layout="vbox" width="260">
-                    <ext-container :html="i18nd(`vue-ext`, `Push notifications`)" style="font-weight: bold"/>
+                    <ext-container :html="i18nd(`vue-ext`, `Push notifications`)" style="font-size: 1.3em"/>
                     <ext-container :html="i18nd(`vue-ext`, `Receive push notifications on this device`)"/>
                 </ext-container>
                 <ext-container>
@@ -17,7 +17,7 @@
         <ext-container :hidden="!telegramSupported">
             <ext-container layout='{"align":"start","type":"hbox"}'>
                 <ext-container layout="vbox" width="260">
-                    <ext-container html="Telegram" style="font-weight: bold"/>
+                    <ext-container html="Telegram" style="font-size: 1.3em"/>
                     <ext-container :html="i18nd(`vue-ext`, `To use Telegram support bot you need to link your Telegram account`)"/>
                 </ext-container>
                 <ext-container>
