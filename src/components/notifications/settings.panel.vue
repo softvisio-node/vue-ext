@@ -97,6 +97,13 @@ export default {
 
         this._telegramLinkedListener = telegramLinked => {
             this.telegramLinked = telegramLinked;
+
+            if ( telegramLinked ) {
+                this.$utils.toast( this.i19nd( `vue-ext`, `Telegram linked` ) );
+            }
+            else {
+                this.$utils.toast( this.i19nd( `vue-ext`, `Telegram unlinked` ) );
+            }
         };
 
         this.$api.on( "notifications/telegram-linked", this._telegramLinkedListener );
