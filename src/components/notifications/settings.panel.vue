@@ -187,15 +187,15 @@ export default {
             }
         },
 
-        async toggleChannelEnabled ( channel, button, newVal, oldVal ) {
+        async toggleChannelEnabled ( channel, button, newValue, oldValue ) {
             const record = button.up( "gridrow" ).getRecord(),
-                curVal = record.get( channel );
+                currentValue = record.get( "channels" )[channel].enabled;
 
-            if ( newVal === curVal ) return;
+            if ( newValue === currentValue ) return;
 
             button.disable();
 
-            const res = await this.$api.call( "account/notifications/set-user-notification-channel-enabled", record.id, channel, newVal );
+            const res = await this.$api.call( "account/notifications/set-user-notification-channel-enabled", record.id, channel, newValue );
 
             button.enable();
 
