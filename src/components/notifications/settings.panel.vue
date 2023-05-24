@@ -259,8 +259,4 @@ export default {
     font-weight: bold;
     font-size: 1.2em;
 }
-
-.notification-type-description {
-    font-size: 1em;
-}
 </style>
