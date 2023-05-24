@@ -189,7 +189,8 @@ export default {
 
         async toggleChannelEnabled ( channel, button, newValue, oldValue ) {
             const record = button.up( "gridrow" ).getRecord(),
-                currentValue = record.get( "channels" )[channel].enabled;
+                typeChannel = record.get( "channels" )[channel],
+                currentValue = typeChannel.enabled;
 
             if ( newValue === currentValue ) return;
 
@@ -197,18 +198,17 @@ export default {
 
             const res = await this.$api.call( "account/notifications/set-user-notification-channel-enabled", record.id, channel, newValue );
 
-            button.enable();
-
             if ( !res.ok ) {
-                record.reject();
+                await new Promise( resolve => setTimeout( resolve, 500 ) );
+                button.setValue( currentValue );
 
                 this.$utils.toast( res );
             }
             else {
-                record.commit();
+                typeChannel.enabled = newValue;
             }
 
-            return;
+            button.enable();
         },
 
         _openTelegramBot () {
