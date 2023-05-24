@@ -148,8 +148,9 @@ export default {
                         {
                             "xtype": "togglefield",
                             "bind": {
-                                "value": `{record.${channel}}`,
-                                "disabled": `{!record.${channel}_enabled}`,
+                                "hidden": `{!record.channels.${channel}.supported}`,
+                                "disabled": `{!record.channels.${channel}.editable}`,
+                                "value": `{record.channels.${channel}.enabled}`,
                             },
                             "listeners": { "change": this.toggleChannelEnabled.bind( this, channel ) },
                         },
@@ -194,12 +195,12 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "account/notifications/set-user-notification-channel-enabled", record.get( "type" ), channel, newVal );
+            const res = await this.$api.call( "account/notifications/set-user-notification-channel-enabled", record.id, channel, newVal );
 
             button.enable();
 
             if ( !res.ok ) {
-                button.reject();
+                record.reject();
 
                 this.$utils.toast( res );
             }
