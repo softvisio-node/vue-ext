@@ -32,7 +32,7 @@
                 <ext-container :html="i18nd(`vue-ext`, `Base color`)" style="font-size: 1.3em"/>
                 <ext-container :html="i18nd(`vue-ext`, `Interface base color`)"/>
             </ext-container>
-            <ext-container>
+            <ext-container flex="1">
                 <ext-dataview inline="true" @childtap="themeBaseChanged" @ready="themesColorsViewReady"/>
             </ext-container>
         </ext-container>
@@ -45,7 +45,7 @@
                 <ext-container :html="i18nd(`vue-ext`, `Accent color`)" style="font-size: 1.3em"/>
                 <ext-container :html="i18nd(`vue-ext`, `Color for badges, etc.`)"/>
             </ext-container>
-            <ext-container>
+            <ext-container flex="1">
                 <ext-componentdataview inline="true" @childtap="themeAccentChanged" @ready="themesColorsViewReady"/>
             </ext-container>
         </ext-container>
