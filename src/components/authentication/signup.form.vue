@@ -117,7 +117,7 @@ export default {
         async _signup ( email, fields ) {
             Ext.Viewport.mask();
 
-            const res = await this.$app.signup( email, fields );
+            const res = await this.$app.signUp( email, fields );
 
             if ( res.ok ) {
 

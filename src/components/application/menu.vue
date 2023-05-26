@@ -150,7 +150,7 @@ export default {
         signout () {
             this.hide();
 
-            this.$app.signout();
+            this.$app.signOut();
         },
 
         async showAboutDialog () {

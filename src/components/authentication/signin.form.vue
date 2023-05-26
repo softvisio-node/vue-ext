@@ -91,7 +91,7 @@ export default {
         async _signin ( options ) {
             Ext.Viewport.mask();
 
-            const res = await this.$app.signin( options );
+            const res = await this.$app.signIn( options );
 
             if ( !res.ok ) {
                 Ext.Viewport.unmask();
