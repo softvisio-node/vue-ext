@@ -137,7 +137,7 @@ export default {
 
             cmp.setColumns( [
                 {
-                    "dataIndex": "id",
+                    "dataIndex": "method_name",
                     "flex": 1,
                     "minWidth": 290,
                     "text": this.i18nd( `vue-ext`, `Method name` ),
@@ -244,13 +244,13 @@ export default {
 
             if ( value !== "" ) {
                 this.store.addFilter( {
-                    "property": "id",
+                    "property": "method_name",
                     "operator": "like",
                     value,
                 } );
             }
             else {
-                this.store.removeFilter( "id" );
+                this.store.removeFilter( "method_name" );
             }
         },
 
