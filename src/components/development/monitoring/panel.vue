@@ -11,7 +11,7 @@
             </ext-toolbar>
 
             <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","split":true}' :title="i18nd(`vue-ext`, `Latest charts`)" width="500">
-                <LatestPanel ref="latestPanel" :methodId="selectedMethodId"/>
+                <LatestPanel ref="latestPanel" :record="selectedRecord"/>
             </ext-panel>
         </template>
 
@@ -52,7 +52,7 @@ export default {
 
     data () {
         return {
-            "selectedMethodId": "",
+            "selectedRecord": null,
         };
     },
 
@@ -100,7 +100,7 @@ export default {
 
             const cmp = await this.$mount( HistoricalDialog, {
                 "props": {
-                    "methodId": record.id,
+                    record,
                 },
             } );
 
@@ -112,7 +112,7 @@ export default {
 
             const cmp = await this.$mount( ExceptionsDialog, {
                 "props": {
-                    "methodId": record.id,
+                    record,
                 },
             } );
 
@@ -131,7 +131,7 @@ export default {
 
             cmp.getRegion( "left" )
                 .getGrid()
-                .on( "select", ( grid, selection ) => ( this.selectedMethodId = selection.id ) );
+                .on( "select", ( grid, selection ) => ( this.selectedRecord = selection ) );
 
             cmp.setStore( this.store );
 

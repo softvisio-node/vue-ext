@@ -27,20 +27,20 @@ export default {
     "components": { CardsPanel, Amcharts5 },
 
     "props": {
-        "methodId": {
-            "type": String,
+        "record": {
+            "type": Object,
             "required": true,
         },
     },
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", msgid`API method: ${this.methodId}` );
+            return this.i18nd( "vue-ext", msgid`API method: ${this.record?.method_name || "-"}` );
         },
     },
 
     "watch": {
-        methodId ( newValue, OldValue ) {
+        record ( newValue, OldValue ) {
             if ( newValue !== OldValue ) this.refresh();
         },
     },
@@ -248,7 +248,7 @@ export default {
         },
 
         async refresh () {
-            if ( !this.methodId ) {
+            if ( !this.record ) {
                 this.$refs.cardsPanel.showNoDataCard();
 
                 return;
@@ -256,7 +256,7 @@ export default {
 
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "development/monitoring/get-latest-time-series", this.methodId );
+            const res = await this.$api.call( "development/monitoring/get-latest-time-series", this.record.id );
 
             this.$refs.cardsPanel.unmask();
 

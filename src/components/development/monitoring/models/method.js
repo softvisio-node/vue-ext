@@ -5,6 +5,8 @@ export default Ext.define( "", {
         "id",
 
         // fields
+        "component",
+        "method",
         "calls",
         "duration_per_call",
         "exceptions",
@@ -14,6 +16,11 @@ export default Ext.define( "", {
         "exceptions_share",
 
         // calculated
+        {
+            "name": "method_name",
+            "calculate": data => data.component + "/" + data.method,
+        },
+
         {
             "name": "calls_text",
             "calculate": data => data.calls + " / " + Ext.util.Format.percent( data.calls_share, "minimumFractionDigits:1,maximumFractionDigits:1" ),
