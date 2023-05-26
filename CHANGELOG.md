@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.2.24 (2023-05-26)
+
+Fixes:
+
+-   fix: notifications
+-   fix: telegram
+
 ### 8.2.23 (2023-05-23)
 
 Fixes:
