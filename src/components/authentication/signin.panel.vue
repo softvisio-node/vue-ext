@@ -81,14 +81,14 @@ export default {
 
             const values = form.getValues();
 
-            this._signin( values );
+            this._signIn( values );
         },
 
         _oauthTap ( oauthProvider ) {
-            this._signin( { oauthProvider } );
+            this._signIn( { oauthProvider } );
         },
 
-        async _signin ( options ) {
+        async _signIn ( options ) {
             Ext.Viewport.mask();
 
             const res = await this.$app.signIn( options );

@@ -107,14 +107,14 @@ export default {
             const email = values.email;
             delete values.email;
 
-            this._signup( email, values );
+            this._signUp( email, values );
         },
 
         _oauthTap ( oauthProvider ) {
-            this._signup( { oauthProvider } );
+            this._signUp( { oauthProvider } );
         },
 
-        async _signup ( email, fields ) {
+        async _signUp ( email, fields ) {
             Ext.Viewport.mask();
 
             const res = await this.$app.signUp( email, fields );
