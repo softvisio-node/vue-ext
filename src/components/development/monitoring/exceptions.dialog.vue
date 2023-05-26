@@ -81,7 +81,7 @@ export default {
         },
 
         async _clearLog () {
-            const res = await this.$api.call( "development/api-status/clear-api-method-exceptions", this.methodId );
+            const res = await this.$api.call( "development/monitoring/clear-method-exceptions", this.methodId );
 
             if ( res.ok ) {
                 this.store.removeAll();

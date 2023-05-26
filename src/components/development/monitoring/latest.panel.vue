@@ -256,7 +256,7 @@ export default {
 
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "development/api-status/get-latest-time-series", this.methodId );
+            const res = await this.$api.call( "development/monitoring/get-latest-time-series", this.methodId );
 
             this.$refs.cardsPanel.unmask();
 
