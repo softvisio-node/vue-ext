@@ -32,8 +32,8 @@ export default {
     "components": { CardsPanel },
 
     "props": {
-        "methodId": {
-            "type": String,
+        "record": {
+            "type": Object,
             "required": true,
         },
     },
@@ -46,7 +46,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", msgid`Exceptions log for the API method: ${this.methodId}` );
+            return this.i18nd( "vue-ext", msgid`Exceptions log for the method: ${this.record.get( "method_name" )}` );
         },
     },
 
@@ -59,7 +59,7 @@ export default {
                 {
                     "property": "method_id",
                     "operator": "=",
-                    "value": this.methodId,
+                    "value": this.record.id,
                 },
             ],
         } );
@@ -81,7 +81,7 @@ export default {
         },
 
         async _clearLog () {
-            const res = await this.$api.call( "development/monitoring/clear-method-exceptions", this.methodId );
+            const res = await this.$api.call( "development/monitoring/clear-method-exceptions", this.record.id );
 
             if ( res.ok ) {
                 this.store.removeAll();

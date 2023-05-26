@@ -28,15 +28,15 @@ export default {
     "components": { CardsPanel, Amcharts5 },
 
     "props": {
-        "methodId": {
-            "type": String,
+        "record": {
+            "type": Object,
             "required": true,
         },
     },
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", msgid`Historical charts for the API method: ${this.methodId}` );
+            return this.i18nd( "vue-ext", msgid`Historical charts for the method: ${this.record.get( "method_name" )}` );
         },
     },
 
@@ -310,7 +310,7 @@ export default {
         async refresh () {
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "development/monitoring/get-historical-time-series", this.methodId );
+            const res = await this.$api.call( "development/monitoring/get-historical-time-series", this.record.id );
 
             this.$refs.cardsPanel.unmask();
 
