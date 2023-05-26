@@ -18,12 +18,12 @@ export default class VueExtApp extends VueApp {
         return super.init();
     }
 
-    async signout () {
+    async signOut () {
 
         // mask viewport immidiately, this is required, when api is not connected
         Ext.Viewport.mask();
 
-        return super.signout();
+        return super.signOut();
     }
 
     // protected
