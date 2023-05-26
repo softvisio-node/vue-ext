@@ -57,7 +57,7 @@ export default {
             "pageSize": 50,
             "filters": [
                 {
-                    "property": "method_id",
+                    "property": "monitoring_method_id",
                     "operator": "=",
                     "value": this.record.id,
                 },
