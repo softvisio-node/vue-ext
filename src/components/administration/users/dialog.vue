@@ -13,7 +13,7 @@ export default {
     "props": {
         "title": {
             "type": String,
-            "default": "Users",
+            "default": this.i18nd( `vue-ext`, `Users` ),
         },
         "width": {
             "type": String,

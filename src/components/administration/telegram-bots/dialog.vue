@@ -1,19 +1,19 @@
 <template>
     <ext-dialog :height="height" :layout="layout" scrollable="true" :title="title" :width="width">
-        <UsersPanel/>
+        <TelegramBotsPanel/>
     </ext-dialog>
 </template>
 
 <script>
-import UsersPanel from "./panel";
+import TelegramBotsPanel from "./panel";
 
 export default {
-    "components": { UsersPanel },
+    "components": { TelegramBotsPanel },
 
     "props": {
         "title": {
             "type": String,
-            "default": "Users",
+            "default": this.i18nd( `vue-ext`, `Telegram bots` ),
         },
         "width": {
             "type": String,

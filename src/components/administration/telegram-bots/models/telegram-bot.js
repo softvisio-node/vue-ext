@@ -3,10 +3,7 @@ export default Ext.define( "", {
 
     "proxy": {
         "api": {
-            "create": "administration/users/create",
-            "read": "administration/users/read",
-            "update": "administration/users/update",
-            "destroy": "administration/users/delete",
+            "read": "administration/telegram-bots/read",
         },
     },
 
