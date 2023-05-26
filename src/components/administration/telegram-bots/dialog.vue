@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :height="height" :layout="layout" scrollable="true" :title="title" :width="width">
+    <ext-dialog :height="height" :layout="layout" scrollable="true" :title="_title" :width="width">
         <TelegramBotsPanel/>
     </ext-dialog>
 </template>
@@ -13,7 +13,7 @@ export default {
     "props": {
         "title": {
             "type": String,
-            "default": this.i18nd( `vue-ext`, `Telegram bots` ),
+            "default": "",
         },
         "width": {
             "type": String,
@@ -26,6 +26,12 @@ export default {
         "layout": {
             "type": String,
             "default": "fit",
+        },
+    },
+
+    "computed": {
+        _title () {
+            return this.title || this.i18nd( `vue-ext`, `Telegram bots` );
         },
     },
 };
