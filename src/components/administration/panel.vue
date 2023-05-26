@@ -5,14 +5,20 @@
             <UsersPanel/>
         </ext-panel>
 
+        <!-- telegram bots -->
+        <ext-panel iconCls="fa-brands fa-telegram" layout="fit" :title="i18nd(`vue-ext`, `Telegram bpts`)">
+            <TelegramBotsPanel/>
+        </ext-panel>
+
         <slot name="tabs"/>
     </ext-tabpanel>
 </template>
 
 <script>
 import UsersPanel from "./users/panel";
+import TelegramBotsPanel from "./telegram-bots/panel";
 
 export default {
-    "components": { UsersPanel },
+    "components": { UsersPanel, TelegramBotsPanel },
 };
 </script>
