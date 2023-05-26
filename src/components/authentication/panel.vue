@@ -4,22 +4,22 @@
             <LocaleButton :absolute="true"/>
         </ext-titlebar>
 
-        <SigninForm :errorTarget="errorTarget" :passwordRecoveryEnabled="passwordRecoveryEnabled" :signupEnabled="signupEnabled" @recover="showPasswordRecovery" @signup="showSignup"/>
+        <SigninPanel :errorTarget="errorTarget" :passwordRecoveryEnabled="passwordRecoveryEnabled" :signupEnabled="signupEnabled" @recover="showPasswordRecovery" @signup="showSignup"/>
 
-        <PasswordRecoveryForm :errorTarget="errorTarget" @signin="showSignin"/>
+        <PasswordRecoveryPanel :errorTarget="errorTarget" @signin="showSignin"/>
 
-        <SignupForm :errorTarget="errorTarget" @signin="showSignin"/>
+        <SignupPanel :errorTarget="errorTarget" @signin="showSignin"/>
     </ext-panel>
 </template>
 
 <script>
 import LocaleButton from "#src/components/locale.button";
-import SigninForm from "./signin.form";
-import PasswordRecoveryForm from "./password-recovery.form";
-import SignupForm from "./signup.form";
+import SigninPanel from "./signin.panel";
+import PasswordRecoveryPanel from "./password-recovery.panel";
+import SignupPanel from "./signup.panel";
 
 export default {
-    "components": { LocaleButton, SigninForm, PasswordRecoveryForm, SignupForm },
+    "components": { LocaleButton, SigninPanel, PasswordRecoveryPanel, SignupPanel },
 
     "props": {
         "errorTarget": {
