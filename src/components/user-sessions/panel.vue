@@ -142,11 +142,11 @@ export default {
         },
 
         async _signOutSessionRequest ( sessionId ) {
-            return this.$api.call( "account/signout-session", sessionId );
+            return this.$api.call( "account/sign-out-session", sessionId );
         },
 
         async _signOutAllSessionsRequest () {
-            return this.$api.call( "account/signout-all-sessions" );
+            return this.$api.call( "account/sign-out-all-sessions" );
         },
     },
 };
