@@ -18,7 +18,7 @@ export default Ext.define( "", {
         // calculated
         {
             "name": "method_name",
-            "calculate": data => data.component + "/" + data.method,
+            "calculate": data => ( data.component + "/" + data.method ).replaceAll( /\/\/+/g, "/" ),
         },
 
         {
