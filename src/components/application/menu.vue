@@ -148,7 +148,7 @@ export default {
         },
 
         signout () {
-            this.close();
+            this.hide();
 
             this.$app.signout();
         },
