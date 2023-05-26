@@ -35,7 +35,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", msgid`Method: ${this.record?.method_name || "-"}` );
+            return this.i18nd( "vue-ext", msgid`Method: ${this.record?.get( "method_name" ) || "-"}` );
         },
     },
 
