@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.26 (2023-05-31)
+
+Fixes:
+
+-   fix: locales
+
 ### 8.2.25 (2023-05-31)
 
 Fixes:
