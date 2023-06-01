@@ -62,7 +62,7 @@ export default {
 
             menu.mask();
 
-            const res = await this.$app.setLocale( localeId );
+            const res = await this.$app.locale.setLocale( localeId );
 
             menu.unmask();
 
