@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import locale from "#vue/locale";
 import CardsPanel from "#src/components/cards.panel";
 import UserSessionsPanel from "#src/components/user-sessions/panel";
 import AccountModel from "./models/account";
@@ -44,7 +43,7 @@ export default {
 
     "computed": {
         localeHidden () {
-            return !locale.hasLocales;
+            return !this.$app.locale.hasLocales;
         },
     },
 

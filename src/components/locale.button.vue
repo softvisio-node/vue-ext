@@ -3,8 +3,6 @@
 </template>
 
 <script>
-import locale from "#vue/locale";
-
 export default {
     "props": {
         "absolute": {
@@ -34,7 +32,7 @@ export default {
                 cmp.setStyle( "position: absolute; top: 20px; right: 20px;" );
             }
 
-            if ( !locale.hasLocales && this.autoHide ) {
+            if ( !this.$app.locale.hasLocales && this.autoHide ) {
                 cmp.setHidden( true );
 
                 return;
@@ -42,20 +40,20 @@ export default {
 
             const menu = [];
 
-            for ( const [localeId, text] of Object.entries( locale.locales ) ) {
+            for ( const [localeId, text] of Object.entries( this.$app.locale.locales ) ) {
                 menu.push( {
                     "xtype": "menuradioitem",
                     "value": localeId,
                     text,
                     "group": "locale",
-                    "checked": localeId === locale.id,
+                    "checked": localeId === this.$app.locale.id,
                     "handler": this._setLocale.bind( this ),
                 } );
             }
 
             cmp.setMenu( menu );
 
-            cmp.setText( locale.name );
+            cmp.setText( this.$app.locale.name );
         },
 
         async _setLocale ( menuItem ) {
@@ -73,7 +71,7 @@ export default {
 
                 // revert locale
                 menu.getItems().each( item => {
-                    item.setChecked( item.getValue() === locale.id );
+                    item.setChecked( item.getValue() === this.$app.locale.id );
                 } );
             }
         },

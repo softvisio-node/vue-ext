@@ -1,4 +1,3 @@
-import "#vue/locale";
 import VueApp from "@softvisio/vue/app";
 import Router from "#src/app/router";
 import AuthorizationDialog from "#src/components/authorization.dialog";
