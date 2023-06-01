@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import Events from "#core/events";
 import * as amcharts from "./loader.js";
 import "./ext.amcharts5.js";
 
@@ -54,10 +55,8 @@ export default {
         this._unlinkStore( this.store );
 
         // unlink theme
-        if ( this._themeListener ) {
-            this.$app.theme.off( "darkModeChange", this._themeListener );
-            this._themeListener = null;
-        }
+        this._events?.clear();
+        this._events = null;
 
         // destroy chart
         this._destroyChart();
@@ -122,10 +121,7 @@ export default {
                 this._destroyChart();
             }
 
-            if ( !this._themeListener ) {
-                this._themeListener = this._onThemeChange.bind( this );
-                this.$app.theme.on( "darkModeChange", this._themeListener );
-            }
+            this._events ??= new Events().link( this.$app.theme ).on( "darkModeChange", this._onThemeChange.bind( this ) );
 
             this.root = amcharts.am5.Root.new( this.ext.innerElement.dom );
 
