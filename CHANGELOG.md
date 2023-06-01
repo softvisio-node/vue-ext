@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.28 (2023-06-01)
+
+Fixes:
+
+-   fix: ssqitch user locale
+
 ### 8.2.27 (2023-06-01)
 
 Fixes:
