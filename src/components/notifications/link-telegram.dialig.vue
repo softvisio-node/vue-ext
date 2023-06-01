@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import Events from "#core/events";
+
 export default {
     "props": {
         "localUrl": {
@@ -24,15 +26,11 @@ export default {
     },
 
     created () {
-        this._telegramLinkedListener = telegramLinked => {
-            this.ext.close();
-        };
-
-        this.$api.on( "notifications/telegram-linked", this._telegramLinkedListener );
+        this._events = new Events().link( this.$api ).on( "notifications/telegram-linked", () => this.ext.close() );
     },
 
     unmounted () {
-        this.$api.off( "notifications/telegram-linked", this._telegramLinkedListener );
+        this._events.clear();
     },
 
     "methods": {
