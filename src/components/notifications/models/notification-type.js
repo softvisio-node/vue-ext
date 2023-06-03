@@ -1,3 +1,5 @@
+import app from "@/app";
+
 export default Ext.define( "", {
     "extend": "Ext.data.Model",
 
@@ -10,6 +12,6 @@ export default Ext.define( "", {
         "channels",
 
         // calculated
-        { "name": "title", "calculate": data => `<div class="notification-type-name">${data.name}</div>${data.description}` },
+        { "name": "title", "calculate": data => `<div class="notification-type-name">${app.locale.i18nd( "backend", data.name )}</div>${app.locale.i18nd( "backend", data.description )}` },
     ],
 } );
