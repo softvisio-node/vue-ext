@@ -1,3 +1,5 @@
+import app from "@/app";
+
 export default Ext.define( "", {
     "extend": "Ext.data.Model",
 
@@ -11,6 +13,6 @@ export default Ext.define( "", {
         { "name": "enabled", "type": "bool" },
 
         // calculated
-        { "name": "title_html", "calculate": data => `<b>${data.name}</b><br/>${data.description}` },
+        { "name": "title_html", "calculate": data => `<b>${app.locale.i18nd( "backend", data.name )}</b><br/>${app.locale.i18nd( "backend", data.description )}` },
     ],
 } );
