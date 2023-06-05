@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.30 (2023-06-05)
+
+Fixes:
+
+-   fix: localization
+
 ### 8.2.29 (2023-06-04)
 
 Fixes:
