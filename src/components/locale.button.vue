@@ -40,13 +40,13 @@ export default {
 
             const menu = [];
 
-            for ( const [localeId, text] of Object.entries( this.$app.locale.locales ) ) {
+            for ( const locale of this.$app.locale.locales ) {
                 menu.push( {
                     "xtype": "menuradioitem",
-                    "value": localeId,
-                    text,
+                    "value": locale.id,
+                    "text": locale.name,
                     "group": "locale",
-                    "checked": localeId === this.$app.locale.id,
+                    "checked": locale.id === this.$app.locale.id,
                     "handler": this._setLocale.bind( this ),
                 } );
             }
