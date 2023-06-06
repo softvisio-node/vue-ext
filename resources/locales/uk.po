@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-05-21 13:59+0300\n"
+"POT-Creation-Date: 2023-06-06 14:45+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,19 +14,19 @@ msgstr ""
 "X-Generator: Poedit 3.3.1\n"
 "X-Poedit-SearchPath-0: src\n"
 
-#: src/app.js:33:33
+#: src/app.js:32:33
 msgid "Unable to connect to the API server. Check, that you have internet connection."
 msgstr "Не вдається підключитися до сервера API. Перевірте, чи є у вас підключення до Інтернету."
 
-#: src/app.js:34:21
+#: src/app.js:33:21
 msgid "Connection error"
 msgstr "Помилка з'єднання"
 
-#: src/app.js:41:32
+#: src/app.js:40:32
 msgid "Your session was terminated on the API server."
 msgstr "Ваша сесія був припинений на сервері API."
 
-#: src/app.js:42:21
+#: src/app.js:41:21
 msgid "Session closed"
 msgstr "Сесія закрита"
 
@@ -50,7 +50,8 @@ msgstr "Режим сервера"
 msgid "Copy to clipboard"
 msgstr "Скопіювати у буфер обміну"
 
-#: src/components/about.dialog.vue:2:51 src/components/app-title/menu.vue:43:31
+#: src/components/about.dialog.vue:2:51
+#: src/components/application/menu.vue:43:31
 msgid "About the project"
 msgstr "Про проект"
 
@@ -63,23 +64,23 @@ msgid "Locale"
 msgstr "Локаль"
 
 #: src/components/account/account.panel.vue:12:39
-#: src/components/app-title/menu.vue:20:101
+#: src/components/administration/telegram-bots/panel.vue:119:48
+#: src/components/administration/users/panel.vue:212:48
+#: src/components/application/menu.vue:20:101
 #: src/components/change-password.dialog.vue:16:21
 #: src/components/reset-password.dialog.vue:17:31
-#: src/components/users/panel.vue:212:48
 msgid "Change password"
 msgstr "Змінити пароль"
 
 #: src/components/account/account.panel.vue:11:74
-#: src/components/authentication/signin.form.vue:12:66
-#: src/components/authentication/signup.form.vue:12:66
+#: src/components/administration/users/create-user.dialog.vue:6:66
+#: src/components/authentication/signin.panel.vue:12:66
+#: src/components/authentication/signup.panel.vue:12:66
 #: src/components/authorization.dialog.vue:6:59
-#: src/components/users/create-user.dialog.vue:6:66
 msgid "Password"
 msgstr "Пароль"
 
 #: src/components/account/account.panel.vue:20:39
-#: src/components/account/account.panel.vue:30:43
 msgid "Change"
 msgstr "Змінити"
 
@@ -88,48 +89,59 @@ msgid "Confirm"
 msgstr "Підтвердити"
 
 #: src/components/account/account.panel.vue:16:74
-#: src/components/authentication/password-recovery.form.vue:10:63
-#: src/components/authentication/signin.form.vue:10:63
-#: src/components/authentication/signup.form.vue:10:63
+#: src/components/authentication/password-recovery.panel.vue:10:63
+#: src/components/authentication/signin.panel.vue:10:63
+#: src/components/authentication/signup.panel.vue:10:63
 msgid "Email address"
 msgstr "Адреса email"
 
-#: src/components/account/account.panel.vue:31:155
-msgid "Open bot"
-msgstr "Відкрити бот"
-
-#: src/components/account/account.panel.vue:32:154
-msgid "Connect bot"
-msgstr "Підключити бота"
-
-#: src/components/account/account.panel.vue:38:71
-#: src/components/reset-password.dialog.vue:16:31 src/utils.js:83:36
-#: src/utils.js:136:36
-msgid "Cancel"
-msgstr "Скасувати"
-
-#: src/components/account/account.panel.vue:39:71
-msgid "Save"
-msgstr "Зберегти"
-
-#: src/components/account/account.panel.vue:27:121
-msgid "Telegram username"
-msgstr "Ім'я користувача Telegram"
-
-#: src/components/account/account.panel.vue:105:35
+#: src/components/account/account.panel.vue:87:35
 msgid "Confirmation email sent"
 msgstr "Лист із підтвердженням надіслано"
 
-#: src/components/account/appearance.panel.vue:7:66
+#: src/components/account/appearance.panel.vue:6:38
+#, fuzzy
+#| msgid "Use device dark mode"
+msgid "Device dark mode"
+msgstr "Використовуйте темний режим пристрою"
+
+#: src/components/account/appearance.panel.vue:7:38
+#, fuzzy
+#| msgid "Use device dark mode"
+msgid "User your device dark mode settings"
+msgstr "Використовуйте темний режим пристрою"
+
+#: src/components/account/appearance.panel.vue:19:38
+#: src/components/dark-mode.button.vue:43:61
+msgid "Dark mode"
+msgstr "Темний режим"
+
+#: src/components/account/appearance.panel.vue:20:38
+#, fuzzy
+#| msgid "Dark mode"
+msgid "Toggle dark mode"
+msgstr "Темний режим"
+
+#: src/components/account/appearance.panel.vue:32:38
 msgid "Base color"
 msgstr "Базовий колір"
 
-#: src/components/account/appearance.panel.vue:11:66
+#: src/components/account/appearance.panel.vue:33:38
+#, fuzzy
+#| msgid "Interface theme"
+msgid "Interface base color"
+msgstr "Тема інтерфейсу"
+
+#: src/components/account/appearance.panel.vue:45:38
 msgid "Accent color"
 msgstr "Колір акценту"
 
+#: src/components/account/appearance.panel.vue:46:38
+msgid "Color for badges, etc."
+msgstr ""
+
 #: src/components/account/dialog.vue:2:72
-#: src/components/app-title/menu.vue:17:91
+#: src/components/application/menu.vue:17:91
 msgid "Your account"
 msgstr "Ваш аккаунт"
 
@@ -149,7 +161,7 @@ msgid "Notifications"
 msgstr "Сповіщення"
 
 #: src/components/account/panel.vue:18:83
-#: src/components/user-tokens/panel.vue:5:58
+#: src/components/account/tokens/panel.vue:5:58
 msgid "Access tokens"
 msgstr "Токени доступу"
 
@@ -158,18 +170,111 @@ msgstr "Токени доступу"
 msgid "Appearance"
 msgstr "Зовнішній вигляд"
 
+#: src/components/account/tokens/create/dialog.vue:4:46
+#: src/components/account/tokens/panel.vue:15:61
+msgid "Token name"
+msgstr "Ім'я токена"
+
+#: src/components/account/tokens/create/dialog.vue:4:104
+msgid "Enter new token name"
+msgstr "Введіть назву нового токена"
+
+#: src/components/account/tokens/create/dialog.vue:9:63
+msgid "Your token:"
+msgstr "Ваш токен:"
+
+#: src/components/account/tokens/create/dialog.vue:11:24
+msgid "Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again."
+msgstr "Будь ласка, скопіюйте токен у буфер обміну та збережіть його в надійному місці. Після того, як це діалогове вікно буде закрито, ми не змогли знову показати вам цей токен."
+
+#: src/components/account/tokens/create/dialog.vue:15:62
+msgid "Copy token to the clipboard"
+msgstr "Скопіюйте токен у буфер обміну"
+
+#: src/components/account/tokens/create/dialog.vue:21:44
+#: src/components/account/tokens/create/dialog.vue:2:51
+#: src/components/account/tokens/panel.vue:8:62
+msgid "Create token"
+msgstr "Створити токен"
+
+#: src/components/account/tokens/create/dialog.vue:22:57
+msgid "Close"
+msgstr "Закрити"
+
+#: src/components/account/tokens/create/dialog.vue:71:35
+msgid "Token created"
+msgstr "Токен створено"
+
+#: src/components/account/tokens/create/dialog.vue:83:31
+msgid "Token copied to the clipboard"
+msgstr "Токен скопійовано в буфер обміну"
+
+#: src/components/account/tokens/dialog.vue:2:68
+msgid "API keys"
+msgstr "Ключі API"
+
+#: src/components/account/tokens/panel.vue:6:47
+msgid "Search tokens by name"
+msgstr "Пошук токенів за назвою"
+
+#: src/components/account/tokens/panel.vue:9:62
+#: src/components/acl/panel.vue:9:62 src/components/acl/roles.button.vue:74:28
+#: src/components/acl/roles.panel.vue:7:62
+#: src/components/administration/telegram-bots/panel.vue:8:62
+#: src/components/administration/users/panel.vue:9:62
+#: src/components/cards.panel.vue:14:58
+#: src/components/development/monitoring/exceptions.dialog.vue:8:66
+#: src/components/development/monitoring/historical.dialog.vue:7:66
+#: src/components/development/monitoring/latest.panel.vue:7:62
+#: src/components/development/monitoring/panel.vue:10:82
+#: src/components/user-sessions/panel.vue:8:62
+msgid "Refresh"
+msgstr "Оновити"
+
+#: src/components/account/tokens/panel.vue:17:132
+#: src/components/administration/telegram-bots/panel.vue:20:167
+#: src/components/administration/users/panel.vue:21:167
+#: src/components/user-sessions/panel.vue:22:132
+msgid "Last activity"
+msgstr "Останній активность"
+
+#: src/components/account/tokens/panel.vue:19:107
+#: src/components/administration/telegram-bots/panel.vue:22:104
+#: src/components/administration/users/panel.vue:23:104
+#: src/components/user-sessions/panel.vue:24:74
+msgid "Creation date"
+msgstr "Дата створення"
+
+#: src/components/account/tokens/panel.vue:21:88
+#: src/components/account/tokens/panel.vue:152:45
+#: src/components/acl/add-user.dialog.vue:5:52
+#: src/components/acl/panel.vue:21:67 src/components/acl/panel.vue:241:45
+#: src/components/administration/telegram-bots/panel.vue:24:67
+#: src/components/administration/telegram-bots/panel.vue:159:45
+#: src/components/administration/users/create-user.dialog.vue:14:37
+#: src/components/administration/users/panel.vue:25:67
+#: src/components/administration/users/panel.vue:252:45
+msgid "Access enabled"
+msgstr "Доступ увімкнено"
+
+#: src/components/account/tokens/panel.vue:152:89
+#: src/components/acl/panel.vue:241:89
+#: src/components/administration/telegram-bots/panel.vue:159:89
+#: src/components/administration/users/panel.vue:252:89
+msgid "Access disabled"
+msgstr "Доступ вимкнено"
+
+#: src/components/account/tokens/panel.vue:162:47
+msgid "Are you sure you want to delete this token?"
+msgstr "Ви впевнені, що хочете видалити цей токен?"
+
+#: src/components/account/tokens/panel.vue:167:35
+msgid "Token deleted"
+msgstr "Токен видалено"
+
 #: src/components/acl/add-user.dialog.vue:3:97
 msgid "Select user"
 msgstr "Виберіть користувача"
-
-#: src/components/acl/add-user.dialog.vue:5:52
-#: src/components/acl/panel.vue:21:67 src/components/acl/panel.vue:241:45
-#: src/components/user-tokens/panel.vue:21:88
-#: src/components/user-tokens/panel.vue:152:45
-#: src/components/users/create-user.dialog.vue:14:37
-#: src/components/users/panel.vue:25:67 src/components/users/panel.vue:252:45
-msgid "Access enabled"
-msgstr "Доступ увімкнено"
 
 #: src/components/acl/add-user.dialog.vue:11:31
 #: src/components/acl/panel.vue:8:104
@@ -181,9 +286,9 @@ msgid "Adding a user"
 msgstr "Додавання користувача"
 
 #: src/components/acl/add-user.dialog.vue:59:35
-#: src/components/authentication/password-recovery.form.vue:56:35
-#: src/components/authentication/signin.form.vue:77:35
-#: src/components/authentication/signup.form.vue:92:35
+#: src/components/authentication/password-recovery.panel.vue:56:35
+#: src/components/authentication/signin.panel.vue:77:35
+#: src/components/authentication/signup.panel.vue:92:35
 msgid "Please, correctly fill all required fields"
 msgstr "Будь ласка, правильно заповніть усі необхідні поля"
 
@@ -193,56 +298,50 @@ msgstr "Користувача додано"
 
 #: src/components/acl/dialog.vue:26:33
 #: src/components/administration/panel.vue:4:40
+#: src/components/administration/users/dialog.vue:34:33
 msgid "Users"
 msgstr "Користувачі"
 
-#: src/components/acl/panel.vue:5:47 src/components/users/panel.vue:5:47
+#: src/components/acl/panel.vue:5:47
+#: src/components/administration/telegram-bots/panel.vue:5:47
+#: src/components/administration/users/panel.vue:5:47
 msgid "Search users"
 msgstr "Пошук користувачів"
 
-#: src/components/acl/panel.vue:9:62 src/components/acl/roles.button.vue:74:28
-#: src/components/acl/roles.panel.vue:7:62
-#: src/components/api-status/exceptions.dialog.vue:8:66
-#: src/components/api-status/historical.dialog.vue:7:66
-#: src/components/api-status/latest.panel.vue:7:62
-#: src/components/api-status/panel.vue:10:82
-#: src/components/cards.panel.vue:14:58
-#: src/components/user-sessions/panel.vue:8:62
-#: src/components/user-tokens/panel.vue:9:62
-#: src/components/users/panel.vue:9:62
-msgid "Refresh"
-msgstr "Оновити"
-
 #: src/components/acl/panel.vue:17:100
-#: src/components/users/create-user.dialog.vue:4:63
-#: src/components/users/panel.vue:17:62
+#: src/components/administration/telegram-bots/panel.vue:16:62
+#: src/components/administration/users/create-user.dialog.vue:4:63
+#: src/components/administration/users/panel.vue:17:62
 msgid "Email"
 msgstr "Email"
 
-#: src/components/acl/panel.vue:19:107 src/components/users/panel.vue:19:107
+#: src/components/acl/panel.vue:19:107
+#: src/components/administration/telegram-bots/panel.vue:18:107
+#: src/components/administration/users/panel.vue:19:107
 msgid "Roles"
 msgstr "Ролі"
 
 #: src/components/acl/panel.vue:186:39 src/components/acl/roles.dialog.vue:2:50
-#: src/components/users/panel.vue:188:39
+#: src/components/administration/telegram-bots/panel.vue:95:39
+#: src/components/administration/users/panel.vue:188:39
 msgid "Edit user roles"
 msgstr "Редагувати ролі користувача"
 
-#: src/components/acl/panel.vue:196:39 src/components/users/panel.vue:219:48
+#: src/components/acl/panel.vue:196:39
+#: src/components/administration/telegram-bots/panel.vue:126:48
+#: src/components/administration/users/panel.vue:219:48
 msgid "Delete user"
 msgstr "Видалити користувача"
 
-#: src/components/acl/panel.vue:241:89
-#: src/components/user-tokens/panel.vue:152:89
-#: src/components/users/panel.vue:252:89
-msgid "Access disabled"
-msgstr "Доступ вимкнено"
-
-#: src/components/acl/panel.vue:250:47 src/components/users/panel.vue:262:47
+#: src/components/acl/panel.vue:250:47
+#: src/components/administration/telegram-bots/panel.vue:169:47
+#: src/components/administration/users/panel.vue:262:47
 msgid "Are you sure you want to delete user?"
 msgstr "Ви впевнені, що хочете видалити користувача?"
 
-#: src/components/acl/panel.vue:259:35 src/components/users/panel.vue:271:35
+#: src/components/acl/panel.vue:259:35
+#: src/components/administration/telegram-bots/panel.vue:178:35
+#: src/components/administration/users/panel.vue:271:35
 msgid "User deleted"
 msgstr "Користувача видалено"
 
@@ -281,225 +380,157 @@ msgid "Role disabled"
 msgstr "Роль вимкнено"
 
 #: src/components/administration/dialog.vue:2:72
-#: src/components/app-title/menu.vue:23:67
+#: src/components/application/menu.vue:23:67
 msgid "Administration"
 msgstr "Адміністрування"
 
-#: src/components/api-status/dialog.vue:2:68
-#: src/components/development/panel.vue:4:40
-msgid "API status"
-msgstr "Статус API"
+#: src/components/administration/panel.vue:9:89
+#, fuzzy
+#| msgid "Telegram username"
+msgid "Telegram bpts"
+msgstr "Ім'я користувача Telegram"
 
-#: src/components/api-status/exceptions.dialog.vue:6:94
-msgid "Clear log"
-msgstr "Очистити журнал"
+#: src/components/administration/telegram-bots/dialog.vue:34:33
+#, fuzzy
+#| msgid "Telegram username"
+msgid "Telegram bots"
+msgstr "Ім'я користувача Telegram"
 
-#: src/components/api-status/exceptions.dialog.vue:14:108
-msgid "Started"
-msgstr "Розпочато"
+#: src/components/administration/telegram-bots/panel.vue:7:112
+#: src/components/administration/users/create-user.dialog.vue:21:31
+#: src/components/administration/users/panel.vue:8:112
+msgid "Create user"
+msgstr "Створити користувача"
 
-#: src/components/api-status/exceptions.dialog.vue:16:91
-msgid "Duration (ms)"
-msgstr "Тривалість (мс)"
+#: src/components/administration/telegram-bots/panel.vue:102:39
+#: src/components/administration/users/panel.vue:195:39
+msgid "Actions"
+msgstr "Дії"
 
-#: src/components/api-status/exceptions.dialog.vue:18:90
-msgid "Status"
-msgstr "Статус"
+#: src/components/administration/telegram-bots/panel.vue:111:48
+#: src/components/administration/users/panel.vue:204:48
+msgid "Copy email to the clipboard"
+msgstr "Копіювати email в буфер обміну"
 
-#: src/components/api-status/exceptions.dialog.vue:20:89
-msgid "Status text"
-msgstr "Текст статусу"
+#: src/components/administration/telegram-bots/panel.vue:115:48
+#: src/components/administration/users/panel.vue:208:48
+msgid "View user sessions"
+msgstr "Перегляд сесій користувача"
 
-#: src/components/api-status/exceptions.dialog.vue:49:19
-#, javascript-format
-msgid "Exceptions log for the API method: ${n}"
-msgstr "Журнал винятків для методу API: ${n}"
+#: src/components/administration/telegram-bots/panel.vue:207:31
+#: src/components/administration/users/panel.vue:350:31
+msgid "User email copied"
+msgstr "Email користувача скопійовано"
 
-#: src/components/api-status/historical.dialog.vue:39:19
-#, javascript-format
-msgid "Historical charts for the API method: ${n}"
-msgstr "Історичні діаграми для методу API: ${n}"
+#: src/components/administration/users/change-password.dialog.vue:20:19
+msgid "Change password for user"
+msgstr "Змінити пароль користувача"
 
-#: src/components/api-status/historical.dialog.vue:74:24
-msgid "Calls for the last 30 days"
-msgstr "Виклики за останні 30 днів"
+#: src/components/administration/users/create-user.dialog.vue:4:152
+msgid "Enter email"
+msgstr "Введіть email"
 
-#: src/components/api-status/historical.dialog.vue:105:33
-#: src/components/api-status/latest.panel.vue:100:33
-#: src/components/api-status/panel.vue:150:28
-msgid "Calls"
-msgstr "Виклики"
+#: src/components/administration/users/create-user.dialog.vue:6:161
+#: src/components/authentication/signin.panel.vue:12:126
+#: src/components/authentication/signup.panel.vue:12:126
+#: src/components/authorization.dialog.vue:6:119
+msgid "Enter password"
+msgstr "Введіть пароль"
 
-#: src/components/api-status/historical.dialog.vue:166:24
-msgid "Average duration per call for the last 30 days (ms)"
-msgstr "Середня тривалість виклика за останні 30 днів (мс)"
+#: src/components/administration/users/create-user.dialog.vue:8:66
+#: src/components/administration/users/create-user.dialog.vue:8:178
+#: src/components/authentication/signup.panel.vue:14:66
+#: src/components/authentication/signup.panel.vue:14:143
+msgid "Confirm password"
+msgstr "Підтвердіть пароль"
 
-#: src/components/api-status/historical.dialog.vue:197:33
-#: src/components/api-status/latest.panel.vue:161:33
-msgid "Duration"
-msgstr "Тривалість"
+#: src/components/administration/users/create-user.dialog.vue:11:35
+#: src/components/authentication/signup.panel.vue:17:35
+#: src/components/change-password.dialog.vue:12:31
+#: src/components/reset-password.dialog.vue:11:35
+msgid "Generate random password"
+msgstr "Згенерувати випадковий пароль"
 
-#: src/components/api-status/historical.dialog.vue:237:24
-msgid "Exceptions percent for the last 30 days (%)"
-msgstr "Відсоток винятків за останні 30 днів (%)"
+#: src/components/administration/users/create-user.dialog.vue:2:69
+msgid "User creation"
+msgstr "Створення користувача"
 
-#: src/components/api-status/historical.dialog.vue:268:33
-#: src/components/api-status/latest.panel.vue:222:33
-#: src/components/api-status/panel.vue:171:28
-msgid "Exceptions"
-msgstr "Винятки"
+#: src/components/administration/users/create-user.dialog.vue:72:31
+#: src/components/authentication/signup.panel.vue:82:31
+#: src/components/change-password.dialog.vue:93:31
+#: src/components/reset-password.dialog.vue:108:31
+msgid "Password copied to the clipboard"
+msgstr "Пароль скопійовано в буфер обміну"
 
-#: src/components/api-status/latest.panel.vue:38:19
-#, javascript-format
-msgid "API method: ${n}"
-msgstr "Метод API: ${n}"
+#: src/components/administration/users/create-user.dialog.vue:86:64
+#: src/components/authentication/signup.panel.vue:100:64
+#: src/components/change-password.dialog.vue:63:64
+#: src/components/reset-password.dialog.vue:82:64
+msgid "Passwords do not match"
+msgstr "Паролі не збігаються"
 
-#: src/components/api-status/latest.panel.vue:70:24
-msgid "Calls for the last 60 minutes"
-msgstr "Виклики за останні 60 хвилин"
+#: src/components/administration/users/create-user.dialog.vue:99:35
+msgid "User created"
+msgstr "Користувач створений"
 
-#: src/components/api-status/latest.panel.vue:131:24
-msgid "Average duration per call for the last 60 minutes (ms)"
-msgstr "Середня тривалість виклику за останні 60 хвилин (мс)"
+#: src/components/administration/users/user-sessions.dialog.vue:2:72
+msgid "User sessions"
+msgstr "Сесії користувача"
 
-#: src/components/api-status/latest.panel.vue:192:24
-msgid "Exceptions percent for the last 60 minutes (%)"
-msgstr "Відсоток винятків за останні 60 хвилин (%)"
+#: src/components/administration/users/user-sessions.panel.vue:20:19
+msgid "User"
+msgstr "Користувач"
 
-#: src/components/api-status/panel.vue:5:47
-msgid "Search for methods by name"
-msgstr "Пошук методів за назвою"
-
-#: src/components/api-status/panel.vue:9:41
-msgid "Auto refresh"
-msgstr "Автоматичне оновлення"
-
-#: src/components/api-status/panel.vue:13:138
-msgid "Latest charts"
-msgstr "Останні діаграми"
-
-#: src/components/api-status/panel.vue:143:28
-msgid "Method name"
-msgstr "Назва методу"
-
-#: src/components/api-status/panel.vue:157:28
-msgid "Duration / call (ms)"
-msgstr "Тривалість / виклик (мс)"
-
-#: src/components/api-status/panel.vue:164:28
-msgid "Duration (%)"
-msgstr "Тривалість (%)"
-
-#: src/components/api-status/panel.vue:178:28
-msgid "Exceptions / call (%)"
-msgstr "Винятки / виклик (%)"
-
-#: src/components/api-status/panel.vue:199:29
-#, javascript-format
-msgid "${n} day"
-msgid_plural "${n} days"
-msgstr[0] "${n} день"
-msgstr[1] "${n} дня"
-msgstr[2] "${n} днів"
-
-#: src/components/api-status/panel.vue:201:61
-#: src/components/api-status/panel.vue:297:49
-msgid "Period"
-msgstr "Період"
-
-#: src/components/api-status/panel.vue:228:39
-msgid "Historical charts"
-msgstr "Історичні діаграми"
-
-#: src/components/api-status/panel.vue:234:39
-msgid "Exceptions log"
-msgstr "Журнал винятків"
-
-#: src/components/app-title/menu.vue:26:64
+#: src/components/application/menu.vue:26:64
 #: src/components/development/dialog.vue:2:72
 msgid "Development"
 msgstr "Розробка"
 
-#: src/components/app-title/menu.vue:46:66
+#: src/components/application/menu.vue:46:66
 #: src/components/user-sessions/panel.vue:76:39
 msgid "Sign out"
 msgstr "Вийти"
 
-#: src/components/authentication/password-recovery.form.vue:5:34
+#: src/components/authentication/password-recovery.panel.vue:5:34
 msgid "Password recovery"
 msgstr "Відновлення паролю"
 
-#: src/components/authentication/password-recovery.form.vue:10:125
-#: src/components/authentication/signin.form.vue:10:125
-#: src/components/authentication/signup.form.vue:10:125
+#: src/components/authentication/password-recovery.panel.vue:10:125
+#: src/components/authentication/signin.panel.vue:10:125
+#: src/components/authentication/signup.panel.vue:10:125
 msgid "Enter your email address"
 msgstr "Введіть адресу вашої електронної пошти"
 
-#: src/components/authentication/password-recovery.form.vue:14:64
-#: src/components/authentication/signup.form.vue:25:64
+#: src/components/authentication/password-recovery.panel.vue:14:64
+#: src/components/authentication/signup.panel.vue:25:64
 msgid "Back"
 msgstr "Назад"
 
-#: src/components/authentication/password-recovery.form.vue:16:31
+#: src/components/authentication/password-recovery.panel.vue:16:31
 msgid "Recover"
 msgstr "Відновити"
 
-#: src/components/authentication/password-recovery.form.vue:75:35
+#: src/components/authentication/password-recovery.panel.vue:75:35
 msgid "Password change instructions were sent to the email address, associated with your account."
 msgstr "Інструкції щодо зміни пароля були надіслані на адресу електронної пошти, пов’язану з вашим обліковим записом."
 
-#: src/components/authentication/signin.form.vue:5:34
-#: src/components/authentication/signin.form.vue:30:31
+#: src/components/authentication/signin.panel.vue:5:34
+#: src/components/authentication/signin.panel.vue:30:31
 msgid "Sign in"
 msgstr "Увійти"
 
-#: src/components/authentication/signin.form.vue:12:126
-#: src/components/authentication/signup.form.vue:12:126
-#: src/components/authorization.dialog.vue:6:119
-#: src/components/users/create-user.dialog.vue:6:161
-msgid "Enter password"
-msgstr "Введіть пароль"
-
-#: src/components/authentication/signin.form.vue:17:31
+#: src/components/authentication/signin.panel.vue:17:31
 msgid "Forgot password?"
 msgstr "Забули пароль?"
 
-#: src/components/authentication/signin.form.vue:25:31
+#: src/components/authentication/signin.panel.vue:25:31
 msgid "Do not have account? Sign up"
 msgstr "Немає облікового запису? зареєструватися"
 
-#: src/components/authentication/signup.form.vue:5:34
-#: src/components/authentication/signup.form.vue:27:31
+#: src/components/authentication/signup.panel.vue:5:34
+#: src/components/authentication/signup.panel.vue:27:31
 msgid "Sign up"
 msgstr "Зареєструватися"
-
-#: src/components/authentication/signup.form.vue:14:66
-#: src/components/authentication/signup.form.vue:14:143
-#: src/components/users/create-user.dialog.vue:8:66
-#: src/components/users/create-user.dialog.vue:8:178
-msgid "Confirm password"
-msgstr "Підтвердіть пароль"
-
-#: src/components/authentication/signup.form.vue:17:35
-#: src/components/change-password.dialog.vue:12:31
-#: src/components/reset-password.dialog.vue:11:35
-#: src/components/users/create-user.dialog.vue:11:35
-msgid "Generate random password"
-msgstr "Згенерувати випадковий пароль"
-
-#: src/components/authentication/signup.form.vue:82:31
-#: src/components/change-password.dialog.vue:93:31
-#: src/components/reset-password.dialog.vue:108:31
-#: src/components/users/create-user.dialog.vue:72:31
-msgid "Password copied to the clipboard"
-msgstr "Пароль скопійовано в буфер обміну"
-
-#: src/components/authentication/signup.form.vue:100:64
-#: src/components/change-password.dialog.vue:63:64
-#: src/components/reset-password.dialog.vue:82:64
-#: src/components/users/create-user.dialog.vue:86:64
-msgid "Passwords do not match"
-msgstr "Паролі не збігаються"
 
 #: src/components/authorization.dialog.vue:3:30
 msgid "Authorization is required to perform this operation. Please, authorize and then repeat action again."
@@ -525,43 +556,50 @@ msgstr "Не вдалося завантажити дані"
 msgid "No data match search criteria"
 msgstr "Жодні дані не відповідають критеріям пошуку"
 
-#: src/components/change-email.dialog.vue:4:56
+#: src/components/change-email.dialog.vue:4:34
+msgid "vue-ext"
+msgid_plural "Enter new email address which you want to use."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/components/change-email.dialog.vue:6:56
 msgid "New email address"
 msgstr "Нова електронна адреса"
 
-#: src/components/change-email.dialog.vue:4:122
+#: src/components/change-email.dialog.vue:6:122
 msgid "Enter new email address"
 msgstr "Введіть нову електронну адресу"
 
-#: src/components/change-email.dialog.vue:6:70
+#: src/components/change-email.dialog.vue:8:70
 msgid "Confirmation token"
 msgstr "Токен підтвердження"
 
-#: src/components/change-email.dialog.vue:6:137
+#: src/components/change-email.dialog.vue:8:137
 msgid "Enter confirmation token"
 msgstr "Введіть токен підтвердження"
 
-#: src/components/change-email.dialog.vue:9:65
+#: src/components/change-email.dialog.vue:11:65
 msgid "We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above."
 msgstr "Ми щойно надіслали токен підтвердження зміни email на нову електронну адресу. Будь ласка, перевірте свою поштову скриньку та введіть токен у поле вище."
 
-#: src/components/change-email.dialog.vue:12:53
+#: src/components/change-email.dialog.vue:14:53
 msgid "Send token"
 msgstr "Надіслати токен"
 
-#: src/components/change-email.dialog.vue:13:67
+#: src/components/change-email.dialog.vue:15:67
 msgid "Change email"
 msgstr "Змінити email"
 
-#: src/components/change-email.dialog.vue:24:19
+#: src/components/change-email.dialog.vue:26:19
 msgid "Email change"
 msgstr "Зміна email"
 
-#: src/components/change-email.dialog.vue:64:35
+#: src/components/change-email.dialog.vue:66:35
 msgid "Change email token was sent to the new email address"
 msgstr "Токен зміни електронної пошти надіслано на нову адресу електронної пошти"
 
-#: src/components/change-email.dialog.vue:91:35
+#: src/components/change-email.dialog.vue:93:35
 msgid "Email address changed"
 msgstr "Адреса електронної пошти змінена"
 
@@ -592,9 +630,138 @@ msgstr "Зміна пароля"
 msgid "Password changed"
 msgstr "Пароль змінено"
 
-#: src/components/dark-mode.button.vue:43:61
-msgid "Dark mode"
-msgstr "Темний режим"
+#: src/components/development/monitoring/dialog.vue:2:68
+#: src/components/development/panel.vue:4:40
+msgid "Monitoring"
+msgstr ""
+
+#: src/components/development/monitoring/exceptions.dialog.vue:6:94
+msgid "Clear log"
+msgstr "Очистити журнал"
+
+#: src/components/development/monitoring/exceptions.dialog.vue:14:108
+msgid "Started"
+msgstr "Розпочато"
+
+#: src/components/development/monitoring/exceptions.dialog.vue:16:91
+msgid "Duration (ms)"
+msgstr "Тривалість (мс)"
+
+#: src/components/development/monitoring/exceptions.dialog.vue:18:90
+msgid "Status"
+msgstr "Статус"
+
+#: src/components/development/monitoring/exceptions.dialog.vue:20:89
+msgid "Status text"
+msgstr "Текст статусу"
+
+#: src/components/development/monitoring/exceptions.dialog.vue:49:19
+#, fuzzy, javascript-format
+#| msgid "Exceptions log for the API method: ${n}"
+msgid "Exceptions log for the method: ${n}"
+msgstr "Журнал винятків для методу API: ${n}"
+
+#: src/components/development/monitoring/historical.dialog.vue:39:19
+#, fuzzy, javascript-format
+#| msgid "Historical charts for the API method: ${n}"
+msgid "Historical charts for the method: ${n}"
+msgstr "Історичні діаграми для методу API: ${n}"
+
+#: src/components/development/monitoring/historical.dialog.vue:74:24
+msgid "Calls for the last 30 days"
+msgstr "Виклики за останні 30 днів"
+
+#: src/components/development/monitoring/historical.dialog.vue:105:33
+#: src/components/development/monitoring/latest.panel.vue:100:33
+#: src/components/development/monitoring/panel.vue:150:28
+msgid "Calls"
+msgstr "Виклики"
+
+#: src/components/development/monitoring/historical.dialog.vue:166:24
+msgid "Average duration per call for the last 30 days (ms)"
+msgstr "Середня тривалість виклика за останні 30 днів (мс)"
+
+#: src/components/development/monitoring/historical.dialog.vue:197:33
+#: src/components/development/monitoring/latest.panel.vue:161:33
+msgid "Duration"
+msgstr "Тривалість"
+
+#: src/components/development/monitoring/historical.dialog.vue:237:24
+msgid "Exceptions percent for the last 30 days (%)"
+msgstr "Відсоток винятків за останні 30 днів (%)"
+
+#: src/components/development/monitoring/historical.dialog.vue:268:33
+#: src/components/development/monitoring/latest.panel.vue:222:33
+#: src/components/development/monitoring/panel.vue:171:28
+msgid "Exceptions"
+msgstr "Винятки"
+
+#: src/components/development/monitoring/latest.panel.vue:38:19
+#, fuzzy, javascript-format
+#| msgid "API method: ${n}"
+msgid "Method: ${n}"
+msgstr "Метод API: ${n}"
+
+#: src/components/development/monitoring/latest.panel.vue:70:24
+msgid "Calls for the last 60 minutes"
+msgstr "Виклики за останні 60 хвилин"
+
+#: src/components/development/monitoring/latest.panel.vue:131:24
+msgid "Average duration per call for the last 60 minutes (ms)"
+msgstr "Середня тривалість виклику за останні 60 хвилин (мс)"
+
+#: src/components/development/monitoring/latest.panel.vue:192:24
+msgid "Exceptions percent for the last 60 minutes (%)"
+msgstr "Відсоток винятків за останні 60 хвилин (%)"
+
+#: src/components/development/monitoring/panel.vue:5:47
+msgid "Search for methods by name"
+msgstr "Пошук методів за назвою"
+
+#: src/components/development/monitoring/panel.vue:9:41
+msgid "Auto refresh"
+msgstr "Автоматичне оновлення"
+
+#: src/components/development/monitoring/panel.vue:13:138
+msgid "Latest charts"
+msgstr "Останні діаграми"
+
+#: src/components/development/monitoring/panel.vue:143:28
+msgid "Method name"
+msgstr "Назва методу"
+
+#: src/components/development/monitoring/panel.vue:157:28
+msgid "Duration / call (ms)"
+msgstr "Тривалість / виклик (мс)"
+
+#: src/components/development/monitoring/panel.vue:164:28
+msgid "Duration (%)"
+msgstr "Тривалість (%)"
+
+#: src/components/development/monitoring/panel.vue:178:28
+msgid "Exceptions / call (%)"
+msgstr "Винятки / виклик (%)"
+
+#: src/components/development/monitoring/panel.vue:199:29
+#, javascript-format
+msgid "${n} day"
+msgid_plural "${n} days"
+msgstr[0] "${n} день"
+msgstr[1] "${n} дня"
+msgstr[2] "${n} днів"
+
+#: src/components/development/monitoring/panel.vue:201:61
+#: src/components/development/monitoring/panel.vue:297:49
+msgid "Period"
+msgstr "Період"
+
+#: src/components/development/monitoring/panel.vue:228:39
+msgid "Historical charts"
+msgstr "Історичні діаграми"
+
+#: src/components/development/monitoring/panel.vue:234:39
+msgid "Exceptions log"
+msgstr "Журнал винятків"
 
 #: src/components/device-dark-mode.button.vue:28:19
 msgid "Use device dark mode"
@@ -630,6 +797,30 @@ msgstr "Позначити все як виконане"
 msgid "Mark as done"
 msgstr "Позначити як виконане"
 
+#: src/components/notifications/link-telegram.dialig.vue:3:30
+msgid "If you have Telegram installed on <b>THIS</b> device, then press button below to open Telegram bot and then click \"Start\":"
+msgstr ""
+
+#: src/components/notifications/link-telegram.dialig.vue:5:27
+#: src/components/notifications/link-telegram.dialig.vue:2:94
+#: src/components/notifications/settings.panel.vue:26:43
+msgid "Link Telegram"
+msgstr ""
+
+#: src/components/notifications/link-telegram.dialig.vue:7:30
+msgid "Or if you have Telegram installed on the <b>OTHER</b> device, then copy link url and open it on device there your Telegram is installed:"
+msgstr ""
+
+#: src/components/notifications/link-telegram.dialig.vue:9:54
+msgid "Copy link"
+msgstr ""
+
+#: src/components/notifications/link-telegram.dialig.vue:46:31
+#, fuzzy
+#| msgid "Token copied to the clipboard"
+msgid "Telegram link copied to the clipboard"
+msgstr "Токен скопійовано в буфер обміну"
+
 #: src/components/notifications/panel.vue:4:40
 msgid "Inbox"
 msgstr "Вхідні"
@@ -638,30 +829,48 @@ msgstr "Вхідні"
 msgid "Done"
 msgstr "Готово"
 
-#: src/components/notifications/settings.panel.vue:9:42
+#: src/components/notifications/settings.panel.vue:7:42
+msgid "Push notifications"
+msgstr "Push повідомлення"
+
+#: src/components/notifications/settings.panel.vue:8:42
 msgid "Receive push notifications on this device"
 msgstr "Отримувати push повідомлення на цьому пристрої"
 
-#: src/components/notifications/settings.panel.vue:22:85
+#: src/components/notifications/settings.panel.vue:21:42
+msgid "To use Telegram support bot you need to link your Telegram account"
+msgstr ""
+
+#: src/components/notifications/settings.panel.vue:31:43
+#, fuzzy
+#| msgid "Open bot"
+msgid "Open Telegram bot"
+msgstr "Відкрити бот"
+
+#: src/components/notifications/settings.panel.vue:32:77
+msgid "Unlink Telegram"
+msgstr ""
+
+#: src/components/notifications/settings.panel.vue:43:85
 msgid "Notification types"
 msgstr "Типи сповіщень"
 
-#: src/components/notifications/settings.panel.vue:25:143
+#: src/components/notifications/settings.panel.vue:46:143
 #, javascript-format
 msgid "Internal${n}notifications"
 msgstr "Внутрішні${n}сповіщення"
 
-#: src/components/notifications/settings.panel.vue:28:140
+#: src/components/notifications/settings.panel.vue:49:140
 #, javascript-format
 msgid "Email${n}notifications"
 msgstr "Email${n}сповіщення"
 
-#: src/components/notifications/settings.panel.vue:31:143
+#: src/components/notifications/settings.panel.vue:52:143
 #, javascript-format
 msgid "Telegram${n}notifications"
 msgstr "Telegram${n}сповіщення"
 
-#: src/components/notifications/settings.panel.vue:34:139
+#: src/components/notifications/settings.panel.vue:55:139
 #, javascript-format
 msgid "Push${n}notifications"
 msgstr "Push${n}сповіщення"
@@ -700,6 +909,11 @@ msgstr "Push повідомлення ввімкнено"
 msgid "Push notifications disabled"
 msgstr "Push повідомлення вимкнено"
 
+#: src/components/reset-password.dialog.vue:16:31 src/utils.js:83:36
+#: src/utils.js:136:36
+msgid "Cancel"
+msgstr "Скасувати"
+
 #: src/components/reset-password.dialog.vue:53:35
 msgid "Password recovery token was not found"
 msgstr "Токен відновлення пароля не знайдено"
@@ -724,18 +938,6 @@ msgstr "Браузер"
 msgid "IP address"
 msgstr "IP адреса"
 
-#: src/components/user-sessions/panel.vue:22:132
-#: src/components/user-tokens/panel.vue:17:132
-#: src/components/users/panel.vue:21:167
-msgid "Last activity"
-msgstr "Останній активность"
-
-#: src/components/user-sessions/panel.vue:24:74
-#: src/components/user-tokens/panel.vue:19:107
-#: src/components/users/panel.vue:23:104
-msgid "Creation date"
-msgstr "Дата створення"
-
 #: src/components/user-sessions/panel.vue:41:19
 msgid "Your sessions"
 msgstr "Ваші сесії"
@@ -747,106 +949,6 @@ msgstr "Сесію видалено"
 #: src/components/user-sessions/panel.vue:117:35
 msgid "Sessions were deleted"
 msgstr "Сесії видалено"
-
-#: src/components/user-tokens/create/dialog.vue:4:46
-#: src/components/user-tokens/panel.vue:15:61
-msgid "Token name"
-msgstr "Ім'я токена"
-
-#: src/components/user-tokens/create/dialog.vue:4:104
-msgid "Enter new token name"
-msgstr "Введіть назву нового токена"
-
-#: src/components/user-tokens/create/dialog.vue:9:63
-msgid "Your token:"
-msgstr "Ваш токен:"
-
-#: src/components/user-tokens/create/dialog.vue:11:24
-msgid "Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again."
-msgstr "Будь ласка, скопіюйте токен у буфер обміну та збережіть його в надійному місці. Після того, як це діалогове вікно буде закрито, ми не змогли знову показати вам цей токен."
-
-#: src/components/user-tokens/create/dialog.vue:15:62
-msgid "Copy token to the clipboard"
-msgstr "Скопіюйте токен у буфер обміну"
-
-#: src/components/user-tokens/create/dialog.vue:21:44
-#: src/components/user-tokens/create/dialog.vue:2:51
-#: src/components/user-tokens/panel.vue:8:62
-msgid "Create token"
-msgstr "Створити токен"
-
-#: src/components/user-tokens/create/dialog.vue:22:57
-msgid "Close"
-msgstr "Закрити"
-
-#: src/components/user-tokens/create/dialog.vue:71:35
-msgid "Token created"
-msgstr "Токен створено"
-
-#: src/components/user-tokens/create/dialog.vue:83:31
-msgid "Token copied to the clipboard"
-msgstr "Токен скопійовано в буфер обміну"
-
-#: src/components/user-tokens/dialog.vue:2:68
-msgid "API keys"
-msgstr "Ключі API"
-
-#: src/components/user-tokens/panel.vue:6:47
-msgid "Search tokens by name"
-msgstr "Пошук токенів за назвою"
-
-#: src/components/user-tokens/panel.vue:162:47
-msgid "Are you sure you want to delete this token?"
-msgstr "Ви впевнені, що хочете видалити цей токен?"
-
-#: src/components/user-tokens/panel.vue:167:35
-msgid "Token deleted"
-msgstr "Токен видалено"
-
-#: src/components/users/change-password.dialog.vue:20:19
-msgid "Change password for user"
-msgstr "Змінити пароль користувача"
-
-#: src/components/users/create-user.dialog.vue:4:152
-msgid "Enter email"
-msgstr "Введіть email"
-
-#: src/components/users/create-user.dialog.vue:21:31
-#: src/components/users/panel.vue:8:112
-msgid "Create user"
-msgstr "Створити користувача"
-
-#: src/components/users/create-user.dialog.vue:2:69
-msgid "User creation"
-msgstr "Створення користувача"
-
-#: src/components/users/create-user.dialog.vue:99:35
-msgid "User created"
-msgstr "Користувач створений"
-
-#: src/components/users/panel.vue:195:39
-msgid "Actions"
-msgstr "Дії"
-
-#: src/components/users/panel.vue:204:48
-msgid "Copy email to the clipboard"
-msgstr "Копіювати email в буфер обміну"
-
-#: src/components/users/panel.vue:208:48
-msgid "View user sessions"
-msgstr "Перегляд сесій користувача"
-
-#: src/components/users/panel.vue:350:31
-msgid "User email copied"
-msgstr "Email користувача скопійовано"
-
-#: src/components/users/user-sessions.dialog.vue:2:72
-msgid "User sessions"
-msgstr "Сесії користувача"
-
-#: src/components/users/user-sessions.panel.vue:20:19
-msgid "User"
-msgstr "Користувач"
 
 #: src/utils.js:6:14
 msgid "Warning"
@@ -868,8 +970,14 @@ msgstr "Токен підтвердження електронної пошти 
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
 
-#~ msgid "Push notifications"
-#~ msgstr "Push повідомлення"
+#~ msgid "Connect bot"
+#~ msgstr "Підключити бота"
+
+#~ msgid "Save"
+#~ msgstr "Зберегти"
+
+#~ msgid "API status"
+#~ msgstr "Статус API"
 
 #~ msgid "Use OS theme"
 #~ msgstr "Використовувати тему ОС"
@@ -970,9 +1078,6 @@ msgstr "Електронна пошта успішно підтверджена"
 
 #~ msgid "Security"
 #~ msgstr "Безпека"
-
-#~ msgid "Interface theme"
-#~ msgstr "Тема інтерфейсу"
 
 #~ msgid "Token"
 #~ msgstr "Токен"
