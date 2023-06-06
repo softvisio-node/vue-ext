@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.31 (2023-06-06)
+
+Fixes:
+
+-   fix: component config validator
+
 ### 8.2.30 (2023-06-05)
 
 Fixes:
