@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.32 (2023-06-06)
+
+Fixes:
+
+-   fix: config schema
+
 ### 8.2.31 (2023-06-06)
 
 Fixes:
