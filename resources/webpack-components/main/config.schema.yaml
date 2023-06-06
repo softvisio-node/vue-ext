@@ -3,33 +3,28 @@
   properties: {}
   required: []
 
+- $id: build
+  type: object
+  properties:
+    extVersion: { type: string, pattern1: ^\d+\.\d+\.\d+$ }
+    ewcVersion: { type: string, pattern1: ^\d+\.\d+\.\d+$ }
+
+  required: [extVersion, ewcVersion]
+
 - $id: config
   type: object
   properties:
-    build:
+    theme:
       type: object
       properties:
-        extVersion: { type: string, pattern1: ^\d+\.\d+\.\d+$ }
-        ewcVersion: { type: string, pattern1: ^\d+\.\d+\.\d+$ }
+        darkMode:
+          anyOf:
+            - const: auto
+            - type: boolean
+        baseColor: { enum: [amber, blue, blue-grey, brown, cyan, deep-orange, deep-purple, green, grey, indigo, light-blue, light-green, lime, orange, pink, purple, red, teal, yellow] }
+        accentColor: { enum: [amber, blue, blue-grey, brown, cyan, deep-orange, deep-purple, green, grey, indigo, light-blue, light-green, lime, orange, pink, purple, red, teal, yellow] }
 
-      required: [extVersion, ewcVersion]
+      additionalProperties: false
+      requied: [darkMode, baseColor, accentColor]
 
-    config:
-      type: object
-      properties:
-        theme:
-          type: object
-          properties:
-            darkMode:
-              anyOf:
-                - const: auto
-                - type: boolean
-            baseColor: { enum: [amber, blue, blue-grey, brown, cyan, deep-orange, deep-purple, green, grey, indigo, light-blue, light-green, lime, orange, pink, purple, red, teal, yellow] }
-            accentColor: { enum: [amber, blue, blue-grey, brown, cyan, deep-orange, deep-purple, green, grey, indigo, light-blue, light-green, lime, orange, pink, purple, red, teal, yellow] }
-
-          additionalProperties: false
-          requied: [darkMode, baseColor, accentColor]
-
-      required: [theme]
-
-  required: [build, config]
+  required: [theme]
