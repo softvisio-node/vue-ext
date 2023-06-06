@@ -36,7 +36,7 @@
             "./src/*/index.vue"
         ],
         "./resources/*": "./resources/*",
-        "./webpack-components/*": "./resources/webpack-components/*/index.js"
+        "./webpack-components/*": "./resources/webpack-components/*/component.js"
     },
     "dependencies": {
         "@amcharts/amcharts5": "^5.1.10",
