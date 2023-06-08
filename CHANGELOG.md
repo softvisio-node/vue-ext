@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.33 (2023-06-08)
+
+Fixes:
+
+-   fix: translations
+
 ### 8.2.32 (2023-06-06)
 
 Fixes:
