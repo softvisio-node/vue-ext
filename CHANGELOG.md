@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.34 (2023-06-15)
+
+Fixes:
+
+-   fix: migrate to the new glob
+
 ### 8.2.33 (2023-06-08)
 
 Fixes:
