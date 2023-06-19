@@ -228,8 +228,8 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                if ( res.data.telegramLinked ) {
-                    this.telegramLinked = true;
+                if ( res.data.linkedTelegramUsername ) {
+                    this.linkedTelegramUsername = res.data.linkedTelegramUsername;
                 }
                 else {
                     const cmp = await this.$mount( LinkTelegramDialig, {
@@ -251,7 +251,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                this.telegramLinked = false;
+                this.linkedTelegramUsername = null;
             }
         },
     },
