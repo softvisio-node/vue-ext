@@ -78,13 +78,17 @@ export default {
 
             "telegramSupported": false,
             "telegramUrl": null,
-            "telegramLinked": false,
+            "linkedTelegramUsername": null,
         };
     },
 
     "computed": {
         pusHidden () {
             return !this.$app.notifications.pushNotificationsSupported;
+        },
+
+        telegramLinked () {
+            return !!this.linkedTelegramUsername;
         },
     },
 
@@ -180,7 +184,7 @@ export default {
 
                     this.telegramSupported = res.data.telegramSupported;
                     this.telegramUrl = res.data.telegramUrl;
-                    this.telegramLinked = res.data.telegramLinked;
+                    this.linkedTelegramUsername = res.data.linkedTelegramUsername;
 
                     this.store.loadRawData( res.data.types );
                 }
