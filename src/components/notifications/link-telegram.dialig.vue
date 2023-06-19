@@ -37,7 +37,8 @@ export default {
         _openTelegramBot () {
 
             // window.open( res.data, "_blank" ).focus();
-            this.$utils.clickUrl( this.localUrl );
+            // this.$utils.clickUrl( this.localUrl );
+            this.$utils.clickUrl( this.remoteUrl );
         },
 
         _copyTelegramLink () {
