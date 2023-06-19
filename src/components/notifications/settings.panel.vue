@@ -99,10 +99,10 @@ export default {
             "pageSize": null,
         } );
 
-        this._telegramLinkedListener = telegramLinked => {
-            this.telegramLinked = telegramLinked;
+        this._telegramLinkedListener = linkedTelegramUsername => {
+            this.linkedTelegramUsername = linkedTelegramUsername;
 
-            if ( telegramLinked ) {
+            if ( linkedTelegramUsername ) {
                 this.$utils.toast( this.i18nd( `vue-ext`, `Telegram linked` ) );
             }
             else {
