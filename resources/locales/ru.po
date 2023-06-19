@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-06-06 14:45+0300\n"
+"POT-Creation-Date: 2023-06-20 00:23+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -815,7 +815,7 @@ msgstr ""
 msgid "Copy link"
 msgstr ""
 
-#: src/components/notifications/link-telegram.dialig.vue:46:31
+#: src/components/notifications/link-telegram.dialig.vue:47:31
 #, fuzzy
 #| msgid "Token copied to the clipboard"
 msgid "Telegram link copied to the clipboard"
@@ -874,6 +874,18 @@ msgstr "Telegram${n}уведомления"
 #, javascript-format
 msgid "Push${n}notifications"
 msgstr "Push${n}уведомления"
+
+#: src/components/notifications/settings.panel.vue:106:35
+#, fuzzy
+#| msgid "Telegram username"
+msgid "Telegram linked"
+msgstr "Имя пользователя в Telegram"
+
+#: src/components/notifications/settings.panel.vue:109:35
+#, fuzzy
+#| msgid "Telegram username updated"
+msgid "Telegram unlinked"
+msgstr "Имя пользователя Telegram обновлено"
 
 #: src/components/oauth.container.vue:3:91
 #: src/components/oauth.container.vue:5:102
@@ -1101,9 +1113,6 @@ msgstr "Email подтвержден успешно"
 #, javascript-format
 #~ msgid "In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${n}</b> and press <b>\"Start\"</b>."
 #~ msgstr "Для получения уведомлений в Telegram вам нужно установить ваше имя пользователя в Telegram. После этого откройте чат с <b>@${n}</b> и нажмите <b>\"Start\"</b>."
-
-#~ msgid "Telegram username updated"
-#~ msgstr "Имя пользователя Telegram обновлено"
 
 #, fuzzy
 #~| msgid "Username <email@address>"
