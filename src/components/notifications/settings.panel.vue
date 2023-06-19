@@ -103,10 +103,10 @@ export default {
             this.telegramLinked = telegramLinked;
 
             if ( telegramLinked ) {
-                this.$utils.toast( this.i19nd( `vue-ext`, `Telegram linked` ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, `Telegram linked` ) );
             }
             else {
-                this.$utils.toast( this.i19nd( `vue-ext`, `Telegram unlinked` ) );
+                this.$utils.toast( this.i18nd( `vue-ext`, `Telegram unlinked` ) );
             }
         };
 
