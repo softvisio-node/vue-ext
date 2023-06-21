@@ -11,13 +11,19 @@ export default Ext.define( "", {
         { "name": "id", "type": "string" },
 
         // fields
-        { "name": "created", "type": "date" },
-        { "name": "last_activity", "type": "date" },
-        { "name": "enabled", "type": "bool" },
-        "email",
-        { "name": "email_confirmed", "type": "bool" },
-        "avatar",
-        { "name": "roles", "type": "array", "allowNull": true },
+        "type",
+
+        { "name": "static", "type": "bool" },
+        "telegram_username",
+        "telegram_first_name",
+        { "name": "telegram_can_join_groups", "type": "bool" },
+        { "name": "telegram_can_read_all_group_messages", "type": "bool" },
+        { "name": "telegram_supports_inline_queries", "type": "bool" },
+        "total_users",
+        "total_subscribed_users",
+        { "name": "started", "type": "bool" },
+        { "name": "error", "type": "bool" },
+        "error_text",
 
         // calculated
         {
