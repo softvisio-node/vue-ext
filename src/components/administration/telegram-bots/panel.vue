@@ -122,8 +122,20 @@ export default {
         },
 
         async _deleteBot ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
 
-            // const record = button.up( "gridrow" ).getRecord();
+            button.disable();
+
+            const res = await this.$api.call( "administration/telegram-bots/delete-bot-started", record.id );
+
+            button.enable();
+
+            if ( res.ok ) {
+                this.refresh();
+            }
+            else {
+                this.$utils.toast( res );
+            }
         },
 
         search ( e ) {
