@@ -77,7 +77,7 @@ export default {
             "pushNotificationsEnabled": false,
 
             "telegramSupported": false,
-            "telegramUrl": null,
+            "telegramBotUrl": null,
             "linkedTelegramUsername": null,
         };
     },
@@ -183,7 +183,7 @@ export default {
                     this.pushNotificationsEnabled = res.data.pushNotificationsEnabled;
 
                     this.telegramSupported = res.data.telegramSupported;
-                    this.telegramUrl = res.data.telegramUrl;
+                    this.telegramBotUrl = res.data.telegramBotUrl;
                     this.linkedTelegramUsername = res.data.linkedTelegramUsername;
 
                     this.store.loadRawData( res.data.types );
@@ -216,9 +216,7 @@ export default {
         },
 
         _openTelegramBot () {
-
-            // window.open( this.telegramUrl, "_blank" ).focus();
-            this.$utils.clickUrl( this.telegramUrl );
+            this.$utils.clickUrl( this.telegramBotUrl );
         },
 
         async _linkTelegramBot () {
@@ -234,8 +232,7 @@ export default {
                 else {
                     const cmp = await this.$mount( LinkTelegramDialig, {
                         "props": {
-                            "localUrl": res.data.localUrl,
-                            "remoteUrl": res.data.remoteUrl,
+                            "linkTelegramBotUrl": res.data.linkTelegramBotUrl,
                         },
                     } );
 

@@ -15,11 +15,7 @@ import Events from "#core/events";
 
 export default {
     "props": {
-        "localUrl": {
-            "type": String,
-            "required": true,
-        },
-        "remoteUrl": {
+        "linkTelegramBotUrl": {
             "type": String,
             "required": true,
         },
@@ -35,14 +31,11 @@ export default {
 
     "methods": {
         _openTelegramBot () {
-
-            // window.open( res.data, "_blank" ).focus();
-            // this.$utils.clickUrl( this.localUrl );
-            this.$utils.clickUrl( this.remoteUrl );
+            this.$utils.clickUrl( this.linkTelegramBotUrl );
         },
 
         _copyTelegramLink () {
-            this.$utils.copyToClipboard( this.remoteUrl );
+            this.$utils.copyToClipboard( this.linkTelegramBotUrl );
 
             this.$utils.toast( this.i18nd( `vue-ext`, "Telegram link copied to the clipboard" ) );
         },
