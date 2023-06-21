@@ -2,9 +2,8 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
+                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search bots`)" width="200" @change="search"/>
                 <ext-spacer/>
-                <ext-button :disabled="!canCreateUser" iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="i18nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
@@ -21,7 +20,7 @@
 
                 <ext-column dataIndex="error" :text="i18nd(`vue-ext`, `Error`)"/>
 
-                <ext-column width="80" @ready="_actionColReady"/>
+                <ext-column width="120" @ready="_actionColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
@@ -73,8 +72,6 @@ export default {
         _onGridReady ( e ) {
             const cmp = e.detail.cmp;
 
-            // cmp.setColumnMenu( null );
-
             cmp.setStore( this.store );
         },
 
@@ -89,10 +86,17 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Edit user roles" ),
-                            "handler": this.showUserRolesDialog.bind( this ),
-                            "disabled": !this.canUpdateUserRoles,
+                            "iconCls": "fa-regular fa-circle-stop",
+                            "text": this.i18nd( `vue-ext`, "Stop" ),
+                            "handler": this._stopBot.bind( this ),
+                            "bind": { "hidden": "{!record.started}" },
+                        },
+                        {
+                            "xtype": "button",
+                            "iconCls": "fa-regular fa-circle-play",
+                            "text": this.i18nd( `vue-ext`, "Start" ),
+                            "handler": this._startBot.bind( this ),
+                            "bind": { "hidden": "{record.started}" },
                         },
                         {
                             "xtype": "button",
@@ -105,25 +109,9 @@ export default {
                                 },
                                 "items": [
                                     {
-                                        "iconCls": "fa-solid fa-copy",
-                                        "text": this.i18nd( `vue-ext`, "Copy email to the clipboard" ),
-                                        "handler": this._copyEmail.bind( this ),
-                                    },
-                                    {
-                                        "text": this.i18nd( `vue-ext`, "View user sessions" ),
-                                        "handler": this._showUserSessionsDialog.bind( this ),
-                                    },
-                                    {
-                                        "text": this.i18nd( `vue-ext`, "Change password" ),
-                                        "handler": this._showChangePasswordDialog.bind( this ),
-                                        "disabled": !this.canUpdateUser,
-                                    },
-                                    {
-                                        "separator": true,
                                         "iconCls": "fa-solid fa-trash-alt",
-                                        "text": this.i18nd( `vue-ext`, "Delete user" ),
-                                        "handler": this.deleteUser.bind( this ),
-                                        "disabled": !this.canDeleteUser,
+                                        "text": this.i18nd( `vue-ext`, "Delete bot" ),
+                                        "handler": this._deleteBot.bind( this ),
                                     },
                                 ],
                             },
@@ -133,77 +121,26 @@ export default {
             } );
         },
 
-        async setUserEnabled ( button, enabled ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord(),
-                curVal = record.get( "enabled" );
-
-            if ( enabled === curVal ) return;
-
-            button.disable();
-
-            const res = await this.$api.call( "administration/users/set-enabled", record.get( "id" ), enabled );
-
-            if ( !res.ok ) {
-                await this.$utils.sleep( 500 );
-
-                record.set( "enabled", !enabled );
-
-                this.$utils.toast( res );
-            }
-            else {
-                record.commit();
-
-                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Access enabled` ) : this.i18nd( `vue-ext`, `Access disabled` ) );
-            }
-
-            button.enable();
-        },
-
-        async deleteUser ( button ) {
-            const gridrow = button.up( "gridrow" ),
-                record = gridrow.getRecord();
-
-            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete user?" ) ) ) ) return;
-
-            button.disable();
-
-            var res = await this.$api.call( "administration/users/delete", record.getId() );
-
-            button.enable();
-
-            if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "User deleted" ) );
-
-                this.store.remove( record );
-            }
-            else {
-                this.$utils.toast( res );
-            }
-        },
+        async _deleteBot () {},
 
         search ( e ) {
             var val = e.detail.newValue.trim();
 
             if ( val !== "" ) {
                 this.store.addFilter( {
-                    "property": "search",
+                    "property": "telegram_username",
                     "operator": "like",
                     "value": val,
                 } );
             }
             else {
-                this.store.removeFilter( "search" );
+                this.store.removeFilter( "telegram_username" );
             }
         },
 
-        _copyEmail ( button ) {
-            const record = button.lookupViewModel().get( "record" );
+        async _startBot () {},
 
-            this.$utils.copyToClipboard( record.get( "email" ) );
-
-            this.$utils.toast( this.i18nd( `vue-ext`, `User email copied` ) );
-        },
+        async _stopBot () {},
     },
 };
 </script>
