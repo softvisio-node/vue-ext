@@ -13,7 +13,7 @@
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
                 <ext-column dataIndex="telegram_username" flex="1" :text="i18nd(`vue-ext`, `Name`)"/>
 
-                <ext-column dataIndex="type" :text="i18nd(`vue-ext`, `Type`)"/>
+                <ext-column dataIndex="type" :text="i18nd(`vue-ext`, `Type`)" width="300"/>
 
                 <ext-column dataIndex="static" :text="i18nd(`vue-ext`, `Static`)"/>
 
