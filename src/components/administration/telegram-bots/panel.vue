@@ -17,7 +17,7 @@
 
                 <ext-column dataIndex="static" :text="i18nd(`vue-ext`, `Static`)"/>
 
-                <ext-column dataIndex="total_subscribed_users" :text="i18nd(`vue-ext`, `Users`)"/>
+                <ext-numbercolumn align="right" dataIndex="total_subscribed_users" :text="i18nd(`vue-ext`, `Users`)"/>
 
                 <ext-column dataIndex="error" :text="i18nd(`vue-ext`, `Error`)"/>
 
