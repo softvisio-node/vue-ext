@@ -121,7 +121,10 @@ export default {
             } );
         },
 
-        async _deleteBot () {},
+        async _deleteBot ( button ) {
+
+            // const record = button.up( "gridrow" ).getRecord();
+        },
 
         search ( e ) {
             var val = e.detail.newValue.trim();
@@ -138,9 +141,41 @@ export default {
             }
         },
 
-        async _startBot () {},
+        async _startBot ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
 
-        async _stopBot () {},
+            button.disable();
+
+            const res = await this.$api.call( "administration/telegram-bots/set-bot-started", record.id, true );
+
+            button.enable();
+
+            if ( res.ok ) {
+                record.set( "started", true );
+                record.set( "error", false );
+                record.set( "error_text", null );
+            }
+            else {
+                this.$utils.toast( res );
+            }
+        },
+
+        async _stopBot ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
+
+            button.disable();
+
+            const res = await this.$api.call( "administration/telegram-bots/set-bot-started", record.id, false );
+
+            button.enable();
+
+            if ( res.ok ) {
+                record.set( "started", false );
+            }
+            else {
+                this.$utils.toast( res );
+            }
+        },
     },
 };
 </script>
