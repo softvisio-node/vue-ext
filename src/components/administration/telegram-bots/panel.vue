@@ -2,7 +2,7 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search bots`)" width="200" @change="search"/>
+                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search bots`)" width="200" @change="_search"/>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
@@ -82,7 +82,7 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "center", "align": "center" },
+                    "layout": { "type": "hbox", "pack": "end", "align": "center" },
                     "items": [
                         {
                             "xtype": "button",
@@ -121,24 +121,7 @@ export default {
             } );
         },
 
-        async _deleteBot ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
-
-            button.disable();
-
-            const res = await this.$api.call( "administration/telegram-bots/delete-bot-started", record.id );
-
-            button.enable();
-
-            if ( res.ok ) {
-                this.refresh();
-            }
-            else {
-                this.$utils.toast( res );
-            }
-        },
-
-        search ( e ) {
+        _search ( e ) {
             var val = e.detail.newValue.trim();
 
             if ( val !== "" ) {
@@ -183,6 +166,23 @@ export default {
 
             if ( res.ok ) {
                 record.set( "started", false );
+            }
+            else {
+                this.$utils.toast( res );
+            }
+        },
+
+        async _deleteBot ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
+
+            button.disable();
+
+            const res = await this.$api.call( "administration/telegram-bots/delete-bot", record.id );
+
+            button.enable();
+
+            if ( res.ok ) {
+                this.refresh();
             }
             else {
                 this.$utils.toast( res );
