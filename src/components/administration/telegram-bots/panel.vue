@@ -10,15 +10,15 @@
 
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
-                <ext-column dataIndex="telegram_username" flex="1" :text="i18nd(`vue-ext`, `Name`)"/>
+                <ext-column dataIndex="telegram_username" :text="i18nd(`vue-ext`, `Name`)" width="200"/>
 
-                <ext-column dataIndex="type" :text="i18nd(`vue-ext`, `Type`)" width="300"/>
+                <ext-column dataIndex="type" :text="i18nd(`vue-ext`, `Type`)" width="200"/>
 
                 <ext-column dataIndex="static" :text="i18nd(`vue-ext`, `Static`)"/>
 
                 <ext-numbercolumn align="right" dataIndex="total_subscribed_users" :text="i18nd(`vue-ext`, `Users`)"/>
 
-                <ext-column dataIndex="error" :text="i18nd(`vue-ext`, `Error`)"/>
+                <ext-column dataIndex="error" flex="1" :text="i18nd(`vue-ext`, `Error`)"/>
 
                 <ext-column width="120" @ready="_actionColReady"/>
             </ext-grid>
