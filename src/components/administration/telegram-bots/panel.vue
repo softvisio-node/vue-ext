@@ -78,6 +78,7 @@ export default {
                             "handler": this._startBot.bind( this ),
                             "bind": { "hidden": "{record.started}" },
                             "disabled": !this.canUpdate,
+                            "ui": "decline",
                         },
                         {
                             "xtype": "button",
@@ -86,7 +87,6 @@ export default {
                             "handler": this._stopBot.bind( this ),
                             "bind": { "hidden": "{!record.started}" },
                             "disabled": !this.canUpdate,
-                            "ui": "decline",
                         },
                         {
                             "xtype": "button",
@@ -144,7 +144,7 @@ export default {
             else {
                 this.$utils.toast( res );
                 record.set( "error", true );
-                record.set( "error_text", res.statusTextl );
+                record.set( "error_text", res.statusText );
             }
         },
 
