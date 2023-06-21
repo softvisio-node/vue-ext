@@ -33,23 +33,10 @@ import TelegramBotModel from "./models/telegram-bot";
 export default {
     "components": { CardsPanel },
 
-    "props": {
-        "lastActivityColumnHidden": {
-            "type": Boolean,
-            "default": false,
-        },
-        "createdColumnHidden": {
-            "type": Boolean,
-            "default": false,
-        },
-    },
-
     data () {
         return {
-            "canCreateUser": this.$app.user.hasPermissions( "administration:create" ),
-            "canUpdateUser": this.$app.user.hasPermissions( "administration:update" ),
-            "canDeleteUser": this.$app.user.hasPermissions( "administration:delete" ),
-            "canUpdateUserRoles": this.$app.user.hasPermissions( "administration:update" ) && this.$app.user.hasPermissions( "acl:update" ),
+            "canUpdate": this.$app.user.hasPermissions( "administration:update" ),
+            "canDelete": this.$app.user.hasPermissions( "administration:delete" ),
         };
     },
 
@@ -90,6 +77,7 @@ export default {
                             "text": this.i18nd( `vue-ext`, "Start" ),
                             "handler": this._startBot.bind( this ),
                             "bind": { "hidden": "{record.started}" },
+                            "disabled": !this.canUpdate,
                         },
                         {
                             "xtype": "button",
@@ -97,6 +85,7 @@ export default {
                             "text": this.i18nd( `vue-ext`, "Stop" ),
                             "handler": this._stopBot.bind( this ),
                             "bind": { "hidden": "{!record.started}" },
+                            "disabled": !this.canUpdate,
                             "ui": "decline",
                         },
                         {
@@ -113,6 +102,7 @@ export default {
                                         "iconCls": "fa-solid fa-trash-alt",
                                         "text": this.i18nd( `vue-ext`, "Delete bot" ),
                                         "handler": this._deleteBot.bind( this ),
+                                        "disabled": !this.canDelete,
                                     },
                                 ],
                             },
