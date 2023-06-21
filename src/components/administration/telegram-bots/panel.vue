@@ -86,17 +86,18 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "fa-regular fa-circle-stop",
-                            "text": this.i18nd( `vue-ext`, "Stop" ),
-                            "handler": this._stopBot.bind( this ),
-                            "bind": { "hidden": "{!record.started}" },
-                        },
-                        {
-                            "xtype": "button",
                             "iconCls": "fa-regular fa-circle-play",
                             "text": this.i18nd( `vue-ext`, "Start" ),
                             "handler": this._startBot.bind( this ),
                             "bind": { "hidden": "{record.started}" },
+                        },
+                        {
+                            "xtype": "button",
+                            "iconCls": "fa-regular fa-circle-stop",
+                            "text": this.i18nd( `vue-ext`, "Stop" ),
+                            "handler": this._stopBot.bind( this ),
+                            "bind": { "hidden": "{!record.started}" },
+                            "ui": "decline",
                         },
                         {
                             "xtype": "button",
