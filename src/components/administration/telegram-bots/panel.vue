@@ -18,7 +18,7 @@
 
                 <ext-numbercolumn align="right" dataIndex="total_subscribed_users" :text="i18nd(`vue-ext`, `Users`)"/>
 
-                <ext-column dataIndex="error" flex="1" :text="i18nd(`vue-ext`, `Error`)"/>
+                <ext-column dataIndex="error_text" flex="1" :text="i18nd(`vue-ext`, `Error`)"/>
 
                 <ext-column width="120" @ready="_actionColReady"/>
             </ext-grid>
@@ -143,6 +143,8 @@ export default {
             }
             else {
                 this.$utils.toast( res );
+                record.set( "error", true );
+                record.set( "error_text", res.statusTextl );
             }
         },
 
