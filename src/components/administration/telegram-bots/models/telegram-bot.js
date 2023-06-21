@@ -12,7 +12,6 @@ export default Ext.define( "", {
 
         // fields
         "type",
-
         { "name": "static", "type": "bool" },
         "telegram_username",
         "telegram_first_name",
@@ -24,18 +23,5 @@ export default Ext.define( "", {
         { "name": "started", "type": "bool" },
         { "name": "error", "type": "bool" },
         "error_text",
-
-        // calculated
-        {
-            "name": "last_activity_text",
-            calculate ( data ) {
-                if ( !data.last_activity ) {
-                    return "&mdash;";
-                }
-                else {
-                    return Ext.util.Format.date( data.last_activity, "dateStyle:short,timeStyle:short" );
-                }
-            },
-        },
     ],
 } );

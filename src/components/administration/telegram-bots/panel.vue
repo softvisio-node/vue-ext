@@ -11,17 +11,15 @@
 
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
-                <ext-column width="40" @ready="_avatarColReady"/>
+                <ext-column dataIndex="telegram_username" flex="1" :text="i18nd(`vue-ext`, `Name`)"/>
 
-                <ext-column dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)" @ready="_emailColReady"/>
+                <ext-column dataIndex="type" :text="i18nd(`vue-ext`, `Type`)"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="roles" flex="1" sortable="false" :text="i18nd(`vue-ext`, `Roles`)" @ready="_rolesColReady"/>
+                <ext-column dataIndex="static" :text="i18nd(`vue-ext`, `Static`)"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" :hidden="lastActivityColumnHidden" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
+                <ext-column dataIndex="total_subscribed_users" :text="i18nd(`vue-ext`, `Users`)"/>
 
-                <ext-column dataIndex="created" formatter="date()" :hidden="createdColumnHidden" :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
-
-                <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
+                <ext-column dataIndex="error" :text="i18nd(`vue-ext`, `Error`)"/>
 
                 <ext-column width="80" @ready="_actionColReady"/>
             </ext-grid>
