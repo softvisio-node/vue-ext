@@ -47,7 +47,8 @@ msgstr "Доступ запрещен"
 #: src/components/account/tokens/panel.vue:152:45
 #: src/components/account/tokens/panel.vue:21:88
 #: src/components/acl/add-user.dialog.vue:5:52
-#: src/components/acl/panel.vue:21:67 src/components/acl/panel.vue:241:45
+#: src/components/acl/panel.vue:21:67
+#: src/components/acl/panel.vue:241:45
 #: src/components/administration/users/create-user.dialog.vue:14:37
 #: src/components/administration/users/panel.vue:252:45
 #: src/components/administration/users/panel.vue:25:67
@@ -163,7 +164,8 @@ msgstr "Вызовы за последние 30 дней"
 msgid "Calls for the last 60 minutes"
 msgstr "Вызовы за последние 60 минут"
 
-#: src/components/reset-password.dialog.vue:16:31 src/utils.js:136:36
+#: src/components/reset-password.dialog.vue:16:31
+#: src/utils.js:136:36
 #: src/utils.js:83:36
 msgid "Cancel"
 msgstr "Отменить"
@@ -343,7 +345,8 @@ msgstr "Длительность (мс)"
 msgid "Duration / call (ms)"
 msgstr "Длительность вызова (мс)"
 
-#: src/components/acl/panel.vue:186:39 src/components/acl/roles.dialog.vue:2:50
+#: src/components/acl/panel.vue:186:39
+#: src/components/acl/roles.dialog.vue:2:50
 #: src/components/administration/users/panel.vue:188:39
 msgid "Edit user roles"
 msgstr "Редактировать роли пользователя"
@@ -579,7 +582,9 @@ msgstr "Уведомления"
 msgid "Notifications settings"
 msgstr "Настройки уведомлений"
 
-#: src/utils.js:141:36 src/utils.js:36:36 src/utils.js:88:36
+#: src/utils.js:141:36
+#: src/utils.js:36:36
+#: src/utils.js:88:36
 msgid "Ok"
 msgstr "Ok"
 
@@ -687,7 +692,8 @@ msgid "Recover"
 msgstr "Восстановить"
 
 #: src/components/account/tokens/panel.vue:9:62
-#: src/components/acl/panel.vue:9:62 src/components/acl/roles.button.vue:74:28
+#: src/components/acl/panel.vue:9:62
+#: src/components/acl/roles.button.vue:74:28
 #: src/components/acl/roles.panel.vue:7:62
 #: src/components/administration/telegram-bots/panel.vue:7:62
 #: src/components/administration/users/panel.vue:9:62
