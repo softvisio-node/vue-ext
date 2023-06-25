@@ -206,7 +206,7 @@ msgstr "Закрити"
 
 #: src/components/account/appearance.panel.vue:46:38
 msgid "Color for badges, etc."
-msgstr ""
+msgstr "Колір для значків тощо."
 
 #: src/components/account/account.panel.vue:23:84
 msgid "Confirm"
@@ -248,7 +248,7 @@ msgstr "Копіювати email в буфер обміну"
 
 #: src/components/notifications/link-telegram.dialig.vue:9:54
 msgid "Copy link"
-msgstr ""
+msgstr "Копіювати посилання"
 
 #: src/components/about.dialog.vue:12:60
 msgid "Copy to clipboard"
@@ -296,7 +296,7 @@ msgstr "Видалити все"
 
 #: src/components/administration/telegram-bots/panel.vue:103:48
 msgid "Delete bot"
-msgstr ""
+msgstr "Видалити бота"
 
 #: src/components/acl/panel.vue:196:39
 #: src/components/administration/users/panel.vue:219:48
@@ -396,7 +396,7 @@ msgstr "Введіть нову електронну адресу"
 
 #: src/components/change-email.dialog.vue:4:34
 msgid "Enter new email address which you want to use."
-msgstr ""
+msgstr "Введіть нову електронну адресу, яку ви хочете використовувати."
 
 #: src/components/change-password.dialog.vue:6:130
 #: src/components/reset-password.dialog.vue:6:130
@@ -422,7 +422,7 @@ msgstr "Введіть адресу вашої електронної пошти
 
 #: src/components/administration/telegram-bots/panel.vue:21:67
 msgid "Error"
-msgstr ""
+msgstr "Помилка"
 
 #: src/components/development/monitoring/historical.dialog.vue:268:33
 #: src/components/development/monitoring/latest.panel.vue:222:33
@@ -475,7 +475,7 @@ msgstr "Історичні діаграми для методу API: ${n}"
 
 #: src/components/notifications/link-telegram.dialig.vue:3:30
 msgid "If you have Telegram installed on <b>THIS</b> device, then press button below to open Telegram bot and then click \"Start\":"
-msgstr ""
+msgstr "Якщо у вас встановлено Telegram на <b>ЦЬОМУ</b> пристрої, натисніть кнопку нижче, щоб відкрити бот Telegram, а потім натисніть «Почати»:"
 
 #: src/components/notifications/panel.vue:4:40
 msgid "Inbox"
@@ -510,7 +510,7 @@ msgstr "Останні діаграми"
 #: src/components/notifications/link-telegram.dialig.vue:5:27
 #: src/components/notifications/settings.panel.vue:26:43
 msgid "Link Telegram"
-msgstr ""
+msgstr "Прив’яжіть Telegram"
 
 #: src/components/account/account.panel.vue:6:97
 msgid "Locale"
@@ -541,7 +541,7 @@ msgstr "Метод API: ${n}"
 #: src/components/development/monitoring/dialog.vue:2:68
 #: src/components/development/panel.vue:4:40
 msgid "Monitoring"
-msgstr ""
+msgstr "Моніторинг"
 
 #: src/components/notifications/done.panel.vue:6:113
 msgid "Move all to inbox"
@@ -595,7 +595,7 @@ msgstr "Відкрити бот"
 
 #: src/components/notifications/link-telegram.dialig.vue:7:30
 msgid "Or if you have Telegram installed on the <b>OTHER</b> device, then copy link url and open it on device there your Telegram is installed:"
-msgstr ""
+msgstr "Або якщо у вас встановлено Telegram на <b>ІНШОМУ</b> пристрої, скопіюйте URL-адресу посилання та відкрийте його на пристрої, на якому встановлено ваш Telegram:"
 
 #: src/components/account/account.panel.vue:11:74
 #: src/components/administration/users/create-user.dialog.vue:6:66
@@ -729,7 +729,7 @@ msgstr "Фільтр ролей"
 
 #: src/components/administration/telegram-bots/panel.vue:5:47
 msgid "Search bots"
-msgstr ""
+msgstr "Пошук ботів"
 
 #: src/components/development/monitoring/panel.vue:5:47
 msgid "Search for methods by name"
@@ -799,7 +799,7 @@ msgstr "Зареєструватися"
 
 #: src/components/administration/telegram-bots/panel.vue:77:36
 msgid "Start"
-msgstr ""
+msgstr "Запустити"
 
 #: src/components/development/monitoring/exceptions.dialog.vue:14:108
 msgid "Started"
@@ -807,7 +807,7 @@ msgstr "Розпочато"
 
 #: src/components/administration/telegram-bots/panel.vue:17:54
 msgid "Static"
-msgstr ""
+msgstr "Статичний"
 
 #: src/components/development/monitoring/exceptions.dialog.vue:18:90
 msgid "Status"
@@ -819,7 +819,7 @@ msgstr "Текст статусу"
 
 #: src/components/administration/telegram-bots/panel.vue:86:36
 msgid "Stop"
-msgstr ""
+msgstr "Зупинити"
 
 #: src/components/administration/panel.vue:9:89
 #: src/components/administration/telegram-bots/dialog.vue:34:33
@@ -853,7 +853,7 @@ msgstr "Telegram${n}сповіщення"
 
 #: src/components/notifications/settings.panel.vue:21:42
 msgid "To use Telegram support bot you need to link your Telegram account"
-msgstr ""
+msgstr "Щоб використовувати бот підтримки Telegram, вам потрібно прив’язати свій обліковий запис Telegram"
 
 #: src/components/account/appearance.panel.vue:20:38
 #, fuzzy
@@ -880,7 +880,7 @@ msgstr "Ім'я токена"
 
 #: src/components/administration/telegram-bots/panel.vue:15:52
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: src/components/about.dialog.vue:5:38
 msgid "UI mode"
@@ -900,7 +900,7 @@ msgstr "Не вдалося завантажити дані"
 
 #: src/components/notifications/settings.panel.vue:32:77
 msgid "Unlink Telegram"
-msgstr ""
+msgstr "Від’єднати Telegram"
 
 #: src/components/device-dark-mode.button.vue:28:19
 msgid "Use device dark mode"
@@ -1234,12 +1234,6 @@ msgstr "Зменшити"
 
 #~ msgid "Username or email"
 #~ msgstr "Ім'я користувача або email"
-
-#~ msgid "vue-ext"
-#~ msgid_plural "Enter new email address which you want to use."
-#~ msgstr[0] ""
-#~ msgstr[1] ""
-#~ msgstr[2] ""
 
 #~ msgid "Yes"
 #~ msgstr "Так"
