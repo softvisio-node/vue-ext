@@ -44,11 +44,13 @@ msgstr "Цвет акцента"
 msgid "Access disabled"
 msgstr "Доступ запрещен"
 
-#: src/components/account/tokens/panel.vue:152:45 src/components/account/tokens/panel.vue:21:88
+#: src/components/account/tokens/panel.vue:152:45
+#: src/components/account/tokens/panel.vue:21:88
 #: src/components/acl/add-user.dialog.vue:5:52
 #: src/components/acl/panel.vue:21:67 src/components/acl/panel.vue:241:45
 #: src/components/administration/users/create-user.dialog.vue:14:37
-#: src/components/administration/users/panel.vue:252:45 src/components/administration/users/panel.vue:25:67
+#: src/components/administration/users/panel.vue:252:45
+#: src/components/administration/users/panel.vue:25:67
 msgid "Access enabled"
 msgstr "Доступ разрешен"
 
@@ -84,7 +86,8 @@ msgstr "Администрирование"
 msgid "API keys"
 msgstr "Ключи API"
 
-#: src/components/account/panel.vue:23:41 src/components/account/panel.vue:25:38
+#: src/components/account/panel.vue:23:41
+#: src/components/account/panel.vue:25:38
 msgid "Appearance"
 msgstr "Внешний вид"
 
@@ -160,8 +163,8 @@ msgstr "Вызовы за последние 30 дней"
 msgid "Calls for the last 60 minutes"
 msgstr "Вызовы за последние 60 минут"
 
-#: src/components/reset-password.dialog.vue:16:31
-#: src/utils.js:136:36 src/utils.js:83:36
+#: src/components/reset-password.dialog.vue:16:31 src/utils.js:136:36
+#: src/utils.js:83:36
 msgid "Cancel"
 msgstr "Отменить"
 
@@ -209,13 +212,17 @@ msgstr "Цвет для значков и т. д."
 msgid "Confirm"
 msgstr "Подтвердить"
 
-#: src/components/change-password.dialog.vue:8:147 src/components/change-password.dialog.vue:8:66
-#: src/components/reset-password.dialog.vue:8:147 src/components/reset-password.dialog.vue:8:66
+#: src/components/change-password.dialog.vue:8:147
+#: src/components/change-password.dialog.vue:8:66
+#: src/components/reset-password.dialog.vue:8:147
+#: src/components/reset-password.dialog.vue:8:66
 msgid "Confirm new password"
 msgstr "Подтвердите новый пароль"
 
-#: src/components/administration/users/create-user.dialog.vue:8:178 src/components/administration/users/create-user.dialog.vue:8:66
-#: src/components/authentication/signup.panel.vue:14:143 src/components/authentication/signup.panel.vue:14:66
+#: src/components/administration/users/create-user.dialog.vue:8:178
+#: src/components/administration/users/create-user.dialog.vue:8:66
+#: src/components/authentication/signup.panel.vue:14:143
+#: src/components/authentication/signup.panel.vue:14:66
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
@@ -251,7 +258,8 @@ msgstr "Копировать в буфер"
 msgid "Copy token to the clipboard"
 msgstr "Копировать токен в буфер"
 
-#: src/components/account/tokens/create/dialog.vue:21:44 src/components/account/tokens/create/dialog.vue:2:51
+#: src/components/account/tokens/create/dialog.vue:21:44
+#: src/components/account/tokens/create/dialog.vue:2:51
 #: src/components/account/tokens/panel.vue:8:62
 msgid "Create token"
 msgstr "Создать токен"
@@ -335,8 +343,7 @@ msgstr "Длительность (мс)"
 msgid "Duration / call (ms)"
 msgstr "Длительность вызова (мс)"
 
-#: src/components/acl/panel.vue:186:39
-#: src/components/acl/roles.dialog.vue:2:50
+#: src/components/acl/panel.vue:186:39 src/components/acl/roles.dialog.vue:2:50
 #: src/components/administration/users/panel.vue:188:39
 msgid "Edit user roles"
 msgstr "Редактировать роли пользователя"
@@ -495,7 +502,8 @@ msgstr "Последняя активность"
 msgid "Latest charts"
 msgstr "Последние графики"
 
-#: src/components/notifications/link-telegram.dialig.vue:2:94 src/components/notifications/link-telegram.dialig.vue:5:27
+#: src/components/notifications/link-telegram.dialig.vue:2:94
+#: src/components/notifications/link-telegram.dialig.vue:5:27
 #: src/components/notifications/settings.panel.vue:26:43
 msgid "Link Telegram"
 msgstr ""
@@ -629,7 +637,8 @@ msgstr "Токен восстановления пароля не найден"
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
-#: src/components/development/monitoring/panel.vue:201:61 src/components/development/monitoring/panel.vue:297:49
+#: src/components/development/monitoring/panel.vue:201:61
+#: src/components/development/monitoring/panel.vue:297:49
 msgid "Period"
 msgstr "Период"
 
@@ -678,8 +687,7 @@ msgid "Recover"
 msgstr "Восстановить"
 
 #: src/components/account/tokens/panel.vue:9:62
-#: src/components/acl/panel.vue:9:62
-#: src/components/acl/roles.button.vue:74:28
+#: src/components/acl/panel.vue:9:62 src/components/acl/roles.button.vue:74:28
 #: src/components/acl/roles.panel.vue:7:62
 #: src/components/administration/telegram-bots/panel.vue:7:62
 #: src/components/administration/users/panel.vue:9:62
@@ -700,7 +708,8 @@ msgstr "Роль"
 msgid "Role disabled"
 msgstr "Роль отключена"
 
-#: src/components/acl/roles.panel.vue:153:45 src/components/acl/roles.panel.vue:15:82
+#: src/components/acl/roles.panel.vue:153:45
+#: src/components/acl/roles.panel.vue:15:82
 msgid "Role enabled"
 msgstr "Роль включена"
 
@@ -709,7 +718,8 @@ msgstr "Роль включена"
 msgid "Roles"
 msgstr "Роли"
 
-#: src/components/acl/roles.button.vue:122:32 src/components/acl/roles.button.vue:2:36
+#: src/components/acl/roles.button.vue:122:32
+#: src/components/acl/roles.button.vue:2:36
 msgid "Roles filter"
 msgstr "Фильтр ролей"
 
@@ -758,11 +768,14 @@ msgstr "Сессии были удалены"
 msgid "Settings"
 msgstr "Настройки"
 
-#: src/components/authentication/signin.panel.vue:30:31 src/components/authentication/signin.panel.vue:5:34
+#: src/components/authentication/signin.panel.vue:30:31
+#: src/components/authentication/signin.panel.vue:5:34
 msgid "Sign in"
 msgstr "Войти"
 
-#: src/components/oauth.container.vue:3:91 src/components/oauth.container.vue:5:102 src/components/oauth.container.vue:7:91
+#: src/components/oauth.container.vue:3:91
+#: src/components/oauth.container.vue:5:102
+#: src/components/oauth.container.vue:7:91
 msgid "Sign in with"
 msgstr "Войти через"
 
@@ -775,7 +788,8 @@ msgstr "Выйти"
 msgid "Sign out of all sessions"
 msgstr "Выйти из всех сессий"
 
-#: src/components/authentication/signup.panel.vue:27:31 src/components/authentication/signup.panel.vue:5:34
+#: src/components/authentication/signup.panel.vue:27:31
+#: src/components/authentication/signup.panel.vue:5:34
 msgid "Sign up"
 msgstr "Зарегистрироваться"
 
