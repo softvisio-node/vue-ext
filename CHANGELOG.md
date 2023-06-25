@@ -1,5 +1,15 @@
 # Changelog
 
+### 8.3.0 (2023-06-25)
+
+Features:
+
+-   feat: package localization'
+
+Fixes:
+
+-   fix: telegram
+
 ### 8.2.34 (2023-06-15)
 
 Fixes:
