@@ -313,10 +313,8 @@ msgid "Device"
 msgstr "Пристрій"
 
 #: src/components/account/appearance.panel.vue:6:38
-#, fuzzy
-#| msgid "Use device dark mode"
 msgid "Device dark mode"
-msgstr "Використовуйте темний режим пристрою"
+msgstr "Темний режим пристрою"
 
 #: src/components/authentication/signin.panel.vue:25:31
 msgid "Do not have account? Sign up"
@@ -439,10 +437,9 @@ msgid "Exceptions log"
 msgstr "Журнал винятків"
 
 #: src/components/development/monitoring/exceptions.dialog.vue:49:19
-#, fuzzy, javascript-format
-#| msgid "Exceptions log for the API method: ${n}"
+#, javascript-format
 msgid "Exceptions log for the method: ${n}"
-msgstr "Журнал винятків для методу API: ${n}"
+msgstr "Журнал винятків для методу: ${n}"
 
 #: src/components/development/monitoring/historical.dialog.vue:237:24
 msgid "Exceptions percent for the last 30 days (%)"
@@ -468,10 +465,9 @@ msgid "Historical charts"
 msgstr "Історичні діаграми"
 
 #: src/components/development/monitoring/historical.dialog.vue:39:19
-#, fuzzy, javascript-format
-#| msgid "Historical charts for the API method: ${n}"
+#, javascript-format
 msgid "Historical charts for the method: ${n}"
-msgstr "Історичні діаграми для методу API: ${n}"
+msgstr "Історичні діаграми для методу: ${n}"
 
 #: src/components/notifications/link-telegram.dialig.vue:3:30
 msgid "If you have Telegram installed on <b>THIS</b> device, then press button below to open Telegram bot and then click \"Start\":"
@@ -482,10 +478,8 @@ msgid "Inbox"
 msgstr "Вхідні"
 
 #: src/components/account/appearance.panel.vue:33:38
-#, fuzzy
-#| msgid "Interface theme"
 msgid "Interface base color"
-msgstr "Тема інтерфейсу"
+msgstr "Базовий колір інтерфейсу"
 
 #: src/components/notifications/settings.panel.vue:46:143
 #, javascript-format
@@ -533,10 +527,9 @@ msgid "Method name"
 msgstr "Назва методу"
 
 #: src/components/development/monitoring/latest.panel.vue:38:19
-#, fuzzy, javascript-format
-#| msgid "API method: ${n}"
+#, javascript-format
 msgid "Method: ${n}"
-msgstr "Метод API: ${n}"
+msgstr "Метод: ${n}"
 
 #: src/components/development/monitoring/dialog.vue:2:68
 #: src/components/development/panel.vue:4:40
@@ -588,10 +581,8 @@ msgid "Ok"
 msgstr "Ok"
 
 #: src/components/notifications/settings.panel.vue:31:43
-#, fuzzy
-#| msgid "Open bot"
 msgid "Open Telegram bot"
-msgstr "Відкрити бот"
+msgstr "Відкрийте бот Telegram"
 
 #: src/components/notifications/link-telegram.dialig.vue:7:30
 msgid "Or if you have Telegram installed on the <b>OTHER</b> device, then copy link url and open it on device there your Telegram is installed:"
@@ -823,28 +814,20 @@ msgstr "Зупинити"
 
 #: src/components/administration/panel.vue:9:89
 #: src/components/administration/telegram-bots/dialog.vue:34:33
-#, fuzzy
-#| msgid "Telegram username"
 msgid "Telegram bots"
-msgstr "Ім'я користувача Telegram"
+msgstr "Telegram боти"
 
 #: src/components/notifications/link-telegram.dialig.vue:40:31
-#, fuzzy
-#| msgid "Token copied to the clipboard"
 msgid "Telegram link copied to the clipboard"
-msgstr "Токен скопійовано в буфер обміну"
+msgstr "Посилання на Telegram скопійовано в буфер обміну"
 
 #: src/components/notifications/settings.panel.vue:106:35
-#, fuzzy
-#| msgid "Telegram username"
 msgid "Telegram linked"
-msgstr "Ім'я користувача Telegram"
+msgstr "Telegram пов'язаний"
 
 #: src/components/notifications/settings.panel.vue:109:35
-#, fuzzy
-#| msgid "Telegram username updated"
 msgid "Telegram unlinked"
-msgstr "Ім’я користувача Telegram оновлено"
+msgstr "Telegram відключено"
 
 #: src/components/notifications/settings.panel.vue:52:143
 #, javascript-format
@@ -856,10 +839,8 @@ msgid "To use Telegram support bot you need to link your Telegram account"
 msgstr "Щоб використовувати бот підтримки Telegram, вам потрібно прив’язати свій обліковий запис Telegram"
 
 #: src/components/account/appearance.panel.vue:20:38
-#, fuzzy
-#| msgid "Dark mode"
 msgid "Toggle dark mode"
-msgstr "Темний режим"
+msgstr "Перемкнути темний режим"
 
 #: src/components/account/tokens/create/dialog.vue:83:31
 msgid "Token copied to the clipboard"
@@ -936,10 +917,8 @@ msgid "User sessions"
 msgstr "Сесії користувача"
 
 #: src/components/account/appearance.panel.vue:7:38
-#, fuzzy
-#| msgid "Use device dark mode"
 msgid "User your device dark mode settings"
-msgstr "Використовуйте темний режим пристрою"
+msgstr "Використовуйте налаштування темного режиму свого пристрою"
 
 #: src/components/acl/dialog.vue:26:33
 #: src/components/administration/panel.vue:4:40
