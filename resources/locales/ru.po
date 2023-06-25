@@ -206,7 +206,7 @@ msgstr "Закрыть"
 
 #: src/components/account/appearance.panel.vue:46:38
 msgid "Color for badges, etc."
-msgstr ""
+msgstr "Цвет для значков и т. д."
 
 #: src/components/account/account.panel.vue:23:84
 msgid "Confirm"
