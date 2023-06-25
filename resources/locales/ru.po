@@ -313,10 +313,8 @@ msgid "Device"
 msgstr "Устройство"
 
 #: src/components/account/appearance.panel.vue:6:38
-#, fuzzy
-#| msgid "Use device dark mode"
 msgid "Device dark mode"
-msgstr "Использовать темный режим устройства"
+msgstr "Темный режим устройства"
 
 #: src/components/authentication/signin.panel.vue:25:31
 msgid "Do not have account? Sign up"
@@ -480,10 +478,8 @@ msgid "Inbox"
 msgstr "Входяшие"
 
 #: src/components/account/appearance.panel.vue:33:38
-#, fuzzy
-#| msgid "Interface theme"
 msgid "Interface base color"
-msgstr "Тема интерфейса"
+msgstr "Базовый цвет интерфейса"
 
 #: src/components/notifications/settings.panel.vue:46:143
 #, javascript-format
@@ -843,10 +839,8 @@ msgid "To use Telegram support bot you need to link your Telegram account"
 msgstr "Чтобы использовать бота поддержки Telegram, вам необходимо связать свою учетную запись Telegram"
 
 #: src/components/account/appearance.panel.vue:20:38
-#, fuzzy
-#| msgid "Dark mode"
 msgid "Toggle dark mode"
-msgstr "Тёмный режим"
+msgstr "Переключить темный режим"
 
 #: src/components/account/tokens/create/dialog.vue:83:31
 msgid "Token copied to the clipboard"
@@ -923,10 +917,8 @@ msgid "User sessions"
 msgstr "Сессии пользователя"
 
 #: src/components/account/appearance.panel.vue:7:38
-#, fuzzy
-#| msgid "Use device dark mode"
 msgid "User your device dark mode settings"
-msgstr "Использовать темный режим устройства"
+msgstr "Используйте настройки темного режима вашего устройства"
 
 #: src/components/acl/dialog.vue:26:33
 #: src/components/administration/panel.vue:4:40
