@@ -394,6 +394,10 @@ msgstr "Введіть email"
 msgid "Enter new email address"
 msgstr "Введіть нову електронну адресу"
 
+#: src/components/change-email.dialog.vue:4:34
+msgid "Enter new email address which you want to use."
+msgstr ""
+
 #: src/components/change-password.dialog.vue:6:130
 #: src/components/reset-password.dialog.vue:6:130
 msgid "Enter new password"
@@ -957,13 +961,6 @@ msgstr "Інформацію про версію скопійовано"
 msgid "View user sessions"
 msgstr "Перегляд сесій користувача"
 
-#: src/components/change-email.dialog.vue:4:34
-msgid "vue-ext"
-msgid_plural "Enter new email address which you want to use."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
 #: src/utils.js:6:14
 msgid "Warning"
 msgstr "Увага"
@@ -1237,6 +1234,12 @@ msgstr "Зменшити"
 
 #~ msgid "Username or email"
 #~ msgstr "Ім'я користувача або email"
+
+#~ msgid "vue-ext"
+#~ msgid_plural "Enter new email address which you want to use."
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+#~ msgstr[2] ""
 
 #~ msgid "Yes"
 #~ msgstr "Так"
