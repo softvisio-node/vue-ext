@@ -6,7 +6,7 @@
         </ext-panel>
 
         <!-- telegram bots -->
-        <ext-panel iconAlign="left" iconCls="fa-brands fa-telegram" layout="fit" :title="i18nd(`vue-ext`, `Telegram bpts`)">
+        <ext-panel iconAlign="left" iconCls="fa-brands fa-telegram" layout="fit" :title="i18nd(`vue-ext`, `Telegram bots`)">
             <TelegramBotsPanel/>
         </ext-panel>
 

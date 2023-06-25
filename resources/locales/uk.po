@@ -821,16 +821,11 @@ msgstr "Текст статусу"
 msgid "Stop"
 msgstr ""
 
+#: src/components/administration/panel.vue:9:89
 #: src/components/administration/telegram-bots/dialog.vue:34:33
 #, fuzzy
 #| msgid "Telegram username"
 msgid "Telegram bots"
-msgstr "Ім'я користувача Telegram"
-
-#: src/components/administration/panel.vue:9:89
-#, fuzzy
-#| msgid "Telegram username"
-msgid "Telegram bpts"
 msgstr "Ім'я користувача Telegram"
 
 #: src/components/notifications/link-telegram.dialig.vue:40:31
@@ -1192,6 +1187,11 @@ msgstr "Зменшити"
 
 #~ msgid "Submit"
 #~ msgstr "Подати"
+
+#, fuzzy
+#~| msgid "Telegram username"
+#~ msgid "Telegram bpts"
+#~ msgstr "Ім'я користувача Telegram"
 
 #~ msgid "Test SMTP"
 #~ msgstr "Перевірка SMTP"

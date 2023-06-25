@@ -467,10 +467,9 @@ msgid "Historical charts"
 msgstr "Исторические графики"
 
 #: src/components/development/monitoring/historical.dialog.vue:39:19
-#, fuzzy, javascript-format
-#| msgid "Historical charts for the API method: ${n}"
+#, javascript-format
 msgid "Historical charts for the method: ${n}"
-msgstr "Исторические диаграммы для метода API: ${n}"
+msgstr "Исторические диаграммы для метода: ${n}"
 
 #: src/components/notifications/link-telegram.dialig.vue:3:30
 msgid "If you have Telegram installed on <b>THIS</b> device, then press button below to open Telegram bot and then click \"Start\":"
@@ -532,10 +531,9 @@ msgid "Method name"
 msgstr "Имя метода"
 
 #: src/components/development/monitoring/latest.panel.vue:38:19
-#, fuzzy, javascript-format
-#| msgid "API method: ${n}"
+#, javascript-format
 msgid "Method: ${n}"
-msgstr "API метод: ${n}"
+msgstr "Метод: ${n}"
 
 #: src/components/development/monitoring/dialog.vue:2:68
 #: src/components/development/panel.vue:4:40
@@ -587,10 +585,8 @@ msgid "Ok"
 msgstr "Ok"
 
 #: src/components/notifications/settings.panel.vue:31:43
-#, fuzzy
-#| msgid "Open bot"
 msgid "Open Telegram bot"
-msgstr "Открыть бот"
+msgstr "Открыть Telegram-бот"
 
 #: src/components/notifications/link-telegram.dialig.vue:7:30
 msgid "Or if you have Telegram installed on the <b>OTHER</b> device, then copy link url and open it on device there your Telegram is installed:"
@@ -820,35 +816,22 @@ msgstr "Текст статуса"
 msgid "Stop"
 msgstr "Остановить"
 
-#: src/components/administration/telegram-bots/dialog.vue:34:33
-#, fuzzy
-#| msgid "Telegram username"
-msgid "Telegram bots"
-msgstr "Имя пользователя в Telegram"
-
 #: src/components/administration/panel.vue:9:89
-#, fuzzy
-#| msgid "Telegram username"
-msgid "Telegram bpts"
-msgstr "Имя пользователя в Telegram"
+#: src/components/administration/telegram-bots/dialog.vue:34:33
+msgid "Telegram bots"
+msgstr "Telegram-боты"
 
 #: src/components/notifications/link-telegram.dialig.vue:40:31
-#, fuzzy
-#| msgid "Token copied to the clipboard"
 msgid "Telegram link copied to the clipboard"
-msgstr "Токен скопирован"
+msgstr "Ссылка на Telegram скопирована в буфер обмена"
 
 #: src/components/notifications/settings.panel.vue:106:35
-#, fuzzy
-#| msgid "Telegram username"
 msgid "Telegram linked"
-msgstr "Имя пользователя в Telegram"
+msgstr "Telegram привязвн"
 
 #: src/components/notifications/settings.panel.vue:109:35
-#, fuzzy
-#| msgid "Telegram username updated"
 msgid "Telegram unlinked"
-msgstr "Имя пользователя Telegram обновлено"
+msgstr "Telegram отвязан"
 
 #: src/components/notifications/settings.panel.vue:52:143
 #, javascript-format
@@ -1227,6 +1210,11 @@ msgstr "Уменьшить"
 
 #~ msgid "Submit"
 #~ msgstr "Отправить"
+
+#, fuzzy
+#~| msgid "Telegram username"
+#~ msgid "Telegram bpts"
+#~ msgstr "Имя пользователя в Telegram"
 
 #~ msgid "Test SMTP"
 #~ msgstr "Тест SMTP"
