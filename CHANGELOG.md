@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.3.2 (2023-06-26)
+
+Fixes:
+
+-   fix: .pot remplates
+
 ### 8.3.1 (2023-06-25)
 
 Fixes:
