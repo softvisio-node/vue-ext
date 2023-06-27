@@ -86,7 +86,7 @@ export default {
 
             this._stopAutoRefresh();
 
-            const res = await this.$api.call( "development/monitoring/get-methods", { "period": this.period } );
+            const res = await this.$api.call( "development/monitoring/methods/get-methods", { "period": this.period } );
 
             this._startAutoRefresh();
 
