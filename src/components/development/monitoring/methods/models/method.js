@@ -18,6 +18,11 @@ export default Ext.define( "", {
 
         // calculated
         {
+            "name": "method_display_name",
+            "calculate": data => `${data.method}<br/>${data.package} / ${data.component}`,
+        },
+
+        {
             "name": "method_name",
             "calculate": data => ( data.package + "/" + data.component + "/" + data.method ).replaceAll( /\/\/+/g, "/" ),
         },

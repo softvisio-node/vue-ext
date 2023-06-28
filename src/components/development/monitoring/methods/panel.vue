@@ -137,11 +137,13 @@ export default {
 
             cmp.setColumns( [
                 {
-                    "dataIndex": "method_name",
+                    "dataIndex": "method_display_name",
                     "flex": 1,
                     "minWidth": 290,
                     "text": this.i18nd( `vue-ext`, `Method name` ),
                     "locked": "left",
+                    "sorter": { "property": "method_name" },
+                    "cell": { "encodeHtml": false },
                 },
                 {
                     "align": "right",
