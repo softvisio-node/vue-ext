@@ -13,7 +13,8 @@ msgstr ""
 "X-Search-Path: /src/**\n"
 "X-Generator: Poedit 3.3.1\n"
 
-#: src/components/development/monitoring/panel.vue:199:29
+#: src/components/development/monitoring/instances/panel.vue:199:29
+#: src/components/development/monitoring/methods/panel.vue:199:29
 #, javascript-format
 msgid "${n} day"
 msgid_plural "${n} days"
@@ -116,15 +117,18 @@ msgstr "Авторизоваться"
 msgid "Authorized"
 msgstr "Авторизованно"
 
-#: src/components/development/monitoring/panel.vue:9:41
+#: src/components/development/monitoring/instances/panel.vue:9:41
+#: src/components/development/monitoring/methods/panel.vue:9:41
 msgid "Auto refresh"
 msgstr "Обновлять автоматически"
 
-#: src/components/development/monitoring/historical.dialog.vue:166:24
+#: src/components/development/monitoring/instances/historical.dialog.vue:166:24
+#: src/components/development/monitoring/methods/historical.dialog.vue:166:24
 msgid "Average duration per call for the last 30 days (ms)"
 msgstr "Средняя длительнрсть вызова за последние 30 дней (мс)"
 
-#: src/components/development/monitoring/latest.panel.vue:131:24
+#: src/components/development/monitoring/instances/latest.panel.vue:131:24
+#: src/components/development/monitoring/methods/latest.panel.vue:131:24
 msgid "Average duration per call for the last 60 minutes (ms)"
 msgstr "Средняя длительнрсть вызова за последние 60 минут (мс)"
 
@@ -149,17 +153,22 @@ msgstr "Базовый цвет"
 msgid "Browser"
 msgstr "Браузер"
 
-#: src/components/development/monitoring/historical.dialog.vue:105:33
-#: src/components/development/monitoring/latest.panel.vue:100:33
-#: src/components/development/monitoring/panel.vue:150:28
+#: src/components/development/monitoring/instances/historical.dialog.vue:105:33
+#: src/components/development/monitoring/instances/latest.panel.vue:100:33
+#: src/components/development/monitoring/instances/panel.vue:150:28
+#: src/components/development/monitoring/methods/historical.dialog.vue:105:33
+#: src/components/development/monitoring/methods/latest.panel.vue:100:33
+#: src/components/development/monitoring/methods/panel.vue:150:28
 msgid "Calls"
 msgstr "Вызовы"
 
-#: src/components/development/monitoring/historical.dialog.vue:74:24
+#: src/components/development/monitoring/instances/historical.dialog.vue:74:24
+#: src/components/development/monitoring/methods/historical.dialog.vue:74:24
 msgid "Calls for the last 30 days"
 msgstr "Вызовы за последние 30 дней"
 
-#: src/components/development/monitoring/latest.panel.vue:70:24
+#: src/components/development/monitoring/instances/latest.panel.vue:70:24
+#: src/components/development/monitoring/methods/latest.panel.vue:70:24
 msgid "Calls for the last 60 minutes"
 msgstr "Вызовы за последние 60 минут"
 
@@ -196,7 +205,8 @@ msgstr "Изменить пароль для пользователя"
 msgid "Clear filter"
 msgstr "Очистить фильтр"
 
-#: src/components/development/monitoring/exceptions.dialog.vue:6:94
+#: src/components/development/monitoring/instances/exceptions.dialog.vue:6:94
+#: src/components/development/monitoring/methods/exceptions.dialog.vue:6:94
 msgid "Clear log"
 msgstr "Очистить журнал"
 
@@ -324,20 +334,25 @@ msgstr "Нет аккаута? Зарегистрируйтесь"
 msgid "Done"
 msgstr "Готово"
 
-#: src/components/development/monitoring/historical.dialog.vue:197:33
-#: src/components/development/monitoring/latest.panel.vue:161:33
+#: src/components/development/monitoring/instances/historical.dialog.vue:197:33
+#: src/components/development/monitoring/instances/latest.panel.vue:161:33
+#: src/components/development/monitoring/methods/historical.dialog.vue:197:33
+#: src/components/development/monitoring/methods/latest.panel.vue:161:33
 msgid "Duration"
 msgstr "Длительность"
 
-#: src/components/development/monitoring/panel.vue:164:28
+#: src/components/development/monitoring/instances/panel.vue:164:28
+#: src/components/development/monitoring/methods/panel.vue:164:28
 msgid "Duration (%)"
 msgstr "Длительность (%)"
 
-#: src/components/development/monitoring/exceptions.dialog.vue:16:91
+#: src/components/development/monitoring/instances/exceptions.dialog.vue:16:91
+#: src/components/development/monitoring/methods/exceptions.dialog.vue:16:91
 msgid "Duration (ms)"
 msgstr "Длительность (мс)"
 
-#: src/components/development/monitoring/panel.vue:157:28
+#: src/components/development/monitoring/instances/panel.vue:157:28
+#: src/components/development/monitoring/methods/panel.vue:157:28
 msgid "Duration / call (ms)"
 msgstr "Длительность вызова (мс)"
 
@@ -422,30 +437,38 @@ msgstr "Введите ваш адрес email"
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/components/development/monitoring/historical.dialog.vue:268:33
-#: src/components/development/monitoring/latest.panel.vue:222:33
-#: src/components/development/monitoring/panel.vue:171:28
+#: src/components/development/monitoring/instances/historical.dialog.vue:268:33
+#: src/components/development/monitoring/instances/latest.panel.vue:222:33
+#: src/components/development/monitoring/instances/panel.vue:171:28
+#: src/components/development/monitoring/methods/historical.dialog.vue:268:33
+#: src/components/development/monitoring/methods/latest.panel.vue:222:33
+#: src/components/development/monitoring/methods/panel.vue:171:28
 msgid "Exceptions"
 msgstr "Исключения"
 
-#: src/components/development/monitoring/panel.vue:178:28
+#: src/components/development/monitoring/instances/panel.vue:178:28
+#: src/components/development/monitoring/methods/panel.vue:178:28
 msgid "Exceptions / call (%)"
 msgstr "Исключения / вызов (%)"
 
-#: src/components/development/monitoring/panel.vue:234:39
+#: src/components/development/monitoring/instances/panel.vue:234:39
+#: src/components/development/monitoring/methods/panel.vue:234:39
 msgid "Exceptions log"
 msgstr "Журнал исключений"
 
-#: src/components/development/monitoring/exceptions.dialog.vue:49:19
+#: src/components/development/monitoring/instances/exceptions.dialog.vue:49:19
+#: src/components/development/monitoring/methods/exceptions.dialog.vue:49:19
 #, javascript-format
 msgid "Exceptions log for the method: ${n}"
 msgstr "Журнал исключений для метода: ${n}"
 
-#: src/components/development/monitoring/historical.dialog.vue:237:24
+#: src/components/development/monitoring/instances/historical.dialog.vue:237:24
+#: src/components/development/monitoring/methods/historical.dialog.vue:237:24
 msgid "Exceptions percent for the last 30 days (%)"
 msgstr "Процент Исключений за последние 30 дней"
 
-#: src/components/development/monitoring/latest.panel.vue:192:24
+#: src/components/development/monitoring/instances/latest.panel.vue:192:24
+#: src/components/development/monitoring/methods/latest.panel.vue:192:24
 msgid "Exceptions percent for the last 60 minutes (%)"
 msgstr "Процент Исключений за последние 60 минут"
 
@@ -460,11 +483,13 @@ msgstr "Забыли пароль?"
 msgid "Generate random password"
 msgstr "Сгенерировать случайный пароль"
 
-#: src/components/development/monitoring/panel.vue:228:39
+#: src/components/development/monitoring/instances/panel.vue:228:39
+#: src/components/development/monitoring/methods/panel.vue:228:39
 msgid "Historical charts"
 msgstr "Исторические графики"
 
-#: src/components/development/monitoring/historical.dialog.vue:39:19
+#: src/components/development/monitoring/instances/historical.dialog.vue:39:19
+#: src/components/development/monitoring/methods/historical.dialog.vue:39:19
 #, javascript-format
 msgid "Historical charts for the method: ${n}"
 msgstr "Исторические диаграммы для метода: ${n}"
@@ -476,6 +501,10 @@ msgstr "Если у вас установлен Telegram на <b>ЭТОМ</b> у
 #: src/components/notifications/panel.vue:4:40
 msgid "Inbox"
 msgstr "Входяшие"
+
+#: src/components/development/panel.vue:4:40
+msgid "Instances monitoring"
+msgstr "Мониторинг экземплярв"
 
 #: src/components/account/appearance.panel.vue:33:38
 msgid "Interface base color"
@@ -496,7 +525,8 @@ msgstr "IP адрес"
 msgid "Last activity"
 msgstr "Последняя активность"
 
-#: src/components/development/monitoring/panel.vue:13:138
+#: src/components/development/monitoring/instances/panel.vue:13:138
+#: src/components/development/monitoring/methods/panel.vue:13:138
 msgid "Latest charts"
 msgstr "Последние графики"
 
@@ -522,17 +552,23 @@ msgstr "Отметить как готово"
 msgid "Maximize"
 msgstr "Максимизировать"
 
-#: src/components/development/monitoring/panel.vue:143:28
+#: src/components/development/monitoring/instances/panel.vue:143:28
+#: src/components/development/monitoring/methods/panel.vue:143:28
 msgid "Method name"
 msgstr "Имя метода"
 
-#: src/components/development/monitoring/latest.panel.vue:38:19
+#: src/components/development/monitoring/instances/latest.panel.vue:38:19
+#: src/components/development/monitoring/methods/latest.panel.vue:38:19
 #, javascript-format
 msgid "Method: ${n}"
 msgstr "Метод: ${n}"
 
-#: src/components/development/monitoring/dialog.vue:2:68
-#: src/components/development/panel.vue:4:40
+#: src/components/development/panel.vue:9:40
+msgid "Methods monitoring"
+msgstr "Мониторинг методов"
+
+#: src/components/development/monitoring/instances/dialog.vue:2:68
+#: src/components/development/monitoring/methods/dialog.vue:2:68
 msgid "Monitoring"
 msgstr "Мониторинг"
 
@@ -632,8 +668,10 @@ msgstr "Токен восстановления пароля не найден"
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
-#: src/components/development/monitoring/panel.vue:201:61
-#: src/components/development/monitoring/panel.vue:297:49
+#: src/components/development/monitoring/instances/panel.vue:201:61
+#: src/components/development/monitoring/instances/panel.vue:297:49
+#: src/components/development/monitoring/methods/panel.vue:201:61
+#: src/components/development/monitoring/methods/panel.vue:297:49
 msgid "Period"
 msgstr "Период"
 
@@ -687,10 +725,14 @@ msgstr "Восстановить"
 #: src/components/administration/telegram-bots/panel.vue:7:62
 #: src/components/administration/users/panel.vue:9:62
 #: src/components/cards.panel.vue:14:58
-#: src/components/development/monitoring/exceptions.dialog.vue:8:66
-#: src/components/development/monitoring/historical.dialog.vue:7:66
-#: src/components/development/monitoring/latest.panel.vue:7:62
-#: src/components/development/monitoring/panel.vue:10:82
+#: src/components/development/monitoring/instances/exceptions.dialog.vue:8:66
+#: src/components/development/monitoring/instances/historical.dialog.vue:7:66
+#: src/components/development/monitoring/instances/latest.panel.vue:7:62
+#: src/components/development/monitoring/instances/panel.vue:10:82
+#: src/components/development/monitoring/methods/exceptions.dialog.vue:8:66
+#: src/components/development/monitoring/methods/historical.dialog.vue:7:66
+#: src/components/development/monitoring/methods/latest.panel.vue:7:62
+#: src/components/development/monitoring/methods/panel.vue:10:82
 #: src/components/user-sessions/panel.vue:8:62
 msgid "Refresh"
 msgstr "Обновить"
@@ -722,7 +764,8 @@ msgstr "Фильтр ролей"
 msgid "Search bots"
 msgstr "Искать ботов"
 
-#: src/components/development/monitoring/panel.vue:5:47
+#: src/components/development/monitoring/instances/panel.vue:5:47
+#: src/components/development/monitoring/methods/panel.vue:5:47
 msgid "Search for methods by name"
 msgstr "Искать методы по имени"
 
@@ -792,7 +835,8 @@ msgstr "Зарегистрироваться"
 msgid "Start"
 msgstr "Запустить"
 
-#: src/components/development/monitoring/exceptions.dialog.vue:14:108
+#: src/components/development/monitoring/instances/exceptions.dialog.vue:14:108
+#: src/components/development/monitoring/methods/exceptions.dialog.vue:14:108
 msgid "Started"
 msgstr "Запущен"
 
@@ -800,11 +844,13 @@ msgstr "Запущен"
 msgid "Static"
 msgstr "Статический"
 
-#: src/components/development/monitoring/exceptions.dialog.vue:18:90
+#: src/components/development/monitoring/instances/exceptions.dialog.vue:18:90
+#: src/components/development/monitoring/methods/exceptions.dialog.vue:18:90
 msgid "Status"
 msgstr "Статус"
 
-#: src/components/development/monitoring/exceptions.dialog.vue:20:89
+#: src/components/development/monitoring/instances/exceptions.dialog.vue:20:89
+#: src/components/development/monitoring/methods/exceptions.dialog.vue:20:89
 msgid "Status text"
 msgstr "Текст статуса"
 
