@@ -143,7 +143,7 @@ export default {
                     "text": this.i18nd( `vue-ext`, `Method name` ),
                     "locked": "left",
                     "sorter": { "property": "method_name" },
-                    "cell": { "encodeHtml": false },
+                    "cell": { "encodeHtml": false, "height": 60 },
                 },
                 {
                     "align": "right",
@@ -151,6 +151,7 @@ export default {
                     "sorter": { "property": "calls" },
                     "text": this.i18nd( `vue-ext`, `Calls` ),
                     "width": 140,
+                    "cell": { "height": 60 },
                 },
                 {
                     "align": "right",
