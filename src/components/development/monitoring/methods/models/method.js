@@ -5,6 +5,7 @@ export default Ext.define( "", {
         "id",
 
         // fields
+        "package",
         "component",
         "method",
         "calls",
@@ -18,7 +19,7 @@ export default Ext.define( "", {
         // calculated
         {
             "name": "method_name",
-            "calculate": data => ( data.component + "/" + data.method ).replaceAll( /\/\/+/g, "/" ),
+            "calculate": data => ( data.package + "/" + data.component + "/" + data.method ).replaceAll( /\/\/+/g, "/" ),
         },
 
         {
