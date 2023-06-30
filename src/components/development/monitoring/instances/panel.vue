@@ -22,6 +22,8 @@
                 <ext-column dataIndex="memory_rss" :text="i18nd(`vue-ext`, `Memory rss`)" width="120" @ready="_colReady"/>
                 <ext-column dataIndex="fs_total" :text="i18nd(`vue-ext`, `FS total`)" width="120" @ready="_colReady"/>
                 <ext-column dataIndex="fs_free" :text="i18nd(`vue-ext`, `FS free`)" width="120" @ready="_colReady"/>
+
+                <ext-column width="40" @ready="_actionColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
@@ -95,17 +97,17 @@ export default {
             cmp.ext.show();
         },
 
-        _colReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setRenderer( value => this.$app.locale.formatDigitalSize( value ) );
-        },
-
         // protected
         _ready ( e ) {
             const cmp = e.detail.cmp;
 
             cmp.setStore( this.store );
+        },
+
+        _colReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setRenderer( value => this.$app.locale.formatDigitalSize( value ) );
         },
 
         _actionColReady ( e ) {
