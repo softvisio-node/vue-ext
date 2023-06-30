@@ -37,10 +37,9 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import MethodModel from "./models/method";
+import InstanceModel from "./models/instance";
 import LatestPanel from "./latest.panel";
 import HistoricalDialog from "./historical.dialog";
-import ExceptionsDialog from "./exceptions.dialog";
 
 const DEFAULT_AUTOREFRESH_INTERVAL = 60_000;
 
@@ -58,7 +57,7 @@ export default {
 
     created () {
         this.store = new Ext.data.Store( {
-            "model": MethodModel,
+            "model": InstanceModel,
             "autoLoad": false,
             "pageSize": null,
             "remoteSort": false,
@@ -86,7 +85,7 @@ export default {
 
             this._stopAutoRefresh();
 
-            const res = await this.$api.call( "development/monitoring/methods/get-methods", { "period": this.period } );
+            const res = await this.$api.call( "development/monitoring/instances/get-instances", { "period": this.period } );
 
             this._startAutoRefresh();
 
@@ -99,18 +98,6 @@ export default {
             const record = button.up( "gridrow" ).getRecord();
 
             const cmp = await this.$mount( HistoricalDialog, {
-                "props": {
-                    record,
-                },
-            } );
-
-            cmp.ext.show();
-        },
-
-        async showExceptions ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
-
-            const cmp = await this.$mount( ExceptionsDialog, {
                 "props": {
                     record,
                 },
@@ -227,12 +214,6 @@ export default {
                             "iconCls": "fa-solid fa-chart-line",
                             "tooltip": this.i18nd( `vue-ext`, `Historical charts` ),
                             "handler": this.showHistoricalDialog.bind( this ),
-                        },
-                        {
-                            "xtype": "button",
-                            "iconCls": "fa-solid fa-triangle-exclamation",
-                            "tooltip": this.i18nd( `vue-ext`, `Exceptions log` ),
-                            "handler": this.showExceptions.bind( this ),
                         },
                     ],
                 },
