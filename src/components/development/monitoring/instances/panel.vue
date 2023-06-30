@@ -4,7 +4,6 @@
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for methods by name`)" width="200" @change="_search"/>
                 <ext-spacer width="20"/>
-                <ext-button ref="periodButton" @ready="_periodButtonReady"/>
                 <ext-spacer/>
                 <ext-togglefield :label="i18nd(`vue-ext`, `Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
                 <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
@@ -31,9 +30,6 @@ import LatestPanel from "./latest.panel";
 import HistoricalDialog from "./historical.dialog";
 
 const DEFAULT_AUTOREFRESH_INTERVAL = 60_000;
-
-const periods = [1, 3, 7, 14, 30],
-    defaultPeriod = 3;
 
 export default {
     "components": { CardsPanel, LatestPanel },
@@ -102,31 +98,6 @@ export default {
             cmp.setStore( this.store );
         },
 
-        _periodButtonReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            const menu = [];
-
-            this.period = defaultPeriod;
-
-            for ( const period of periods ) {
-                const text = this.i18nd( `vue-ext`, msgid`${period} day`, msgid`${period} days`, period );
-
-                if ( period === defaultPeriod ) cmp.setText( this.i18nd( `vue-ext`, `Period` ) + ": " + text );
-
-                menu.push( {
-                    "xtype": "menuradioitem",
-                    "value": period,
-                    text,
-                    "group": "period",
-                    "checked": period === defaultPeriod,
-                    "handler": this._setPeriod.bind( this ),
-                } );
-            }
-
-            cmp.setMenu( menu );
-        },
-
         _actionColReady ( e ) {
             var cmp = e.detail.cmp;
 
@@ -193,18 +164,6 @@ export default {
             clearInterval( this.autoRefreshInterval );
 
             this.autoRefreshInterval = null;
-        },
-
-        _setPeriod ( menuItem ) {
-            const period = menuItem.getValue();
-
-            if ( this.period === period ) return;
-
-            this.period = period;
-
-            this.$refs.periodButton.ext.setText( this.i18nd( `vue-ext`, `Period` ) + ": " + menuItem.getText() );
-
-            this.refresh();
         },
     },
 };
