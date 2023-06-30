@@ -16,21 +16,10 @@
         </template>
 
         <template #data>
-            <ext-lockedgrid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
-                <!-- <ext-column dataIndex="id" flex="1" locked="left" minWidth="290" :text="i18nd(`vue-ext`, `Method name`)"/> -->
-
-                <!-- <ext-column align="right" dataIndex="calls_text" sorter='{"property":"calls"}' :text="i18nd(`vue-ext`, `Calls`)" width="140"/> -->
-
-                <!-- <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="i18nd(`vue-ext`, `Duration / call (ms)`)" width="140"/> -->
-
-                <!-- <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="i18nd(`vue-ext`, `Duration (%)`)" width="140"/> -->
-
-                <!-- <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="i18nd(`vue-ext`, `Exceptions`)" width="140"/> -->
-
-                <!-- <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="i18nd(`vue-ext`, `Exceptions / call (%)`)" width="140"/> -->
-
-                <!-- <ext-column locked="right" width="80" @ready="_actionColReady"/> -->
-            </ext-lockedgrid>
+            <ext-grid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
+                <ext-column dataIndex="instance_type" flex="1" :text="i18nd(`vue-ext`, `Instance type`)"/>
+                <ext-column dataIndex="service" flex="1" :text="i18nd(`vue-ext`, `Service`)"/>
+            </ext-grid>
         </template>
     </CardsPanel>
 </template>
@@ -85,7 +74,7 @@ export default {
 
             this._stopAutoRefresh();
 
-            const res = await this.$api.call( "development/monitoring/instances/get-instances", { "period": this.period } );
+            const res = await this.$api.call( "development/monitoring/instances/get-instances" );
 
             this._startAutoRefresh();
 
@@ -110,69 +99,7 @@ export default {
         _ready ( e ) {
             const cmp = e.detail.cmp;
 
-            // cmp.setColumnMenu( null );
-
-            cmp.getRegion( "left" ).getGrid().setSelectable( {
-                "mode": "single",
-            } );
-
-            cmp.getRegion( "left" )
-                .getGrid()
-                .on( "select", ( grid, selection ) => ( this.selectedRecord = selection ) );
-
             cmp.setStore( this.store );
-
-            cmp.setColumns( [
-                {
-                    "dataIndex": "method_name",
-                    "flex": 1,
-                    "minWidth": 290,
-                    "text": this.i18nd( `vue-ext`, `Method name` ),
-                    "locked": "left",
-                },
-                {
-                    "align": "right",
-                    "dataIndex": "calls_text",
-                    "sorter": { "property": "calls" },
-                    "text": this.i18nd( `vue-ext`, `Calls` ),
-                    "width": 140,
-                },
-                {
-                    "align": "right",
-                    "dataIndex": "duration_per_call_text",
-                    "sorter": { "property": "duration_per_call" },
-                    "text": this.i18nd( `vue-ext`, `Duration / call (ms)` ),
-                    "width": 140,
-                },
-                {
-                    "align": "right",
-                    "dataIndex": "duration_text",
-                    "sorter": { "property": "duration_share" },
-                    "text": this.i18nd( `vue-ext`, `Duration (%)` ),
-                    "width": 140,
-                },
-                {
-                    "align": "right",
-                    "dataIndex": "exceptions_text",
-                    "sorter": { "property": "exceptions" },
-                    "text": this.i18nd( `vue-ext`, `Exceptions` ),
-                    "width": 140,
-                },
-                {
-                    "align": "right",
-                    "dataIndex": "exceptions_per_call_text",
-                    "sorter": { "property": "exceptions_per_call" },
-                    "text": this.i18nd( `vue-ext`, `Exceptions / call (%)` ),
-                    "width": 140,
-                },
-                {
-                    "width": 80,
-                    "locked": "left",
-                    "listeners": {
-                        "added": cmp => this._actionColReady( { "detail": { cmp } } ),
-                    },
-                },
-            ] );
         },
 
         _periodButtonReady ( e ) {

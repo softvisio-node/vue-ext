@@ -15,5 +15,8 @@ export default Ext.define( "", {
         "memory_rss",
         "fs_total",
         "fs_free",
+
+        // calculates
+        { "name": "instance_type", "calculate": data => `${data.package}/${data.service}` },
     ],
 } );
