@@ -2,7 +2,7 @@
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for methods by name`)" width="200" @change="_search"/>
+                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for instances`)" width="200" @change="_search"/>
                 <ext-spacer width="20"/>
                 <ext-spacer/>
                 <ext-togglefield :label="i18nd(`vue-ext`, `Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
@@ -123,13 +123,13 @@ export default {
 
             if ( value !== "" ) {
                 this.store.addFilter( {
-                    "property": "method_name",
+                    "property": "instance_type",
                     "operator": "like",
                     value,
                 } );
             }
             else {
-                this.store.removeFilter( "method_name" );
+                this.store.removeFilter( "instance_type" );
             }
         },
 
