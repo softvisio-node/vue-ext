@@ -476,7 +476,7 @@ export default {
                 "fill": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "FS free" ) + ": {valueY} MB",
+                    "labelText": this.i18nd( "vue-ext", "Free" ) + ": {valueY} MB",
                 } ),
             } ) );
 
