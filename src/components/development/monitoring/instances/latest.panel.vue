@@ -15,6 +15,8 @@
                 <Amcharts5 ref="cpuSystemChart" :createChart="_createCpuSystemChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
 
                 <Amcharts5 ref="memryFreeChart" :createChart="_createMemryFreeChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+
+                <Amcharts5 ref="memryRssChart" :createChart="_createMemryRssChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
             </ext-container>
         </template>
     </CardsPanel>
@@ -231,8 +233,7 @@ export default {
             } );
         },
 
-        // XXX
-        _createDurationChart ( cmp ) {
+        _createMemryRssChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -253,7 +254,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Average duration per call for the last 60 minutes (ms)" ),
+                "text": this.i18nd( "vue-ext", "RSS memory (MB) for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -274,77 +275,16 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Avg. runtime",
+                "name": "memryFree",
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
-                "valueYField": "duration_per_call",
+                "valueYField": "memory_rss",
                 "fill": "green",
                 "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "Duration" ) + ": {valueY} ms",
-                } ),
-            } ) );
-
-            series1.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
-            } );
-        },
-
-        _createExceptionsChart ( cmp ) {
-            const root = cmp.root,
-                am5 = cmp.am5;
-
-            const chart = root.container.children.push( am5xy.XYChart.new( root, {
-
-                // "panX": true,
-                // "panY": true,
-                // "wheelX": "panX",
-                // "wheelY": "zoomX",
-                // "pinchZoomX": true,
-            } ) );
-
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
-                } )
-            );
-
-            chart.children.unshift( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Exceptions percent for the last 60 minutes (%)" ),
-                "fontSize": 12,
-                "x": am5.percent( 50 ),
-                "centerX": am5.percent( 50 ),
-            } ) );
-
-            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
-                "baseInterval": {
-                    "timeUnit": "minute",
-                    "count": 1,
-                },
-                "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltipDateFormat": "HH:mm",
-                "tooltip": am5.Tooltip.new( root, {} ),
-            } ) );
-
-            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
-                "renderer": am5xy.AxisRendererY.new( root, {} ),
-            } ) );
-
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Exceptions (%)",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
-                "valueYField": "exceptions_percent",
-                "valueXField": "date",
-                "fill": "red",
-                "stroke": "red",
-                "stacked": true,
-                "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "Exceptions" ) + ": {valueY}%",
+                    "labelText": this.i18nd( "vue-ext", "RSS memory" ) + ": {valueY} MB",
                 } ),
             } ) );
 
@@ -368,6 +308,7 @@ export default {
             if ( this.$refs.cpuUserChart.hasData ) return;
             if ( this.$refs.cpuSystenChart.hasData ) return;
             if ( this.$refs.memryFreeChart.hasData ) return;
+            if ( this.$refs.memryRssChart.hasData ) return;
 
             this.refresh();
         },
@@ -397,6 +338,7 @@ export default {
                 this.$refs.cpuUserChart.setData( res.data );
                 this.$refs.cpuSystemChart.setData( res.data );
                 this.$refs.memryFreeChart.setData( res.data );
+                this.$refs.memryRssChart.setData( res.data );
             }
         },
     },
