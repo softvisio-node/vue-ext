@@ -262,28 +262,28 @@ msgstr "Скопіюйте токен у буфер обміну"
 #: src/components/development/monitoring/instances/historical.dialog.vue:203:33
 #: src/components/development/monitoring/instances/latest.panel.vue:167:33
 msgid "CPU (system)"
-msgstr ""
+msgstr "ЦП (система)"
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:172:24
 msgid "CPU (system) for the last 30 days"
-msgstr ""
+msgstr "ЦП (система) за останні 30 днів"
 
 #: src/components/development/monitoring/instances/latest.panel.vue:137:24
 msgid "CPU (system) for the last 60 minutes"
-msgstr ""
+msgstr "ЦП (система) за останні 60 хвилин"
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:111:33
 #: src/components/development/monitoring/instances/latest.panel.vue:106:33
 msgid "CPU (user)"
-msgstr ""
+msgstr "ЦП (користувач)"
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:80:24
 msgid "CPU (user) for the last 30 days"
-msgstr ""
+msgstr "ЦП (користувач) за останні 30 днів"
 
 #: src/components/development/monitoring/instances/latest.panel.vue:76:24
 msgid "CPU (user) for the last 60 minutes"
-msgstr ""
+msgstr "ЦП (користувач) за останні 60 хвилин"
 
 #: src/components/account/tokens/create/dialog.vue:21:44
 #: src/components/account/tokens/create/dialog.vue:2:51
@@ -516,11 +516,11 @@ msgstr "Згенерувати випадковий пароль"
 
 #: src/components/development/monitoring/instances/panel.vue:24:55
 msgid "HDD free"
-msgstr ""
+msgstr "HDD вільно"
 
 #: src/components/development/monitoring/instances/panel.vue:23:56
 msgid "HDD total"
-msgstr ""
+msgstr "Всього HDD"
 
 #: src/components/development/monitoring/instances/panel.vue:127:39
 #: src/components/development/monitoring/methods/panel.vue:231:39

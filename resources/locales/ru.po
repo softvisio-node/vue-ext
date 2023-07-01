@@ -262,28 +262,28 @@ msgstr "Копировать токен в буфер"
 #: src/components/development/monitoring/instances/historical.dialog.vue:203:33
 #: src/components/development/monitoring/instances/latest.panel.vue:167:33
 msgid "CPU (system)"
-msgstr ""
+msgstr "ЦП (система)"
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:172:24
 msgid "CPU (system) for the last 30 days"
-msgstr ""
+msgstr "ЦП (система) за последние 30 дней"
 
 #: src/components/development/monitoring/instances/latest.panel.vue:137:24
 msgid "CPU (system) for the last 60 minutes"
-msgstr ""
+msgstr "ЦП (система) за последние 60 минут"
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:111:33
 #: src/components/development/monitoring/instances/latest.panel.vue:106:33
 msgid "CPU (user)"
-msgstr ""
+msgstr "ЦП (пользователь)"
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:80:24
 msgid "CPU (user) for the last 30 days"
-msgstr ""
+msgstr "ЦП (пользователь) за последние 30 дней"
 
 #: src/components/development/monitoring/instances/latest.panel.vue:76:24
 msgid "CPU (user) for the last 60 minutes"
-msgstr ""
+msgstr "ЦП (пользователь) за последние 60 минут"
 
 #: src/components/account/tokens/create/dialog.vue:21:44
 #: src/components/account/tokens/create/dialog.vue:2:51
