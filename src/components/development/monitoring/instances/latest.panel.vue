@@ -11,6 +11,9 @@
         <template #data>
             <ext-container layput="vbox" scrollable="true">
                 <Amcharts5 ref="cpuUserChart" :createChart="_createCpuUserChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+
+                <Amcharts5 ref="cpuSystemChart" :createChart="_createCpuSystemChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+
                 <Amcharts5 ref="durationChart" :createChart="_createDurationChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
                 <Amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
             </ext-container>
@@ -98,6 +101,67 @@ export default {
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.i18nd( "vue-ext", "CPU user" ) + ": {valueY}",
+                } ),
+            } ) );
+
+            series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+        },
+
+        _createCpuSystemChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+
+                // "panX": true,
+                // "panY": true,
+                // "wheelX": "panX",
+                // "wheelY": "zoomX",
+                // "pinchZoomX": true,
+            } ) );
+
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } )
+            );
+
+            chart.children.unshift( am5.Label.new( root, {
+                "text": this.i18nd( "vue-ext", "CPU system for the last 60 minutes" ),
+                "fontSize": 12,
+                "x": am5.percent( 50 ),
+                "centerX": am5.percent( 50 ),
+            } ) );
+
+            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "baseInterval": {
+                    "timeUnit": "minute",
+                    "count": 1,
+                },
+                "renderer": am5xy.AxisRendererX.new( root, {} ),
+                "tooltipDateFormat": "HH:mm",
+                "tooltip": am5.Tooltip.new( root, {} ),
+            } ) );
+
+            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "renderer": am5xy.AxisRendererY.new( root, {} ),
+            } ) );
+
+            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "cpuSystem",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueXField": "date",
+                "valueYField": "cpu_system",
+                "fill": "green",
+                "stroke": "green",
+                "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.i18nd( "vue-ext", "CPU system" ) + ": {valueY}",
                 } ),
             } ) );
 
@@ -241,6 +305,7 @@ export default {
 
         _chartRefresh () {
             if ( this.$refs.cpuUserChart.hasData ) return;
+            if ( this.$refs.cpuSystenChart.hasData ) return;
             if ( this.$refs.durationChart.hasData ) return;
             if ( this.$refs.exceptionsChart.hasData ) return;
 
@@ -270,6 +335,7 @@ export default {
                 this.$refs.cardsPanel.setResult( res );
 
                 this.$refs.cpuUserChart.setData( res.data );
+                this.$refs.cpuSystemChart.setData( res.data );
                 this.$refs.durationChart.setData( res.data );
                 this.$refs.exceptionsChart.setData( res.data );
             }
