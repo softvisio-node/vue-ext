@@ -10,7 +10,7 @@
 
         <template #data>
             <ext-container layput="vbox" scrollable="true">
-                <Amcharts5 ref="cpuUserDelta" :createChart="_createCpuUserDelta" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="cpuUserChart" :createChart="_createCpuUserChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
                 <Amcharts5 ref="durationChart" :createChart="_createDurationChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
                 <Amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
             </ext-container>
@@ -46,7 +46,7 @@ export default {
     },
 
     "methods": {
-        _createCpuUserDelta ( cmp ) {
+        _createCpuUserChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -88,11 +88,11 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "cpuUserDelta",
+                "name": "cpuUser",
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
-                "valueYField": "cpu_user_delta",
+                "valueYField": "cpu_user",
                 "fill": "green",
                 "stroke": "green",
                 "stacked": true,
@@ -240,7 +240,7 @@ export default {
         },
 
         _chartRefresh () {
-            if ( this.$refs.cpuUserDelta.hasData ) return;
+            if ( this.$refs.cpuUserChart.hasData ) return;
             if ( this.$refs.durationChart.hasData ) return;
             if ( this.$refs.exceptionsChart.hasData ) return;
 
@@ -269,7 +269,7 @@ export default {
             else {
                 this.$refs.cardsPanel.setResult( res );
 
-                this.$refs.cpuUserDelta.setData( res.data );
+                this.$refs.cpuUserChart.setData( res.data );
                 this.$refs.durationChart.setData( res.data );
                 this.$refs.exceptionsChart.setData( res.data );
             }
