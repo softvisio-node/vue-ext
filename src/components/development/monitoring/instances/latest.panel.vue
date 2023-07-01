@@ -317,7 +317,7 @@ export default {
             );
 
             chart.children.push( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "FS free (MB) for the last 60 minutes" ),
+                "text": this.i18nd( "vue-ext", "File system free space (MB) for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),

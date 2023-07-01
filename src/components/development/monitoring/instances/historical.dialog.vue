@@ -261,7 +261,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Free memory for the last 30 days" ),
+                "text": this.i18nd( "vue-ext", "Free memory (MB) for the last 30 days" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -353,7 +353,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "RSS memory for the last 30 days" ),
+                "text": this.i18nd( "vue-ext", "RSS memory (MB) for the last 30 days" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -445,7 +445,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Free file systen for the last 30 days" ),
+                "text": this.i18nd( "vue-ext", "File system free space (MB) for the last 30 days" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -476,7 +476,7 @@ export default {
                 "fill": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "Free fs" ) + ": {valueY} MB",
+                    "labelText": this.i18nd( "vue-ext", "FS free" ) + ": {valueY} MB",
                 } ),
             } ) );
 
