@@ -310,7 +310,7 @@ export default {
         async refresh () {
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "development/monitoring/methods/get-historical-time-series", this.record.id );
+            const res = await this.$api.call( "development/monitoring/instances/get-historical-time-series", this.record.id );
 
             this.$refs.cardsPanel.unmask();
 
