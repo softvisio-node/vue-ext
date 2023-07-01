@@ -77,7 +77,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "CPU user for the last 30 days" ),
+                "text": this.i18nd( "vue-ext", "CPU (user) for the last 30 days" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -108,7 +108,7 @@ export default {
                 "fill": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "CPU user" ) + ": {valueY}",
+                    "labelText": this.i18nd( "vue-ext", "CPU (user)" ) + ": {valueY}",
                 } ),
             } ) );
 
@@ -169,7 +169,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "CPU system for the last 30 days" ),
+                "text": this.i18nd( "vue-ext", "CPU (system) for the last 30 days" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -200,7 +200,7 @@ export default {
                 "fill": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "CPU system" ) + ": {valueY}",
+                    "labelText": this.i18nd( "vue-ext", "CPU (system)" ) + ": {valueY}",
                 } ),
             } ) );
 

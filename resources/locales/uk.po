@@ -261,28 +261,28 @@ msgstr "Скопіюйте токен у буфер обміну"
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:203:33
 #: src/components/development/monitoring/instances/latest.panel.vue:167:33
-msgid "CPU system"
+msgid "CPU (system)"
 msgstr ""
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:172:24
-msgid "CPU system for the last 30 days"
+msgid "CPU (system) for the last 30 days"
 msgstr ""
 
 #: src/components/development/monitoring/instances/latest.panel.vue:137:24
-msgid "CPU system for the last 60 minutes"
+msgid "CPU (system) for the last 60 minutes"
 msgstr ""
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:111:33
 #: src/components/development/monitoring/instances/latest.panel.vue:106:33
-msgid "CPU user"
+msgid "CPU (user)"
 msgstr ""
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:80:24
-msgid "CPU user for the last 30 days"
+msgid "CPU (user) for the last 30 days"
 msgstr ""
 
 #: src/components/development/monitoring/instances/latest.panel.vue:76:24
-msgid "CPU user for the last 60 minutes"
+msgid "CPU (user) for the last 60 minutes"
 msgstr ""
 
 #: src/components/account/tokens/create/dialog.vue:21:44
@@ -478,11 +478,11 @@ msgstr "Відсоток винятків за останні 60 хвилин (%
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:448:24
 msgid "File system free space (MB) for the last 30 days"
-msgstr ""
+msgstr "Вільне місце у файловій системі (МБ) за останні 30 днів"
 
 #: src/components/development/monitoring/instances/latest.panel.vue:320:24
 msgid "File system free space (MB) for the last 60 minutes"
-msgstr ""
+msgstr "Вільне місце у файловій системі (МБ) за останні 60 хвилин"
 
 #: src/components/authentication/signin.panel.vue:17:31
 msgid "Forgot password?"
@@ -491,21 +491,21 @@ msgstr "Забули пароль?"
 #: src/components/development/monitoring/instances/historical.dialog.vue:479:33
 #: src/components/development/monitoring/instances/latest.panel.vue:350:33
 msgid "Free"
-msgstr ""
+msgstr "Вільно"
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:295:33
 #: src/components/development/monitoring/instances/latest.panel.vue:228:33
 #: src/components/development/monitoring/instances/panel.vue:21:59
 msgid "Free memory"
-msgstr ""
+msgstr "Вільна пам'ять"
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:264:24
 msgid "Free memory (MB) for the last 30 days"
-msgstr ""
+msgstr "Вільна пам'ять (МБ) за останні 30 днів"
 
 #: src/components/development/monitoring/instances/latest.panel.vue:198:24
 msgid "Free memory (MB) for the last 60 minutes"
-msgstr ""
+msgstr "Вільна пам'ять (МБ) за останні 60 хвилин"
 
 #: src/components/administration/users/create-user.dialog.vue:11:35
 #: src/components/authentication/signup.panel.vue:17:35
@@ -543,7 +543,7 @@ msgstr "Вхідні"
 
 #: src/components/development/monitoring/instances/panel.vue:19:70
 msgid "Instance type"
-msgstr ""
+msgstr "Тип екземпляра"
 
 #: src/components/development/panel.vue:4:40
 msgid "Instances monitoring"
@@ -803,15 +803,15 @@ msgstr "Фільтр ролей"
 #: src/components/development/monitoring/instances/latest.panel.vue:289:33
 #: src/components/development/monitoring/instances/panel.vue:22:58
 msgid "RSS memory"
-msgstr ""
+msgstr "Пам'ять RSS"
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:356:24
 msgid "RSS memory (MB) for the last 30 days"
-msgstr ""
+msgstr "Пам'ять RSS (МБ) за останні 30 днів"
 
 #: src/components/development/monitoring/instances/latest.panel.vue:259:24
 msgid "RSS memory (MB) for the last 60 minutes"
-msgstr ""
+msgstr "Пам'ять RSS (МБ) за останні 60 хвилин"
 
 #: src/components/administration/telegram-bots/panel.vue:5:47
 msgid "Search bots"
@@ -819,7 +819,7 @@ msgstr "Пошук ботів"
 
 #: src/components/development/monitoring/instances/panel.vue:5:47
 msgid "Search for instances"
-msgstr ""
+msgstr "Пошук екземплярів"
 
 #: src/components/development/monitoring/methods/panel.vue:5:47
 msgid "Search for methods by name"
@@ -960,7 +960,7 @@ msgstr "Ім'я токена"
 
 #: src/components/development/monitoring/instances/panel.vue:20:60
 msgid "Total memory"
-msgstr ""
+msgstr "Загальна пам'ять"
 
 #: src/components/administration/telegram-bots/panel.vue:15:52
 msgid "Type"
@@ -1124,6 +1124,18 @@ msgstr "Зменшити"
 
 #~ msgid "Copy version info to clipboard"
 #~ msgstr "Копіювати інформацію про версію в буфер обміну"
+
+#~ msgid "CPU system for the last 30 days"
+#~ msgstr "ЦП системи за останні 30 днів"
+
+#~ msgid "CPU user"
+#~ msgstr "ЦП (користувач)"
+
+#~ msgid "CPU user for the last 30 days"
+#~ msgstr "Користувач ЦП за останні 30 днів"
+
+#~ msgid "CPU user for the last 60 minutes"
+#~ msgstr "Користувач ЦП за останні 60 хвилин"
 
 #~ msgid "Create"
 #~ msgstr "Створюйте"

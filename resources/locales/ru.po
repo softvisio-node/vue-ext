@@ -261,29 +261,29 @@ msgstr "Копировать токен в буфер"
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:203:33
 #: src/components/development/monitoring/instances/latest.panel.vue:167:33
-msgid "CPU system"
-msgstr "ЦП система"
+msgid "CPU (system)"
+msgstr ""
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:172:24
-msgid "CPU system for the last 30 days"
-msgstr "ЦП система за последние 30 дней"
+msgid "CPU (system) for the last 30 days"
+msgstr ""
 
 #: src/components/development/monitoring/instances/latest.panel.vue:137:24
-msgid "CPU system for the last 60 minutes"
-msgstr "ЦП система за последние 60 минут"
+msgid "CPU (system) for the last 60 minutes"
+msgstr ""
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:111:33
 #: src/components/development/monitoring/instances/latest.panel.vue:106:33
-msgid "CPU user"
-msgstr "ЦП пользователь"
+msgid "CPU (user)"
+msgstr ""
 
 #: src/components/development/monitoring/instances/historical.dialog.vue:80:24
-msgid "CPU user for the last 30 days"
-msgstr "ЦПпользователь за последние 30 дней"
+msgid "CPU (user) for the last 30 days"
+msgstr ""
 
 #: src/components/development/monitoring/instances/latest.panel.vue:76:24
-msgid "CPU user for the last 60 minutes"
-msgstr "ЦП пользовательза последние 60 минут"
+msgid "CPU (user) for the last 60 minutes"
+msgstr ""
 
 #: src/components/account/tokens/create/dialog.vue:21:44
 #: src/components/account/tokens/create/dialog.vue:2:51
@@ -1133,6 +1133,24 @@ msgstr "Уменьшить"
 
 #~ msgid "Copy version info to clipboard"
 #~ msgstr "Скопировать информацию о версии в буфер"
+
+#~ msgid "CPU system"
+#~ msgstr "ЦП система"
+
+#~ msgid "CPU system for the last 30 days"
+#~ msgstr "ЦП система за последние 30 дней"
+
+#~ msgid "CPU system for the last 60 minutes"
+#~ msgstr "ЦП система за последние 60 минут"
+
+#~ msgid "CPU user"
+#~ msgstr "ЦП пользователь"
+
+#~ msgid "CPU user for the last 30 days"
+#~ msgstr "ЦПпользователь за последние 30 дней"
+
+#~ msgid "CPU user for the last 60 minutes"
+#~ msgstr "ЦП пользовательза последние 60 минут"
 
 #~ msgid "Create"
 #~ msgstr "Создать"
