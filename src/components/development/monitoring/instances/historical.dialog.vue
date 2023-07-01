@@ -14,9 +14,9 @@
 
                     <Amcharts5 ref="cpuSystemChart" :createChart="_createCpuSystemChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
 
-                    <Amcharts5 ref="memryFreeChart" :createChart="_createMemryFreeChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                    <Amcharts5 ref="memryFreeChart" :createChart="_createMemoryFreeChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
 
-                    <Amcharts5 ref="memryRssChart" :createChart="_createMemryRssChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                    <Amcharts5 ref="memryRssChart" :createChart="_createMemoryRssChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
 
                     <Amcharts5 ref="fsFreeChart" :createChart="_createFsFreeChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
                 </ext-container>
