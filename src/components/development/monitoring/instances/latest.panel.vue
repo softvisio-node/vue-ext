@@ -10,7 +10,7 @@
 
         <template #data>
             <ext-container layput="vbox" scrollable="true">
-                <Amcharts5 ref="callsChart" :createChart="_createCallsChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="cpuUserDelta" :createChart="_createCpuUserDelta" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
                 <Amcharts5 ref="durationChart" :createChart="_createDurationChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
                 <Amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
             </ext-container>
@@ -46,7 +46,7 @@ export default {
     },
 
     "methods": {
-        _createCallsChart ( cmp ) {
+        _createCpuUserDelta ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -88,16 +88,16 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Accepted",
+                "name": "cpuUserDelta",
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
-                "valueYField": "calls",
+                "valueYField": "cpu_user_delta",
                 "fill": "green",
                 "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "Calls" ) + ": {valueY}",
+                    "labelText": this.i18nd( "vue-ext", "CPU user" ) + ": {valueY}",
                 } ),
             } ) );
 
@@ -240,7 +240,7 @@ export default {
         },
 
         _chartRefresh () {
-            if ( this.$refs.callsChart.hasData ) return;
+            if ( this.$refs.cpuUserDelta.hasData ) return;
             if ( this.$refs.durationChart.hasData ) return;
             if ( this.$refs.exceptionsChart.hasData ) return;
 
@@ -269,7 +269,7 @@ export default {
             else {
                 this.$refs.cardsPanel.setResult( res );
 
-                this.$refs.callsChart.setData( res.data );
+                this.$refs.cpuUserDelta.setData( res.data );
                 this.$refs.durationChart.setData( res.data );
                 this.$refs.exceptionsChart.setData( res.data );
             }
