@@ -70,7 +70,7 @@ export default {
                 } )
             );
 
-            chart.children.unshift( am5.Label.new( root, {
+            chart.children.push( am5.Label.new( root, {
                 "text": this.i18nd( "vue-ext", "Calls for the last 30 days" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
@@ -162,7 +162,7 @@ export default {
                 } )
             );
 
-            chart.children.unshift( am5.Label.new( root, {
+            chart.children.push( am5.Label.new( root, {
                 "text": this.i18nd( "vue-ext", "Average duration per call for the last 30 days (ms)" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
@@ -233,7 +233,7 @@ export default {
                 } )
             );
 
-            chart.children.unshift( am5.Label.new( root, {
+            chart.children.push( am5.Label.new( root, {
                 "text": this.i18nd( "vue-ext", "Exceptions percent for the last 30 days (%)" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
