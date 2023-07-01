@@ -1,5 +1,15 @@
 # Changelog
 
+### 8.4.0 (2023-07-01)
+
+Features:
+
+-   feat: instance monitoring
+
+Fixes:
+
+-   fix: data location
+
 ### 8.3.2 (2023-06-26)
 
 Fixes:
