@@ -72,7 +72,7 @@ export default {
                 } )
             );
 
-            chart.children.unshift( am5.Label.new( root, {
+            chart.children.push( am5.Label.new( root, {
                 "text": this.i18nd( "vue-ext", "CPU user for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
@@ -133,7 +133,7 @@ export default {
                 } )
             );
 
-            chart.children.unshift( am5.Label.new( root, {
+            chart.children.push( am5.Label.new( root, {
                 "text": this.i18nd( "vue-ext", "CPU system for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
@@ -194,7 +194,7 @@ export default {
                 } )
             );
 
-            chart.children.unshift( am5.Label.new( root, {
+            chart.children.push( am5.Label.new( root, {
                 "text": this.i18nd( "vue-ext", "Free memory (MB) for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
@@ -255,7 +255,7 @@ export default {
                 } )
             );
 
-            chart.children.unshift( am5.Label.new( root, {
+            chart.children.push( am5.Label.new( root, {
                 "text": this.i18nd( "vue-ext", "RSS memory (MB) for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
@@ -316,7 +316,7 @@ export default {
                 } )
             );
 
-            chart.children.unshift( am5.Label.new( root, {
+            chart.children.push( am5.Label.new( root, {
                 "text": this.i18nd( "vue-ext", "FS free (MB) for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
