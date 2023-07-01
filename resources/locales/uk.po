@@ -1172,12 +1172,6 @@ msgstr "Зменшити"
 #~ msgid "From"
 #~ msgstr "Від"
 
-#~ msgid "FS free"
-#~ msgstr ""
-
-#~ msgid "FS total"
-#~ msgstr ""
-
 #, javascript-format
 #~ msgid "In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${n}</b> and press <b>\"Start\"</b>."
 #~ msgstr "Щоб отримувати сповіщення Telegram, вам потрібно встановити своє ім’я користувача в Telegram. Потім відкрийте чат із <b>@${n}</b> і натисніть <b>\"Start\"</b>."
@@ -1187,15 +1181,6 @@ msgstr "Зменшити"
 
 #~ msgid "Mark as read"
 #~ msgstr "Позначити як прочитане"
-
-#~ msgid "Memory free"
-#~ msgstr ""
-
-#~ msgid "Memory rss"
-#~ msgstr ""
-
-#~ msgid "Memory total"
-#~ msgstr ""
 
 #~ msgid "No"
 #~ msgstr "Ні"
