@@ -67,7 +67,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Calls for the last 60 minutes" ),
+                "text": this.i18nd( "vue-ext", "CPU user for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
