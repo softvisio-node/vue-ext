@@ -10,15 +10,15 @@
 
             <template #data>
                 <ext-container layput="vbox" scrollable="true">
-                    <Amcharts5 ref="cpuUserChart" :createChart="_createCpuUserChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                    <Amcharts5 ref="cpuUserChart" :createChart="_createCpuUserChart" height="250" :updateChart="_updateChart" @refresh="_chartRefresh"/>
 
-                    <Amcharts5 ref="cpuSystemChart" :createChart="_createCpuSystemChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                    <Amcharts5 ref="cpuSystemChart" :createChart="_createCpuSystemChart" height="250" :updateChart="_updateChart" @refresh="_chartRefresh"/>
 
-                    <Amcharts5 ref="memryFreeChart" :createChart="_createMemoryFreeChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                    <Amcharts5 ref="memryFreeChart" :createChart="_createMemoryFreeChart" height="250" :updateChart="_updateChart" @refresh="_chartRefresh"/>
 
-                    <Amcharts5 ref="memryRssChart" :createChart="_createMemoryRssChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                    <Amcharts5 ref="memryRssChart" :createChart="_createMemoryRssChart" height="250" :updateChart="_updateChart" @refresh="_chartRefresh"/>
 
-                    <Amcharts5 ref="fsFreeChart" :createChart="_createFsFreeChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                    <Amcharts5 ref="fsFreeChart" :createChart="_createFsFreeChart" height="250" :updateChart="_updateChart" @refresh="_chartRefresh"/>
                 </ext-container>
             </template>
         </CardsPanel>
