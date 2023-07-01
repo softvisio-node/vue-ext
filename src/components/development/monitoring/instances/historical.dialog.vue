@@ -10,9 +10,15 @@
 
             <template #data>
                 <ext-container layput="vbox" scrollable="true">
-                    <Amcharts5 ref="callsChart" :createChart="_createCallsChart" height="250" :updateChart="_updateChart" @refresh="_chartRefresh"/>
-                    <Amcharts5 ref="durationChart" :createChart="_createDurationChart" height="250" :updateChart="_updateChart" @refresh="_chartRefresh"/>
-                    <Amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart" height="250" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                    <Amcharts5 ref="cpuUserChart" :createChart="_createCpuUserChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+
+                    <Amcharts5 ref="cpuSystemChart" :createChart="_createCpuSystemChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+
+                    <Amcharts5 ref="memryFreeChart" :createChart="_createMemryFreeChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+
+                    <Amcharts5 ref="memryRssChart" :createChart="_createMemryRssChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+
+                    <Amcharts5 ref="fsFreeChart" :createChart="_createFsFreeChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
                 </ext-container>
             </template>
         </CardsPanel>
@@ -300,9 +306,11 @@ export default {
         },
 
         _chartRefresh () {
-            if ( this.$refs.callsChart.hasData ) return;
-            if ( this.$refs.durationChart.hasData ) return;
-            if ( this.$refs.exceptionsChart.hasData ) return;
+            if ( this.$refs.cpuUserChart.hasData ) return;
+            if ( this.$refs.cpuSystenChart.hasData ) return;
+            if ( this.$refs.memryFreeChart.hasData ) return;
+            if ( this.$refs.memryRssChart.hasData ) return;
+            if ( this.$refs.fsFreeChart.hasData ) return;
 
             this.refresh();
         },
@@ -323,9 +331,11 @@ export default {
             else {
                 this.$refs.cardsPanel.setResult( res );
 
-                this.$refs.callsChart.setData( res.data );
-                this.$refs.durationChart.setData( res.data );
-                this.$refs.exceptionsChart.setData( res.data );
+                this.$refs.cpuUserChart.setData( res.data );
+                this.$refs.cpuSystemChart.setData( res.data );
+                this.$refs.memryFreeChart.setData( res.data );
+                this.$refs.memryRssChart.setData( res.data );
+                this.$refs.fsFreeChart.setData( res.data );
             }
         },
     },
