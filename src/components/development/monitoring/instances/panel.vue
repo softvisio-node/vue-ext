@@ -107,7 +107,7 @@ export default {
         _colReady ( e ) {
             const cmp = e.detail.cmp;
 
-            cmp.setRenderer( value => this.$app.locale.formatDigitalSize( value ) );
+            cmp.setRenderer( value => this.$app.locale.formatNumber( value / 1024 ** 3, "style:unit,unit:gigabyte" ) );
         },
 
         _actionColReady ( e ) {
