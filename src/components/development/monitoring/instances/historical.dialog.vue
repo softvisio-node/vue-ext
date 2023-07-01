@@ -47,7 +47,7 @@ export default {
     },
 
     "methods": {
-        _createCallsChart ( cmp ) {
+        _createCpuUserChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -77,7 +77,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Calls for the last 30 days" ),
+                "text": this.i18nd( "vue-ext", "CPU user for the last 30 days" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -99,16 +99,16 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Calls",
+                "name": "cpuUser",
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
-                "valueYField": "calls",
+                "valueYField": "cpu_user",
                 "stroke": "green",
                 "fill": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "Calls" ) + ": {valueY}",
+                    "labelText": this.i18nd( "vue-ext", "CPU user" ) + ": {valueY}",
                 } ),
             } ) );
 
@@ -139,7 +139,7 @@ export default {
             // legend.data.setAll( chart.series.values );
         },
 
-        _createDurationChart ( cmp ) {
+        _createCpuSystemChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -169,7 +169,7 @@ export default {
             );
 
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Average duration per call for the last 30 days (ms)" ),
+                "text": this.i18nd( "vue-ext", "CPU system for the last 30 days" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -191,87 +191,16 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Runtime",
+                "name": "cpuSystem",
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
-                "valueYField": "duration_per_call",
+                "valueYField": "cpu_system",
                 "stroke": "green",
                 "fill": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "Duration" ) + ": {valueY} ms",
-                } ),
-            } ) );
-
-            series1.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
-            } );
-        },
-
-        _createExceptionsChart ( cmp ) {
-            const root = cmp.root,
-                am5 = cmp.am5;
-
-            const chart = root.container.children.push( am5xy.XYChart.new( root, {
-                "layout": root.verticalLayout,
-                "panX": true,
-                "panY": true,
-                "pinchZoomX": true,
-
-                // "wheelX": "panX",
-                // "wheelY": "zoomX",
-            } ) );
-
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
-                } )
-            );
-
-            // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
-            chart.set(
-                "scrollbarX",
-                am5.Scrollbar.new( root, {
-                    "orientation": "horizontal",
-                } )
-            );
-
-            chart.children.unshift( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Exceptions percent for the last 30 days (%)" ),
-                "fontSize": 12,
-                "x": am5.percent( 50 ),
-                "centerX": am5.percent( 50 ),
-            } ) );
-
-            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
-                "maxDeviation": 0,
-                "baseInterval": {
-                    "timeUnit": "hour",
-                    "count": 1,
-                },
-                "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltipDateFormat": "I",
-                "tooltip": am5.Tooltip.new( root, {} ),
-            } ) );
-
-            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
-                "renderer": am5xy.AxisRendererY.new( root, {} ),
-            } ) );
-
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Exceptions",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
-                "valueXField": "date",
-                "valueYField": "exceptions_percent",
-                "stroke": "red",
-                "fill": "red",
-                "stacked": true,
-                "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "Exceptions" ) + ": {valueY}%",
+                    "labelText": this.i18nd( "vue-ext", "CPU system" ) + ": {valueY}",
                 } ),
             } ) );
 
@@ -293,6 +222,289 @@ export default {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
+
+            // const legend = chart.children.push( am5.Legend.new( root, {
+            //     "x": am5.percent( 50 ),
+            //     "centerX": am5.percent( 50 ),
+            // } ) );
+
+            // legend.data.setAll( chart.series.values );
+        },
+
+        _createMemoryFreeChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+                "layout": root.verticalLayout,
+                "panX": true,
+                "panY": true,
+                "pinchZoomX": true,
+
+                // "wheelX": "panX",
+                // "wheelY": "zoomX",
+            } ) );
+
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "zoomX",
+                } )
+            );
+
+            // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
+            chart.set(
+                "scrollbarX",
+                am5.Scrollbar.new( root, {
+                    "orientation": "horizontal",
+                } )
+            );
+
+            chart.children.unshift( am5.Label.new( root, {
+                "text": this.i18nd( "vue-ext", "Free memory for the last 30 days" ),
+                "fontSize": 12,
+                "x": am5.percent( 50 ),
+                "centerX": am5.percent( 50 ),
+            } ) );
+
+            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "maxDeviation": 0,
+                "baseInterval": {
+                    "timeUnit": "hour",
+                    "count": 1,
+                },
+                "renderer": am5xy.AxisRendererX.new( root, {} ),
+                "tooltipDateFormat": "I",
+                "tooltip": am5.Tooltip.new( root, {} ),
+            } ) );
+
+            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "renderer": am5xy.AxisRendererY.new( root, {} ),
+            } ) );
+
+            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "memoryFree",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueXField": "date",
+                "valueYField": "memory_free",
+                "stroke": "green",
+                "fill": "green",
+                "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.i18nd( "vue-ext", "Free memory" ) + ": {valueY} MB",
+                } ),
+            } ) );
+
+            // chart.series.push( am5xy.ColumnSeries.new( root, {
+            //     "name": "Declined",
+            //     "xAxis": xAxis,
+            //     "yAxis": yAxis,
+            //     "valueXField": "date",
+            //     "valueYField": "total_declined",
+            //     "fill": "red",
+            //     "stroke": "red",
+            //     "stacked": true,
+            //     "tooltip": am5.Tooltip.new( root, {
+            //         "labelText": "Declined requests: {valueY}",
+            //     } ),
+            // } ) );
+
+            series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
+            // const legend = chart.children.push( am5.Legend.new( root, {
+            //     "x": am5.percent( 50 ),
+            //     "centerX": am5.percent( 50 ),
+            // } ) );
+
+            // legend.data.setAll( chart.series.values );
+        },
+
+        _createMemoryRssChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+                "layout": root.verticalLayout,
+                "panX": true,
+                "panY": true,
+                "pinchZoomX": true,
+
+                // "wheelX": "panX",
+                // "wheelY": "zoomX",
+            } ) );
+
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "zoomX",
+                } )
+            );
+
+            // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
+            chart.set(
+                "scrollbarX",
+                am5.Scrollbar.new( root, {
+                    "orientation": "horizontal",
+                } )
+            );
+
+            chart.children.unshift( am5.Label.new( root, {
+                "text": this.i18nd( "vue-ext", "RSS memory for the last 30 days" ),
+                "fontSize": 12,
+                "x": am5.percent( 50 ),
+                "centerX": am5.percent( 50 ),
+            } ) );
+
+            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "maxDeviation": 0,
+                "baseInterval": {
+                    "timeUnit": "hour",
+                    "count": 1,
+                },
+                "renderer": am5xy.AxisRendererX.new( root, {} ),
+                "tooltipDateFormat": "I",
+                "tooltip": am5.Tooltip.new( root, {} ),
+            } ) );
+
+            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "renderer": am5xy.AxisRendererY.new( root, {} ),
+            } ) );
+
+            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "memoryRss",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueXField": "date",
+                "valueYField": "fmemory_rss",
+                "stroke": "green",
+                "fill": "green",
+                "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.i18nd( "vue-ext", "RSS memory" ) + ": {valueY} MB",
+                } ),
+            } ) );
+
+            // chart.series.push( am5xy.ColumnSeries.new( root, {
+            //     "name": "Declined",
+            //     "xAxis": xAxis,
+            //     "yAxis": yAxis,
+            //     "valueXField": "date",
+            //     "valueYField": "total_declined",
+            //     "fill": "red",
+            //     "stroke": "red",
+            //     "stacked": true,
+            //     "tooltip": am5.Tooltip.new( root, {
+            //         "labelText": "Declined requests: {valueY}",
+            //     } ),
+            // } ) );
+
+            series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
+            // const legend = chart.children.push( am5.Legend.new( root, {
+            //     "x": am5.percent( 50 ),
+            //     "centerX": am5.percent( 50 ),
+            // } ) );
+
+            // legend.data.setAll( chart.series.values );
+        },
+
+        _createFsFreeChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+                "layout": root.verticalLayout,
+                "panX": true,
+                "panY": true,
+                "pinchZoomX": true,
+
+                // "wheelX": "panX",
+                // "wheelY": "zoomX",
+            } ) );
+
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "zoomX",
+                } )
+            );
+
+            // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
+            chart.set(
+                "scrollbarX",
+                am5.Scrollbar.new( root, {
+                    "orientation": "horizontal",
+                } )
+            );
+
+            chart.children.unshift( am5.Label.new( root, {
+                "text": this.i18nd( "vue-ext", "Free file systen for the last 30 days" ),
+                "fontSize": 12,
+                "x": am5.percent( 50 ),
+                "centerX": am5.percent( 50 ),
+            } ) );
+
+            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "maxDeviation": 0,
+                "baseInterval": {
+                    "timeUnit": "hour",
+                    "count": 1,
+                },
+                "renderer": am5xy.AxisRendererX.new( root, {} ),
+                "tooltipDateFormat": "I",
+                "tooltip": am5.Tooltip.new( root, {} ),
+            } ) );
+
+            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "renderer": am5xy.AxisRendererY.new( root, {} ),
+            } ) );
+
+            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "fsFree",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueXField": "date",
+                "valueYField": "fs_free",
+                "stroke": "green",
+                "fill": "green",
+                "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.i18nd( "vue-ext", "Free fs" ) + ": {valueY} MB",
+                } ),
+            } ) );
+
+            // chart.series.push( am5xy.ColumnSeries.new( root, {
+            //     "name": "Declined",
+            //     "xAxis": xAxis,
+            //     "yAxis": yAxis,
+            //     "valueXField": "date",
+            //     "valueYField": "total_declined",
+            //     "fill": "red",
+            //     "stroke": "red",
+            //     "stacked": true,
+            //     "tooltip": am5.Tooltip.new( root, {
+            //         "labelText": "Declined requests: {valueY}",
+            //     } ),
+            // } ) );
+
+            series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
+            // const legend = chart.children.push( am5.Legend.new( root, {
+            //     "x": am5.percent( 50 ),
+            //     "centerX": am5.percent( 50 ),
+            // } ) );
+
+            // legend.data.setAll( chart.series.values );
         },
 
         _updateChart ( cmp, data ) {
