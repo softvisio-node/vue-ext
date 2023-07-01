@@ -17,6 +17,8 @@
                 <Amcharts5 ref="memryFreeChart" :createChart="_createMemryFreeChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
 
                 <Amcharts5 ref="memryRssChart" :createChart="_createMemryRssChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+
+                <Amcharts5 ref="fsFreeChart" :createChart="_createFsFreeChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
             </ext-container>
         </template>
     </CardsPanel>
@@ -294,6 +296,67 @@ export default {
             } );
         },
 
+        _createFsFreeChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+
+                // "panX": true,
+                // "panY": true,
+                // "wheelX": "panX",
+                // "wheelY": "zoomX",
+                // "pinchZoomX": true,
+            } ) );
+
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } )
+            );
+
+            chart.children.unshift( am5.Label.new( root, {
+                "text": this.i18nd( "vue-ext", "FS free (MB) for the last 60 minutes" ),
+                "fontSize": 12,
+                "x": am5.percent( 50 ),
+                "centerX": am5.percent( 50 ),
+            } ) );
+
+            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "baseInterval": {
+                    "timeUnit": "minute",
+                    "count": 1,
+                },
+                "renderer": am5xy.AxisRendererX.new( root, {} ),
+                "tooltipDateFormat": "HH:mm",
+                "tooltip": am5.Tooltip.new( root, {} ),
+            } ) );
+
+            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "renderer": am5xy.AxisRendererY.new( root, {} ),
+            } ) );
+
+            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "memryFree",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueXField": "date",
+                "valueYField": "fs_free",
+                "fill": "green",
+                "stroke": "green",
+                "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.i18nd( "vue-ext", "FS free" ) + ": {valueY} MB",
+                } ),
+            } ) );
+
+            series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+        },
+
         _updateChart ( cmp, data ) {
             const chart = cmp.root.container.children.values[0];
 
@@ -309,6 +372,7 @@ export default {
             if ( this.$refs.cpuSystenChart.hasData ) return;
             if ( this.$refs.memryFreeChart.hasData ) return;
             if ( this.$refs.memryRssChart.hasData ) return;
+            if ( this.$refs.fsFreeChart.hasData ) return;
 
             this.refresh();
         },
@@ -339,6 +403,7 @@ export default {
                 this.$refs.cpuSystemChart.setData( res.data );
                 this.$refs.memryFreeChart.setData( res.data );
                 this.$refs.memryRssChart.setData( res.data );
+                this.$refs.fsFreeChart.setData( res.data );
             }
         },
     },
