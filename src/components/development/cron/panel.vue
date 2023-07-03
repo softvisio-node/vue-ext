@@ -15,7 +15,7 @@
 
                 <ext-column dataIndex="next_start" :text="i18nd(`vue-ext`, `Next start`)" width="150" @ready="_dateColReady"/>
 
-                <ext-column dataIndex="last_start" :text="i18nd(`vue-ext`, `Last start`)" width="150" @ready="_dateColReady"/>
+                <ext-column dataIndex="last_started" :text="i18nd(`vue-ext`, `Last start`)" width="150" @ready="_dateColReady"/>
 
                 <ext-column dataIndex="error" flex="1" :text="i18nd(`vue-ext`, `Error`)"/>
             </ext-grid>
