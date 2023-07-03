@@ -58,7 +58,14 @@ export default {
         _dateColReady ( e ) {
             const cmp = e.detail.cmp;
 
-            cmp.setRenderer( value => this.$app.locale.formatDate( value, "dateStyle:short,timeStyle:short" ) );
+            cmp.setRenderer( value => {
+                if ( value ) {
+                    return this.$app.locale.formatDate( value, "dateStyle:short,timeStyle:short" );
+                }
+                else {
+                    return "-";
+                }
+            } );
         },
     },
 };
