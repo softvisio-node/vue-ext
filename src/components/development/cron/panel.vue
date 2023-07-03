@@ -13,9 +13,9 @@
 
                 <ext-column dataIndex="name" :text="i18nd(`vue-ext`, `Name`)" width="150"/>
 
-                <ext-column dataIndex="next_start" :text="i18nd(`vue-ext`, `Next start`)" width="150"/>
+                <ext-column dataIndex="next_start" :text="i18nd(`vue-ext`, `Next start`)" width="150" @ready="_dateColReady"/>
 
-                <ext-column dataIndex="last_start" :text="i18nd(`vue-ext`, `Last start`)" width="150"/>
+                <ext-column dataIndex="last_start" :text="i18nd(`vue-ext`, `Last start`)" width="150" @ready="_dateColReady"/>
 
                 <ext-column dataIndex="error" flex="1" :text="i18nd(`vue-ext`, `Error`)"/>
             </ext-grid>
@@ -53,6 +53,12 @@ export default {
             this.store.reload();
 
             this.$refs.cards.unmask();
+        },
+
+        _dateColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setRenderer( value => this.$app.locale.formatDate( value, "dateStyle:short,timeStyle:short" ) );
         },
     },
 };

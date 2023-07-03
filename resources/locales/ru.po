@@ -446,6 +446,7 @@ msgid "Enter your email address"
 msgstr "Введите ваш адрес email"
 
 #: src/components/administration/telegram-bots/panel.vue:21:67
+#: src/components/development/cron/panel.vue:20:62
 msgid "Error"
 msgstr "Ошибка"
 
@@ -568,6 +569,10 @@ msgstr "IP адрес"
 msgid "Last activity"
 msgstr "Последняя активность"
 
+#: src/components/development/cron/panel.vue:18:58
+msgid "Last start"
+msgstr "Последний старт"
+
 #: src/components/development/monitoring/instances/panel.vue:12:138
 #: src/components/development/monitoring/methods/panel.vue:13:138
 msgid "Latest charts"
@@ -609,6 +614,10 @@ msgstr "Метод: ${n}"
 msgid "Methods monitoring"
 msgstr "Мониторинг методов"
 
+#: src/components/development/cron/panel.vue:12:54
+msgid "Module"
+msgstr "Модуль"
+
 #: src/components/development/monitoring/instances/dialog.vue:2:68
 #: src/components/development/monitoring/methods/dialog.vue:2:68
 msgid "Monitoring"
@@ -623,6 +632,7 @@ msgid "Move to inbox"
 msgstr "Переместить во входящие"
 
 #: src/components/administration/telegram-bots/panel.vue:13:65
+#: src/components/development/cron/panel.vue:14:52
 msgid "Name"
 msgstr "Имя"
 
@@ -634,6 +644,10 @@ msgstr "Новый адрес email"
 #: src/components/reset-password.dialog.vue:6:66
 msgid "New password"
 msgstr "Новый пароль"
+
+#: src/components/development/cron/panel.vue:16:58
+msgid "Next start"
+msgstr "Следующий старт"
 
 #: src/components/cards.panel.vue:65:41
 msgid "No data match search criteria"
@@ -765,6 +779,7 @@ msgstr "Восстановить"
 #: src/components/administration/telegram-bots/panel.vue:7:62
 #: src/components/administration/users/panel.vue:9:62
 #: src/components/cards.panel.vue:14:58
+#: src/components/development/cron/panel.vue:6:62
 #: src/components/development/monitoring/instances/historical.dialog.vue:7:66
 #: src/components/development/monitoring/instances/latest.panel.vue:7:62
 #: src/components/development/monitoring/instances/panel.vue:9:82
