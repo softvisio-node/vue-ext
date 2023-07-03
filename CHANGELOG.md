@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.5.0 (2023-07-03)
+
+Features:
+
+-   feat: cron api
+
 ### 8.4.0 (2023-07-01)
 
 Features:
