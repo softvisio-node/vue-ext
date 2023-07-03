@@ -10,6 +10,11 @@
             <MethodsMonitoringPanel/>
         </ext-panel>
 
+        <!-- cron -->
+        <ext-panel layout="fit" title="Cron">
+            <CronPanel/>
+        </ext-panel>
+
         <slot name="tabs"/>
     </ext-tabpanel>
 </template>
@@ -17,8 +22,9 @@
 <script>
 import InstancesMonitoringPanel from "./monitoring/instances/panel";
 import MethodsMonitoringPanel from "./monitoring/methods/panel";
+import CronPanel from "./cron/panel";
 
 export default {
-    "components": { InstancesMonitoringPanel, MethodsMonitoringPanel },
+    "components": { InstancesMonitoringPanel, MethodsMonitoringPanel, CronPanel },
 };
 </script>
