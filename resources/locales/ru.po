@@ -446,7 +446,7 @@ msgid "Enter your email address"
 msgstr "Введите ваш адрес email"
 
 #: src/components/administration/telegram-bots/panel.vue:21:67
-#: src/components/development/cron/panel.vue:20:62
+#: src/components/development/cron/panel.vue:20:98
 msgid "Error"
 msgstr "Ошибка"
 

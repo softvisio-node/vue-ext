@@ -18,8 +18,9 @@ export default Ext.define( "", {
         "query",
         "run_missed",
         { "name": "next_start", "type": "date" },
-        { "name": "last_started", "type": "date" },
-        { "name": "last_finished", "typ": "date" },
-        "error",
+        { "name": "last_start", "type": "date" },
+        { "name": "last_finish", "typ": "date" },
+        { "name": "error", "type": "bool" },
+        "status_text",
     ],
 } );
