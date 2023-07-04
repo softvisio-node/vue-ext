@@ -9,10 +9,6 @@ export default {
             "type": Boolean,
             "default": false,
         },
-        "autoHide": {
-            "type": Boolean,
-            "default": true,
-        },
         "textAlign": {
             "type": String,
             "default": "left",
@@ -32,7 +28,7 @@ export default {
                 cmp.setStyle( "position: absolute; top: 20px; right: 20px;" );
             }
 
-            if ( !this.$app.locale.hasLocales && this.autoHide ) {
+            if ( !this.$app.locale.hasLocales ) {
                 cmp.setHidden( true );
 
                 return;
@@ -44,7 +40,7 @@ export default {
                 menu.push( {
                     "xtype": "menuradioitem",
                     "value": locale.id,
-                    "text": locale.name,
+                    "text": locale.languageName,
                     "group": "locale",
                     "checked": locale.id === this.$app.locale.id,
                     "handler": this._setLocale.bind( this ),
@@ -57,12 +53,12 @@ export default {
         },
 
         async _setLocale ( menuItem ) {
-            const localeId = menuItem.getValue(),
+            const locale = menuItem.getValue(),
                 menu = this.$refs.button.ext.getMenu();
 
             menu.mask();
 
-            const res = await this.$app.locale.setLocale( localeId );
+            const res = await this.$app.locale.setLocale( locale );
 
             menu.unmask();
 

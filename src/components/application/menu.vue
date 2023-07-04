@@ -29,7 +29,7 @@
 
             <ext-spacer/>
 
-            <LocaleButton :autoHide="true"/>
+            <LocaleButton/>
 
             <!-- push notifications button -->
             <PushNotificationsButton :hidden="!pushNotificationsButtonEnabled" labelWidth="200"/>
