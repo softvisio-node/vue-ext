@@ -1,5 +1,15 @@
 # Changelog
 
+### 8.6.0 (2023-07-05)
+
+Features:
+
+-   feat: locales
+
+Fixes:
+
+-   fix: cron
+
 ### 8.5.0 (2023-07-03)
 
 Features:
