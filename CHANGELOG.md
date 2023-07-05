@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.6.1 (2023-07-05)
+
+Fixes:
+
+-   fix: locales
+
 ### 8.6.0 (2023-07-05)
 
 Features:
