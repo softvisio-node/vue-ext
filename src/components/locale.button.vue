@@ -49,7 +49,7 @@ export default {
 
             cmp.setMenu( menu );
 
-            cmp.setText( this.$app.locale.name );
+            cmp.setText( this.$app.locale.locales.get( this.$app.locale.id )?.languageName || this.$app.locale.name );
         },
 
         async _setLocale ( menuItem ) {
