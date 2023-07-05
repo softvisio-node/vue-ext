@@ -43,7 +43,7 @@ export default {
 
     "computed": {
         localeHidden () {
-            return !this.$app.locale.hasLocales;
+            return !this.$app.locale.canChangeLocale;
         },
     },
 

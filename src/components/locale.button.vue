@@ -28,7 +28,7 @@ export default {
                 cmp.setStyle( "position: absolute; top: 20px; right: 20px;" );
             }
 
-            if ( !this.$app.locale.hasLocales ) {
+            if ( !this.$app.locale.canChangeLocale ) {
                 cmp.setHidden( true );
 
                 return;
