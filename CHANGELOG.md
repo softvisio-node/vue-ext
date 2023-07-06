@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.6.2 (2023-07-06)
+
+Fixes:
+
+-   fix: linted
+
 ### 8.6.1 (2023-07-05)
 
 Fixes:
