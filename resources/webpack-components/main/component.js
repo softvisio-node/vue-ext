@@ -34,7 +34,7 @@ export default class extends WebpackComponent {
 
         //         const resource = module.resource.replaceAll( "\\", "/" );
 
-        //         if ( resource.includes( "@softvisio/ext/lib/ext-charts-" ) ) return true;
+        //         if ( resource.includes( "@softvisio/ext/src/ext-charts-" ) ) return true;
 
         //         if ( resource.includes( "@softvisio/ext/resources/ext-" + this.buildOptions.extVersion + "/charts.js" ) ) return true;
         //     },
