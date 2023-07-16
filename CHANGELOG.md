@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.6.4 (2023-07-16)
+
+Fixes:
+
+-   fix: lib renamed to src
+
 ### 8.6.3 (2023-07-16)
 
 Fixes:
