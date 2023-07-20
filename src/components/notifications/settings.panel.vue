@@ -171,7 +171,7 @@ export default {
             this.$refs.cardsPanel.setResult( res );
 
             if ( res.ok ) {
-                if ( !res.data.types ) {
+                if ( !res.data.notifications ) {
                     this.notificationTypesHidden = true;
                 }
                 else {
