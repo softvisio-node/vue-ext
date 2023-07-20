@@ -152,9 +152,9 @@ export default {
                         {
                             "xtype": "togglefield",
                             "bind": {
-                                "hidden": `{!record.channels.${channel}.supported}`,
+                                "hidden": `{!record.channels.${channel}.enabled}`,
                                 "disabled": `{!record.channels.${channel}.editable}`,
-                                "value": `{record.channels.${channel}.enabled}`,
+                                "value": `{record.channels.${channel}.active}`,
                             },
                             "listeners": { "change": this.toggleChannelActive.bind( this, channel ) },
                         },
@@ -186,7 +186,7 @@ export default {
                     this.telegramBotUrl = res.data.telegramBotUrl;
                     this.linkedTelegramUsername = res.data.linkedTelegramUsername;
 
-                    this.store.loadRawData( res.data.types );
+                    this.store.loadRawData( res.data.notifications );
                 }
             }
         },
@@ -194,7 +194,7 @@ export default {
         async toggleChannelActive ( channel, button, newValue, oldValue ) {
             const record = button.up( "gridrow" ).getRecord(),
                 typeChannel = record.get( "channels" )[channel],
-                currentValue = typeChannel.enabled;
+                currentValue = typeChannel.active;
 
             if ( newValue === currentValue ) return;
 
@@ -209,7 +209,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                typeChannel.enabled = newValue;
+                typeChannel.active = newValue;
             }
 
             button.enable();
