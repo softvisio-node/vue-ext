@@ -156,7 +156,7 @@ export default {
                                 "disabled": `{!record.channels.${channel}.editable}`,
                                 "value": `{record.channels.${channel}.enabled}`,
                             },
-                            "listeners": { "change": this.toggleChannelEnabled.bind( this, channel ) },
+                            "listeners": { "change": this.toggleChannelActive.bind( this, channel ) },
                         },
                     ],
                 },
@@ -191,7 +191,7 @@ export default {
             }
         },
 
-        async toggleChannelEnabled ( channel, button, newValue, oldValue ) {
+        async toggleChannelActive ( channel, button, newValue, oldValue ) {
             const record = button.up( "gridrow" ).getRecord(),
                 typeChannel = record.get( "channels" )[channel],
                 currentValue = typeChannel.enabled;
@@ -200,7 +200,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "account/notifications/set-user-notification-channel-enabled", record.id, channel, newValue );
+            const res = await this.$api.call( "account/notifications/set-user-notification-channel-active", record.id, channel, newValue );
 
             if ( !res.ok ) {
                 await new Promise( resolve => setTimeout( resolve, 500 ) );
