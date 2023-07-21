@@ -39,6 +39,7 @@ export default {
             const cmp = await this.$mount( NotificationsSettingsDialog, {
                 "props": {
                     "aclId": this.aclId,
+                    "onUpdate": ( notification, channel, subscribed ) => this.$refs.panel.onChannelUpdate( notification, channel, subscribed ),
                 },
             } );
 

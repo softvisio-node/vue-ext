@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="500" layout="fit" :title="i18nd(`vue-ext`, `Notifications settings`)" width="700">
-        <NotificationsSettingsPanel :aclId="aclId"/>
+        <NotificationsSettingsPanel :aclId="aclId" @update="_onUpdate"/>
     </ext-dialog>
 </template>
 
@@ -17,6 +17,12 @@ export default {
         },
     },
 
-    "methods": {},
+    "emits": ["update"],
+
+    "methods": {
+        _onUpdate ( notification, channel, subscribed ) {
+            this.$emit( "update", notification, channel, subscribed );
+        },
+    },
 };
 </script>

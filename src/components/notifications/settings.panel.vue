@@ -75,6 +75,8 @@ export default {
         },
     },
 
+    "emits": ["update"],
+
     data () {
         return {
             "notificationTypesHidden": false,
@@ -244,6 +246,8 @@ export default {
             }
             else {
                 typeChannel.subscribed = newValue;
+
+                this.$emit( "update", record.id, channel, newValue );
             }
 
             button.enable();

@@ -117,10 +117,22 @@ export default {
                     if ( channel.editable ) channel.subscribed = newValue;
                 }
 
+                // re-calculate
                 record.set( "subscribed", null );
             }
 
             button.enable();
+        },
+
+        onChannelUpdate ( notification, channel, subscribed ) {
+            const record = this.store.getById( notification );
+
+            if ( !record ) return;
+
+            record.get( "channels" )[channel].subscribed = subscribed;
+
+            // re-calculate
+            record.set( "subscribed", null );
         },
     },
 };
