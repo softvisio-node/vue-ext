@@ -54,7 +54,7 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "center" },
+                    "layout": { "type": "hbox", "pack": "start" },
                     "items": [
                         {
                             "xtype": "togglefield",
