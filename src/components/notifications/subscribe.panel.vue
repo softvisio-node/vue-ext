@@ -76,7 +76,9 @@ export default {
 
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "account/notifications/get-user-notifications-profile" );
+            const res = await this.$api.call( "account/notifications/get-user-notifications-profile", {
+                "acl_id": this.aclId || null,
+            } );
 
             if ( res.ok ) {
                 this.store.loadRawData();
