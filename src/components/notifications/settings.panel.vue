@@ -200,7 +200,11 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "account/notifications/set-user-notification-channel-active", record.id, channel, newValue );
+            const res = await this.$api.call( "account/notifications/set-user-notification-active", {
+                "notification": record.id,
+                channel,
+                "active": newValue,
+            } );
 
             if ( !res.ok ) {
                 await new Promise( resolve => setTimeout( resolve, 500 ) );
