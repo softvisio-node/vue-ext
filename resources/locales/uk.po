@@ -666,6 +666,7 @@ msgstr "Сповіщення"
 #: src/components/account/panel.vue:11:38
 #: src/components/notifications/dialog.vue:23:31
 #: src/components/notifications/settings.dialog.vue:2:50
+#: src/components/notifications/subscribe.dialog.vue:30:31
 msgid "Notifications settings"
 msgstr "Налаштування сповіщень"
 
@@ -875,6 +876,7 @@ msgid "Sessions were deleted"
 msgstr "Сесії видалено"
 
 #: src/components/notifications/dialog.vue:22:28
+#: src/components/notifications/subscribe.dialog.vue:29:28
 msgid "Settings"
 msgstr "Налаштування"
 

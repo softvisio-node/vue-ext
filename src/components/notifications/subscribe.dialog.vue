@@ -6,6 +6,7 @@
 
 <script>
 import NotificationsSubscribePanel from "#src/components/notifications/subscribe.panel";
+import NotificationsSettingsDialog from "#src/components/notifications/settings.dialog";
 
 export default {
     "components": { NotificationsSubscribePanel },
@@ -21,7 +22,27 @@ export default {
         _ready ( e ) {
             this.ext = e.detail.cmp;
 
+            this.ext.getHeader().add( [
+                {
+                    "xtype": "button",
+                    "iconCls": "fa-solid fa-cog",
+                    "text": this.i18nd( `vue-ext`, `Settings` ),
+                    "tooltip": this.i18nd( `vue-ext`, `Notifications settings` ),
+                    "handler": this.showNotificationsSettingsDialog.bind( this ),
+                },
+            ] );
+
             this.ext.on( "beforeShow", () => this.$refs.panel.refresh() );
+        },
+
+        async showNotificationsSettingsDialog () {
+            const cmp = await this.$mount( NotificationsSettingsDialog, {
+                "props": {
+                    "aclId": this.aclId,
+                },
+            } );
+
+            cmp.ext.show();
         },
     },
 };
