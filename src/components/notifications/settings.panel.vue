@@ -247,6 +247,9 @@ export default {
             else {
                 typeChannel.subscribed = newValue;
 
+                // re-calculate
+                record.set( "subscribed", null );
+
                 this.$emit( "update", record.id, channel, newValue );
             }
 
