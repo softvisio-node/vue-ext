@@ -115,7 +115,7 @@ export default {
             button.disable();
 
             const res = await this.$api.call( "account/notifications/set-user-notification-active", {
-                "aclId": this.aclId || null,
+                "acl_id": this.aclId || null,
                 "notification": record.id,
                 "active": newValue,
             } );
