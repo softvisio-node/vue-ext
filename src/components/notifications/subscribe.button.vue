@@ -1,6 +1,6 @@
 <template>
     <ext-container :hidden="_hidden" @ready="_ready">
-        <ext-button ref="button" iconCls="fa-regular fa-eye" :text="i18nd(`vue-ext`, `Watch`)" @tap="showNotificationsDialog"/>
+        <ext-button ref="button" iconCls="fa-regular fa-eye" :text="i18nd(`vue-ext`, `Watch`)" :ui="ui" @tap="showNotificationsDialog"/>
 
         <NotificationsDialog ref="dialog"/>
     </ext-container>
@@ -16,6 +16,10 @@ export default {
         "hidden": {
             "type": Boolean,
             "default": false,
+        },
+        "ui": {
+            "type": String,
+            "default": "",
         },
     },
 
