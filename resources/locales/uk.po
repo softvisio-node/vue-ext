@@ -659,6 +659,7 @@ msgstr "Типи сповіщень"
 
 #: src/components/account/panel.vue:9:40
 #: src/components/notifications/dialog.vue:2:87
+#: src/components/notifications/subscribe.dialog.vue:2:87
 msgid "Notifications"
 msgstr "Сповіщення"
 
@@ -935,11 +936,11 @@ msgstr "Telegram боти"
 msgid "Telegram link copied to the clipboard"
 msgstr "Посилання на Telegram скопійовано в буфер обміну"
 
-#: src/components/notifications/settings.panel.vue:106:35
+#: src/components/notifications/settings.panel.vue:121:35
 msgid "Telegram linked"
 msgstr "Telegram пов'язаний"
 
-#: src/components/notifications/settings.panel.vue:109:35
+#: src/components/notifications/settings.panel.vue:124:35
 msgid "Telegram unlinked"
 msgstr "Telegram відключено"
 
@@ -1056,6 +1057,10 @@ msgstr "Перегляд сесій користувача"
 #: src/utils.js:6:14
 msgid "Warning"
 msgstr "Увага"
+
+#: src/components/notifications/subscribe.button.vue:3:68
+msgid "Watch"
+msgstr ""
 
 #: src/components/change-email.dialog.vue:11:65
 msgid "We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above."
