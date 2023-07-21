@@ -1,5 +1,5 @@
 <template>
-    <ext-container :hidden="_hidden" @ready="_ready">
+    <ext-container :hidden="hidden" @ready="_ready">
         <ext-button ref="button" iconCls="fa-regular fa-eye" :text="i18nd(`vue-ext`, `Watch`)" :ui="ui" @tap="showNotificationsSubscribeDialog"/>
 
         <NotificationsSubscribeDialog ref="dialog"/>
@@ -23,25 +23,9 @@ export default {
         },
     },
 
-    "computed": {
-        totalInbox () {
-            return this.$app.notifications.totalInbox;
-        },
-
-        _hidden () {
-            return !this.$app.notifications.internalNotificationsEnabled || this.hidden;
-        },
-    },
-
-    "watch": {
-        "totalInbox": "_setNotificationsBadgeText",
-    },
-
     "methods": {
         _ready ( e ) {
             this.ext = e.detail.cmp;
-
-            this._setNotificationsBadgeText();
         },
 
         showNotificationsSubscribeDialog () {
@@ -59,10 +43,6 @@ export default {
             dialog.showBy( this.ext, "tr-tl" );
 
             this.$app.notifications.refreshRelativeTime();
-        },
-
-        _setNotificationsBadgeText () {
-            this.$refs.button.ext.setBadgeText( this.$app.notifications.totalInbox || "" );
         },
     },
 };
