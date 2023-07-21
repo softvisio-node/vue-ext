@@ -43,7 +43,7 @@ export default Ext.define( "", {
             "type": "bool",
             calculate ( data ) {
                 for ( const channel of Object.values( data.channels || {} ) ) {
-                    if ( channel.subscribed ) return true;
+                    if ( channel.editable && channel.subscribed ) return true;
                 }
 
                 return false;
