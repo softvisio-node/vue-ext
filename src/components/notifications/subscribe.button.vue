@@ -1,16 +1,16 @@
 <template>
     <ext-container :hidden="_hidden" @ready="_ready">
-        <ext-button ref="button" iconCls="fa-regular fa-eye" :text="i18nd(`vue-ext`, `Watch`)" :ui="ui" @tap="showNotificationsDialog"/>
+        <ext-button ref="button" iconCls="fa-regular fa-eye" :text="i18nd(`vue-ext`, `Watch`)" :ui="ui" @tap="showNotificationsSubscribeDialog"/>
 
-        <NotificationsDialog ref="dialog"/>
+        <NotificationsSubscribeDialog ref="dialog"/>
     </ext-container>
 </template>
 
 <script>
-import NotificationsDialog from "#src/components/notifications/dialog";
+import NotificationsSubscribeDialog from "#src/components/notifications/subscribe.dialog";
 
 export default {
-    "components": { NotificationsDialog },
+    "components": { NotificationsSubscribeDialog },
 
     "props": {
         "hidden": {
@@ -44,7 +44,7 @@ export default {
             this._setNotificationsBadgeText();
         },
 
-        showNotificationsDialog () {
+        showNotificationsSubscribeDialog () {
             const dialog = this.$refs.dialog.ext;
 
             // XXX fix for case, when .showBy() coordinates are incorrect on first show
