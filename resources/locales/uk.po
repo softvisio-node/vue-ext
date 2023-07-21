@@ -1060,7 +1060,7 @@ msgstr "Увага"
 
 #: src/components/notifications/subscribe.button.vue:3:68
 msgid "Watch"
-msgstr ""
+msgstr "Слідкувати"
 
 #: src/components/change-email.dialog.vue:11:65
 msgid "We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above."
