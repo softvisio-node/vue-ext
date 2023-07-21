@@ -196,12 +196,15 @@ export default {
                     this.store.each( record => {
                         if ( !record.get( "editable" ) ) return;
 
-                        this.notificationTypesHidden = false;
-
                         const channels = record.get( "channels" );
 
+                        // enable channels
                         for ( const channel of Object.keys( channels ) ) {
-                            if ( channels[channel].enabled ) this[channel + "NotificationsEnabled"] = true;
+                            if ( channels[channel].editable ) {
+                                this.notificationTypesHidden = false;
+
+                                this[channel + "NotificationsEnabled"] = true;
+                            }
                         }
                     } );
                 }
