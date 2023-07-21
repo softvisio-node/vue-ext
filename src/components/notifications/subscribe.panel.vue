@@ -68,9 +68,9 @@ export default {
                             "bind": {
                                 "hidden": `{!record.enabled}`,
                                 "disabled": `{!record.editable}`,
-                                "value": `{record.active}`,
+                                "value": `{record.subscribed}`,
                             },
-                            "listeners": { "change": this.toggleActive.bind( this ) },
+                            "listeners": { "change": this.toggleSubscribed.bind( this ) },
                         },
                     ],
                 },
@@ -106,18 +106,18 @@ export default {
             }
         },
 
-        async toggleActive ( button, newValue, oldValue ) {
+        async toggleSubscribed ( button, newValue, oldValue ) {
             const record = button.up( "gridrow" ).getRecord(),
-                currentValue = record.get( "active" );
+                currentValue = record.get( "subscribed" );
 
             if ( newValue === currentValue ) return;
 
             button.disable();
 
-            const res = await this.$api.call( "account/notifications/set-user-notification-active", {
+            const res = await this.$api.call( "account/notifications/set-user-notification-subscribed", {
                 "acl_id": this.aclId || null,
                 "notification": record.id,
-                "active": newValue,
+                "subscribed": newValue,
             } );
 
             if ( !res.ok ) {

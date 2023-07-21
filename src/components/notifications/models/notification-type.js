@@ -39,11 +39,11 @@ export default Ext.define( "", {
         },
 
         {
-            "name": "active",
+            "name": "subscribed",
             "type": "bool",
             calculate ( data ) {
                 for ( const channel of Object.values( data.channels || {} ) ) {
-                    if ( channel.active ) return true;
+                    if ( channel.subscribed ) return true;
                 }
 
                 return false;

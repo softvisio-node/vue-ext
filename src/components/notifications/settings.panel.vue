@@ -154,9 +154,9 @@ export default {
                             "bind": {
                                 "hidden": `{!record.channels.${channel}.enabled}`,
                                 "disabled": `{!record.channels.${channel}.editable}`,
-                                "value": `{record.channels.${channel}.active}`,
+                                "value": `{record.channels.${channel}.subscribed}`,
                             },
-                            "listeners": { "change": this.toggleChannelActive.bind( this, channel ) },
+                            "listeners": { "change": this.toggleChannelSubscribed.bind( this, channel ) },
                         },
                     ],
                 },
@@ -191,19 +191,19 @@ export default {
             }
         },
 
-        async toggleChannelActive ( channel, button, newValue, oldValue ) {
+        async toggleChannelSubscribed ( channel, button, newValue, oldValue ) {
             const record = button.up( "gridrow" ).getRecord(),
                 typeChannel = record.get( "channels" )[channel],
-                currentValue = typeChannel.active;
+                currentValue = typeChannel.subscribed;
 
             if ( newValue === currentValue ) return;
 
             button.disable();
 
-            const res = await this.$api.call( "account/notifications/set-user-notification-active", {
+            const res = await this.$api.call( "account/notifications/set-user-notification-subscribed", {
                 "notification": record.id,
                 channel,
-                "active": newValue,
+                "subscribed": newValue,
             } );
 
             if ( !res.ok ) {
@@ -213,7 +213,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                typeChannel.active = newValue;
+                typeChannel.subscribed = newValue;
             }
 
             button.enable();
