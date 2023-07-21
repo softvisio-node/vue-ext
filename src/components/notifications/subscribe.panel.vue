@@ -81,7 +81,6 @@ export default {
             this._refreshing = false;
         },
 
-        // XXX update channels ???
         async toggleSubscribed ( button, newValue, oldValue ) {
             const record = button.up( "gridrow" ).getRecord(),
                 currentValue = record.get( "subscribed" );
@@ -104,8 +103,11 @@ export default {
                 this.$utils.toast( res );
             }
             else {
+                for ( const channel of Object.values( record.get( "channels" ) ) ) {
+                    if ( channel.editable ) channel.subscribed = newValue;
+                }
 
-                // XXX
+                record.set( "subscribed", null );
             }
 
             button.enable();
