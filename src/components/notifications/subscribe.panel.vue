@@ -17,21 +17,6 @@ import Model from "./models/notification-type";
 export default {
     "components": { CardsPanel },
 
-    // XXX
-    data () {
-        return {
-            "notificationTypesHidden": false,
-            "internalNotificationsEnabled": false,
-            "emailNotificationsEnabled": false,
-            "telegramNotificationsEnabled": false,
-            "pushNotificationsEnabled": false,
-
-            "telegramSupported": false,
-            "telegramBotUrl": null,
-            "linkedTelegramUsername": null,
-        };
-    },
-
     created () {
         this.store = Ext.create( "Ext.data.Store", {
             "model": Model,
