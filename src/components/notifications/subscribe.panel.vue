@@ -17,6 +17,13 @@ import Model from "./models/notification-type";
 export default {
     "components": { CardsPanel },
 
+    "props": {
+        "aclId": {
+            "type": String,
+            "default": "",
+        },
+    },
+
     created () {
         this.store = Ext.create( "Ext.data.Store", {
             "model": Model,

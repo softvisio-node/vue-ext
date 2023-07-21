@@ -2,7 +2,7 @@
     <ext-container :hidden="hidden" @ready="_ready">
         <ext-button ref="button" iconCls="fa-regular fa-eye" :text="i18nd(`vue-ext`, `Watch`)" :ui="ui" @tap="showNotificationsSubscribeDialog"/>
 
-        <NotificationsSubscribeDialog ref="dialog" :aclId="sclId"/>
+        <NotificationsSubscribeDialog ref="dialog" :aclId="aclId"/>
     </ext-container>
 </template>
 
