@@ -68,6 +68,13 @@ import LinkTelegramDialig from "./link-telegram.dialig";
 export default {
     "components": { PushNotificationsButton, CardsPanel },
 
+    "props": {
+        "aclId": {
+            "type": String,
+            "default": "",
+        },
+    },
+
     data () {
         return {
             "notificationTypesHidden": false,
@@ -174,7 +181,9 @@ export default {
         async refresh () {
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "account/notifications/get-user-notifications-profile" );
+            const res = await this.$api.call( "account/notifications/get-user-notifications-profile", {
+                "acl_id": this.aclId || null,
+            } );
 
             this.$refs.cardsPanel.setResult( res );
 
@@ -221,6 +230,7 @@ export default {
             button.disable();
 
             const res = await this.$api.call( "account/notifications/set-user-notification-subscribed", {
+                "acl_id": this.aclId || null,
                 "notification": record.id,
                 channel,
                 "subscribed": newValue,

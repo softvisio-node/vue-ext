@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="500" layout="fit" :title="i18nd(`vue-ext`, `Notifications settings`)" width="700">
-        <NotificationsSettingsPanel/>
+        <NotificationsSettingsPanel :aclId="aclId"/>
     </ext-dialog>
 </template>
 
@@ -9,6 +9,13 @@ import NotificationsSettingsPanel from "#src/components/notifications/settings.p
 
 export default {
     "components": { NotificationsSettingsPanel },
+
+    "props": {
+        "aclId": {
+            "type": String,
+            "default": "",
+        },
+    },
 
     "methods": {},
 };
