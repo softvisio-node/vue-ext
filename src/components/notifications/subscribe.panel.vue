@@ -2,20 +2,9 @@
     <CardsPanel ref="cardsPanel" flex="1" :hidden="notificationTypesHidden" @refresh="refresh">
         <template #data>
             <ext-grid columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" selectable="false" sortable="false" @ready="_gridReady">
-                <!-- type -->
-                <ext-column cell='{"encodeHtml":false}' dataIndex="title" :text="i18nd(`vue-ext`, `Notification types`)" width="220"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1" :text="i18nd(`vue-ext`, `Notification`)"/>
 
-                <!-- internal -->
-                <ext-column align="center" :hidden="!internalNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>
-
-                <!-- email -->
-                <ext-column align="center" :hidden="!emailNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_emailColReady"/>
-
-                <!-- telegram -->
-                <ext-column align="center" :hidden="!telegramNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Telegram${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_telegramColReady"/>
-
-                <!-- push -->
-                <ext-column align="center" :hidden="!pushNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Push${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_pushColReady"/>
+                <ext-column align="center" :text="i18nd(`vue-ext`, `Subscribed`)" width="110" @ready="_subscribedColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
@@ -65,23 +54,7 @@ export default {
             cmp.setStore( this.store );
         },
 
-        _internalColReady ( e ) {
-            this._toggleColReady( "internal", e );
-        },
-
-        _emailColReady ( e ) {
-            this._toggleColReady( "email", e );
-        },
-
-        _telegramColReady ( e ) {
-            this._toggleColReady( "telegram", e );
-        },
-
-        _pushColReady ( e ) {
-            this._toggleColReady( "push", e );
-        },
-
-        _toggleColReady ( channel, e ) {
+        _subscribedColReady ( e ) {
             const cmp = e.detail.cmp;
 
             cmp.setCell( {
@@ -93,17 +66,18 @@ export default {
                         {
                             "xtype": "togglefield",
                             "bind": {
-                                "hidden": `{!record.channels.${channel}.enabled}`,
-                                "disabled": `{!record.channels.${channel}.editable}`,
-                                "value": `{record.channels.${channel}.active}`,
+                                "hidden": `{!record.enabled}`,
+                                "disabled": `{!record.editable}`,
+                                "value": `{record.active}`,
                             },
-                            "listeners": { "change": this.toggleChannelActive.bind( this, channel ) },
+                            "listeners": { "change": this.toggleActive.bind( this ) },
                         },
                     ],
                 },
             } );
         },
 
+        // XXX
         async refresh () {
             this.$refs.cardsPanel.mask();
 
@@ -132,29 +106,28 @@ export default {
             }
         },
 
-        async toggleChannelActive ( channel, button, newValue, oldValue ) {
+        // XXX aclId
+        async toggleActive ( button, newValue, oldValue ) {
             const record = button.up( "gridrow" ).getRecord(),
-                typeChannel = record.get( "channels" )[channel],
-                currentValue = typeChannel.active;
+                currentValue = record.get( "active" );
 
             if ( newValue === currentValue ) return;
 
             button.disable();
 
             const res = await this.$api.call( "account/notifications/set-user-notification-active", {
+
+                // "aclId": this.aclId, // XXX
                 "notification": record.id,
-                channel,
                 "active": newValue,
             } );
 
             if ( !res.ok ) {
                 await new Promise( resolve => setTimeout( resolve, 500 ) );
+
                 button.setValue( currentValue );
 
                 this.$utils.toast( res );
-            }
-            else {
-                typeChannel.active = newValue;
             }
 
             button.enable();
