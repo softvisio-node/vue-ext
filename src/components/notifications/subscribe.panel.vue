@@ -1,10 +1,10 @@
 <template>
     <CardsPanel ref="cardsPanel" flex="1" :store="store" @refresh="refresh">
         <template #data>
-            <ext-grid columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" selectable="false" sortable="false" @ready="_gridReady">
+            <ext-grid columnMenu="false" columnResize="false" hideHeaders="true" itemConfig='{"viewModel":true}' layout="fit" selectable="false" sortable="false" @ready="_gridReady">
                 <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1" :text="i18nd(`vue-ext`, `Notification`)"/>
 
-                <ext-column align="center" :text="i18nd(`vue-ext`, `Subscribed`)" width="110" @ready="_subscribedColReady"/>
+                <ext-column align="center" :text="i18nd(`vue-ext`, `Subscribed`)" width="60" @ready="_subscribedColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
