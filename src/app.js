@@ -45,7 +45,7 @@ export default class VueExtApp extends VueApp {
     }
 
     async _onAuthorization () {
-        const cmp = await this.vue.$mount( AuthorizationDialog );
+        const cmp = await this.viewport.vue.$mount( AuthorizationDialog );
 
         return cmp.show();
     }
