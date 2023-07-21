@@ -1,6 +1,6 @@
 <template>
     <ext-container :hidden="_hidden" @ready="_ready">
-        <ext-button ref="button" iconCls="fa-regular fa-bell" margin="10 20 0 0" ui="action" width="55" @tap="showNotificationsDialog"/>
+        <ext-button ref="button" iconCls="fa-regular fa-eye" :text="i18nd(`vue-ext`, `Watch`)" @tap="showNotificationsDialog"/>
 
         <NotificationsDialog ref="dialog"/>
     </ext-container>
