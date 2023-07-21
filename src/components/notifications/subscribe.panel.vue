@@ -135,10 +135,3 @@ export default {
     },
 };
 </script>
-
-<style>
-.notification-type-name {
-    font-weight: bold;
-    font-size: 1.2em;
-}
-</style>
