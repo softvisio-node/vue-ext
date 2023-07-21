@@ -40,7 +40,7 @@ export default {
                 dialog.hide( false );
             }
 
-            dialog.showBy( this.ext, "tr-tl" );
+            dialog.showBy( this.ext, "tr-br" );
 
             this.$app.notifications.refreshRelativeTime();
         },
