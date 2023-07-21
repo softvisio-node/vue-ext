@@ -106,6 +106,7 @@ export default {
             }
         },
 
+        // XXX update channels ???
         async toggleSubscribed ( button, newValue, oldValue ) {
             const record = button.up( "gridrow" ).getRecord(),
                 currentValue = record.get( "subscribed" );
