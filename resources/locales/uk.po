@@ -938,11 +938,11 @@ msgstr "Telegram боти"
 msgid "Telegram link copied to the clipboard"
 msgstr "Посилання на Telegram скопійовано в буфер обміну"
 
-#: src/components/notifications/settings.panel.vue:121:35
+#: src/components/notifications/settings.panel.vue:123:35
 msgid "Telegram linked"
 msgstr "Telegram пов'язаний"
 
-#: src/components/notifications/settings.panel.vue:124:35
+#: src/components/notifications/settings.panel.vue:126:35
 msgid "Telegram unlinked"
 msgstr "Telegram відключено"
 
