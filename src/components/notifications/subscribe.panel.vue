@@ -106,7 +106,6 @@ export default {
             }
         },
 
-        // XXX aclId
         async toggleActive ( button, newValue, oldValue ) {
             const record = button.up( "gridrow" ).getRecord(),
                 currentValue = record.get( "active" );
@@ -116,8 +115,7 @@ export default {
             button.disable();
 
             const res = await this.$api.call( "account/notifications/set-user-notification-active", {
-
-                // "aclId": this.aclId, // XXX
+                "aclId": this.aclId || null,
                 "notification": record.id,
                 "active": newValue,
             } );
