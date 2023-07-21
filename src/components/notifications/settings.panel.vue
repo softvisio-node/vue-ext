@@ -245,6 +245,8 @@ export default {
                 this.$utils.toast( res );
             }
             else {
+                button.setValue( newValue );
+
                 typeChannel.subscribed = newValue;
 
                 // re-calculate
