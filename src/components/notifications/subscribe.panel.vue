@@ -1,40 +1,5 @@
 <template>
-    <ext-panel defaults='{"padding":"0 0 30 0"}' layout="vbox">
-        <!-- push notifications -->
-        <ext-container :hidden="pusHidden">
-            <ext-container layout='{"align":"start","type":"hbox"}'>
-                <ext-container layout="vbox" width="260">
-                    <ext-container :html="i18nd(`vue-ext`, `Push notifications`)" style="font-size: 1.3em"/>
-                    <ext-container :html="i18nd(`vue-ext`, `Receive push notifications on this device`)"/>
-                </ext-container>
-                <ext-container>
-                    <PushNotificationsButton :hideLabel="true"/>
-                </ext-container>
-            </ext-container>
-        </ext-container>
-
-        <!-- telegram -->
-        <ext-container :hidden="!telegramSupported">
-            <ext-container layout='{"align":"start","type":"hbox"}'>
-                <ext-container layout="vbox" width="260">
-                    <ext-container html='<i class="fa-brands fa-telegram"></i> Telegram' style="font-size: 1.3em"/>
-                    <ext-container :html="i18nd(`vue-ext`, `To use Telegram support bot you need to link your Telegram account`)"/>
-                </ext-container>
-                <ext-container>
-                    <!-- link -->
-                    <ext-container :hidden="telegramLinked">
-                        <ext-button :text="i18nd(`vue-ext`, `Link Telegram`)" @tap="_linkTelegramBot"/>
-                    </ext-container>
-
-                    <!-- open -->
-                    <ext-container :hidden="!telegramLinked" layout="vbox">
-                        <ext-button :text="i18nd(`vue-ext`, `Open Telegram bot`)" @tap="_openTelegramBot"/>
-                        <ext-button iconCls="fa-regular fa-trash-can" :text="i18nd(`vue-ext`, `Unlink Telegram`)" @tap="_unlinkTelegramBot"/>
-                    </ext-container>
-                </ext-container>
-            </ext-container>
-        </ext-container>
-
+    <ext-panel defaults='{"padding":"0 0 30 0"}' layout="vbox" scrollable="true">
         <!-- notification types -->
         <CardsPanel ref="cardsPanel" flex="1" :hidden="notificationTypesHidden" @refresh="refresh">
             <template #data>
@@ -60,13 +25,11 @@
 </template>
 
 <script>
-import PushNotificationsButton from "#src/components/push-notifications.button";
 import CardsPanel from "#src/components/cards.panel";
 import Model from "./models/notification-type";
-import LinkTelegramDialig from "./link-telegram.dialig";
 
 export default {
-    "components": { PushNotificationsButton, CardsPanel },
+    "components": { CardsPanel },
 
     data () {
         return {
@@ -82,39 +45,20 @@ export default {
         };
     },
 
-    "computed": {
-        pusHidden () {
-            return !this.$app.notifications.pushNotificationsSupported;
-        },
-
-        telegramLinked () {
-            return !!this.linkedTelegramUsername;
-        },
-    },
-
     created () {
         this.store = Ext.create( "Ext.data.Store", {
             "model": Model,
             "autoLoad": false,
             "pageSize": null,
+            "remoteFilter": false,
+            "filters": [
+                {
+                    "property": "editable",
+                    "opertor": "=",
+                    "value": true,
+                },
+            ],
         } );
-
-        this._telegramLinkedListener = linkedTelegramUsername => {
-            this.linkedTelegramUsername = linkedTelegramUsername;
-
-            if ( linkedTelegramUsername ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, `Telegram linked` ) );
-            }
-            else {
-                this.$utils.toast( this.i18nd( `vue-ext`, `Telegram unlinked` ) );
-            }
-        };
-
-        this.$api.on( "notifications/telegram-linked", this._telegramLinkedListener );
-    },
-
-    unmounted () {
-        this.$api.off( "notifications/telegram-linked", this._telegramLinkedListener );
     },
 
     "methods": {
@@ -217,43 +161,6 @@ export default {
             }
 
             button.enable();
-        },
-
-        _openTelegramBot () {
-            this.$utils.clickUrl( this.telegramBotUrl );
-        },
-
-        async _linkTelegramBot () {
-            const res = await this.$api.call( "account/notifications/get-telegram-link-url" );
-
-            if ( !res.ok ) {
-                this.$utils.toast( res );
-            }
-            else {
-                if ( res.data.linkedTelegramUsername ) {
-                    this.linkedTelegramUsername = res.data.linkedTelegramUsername;
-                }
-                else {
-                    const cmp = await this.$mount( LinkTelegramDialig, {
-                        "props": {
-                            "linkTelegramBotUrl": res.data.linkTelegramBotUrl,
-                        },
-                    } );
-
-                    cmp.ext.show();
-                }
-            }
-        },
-
-        async _unlinkTelegramBot () {
-            const res = await this.$api.call( "account/notifications/unlink-telegram" );
-
-            if ( !res.ok ) {
-                this.$utils.toast( res );
-            }
-            else {
-                this.linkedTelegramUsername = null;
-            }
         },
     },
 };
