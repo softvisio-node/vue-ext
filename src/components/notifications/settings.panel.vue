@@ -97,6 +97,14 @@ export default {
             "model": Model,
             "autoLoad": false,
             "pageSize": null,
+            "remoteFilter": false,
+            "filters": [
+                {
+                    "property": "editable",
+                    "opertor": "=",
+                    "value": true,
+                },
+            ],
         } );
 
         this._telegramLinkedListener = linkedTelegramUsername => {
@@ -171,22 +179,31 @@ export default {
             this.$refs.cardsPanel.setResult( res );
 
             if ( res.ok ) {
-                if ( !res.data.notifications ) {
-                    this.notificationTypesHidden = true;
-                }
-                else {
-                    this.notificationTypesHidden = false;
+                this.telegramSupported = res.data.telegramSupported;
+                this.telegramBotUrl = res.data.telegramBotUrl;
+                this.linkedTelegramUsername = res.data.linkedTelegramUsername;
 
-                    this.internalNotificationsEnabled = res.data.internalNotificationsEnabled;
-                    this.emailNotificationsEnabled = res.data.emailNotificationsEnabled;
-                    this.telegramNotificationsEnabled = res.data.telegramNotificationsEnabled;
-                    this.pushNotificationsEnabled = res.data.pushNotificationsEnabled;
+                this.notificationTypesHidden = true;
 
-                    this.telegramSupported = res.data.telegramSupported;
-                    this.telegramBotUrl = res.data.telegramBotUrl;
-                    this.linkedTelegramUsername = res.data.linkedTelegramUsername;
+                this.internalNotificationsEnabled = false;
+                this.emailNotificationsEnabled = false;
+                this.telegramNotificationsEnabled = false;
+                this.pushNotificationsEnabled = false;
 
+                if ( res.data.notifications ) {
                     this.store.loadRawData( res.data.notifications );
+
+                    this.store.each( record => {
+                        if ( !record.get( "editable" ) ) return;
+
+                        this.notificationTypesHidden = false;
+
+                        const channels = record.get( "channels" );
+
+                        for ( const channel of Object.keys( channels ) ) {
+                            if ( channels[channel].enabled ) this[channel + "NotificationsEnabled"] = true;
+                        }
+                    } );
                 }
             }
         },
