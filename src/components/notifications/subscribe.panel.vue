@@ -72,6 +72,7 @@ export default {
             const res = await this.$api.call( "account/notifications/get-user-notifications-profile" );
 
             if ( res.ok ) {
+                this.store.loadRawData();
                 this.store.loadRawData( res.data.notifications );
             }
             else {
