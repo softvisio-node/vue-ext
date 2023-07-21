@@ -1,6 +1,6 @@
 <template>
     <ext-dialog closeAction="hide" height="300" layout="fit" padding="0 5 5 5" :title="i18nd(`vue-ext`, `Notifications`)" width="400" @ready="_ready">
-        <NotificationsSubscribePanel :aclId="aclId"/>
+        <NotificationsSubscribePanel ref="panel" :aclId="aclId"/>
     </ext-dialog>
 </template>
 
@@ -20,6 +20,8 @@ export default {
     "methods": {
         _ready ( e ) {
             this.ext = e.detail.cmp;
+
+            this.ext.on( "beforeShow", () => this.$refs.panel.refresh() );
         },
     },
 };

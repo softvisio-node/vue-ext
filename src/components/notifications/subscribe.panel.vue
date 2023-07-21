@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cardsPanel" flex="1" :hidden="notificationTypesHidden" @refresh="refresh">
+    <CardsPanel ref="cardsPanel" flex="1" :store="store" @refresh="refresh">
         <template #data>
             <ext-grid columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" selectable="false" sortable="false" @ready="_gridReady">
                 <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1" :text="i18nd(`vue-ext`, `Notification`)"/>
@@ -17,6 +17,7 @@ import Model from "./models/notification-type";
 export default {
     "components": { CardsPanel },
 
+    // XXX
     data () {
         return {
             "notificationTypesHidden": false,
@@ -77,33 +78,22 @@ export default {
             } );
         },
 
-        // XXX
         async refresh () {
+            if ( this._refreshing ) return;
+            this._refreshing = true;
+
             this.$refs.cardsPanel.mask();
 
             const res = await this.$api.call( "account/notifications/get-user-notifications-profile" );
 
-            this.$refs.cardsPanel.setResult( res );
-
             if ( res.ok ) {
-                if ( !res.data.notifications ) {
-                    this.notificationTypesHidden = true;
-                }
-                else {
-                    this.notificationTypesHidden = false;
-
-                    this.internalNotificationsEnabled = res.data.internalNotificationsEnabled;
-                    this.emailNotificationsEnabled = res.data.emailNotificationsEnabled;
-                    this.telegramNotificationsEnabled = res.data.telegramNotificationsEnabled;
-                    this.pushNotificationsEnabled = res.data.pushNotificationsEnabled;
-
-                    this.telegramSupported = res.data.telegramSupported;
-                    this.telegramBotUrl = res.data.telegramBotUrl;
-                    this.linkedTelegramUsername = res.data.linkedTelegramUsername;
-
-                    this.store.loadRawData( res.data.notifications );
-                }
+                this.store.loadRawData( res.data.notifications );
             }
+            else {
+                this.$refs.cardsPanel.setResult( res );
+            }
+
+            this._refreshing = false;
         },
 
         // XXX update channels ???
@@ -127,6 +117,10 @@ export default {
                 button.setValue( currentValue );
 
                 this.$utils.toast( res );
+            }
+            else {
+
+                // XXX
             }
 
             button.enable();
