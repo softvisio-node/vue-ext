@@ -402,11 +402,6 @@ msgstr "Токен підтвердження електронної пошти 
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
 
-#: src/components/notifications/settings.panel.vue:49:140
-#, javascript-format
-msgid "Email${n}notifications"
-msgstr "Email${n}сповіщення"
-
 #: src/components/change-email.dialog.vue:8:137
 msgid "Enter confirmation token"
 msgstr "Введіть токен підтвердження"
@@ -553,11 +548,6 @@ msgstr "Моніторинг екземплярів"
 #: src/components/account/appearance.panel.vue:33:38
 msgid "Interface base color"
 msgstr "Базовий колір інтерфейсу"
-
-#: src/components/notifications/settings.panel.vue:46:143
-#, javascript-format
-msgid "Internal${n}notifications"
-msgstr "Внутрішні${n}сповіщення"
 
 #: src/components/user-sessions/panel.vue:20:62
 msgid "IP address"
@@ -755,11 +745,6 @@ msgstr "Push повідомлення вимкнено"
 msgid "Push notifications enabled"
 msgstr "Push повідомлення ввімкнено"
 
-#: src/components/notifications/settings.panel.vue:55:139
-#, javascript-format
-msgid "Push${n}notifications"
-msgstr "Push${n}сповіщення"
-
 #: src/components/push-notifications.button.vue:36:23
 msgid "Receive push notifications"
 msgstr "Отримувати push повідомлення"
@@ -942,11 +927,6 @@ msgstr "Telegram пов'язаний"
 #: src/components/notifications/settings.panel.vue:126:35
 msgid "Telegram unlinked"
 msgstr "Telegram відключено"
-
-#: src/components/notifications/settings.panel.vue:52:143
-#, javascript-format
-msgid "Telegram${n}notifications"
-msgstr "Telegram${n}сповіщення"
 
 #: src/components/notifications/settings.panel.vue:21:42
 msgid "To use Telegram support bot you need to link your Telegram account"
@@ -1179,6 +1159,10 @@ msgstr "Зменшити"
 #~ msgid "Edit user scopes"
 #~ msgstr "Редагувати дозволи користувача"
 
+#, javascript-format
+#~ msgid "Email${n}notifications"
+#~ msgstr "Email${n}сповіщення"
+
 #~ msgid "Enable push notifications"
 #~ msgstr "Увімкнути push повідомлення"
 
@@ -1206,6 +1190,10 @@ msgstr "Зменшити"
 #, javascript-format
 #~ msgid "In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${n}</b> and press <b>\"Start\"</b>."
 #~ msgstr "Щоб отримувати сповіщення Telegram, вам потрібно встановити своє ім’я користувача в Telegram. Потім відкрийте чат із <b>@${n}</b> і натисніть <b>\"Start\"</b>."
+
+#, javascript-format
+#~ msgid "Internal${n}notifications"
+#~ msgstr "Внутрішні${n}сповіщення"
 
 #~ msgid "Key roles updated"
 #~ msgstr "Ролі ключа оновлено"
@@ -1237,6 +1225,10 @@ msgstr "Зменшити"
 
 #~ msgid "Please, fill all required fields"
 #~ msgstr "Будь ласка, заповніть усі обов'язкові поля"
+
+#, javascript-format
+#~ msgid "Push${n}notifications"
+#~ msgstr "Push${n}сповіщення"
 
 #~ msgid "Refresh notifications"
 #~ msgstr "Оновити сповіщення"
@@ -1308,6 +1300,10 @@ msgstr "Зменшити"
 #~| msgid "Telegram username"
 #~ msgid "Telegram bpts"
 #~ msgstr "Ім'я користувача Telegram"
+
+#, javascript-format
+#~ msgid "Telegram${n}notifications"
+#~ msgstr "Telegram${n}сповіщення"
 
 #~ msgid "Test SMTP"
 #~ msgstr "Перевірка SMTP"

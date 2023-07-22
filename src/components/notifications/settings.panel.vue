@@ -43,16 +43,16 @@
                     <ext-column cell='{"encodeHtml":false}' dataIndex="title" :text="i18nd(`vue-ext`, `Notifications`)" width="220"/>
 
                     <!-- internal -->
-                    <ext-column align="center" :hidden="!internalNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>
+                    <ext-column align="center" :hidden="!internalNotificationsEnabled" text="Internal" width="110" @ready="_internalColReady"/>
 
                     <!-- email -->
-                    <ext-column align="center" :hidden="!emailNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Email${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_emailColReady"/>
+                    <ext-column align="center" :hidden="!emailNotificationsEnabled" text="Email" width="110" @ready="_emailColReady"/>
 
                     <!-- telegram -->
-                    <ext-column align="center" :hidden="!telegramNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Telegram${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_telegramColReady"/>
+                    <ext-column align="center" :hidden="!telegramNotificationsEnabled" text="Telegram" width="110" @ready="_telegramColReady"/>
 
                     <!-- push -->
-                    <ext-column align="center" :hidden="!pushNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Push${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_pushColReady"/>
+                    <ext-column align="center" :hidden="!pushNotificationsEnabled" text="Push" width="110" @ready="_pushColReady"/>
                 </ext-grid>
             </template>
         </CardsPanel>
@@ -297,10 +297,3 @@ export default {
     },
 };
 </script>
-
-<style>
-.notification-type-name {
-    font-weight: bold;
-    font-size: 1.2em;
-}
-</style>
