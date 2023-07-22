@@ -40,7 +40,7 @@
             <template #data>
                 <ext-grid columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" selectable="false" sortable="false" @ready="_gridReady">
                     <!-- type -->
-                    <ext-column cell='{"encodeHtml":false}' dataIndex="title" :text="i18nd(`vue-ext`, `Notification types`)" width="220"/>
+                    <ext-column cell='{"encodeHtml":false}' dataIndex="title" :text="i18nd(`vue-ext`, `Notifications`)" width="220"/>
 
                     <!-- internal -->
                     <ext-column align="center" :hidden="!internalNotificationsEnabled" :text="`<div style=&quot;text-align:center&quot;><b>` + i18nd(`vue-ext`, msgid`Internal${`</b><br/>`}notifications`) + '</div>'" width="110" @ready="_internalColReady"/>

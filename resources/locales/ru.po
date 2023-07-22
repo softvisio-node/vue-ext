@@ -653,12 +653,9 @@ msgstr "Следующий старт"
 msgid "No data match search criteria"
 msgstr "Нет данных, соответствующих критериям поиска"
 
-#: src/components/notifications/settings.panel.vue:43:85
-msgid "Notification types"
-msgstr "Типы уведомлений"
-
 #: src/components/account/panel.vue:9:40
 #: src/components/notifications/dialog.vue:2:87
+#: src/components/notifications/settings.panel.vue:43:85
 #: src/components/notifications/subscribe.dialog.vue:2:87
 msgid "Notifications"
 msgstr "Уведомления"
@@ -1245,6 +1242,9 @@ msgstr "Уменьшить"
 
 #~ msgid "No scopes assigned"
 #~ msgstr "Нет назначенных разрешений"
+
+#~ msgid "Notification types"
+#~ msgstr "Типы уведомлений"
 
 #, javascript-format
 #~ msgid "Open @${n}"
