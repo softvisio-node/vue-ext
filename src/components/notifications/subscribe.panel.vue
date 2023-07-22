@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cardsPanel" flex="1" :store="store" @refresh="refresh">
+    <CardsPanel ref="cardsPanel" :store="store" @refresh="refresh">
         <template #data>
             <ext-grid columnMenu="false" columnResize="false" hideHeaders="true" itemConfig='{"viewModel":true}' layout="fit" selectable="false" sortable="false" @ready="_gridReady">
                 <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1"/>
