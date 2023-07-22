@@ -1,5 +1,16 @@
 # Changelog
 
+### 8.7.0 (2023-07-22)
+
+Features:
+
+-   feat: acl notifications
+
+Fixes:
+
+-   fix: glob
+-   fix: notifications profile
+
 ### 8.6.4 (2023-07-16)
 
 Fixes:
