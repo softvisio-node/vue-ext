@@ -75,7 +75,7 @@ export default {
                         "iconCls": "fa-solid fa-expand",
                         "ui": "action",
                         "handler": this.maximize.bind( this, null ),
-                        "tooltip": this.i18nd( "vue-ext", "Maximize" ),
+                        "tooltip": this.l10nd( "vue-ext", "Maximize" ),
                     },
                     { "xtype": "container", "height": "10" },
                 ];
@@ -98,7 +98,7 @@ export default {
                         "iconCls": "fa-solid fa-search-plus",
                         "ui": "action",
                         "handler": this.zoomIn.bind( this, null ),
-                        "tooltip": this.i18nd( "vue-ext", "Zoom in" ),
+                        "tooltip": this.l10nd( "vue-ext", "Zoom in" ),
                     },
                     { "xtype": "container", "height": "10" },
                     {
@@ -106,7 +106,7 @@ export default {
                         "iconCls": "fa-solid fa-compress",
                         "ui": "action",
                         "handler": this.resetZoom.bind( this ),
-                        "tooltip": this.i18nd( "vue-ext", "Default size" ),
+                        "tooltip": this.l10nd( "vue-ext", "Default size" ),
                     },
                     { "xtype": "container", "height": "10" },
                     {
@@ -114,7 +114,7 @@ export default {
                         "iconCls": "fa-solid fa-search-minus",
                         "ui": "action",
                         "handler": this.zoomOut.bind( this, null ),
-                        "tooltip": this.i18nd( "vue-ext", "Zoom out" ),
+                        "tooltip": this.l10nd( "vue-ext", "Zoom out" ),
                     },
                 ],
             } );

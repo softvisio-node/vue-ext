@@ -1,16 +1,16 @@
 <template>
-    <ext-dialog height="350" :title="i18nd(`vue-ext`, `Authorization`)" width="300" @ready="_ready">
-        <ext-container :html="i18nd(`vue-ext`, `Authorization is required to perform this operation. Please, authorize and then repeat action again.`)"/>
+    <ext-dialog height="350" :title="l10nd(`vue-ext`, `Authorization`)" width="300" @ready="_ready">
+        <ext-container :html="l10nd(`vue-ext`, `Authorization is required to perform this operation. Please, authorize and then repeat action again.`)"/>
 
         <ext-fieldpanel ref="form" @ready="_formReady">
-            <ext-passwordfield errorTarget="under" :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter password`)" required="true" revealable="true"/>
+            <ext-passwordfield errorTarget="under" :label="l10nd(`vue-ext`, `Password`)" name="password" :placeholder="l10nd(`vue-ext`, `Enter password`)" required="true" revealable="true"/>
         </ext-fieldpanel>
 
         <!-- oauth -->
         <OauthContainer margin="10 0 0 0" @tap="_oauthTap"/>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-\ <ext-button :text="i18nd(`vue-ext`, `Authorize`)" ui="action" @tap="_submit"/>
+\ <ext-button :text="l10nd(`vue-ext`, `Authorize`)" ui="action" @tap="_submit"/>
 </ext-toolbar>
     </ext-dialog>
 </template>
@@ -67,7 +67,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Authorized" ) );
+                this.$utils.toast( this.l10nd( `vue-ext`, "Authorized" ) );
 
                 this._resolve( true );
 

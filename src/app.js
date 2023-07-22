@@ -29,16 +29,16 @@ export default class VueExtApp extends VueApp {
     async _onConnectionError ( res ) {
         if ( res ) this.utils.toast( res );
 
-        return this.utils.alert( window.i18nd( `vue-ext`, `Unable to connect to the API server. Check, that you have internet connection.` ), {
-            "title": window.i18nd( `vue-ext`, `Connection error` ),
+        return this.utils.alert( window.l10nd( `vue-ext`, `Unable to connect to the API server. Check, that you have internet connection.` ), {
+            "title": window.l10nd( `vue-ext`, `Connection error` ),
         } );
     }
 
     async _onSignout ( res ) {
         if ( res ) this.utils.toast( res );
 
-        await this.utils.alert( window.i18nd( `vue-ext`, `Your session was terminated on the API server.` ), {
-            "title": window.i18nd( `vue-ext`, `Session closed` ),
+        await this.utils.alert( window.l10nd( `vue-ext`, `Your session was terminated on the API server.` ), {
+            "title": window.l10nd( `vue-ext`, `Session closed` ),
         } );
 
         Ext.Viewport.mask();

@@ -4,7 +4,7 @@
             <ext-toolbar docked="top">
                 <ext-container :html="title"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -35,7 +35,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", msgid`Method: ${this.record?.get( "method_name" ) || "-"}` );
+            return this.l10nd( "vue-ext", msgid`Method: ${this.record?.get( "method_name" ) || "-"}` );
         },
     },
 
@@ -67,7 +67,7 @@ export default {
             );
 
             chart.children.push( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Calls for the last 60 minutes" ),
+                "text": this.l10nd( "vue-ext", "Calls for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -97,7 +97,7 @@ export default {
                 "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "Calls" ) + ": {valueY}",
+                    "labelText": this.l10nd( "vue-ext", "Calls" ) + ": {valueY}",
                 } ),
             } ) );
 
@@ -128,7 +128,7 @@ export default {
             );
 
             chart.children.push( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Average duration per call for the last 60 minutes (ms)" ),
+                "text": this.l10nd( "vue-ext", "Average duration per call for the last 60 minutes (ms)" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -158,7 +158,7 @@ export default {
                 "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "Duration" ) + ": {valueY} ms",
+                    "labelText": this.l10nd( "vue-ext", "Duration" ) + ": {valueY} ms",
                 } ),
             } ) );
 
@@ -189,7 +189,7 @@ export default {
             );
 
             chart.children.push( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Exceptions percent for the last 60 minutes (%)" ),
+                "text": this.l10nd( "vue-ext", "Exceptions percent for the last 60 minutes (%)" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -219,7 +219,7 @@ export default {
                 "stroke": "red",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "Exceptions" ) + ": {valueY}%",
+                    "labelText": this.l10nd( "vue-ext", "Exceptions" ) + ": {valueY}%",
                 } ),
             } ) );
 

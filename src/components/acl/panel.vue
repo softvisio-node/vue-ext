@@ -2,11 +2,11 @@
     <CardsPanel ref="cards" :store="store" viewModel="true" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
+                <ext-searchfield :placeholder="l10nd(`vue-ext`, `Search users`)" width="200" @change="_searchUsers"/>
                 <RolesButton :aclId="aclId" @change="_onRolesFilterChange"/>
                 <ext-spacer/>
-                <ext-button bind='{"hidden":"{!permissions.create}"}' iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Add user`)" @tap="_showAddUserDialog"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-button bind='{"hidden":"{!permissions.create}"}' iconCls="fa-solid fa-plus" :text="l10nd(`vue-ext`, `Add user`)" @tap="_showAddUserDialog"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -14,11 +14,11 @@
             <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' viewModel="true" @ready="_onReady">
                 <ext-column width="40" @ready="_avatarColReady"/>
 
-                <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)"/>
+                <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="l10nd(`vue-ext`, `Email`)"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="roles" flex="1" sortable="false" :text="i18nd(`vue-ext`, `Roles`)" @ready="_rolesColReady"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="roles" flex="1" sortable="false" :text="l10nd(`vue-ext`, `Roles`)" @ready="_rolesColReady"/>
 
-                <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
+                <ext-column sorter='{"property":"enabled"}' :text="l10nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
 
                 <ext-column width="80" @ready="_actionColReady"/>
             </ext-grid>
@@ -183,7 +183,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18nd( "vue-ext", "Edit user roles" ),
+                            "tooltip": this.l10nd( "vue-ext", "Edit user roles" ),
                             "padding": "0 0 0 3",
                             "handler": this._showUserRolesDialog.bind( this ),
                             "bind": {
@@ -193,7 +193,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
-                            "tooltip": this.i18nd( "vue-ext", "Delete user" ),
+                            "tooltip": this.l10nd( "vue-ext", "Delete user" ),
                             "handler": this._deleteAclUser.bind( this ),
                             "bind": {
                                 "disabled": "{!permissions.delete}",
@@ -238,7 +238,7 @@ export default {
             else {
                 record.commit();
 
-                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Access enabled` ) : this.i18nd( `vue-ext`, `Access disabled` ) );
+                this.$utils.toast( enabled ? this.l10nd( `vue-ext`, `Access enabled` ) : this.l10nd( `vue-ext`, `Access disabled` ) );
             }
 
             button.enable();
@@ -247,7 +247,7 @@ export default {
         async _deleteAclUser ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete user?" ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.l10nd( `vue-ext`, "Are you sure you want to delete user?" ) ) ) ) return;
 
             button.disable();
 
@@ -256,7 +256,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "User deleted" ) );
+                this.$utils.toast( this.l10nd( `vue-ext`, "User deleted" ) );
 
                 this.store.remove( record );
             }

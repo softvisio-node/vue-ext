@@ -2,26 +2,26 @@
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for instances`)" width="200" @change="_search"/>
+                <ext-searchfield :placeholder="l10nd(`vue-ext`, `Search for instances`)" width="200" @change="_search"/>
                 <ext-spacer width="20"/>
                 <ext-spacer/>
-                <ext-togglefield :label="i18nd(`vue-ext`, `Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
-                <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-togglefield :label="l10nd(`vue-ext`, `Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
+                <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
 
-            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","split":true}' :title="i18nd(`vue-ext`, `Latest charts`)" width="500">
+            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","split":true}' :title="l10nd(`vue-ext`, `Latest charts`)" width="500">
                 <LatestPanel ref="latestPanel" :record="selectedRecord"/>
             </ext-panel>
         </template>
 
         <template #data>
             <ext-grid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
-                <ext-column dataIndex="instance_type" flex="1" :text="i18nd(`vue-ext`, `Instance type`)"/>
-                <ext-column dataIndex="memory_total" :text="i18nd(`vue-ext`, `Total memory`)" width="120" @ready="_colReady"/>
-                <ext-column dataIndex="memory_free" :text="i18nd(`vue-ext`, `Free memory`)" width="120" @ready="_colReady"/>
-                <ext-column dataIndex="memory_rss" :text="i18nd(`vue-ext`, `RSS memory`)" width="120" @ready="_colReady"/>
-                <ext-column dataIndex="fs_total" :text="i18nd(`vue-ext`, `HDD total`)" width="120" @ready="_colReady"/>
-                <ext-column dataIndex="fs_free" :text="i18nd(`vue-ext`, `HDD free`)" width="120" @ready="_colReady"/>
+                <ext-column dataIndex="instance_type" flex="1" :text="l10nd(`vue-ext`, `Instance type`)"/>
+                <ext-column dataIndex="memory_total" :text="l10nd(`vue-ext`, `Total memory`)" width="120" @ready="_colReady"/>
+                <ext-column dataIndex="memory_free" :text="l10nd(`vue-ext`, `Free memory`)" width="120" @ready="_colReady"/>
+                <ext-column dataIndex="memory_rss" :text="l10nd(`vue-ext`, `RSS memory`)" width="120" @ready="_colReady"/>
+                <ext-column dataIndex="fs_total" :text="l10nd(`vue-ext`, `HDD total`)" width="120" @ready="_colReady"/>
+                <ext-column dataIndex="fs_free" :text="l10nd(`vue-ext`, `HDD free`)" width="120" @ready="_colReady"/>
 
                 <ext-column width="40" @ready="_actionColReady"/>
             </ext-grid>
@@ -124,7 +124,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
-                            "tooltip": this.i18nd( `vue-ext`, `Historical charts` ),
+                            "tooltip": this.l10nd( `vue-ext`, `Historical charts` ),
                             "handler": this.showHistoricalDialog.bind( this ),
                         },
                     ],

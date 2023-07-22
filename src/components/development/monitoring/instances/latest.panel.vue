@@ -4,7 +4,7 @@
             <ext-toolbar docked="top">
                 <ext-container :html="title"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -41,7 +41,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( "vue-ext", msgid`Method: ${this.record?.get( "method_name" ) || "-"}` );
+            return this.l10nd( "vue-ext", msgid`Method: ${this.record?.get( "method_name" ) || "-"}` );
         },
     },
 
@@ -73,7 +73,7 @@ export default {
             );
 
             chart.children.push( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "CPU (user) for the last 60 minutes" ),
+                "text": this.l10nd( "vue-ext", "CPU (user) for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -103,7 +103,7 @@ export default {
                 "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "CPU (user)" ) + ": {valueY}",
+                    "labelText": this.l10nd( "vue-ext", "CPU (user)" ) + ": {valueY}",
                 } ),
             } ) );
 
@@ -134,7 +134,7 @@ export default {
             );
 
             chart.children.push( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "CPU (system) for the last 60 minutes" ),
+                "text": this.l10nd( "vue-ext", "CPU (system) for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -164,7 +164,7 @@ export default {
                 "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "CPU (system)" ) + ": {valueY}",
+                    "labelText": this.l10nd( "vue-ext", "CPU (system)" ) + ": {valueY}",
                 } ),
             } ) );
 
@@ -195,7 +195,7 @@ export default {
             );
 
             chart.children.push( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "Free memory (MB) for the last 60 minutes" ),
+                "text": this.l10nd( "vue-ext", "Free memory (MB) for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -225,7 +225,7 @@ export default {
                 "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "Free memory" ) + ": {valueY} MB",
+                    "labelText": this.l10nd( "vue-ext", "Free memory" ) + ": {valueY} MB",
                 } ),
             } ) );
 
@@ -256,7 +256,7 @@ export default {
             );
 
             chart.children.push( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "RSS memory (MB) for the last 60 minutes" ),
+                "text": this.l10nd( "vue-ext", "RSS memory (MB) for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -286,7 +286,7 @@ export default {
                 "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "RSS memory" ) + ": {valueY} MB",
+                    "labelText": this.l10nd( "vue-ext", "RSS memory" ) + ": {valueY} MB",
                 } ),
             } ) );
 
@@ -317,7 +317,7 @@ export default {
             );
 
             chart.children.push( am5.Label.new( root, {
-                "text": this.i18nd( "vue-ext", "File system free space (MB) for the last 60 minutes" ),
+                "text": this.l10nd( "vue-ext", "File system free space (MB) for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -347,7 +347,7 @@ export default {
                 "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.i18nd( "vue-ext", "Free" ) + ": {valueY} MB",
+                    "labelText": this.l10nd( "vue-ext", "Free" ) + ": {valueY} MB",
                 } ),
             } ) );
 

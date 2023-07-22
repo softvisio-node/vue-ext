@@ -2,18 +2,18 @@
     <ext-panel layout="vbox" scrollable="true" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-container :html="i18nd(`vue-ext`, `Password recovery`)"/>
+            <ext-container :html="l10nd(`vue-ext`, `Password recovery`)"/>
             <ext-spacer/>
         </ext-toolbar>
 
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}'>
-            <ext-emailfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
+            <ext-emailfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `Email address`)" name="email" :placeholder="l10nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
-            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" @tap="back"/>
+            <ext-button iconCls="fa-solid fa-arrow-left" :text="l10nd(`vue-ext`, `Back`)" @tap="back"/>
             <ext-spacer/>
-            <ext-button :text="i18nd(`vue-ext`, `Recover`)" ui="action" @tap="_submit"/>
+            <ext-button :text="l10nd(`vue-ext`, `Recover`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
     </ext-panel>
 </template>
@@ -53,7 +53,7 @@ export default {
             const form = this.$refs.form.ext;
 
             if ( !form.validate() ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, `Please, correctly fill all required fields` ) );
+                this.$utils.toast( this.l10nd( `vue-ext`, `Please, correctly fill all required fields` ) );
 
                 return;
             }
@@ -72,7 +72,7 @@ export default {
             else {
                 form.reset();
 
-                this.$utils.toast( this.i18nd( `vue-ext`, "Password change instructions were sent to the email address, associated with your account." ), 5000 );
+                this.$utils.toast( this.l10nd( `vue-ext`, "Password change instructions were sent to the email address, associated with your account." ), 5000 );
 
                 this.back();
             }

@@ -1,20 +1,20 @@
 <template>
-    <ext-dialog layout="vbox" minHeight="450" :title="i18nd(`vue-ext`, `Password change`)" width="350" @destroy="_onDestroy" @ready="_onReady">
+    <ext-dialog layout="vbox" minHeight="450" :title="l10nd(`vue-ext`, `Password change`)" width="350" @destroy="_onDestroy" @ready="_onReady">
         <ext-fieldpanel ref="form">
             <ext-hiddenfield name="token" :value="token"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `New password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter new password`)" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `New password`)" name="password" :placeholder="l10nd(`vue-ext`, `Enter new password`)" required="true" revealable="true"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Confirm new password`)" name="confirmedPassword" :placeholder="i18nd(`vue-ext`, `Confirm new password`)" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `Confirm new password`)" name="confirmedPassword" :placeholder="l10nd(`vue-ext`, `Confirm new password`)" required="true" revealable="true"/>
 
             <ext-container layout="center">
-                <ext-button :text="i18nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
+                <ext-button :text="l10nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
             </ext-container>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-            <ext-button :text="i18nd(`vue-ext`, `Cancel`)" ui="decline" @tap="close"/>
-            <ext-button :text="i18nd(`vue-ext`, `Change password`)" ui="action" @tap="_submit"/>
+            <ext-button :text="l10nd(`vue-ext`, `Cancel`)" ui="decline" @tap="close"/>
+            <ext-button :text="l10nd(`vue-ext`, `Change password`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -50,7 +50,7 @@ export default {
             this.ext = e.detail.cmp;
 
             if ( !this.token ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Password recovery token was not found" ), 5000 );
+                this.$utils.toast( this.l10nd( `vue-ext`, "Password recovery token was not found" ), 5000 );
 
                 this.close();
             }
@@ -79,7 +79,7 @@ export default {
             const values = form.getValues();
 
             if ( values.password !== values.confirmedPassword ) {
-                form.getFields( "confirmedPassword" ).setError( this.i18nd( "vue-ext", "Passwords do not match" ) );
+                form.getFields( "confirmedPassword" ).setError( this.l10nd( "vue-ext", "Passwords do not match" ) );
 
                 return;
             }
@@ -91,7 +91,7 @@ export default {
             form.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Password changed" ) );
+                this.$utils.toast( this.l10nd( `vue-ext`, "Password changed" ) );
 
                 this.close();
             }
@@ -105,7 +105,7 @@ export default {
 
             this.$utils.copyToClipboard( password );
 
-            this.$utils.toast( this.i18nd( `vue-ext`, `Password copied to the clipboard` ) );
+            this.$utils.toast( this.l10nd( `vue-ext`, `Password copied to the clipboard` ) );
 
             this.$refs.form.ext.getFields( "password" ).setValue( password );
             this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );

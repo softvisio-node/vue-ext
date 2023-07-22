@@ -1,5 +1,5 @@
 <template>
-    <ext-button ref="button" :text="i18nd(`vue-ext`, `Roles filter`)" width="180" @ready="_onReady"/>
+    <ext-button ref="button" :text="l10nd(`vue-ext`, `Roles filter`)" width="180" @ready="_onReady"/>
 </template>
 
 <script>
@@ -71,7 +71,7 @@ export default {
                     "xtype": "menuitem",
                     "separator": true,
                     "iconCls": "fa-solid fa-redo",
-                    "text": this.i18nd( "vue-ext", "Refresh" ),
+                    "text": this.l10nd( "vue-ext", "Refresh" ),
                     "handler": this._loadRoles.bind( this ),
                 } );
             }
@@ -93,7 +93,7 @@ export default {
                         "xtype": "menuitem",
                         "separator": true,
                         "iconCls": "fa-solid fa-xmark",
-                        "text": this.i18nd( "vue-ext", "Clear filter" ),
+                        "text": this.l10nd( "vue-ext", "Clear filter" ),
                         "handler": this.clear.bind( this, false ),
                     }
                 );
@@ -114,12 +114,12 @@ export default {
             } );
 
             if ( checkedItems.length ) {
-                button.setText( this.i18nd( "vue-ext", msgid`${checkedItems.length} role selected`, msgid`${checkedItems.length} roles selected`, checkedItems.length ) );
+                button.setText( this.l10nd( "vue-ext", msgid`${checkedItems.length} role selected`, msgid`${checkedItems.length} roles selected`, checkedItems.length ) );
 
                 this.$emit( "change", checkedItems );
             }
             else {
-                button.setText( this.i18nd( "vue-ext", "Roles filter" ) );
+                button.setText( this.l10nd( "vue-ext", "Roles filter" ) );
 
                 this.$emit( "change" );
             }

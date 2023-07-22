@@ -31,7 +31,7 @@ export default {
 
     "computed": {
         _title () {
-            return this.title || this.i18nd( `vue-ext`, `Users` );
+            return this.title || this.l10nd( `vue-ext`, `Users` );
         },
     },
 };

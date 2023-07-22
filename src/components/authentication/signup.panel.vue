@@ -2,19 +2,19 @@
     <ext-panel layout="vbox" scrollable="true" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-container :html="i18nd(`vue-ext`, `Sign up`)"/>
+            <ext-container :html="l10nd(`vue-ext`, `Sign up`)"/>
             <ext-spacer/>
         </ext-toolbar>
 
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}'>
-            <ext-emailfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Email address`)" name="email" :placeholder="i18nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
+            <ext-emailfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `Email address`)" name="email" :placeholder="l10nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Password`)" name="password" :placeholder="i18nd(`vue-ext`, `Enter password`)" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `Password`)" name="password" :placeholder="l10nd(`vue-ext`, `Enter password`)" required="true" revealable="true"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="i18nd(`vue-ext`, `Confirm password`)" name="confirmedPassword" :placeholder="i18nd(`vue-ext`, `Confirm password`)" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `Confirm password`)" name="confirmedPassword" :placeholder="l10nd(`vue-ext`, `Confirm password`)" required="true" revealable="true"/>
 
             <ext-container layout="center">
-                <ext-button :text="i18nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
+                <ext-button :text="l10nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
             </ext-container>
         </ext-fieldpanel>
 
@@ -22,9 +22,9 @@
         <OauthContainer margin="10 0 0 0" @tap="_oauthTap"/>
 
         <ext-toolbar docked="bottom" layout='{"align":"center","type":"hbox"}'>
-            <ext-button iconCls="fa-solid fa-arrow-left" :text="i18nd(`vue-ext`, `Back`)" @tap="back"/>
+            <ext-button iconCls="fa-solid fa-arrow-left" :text="l10nd(`vue-ext`, `Back`)" @tap="back"/>
             <ext-spacer/>
-            <ext-button :text="i18nd(`vue-ext`, `Sign up`)" ui="action" @tap="_submit"/>
+            <ext-button :text="l10nd(`vue-ext`, `Sign up`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
     </ext-panel>
 </template>
@@ -79,7 +79,7 @@ export default {
 
             this.$utils.copyToClipboard( password );
 
-            this.$utils.toast( this.i18nd( `vue-ext`, `Password copied to the clipboard` ) );
+            this.$utils.toast( this.l10nd( `vue-ext`, `Password copied to the clipboard` ) );
 
             this.$refs.form.ext.getFields( "password" ).setValue( password );
             this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );
@@ -89,7 +89,7 @@ export default {
             const form = this.$refs.form.ext;
 
             if ( !form.validate() ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, `Please, correctly fill all required fields` ) );
+                this.$utils.toast( this.l10nd( `vue-ext`, `Please, correctly fill all required fields` ) );
 
                 return;
             }
@@ -97,7 +97,7 @@ export default {
             const values = form.getValues();
 
             if ( values.password !== values.confirmedPassword ) {
-                form.getFields( "confirmedPassword" ).setError( this.i18nd( "vue-ext", "Passwords do not match" ) );
+                form.getFields( "confirmedPassword" ).setError( this.l10nd( "vue-ext", "Passwords do not match" ) );
 
                 return;
             }

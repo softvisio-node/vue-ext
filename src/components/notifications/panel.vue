@@ -1,12 +1,12 @@
 <template>
     <ext-tabpanel flex="1" layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":"100"},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" @ready="_ready">
         <!-- inbox             -->
-        <ext-panel layout="fit" :title="i18nd(`vue-ext`, `Inbox`)">
+        <ext-panel layout="fit" :title="l10nd(`vue-ext`, `Inbox`)">
             <InboxPanel/>
         </ext-panel>
 
         <!-- done -->
-        <ext-panel iconAlign="left" iconCls="fa-solid fa-check" layout="fit" :title="i18nd(`vue-ext`, `Done`)">
+        <ext-panel iconAlign="left" iconCls="fa-solid fa-check" layout="fit" :title="l10nd(`vue-ext`, `Done`)">
             <DonePanel/>
         </ext-panel>
     </ext-tabpanel>

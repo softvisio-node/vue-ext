@@ -4,8 +4,8 @@
         <ext-container :hidden="pusHidden">
             <ext-container layout='{"align":"start","type":"hbox"}'>
                 <ext-container layout="vbox" width="260">
-                    <ext-container :html="i18nd(`vue-ext`, `Push notifications`)" style="font-size: 1.3em"/>
-                    <ext-container :html="i18nd(`vue-ext`, `Receive push notifications on this device`)"/>
+                    <ext-container :html="l10nd(`vue-ext`, `Push notifications`)" style="font-size: 1.3em"/>
+                    <ext-container :html="l10nd(`vue-ext`, `Receive push notifications on this device`)"/>
                 </ext-container>
                 <ext-container>
                     <PushNotificationsButton :hideLabel="true"/>
@@ -18,18 +18,18 @@
             <ext-container layout='{"align":"start","type":"hbox"}'>
                 <ext-container layout="vbox" width="260">
                     <ext-container html='<i class="fa-brands fa-telegram"></i> Telegram' style="font-size: 1.3em"/>
-                    <ext-container :html="i18nd(`vue-ext`, `To use Telegram support bot you need to link your Telegram account`)"/>
+                    <ext-container :html="l10nd(`vue-ext`, `To use Telegram support bot you need to link your Telegram account`)"/>
                 </ext-container>
                 <ext-container>
                     <!-- link -->
                     <ext-container :hidden="telegramLinked">
-                        <ext-button :text="i18nd(`vue-ext`, `Link Telegram`)" @tap="_linkTelegramBot"/>
+                        <ext-button :text="l10nd(`vue-ext`, `Link Telegram`)" @tap="_linkTelegramBot"/>
                     </ext-container>
 
                     <!-- open -->
                     <ext-container :hidden="!telegramLinked" layout="vbox">
-                        <ext-button :text="i18nd(`vue-ext`, `Open Telegram bot`)" @tap="_openTelegramBot"/>
-                        <ext-button iconCls="fa-regular fa-trash-can" :text="i18nd(`vue-ext`, `Unlink Telegram`)" @tap="_unlinkTelegramBot"/>
+                        <ext-button :text="l10nd(`vue-ext`, `Open Telegram bot`)" @tap="_openTelegramBot"/>
+                        <ext-button iconCls="fa-regular fa-trash-can" :text="l10nd(`vue-ext`, `Unlink Telegram`)" @tap="_unlinkTelegramBot"/>
                     </ext-container>
                 </ext-container>
             </ext-container>
@@ -40,7 +40,7 @@
             <template #data>
                 <ext-grid columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" selectable="false" sortable="false" @ready="_gridReady">
                     <!-- type -->
-                    <ext-column cell='{"encodeHtml":false}' dataIndex="title" :text="i18nd(`vue-ext`, `Notifications`)" width="220"/>
+                    <ext-column cell='{"encodeHtml":false}' dataIndex="title" :text="l10nd(`vue-ext`, `Notifications`)" width="220"/>
 
                     <!-- internal -->
                     <ext-column align="center" :hidden="!internalNotificationsEnabled" text="Internal" width="110" @ready="_internalColReady"/>
@@ -120,10 +120,10 @@ export default {
             this.linkedTelegramUsername = linkedTelegramUsername;
 
             if ( linkedTelegramUsername ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, `Telegram linked` ) );
+                this.$utils.toast( this.l10nd( `vue-ext`, `Telegram linked` ) );
             }
             else {
-                this.$utils.toast( this.i18nd( `vue-ext`, `Telegram unlinked` ) );
+                this.$utils.toast( this.l10nd( `vue-ext`, `Telegram unlinked` ) );
             }
         };
 

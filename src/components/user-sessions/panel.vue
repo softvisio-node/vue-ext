@@ -4,24 +4,24 @@
             <ext-toolbar docked="top">
                 <ext-container :html="title"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out of all sessions`)" @tap="_signOutAllSessions"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-sign-out-alt" :text="l10nd(`vue-ext`, `Sign out of all sessions`)" @tap="_signOutAllSessions"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
         <template #data>
             <ext-grid layout="fit" multicolumnSort="true" plugins='{"gridviewoptions":true}' @ready="_gridReady">
-                <ext-column cell='{"encodeHtml":false}' dataIndex="device_text" flex="1" sorter='{"property":"device_vendor"}' :text="i18nd(`vue-ext`, `Device`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="device_text" flex="1" sorter='{"property":"device_vendor"}' :text="l10nd(`vue-ext`, `Device`)"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="os_text" flex="1" sorter='{"property":"os_name"}' :text="i18nd(`vue-ext`, `Platform`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="os_text" flex="1" sorter='{"property":"os_name"}' :text="l10nd(`vue-ext`, `Platform`)"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="browser_text" flex="1" sorter='{"property":"browser_name"}' :text="i18nd(`vue-ext`, `Browser`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="browser_text" flex="1" sorter='{"property":"browser_name"}' :text="l10nd(`vue-ext`, `Browser`)"/>
 
-                <ext-column dataIndex="remote_address" :text="i18nd(`vue-ext`, `IP address`)" width="130"/>
+                <ext-column dataIndex="remote_address" :text="l10nd(`vue-ext`, `IP address`)" width="130"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="l10nd(`vue-ext`, `Last activity`)" width="150"/>
 
-                <ext-column dataIndex="created" formatter="date()" :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
+                <ext-column dataIndex="created" formatter="date()" :text="l10nd(`vue-ext`, `Creation date`)" width="150"/>
 
                 <ext-column width="50" @ready="_actionColReady"/>
             </ext-grid>
@@ -38,7 +38,7 @@ export default {
 
     "computed": {
         title () {
-            return this.i18nd( `vue-ext`, `Your sessions` );
+            return this.l10nd( `vue-ext`, `Your sessions` );
         },
     },
 
@@ -73,7 +73,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-sign-out-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Sign out" ),
+                            "tooltip": this.l10nd( `vue-ext`, "Sign out" ),
                             "handler": this._signOutSession.bind( this ),
                             "bind": { "hidden": "{record.current_session}" },
                         },
@@ -92,7 +92,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Session was deleted" ) );
+                this.$utils.toast( this.l10nd( `vue-ext`, "Session was deleted" ) );
 
                 this.store.remove( record );
             }
@@ -114,7 +114,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Sessions were deleted" ) );
+                this.$utils.toast( this.l10nd( `vue-ext`, "Sessions were deleted" ) );
 
                 this.refresh();
             }

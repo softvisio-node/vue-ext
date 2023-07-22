@@ -3,24 +3,24 @@
         <template #data>
             <ext-container ref="dataCard" layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
                 <!-- locale -->
-                <ext-fieldcontainer container='{"defaults":null}' :hidden="localeHidden" :label="i18nd(`vue-ext`, `Locale`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+                <ext-fieldcontainer container='{"defaults":null}' :hidden="localeHidden" :label="l10nd(`vue-ext`, `Locale`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
                     <LocaleButton/>
                 </ext-fieldcontainer>
 
                 <!-- password -->
-                <ext-fieldcontainer container='{"defaults":null}' :label="i18nd(`vue-ext`, `Password`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
-                    <ext-button :text="i18nd(`vue-ext`, `Change password`)" @tap="_changePassword"/>
+                <ext-fieldcontainer container='{"defaults":null}' :label="l10nd(`vue-ext`, `Password`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+                    <ext-button :text="l10nd(`vue-ext`, `Change password`)" @tap="_changePassword"/>
                 </ext-fieldcontainer>
 
                 <!-- email  -->
-                <ext-fieldcontainer container='{"defaults":null}' :label="i18nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
+                <ext-fieldcontainer container='{"defaults":null}' :label="l10nd(`vue-ext`, `Email address`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
                     <ext-displayfield bind="{record.email}" width="200"/>
 
                     <!-- change email -->
-                    <ext-button :text="i18nd(`vue-ext`, `Change`)" @tap="_changeEmail"/>
+                    <ext-button :text="l10nd(`vue-ext`, `Change`)" @tap="_changeEmail"/>
 
                     <!-- confitm email -->
-                    <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="i18nd(`vue-ext`, `Confirm`)" @tap="_confirmEmail"/>
+                    <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="l10nd(`vue-ext`, `Confirm`)" @tap="_confirmEmail"/>
                 </ext-fieldcontainer>
 
                 <!-- sessions -->
@@ -84,7 +84,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, `Confirmation email sent` ) );
+                this.$utils.toast( this.l10nd( `vue-ext`, `Confirmation email sent` ) );
             }
             else {
                 this.$utils.toast( res );

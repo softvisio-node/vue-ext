@@ -17,7 +17,7 @@ export default {
 
     "computed": {
         header () {
-            return this.i18nd( "vue-ext", `Change password for user` ) + `<br/><b>${this.userEmail}</b>`;
+            return this.l10nd( "vue-ext", `Change password for user` ) + `<br/><b>${this.userEmail}</b>`;
         },
     },
 

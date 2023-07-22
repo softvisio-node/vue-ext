@@ -2,23 +2,23 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-container :hidden="hideTitle" :html="i18nd(`vue-ext`, `Access tokens`)"/>
-                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
+                <ext-container :hidden="hideTitle" :html="l10nd(`vue-ext`, `Access tokens`)"/>
+                <ext-searchfield :placeholder="l10nd(`vue-ext`, `Search tokens by name`)" width="200" @change="search"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-plus" :text="i18nd(`vue-ext`, `Create token`)" @tap="showCreateTokenDialog"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-plus" :text="l10nd(`vue-ext`, `Create token`)" @tap="showCreateTokenDialog"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
         <template #data>
             <ext-grid layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
-                <ext-column dataIndex="name" flex="1" :text="i18nd(`vue-ext`, `Token name`)"/>
+                <ext-column dataIndex="name" flex="1" :text="l10nd(`vue-ext`, `Token name`)"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="l10nd(`vue-ext`, `Last activity`)" width="150"/>
 
-                <ext-column dataIndex="created" formatter='date("dateStyle:short,timeStyle:short")' :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
+                <ext-column dataIndex="created" formatter='date("dateStyle:short,timeStyle:short")' :text="l10nd(`vue-ext`, `Creation date`)" width="150"/>
 
-                <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="enabledColReady"/>
+                <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="l10nd(`vue-ext`, `Access enabled`)" width="160" @ready="enabledColReady"/>
 
                 <ext-column width="80" @ready="actionColReady"/>
             </ext-grid>
@@ -94,7 +94,7 @@ export default {
                         // {
                         //     "xtype": "button",
                         //     "iconCls": "fa-solid fa-unlock-alt",
-                        //     "tooltip": this.i18nd( `vue-ext`, "Edit token roles" ),
+                        //     "tooltip": this.l10nd( `vue-ext`, "Edit token roles" ),
                         //     "handler": this.showTokenRolesDialog.bind( this ),
                         // },
                         {
@@ -149,7 +149,7 @@ export default {
             else {
                 record.commit();
 
-                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Access enabled` ) : this.i18nd( `vue-ext`, `Access disabled` ) );
+                this.$utils.toast( enabled ? this.l10nd( `vue-ext`, `Access enabled` ) : this.l10nd( `vue-ext`, `Access disabled` ) );
             }
 
             button.enable();
@@ -159,12 +159,12 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete this token?" ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.l10nd( `vue-ext`, "Are you sure you want to delete this token?" ) ) ) ) return;
 
             var res = await this.$api.call( "account/tokens/delete", record.getId() );
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "Token deleted" ) );
+                this.$utils.toast( this.l10nd( `vue-ext`, "Token deleted" ) );
 
                 this.store.remove( record );
             }

@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="300" layout="fit" padding="0 5 5 5" :title="i18nd(`vue-ext`, `Notifications`)" width="300" @ready="_ready">
+    <ext-dialog closeAction="hide" height="300" layout="fit" padding="0 5 5 5" :title="l10nd(`vue-ext`, `Notifications`)" width="300" @ready="_ready">
         <NotificationsSubscribePanel ref="panel" :aclId="aclId"/>
     </ext-dialog>
 </template>
@@ -26,8 +26,8 @@ export default {
                 {
                     "xtype": "button",
                     "iconCls": "fa-solid fa-cog",
-                    "text": this.i18nd( `vue-ext`, `Settings` ),
-                    "tooltip": this.i18nd( `vue-ext`, `Notifications settings` ),
+                    "text": this.l10nd( `vue-ext`, `Settings` ),
+                    "tooltip": this.l10nd( `vue-ext`, `Notifications settings` ),
                     "handler": this.showNotificationsSettingsDialog.bind( this ),
                 },
             ] );

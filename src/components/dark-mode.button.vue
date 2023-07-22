@@ -40,7 +40,7 @@ export default {
                 return `<i class="fa-solid fa-adjust"></i>`;
             }
             else {
-                return `<i class="fa-solid fa-adjust"></i> ${this.i18nd( `vue-ext`, `Dark mode` )}`;
+                return `<i class="fa-solid fa-adjust"></i> ${this.l10nd( `vue-ext`, `Dark mode` )}`;
             }
         },
 

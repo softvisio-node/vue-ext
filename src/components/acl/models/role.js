@@ -13,6 +13,6 @@ export default Ext.define( "", {
         { "name": "enabled", "type": "bool" },
 
         // calculated
-        { "name": "title_html", "calculate": data => `<b>${app.locale.i18nd( "backend", data.name )}</b><br/>${app.locale.i18nd( "backend", data.description )}` },
+        { "name": "title_html", "calculate": data => `<b>${app.locale.l10nd( "backend", data.name )}</b><br/>${app.locale.l10nd( "backend", data.description )}` },
     ],
 } );

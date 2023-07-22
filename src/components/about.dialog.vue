@@ -1,15 +1,15 @@
 <template>
-    <ext-dialog height="400" layout="vbox" :title="i18nd(`vue-ext`, `About the project`)" width="350">
+    <ext-dialog height="400" layout="vbox" :title="l10nd(`vue-ext`, `About the project`)" width="350">
         <ext-fieldpanel defaults='{"labelAlign":"left"}'>
-            <ext-displayfield :label="i18nd(`vue-ext`, `UI version`)" :value="'v' + frontend.currentVersion"/>
-            <ext-displayfield :label="i18nd(`vue-ext`, `UI mode`)" :value="frontend.mode"/>
+            <ext-displayfield :label="l10nd(`vue-ext`, `UI version`)" :value="'v' + frontend.currentVersion"/>
+            <ext-displayfield :label="l10nd(`vue-ext`, `UI mode`)" :value="frontend.mode"/>
 
-            <ext-displayfield :label="i18nd(`vue-ext`, `Backend version`)" :value="'v' + backend.currentVersion"/>
-            <ext-displayfield :label="i18nd(`vue-ext`, `Backend mode`)" :value="backend.mode"/>
+            <ext-displayfield :label="l10nd(`vue-ext`, `Backend version`)" :value="'v' + backend.currentVersion"/>
+            <ext-displayfield :label="l10nd(`vue-ext`, `Backend mode`)" :value="backend.mode"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-            <ext-button iconCls="fa-regular fa-copy" :text="i18nd(`vue-ext`, `Copy to clipboard`)" ui="action" @tap="_copy"/>
+            <ext-button iconCls="fa-regular fa-copy" :text="l10nd(`vue-ext`, `Copy to clipboard`)" ui="action" @tap="_copy"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -37,7 +37,7 @@ export default {
                 4
             ) );
 
-            this.$utils.toast( this.i18nd( "vue-ext", "Version info copied" ) );
+            this.$utils.toast( this.l10nd( "vue-ext", "Version info copied" ) );
         },
     },
 };

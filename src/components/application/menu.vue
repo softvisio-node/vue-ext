@@ -14,16 +14,16 @@
             <slot name="top"/>
 
             <!-- account buttin -->
-            <ext-button :hidden="!showAccountButton" iconCls="fa-solid fa-user-tie" :text="i18nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
+            <ext-button :hidden="!showAccountButton" iconCls="fa-solid fa-user-tie" :text="l10nd(`vue-ext`, `Your account`)" textAlign="left" @tap="showAccountDialog"/>
 
             <!-- change password button -->
-            <ext-button :hidden="!changePasswordButtonEnabled" iconCls="fa-solid fa-asterisk" :text="i18nd(`vue-ext`, `Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
+            <ext-button :hidden="!changePasswordButtonEnabled" iconCls="fa-solid fa-asterisk" :text="l10nd(`vue-ext`, `Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
 
             <!-- administration button                 -->
-            <ext-button :hidden="!showAdministrationButton" :text="i18nd(`vue-ext`, `Administration`)" textAlign="left" @tap="showAdministrationDialog"/>
+            <ext-button :hidden="!showAdministrationButton" :text="l10nd(`vue-ext`, `Administration`)" textAlign="left" @tap="showAdministrationDialog"/>
 
             <!-- development button                 -->
-            <ext-button :hidden="!showDevelopmentButton" :text="i18nd(`vue-ext`, `Development`)" textAlign="left" @tap="showDevelopmentDialog"/>
+            <ext-button :hidden="!showDevelopmentButton" :text="l10nd(`vue-ext`, `Development`)" textAlign="left" @tap="showDevelopmentDialog"/>
 
             <slot name="bottom"/>
 
@@ -40,10 +40,10 @@
             <ext-container height="10"/>
 
             <!-- aboit                 -->
-            <ext-button :text="i18nd(`vue-ext`, `About the project`)" textAlign="left" @tap="showAboutDialog"/>
+            <ext-button :text="l10nd(`vue-ext`, `About the project`)" textAlign="left" @tap="showAboutDialog"/>
 
             <!-- sign out                 -->
-            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="i18nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
+            <ext-button iconCls="fa-solid fa-sign-out-alt" :text="l10nd(`vue-ext`, `Sign out`)" textAlign="left" @tap="signout"/>
         </ext-panel>
     </ext-sheet>
 </template>

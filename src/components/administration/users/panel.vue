@@ -2,11 +2,11 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
+                <ext-searchfield :placeholder="l10nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
                 <RolesButton aclId="aclId" @change="_onRolesFilterChange"/>
                 <ext-spacer/>
-                <ext-button :disabled="!canCreateUser" iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="i18nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-button :disabled="!canCreateUser" iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="l10nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -14,15 +14,15 @@
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
                 <ext-column width="40" @ready="_avatarColReady"/>
 
-                <ext-column dataIndex="email" flex="1" :text="i18nd(`vue-ext`, `Email`)" @ready="_emailColReady"/>
+                <ext-column dataIndex="email" flex="1" :text="l10nd(`vue-ext`, `Email`)" @ready="_emailColReady"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="roles" flex="1" sortable="false" :text="i18nd(`vue-ext`, `Roles`)" @ready="_rolesColReady"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="roles" flex="1" sortable="false" :text="l10nd(`vue-ext`, `Roles`)" @ready="_rolesColReady"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" :hidden="lastActivityColumnHidden" sorter='{"property":"last_activity"}' :text="i18nd(`vue-ext`, `Last activity`)" width="150"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" :hidden="lastActivityColumnHidden" sorter='{"property":"last_activity"}' :text="l10nd(`vue-ext`, `Last activity`)" width="150"/>
 
-                <ext-column dataIndex="created" formatter="date()" :hidden="createdColumnHidden" :text="i18nd(`vue-ext`, `Creation date`)" width="150"/>
+                <ext-column dataIndex="created" formatter="date()" :hidden="createdColumnHidden" :text="l10nd(`vue-ext`, `Creation date`)" width="150"/>
 
-                <ext-column sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
+                <ext-column sorter='{"property":"enabled"}' :text="l10nd(`vue-ext`, `Access enabled`)" width="160" @ready="_enabledColReady"/>
 
                 <ext-column width="80" @ready="_actionColReady"/>
             </ext-grid>
@@ -185,14 +185,14 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.i18nd( `vue-ext`, "Edit user roles" ),
+                            "tooltip": this.l10nd( `vue-ext`, "Edit user roles" ),
                             "handler": this.showUserRolesDialog.bind( this ),
                             "disabled": !this.canUpdateUserRoles,
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-ellipsis-v",
-                            "tooltip": this.i18nd( `vue-ext`, "Actions" ),
+                            "tooltip": this.l10nd( `vue-ext`, "Actions" ),
                             "arrow": false,
                             "menu": {
                                 "defaults": {
@@ -201,22 +201,22 @@ export default {
                                 "items": [
                                     {
                                         "iconCls": "fa-solid fa-copy",
-                                        "text": this.i18nd( `vue-ext`, "Copy email to the clipboard" ),
+                                        "text": this.l10nd( `vue-ext`, "Copy email to the clipboard" ),
                                         "handler": this._copyEmail.bind( this ),
                                     },
                                     {
-                                        "text": this.i18nd( `vue-ext`, "View user sessions" ),
+                                        "text": this.l10nd( `vue-ext`, "View user sessions" ),
                                         "handler": this._showUserSessionsDialog.bind( this ),
                                     },
                                     {
-                                        "text": this.i18nd( `vue-ext`, "Change password" ),
+                                        "text": this.l10nd( `vue-ext`, "Change password" ),
                                         "handler": this._showChangePasswordDialog.bind( this ),
                                         "disabled": !this.canUpdateUser,
                                     },
                                     {
                                         "separator": true,
                                         "iconCls": "fa-solid fa-trash-alt",
-                                        "text": this.i18nd( `vue-ext`, "Delete user" ),
+                                        "text": this.l10nd( `vue-ext`, "Delete user" ),
                                         "handler": this.deleteUser.bind( this ),
                                         "disabled": !this.canDeleteUser,
                                     },
@@ -249,7 +249,7 @@ export default {
             else {
                 record.commit();
 
-                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Access enabled` ) : this.i18nd( `vue-ext`, `Access disabled` ) );
+                this.$utils.toast( enabled ? this.l10nd( `vue-ext`, `Access enabled` ) : this.l10nd( `vue-ext`, `Access disabled` ) );
             }
 
             button.enable();
@@ -259,7 +259,7 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( this.i18nd( `vue-ext`, "Are you sure you want to delete user?" ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.l10nd( `vue-ext`, "Are you sure you want to delete user?" ) ) ) ) return;
 
             button.disable();
 
@@ -268,7 +268,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.i18nd( `vue-ext`, "User deleted" ) );
+                this.$utils.toast( this.l10nd( `vue-ext`, "User deleted" ) );
 
                 this.store.remove( record );
             }
@@ -347,7 +347,7 @@ export default {
 
             this.$utils.copyToClipboard( record.get( "email" ) );
 
-            this.$utils.toast( this.i18nd( `vue-ext`, `User email copied` ) );
+            this.$utils.toast( this.l10nd( `vue-ext`, `User email copied` ) );
         },
 
         // roles filter

@@ -2,32 +2,32 @@
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search for methods by name`)" width="200" @change="_search"/>
+                <ext-searchfield :placeholder="l10nd(`vue-ext`, `Search for methods by name`)" width="200" @change="_search"/>
                 <ext-spacer width="20"/>
                 <ext-button ref="periodButton" @ready="_periodButtonReady"/>
                 <ext-spacer/>
-                <ext-togglefield :label="i18nd(`vue-ext`, `Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
-                <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-togglefield :label="l10nd(`vue-ext`, `Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
+                <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
 
-            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","split":true}' :title="i18nd(`vue-ext`, `Latest charts`)" width="500">
+            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","split":true}' :title="l10nd(`vue-ext`, `Latest charts`)" width="500">
                 <LatestPanel ref="latestPanel" :record="selectedRecord"/>
             </ext-panel>
         </template>
 
         <template #data>
             <ext-lockedgrid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
-                <!-- <ext-column dataIndex="id" flex="1" locked="left" minWidth="290" :text="i18nd(`vue-ext`, `Method name`)"/> -->
+                <!-- <ext-column dataIndex="id" flex="1" locked="left" minWidth="290" :text="l10nd(`vue-ext`, `Method name`)"/> -->
 
-                <!-- <ext-column align="right" dataIndex="calls_text" sorter='{"property":"calls"}' :text="i18nd(`vue-ext`, `Calls`)" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="calls_text" sorter='{"property":"calls"}' :text="l10nd(`vue-ext`, `Calls`)" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="i18nd(`vue-ext`, `Duration / call (ms)`)" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="l10nd(`vue-ext`, `Duration / call (ms)`)" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="i18nd(`vue-ext`, `Duration (%)`)" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="l10nd(`vue-ext`, `Duration (%)`)" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="i18nd(`vue-ext`, `Exceptions`)" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="l10nd(`vue-ext`, `Exceptions`)" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="i18nd(`vue-ext`, `Exceptions / call (%)`)" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="l10nd(`vue-ext`, `Exceptions / call (%)`)" width="140"/> -->
 
                 <!-- <ext-column locked="right" width="80" @ready="_actionColReady"/> -->
             </ext-lockedgrid>
@@ -140,7 +140,7 @@ export default {
                     "dataIndex": "method_display_name",
                     "flex": 1,
                     "minWidth": 290,
-                    "text": this.i18nd( `vue-ext`, `Method name` ),
+                    "text": this.l10nd( `vue-ext`, `Method name` ),
                     "locked": "left",
                     "sorter": { "property": "method_name" },
                     "cell": { "encodeHtml": false, "height": 60 },
@@ -149,7 +149,7 @@ export default {
                     "align": "right",
                     "dataIndex": "calls_text",
                     "sorter": { "property": "calls" },
-                    "text": this.i18nd( `vue-ext`, `Calls` ),
+                    "text": this.l10nd( `vue-ext`, `Calls` ),
                     "width": 140,
                     "cell": { "height": 60 },
                 },
@@ -157,28 +157,28 @@ export default {
                     "align": "right",
                     "dataIndex": "duration_per_call_text",
                     "sorter": { "property": "duration_per_call" },
-                    "text": this.i18nd( `vue-ext`, `Duration / call (ms)` ),
+                    "text": this.l10nd( `vue-ext`, `Duration / call (ms)` ),
                     "width": 140,
                 },
                 {
                     "align": "right",
                     "dataIndex": "duration_text",
                     "sorter": { "property": "duration_share" },
-                    "text": this.i18nd( `vue-ext`, `Duration (%)` ),
+                    "text": this.l10nd( `vue-ext`, `Duration (%)` ),
                     "width": 140,
                 },
                 {
                     "align": "right",
                     "dataIndex": "exceptions_text",
                     "sorter": { "property": "exceptions" },
-                    "text": this.i18nd( `vue-ext`, `Exceptions` ),
+                    "text": this.l10nd( `vue-ext`, `Exceptions` ),
                     "width": 140,
                 },
                 {
                     "align": "right",
                     "dataIndex": "exceptions_per_call_text",
                     "sorter": { "property": "exceptions_per_call" },
-                    "text": this.i18nd( `vue-ext`, `Exceptions / call (%)` ),
+                    "text": this.l10nd( `vue-ext`, `Exceptions / call (%)` ),
                     "width": 140,
                 },
                 {
@@ -199,9 +199,9 @@ export default {
             this.period = defaultPeriod;
 
             for ( const period of periods ) {
-                const text = this.i18nd( `vue-ext`, msgid`${period} day`, msgid`${period} days`, period );
+                const text = this.l10nd( `vue-ext`, msgid`${period} day`, msgid`${period} days`, period );
 
-                if ( period === defaultPeriod ) cmp.setText( this.i18nd( `vue-ext`, `Period` ) + ": " + text );
+                if ( period === defaultPeriod ) cmp.setText( this.l10nd( `vue-ext`, `Period` ) + ": " + text );
 
                 menu.push( {
                     "xtype": "menuradioitem",
@@ -228,13 +228,13 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
-                            "tooltip": this.i18nd( `vue-ext`, `Historical charts` ),
+                            "tooltip": this.l10nd( `vue-ext`, `Historical charts` ),
                             "handler": this.showHistoricalDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-triangle-exclamation",
-                            "tooltip": this.i18nd( `vue-ext`, `Exceptions log` ),
+                            "tooltip": this.l10nd( `vue-ext`, `Exceptions log` ),
                             "handler": this.showExceptions.bind( this ),
                         },
                     ],
@@ -297,7 +297,7 @@ export default {
 
             this.period = period;
 
-            this.$refs.periodButton.ext.setText( this.i18nd( `vue-ext`, `Period` ) + ": " + menuItem.getText() );
+            this.$refs.periodButton.ext.setText( this.l10nd( `vue-ext`, `Period` ) + ": " + menuItem.getText() );
 
             this.refresh();
         },

@@ -2,23 +2,23 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search bots`)" width="200" @change="_search"/>
+                <ext-searchfield :placeholder="l10nd(`vue-ext`, `Search bots`)" width="200" @change="_search"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
-                <ext-column dataIndex="telegram_username" :text="i18nd(`vue-ext`, `Name`)" width="200"/>
+                <ext-column dataIndex="telegram_username" :text="l10nd(`vue-ext`, `Name`)" width="200"/>
 
-                <ext-column dataIndex="type" :text="i18nd(`vue-ext`, `Type`)" width="200"/>
+                <ext-column dataIndex="type" :text="l10nd(`vue-ext`, `Type`)" width="200"/>
 
-                <ext-column dataIndex="static" :text="i18nd(`vue-ext`, `Static`)"/>
+                <ext-column dataIndex="static" :text="l10nd(`vue-ext`, `Static`)"/>
 
-                <ext-numbercolumn align="right" dataIndex="total_subscribed_users" :text="i18nd(`vue-ext`, `Users`)"/>
+                <ext-numbercolumn align="right" dataIndex="total_subscribed_users" :text="l10nd(`vue-ext`, `Users`)"/>
 
-                <ext-column dataIndex="error_text" flex="1" :text="i18nd(`vue-ext`, `Error`)"/>
+                <ext-column dataIndex="error_text" flex="1" :text="l10nd(`vue-ext`, `Error`)"/>
 
                 <ext-column width="120" @ready="_actionColReady"/>
             </ext-grid>
@@ -74,7 +74,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-circle-play",
-                            "text": this.i18nd( `vue-ext`, "Start" ),
+                            "text": this.l10nd( `vue-ext`, "Start" ),
                             "handler": this._startBot.bind( this ),
                             "bind": { "hidden": "{record.started}" },
                             "disabled": !this.canUpdate,
@@ -83,7 +83,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-circle-stop",
-                            "text": this.i18nd( `vue-ext`, "Stop" ),
+                            "text": this.l10nd( `vue-ext`, "Stop" ),
                             "handler": this._stopBot.bind( this ),
                             "bind": { "hidden": "{!record.started}" },
                             "disabled": !this.canUpdate,
@@ -91,7 +91,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-ellipsis-v",
-                            "tooltip": this.i18nd( `vue-ext`, "Actions" ),
+                            "tooltip": this.l10nd( `vue-ext`, "Actions" ),
                             "arrow": false,
                             "menu": {
                                 "defaults": {
@@ -100,7 +100,7 @@ export default {
                                 "items": [
                                     {
                                         "iconCls": "fa-solid fa-trash-alt",
-                                        "text": this.i18nd( `vue-ext`, "Delete bot" ),
+                                        "text": this.l10nd( `vue-ext`, "Delete bot" ),
                                         "handler": this._deleteBot.bind( this ),
                                         "disabled": !this.canDelete,
                                     },

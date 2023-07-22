@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :height="height" layout="fit" scrollable="true" :title="i18nd(`vue-ext`, `Your account`)" :width="width">
+    <ext-dialog :height="height" layout="fit" scrollable="true" :title="l10nd(`vue-ext`, `Your account`)" :width="width">
         <AccountPanel>
             <template #tabs>
                 <slot name="tabs"/>

@@ -2,17 +2,17 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="i18nd(`vue-ext`, `Search roles`)" width="200" @change="_searchRoles"/>
+                <ext-searchfield :placeholder="l10nd(`vue-ext`, `Search roles`)" width="200" @change="_searchRoles"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-redo" :text="i18nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
         <template #data>
             <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_gridReady">
-                <ext-column cell='{"encodeHtml":false}' dataIndex="title_html" flex="1" sorter='{"property":"name"}' :text="i18nd(`vue-ext`, `Role`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="title_html" flex="1" sorter='{"property":"name"}' :text="l10nd(`vue-ext`, `Role`)"/>
 
-                <ext-column align="center" sorter='{"property":"enabled"}' :text="i18nd(`vue-ext`, `Role enabled`)" width="160" @ready="_enabledColReady"/>
+                <ext-column align="center" sorter='{"property":"enabled"}' :text="l10nd(`vue-ext`, `Role enabled`)" width="160" @ready="_enabledColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
@@ -150,7 +150,7 @@ export default {
             }
 
             if ( res.ok ) {
-                this.$utils.toast( enabled ? this.i18nd( `vue-ext`, `Role enabled` ) : this.i18nd( `vue-ext`, `Role disabled` ) );
+                this.$utils.toast( enabled ? this.l10nd( `vue-ext`, `Role enabled` ) : this.l10nd( `vue-ext`, `Role disabled` ) );
 
                 this.$emit( "update", this.getEnabledRoles() );
             }
