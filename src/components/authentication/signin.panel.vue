@@ -6,6 +6,9 @@
             <ext-spacer/>
         </ext-toolbar>
 
+        <!-- oauth -->
+        <OauthContainer margin="0 0 10 0" @tap="_oauthTap"/>
+
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}' @ready="_ready">
             <ext-emailfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `Email address`)" name="email" :placeholder="l10nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
 
@@ -16,9 +19,6 @@
         <ext-container :hidden="!passwordRecoveryEnabled" layout="center" margin="10 0 0 0">
             <ext-button :text="l10nd(`vue-ext`, `Forgot password?`)" @tap="showPasswordRecovery"/>
         </ext-container>
-
-        <!-- oauth -->
-        <OauthContainer margin="10 0 0 0" @tap="_oauthTap"/>
 
         <!-- sign up -->
         <ext-container :hidden="!signupEnabled" layout="center" margin="10 0 0 0">

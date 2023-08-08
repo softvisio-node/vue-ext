@@ -6,6 +6,9 @@
             <ext-spacer/>
         </ext-toolbar>
 
+        <!-- oauth -->
+        <OauthContainer margin="0 0 10 0" @tap="_oauthTap"/>
+
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}'>
             <ext-emailfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `Email address`)" name="email" :placeholder="l10nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
 
@@ -17,9 +20,6 @@
                 <ext-button :text="l10nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
             </ext-container>
         </ext-fieldpanel>
-
-        <!-- oauth -->
-        <OauthContainer margin="10 0 0 0" @tap="_oauthTap"/>
 
         <ext-toolbar docked="bottom" layout='{"align":"center","type":"hbox"}'>
             <ext-button iconCls="fa-solid fa-arrow-left" :text="l10nd(`vue-ext`, `Back`)" @tap="back"/>
