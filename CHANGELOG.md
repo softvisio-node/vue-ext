@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.2 (2023-08-08)
+
+Fixes:
+
+-   fix: auth form
+
 ### 8.8.1 (2023-07-30)
 
 Fixes:
