@@ -14,6 +14,8 @@
 - $id: config
   type: object
   properties:
+    amcharts5LicenseKey: { type: string }
+
     theme:
       type: object
       properties:

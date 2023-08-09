@@ -5,6 +5,8 @@ build:
   ewcVersion: ~
 
 config:
+  amcharts5LicenseKey: AM5C-xxxxx
+
   theme:
     darkMode: auto
     baseColor: green
