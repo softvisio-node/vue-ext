@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.3 (2023-08-09)
+
+Fixes:
+
+-   fix: amcharts
+
 ### 8.8.2 (2023-08-08)
 
 Fixes:
