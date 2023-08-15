@@ -123,16 +123,7 @@ export default {
 
             this._events ??= new Events().link( this.$app.theme ).on( "darkModeChange", this._onThemeChange.bind( this ) );
 
-            if ( !this._rootEl ) {
-                this._rootEl = document.createElement( "div" );
-
-                this._rootEl.style.width = "100%";
-                this._rootEl.style.height = "100%";
-
-                this.ext.innerElement.dom.appendChild( this._rootEl );
-            }
-
-            this.root = amcharts.am5.Root.new( this._rootEl );
+            this.root = amcharts.am5.Root.new( this.ext.innerElement.dom );
 
             const themes = [];
 
