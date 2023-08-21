@@ -9,9 +9,9 @@
 
                 <Amcharts5 ref="totalUsersChart" :createChart="_createTotalUsersChart" height="200" :updateChart="_updateChart" @refresh="_chartRefresh"/>
 
-                <Amcharts5 ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="200" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :updateChart="_updateChart" @refresh="_chartRefresh"/>
 
-                <Amcharts5 ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="200" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300" :updateChart="_updateChart" @refresh="_chartRefresh"/>
             </ext-panel>
         </template>
     </CardsPanel>
@@ -210,18 +210,19 @@ export default {
                 am5 = cmp.am5;
 
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
+                "panX": true,
 
-                // "panX": true,
                 // "panY": true,
-                // "wheelX": "panX",
+                "wheelX": "panX",
+
                 // "wheelY": "zoomX",
-                // "pinchZoomX": true,
+                "pinchZoomX": true,
             } ) );
 
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
+                    "behavior": "zoomX",
                 } )
             );
 
@@ -256,7 +257,7 @@ export default {
                 "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "CPU (user)" ) + ": {valueY}",
+                    "labelText": this.l10nd( "vue-ext", "Subscribed" ) + ": {valueY}",
                 } ),
             } ) );
 
@@ -275,7 +276,7 @@ export default {
                 "stroke": "red",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "CPU (user)" ) + ": {valueY}",
+                    "labelText": this.l10nd( "vue-ext", "Unsubscribed" ) + ": {valueY}",
                 } ),
             } ) );
 
