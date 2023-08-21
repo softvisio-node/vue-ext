@@ -1,12 +1,6 @@
 export default Ext.define( "", {
     "extend": "Ext.data.Model",
 
-    "proxy": {
-        "api": {
-            "read": "administration/telegram-bots/read",
-        },
-    },
-
     "fields": [
         { "name": "id", "type": "string" },
 

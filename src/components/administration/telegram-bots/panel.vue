@@ -28,7 +28,7 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import TelegramBotModel from "./models/telegram-bot";
+import TelegramBotModel from "#src/components/telegram/models/bot";
 
 export default {
     "components": { CardsPanel },
@@ -45,6 +45,11 @@ export default {
             "model": TelegramBotModel,
             "autoLoad": false,
             "pageSize": 50,
+            "proxy": {
+                "api": {
+                    "read": "administration/telegram-bots/read",
+                },
+            },
         } );
     },
 
