@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cardsPanel" flex="1" @refresh="refresh">
+    <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #data>
             <ext-panel ref="dataPanel" layout="fit" viewModel="true">
                 <ext-toolbar docked="top">

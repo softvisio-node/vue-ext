@@ -1,5 +1,5 @@
 <template>
-    <ext-panel layut="hbox">
+    <ext-panel layout="hbox">
         <BotInfoPanel flex="1" :telegramBotId="telegramBotId"/>
         <BotStatsPanel flex="1" :telegramBotId="telegramBotId"/>
     </ext-panel>
