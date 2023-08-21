@@ -1,7 +1,7 @@
 <template>
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #data>
-            <ext-panel ref="dataPanel" layout="vbox">
+            <ext-panel ref="dataPanel" layout="vbox" scrollable="true">
                 <ext-toolbar docked="top">
                     <ext-spacer/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
