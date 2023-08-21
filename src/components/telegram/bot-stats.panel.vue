@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cardsPanel" flex="1" @refresh="refresh">
+    <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #data>
             <ext-panel ref="dataPanel" layout="fit" viewModel="true">
                 <ext-toolbar docked="top">
@@ -7,7 +7,7 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-panel defaults='{"labelAlign":"left","labelWidth":200}' padding="10 10 10 10">
+                <ext-panel defaults='{"labelAlign":"left","labelWidth":200}' padding="10 10 10 10" scrollable="true">
                     <ext-field bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)"/>
 
                     <ext-field bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
@@ -49,6 +49,8 @@ export default {
 
     "methods": {
         async refresh () {
+            this.$refs.cardsPanel.mask();
+
             const res = await this.$api.call( "administration/telegram-bots/get-bot", this.telegramBotId );
 
             this.$refs.cardsPanel.setResult( res );
