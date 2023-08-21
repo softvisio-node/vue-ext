@@ -14,7 +14,7 @@ export default Ext.define( "", {
         "type",
         { "name": "static", "type": "bool" },
         "telegram_username",
-        "telegram_first_name",
+        "name",
         { "name": "telegram_can_join_groups", "type": "bool" },
         { "name": "telegram_can_read_all_group_messages", "type": "bool" },
         { "name": "telegram_supports_inline_queries", "type": "bool" },
