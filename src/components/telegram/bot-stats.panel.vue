@@ -235,7 +235,7 @@ export default {
 
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
-                    "timeUnit": "minute",
+                    "timeUnit": "day",
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
