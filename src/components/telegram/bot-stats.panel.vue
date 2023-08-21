@@ -65,7 +65,7 @@ export default {
             );
 
             chart.children.push( am5.Label.new( root, {
-                "text": this.l10nd( "vue-ext", "CPU (user) for the last 60 minutes" ),
+                "text": this.l10nd( "vue-ext", "Total users" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -86,16 +86,16 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "cpuUser",
+                "name": "totalUsers",
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
-                "valueYField": "cpu_user",
+                "valueYField": "total_users",
                 "fill": "green",
                 "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "CPU (user)" ) + ": {valueY}",
+                    "labelText": this.l10nd( "vue-ext", "total users" ) + ": {valueY}",
                 } ),
             } ) );
 
@@ -117,11 +117,6 @@ export default {
 
         _chartRefresh () {
             if ( this.$refs.totalUsersChart.hasData ) return;
-
-            // if ( this.$refs.cpuSystenChart.hasData ) return;
-            // if ( this.$refs.memryFreeChart.hasData ) return;
-            // if ( this.$refs.memryRssChart.hasData ) return;
-            // if ( this.$refs.fsFreeChart.hasData ) return;
 
             this.refresh();
         },
