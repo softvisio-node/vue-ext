@@ -20,7 +20,7 @@
 
                     <ext-displayfield bind="{record.static}" :label="l10n(`vue-ext`, `Static`)"/>
 
-                    <ext-displayfield bind="{record.created}" :label="l10n(`vue-ext`, `Creation date`)"/>
+                    <ext-displayfield bind="{record.created}" :label="l10n(`vue-ext`, `Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/>
 
                     <ext-displayfield bind="{record.total_users}" :label="l10n(`vue-ext`, `Total users`)"/>
                     <ext-displayfield bind="{record.total_subscribed_users}" :label="l10n(`vue-ext`, `Total subscribed users`)"/>
