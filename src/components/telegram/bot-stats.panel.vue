@@ -1,14 +1,12 @@
 <template>
     <CardsPanel ref="cardsPanel" flex="1" @refresh="refresh">
-        <template #docked>
-            <ext-toolbar docked="top">
-                <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
-            </ext-toolbar>
-        </template>
-
         <template #data>
             <ext-panel ref="dataPanel" layout="fit" viewModel="true">
+                <ext-toolbar docked="top">
+                    <ext-spacer/>
+                    <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                </ext-toolbar>
+
                 <ext-panel defaults='{"labelAlign":"left","labelWidth":200}' padding="10 10 10 10">
                     <ext-field bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)"/>
 
