@@ -226,7 +226,7 @@ export default {
             );
 
             chart.children.push( am5.Label.new( root, {
-                "text": this.l10nd( "vue-ext", "Total subscribed users" ),
+                "text": this.l10nd( "vue-ext", "CPU (user) for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -243,42 +243,43 @@ export default {
             } ) );
 
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
-
-                // "logarithmic": true, // XXX
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
             } ) );
 
-            const series1 = chart.series.push( am5xy.LineSeries.new( root, {
-                "name": "totalSubscribedUsers",
+            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "totalSubscribedUsersDelta",
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
-                "valueYField": "total_subscribed_users",
-                "connect": false,
+                "valueYField": "total_subscribed_users_delta",
+                "fill": "green",
                 "stroke": "green",
-
-                // "fill": "green",
-                // "stacked": true,
+                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "total subscribed users" ) + ": {valueY}",
+                    "labelText": this.l10nd( "vue-ext", "CPU (user)" ) + ": {valueY}",
                 } ),
             } ) );
-
-            series1.fills.template.setAll( {
-                "fillOpacity": 0.1,
-                "visible": true,
-            } );
-
-            series1.strokes.template.setAll( {
-                "strokeWidth": 2,
-            } );
 
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
 
-            series1.data.processor = am5.DataProcessor.new( root, {
+            const series2 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "totalUnsubscribedUsersDelta",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueXField": "date",
+                "valueYField": "total_unsubscribed_users_delta",
+                "fill": "red",
+                "stroke": "red",
+                "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.l10nd( "vue-ext", "CPU (user)" ) + ": {valueY}",
+                } ),
+            } ) );
+
+            series2.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
