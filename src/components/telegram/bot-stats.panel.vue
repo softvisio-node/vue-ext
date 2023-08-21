@@ -10,6 +10,8 @@
                 <Amcharts5 ref="totalUsersChart" :createChart="_createTotalUsersChart" height="200" :updateChart="_updateChart" @refresh="_chartRefresh"/>
 
                 <Amcharts5 ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="200" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+
+                <Amcharts5 ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="200" :updateChart="_updateChart" @refresh="_chartRefresh"/>
             </ext-panel>
         </template>
     </CardsPanel>
@@ -36,7 +38,7 @@ export default {
         async refresh () {
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "administration/telegram-bots/get-bot-stats", this.telegramBotId, "3 months" );
+            const res = await this.$api.call( "administration/telegram-bots/get-bot-stats", this.telegramBotId, "1 year" );
 
             if ( !res.ok ) {
                 this.$refs.cardsPanel.setResult( res );
@@ -49,6 +51,7 @@ export default {
 
                 this.$refs.totalUsersChart.setData( res.data );
                 this.$refs.totalSubscribedUsersChart.setData( res.data );
+                this.$refs.subscriptionsChart.setData( res.data );
             }
         },
 
@@ -94,7 +97,7 @@ export default {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
             } ) );
 
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+            const series1 = chart.series.push( am5xy.LineSeries.new( root, {
                 "name": "totalUsers",
                 "xAxis": xAxis,
                 "yAxis": yAxis,
@@ -107,6 +110,15 @@ export default {
                     "labelText": this.l10nd( "vue-ext", "total users" ) + ": {valueY}",
                 } ),
             } ) );
+
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.2,
+                "visible": true,
+            } );
+
+            series1.strokes.template.setAll( {
+                "strokeWidth": 2,
+            } );
 
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
@@ -152,22 +164,119 @@ export default {
             } ) );
 
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+
+                // "logarithmic": true, // XXX
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
             } ) );
 
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+            const series1 = chart.series.push( am5xy.LineSeries.new( root, {
                 "name": "totalSubscribedUsers",
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
                 "valueYField": "total_subscribed_users",
-                "fill": "green",
+                "connect": false,
                 "stroke": "green",
-                "stacked": true,
+
+                // "fill": "green",
+                // "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "total subscribed users" ) + ": {valueY}",
                 } ),
             } ) );
+
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.1,
+                "visible": true,
+            } );
+
+            series1.strokes.template.setAll( {
+                "strokeWidth": 2,
+            } );
+
+            series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
+            series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+        },
+
+        _createSubscriptionsChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+
+                // "panX": true,
+                // "panY": true,
+                // "wheelX": "panX",
+                // "wheelY": "zoomX",
+                // "pinchZoomX": true,
+            } ) );
+
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } )
+            );
+
+            chart.children.push( am5.Label.new( root, {
+                "text": this.l10nd( "vue-ext", "Total subscribed users" ),
+                "fontSize": 12,
+                "x": am5.percent( 50 ),
+                "centerX": am5.percent( 50 ),
+            } ) );
+
+            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "baseInterval": {
+                    "timeUnit": "minute",
+                    "count": 1,
+                },
+                "renderer": am5xy.AxisRendererX.new( root, {} ),
+                "tooltipDateFormat": "HH:mm",
+                "tooltip": am5.Tooltip.new( root, {} ),
+            } ) );
+
+            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+
+                // "logarithmic": true, // XXX
+                "renderer": am5xy.AxisRendererY.new( root, {} ),
+            } ) );
+
+            const series1 = chart.series.push( am5xy.LineSeries.new( root, {
+                "name": "totalSubscribedUsers",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueXField": "date",
+                "valueYField": "total_subscribed_users",
+                "connect": false,
+                "stroke": "green",
+
+                // "fill": "green",
+                // "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.l10nd( "vue-ext", "total subscribed users" ) + ": {valueY}",
+                } ),
+            } ) );
+
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.1,
+                "visible": true,
+            } );
+
+            series1.strokes.template.setAll( {
+                "strokeWidth": 2,
+            } );
+
+            series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
 
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
@@ -188,6 +297,7 @@ export default {
         _chartRefresh () {
             if ( this.$refs.totalUsersChart.hasData ) return;
             if ( this.$refs.totalSubscribedUsersChart.hasData ) return;
+            if ( this.$refs.subscriptionsChart.hasData ) return;
 
             this.refresh();
         },
