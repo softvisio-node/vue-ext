@@ -36,9 +36,15 @@ export default {
 
             const res = await this.$api.call( "administration/telegram-bots/get-bot-stats", this.telegramBotId, "7 days" );
 
-            this.$refs.cardsPanel.setResult( res );
+            if ( !res.ok ) {
+                this.$refs.cardsPanel.setResult( res );
+            }
+            else if ( !res.data?.length ) {
+                this.$refs.cardsPanel.showNoDataCard();
+            }
+            else {
+                this.$refs.cardsPanel.setResult( res );
 
-            if ( res.ok ) {
                 this.$refs.totalUsersChart.setData( res.data );
             }
         },
