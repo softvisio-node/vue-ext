@@ -1,33 +1,13 @@
 <template>
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #data>
-            <ext-panel ref="dataPanel" layout="fit" viewModel="true">
+            <ext-panel ref="dataPanel" layout="vbox">
                 <ext-toolbar docked="top">
                     <ext-spacer/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-panel defaults='{"labelAlign":"left","labelWidth":200}' padding="10 10 10 10" scrollable="true">
-                    <ext-field bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)"/>
-
-                    <ext-field bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
-
-                    <ext-field bind="{record.description}" :label="l10n(`vue-ext`, `Description`)"/>
-
-                    <ext-field bind="{record.type}" :label="l10n(`vue-ext`, `Type`)"/>
-
-                    <ext-field bind="{record.static}" :label="l10n(`vue-ext`, `Static`)"/>
-
-                    <ext-field bind="{record.created}" :label="l10n(`vue-ext`, `Creation date`)"/>
-
-                    <ext-field bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
-
-                    <ext-field bind="{record.total_users}" :label="l10n(`vue-ext`, `Total users`)"/>
-                    <ext-field bind="{record.total_subscribed_users}" :label="l10n(`vue-ext`, `Total subscribed users`)"/>
-                    <ext-field bind="{record.total_unsubscribed_users}" :label="l10n(`vue-ext`, `Total unsubscribed users`)"/>
-                    <ext-field bind="{record.total_returned_users}" :label="l10n(`vue-ext`, `Total returned users`)"/>
-                    <ext-field bind="{record.total_banned_users}" :label="l10n(`vue-ext`, `Total banned users`)"/>
-                </ext-panel>
+                <Amcharts5 ref="totalUsersChart" :createChart="_createTotalUsersChart" height="200" :updateChart="_updateChart" @refresh="_chartRefresh"/>
             </ext-panel>
         </template>
     </CardsPanel>
@@ -35,10 +15,11 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import TelegramBotModel from "./models/bot";
+import Amcharts5 from "#vue/components/amcharts5";
+import * as am5xy from "@amcharts/amcharts5/xy";
 
 export default {
-    "components": { CardsPanel },
+    "components": { CardsPanel, Amcharts5 },
 
     "props": {
         "telegramBotId": {
@@ -48,18 +29,101 @@ export default {
     },
 
     "methods": {
+
+        // public
         async refresh () {
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "administration/telegram-bots/get-bot", this.telegramBotId );
+            const res = await this.$api.call( "administration/telegram-bots/get-bot-stats", this.telegramBotId, "7 days" );
 
             this.$refs.cardsPanel.setResult( res );
 
             if ( res.ok ) {
-                const record = new TelegramBotModel( res.data );
-
-                this.$refs.dataPanel.ext.getViewModel().set( "record", record );
+                this.$refs.totalUsersChart.setData( res.data );
             }
+        },
+
+        // protected
+        _createTotalUsersChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+
+                // "panX": true,
+                // "panY": true,
+                // "wheelX": "panX",
+                // "wheelY": "zoomX",
+                // "pinchZoomX": true,
+            } ) );
+
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } )
+            );
+
+            chart.children.push( am5.Label.new( root, {
+                "text": this.l10nd( "vue-ext", "CPU (user) for the last 60 minutes" ),
+                "fontSize": 12,
+                "x": am5.percent( 50 ),
+                "centerX": am5.percent( 50 ),
+            } ) );
+
+            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "baseInterval": {
+                    "timeUnit": "minute",
+                    "count": 1,
+                },
+                "renderer": am5xy.AxisRendererX.new( root, {} ),
+                "tooltipDateFormat": "HH:mm",
+                "tooltip": am5.Tooltip.new( root, {} ),
+            } ) );
+
+            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "renderer": am5xy.AxisRendererY.new( root, {} ),
+            } ) );
+
+            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": "cpuUser",
+                "xAxis": xAxis,
+                "yAxis": yAxis,
+                "valueXField": "date",
+                "valueYField": "cpu_user",
+                "fill": "green",
+                "stroke": "green",
+                "stacked": true,
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.l10nd( "vue-ext", "CPU (user)" ) + ": {valueY}",
+                } ),
+            } ) );
+
+            series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+        },
+
+        _updateChart ( cmp, data ) {
+            const chart = cmp.root.container.children.values[0];
+
+            chart.xAxes.values[0].data.setAll( data || [] );
+
+            for ( const serie of chart.series ) {
+                serie.data.setAll( data || [] );
+            }
+        },
+
+        _chartRefresh () {
+            if ( this.$refs.totalUsersChart.hasData ) return;
+
+            // if ( this.$refs.cpuSystenChart.hasData ) return;
+            // if ( this.$refs.memryFreeChart.hasData ) return;
+            // if ( this.$refs.memryRssChart.hasData ) return;
+            // if ( this.$refs.fsFreeChart.hasData ) return;
+
+            this.refresh();
         },
     },
 };
