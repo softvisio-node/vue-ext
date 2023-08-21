@@ -1,7 +1,11 @@
 <template>
     <CardsPanel ref="cardsPanel" flex="1" @refresh="refresh">
-//
-</CardsPanel>
+        <template #data>
+            <ext-panel ref="dataPanel" layout="fit" viewModel="true">
+                <ext-container bind="{record.name}"/>
+            </ext-panel>
+        </template>
+    </CardsPanel>
 </template>
 
 <script>
@@ -25,7 +29,9 @@ export default {
             this.$refs.cardsPanel.setResult( res );
 
             if ( res.ok ) {
-                this._record = new TelegramBotModel( res.data );
+                const record = new TelegramBotModel( res.data );
+
+                this.$refs.dataPanel.ext.getViewModel().set( "record", record );
             }
         },
     },
