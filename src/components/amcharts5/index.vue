@@ -35,8 +35,6 @@ export default {
         },
     },
 
-    "emits": ["refresh"],
-
     "watch": {
         store ( newValue, oldValue ) {
             this._unlinkStore( oldValue );
@@ -73,8 +71,6 @@ export default {
 
         // public
         setData ( data ) {
-            this.hasData = true;
-
             if ( this.updateChart ) {
                 this.updateChart( this, data );
             }
@@ -92,6 +88,12 @@ export default {
             for ( const serie of chart.series ) {
                 serie.data.setAll( data || [] );
             }
+        },
+
+        _getData () {
+            const chart = this.root.container.children.values[0];
+
+            return [...chart.series][0].data.values;
         },
 
         _ready ( e ) {
@@ -113,10 +115,8 @@ export default {
         },
 
         _createChart () {
-            var hasData;
-
             if ( this.root ) {
-                hasData = this.hasData;
+                var oldData = this._getData();
 
                 this._destroyChart();
             }
@@ -147,8 +147,8 @@ export default {
             if ( this.store ) {
                 this._setDataFromStore();
             }
-            else if ( hasData ) {
-                this.$emit( "refresh", this );
+            else if ( oldData ) {
+                this.setData( oldData );
             }
         },
 
@@ -158,7 +158,6 @@ export default {
             this.root.dispose();
 
             this.root = null;
-            this.hasData = false;
         },
 
         _linkStore ( store ) {
