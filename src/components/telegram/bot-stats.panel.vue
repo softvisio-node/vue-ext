@@ -7,9 +7,9 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <Amcharts5 ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :updateChart="_updateChart"/>
+                <Amcharts5 ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300"/>
 
-                <Amcharts5 ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300" :updateChart="_updateChart"/>
+                <Amcharts5 ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300"/>
             </ext-panel>
         </template>
     </CardsPanel>
@@ -112,7 +112,7 @@ export default {
 
             // fill settings
             series1.fills.template.setAll( {
-                "fillOpacity": 0.7,
+                "fillOpacity": 0.5,
                 "visible": true,
             } );
 
@@ -139,7 +139,7 @@ export default {
 
             // fill settings
             series2.fills.template.setAll( {
-                "fillOpacity": 0.7,
+                "fillOpacity": 0.5,
                 "visible": true,
             } );
 
@@ -277,16 +277,6 @@ export default {
             } ) );
 
             legend.data.setAll( chart.series.values );
-        },
-
-        _updateChart ( cmp, data ) {
-            const chart = cmp.root.container.children.values[0];
-
-            chart.xAxes.values[0].data.setAll( data || [] );
-
-            for ( const serie of chart.series ) {
-                serie.data.setAll( data || [] );
-            }
         },
     },
 };
