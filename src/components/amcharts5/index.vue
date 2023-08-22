@@ -79,12 +79,12 @@ export default {
                 this.updateChart( this, data );
             }
             else {
-                this._defaultUpdateChart( data );
+                this._setData( data );
             }
         },
 
         // protected
-        _defaultUpdateChart ( data ) {
+        _setData ( data ) {
             const chart = this.root.container.children.values[0];
 
             chart.xAxes.values[0].data.setAll( data || [] );
