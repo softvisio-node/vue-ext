@@ -138,7 +138,8 @@ export default {
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "wheelX": "panX",
+
+                // "wheelX": "panX",
                 "pinchZoomX": true,
 
                 // "panY": true,
@@ -152,14 +153,6 @@ export default {
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
             } ) );
-
-            // cursor
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
-                } )
-            );
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
@@ -175,6 +168,8 @@ export default {
             // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
+
+                // "logarithmic": true, // XXX
             } ) );
 
             // series 1
@@ -231,6 +226,22 @@ export default {
                 "dateFormat": "i",
             } );
 
+            // scroll bar
+            chart.set(
+                "scrollbarX",
+                am5.Scrollbar.new( root, {
+                    "orientation": "horizontal",
+                } )
+            );
+
+            // cursor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "zoomX",
+                } )
+            );
+
             // legend
             const legend = chart.children.push( am5.Legend.new( root, {
                 "centerX": am5.p50,
@@ -248,7 +259,8 @@ export default {
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "wheelX": "panX",
+
+                // "wheelX": "panX",
                 "pinchZoomX": true,
 
                 // "panY": true,
@@ -262,14 +274,6 @@ export default {
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
             } ) );
-
-            // cursor
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
-                } )
-            );
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
@@ -326,6 +330,22 @@ export default {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
+
+            // cursor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "zoomX",
+                } )
+            );
+
+            // scroll bar
+            chart.set(
+                "scrollbarX",
+                am5.Scrollbar.new( root, {
+                    "orientation": "horizontal",
+                } )
+            );
 
             // legend
             const legend = chart.children.push( am5.Legend.new( root, {
