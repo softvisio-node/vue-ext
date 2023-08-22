@@ -7,9 +7,9 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <Amcharts5 ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :updateChart="_updateChart"/>
 
-                <Amcharts5 ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300" :updateChart="_updateChart"/>
             </ext-panel>
         </template>
     </CardsPanel>
@@ -287,13 +287,6 @@ export default {
             for ( const serie of chart.series ) {
                 serie.data.setAll( data || [] );
             }
-        },
-
-        _chartRefresh () {
-            if ( this.$refs.totalSubscribedUsersChart.hasData ) return;
-            if ( this.$refs.subscriptionsChart.hasData ) return;
-
-            this.refresh();
         },
     },
 };
