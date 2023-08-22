@@ -7,8 +7,6 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <Amcharts5 ref="totalUsersChart" :createChart="_createTotalUsersChart" height="200" :updateChart="_updateChart" @refresh="_chartRefresh"/>
-
                 <Amcharts5 ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :updateChart="_updateChart" @refresh="_chartRefresh"/>
 
                 <Amcharts5 ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300" :updateChart="_updateChart" @refresh="_chartRefresh"/>
@@ -49,87 +47,12 @@ export default {
             else {
                 this.$refs.cardsPanel.setResult( res );
 
-                this.$refs.totalUsersChart.setData( res.data );
                 this.$refs.totalSubscribedUsersChart.setData( res.data );
                 this.$refs.subscriptionsChart.setData( res.data );
             }
         },
 
         // protected
-        _createTotalUsersChart ( cmp ) {
-            const root = cmp.root,
-                am5 = cmp.am5;
-
-            // chart
-            const chart = root.container.children.push( am5xy.XYChart.new( root, {
-                "layout": root.verticalLayout,
-
-                // "panX": true,
-                // "panY": true,
-                // "wheelX": "panX",
-                // "wheelY": "zoomX",
-                // "pinchZoomX": true,
-            } ) );
-
-            // cursor
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
-                } )
-            );
-
-            // title
-            chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( "vue-ext", "Total users" ),
-                "fontSize": 12,
-                "x": am5.percent( 50 ),
-                "centerX": am5.percent( 50 ),
-            } ) );
-
-            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
-                "baseInterval": {
-                    "timeUnit": "minute",
-                    "count": 1,
-                },
-                "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltipDateFormat": "HH:mm",
-                "tooltip": am5.Tooltip.new( root, {} ),
-            } ) );
-
-            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
-                "renderer": am5xy.AxisRendererY.new( root, {} ),
-            } ) );
-
-            const series1 = chart.series.push( am5xy.LineSeries.new( root, {
-                "name": "totalUsers",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
-                "valueXField": "date",
-                "valueYField": "total_users",
-                "fill": "green",
-                "stroke": "green",
-                "stacked": true,
-                "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "total users" ) + ": {valueY}",
-                } ),
-            } ) );
-
-            series1.fills.template.setAll( {
-                "fillOpacity": 0.2,
-                "visible": true,
-            } );
-
-            series1.strokes.template.setAll( {
-                "strokeWidth": 2,
-            } );
-
-            series1.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
-            } );
-        },
-
         _createTotalSubscribedUsersChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
@@ -367,7 +290,6 @@ export default {
         },
 
         _chartRefresh () {
-            if ( this.$refs.totalUsersChart.hasData ) return;
             if ( this.$refs.totalSubscribedUsersChart.hasData ) return;
             if ( this.$refs.subscriptionsChart.hasData ) return;
 
