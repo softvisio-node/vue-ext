@@ -86,6 +86,7 @@ export default {
             // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
+                "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
             // series 1
@@ -170,6 +171,7 @@ export default {
             // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
+                "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
             // series 1
@@ -254,6 +256,7 @@ export default {
             // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
+                "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
             // series 1
@@ -338,6 +341,7 @@ export default {
             // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
+                "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
             // series 1
@@ -422,6 +426,7 @@ export default {
             // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
+                "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
             // series 1
