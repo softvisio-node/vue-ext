@@ -13,7 +13,15 @@ export default {
             "type": Function,
             "required": true,
         },
-        "updateChart": {
+        "setDataCallback": {
+            "type": Function,
+            "default": null,
+        },
+        "backupData": {
+            "type": Function,
+            "default": null,
+        },
+        "restoreData": {
             "type": Function,
             "default": null,
         },
@@ -71,8 +79,8 @@ export default {
 
         // public
         setData ( data ) {
-            if ( this.updateChart ) {
-                this.updateChart( this, data );
+            if ( this.setDataCallback ) {
+                this.setDataCallback( this, data );
             }
             else {
                 this._setData( data );
@@ -91,21 +99,27 @@ export default {
         },
 
         _backupData () {
-            const data = {
+            const chart = this.root.container.children.values[0];
+
+            if ( this.backupData ) {
+                return this.backupData( chart );
+            }
+            else {
+                const data = {
                     "xAxes": [],
                     "series": [],
-                },
-                chart = this.root.container.children.values[0];
+                };
 
-            for ( const xAxis of chart.xAxes.values ) {
-                data.xAxes.push( xAxis.data.values );
+                for ( const xAxis of chart.xAxes.values ) {
+                    data.xAxes.push( xAxis.data.values );
+                }
+
+                for ( const serie of chart.series ) {
+                    data.series.push( serie.data.values );
+                }
+
+                return data;
             }
-
-            for ( const serie of chart.series ) {
-                data.series.push( serie.data.values );
-            }
-
-            return data;
         },
 
         _restoreData ( data ) {
