@@ -44,7 +44,7 @@ export default {
         async refresh () {
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "administration/telegram-bots/get-bot-stats", this.telegramBotId, "1 year" );
+            const res = await this.$api.call( "administration/telegram-bots/get-bot-stats", this.telegramBotId, this._period );
 
             if ( !res.ok ) {
                 this.$refs.cardsPanel.setResult( res );
@@ -75,16 +75,25 @@ export default {
                     "text": name,
                     "group": "period",
                     checked,
-
-                    // "handler": this._setLocale.bind( this ),
+                    "handler": this._setPeriod.bind( this ),
                 } );
 
-                checked = false;
+                if ( checked ) {
+                    this._period = name;
+
+                    checked = false;
+                }
             }
 
             cmp.setMenu( menu );
 
-            cmp.setText( this.l10n( `vue-ext`, `Period` ) + ": " );
+            cmp.setText( this.l10n( `vue-ext`, `Period` ) + ": " + PERIODS[this._period] );
+        },
+
+        _setPeriod ( menuItem ) {
+            this._period = menuItem.getValue();
+
+            this.refresh();
         },
 
         // XXX timeunnit
