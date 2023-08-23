@@ -13,15 +13,15 @@ export default {
             "type": Function,
             "required": true,
         },
-        "setDataCallback": {
+        "setChartData": {
             "type": Function,
             "default": null,
         },
-        "backupData": {
+        "backupChartData": {
             "type": Function,
             "default": null,
         },
-        "restoreData": {
+        "restoreChartData": {
             "type": Function,
             "default": null,
         },
@@ -79,8 +79,10 @@ export default {
 
         // public
         setData ( data ) {
-            if ( this.setDataCallback ) {
-                this.setDataCallback( this, data );
+            if ( this.setChartData ) {
+                data = this.setChartData( this, data );
+
+                if ( data ) this._setData( data );
             }
             else {
                 this._setData( data );
@@ -91,7 +93,9 @@ export default {
         _setData ( data ) {
             const chart = this.root.container.children.values[0];
 
-            chart.xAxes.values[0].data.setAll( data || [] );
+            for ( const xAxis of chart.xAxes.values ) {
+                xAxis.data.setAll( data || [] );
+            }
 
             for ( const serie of chart.series ) {
                 serie.data.setAll( data || [] );
@@ -99,8 +103,8 @@ export default {
         },
 
         _backupData () {
-            if ( this.backupData ) {
-                return this.backupData( this );
+            if ( this.backupChartData ) {
+                return this.backupChartData( this );
             }
             else {
                 const chart = this.root.container.children.values[0],
@@ -125,8 +129,8 @@ export default {
             if ( this.store ) {
                 this._setDataFromStore();
             }
-            else if ( this.restoreData ) {
-                this.restoreData( this, data );
+            else if ( this.restoreChartData ) {
+                this.restoreChartData( this, data );
             }
             else if ( data ) {
                 const chart = this.root.container.children.values[0];

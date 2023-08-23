@@ -8,9 +8,9 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <AmchartsPanel ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300"/>
+                <AmchartsPanel ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :setChartData="_setChartData"/>
 
-                <AmchartsPanel ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300"/>
+                <AmchartsPanel ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300" :setChartData="_setChartData"/>
             </ext-panel>
         </template>
     </CardsPanel>
@@ -23,9 +23,9 @@ import AmchartsPanel from "#vue/components/amcharts5/panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 const PERIODS = {
-    "7 days": app.locale.l10n( "vue-ext", "day", msgid`${7} days` ),
-    "3 months": app.locale.l10n( "vue-ext", "month", msgid`${3} months` ),
-    "1 year": app.locale.l10n( "vue-ext", "year", msgid`${1} year` ),
+    "7 days": { "text": app.locale.l10nd( "vue-ext", "day", msgid`${7} days` ), "timeunit": "hour" },
+    "3 months": { "text": app.locale.l10nd( "vue-ext", "month", msgid`${3} months` ), "timeunit": "day" },
+    "1 year": { "text": app.locale.l10nd( "vue-ext", "year", msgid`${1} year` ), "timeunit": "day" },
 };
 
 export default {
@@ -42,6 +42,8 @@ export default {
 
         // public
         async refresh () {
+            if ( !this._period ) return;
+
             this.$refs.cardsPanel.mask();
 
             const res = await this.$api.call( "administration/telegram-bots/get-bot-stats", this.telegramBotId, this._period );
@@ -68,18 +70,18 @@ export default {
 
             let checked = true;
 
-            for ( const [name, value] of Object.entries( PERIODS ) ) {
+            for ( const [value, { text }] of Object.entries( PERIODS ) ) {
                 menu.push( {
                     "xtype": "menuradioitem",
-                    "value": value,
-                    "text": name,
+                    value,
+                    text,
                     "group": "period",
                     checked,
                     "handler": this._setPeriod.bind( this ),
                 } );
 
                 if ( checked ) {
-                    this._period = name;
+                    this._period = value;
 
                     checked = false;
                 }
@@ -88,10 +90,20 @@ export default {
             cmp.setMenu( menu );
 
             cmp.setText( this.l10n( `vue-ext`, `Period` ) + ": " + PERIODS[this._period] );
+
+            this.refresh();
         },
 
         _setPeriod ( menuItem ) {
+            const button = this.$refs.periodButton.ext;
+
+            button.getMenu().hide();
+
+            if ( this._period === menuItem.getValue() ) return;
+
             this._period = menuItem.getValue();
+
+            button.setText( this.l10n( `vue-ext`, `Period` ) + ": " + PERIODS[this._period] );
 
             this.refresh();
         },
@@ -320,6 +332,16 @@ export default {
             } ) );
 
             legend.data.setAll( chart.series.values );
+        },
+
+        _setChartData ( chart, data ) {
+
+            // const xAxis = chart.root.container.children.values[0].xAxes.values[0];
+
+            // xAxis.baseInterval.timeUnit
+            // alert( xAxis.baseInterval.timeUnit );
+
+            return data;
         },
     },
 };
