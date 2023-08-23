@@ -53,6 +53,7 @@ export default {
         },
 
         // protected
+        // XXX timeunnit
         _createTotalSubscribedUsersChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
@@ -91,8 +92,6 @@ export default {
             // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
-
-                // "logarithmic": true, // XXX
             } ) );
 
             // series 1
@@ -174,6 +173,7 @@ export default {
             legend.data.setAll( chart.series.values );
         },
 
+        // XXX timeunnit
         _createSubscriptionsChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
