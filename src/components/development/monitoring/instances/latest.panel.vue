@@ -94,7 +94,7 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "cpuUser",
+                "name": this.l10nd( `vue-ext`, "CPU (user)" ),
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
@@ -155,7 +155,7 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "cpuSystem",
+                "name": this.l10nd( `vue-ext`, "CPU (system)" ),
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
@@ -216,7 +216,7 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "memryFree",
+                "name": this.l10nd( `vue-ext`, "Free memory" ),
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
@@ -277,7 +277,7 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "memryFree",
+                "name": this.l10nd( `vue-ext`, "RSS memry" ),
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
@@ -338,7 +338,7 @@ export default {
             } ) );
 
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "memryFree",
+                "name": this.l10nd( `vue-ext`, "Free memory" ),
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
