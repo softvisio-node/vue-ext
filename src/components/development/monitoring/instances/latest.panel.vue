@@ -56,22 +56,18 @@ export default {
             const root = cmp.root,
                 am5 = cmp.am5;
 
+            // chart
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
 
+                // "layout": root.verticalLayout,
                 // "panX": true,
-                // "panY": true,
                 // "wheelX": "panX",
-                // "wheelY": "zoomX",
                 // "pinchZoomX": true,
+                // "panY": true,
+                // "wheelY": "zoomX",
             } ) );
 
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
-                } )
-            );
-
+            // title
             chart.children.push( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "CPU (user) for the last 60 minutes" ),
                 "fontSize": 12,
@@ -79,6 +75,7 @@ export default {
                 "centerX": am5.percent( 50 ),
             } ) );
 
+            // x azis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
                     "timeUnit": "minute",
@@ -89,50 +86,56 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
+            // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
             } ) );
 
+            // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "CPU (user)" ),
-                "xAxis": xAxis,
-                "yAxis": yAxis,
+                xAxis,
+                yAxis,
                 "valueXField": "date",
                 "valueYField": "cpu_user",
-                "fill": "green",
-                "stroke": "green",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "CPU (user)" ) + ": {valueY}",
                 } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
-        },
 
-        _createCpuSystemChart ( cmp ) {
-            const root = cmp.root,
-                am5 = cmp.am5;
-
-            const chart = root.container.children.push( am5xy.XYChart.new( root, {
-
-                // "panX": true,
-                // "panY": true,
-                // "wheelX": "panX",
-                // "wheelY": "zoomX",
-                // "pinchZoomX": true,
-            } ) );
-
+            // cursor
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
                     "behavior": "none", // "zoomX",
                 } )
             );
+        },
 
+        _createCpuSystemChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            // chart
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+
+                // "layout": root.verticalLayout,
+                // "panX": true,
+                // "wheelX": "panX",
+                // "pinchZoomX": true,
+                // "panY": true,
+                // "wheelY": "zoomX",
+            } ) );
+
+            // title
             chart.children.push( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "CPU (system) for the last 60 minutes" ),
                 "fontSize": 12,
@@ -140,6 +143,7 @@ export default {
                 "centerX": am5.percent( 50 ),
             } ) );
 
+            // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
                     "timeUnit": "minute",
@@ -150,50 +154,56 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
+            // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
             } ) );
 
+            // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "CPU (system)" ),
-                "xAxis": xAxis,
-                "yAxis": yAxis,
+                xAxis,
+                yAxis,
                 "valueXField": "date",
                 "valueYField": "cpu_system",
-                "fill": "green",
-                "stroke": "green",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "CPU (system)" ) + ": {valueY}",
                 } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
-        },
 
-        _createMemryFreeChart ( cmp ) {
-            const root = cmp.root,
-                am5 = cmp.am5;
-
-            const chart = root.container.children.push( am5xy.XYChart.new( root, {
-
-                // "panX": true,
-                // "panY": true,
-                // "wheelX": "panX",
-                // "wheelY": "zoomX",
-                // "pinchZoomX": true,
-            } ) );
-
+            // cursor
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
                     "behavior": "none", // "zoomX",
                 } )
             );
+        },
 
+        _createMemryFreeChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            // chart
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+
+                // "layout": root.verticalLayout,
+                // "panX": true,
+                // "wheelX": "panX",
+                // "pinchZoomX": true,
+                // "panY": true,
+                // "wheelY": "zoomX",
+            } ) );
+
+            // title
             chart.children.push( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "Free memory (MB) for the last 60 minutes" ),
                 "fontSize": 12,
@@ -201,6 +211,7 @@ export default {
                 "centerX": am5.percent( 50 ),
             } ) );
 
+            // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
                     "timeUnit": "minute",
@@ -211,50 +222,56 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
+            // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
             } ) );
 
+            // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Free memory" ),
-                "xAxis": xAxis,
-                "yAxis": yAxis,
+                xAxis,
+                yAxis,
                 "valueXField": "date",
                 "valueYField": "memory_free",
-                "fill": "green",
-                "stroke": "green",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "Free memory" ) + ": {valueY} MB",
                 } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
-        },
 
-        _createMemryRssChart ( cmp ) {
-            const root = cmp.root,
-                am5 = cmp.am5;
-
-            const chart = root.container.children.push( am5xy.XYChart.new( root, {
-
-                // "panX": true,
-                // "panY": true,
-                // "wheelX": "panX",
-                // "wheelY": "zoomX",
-                // "pinchZoomX": true,
-            } ) );
-
+            // cursor
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
                     "behavior": "none", // "zoomX",
                 } )
             );
+        },
 
+        _createMemryRssChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            // chart
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+
+                // "layout": root.verticalLayout,
+                // "panX": true,
+                // "wheelX": "panX",
+                // "pinchZoomX": true,
+                // "panY": true,
+                // "wheelY": "zoomX",
+            } ) );
+
+            // title
             chart.children.push( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "RSS memory (MB) for the last 60 minutes" ),
                 "fontSize": 12,
@@ -262,6 +279,7 @@ export default {
                 "centerX": am5.percent( 50 ),
             } ) );
 
+            // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
                     "timeUnit": "minute",
@@ -272,50 +290,56 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
+            // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
             } ) );
 
+            // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "RSS memry" ),
-                "xAxis": xAxis,
-                "yAxis": yAxis,
+                xAxis,
+                yAxis,
                 "valueXField": "date",
                 "valueYField": "memory_rss",
-                "fill": "green",
-                "stroke": "green",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "RSS memory" ) + ": {valueY} MB",
                 } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
-        },
 
-        _createFsFreeChart ( cmp ) {
-            const root = cmp.root,
-                am5 = cmp.am5;
-
-            const chart = root.container.children.push( am5xy.XYChart.new( root, {
-
-                // "panX": true,
-                // "panY": true,
-                // "wheelX": "panX",
-                // "wheelY": "zoomX",
-                // "pinchZoomX": true,
-            } ) );
-
+            // cursor
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
                     "behavior": "none", // "zoomX",
                 } )
             );
+        },
 
+        _createFsFreeChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            // chart
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+
+                // "layout": root.verticalLayout,
+                // "panX": true,
+                // "wheelX": "panX",
+                // "pinchZoomX": true,
+                // "panY": true,
+                // "wheelY": "zoomX",
+            } ) );
+
+            // title
             chart.children.push( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "File system free space (MB) for the last 60 minutes" ),
                 "fontSize": 12,
@@ -323,6 +347,7 @@ export default {
                 "centerX": am5.percent( 50 ),
             } ) );
 
+            // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
                     "timeUnit": "minute",
@@ -333,28 +358,38 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
+            // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
             } ) );
 
+            // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Free memory" ),
-                "xAxis": xAxis,
-                "yAxis": yAxis,
+                xAxis,
+                yAxis,
                 "valueXField": "date",
                 "valueYField": "fs_free",
-                "fill": "green",
-                "stroke": "green",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "Free" ) + ": {valueY} MB",
                 } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
+
+            // cursor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } )
+            );
         },
 
         async refresh () {

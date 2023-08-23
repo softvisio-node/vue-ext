@@ -51,22 +51,17 @@ export default {
             const root = cmp.root,
                 am5 = cmp.am5;
 
+            // chart
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "panY": true,
-                "pinchZoomX": true,
 
                 // "wheelX": "panX",
+                "pinchZoomX": true,
+
+                // "panY": true,
                 // "wheelY": "zoomX",
             } ) );
-
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
-                } )
-            );
 
             // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
             chart.set(
@@ -76,6 +71,7 @@ export default {
                 } )
             );
 
+            // title
             chart.children.unshift( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "CPU (user) for the last 30 days" ),
                 "fontSize": 12,
@@ -104,61 +100,42 @@ export default {
                 "yAxis": yAxis,
                 "valueXField": "date",
                 "valueYField": "cpu_user",
-                "stroke": "green",
-                "fill": "green",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "CPU (user)" ) + ": {valueY}",
                 } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
             } ) );
-
-            // chart.series.push( am5xy.ColumnSeries.new( root, {
-            //     "name": "Declined",
-            //     "xAxis": xAxis,
-            //     "yAxis": yAxis,
-            //     "valueXField": "date",
-            //     "valueYField": "total_declined",
-            //     "fill": "red",
-            //     "stroke": "red",
-            //     "stacked": true,
-            //     "tooltip": am5.Tooltip.new( root, {
-            //         "labelText": "Declined requests: {valueY}",
-            //     } ),
-            // } ) );
 
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
 
-            // const legend = chart.children.push( am5.Legend.new( root, {
-            //     "x": am5.percent( 50 ),
-            //     "centerX": am5.percent( 50 ),
-            // } ) );
-
-            // legend.data.setAll( chart.series.values );
+            // cursor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } )
+            );
         },
 
         _createCpuSystemChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
+            // chart
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "panY": true,
-                "pinchZoomX": true,
 
                 // "wheelX": "panX",
+                "pinchZoomX": true,
+
+                // "panY": true,
                 // "wheelY": "zoomX",
             } ) );
-
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
-                } )
-            );
 
             // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
             chart.set(
@@ -168,6 +145,7 @@ export default {
                 } )
             );
 
+            // title
             chart.children.unshift( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "CPU (system) for the last 30 days" ),
                 "fontSize": 12,
@@ -196,12 +174,11 @@ export default {
                 "yAxis": yAxis,
                 "valueXField": "date",
                 "valueYField": "cpu_system",
-                "stroke": "green",
-                "fill": "green",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "CPU (system)" ) + ": {valueY}",
                 } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
             } ) );
 
             // chart.series.push( am5xy.ColumnSeries.new( root, {
@@ -223,34 +200,30 @@ export default {
                 "dateFormat": "i",
             } );
 
-            // const legend = chart.children.push( am5.Legend.new( root, {
-            //     "x": am5.percent( 50 ),
-            //     "centerX": am5.percent( 50 ),
-            // } ) );
-
-            // legend.data.setAll( chart.series.values );
+            // cursor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } )
+            );
         },
 
         _createMemoryFreeChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
+            // chart
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "panY": true,
-                "pinchZoomX": true,
 
                 // "wheelX": "panX",
+                "pinchZoomX": true,
+
+                // "panY": true,
                 // "wheelY": "zoomX",
             } ) );
-
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
-                } )
-            );
 
             // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
             chart.set(
@@ -260,6 +233,7 @@ export default {
                 } )
             );
 
+            // title
             chart.children.unshift( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "Free memory (MB) for the last 30 days" ),
                 "fontSize": 12,
@@ -288,12 +262,11 @@ export default {
                 "yAxis": yAxis,
                 "valueXField": "date",
                 "valueYField": "memory_free",
-                "stroke": "green",
-                "fill": "green",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "Free memory" ) + ": {valueY} MB",
                 } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
             } ) );
 
             // chart.series.push( am5xy.ColumnSeries.new( root, {
@@ -315,34 +288,30 @@ export default {
                 "dateFormat": "i",
             } );
 
-            // const legend = chart.children.push( am5.Legend.new( root, {
-            //     "x": am5.percent( 50 ),
-            //     "centerX": am5.percent( 50 ),
-            // } ) );
-
-            // legend.data.setAll( chart.series.values );
+            // cursor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } )
+            );
         },
 
         _createMemoryRssChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
+            // chart
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "panY": true,
-                "pinchZoomX": true,
 
                 // "wheelX": "panX",
+                "pinchZoomX": true,
+
+                // "panY": true,
                 // "wheelY": "zoomX",
             } ) );
-
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
-                } )
-            );
 
             // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
             chart.set(
@@ -352,6 +321,7 @@ export default {
                 } )
             );
 
+            // title
             chart.children.unshift( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "RSS memory (MB) for the last 30 days" ),
                 "fontSize": 12,
@@ -380,12 +350,11 @@ export default {
                 "yAxis": yAxis,
                 "valueXField": "date",
                 "valueYField": "fmemory_rss",
-                "stroke": "green",
-                "fill": "green",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "RSS memory" ) + ": {valueY} MB",
                 } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
             } ) );
 
             // chart.series.push( am5xy.ColumnSeries.new( root, {
@@ -407,34 +376,30 @@ export default {
                 "dateFormat": "i",
             } );
 
-            // const legend = chart.children.push( am5.Legend.new( root, {
-            //     "x": am5.percent( 50 ),
-            //     "centerX": am5.percent( 50 ),
-            // } ) );
-
-            // legend.data.setAll( chart.series.values );
+            // cursor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } )
+            );
         },
 
         _createFsFreeChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
+            // chart
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "panY": true,
-                "pinchZoomX": true,
 
                 // "wheelX": "panX",
+                "pinchZoomX": true,
+
+                // "panY": true,
                 // "wheelY": "zoomX",
             } ) );
-
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
-                } )
-            );
 
             // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
             chart.set(
@@ -444,6 +409,7 @@ export default {
                 } )
             );
 
+            // title
             chart.children.unshift( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "File system free space (MB) for the last 30 days" ),
                 "fontSize": 12,
@@ -472,12 +438,11 @@ export default {
                 "yAxis": yAxis,
                 "valueXField": "date",
                 "valueYField": "fs_free",
-                "stroke": "green",
-                "fill": "green",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "Free" ) + ": {valueY} MB",
                 } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
             } ) );
 
             // chart.series.push( am5xy.ColumnSeries.new( root, {
@@ -499,12 +464,13 @@ export default {
                 "dateFormat": "i",
             } );
 
-            // const legend = chart.children.push( am5.Legend.new( root, {
-            //     "x": am5.percent( 50 ),
-            //     "centerX": am5.percent( 50 ),
-            // } ) );
-
-            // legend.data.setAll( chart.series.values );
+            // cursor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } )
+            );
         },
 
         async refresh () {
