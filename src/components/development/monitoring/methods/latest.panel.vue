@@ -92,7 +92,6 @@ export default {
                 yAxis,
                 "valueXField": "date",
                 "valueYField": "calls",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "Calls" ) + ": {valueY}",
                 } ),
@@ -119,22 +118,18 @@ export default {
             const root = cmp.root,
                 am5 = cmp.am5;
 
+            // chart
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
+                "layout": root.verticalLayout,
 
                 // "panX": true,
-                // "panY": true,
                 // "wheelX": "panX",
-                // "wheelY": "zoomX",
                 // "pinchZoomX": true,
+                // "panY": true,
+                // "wheelY": "zoomX",
             } ) );
 
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
-                } )
-            );
-
+            // title
             chart.children.push( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "Average duration per call for the last 60 minutes (ms)" ),
                 "fontSize": 12,
@@ -142,6 +137,7 @@ export default {
                 "centerX": am5.percent( 50 ),
             } ) );
 
+            // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
                     "timeUnit": "minute",
@@ -152,50 +148,56 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
+            // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
             } ) );
 
+            // serie 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
                 "name": "Avg. runtime",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
+                xAxis,
+                yAxis,
                 "valueXField": "date",
                 "valueYField": "duration_per_call",
-                "fill": "green",
-                "stroke": "green",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "Duration" ) + ": {valueY} ms",
                 } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
-        },
 
-        _createExceptionsChart ( cmp ) {
-            const root = cmp.root,
-                am5 = cmp.am5;
-
-            const chart = root.container.children.push( am5xy.XYChart.new( root, {
-
-                // "panX": true,
-                // "panY": true,
-                // "wheelX": "panX",
-                // "wheelY": "zoomX",
-                // "pinchZoomX": true,
-            } ) );
-
+            // cursor
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
                     "behavior": "none", // "zoomX",
                 } )
             );
+        },
 
+        _createExceptionsChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            // chart
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+                "layout": root.verticalLayout,
+
+                // "panX": true,
+                // "wheelX": "panX",
+                // "pinchZoomX": true,
+                // "panY": true,
+                // "wheelY": "zoomX",
+            } ) );
+
+            // title
             chart.children.push( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "Exceptions percent for the last 60 minutes (%)" ),
                 "fontSize": 12,
@@ -203,6 +205,7 @@ export default {
                 "centerX": am5.percent( 50 ),
             } ) );
 
+            // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
                     "timeUnit": "minute",
@@ -213,28 +216,39 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
+            // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
             } ) );
 
+            // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
                 "name": "Exceptions (%)",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
+                xAxis,
+                yAxis,
                 "valueYField": "exceptions_percent",
                 "valueXField": "date",
-                "fill": "red",
-                "stroke": "red",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "Exceptions" ) + ": {valueY}%",
                 } ),
+                "stroke": am5.color( "#ff0000" ),
+                "fill": am5.color( "#ff0000" ),
             } ) );
 
+            // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
+
+            // cursor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } )
+            );
         },
 
         async refresh () {
