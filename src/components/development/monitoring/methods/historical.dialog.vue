@@ -201,31 +201,19 @@ export default {
             const root = cmp.root,
                 am5 = cmp.am5;
 
+            // chart
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "panY": true,
-                "pinchZoomX": true,
 
                 // "wheelX": "panX",
+                "pinchZoomX": true,
+
+                // "panY": true,
                 // "wheelY": "zoomX",
             } ) );
 
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
-                } )
-            );
-
-            // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
-            chart.set(
-                "scrollbarX",
-                am5.Scrollbar.new( root, {
-                    "orientation": "horizontal",
-                } )
-            );
-
+            // title
             chart.children.push( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "Exceptions percent for the last 30 days (%)" ),
                 "fontSize": 12,
@@ -233,6 +221,7 @@ export default {
                 "centerX": am5.percent( 50 ),
             } ) );
 
+            // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "maxDeviation": 0,
                 "baseInterval": {
@@ -244,42 +233,46 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
+            // y acis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
             } ) );
 
+            // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
                 "name": "Exceptions",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
+                xAxis,
+                yAxis,
                 "valueXField": "date",
                 "valueYField": "exceptions_percent",
-                "stroke": "red",
-                "fill": "red",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "Exceptions" ) + ": {valueY}%",
                 } ),
+                "stroke": am5.color( "#ff0000" ),
+                "fill": am5.color( "#ff0000" ),
             } ) );
 
-            // chart.series.push( am5xy.ColumnSeries.new( root, {
-            //     "name": "Declined",
-            //     "xAxis": xAxis,
-            //     "yAxis": yAxis,
-            //     "valueXField": "date",
-            //     "valueYField": "total_declined",
-            //     "fill": "red",
-            //     "stroke": "red",
-            //     "stacked": true,
-            //     "tooltip": am5.Tooltip.new( root, {
-            //         "labelText": "Declined requests: {valueY}",
-            //     } ),
-            // } ) );
-
+            // dataa processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
+
+            // cursor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "zoomX",
+                } )
+            );
+
+            // scroll bar
+            chart.set(
+                "scrollbarX",
+                am5.Scrollbar.new( root, {
+                    "orientation": "horizontal",
+                } )
+            );
         },
 
         async refresh () {
