@@ -10,15 +10,15 @@
 
         <template #data>
             <ext-container layput="vbox" scrollable="true">
-                <Amcharts5 ref="cpuUserChart" :createChart="_createCpuUserChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="cpuUserChart" :createChart="_createCpuUserChart" height="150"/>
 
-                <Amcharts5 ref="cpuSystemChart" :createChart="_createCpuSystemChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="cpuSystemChart" :createChart="_createCpuSystemChart" height="150"/>
 
-                <Amcharts5 ref="memryFreeChart" :createChart="_createMemryFreeChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="memryFreeChart" :createChart="_createMemryFreeChart" height="150"/>
 
-                <Amcharts5 ref="memryRssChart" :createChart="_createMemryRssChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="memryRssChart" :createChart="_createMemryRssChart" height="150"/>
 
-                <Amcharts5 ref="fsFreeChart" :createChart="_createFsFreeChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="fsFreeChart" :createChart="_createFsFreeChart" height="150"/>
             </ext-container>
         </template>
     </CardsPanel>
@@ -355,26 +355,6 @@ export default {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
-        },
-
-        _updateChart ( cmp, data ) {
-            const chart = cmp.root.container.children.values[0];
-
-            chart.xAxes.values[0].data.setAll( data || [] );
-
-            for ( const serie of chart.series ) {
-                serie.data.setAll( data || [] );
-            }
-        },
-
-        _chartRefresh () {
-            if ( this.$refs.cpuUserChart.hasData ) return;
-            if ( this.$refs.cpuSystenChart.hasData ) return;
-            if ( this.$refs.memryFreeChart.hasData ) return;
-            if ( this.$refs.memryRssChart.hasData ) return;
-            if ( this.$refs.fsFreeChart.hasData ) return;
-
-            this.refresh();
         },
 
         async refresh () {

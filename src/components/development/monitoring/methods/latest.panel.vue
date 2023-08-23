@@ -10,9 +10,9 @@
 
         <template #data>
             <ext-container layput="vbox" scrollable="true">
-                <Amcharts5 ref="callsChart" :createChart="_createCallsChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
-                <Amcharts5 ref="durationChart" :createChart="_createDurationChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
-                <Amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart" height="150" :updateChart="_updateChart" @refresh="_chartRefresh"/>
+                <Amcharts5 ref="callsChart" :createChart="_createCallsChart" height="150"/>
+                <Amcharts5 ref="durationChart" :createChart="_createDurationChart" height="150"/>
+                <Amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart" height="150"/>
             </ext-container>
         </template>
     </CardsPanel>
@@ -227,24 +227,6 @@ export default {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
-        },
-
-        _updateChart ( cmp, data ) {
-            const chart = cmp.root.container.children.values[0];
-
-            chart.xAxes.values[0].data.setAll( data || [] );
-
-            for ( const serie of chart.series ) {
-                serie.data.setAll( data || [] );
-            }
-        },
-
-        _chartRefresh () {
-            if ( this.$refs.callsChart.hasData ) return;
-            if ( this.$refs.durationChart.hasData ) return;
-            if ( this.$refs.exceptionsChart.hasData ) return;
-
-            this.refresh();
         },
 
         async refresh () {
