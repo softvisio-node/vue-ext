@@ -96,7 +96,7 @@ export default {
             } ) );
 
             // series 1
-            const series1 = chart.series.push( am5xy.SmoothedXLineSeries.new( root, {
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": "Total subscribed users",
                 xAxis,
                 yAxis,
