@@ -31,7 +31,7 @@ export default {
         },
         "animated": {
             "type": Boolean,
-            "default": false,
+            "default": true,
         },
         "responsive": {
             "type": Boolean,
