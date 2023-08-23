@@ -63,7 +63,7 @@ msgstr "Токены доступа"
 msgid "Account"
 msgstr "Аккаунт"
 
-#: src/components/administration/telegram-bots/panel.vue:94:39
+#: src/components/administration/telegram-bots/panel.vue:99:39
 #: src/components/administration/users/panel.vue:195:39
 msgid "Actions"
 msgstr "Действия"
@@ -222,8 +222,8 @@ msgstr "Подтвердите новый пароль"
 
 #: src/components/administration/users/create-user.dialog.vue:8:178
 #: src/components/administration/users/create-user.dialog.vue:8:66
-#: src/components/authentication/signup.panel.vue:14:143
-#: src/components/authentication/signup.panel.vue:14:66
+#: src/components/authentication/signup.panel.vue:17:143
+#: src/components/authentication/signup.panel.vue:17:66
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
@@ -307,6 +307,14 @@ msgstr "Дата создания"
 msgid "Dark mode"
 msgstr "Тёмный режим"
 
+#: src/components/telegram/bot-stats.panel.vue:27:16
+#, javascript-format
+msgid "day"
+msgid_plural "${n} days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
 #: src/components/pdf/_panel.vue:109:35
 msgid "Default size"
 msgstr "Размер по умолчанию"
@@ -321,7 +329,7 @@ msgstr "Удалить"
 msgid "Delete all"
 msgstr "Удалить все"
 
-#: src/components/administration/telegram-bots/panel.vue:103:48
+#: src/components/administration/telegram-bots/panel.vue:108:48
 msgid "Delete bot"
 msgstr "Удалить бота"
 
@@ -381,8 +389,8 @@ msgstr "Email"
 
 #: src/components/account/account.panel.vue:16:74
 #: src/components/authentication/password-recovery.panel.vue:10:63
-#: src/components/authentication/signin.panel.vue:10:63
-#: src/components/authentication/signup.panel.vue:10:63
+#: src/components/authentication/signin.panel.vue:13:63
+#: src/components/authentication/signup.panel.vue:13:63
 msgid "Email address"
 msgstr "Адрес email"
 
@@ -428,15 +436,15 @@ msgid "Enter new token name"
 msgstr "Введите имя нового токена"
 
 #: src/components/administration/users/create-user.dialog.vue:6:161
-#: src/components/authentication/signin.panel.vue:12:126
-#: src/components/authentication/signup.panel.vue:12:126
-#: src/components/authorization.dialog.vue:6:119
+#: src/components/authentication/signin.panel.vue:15:126
+#: src/components/authentication/signup.panel.vue:15:126
+#: src/components/authorization.dialog.vue:9:119
 msgid "Enter password"
 msgstr "Введите пароль"
 
 #: src/components/authentication/password-recovery.panel.vue:10:125
-#: src/components/authentication/signin.panel.vue:10:125
-#: src/components/authentication/signup.panel.vue:10:125
+#: src/components/authentication/signin.panel.vue:13:125
+#: src/components/authentication/signup.panel.vue:13:125
 msgid "Enter your email address"
 msgstr "Введите ваш адрес email"
 
@@ -480,7 +488,7 @@ msgstr "Свободное место в файловой системе (МБ) 
 msgid "File system free space (MB) for the last 60 minutes"
 msgstr "Свободное место в файловой системе (МБ) за последние 60 минут"
 
-#: src/components/authentication/signin.panel.vue:17:31
+#: src/components/authentication/signin.panel.vue:20:31
 msgid "Forgot password?"
 msgstr "Забыли пароль?"
 
@@ -504,7 +512,7 @@ msgid "Free memory (MB) for the last 60 minutes"
 msgstr "Свободная память (МБ) за последние 60 минут"
 
 #: src/components/administration/users/create-user.dialog.vue:11:35
-#: src/components/authentication/signup.panel.vue:17:35
+#: src/components/authentication/signup.panel.vue:20:35
 #: src/components/change-password.dialog.vue:12:31
 #: src/components/reset-password.dialog.vue:11:35
 msgid "Generate random password"
@@ -613,6 +621,14 @@ msgstr "Модуль"
 msgid "Monitoring"
 msgstr "Мониторинг"
 
+#: src/components/telegram/bot-stats.panel.vue:31:16
+#, javascript-format
+msgid "month"
+msgid_plural "${n} months"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
 #: src/components/notifications/done.panel.vue:6:113
 msgid "Move all to inbox"
 msgstr "Переместить все во входящие"
@@ -671,9 +687,9 @@ msgstr "Или, если у вас установлен Telegram на <b>ДРУ�
 
 #: src/components/account/account.panel.vue:11:74
 #: src/components/administration/users/create-user.dialog.vue:6:66
-#: src/components/authentication/signin.panel.vue:12:66
-#: src/components/authentication/signup.panel.vue:12:66
-#: src/components/authorization.dialog.vue:6:59
+#: src/components/authentication/signin.panel.vue:15:66
+#: src/components/authentication/signup.panel.vue:15:66
+#: src/components/authorization.dialog.vue:9:59
 msgid "Password"
 msgstr "Пароль"
 
@@ -771,6 +787,8 @@ msgstr "Восстановить"
 #: src/components/development/monitoring/methods/historical.dialog.vue:7:66
 #: src/components/development/monitoring/methods/latest.panel.vue:7:62
 #: src/components/development/monitoring/methods/panel.vue:10:82
+#: src/components/telegram/bot-info.panel.vue:7:66
+#: src/components/telegram/bot-stats.panel.vue:8:66
 #: src/components/user-sessions/panel.vue:8:62
 msgid "Refresh"
 msgstr "Обновить"
@@ -867,9 +885,9 @@ msgstr "Настройки"
 msgid "Sign in"
 msgstr "Войти"
 
-#: src/components/oauth.container.vue:3:91
-#: src/components/oauth.container.vue:5:102
-#: src/components/oauth.container.vue:7:91
+#: src/components/oauth.container.vue:3:88
+#: src/components/oauth.container.vue:5:99
+#: src/components/oauth.container.vue:7:88
 msgid "Sign in with"
 msgstr "Войти через"
 
@@ -887,7 +905,7 @@ msgstr "Выйти из всех сессий"
 msgid "Sign up"
 msgstr "Зарегистрироваться"
 
-#: src/components/administration/telegram-bots/panel.vue:77:36
+#: src/components/administration/telegram-bots/panel.vue:82:36
 msgid "Start"
 msgstr "Запустить"
 
@@ -907,9 +925,18 @@ msgstr "Статус"
 msgid "Status text"
 msgstr "Текст статуса"
 
-#: src/components/administration/telegram-bots/panel.vue:86:36
+#: src/components/administration/telegram-bots/panel.vue:91:36
 msgid "Stop"
 msgstr "Остановить"
+
+#: src/components/telegram/bot-stats.panel.vue:287:33
+msgid "Subscribed"
+msgstr ""
+
+#: src/components/telegram/bot-stats.panel.vue:168:33
+#: src/components/telegram/bot-stats.panel.vue:257:24
+msgid "Subscribed users"
+msgstr ""
 
 #: src/components/administration/panel.vue:9:89
 #: src/components/administration/telegram-bots/dialog.vue:34:33
@@ -957,6 +984,10 @@ msgstr "Имя токена"
 msgid "Total memory"
 msgstr "Общая память"
 
+#: src/components/telegram/bot-stats.panel.vue:138:24
+msgid "Total subscribed users"
+msgstr ""
+
 #: src/components/administration/telegram-bots/panel.vue:15:52
 msgid "Type"
 msgstr "Тип"
@@ -980,6 +1011,14 @@ msgstr "Не удалось загрузить данные"
 #: src/components/notifications/settings.panel.vue:32:77
 msgid "Unlink Telegram"
 msgstr "Отвязать Telegram"
+
+#: src/components/telegram/bot-stats.panel.vue:307:33
+msgid "Unsubscribed"
+msgstr ""
+
+#: src/components/telegram/bot-stats.panel.vue:195:33
+msgid "Unsubscribed users"
+msgstr ""
 
 #: src/components/device-dark-mode.button.vue:28:19
 msgid "Use device dark mode"
@@ -1033,6 +1072,26 @@ msgstr "Информация о версии скопирована в буфе�
 msgid "View user sessions"
 msgstr "Просмотр сессий пользователя"
 
+#: src/components/telegram/bot-info.panel.vue:11:60
+#: src/components/telegram/bot-info.panel.vue:13:80
+#: src/components/telegram/bot-info.panel.vue:15:81
+#: src/components/telegram/bot-info.panel.vue:17:67
+#: src/components/telegram/bot-info.panel.vue:19:67
+#: src/components/telegram/bot-info.panel.vue:21:69
+#: src/components/telegram/bot-info.panel.vue:23:70
+#: src/components/telegram/bot-info.panel.vue:25:74
+#: src/components/telegram/bot-info.panel.vue:26:85
+#: src/components/telegram/bot-info.panel.vue:27:87
+#: src/components/telegram/bot-info.panel.vue:28:83
+#: src/components/telegram/bot-info.panel.vue:29:81
+#: src/components/telegram/bot-stats.panel.vue:101:25
+#: src/components/telegram/bot-stats.panel.vue:115:28
+msgid "vue-ext"
+msgid_plural "Bot name"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
 #: src/utils.js:6:14
 msgid "Warning"
 msgstr "Внимание"
@@ -1044,6 +1103,14 @@ msgstr "Следить"
 #: src/components/change-email.dialog.vue:11:65
 msgid "We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above."
 msgstr "Мы только что отправили токен подтверждения изменения email на новый адрес электронной почты. Пожалуйста, проверьте свой почтовый ящик и введите токен в поле выше."
+
+#: src/components/telegram/bot-stats.panel.vue:35:16
+#, javascript-format
+msgid "year"
+msgid_plural "${n} year"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/components/account/dialog.vue:2:72
 #: src/components/application/menu.vue:17:91
