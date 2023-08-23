@@ -23,9 +23,9 @@ import AmchartsPanel from "#vue/components/amcharts5/panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 const PERIODS = {
-    "7 days": { "text": app.locale.l10nd( "vue-ext", "day", msgid`${7} days` ), "timeunit": "hour" },
-    "3 months": { "text": app.locale.l10nd( "vue-ext", "month", msgid`${3} months` ), "timeunit": "day" },
-    "1 year": { "text": app.locale.l10nd( "vue-ext", "year", msgid`${1} year` ), "timeunit": "day" },
+    "7 days": { "text": app.locale.l10nd( "vue-ext", "day", msgid`${7} days` ), "timeUnit": "hour" },
+    "3 months": { "text": app.locale.l10nd( "vue-ext", "month", msgid`${3} months` ), "timeUnit": "day" },
+    "1 year": { "text": app.locale.l10nd( "vue-ext", "year", msgid`${1} year` ), "timeUnit": "day" },
 };
 
 export default {
@@ -108,7 +108,6 @@ export default {
             this.refresh();
         },
 
-        // XXX timeunnit
         _createTotalSubscribedUsersChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
@@ -136,7 +135,7 @@ export default {
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
-                    "timeUnit": "day", // XXX
+                    "timeUnit": "day",
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
@@ -228,7 +227,6 @@ export default {
             legend.data.setAll( chart.series.values );
         },
 
-        // XXX timeunnit
         _createSubscriptionsChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
@@ -256,7 +254,7 @@ export default {
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
-                    "timeUnit": "day", // XXX
+                    "timeUnit": "day",
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
@@ -335,11 +333,11 @@ export default {
         },
 
         _setChartData ( chart, data ) {
+            const xAxis = chart.root.container.children.values[0].xAxes.values[0];
 
-            // const xAxis = chart.root.container.children.values[0].xAxes.values[0];
-
-            // xAxis.baseInterval.timeUnit
-            // alert( xAxis.baseInterval.timeUnit );
+            if ( xAxis.get( "baseInterval" ).timeUnit !== PERIODS[this._period].timeUnit ) {
+                xAxis.get( "baseInterval" ).timeUnit = PERIODS[this._period].timeUnit;
+            }
 
             return data;
         },
