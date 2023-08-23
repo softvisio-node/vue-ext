@@ -23,9 +23,18 @@ import AmchartsPanel from "#vue/components/amcharts5/panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 const PERIODS = {
-    "7 days": { "text": app.locale.l10nd( "vue-ext", "day", msgid`${7} days` ), "timeUnit": "hour" },
-    "3 months": { "text": app.locale.l10nd( "vue-ext", "month", msgid`${3} months` ), "timeUnit": "day" },
-    "1 year": { "text": app.locale.l10nd( "vue-ext", "year", msgid`${1} year` ), "timeUnit": "day" },
+    "7 days": {
+        "text": app.locale.l10nd( "vue-ext", "day", msgid`${7} days` ),
+        "timeUnit": "hour",
+    },
+    "3 months": {
+        "text": app.locale.l10nd( "vue-ext", "month", msgid`${3} months` ),
+        "timeUnit": "day",
+    },
+    "1 year": {
+        "text": app.locale.l10nd( "vue-ext", "year", msgid`${1} year` ),
+        "timeUnit": "day",
+    },
 };
 
 export default {
