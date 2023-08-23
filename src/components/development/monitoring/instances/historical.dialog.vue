@@ -89,7 +89,7 @@ export default {
             } ) );
 
             // series 1
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "CPU (user)" ),
                 xAxis,
                 yAxis,
@@ -102,6 +102,12 @@ export default {
                 "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // fill settings
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.5,
+                "visible": true,
+            } );
+
             // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
@@ -112,7 +118,7 @@ export default {
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
+                    "behavior": "zoomX",
                 } )
             );
 
@@ -167,7 +173,7 @@ export default {
             } ) );
 
             // series 1
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "CPU (system)" ),
                 xAxis,
                 yAxis,
@@ -180,6 +186,12 @@ export default {
                 "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // fill settings
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.5,
+                "visible": true,
+            } );
+
             // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
@@ -190,7 +202,7 @@ export default {
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
+                    "behavior": "zoomX",
                 } )
             );
 
@@ -245,7 +257,7 @@ export default {
             } ) );
 
             // series 1
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Free memory" ),
                 xAxis,
                 yAxis,
@@ -258,6 +270,12 @@ export default {
                 "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // fill settings
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.5,
+                "visible": true,
+            } );
+
             // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
@@ -268,7 +286,7 @@ export default {
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
+                    "behavior": "zoomX",
                 } )
             );
 
@@ -323,7 +341,7 @@ export default {
             } ) );
 
             // series 1
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "RSS memory" ),
                 xAxis,
                 yAxis,
@@ -336,6 +354,12 @@ export default {
                 "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // fill settings
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.5,
+                "visible": true,
+            } );
+
             // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
@@ -346,7 +370,7 @@ export default {
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
+                    "behavior": "zoomX",
                 } )
             );
 
@@ -401,7 +425,7 @@ export default {
             } ) );
 
             // series 1
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "FS free" ),
                 xAxis,
                 yAxis,
@@ -414,6 +438,12 @@ export default {
                 "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // fill settings
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.5,
+                "visible": true,
+            } );
+
             // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
@@ -424,7 +454,7 @@ export default {
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
+                    "behavior": "zoomX",
                 } )
             );
 

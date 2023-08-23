@@ -96,6 +96,12 @@ export default {
                 "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // fill settings
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.5,
+                "visible": true,
+            } );
+
             // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
@@ -174,6 +180,12 @@ export default {
                 "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // fill settings
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.5,
+                "visible": true,
+            } );
+
             // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
@@ -251,6 +263,12 @@ export default {
                 "stroke": am5.color( "#ff0000" ),
                 "fill": am5.color( "#ff0000" ),
             } ) );
+
+            // fill settings
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.5,
+                "visible": true,
+            } );
 
             // dataa processor
             series1.data.processor = am5.DataProcessor.new( root, {
