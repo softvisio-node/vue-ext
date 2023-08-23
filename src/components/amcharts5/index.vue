@@ -126,15 +126,20 @@ export default {
             if ( this.store ) {
                 this._setDataFromStore();
             }
-            else if ( data ) {
+            else {
                 const chart = this.root.container.children.values[0];
 
-                for ( const xAxis of chart.xAxes.values ) {
-                    xAxis.data.setAll( data.xAxes.shift() );
+                if ( this.restoreData ) {
+                    this.restoreData( chart, data );
                 }
+                else if ( data ) {
+                    for ( const xAxis of chart.xAxes.values ) {
+                        xAxis.data.setAll( data.xAxes.shift() );
+                    }
 
-                for ( const serie of chart.series ) {
-                    serie.data.setAll( data.series.shift() || [] );
+                    for ( const serie of chart.series ) {
+                        serie.data.setAll( data.series.shift() || [] );
+                    }
                 }
             }
         },
