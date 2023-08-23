@@ -50,29 +50,26 @@ export default {
             const root = cmp.root,
                 am5 = cmp.am5;
 
+            // chart
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
+                "layout": root.verticalLayout,
 
                 // "panX": true,
-                // "panY": true,
                 // "wheelX": "panX",
-                // "wheelY": "zoomX",
                 // "pinchZoomX": true,
+                // "panY": true,
+                // "wheelY": "zoomX",
             } ) );
 
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "none", // "zoomX",
-                } )
-            );
-
-            chart.children.push( am5.Label.new( root, {
+            // title
+            chart.children.unshift( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "Calls for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
             } ) );
 
+            // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "baseInterval": {
                     "timeUnit": "minute",
@@ -83,28 +80,39 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
+            // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
             } ) );
 
+            // serie 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
                 "name": "Accepted",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
+                xAxis,
+                yAxis,
                 "valueXField": "date",
                 "valueYField": "calls",
-                "fill": "green",
-                "stroke": "green",
                 "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "Calls" ) + ": {valueY}",
                 } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // date processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
+
+            // cursor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "none", // "zoomX",
+                } )
+            );
         },
 
         _createDurationChart ( cmp ) {
