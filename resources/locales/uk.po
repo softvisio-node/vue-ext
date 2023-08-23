@@ -121,11 +121,11 @@ msgstr "Авторизовано"
 msgid "Auto refresh"
 msgstr "Автоматичне оновлення"
 
-#: src/components/development/monitoring/methods/historical.dialog.vue:166:24
+#: src/components/development/monitoring/methods/historical.dialog.vue:140:24
 msgid "Average duration per call for the last 30 days (ms)"
 msgstr "Середня тривалість виклика за останні 30 днів (мс)"
 
-#: src/components/development/monitoring/methods/latest.panel.vue:131:24
+#: src/components/development/monitoring/methods/latest.panel.vue:134:24
 msgid "Average duration per call for the last 60 minutes (ms)"
 msgstr "Середня тривалість виклику за останні 60 хвилин (мс)"
 
@@ -150,17 +150,19 @@ msgstr "Базовий колір"
 msgid "Browser"
 msgstr "Браузер"
 
-#: src/components/development/monitoring/methods/historical.dialog.vue:105:33
-#: src/components/development/monitoring/methods/latest.panel.vue:100:33
+#: src/components/development/monitoring/methods/historical.dialog.vue:87:24
+#: src/components/development/monitoring/methods/historical.dialog.vue:93:33
+#: src/components/development/monitoring/methods/latest.panel.vue:90:24
+#: src/components/development/monitoring/methods/latest.panel.vue:96:33
 #: src/components/development/monitoring/methods/panel.vue:152:28
 msgid "Calls"
 msgstr "Виклики"
 
-#: src/components/development/monitoring/methods/historical.dialog.vue:74:24
+#: src/components/development/monitoring/methods/historical.dialog.vue:62:24
 msgid "Calls for the last 30 days"
 msgstr "Виклики за останні 30 днів"
 
-#: src/components/development/monitoring/methods/latest.panel.vue:70:24
+#: src/components/development/monitoring/methods/latest.panel.vue:66:24
 msgid "Calls for the last 60 minutes"
 msgstr "Виклики за останні 60 хвилин"
 
@@ -259,29 +261,33 @@ msgstr "Скопіювати у буфер обміну"
 msgid "Copy token to the clipboard"
 msgstr "Скопіюйте токен у буфер обміну"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:203:33
-#: src/components/development/monitoring/instances/latest.panel.vue:167:33
+#: src/components/development/monitoring/instances/historical.dialog.vue:171:24
+#: src/components/development/monitoring/instances/historical.dialog.vue:177:33
+#: src/components/development/monitoring/instances/latest.panel.vue:164:24
+#: src/components/development/monitoring/instances/latest.panel.vue:170:33
 msgid "CPU (system)"
 msgstr "ЦП (система)"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:172:24
+#: src/components/development/monitoring/instances/historical.dialog.vue:146:24
 msgid "CPU (system) for the last 30 days"
 msgstr "ЦП (система) за останні 30 днів"
 
-#: src/components/development/monitoring/instances/latest.panel.vue:137:24
+#: src/components/development/monitoring/instances/latest.panel.vue:140:24
 msgid "CPU (system) for the last 60 minutes"
 msgstr "ЦП (система) за останні 60 хвилин"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:111:33
-#: src/components/development/monitoring/instances/latest.panel.vue:106:33
+#: src/components/development/monitoring/instances/historical.dialog.vue:93:24
+#: src/components/development/monitoring/instances/historical.dialog.vue:99:33
+#: src/components/development/monitoring/instances/latest.panel.vue:102:33
+#: src/components/development/monitoring/instances/latest.panel.vue:96:24
 msgid "CPU (user)"
 msgstr "ЦП (користувач)"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:80:24
+#: src/components/development/monitoring/instances/historical.dialog.vue:68:24
 msgid "CPU (user) for the last 30 days"
 msgstr "ЦП (користувач) за останні 30 днів"
 
-#: src/components/development/monitoring/instances/latest.panel.vue:76:24
+#: src/components/development/monitoring/instances/latest.panel.vue:72:24
 msgid "CPU (user) for the last 60 minutes"
 msgstr "ЦП (користувач) за останні 60 хвилин"
 
@@ -359,8 +365,8 @@ msgstr "Немає облікового запису? зареєструвати
 msgid "Done"
 msgstr "Готово"
 
-#: src/components/development/monitoring/methods/historical.dialog.vue:197:33
-#: src/components/development/monitoring/methods/latest.panel.vue:161:33
+#: src/components/development/monitoring/methods/historical.dialog.vue:171:33
+#: src/components/development/monitoring/methods/latest.panel.vue:164:33
 msgid "Duration"
 msgstr "Тривалість"
 
@@ -453,11 +459,16 @@ msgstr "Введіть адресу вашої електронної пошти
 msgid "Error"
 msgstr "Помилка"
 
-#: src/components/development/monitoring/methods/historical.dialog.vue:268:33
-#: src/components/development/monitoring/methods/latest.panel.vue:222:33
+#: src/components/development/monitoring/methods/historical.dialog.vue:243:24
+#: src/components/development/monitoring/methods/historical.dialog.vue:249:33
+#: src/components/development/monitoring/methods/latest.panel.vue:233:33
 #: src/components/development/monitoring/methods/panel.vue:174:28
 msgid "Exceptions"
 msgstr "Винятки"
+
+#: src/components/development/monitoring/methods/latest.panel.vue:226:24
+msgid "Exceptions (%)"
+msgstr ""
 
 #: src/components/development/monitoring/methods/panel.vue:181:28
 msgid "Exceptions / call (%)"
@@ -472,44 +483,56 @@ msgstr "Журнал винятків"
 msgid "Exceptions log for the method: ${n}"
 msgstr "Журнал винятків для методу: ${n}"
 
-#: src/components/development/monitoring/methods/historical.dialog.vue:237:24
+#: src/components/development/monitoring/methods/historical.dialog.vue:218:24
 msgid "Exceptions percent for the last 30 days (%)"
 msgstr "Відсоток винятків за останні 30 днів (%)"
 
-#: src/components/development/monitoring/methods/latest.panel.vue:192:24
+#: src/components/development/monitoring/methods/latest.panel.vue:202:24
 msgid "Exceptions percent for the last 60 minutes (%)"
 msgstr "Відсоток винятків за останні 60 хвилин (%)"
-
-#: src/components/development/monitoring/instances/historical.dialog.vue:448:24
-msgid "File system free space (MB) for the last 30 days"
-msgstr "Вільне місце у файловій системі (МБ) за останні 30 днів"
-
-#: src/components/development/monitoring/instances/latest.panel.vue:320:24
-msgid "File system free space (MB) for the last 60 minutes"
-msgstr "Вільне місце у файловій системі (МБ) за останні 60 хвилин"
 
 #: src/components/authentication/signin.panel.vue:20:31
 msgid "Forgot password?"
 msgstr "Забули пароль?"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:479:33
-#: src/components/development/monitoring/instances/latest.panel.vue:350:33
+#: src/components/development/monitoring/instances/historical.dialog.vue:411:33
+#: src/components/development/monitoring/instances/latest.panel.vue:374:33
 msgid "Free"
 msgstr "Вільно"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:295:33
-#: src/components/development/monitoring/instances/latest.panel.vue:228:33
+#: src/components/development/monitoring/instances/historical.dialog.vue:249:24
+#: src/components/development/monitoring/instances/historical.dialog.vue:255:33
+#: src/components/development/monitoring/instances/latest.panel.vue:232:24
+#: src/components/development/monitoring/instances/latest.panel.vue:238:33
 #: src/components/development/monitoring/instances/panel.vue:21:59
 msgid "Free memory"
 msgstr "Вільна пам'ять"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:264:24
+#: src/components/development/monitoring/instances/historical.dialog.vue:224:24
 msgid "Free memory (MB) for the last 30 days"
 msgstr "Вільна пам'ять (МБ) за останні 30 днів"
 
-#: src/components/development/monitoring/instances/latest.panel.vue:198:24
+#: src/components/development/monitoring/instances/latest.panel.vue:208:24
 msgid "Free memory (MB) for the last 60 minutes"
 msgstr "Вільна пам'ять (МБ) за останні 60 хвилин"
+
+#: src/components/development/monitoring/instances/historical.dialog.vue:405:24
+#: src/components/development/monitoring/instances/latest.panel.vue:368:24
+#: src/components/development/monitoring/instances/panel.vue:24:55
+msgid "FS free"
+msgstr ""
+
+#: src/components/development/monitoring/instances/historical.dialog.vue:380:24
+msgid "FS free space (MB) for the last 30 days"
+msgstr ""
+
+#: src/components/development/monitoring/instances/latest.panel.vue:344:24
+msgid "FS free space (MB) for the last 60 minutes"
+msgstr ""
+
+#: src/components/development/monitoring/instances/panel.vue:23:56
+msgid "FS total"
+msgstr ""
 
 #: src/components/administration/users/create-user.dialog.vue:11:35
 #: src/components/authentication/signup.panel.vue:20:35
@@ -517,14 +540,6 @@ msgstr "Вільна пам'ять (МБ) за останні 60 хвилин"
 #: src/components/reset-password.dialog.vue:11:35
 msgid "Generate random password"
 msgstr "Згенерувати випадковий пароль"
-
-#: src/components/development/monitoring/instances/panel.vue:24:55
-msgid "HDD free"
-msgstr "HDD вільно"
-
-#: src/components/development/monitoring/instances/panel.vue:23:56
-msgid "HDD total"
-msgstr "Всього HDD"
 
 #: src/components/development/monitoring/instances/panel.vue:127:39
 #: src/components/development/monitoring/methods/panel.vue:231:39
@@ -816,19 +831,29 @@ msgstr "Ролі"
 msgid "Roles filter"
 msgstr "Фільтр ролей"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:387:33
-#: src/components/development/monitoring/instances/latest.panel.vue:289:33
+#: src/components/development/monitoring/instances/historical.dialog.vue:327:24
+#: src/components/development/monitoring/instances/historical.dialog.vue:333:33
+#: src/components/development/monitoring/instances/latest.panel.vue:306:33
 #: src/components/development/monitoring/instances/panel.vue:22:58
 msgid "RSS memory"
 msgstr "Пам'ять RSS"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:356:24
+#: src/components/development/monitoring/instances/historical.dialog.vue:302:24
 msgid "RSS memory (MB) for the last 30 days"
 msgstr "Пам'ять RSS (МБ) за останні 30 днів"
 
-#: src/components/development/monitoring/instances/latest.panel.vue:259:24
+#: src/components/development/monitoring/instances/latest.panel.vue:276:24
 msgid "RSS memory (MB) for the last 60 minutes"
 msgstr "Пам'ять RSS (МБ) за останні 60 хвилин"
+
+#: src/components/development/monitoring/instances/latest.panel.vue:300:24
+msgid "RSS memry"
+msgstr ""
+
+#: src/components/development/monitoring/methods/historical.dialog.vue:165:24
+#: src/components/development/monitoring/methods/latest.panel.vue:158:24
+msgid "Runtime"
+msgstr ""
 
 #: src/components/administration/telegram-bots/panel.vue:5:47
 msgid "Search bots"
@@ -938,6 +963,10 @@ msgstr ""
 msgid "Subscribed users"
 msgstr ""
 
+#: src/components/telegram/bot-stats.panel.vue:281:24
+msgid "Subscribed usersDelta"
+msgstr ""
+
 #: src/components/administration/panel.vue:9:89
 #: src/components/administration/telegram-bots/dialog.vue:34:33
 msgid "Telegram bots"
@@ -985,7 +1014,12 @@ msgid "Total memory"
 msgstr "Загальна пам'ять"
 
 #: src/components/telegram/bot-stats.panel.vue:138:24
+#: src/components/telegram/bot-stats.panel.vue:162:24
 msgid "Total subscribed users"
+msgstr ""
+
+#: src/components/telegram/bot-stats.panel.vue:189:24
+msgid "Total unsubscribed users"
 msgstr ""
 
 #: src/components/administration/telegram-bots/panel.vue:15:52
@@ -1018,6 +1052,10 @@ msgstr ""
 
 #: src/components/telegram/bot-stats.panel.vue:195:33
 msgid "Unsubscribed users"
+msgstr ""
+
+#: src/components/telegram/bot-stats.panel.vue:301:24
+msgid "Unsubscribed usersDelta"
 msgstr ""
 
 #: src/components/device-dark-mode.button.vue:28:19
@@ -1245,6 +1283,12 @@ msgstr "Зменшити"
 #~ msgid "Enter your username or email"
 #~ msgstr "Введіть ваше ім'я користувача або email"
 
+#~ msgid "File system free space (MB) for the last 30 days"
+#~ msgstr "Вільне місце у файловій системі (МБ) за останні 30 днів"
+
+#~ msgid "File system free space (MB) for the last 60 minutes"
+#~ msgstr "Вільне місце у файловій системі (МБ) за останні 60 хвилин"
+
 #~ msgid "Finished"
 #~ msgstr "Завершено(Edited)Restore original"
 
@@ -1253,6 +1297,12 @@ msgstr "Зменшити"
 
 #~ msgid "From"
 #~ msgstr "Від"
+
+#~ msgid "HDD free"
+#~ msgstr "HDD вільно"
+
+#~ msgid "HDD total"
+#~ msgstr "Всього HDD"
 
 #, javascript-format
 #~ msgid "In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${n}</b> and press <b>\"Start\"</b>."

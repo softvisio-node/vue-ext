@@ -20,8 +20,8 @@
                 <ext-column dataIndex="memory_total" :text="l10nd(`vue-ext`, `Total memory`)" width="120" @ready="_colReady"/>
                 <ext-column dataIndex="memory_free" :text="l10nd(`vue-ext`, `Free memory`)" width="120" @ready="_colReady"/>
                 <ext-column dataIndex="memory_rss" :text="l10nd(`vue-ext`, `RSS memory`)" width="120" @ready="_colReady"/>
-                <ext-column dataIndex="fs_total" :text="l10nd(`vue-ext`, `HDD total`)" width="120" @ready="_colReady"/>
-                <ext-column dataIndex="fs_free" :text="l10nd(`vue-ext`, `HDD free`)" width="120" @ready="_colReady"/>
+                <ext-column dataIndex="fs_total" :text="l10nd(`vue-ext`, `FS total`)" width="120" @ready="_colReady"/>
+                <ext-column dataIndex="fs_free" :text="l10nd(`vue-ext`, `FS free`)" width="120" @ready="_colReady"/>
 
                 <ext-column width="40" @ready="_actionColReady"/>
             </ext-grid>
