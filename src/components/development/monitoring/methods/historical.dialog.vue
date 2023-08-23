@@ -83,7 +83,7 @@ export default {
             } ) );
 
             // series 1
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Calls" ),
                 xAxis,
                 yAxis,
@@ -167,7 +167,7 @@ export default {
             } ) );
 
             // series 1
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Runtime" ),
                 xAxis,
                 yAxis,
@@ -251,7 +251,7 @@ export default {
             } ) );
 
             // series 1
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Exceptions" ),
                 xAxis,
                 yAxis,

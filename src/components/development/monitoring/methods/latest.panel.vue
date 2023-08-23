@@ -86,7 +86,7 @@ export default {
             } ) );
 
             // serie 1
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Calls" ),
                 xAxis,
                 yAxis,
@@ -98,6 +98,12 @@ export default {
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
             } ) );
+
+            // fill settings
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.5,
+                "visible": true,
+            } );
 
             // date processor
             series1.data.processor = am5.DataProcessor.new( root, {
@@ -154,7 +160,7 @@ export default {
             } ) );
 
             // serie 1
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Runtime" ),
                 xAxis,
                 yAxis,
@@ -166,6 +172,12 @@ export default {
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
             } ) );
+
+            // fill settings
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.5,
+                "visible": true,
+            } );
 
             // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
@@ -222,7 +234,7 @@ export default {
             } ) );
 
             // series 1
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Exceptions (%)" ),
                 xAxis,
                 yAxis,
@@ -235,6 +247,12 @@ export default {
                 "stroke": am5.color( "#ff0000" ),
                 "fill": am5.color( "#ff0000" ),
             } ) );
+
+            // fill settings
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.5,
+                "visible": true,
+            } );
 
             // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
