@@ -90,7 +90,7 @@ export default {
 
             // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "cpuUser",
+                "name": this.l10nd( `vue-ext`, "CPU (user)" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",
@@ -168,7 +168,7 @@ export default {
 
             // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "cpuSystem",
+                "name": this.l10nd( `vue-ext`, "CPU (system)" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",
@@ -246,7 +246,7 @@ export default {
 
             // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "memoryFree",
+                "name": this.l10nd( `vue-ext`, "Free memory" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",
@@ -324,7 +324,7 @@ export default {
 
             // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "memoryRss",
+                "name": this.l10nd( `vue-ext`, "RSS memory" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",
@@ -377,7 +377,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( "vue-ext", "File system free space (MB) for the last 30 days" ),
+                "text": this.l10nd( "vue-ext", "FS free space (MB) for the last 30 days" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -402,7 +402,7 @@ export default {
 
             // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "fsFree",
+                "name": this.l10nd( `vue-ext`, "FS free" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",
