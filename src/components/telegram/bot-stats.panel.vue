@@ -3,6 +3,7 @@
         <template #data>
             <ext-panel ref="dataPanel" layout="vbox" scrollable="true">
                 <ext-toolbar docked="top">
+                    <ext-button ref="periodButton" stretchMenu="true" @ready="_periodButtonReady"/>
                     <ext-spacer/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
@@ -16,9 +17,16 @@
 </template>
 
 <script>
+import app from "@/app";
 import CardsPanel from "#src/components/cards.panel";
 import AmchartsPanel from "#vue/components/amcharts5/panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
+
+const PERIODS = {
+    "7 days": app.locale.l10n( "vue-ext", "day", msgid`${7} days` ),
+    "3 months": app.locale.l10n( "vue-ext", "month", msgid`${3} months` ),
+    "1 year": app.locale.l10n( "vue-ext", "year", msgid`${1} year` ),
+};
 
 export default {
     "components": { CardsPanel, AmchartsPanel },
@@ -53,6 +61,32 @@ export default {
         },
 
         // protected
+        _periodButtonReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            const menu = [];
+
+            let checked = true;
+
+            for ( const [name, value] of Object.entries( PERIODS ) ) {
+                menu.push( {
+                    "xtype": "menuradioitem",
+                    "value": value,
+                    "text": name,
+                    "group": "period",
+                    checked,
+
+                    // "handler": this._setLocale.bind( this ),
+                } );
+
+                checked = false;
+            }
+
+            cmp.setMenu( menu );
+
+            cmp.setText( this.l10n( `vue-ext`, `Period` ) + ": " );
+        },
+
         // XXX timeunnit
         _createTotalSubscribedUsersChart ( cmp ) {
             const root = cmp.root,
