@@ -123,31 +123,19 @@ export default {
             const root = cmp.root,
                 am5 = cmp.am5;
 
+            // chart
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "panY": true,
-                "pinchZoomX": true,
 
                 // "wheelX": "panX",
+                "pinchZoomX": true,
+
+                // "panY": true,
                 // "wheelY": "zoomX",
             } ) );
 
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
-                } )
-            );
-
-            // add scrollbar, https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
-            chart.set(
-                "scrollbarX",
-                am5.Scrollbar.new( root, {
-                    "orientation": "horizontal",
-                } )
-            );
-
+            // title
             chart.children.push( am5.Label.new( root, {
                 "text": this.l10nd( "vue-ext", "Average duration per call for the last 30 days (ms)" ),
                 "fontSize": 12,
@@ -155,6 +143,7 @@ export default {
                 "centerX": am5.percent( 50 ),
             } ) );
 
+            // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "maxDeviation": 0,
                 "baseInterval": {
@@ -166,28 +155,46 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
+            // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
             } ) );
 
+            // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
                 "name": "Runtime",
-                "xAxis": xAxis,
-                "yAxis": yAxis,
+                xAxis,
+                yAxis,
                 "valueXField": "date",
                 "valueYField": "duration_per_call",
-                "stroke": "green",
-                "fill": "green",
-                "stacked": true,
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "Duration" ) + ": {valueY} ms",
                 } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
             } ) );
 
+            // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
+
+            // curscor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "zoomX",
+                } )
+            );
+
+            // scroll bar
+            chart.set(
+                "scrollbarX",
+                am5.Scrollbar.new( root, {
+                    "orientation": "horizontal",
+                } )
+            );
         },
 
         _createExceptionsChart ( cmp ) {
