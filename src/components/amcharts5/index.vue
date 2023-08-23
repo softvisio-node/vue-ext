@@ -90,10 +90,39 @@ export default {
             }
         },
 
-        _getData () {
-            const chart = this.root.container.children.values[0];
+        _backupData () {
+            const data = {
+                    "xAxes": [],
+                    "series": [],
+                },
+                chart = this.root.container.children.values[0];
 
-            return [...chart.series][0].data.values;
+            for ( const xAxis of chart.xAxes.values ) {
+                data.xAxes.push( xAxis.data.values );
+            }
+
+            for ( const serie of chart.series ) {
+                data.series.push( serie.data.values );
+            }
+
+            return data;
+        },
+
+        _restoreData ( data ) {
+            if ( this.store ) {
+                this._setDataFromStore();
+            }
+            else if ( data ) {
+                const chart = this.root.container.children.values[0];
+
+                for ( const xAxis of chart.xAxes.values ) {
+                    xAxis.data.setAll( data.xAxes.shift() );
+                }
+
+                for ( const serie of chart.series ) {
+                    serie.data.setAll( data.series.shift() || [] );
+                }
+            }
         },
 
         _ready ( e ) {
@@ -116,7 +145,7 @@ export default {
 
         _createChart () {
             if ( this.root ) {
-                var oldData = this._getData();
+                var data = this._backupData();
 
                 this._destroyChart();
             }
@@ -143,13 +172,8 @@ export default {
 
             this.createChart( this );
 
-            // automatically set data from store
-            if ( this.store ) {
-                this._setDataFromStore();
-            }
-            else if ( oldData ) {
-                this.setData( oldData );
-            }
+            // restore data
+            this._restoreData( data );
         },
 
         _destroyChart () {
