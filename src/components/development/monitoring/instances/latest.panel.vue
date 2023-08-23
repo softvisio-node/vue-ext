@@ -341,7 +341,7 @@ export default {
 
             // title
             chart.children.push( am5.Label.new( root, {
-                "text": this.l10nd( "vue-ext", "File system free space (MB) for the last 60 minutes" ),
+                "text": this.l10nd( "vue-ext", "FS free space (MB) for the last 60 minutes" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -365,7 +365,7 @@ export default {
 
             // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, "Free memory" ),
+                "name": this.l10nd( `vue-ext`, "FS free" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",
