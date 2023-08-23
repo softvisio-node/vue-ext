@@ -10,9 +10,9 @@
 
         <template #data>
             <ext-container layput="vbox" scrollable="true">
-                <Amcharts5 ref="callsChart" :createChart="_createCallsChart" height="150"/>
-                <Amcharts5 ref="durationChart" :createChart="_createDurationChart" height="150"/>
-                <Amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart" height="150"/>
+                <AmchartsPanel ref="callsChart" :createChart="_createCallsChart" height="150"/>
+                <AmchartsPanel ref="durationChart" :createChart="_createDurationChart" height="150"/>
+                <AmchartsPanel ref="exceptionsChart" :createChart="_createExceptionsChart" height="150"/>
             </ext-container>
         </template>
     </CardsPanel>
@@ -20,11 +20,11 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import Amcharts5 from "#vue/components/amcharts5";
+import AmchartsPanel from "#vue/components/amcharts5/panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 export default {
-    "components": { CardsPanel, Amcharts5 },
+    "components": { CardsPanel, AmchartsPanel },
 
     "props": {
         "record": {

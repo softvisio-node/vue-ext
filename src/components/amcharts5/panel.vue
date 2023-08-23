@@ -99,16 +99,15 @@ export default {
         },
 
         _backupData () {
-            const chart = this.root.container.children.values[0];
-
             if ( this.backupData ) {
-                return this.backupData( chart );
+                return this.backupData( this );
             }
             else {
-                const data = {
-                    "xAxes": [],
-                    "series": [],
-                };
+                const chart = this.root.container.children.values[0],
+                    data = {
+                        "xAxes": [],
+                        "series": [],
+                    };
 
                 for ( const xAxis of chart.xAxes.values ) {
                     data.xAxes.push( xAxis.data.values );
@@ -126,17 +125,19 @@ export default {
             if ( this.store ) {
                 this._setDataFromStore();
             }
-            else {
+            else if ( this.restoreData ) {
+                this.restoreData( this, data );
+            }
+            else if ( data ) {
                 const chart = this.root.container.children.values[0];
 
-                if ( this.restoreData ) {
-                    this.restoreData( chart, data );
-                }
-                else if ( data ) {
+                if ( data.xAxes?.length ) {
                     for ( const xAxis of chart.xAxes.values ) {
                         xAxis.data.setAll( data.xAxes.shift() );
                     }
+                }
 
+                if ( data.series?.length ) {
                     for ( const serie of chart.series ) {
                         serie.data.setAll( data.series.shift() || [] );
                     }

@@ -10,15 +10,15 @@
 
             <template #data>
                 <ext-container layput="vbox" scrollable="true">
-                    <Amcharts5 ref="cpuUserChart" :createChart="_createCpuUserChart" height="250"/>
+                    <AmchartsPanel ref="cpuUserChart" :createChart="_createCpuUserChart" height="250"/>
 
-                    <Amcharts5 ref="cpuSystemChart" :createChart="_createCpuSystemChart" height="250"/>
+                    <AmchartsPanel ref="cpuSystemChart" :createChart="_createCpuSystemChart" height="250"/>
 
-                    <Amcharts5 ref="memryFreeChart" :createChart="_createMemoryFreeChart" height="250"/>
+                    <AmchartsPanel ref="memryFreeChart" :createChart="_createMemoryFreeChart" height="250"/>
 
-                    <Amcharts5 ref="memryRssChart" :createChart="_createMemoryRssChart" height="250"/>
+                    <AmchartsPanel ref="memryRssChart" :createChart="_createMemoryRssChart" height="250"/>
 
-                    <Amcharts5 ref="fsFreeChart" :createChart="_createFsFreeChart" height="250"/>
+                    <AmchartsPanel ref="fsFreeChart" :createChart="_createFsFreeChart" height="250"/>
                 </ext-container>
             </template>
         </CardsPanel>
@@ -27,11 +27,11 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import Amcharts5 from "#vue/components/amcharts5";
+import AmchartsPanel from "#vue/components/amcharts5/panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 export default {
-    "components": { CardsPanel, Amcharts5 },
+    "components": { CardsPanel, AmchartsPanel },
 
     "props": {
         "record": {

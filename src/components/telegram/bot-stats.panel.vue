@@ -7,9 +7,9 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <Amcharts5 ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300"/>
+                <AmchartsPanel ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300"/>
 
-                <Amcharts5 ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300"/>
+                <AmchartsPanel ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300"/>
             </ext-panel>
         </template>
     </CardsPanel>
@@ -17,11 +17,11 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import Amcharts5 from "#vue/components/amcharts5";
+import AmchartsPanel from "#vue/components/amcharts5/panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 export default {
-    "components": { CardsPanel, Amcharts5 },
+    "components": { CardsPanel, AmchartsPanel },
 
     "props": {
         "telegramBotId": {
