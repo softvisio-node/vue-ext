@@ -84,7 +84,7 @@ export default {
 
             // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Calls",
+                "name": this.l10nd( `vue-ext`, "Calls" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",
@@ -162,7 +162,7 @@ export default {
 
             // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Runtime",
+                "name": this.l10nd( `vue-ext`, "Runtime" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",
@@ -240,7 +240,7 @@ export default {
 
             // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Exceptions",
+                "name": this.l10nd( `vue-ext`, "Exceptions" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",

@@ -159,7 +159,7 @@ export default {
 
             // series 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": "Total subscribed users",
+                "name": this.l10nd( `vue-ext`, "Total subscribed users" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",
@@ -186,7 +186,7 @@ export default {
 
             // eries 2
             const series2 = chart.series.push( am5xy.SmoothedXLineSeries.new( root, {
-                "name": "Total unsubscribed users",
+                "name": this.l10nd( `vue-ext`, "Total unsubscribed users" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",
@@ -278,7 +278,7 @@ export default {
 
             // series 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Subscribed usersDelta",
+                "name": this.l10nd( `vue-ext`, "Subscribed usersDelta" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",
@@ -298,7 +298,7 @@ export default {
 
             // series 2
             const series2 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": "Unsubscribed usersDelta",
+                "name": this.l10nd( `vue-ext`, "Unsubscribed usersDelta" ),
                 "xAxis": xAxis,
                 "yAxis": yAxis,
                 "valueXField": "date",
