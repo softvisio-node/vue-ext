@@ -328,7 +328,7 @@ export default {
                 xAxis,
                 yAxis,
                 "valueXField": "date",
-                "valueYField": "fmemory_rss",
+                "valueYField": "memory_rss",
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( "vue-ext", "RSS memory" ) + ": {valueY} MB",
                 } ),
