@@ -33,6 +33,13 @@ import TelegramBotAdCampaignModel from "./models/ad-campaign";
 export default {
     "components": { CardsPanel },
 
+    "props": {
+        "telegramBotId": {
+            "type": String,
+            "required": true,
+        },
+    },
+
     data () {
         return {
             "canUpdate": this.$app.user.hasPermissions( "administration:update" ),
@@ -48,6 +55,11 @@ export default {
             "proxy": {
                 "api": {
                     "read": "administration/telegram/bots/ad-campaigns/read",
+                },
+                "filter": {
+                    "property": "bot_id",
+                    "operator": "=",
+                    "value": this.telegramBotId,
                 },
             },
         } );
