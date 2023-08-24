@@ -24,15 +24,15 @@ import * as am5xy from "@amcharts/amcharts5/xy";
 
 const PERIODS = {
     "7 days": {
-        "text": app.locale.l10nd( "vue-ext", "day", msgid`${7} days` ),
+        "text": app.locale.l10nd( "vue-ext", "Last day", msgid`Last ${7} days` ),
         "timeUnit": "hour",
     },
     "3 months": {
-        "text": app.locale.l10nd( "vue-ext", "month", msgid`${3} months` ),
+        "text": app.locale.l10nd( "vue-ext", "Last month", msgid`Last ${3} months` ),
         "timeUnit": "day",
     },
     "1 year": {
-        "text": app.locale.l10nd( "vue-ext", "year", msgid`${1} year` ),
+        "text": app.locale.l10nd( "vue-ext", "Last year", msgid`Last ${1} year` ),
         "timeUnit": "day",
     },
 };
