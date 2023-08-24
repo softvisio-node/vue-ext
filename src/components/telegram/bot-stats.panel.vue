@@ -55,7 +55,7 @@ export default {
 
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "administration/telegram-bots/get-bot-stats", this.telegramBotId, this._period );
+            const res = await this.$api.call( "administration/telegram/bots/get-bot-stats", this.telegramBotId, this._period );
 
             if ( !res.ok ) {
                 this.$refs.cardsPanel.setResult( res );

@@ -47,7 +47,7 @@ export default {
             "pageSize": 50,
             "proxy": {
                 "api": {
-                    "read": "administration/telegram-bots/read",
+                    "read": "administration/telegram/bots/read",
                 },
             },
         } );
@@ -137,7 +137,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "administration/telegram-bots/set-bot-started", record.id, true );
+            const res = await this.$api.call( "administration/telegram/bots/set-bot-started", record.id, true );
 
             button.enable();
 
@@ -158,7 +158,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "administration/telegram-bots/set-bot-started", record.id, false );
+            const res = await this.$api.call( "administration/telegram/bots/set-bot-started", record.id, false );
 
             button.enable();
 
@@ -175,7 +175,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "administration/telegram-bots/delete-bot", record.id );
+            const res = await this.$api.call( "administration/telegram/bots/delete-bot", record.id );
 
             button.enable();
 

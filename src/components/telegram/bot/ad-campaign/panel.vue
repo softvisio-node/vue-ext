@@ -28,7 +28,7 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import TelegramBotModel from "#src/components/telegram/models/bot";
+import TelegramBotAdCampaignModel from "./models/ad-campaign";
 
 export default {
     "components": { CardsPanel },
@@ -42,12 +42,12 @@ export default {
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {
-            "model": TelegramBotModel,
+            "model": TelegramBotAdCampaignModel,
             "autoLoad": false,
             "pageSize": 50,
             "proxy": {
                 "api": {
-                    "read": "administration/telegram-bots/read",
+                    "read": "administration/telegram/bots/ad-campaigns/read",
                 },
             },
         } );
@@ -137,7 +137,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "administration/telegram-bots/set-bot-started", record.id, true );
+            const res = await this.$api.call( "administration/telegram/bots/set-bot-started", record.id, true );
 
             button.enable();
 
@@ -158,7 +158,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "administration/telegram-bots/set-bot-started", record.id, false );
+            const res = await this.$api.call( "administration/telegram/bots/set-bot-started", record.id, false );
 
             button.enable();
 
@@ -175,7 +175,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "administration/telegram-bots/delete-bot", record.id );
+            const res = await this.$api.call( "administration/telegram/bots/delete-bot", record.id );
 
             button.enable();
 
