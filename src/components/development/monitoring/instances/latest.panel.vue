@@ -63,8 +63,6 @@ export default {
                 // "panX": true,
                 // "wheelX": "panX",
                 // "pinchZoomX": true,
-                // "panY": true,
-                // "wheelY": "zoomX",
             } ) );
 
             // title
@@ -138,8 +136,6 @@ export default {
                 // "panX": true,
                 // "wheelX": "panX",
                 // "pinchZoomX": true,
-                // "panY": true,
-                // "wheelY": "zoomX",
             } ) );
 
             // title
@@ -213,8 +209,6 @@ export default {
                 // "panX": true,
                 // "wheelX": "panX",
                 // "pinchZoomX": true,
-                // "panY": true,
-                // "wheelY": "zoomX",
             } ) );
 
             // title
@@ -288,8 +282,6 @@ export default {
                 // "panX": true,
                 // "wheelX": "panX",
                 // "pinchZoomX": true,
-                // "panY": true,
-                // "wheelY": "zoomX",
             } ) );
 
             // title
@@ -363,8 +355,6 @@ export default {
                 // "panX": true,
                 // "wheelX": "panX",
                 // "pinchZoomX": true,
-                // "panY": true,
-                // "wheelY": "zoomX",
             } ) );
 
             // title

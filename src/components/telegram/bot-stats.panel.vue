@@ -125,12 +125,8 @@ export default {
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-
-                // "wheelX": "panX",
+                "wheelX": "panX",
                 "pinchZoomX": true,
-
-                // "panY": true,
-                // "wheelY": "zoomX",
             } ) );
 
             // title
@@ -245,12 +241,8 @@ export default {
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-
-                // "wheelX": "panX",
+                "wheelX": "panX",
                 "pinchZoomX": true,
-
-                // "panY": true,
-                // "wheelY": "zoomX",
             } ) );
 
             // title
