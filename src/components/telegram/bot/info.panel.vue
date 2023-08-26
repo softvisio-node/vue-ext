@@ -24,7 +24,9 @@
 
                     <!-- status -->
                     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}'>
-                        <ext-displayfield bind="{record.status_text}" flex="1" :label="l10n(`vue-ext`, `Status`)"/>
+                        <ext-displayfield bind="{record.status_text}" :label="l10n(`vue-ext`, `Status`)"/>
+
+                        <ext-displayfield bind='{"hidden":"{!record.error}","value":"{record.error_text}"}'/>
 
                         <ext-container layout="hbox">
                             <ext-spacer width="200"/>
