@@ -20,7 +20,7 @@
 
                 <ext-column dataIndex="error_text" flex="1" :text="l10nd(`vue-ext`, `Error`)"/>
 
-                <ext-column width="120" @ready="_actionColReady"/>
+                <ext-column width="160" @ready="_actionColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
@@ -29,6 +29,7 @@
 <script>
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotModel from "#src/components/telegram/bot/models/bot";
+import AclDialog from "#vue/components/acl/dialog";
 
 export default {
     "components": { CardsPanel },
@@ -76,6 +77,12 @@ export default {
                     "xtype": "container",
                     "layout": { "type": "hbox", "pack": "end", "align": "center" },
                     "items": [
+                        {
+                            "xtype": "button",
+                            "iconCls": "fa-solid fa-users",
+                            "tooltip": this.l10nd( `vue-ext`, "Edit users" ),
+                            "handler": this._showAclDialog.bind( this ),
+                        },
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-circle-play",
@@ -185,6 +192,19 @@ export default {
             else {
                 this.$utils.toast( res );
             }
+        },
+
+        async _showAclDialog ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
+
+            const cmp = await this.$mount( AclDialog, {
+                "cache": false,
+                "props": {
+                    "aclId": record.get( "acl_id" ),
+                },
+            } );
+
+            cmp.ext.show();
         },
     },
 };
