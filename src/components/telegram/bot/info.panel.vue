@@ -28,12 +28,12 @@
 
                         <ext-displayfield bind='{"hidden":"{!record.error}","value":"{record.error_text}"}'/>
 
-                        <ext-container layout="hbox">
+                        <ext-container bind='{"hidden":"{!record.can_update}"}' layout="hbox">
                             <ext-spacer width="200"/>
 
-                            <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start`)" ui="action" width="200" @tap="_startBot"/>
+                            <ext-button bind='{"hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start`)" ui="action" width="200" @tap="_startBot"/>
 
-                            <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `ui=actionStop`)" ui="action" width="200" @tap="_stopBot"/>
+                            <ext-button bind='{"hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `ui=actionStop`)" ui="action" width="200" @tap="_stopBot"/>
                         </ext-container>
                     </ext-fieldset>
 
