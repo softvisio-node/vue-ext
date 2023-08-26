@@ -55,8 +55,9 @@ export default {
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "wheelX": "panX",
                 "pinchZoomX": true,
+                "wheelX": "panX",
+                "wheelY": "none",
             } ) );
 
             // title
@@ -136,8 +137,9 @@ export default {
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "wheelX": "panX",
                 "pinchZoomX": true,
+                "wheelX": "panX",
+                "wheelY": "none",
             } ) );
 
             // title
@@ -217,8 +219,9 @@ export default {
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "wheelX": "panX",
                 "pinchZoomX": true,
+                "wheelX": "panX",
+                "wheelY": "none",
             } ) );
 
             // title
@@ -298,8 +301,9 @@ export default {
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "wheelX": "panX",
                 "pinchZoomX": true,
+                "wheelX": "panX",
+                "wheelY": "none",
             } ) );
 
             // title
@@ -379,8 +383,9 @@ export default {
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
                 "panX": true,
-                "wheelX": "panX",
                 "pinchZoomX": true,
+                "wheelX": "panX",
+                "wheelY": "none",
             } ) );
 
             // title

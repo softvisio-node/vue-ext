@@ -55,8 +55,9 @@ export default {
                 "layout": root.verticalLayout,
 
                 // "panX": true,
-                // "wheelX": "panX",
                 // "pinchZoomX": true,
+                // "wheelX": "panX",
+                // "wheelY": "none",
             } ) );
 
             // title
@@ -128,8 +129,9 @@ export default {
                 "layout": root.verticalLayout,
 
                 // "panX": true,
-                // "wheelX": "panX",
                 // "pinchZoomX": true,
+                // "wheelX": "panX",
+                // "wheelY": "none",
             } ) );
 
             // title
@@ -201,8 +203,9 @@ export default {
                 "layout": root.verticalLayout,
 
                 // "panX": true,
-                // "wheelX": "panX",
                 // "pinchZoomX": true,
+                // "wheelX": "panX",
+                // "wheelY": "none",
             } ) );
 
             // title
