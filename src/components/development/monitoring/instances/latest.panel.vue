@@ -251,6 +251,7 @@ export default {
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
+                "connect": false,
             } ) );
 
             // fill settings
@@ -325,6 +326,7 @@ export default {
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
+                "connect": false,
             } ) );
 
             // fill settings
