@@ -24,11 +24,14 @@
 
                     <!-- status -->
                     <ext-container defaults='{"labelAlign":"left","labelWidth":200}'>
-                        <ext-displayfield bind="{record.started}" :label="l10n(`vue-ext`, `Started`)"/>
-                        <ext-displayfield bind="{record.error_text}" :label="l10n(`vue-ext`, `Status`)"/>
+                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' layout="hbox">
+                            <ext-displayfield bind="{record.started}" flex="1" :label="l10n(`vue-ext`, `Started`)"/>
 
-                        <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start`)"/>
-                        <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `Stop`)"/>
+                            <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start`)" ui="action"/>
+                            <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `ui=actionStop`)" ui="action"/>
+                        </ext-container>
+
+                        <ext-displayfield bind="{record.error_text}" :label="l10n(`vue-ext`, `Status`)"/>
                     </ext-container>
 
                     <!-- users stats -->
