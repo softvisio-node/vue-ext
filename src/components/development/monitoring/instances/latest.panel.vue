@@ -388,7 +388,7 @@ export default {
             } ) );
 
             // series 1
-            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
+            const series1 = chart.series.push( am5xy.SmoothedXLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "FS free" ),
                 xAxis,
                 yAxis,
@@ -399,6 +399,7 @@ export default {
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
+                "connect": true,
             } ) );
 
             // fill settings
