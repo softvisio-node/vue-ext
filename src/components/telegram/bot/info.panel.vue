@@ -22,11 +22,28 @@
 
                     <ext-displayfield bind="{record.created}" :label="l10n(`vue-ext`, `Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/>
 
-                    <ext-displayfield bind="{record.total_users}" :label="l10n(`vue-ext`, `Total users`)"/>
-                    <ext-displayfield bind="{record.total_subscribed_users}" :label="l10n(`vue-ext`, `Total subscribed users`)"/>
-                    <ext-displayfield bind="{record.total_unsubscribed_users}" :label="l10n(`vue-ext`, `Total unsubscribed users`)"/>
-                    <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`vue-ext`, `Total returned users`)"/>
-                    <ext-displayfield bind="{record.total_banned_users}" :label="l10n(`vue-ext`, `Total banned users`)"/>
+                    <!-- status -->
+                    <ext-container>
+                        <ext-displayfield bind="{record.started}" :label="l10n(`vue-ext`, `Started`)"/>
+                        <ext-displayfield bind="{record.error}" :label="l10n(`vue-ext`, `Status`)"/>
+
+                        <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start`)"/>
+                        <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `Stop`)"/>
+                    </ext-container>
+
+                    <!-- users stats -->
+                    <ext-container layout="hbox">
+                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">
+                            <ext-displayfield bind="{record.total_users}" :label="l10n(`vue-ext`, `Total users`)"/>
+                            <ext-displayfield bind="{record.total_subscribed_users}" :label="l10n(`vue-ext`, `Total subscribed users`)"/>
+                            <ext-displayfield bind="{record.total_unsubscribed_users}" :label="l10n(`vue-ext`, `Total unsubscribed users`)"/>
+                        </ext-container>
+
+                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox">
+                            <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`vue-ext`, `Total returned users`)"/>
+                            <ext-displayfield bind="{record.total_banned_users}" :label="l10n(`vue-ext`, `Total banned users`)"/>
+                        </ext-container>
+                    </ext-container>
                 </ext-panel>
             </ext-panel>
         </template>
