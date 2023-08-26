@@ -27,8 +27,9 @@
                         <ext-container defaults='{"labelAlign":"left","labelWidth":200}' layout="hbox">
                             <ext-displayfield bind="{record.status_text}" flex="1" :label="l10n(`vue-ext`, `Status`)"/>
 
-                            <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start`)" ui="action"/>
-                            <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `ui=actionStop`)" ui="action"/>
+                            <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start`)" ui="action" @tap="_startBot"/>
+
+                            <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `ui=actionStop`)" ui="action" @tap="_stopBot"/>
                         </ext-container>
                     </ext-fieldset>
 
@@ -76,7 +77,50 @@ export default {
             if ( res.ok ) {
                 const record = new TelegramBotModel( res.data );
 
+                this.record = record;
+
                 this.$refs.dataPanel.ext.getViewModel().set( "record", record );
+            }
+        },
+
+        // protected
+        async _startBot ( e ) {
+            const button = e.detail.sender,
+                record = this.record;
+
+            button.disable();
+
+            const res = await this.$api.call( "telegram/bots/set-bot-started", record.id, true );
+
+            button.enable();
+
+            if ( res.ok ) {
+                record.set( "started", true );
+                record.set( "error", false );
+                record.set( "error_text", null );
+            }
+            else {
+                this.$utils.toast( res );
+                record.set( "error", true );
+                record.set( "error_text", res.statusText );
+            }
+        },
+
+        async _stopBot ( e ) {
+            const button = e.detail.sender,
+                record = this.record;
+
+            button.disable();
+
+            const res = await this.$api.call( "telegram/bots/set-bot-started", record.id, false );
+
+            button.enable();
+
+            if ( res.ok ) {
+                record.set( "started", false );
+            }
+            else {
+                this.$utils.toast( res );
             }
         },
     },
