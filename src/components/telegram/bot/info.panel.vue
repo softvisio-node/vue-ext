@@ -51,7 +51,7 @@ export default {
         async refresh () {
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "administration/telegram/bots/get-bot", this.telegramBotId );
+            const res = await this.$api.call( "telegram/bots/get-bot", this.telegramBotId );
 
             this.$refs.cardsPanel.setResult( res );
 

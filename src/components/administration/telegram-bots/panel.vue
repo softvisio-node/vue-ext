@@ -28,7 +28,7 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import TelegramBotModel from "#src/components/telegram/models/bot";
+import TelegramBotModel from "#src/components/telegram/bot/models/bot";
 
 export default {
     "components": { CardsPanel },

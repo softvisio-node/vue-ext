@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import BotInfoPanel from "./bot-info.panel";
-import BotStatsPanel from "./bot-stats.panel";
+import BotInfoPanel from "./info.panel";
+import BotStatsPanel from "./stats.panel";
 
 export default {
     "components": { BotInfoPanel, BotStatsPanel },
