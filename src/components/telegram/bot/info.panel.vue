@@ -24,12 +24,14 @@
 
                     <!-- status -->
                     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}'>
-                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' layout="hbox">
-                            <ext-displayfield bind="{record.status_text}" flex="1" :label="l10n(`vue-ext`, `Status`)"/>
+                        <ext-displayfield bind="{record.status_text}" flex="1" :label="l10n(`vue-ext`, `Status`)"/>
 
-                            <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start`)" ui="action" @tap="_startBot"/>
+                        <ext-container layout="hbox">
+                            <ext-spacer width="200"/>
 
-                            <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `ui=actionStop`)" ui="action" @tap="_stopBot"/>
+                            <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start`)" ui="action" width="200" @tap="_startBot"/>
+
+                            <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `ui=actionStop`)" ui="action" width="200" @tap="_stopBot"/>
                         </ext-container>
                     </ext-fieldset>
 
