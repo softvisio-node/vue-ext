@@ -6,7 +6,7 @@ export default Ext.define( "", {
 
         // fields
         "acl_id",
-        "acl_user_permissions",
+        { "name": "acl_user_permissions", "convert": value => new Set( value ) },
         "type",
         { "name": "static", "type": "bool" },
         "locales",
@@ -31,5 +31,8 @@ export default Ext.define( "", {
         { "name": "started", "type": "bool" },
         { "name": "error", "type": "bool" },
         "error_text",
+
+        // calculated
+        { "name": "can_update", "calculate": data => data.acl_user_permissions.has( "telegram/bot:update" ) },
     ],
 } );
