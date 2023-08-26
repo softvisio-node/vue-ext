@@ -23,9 +23,9 @@
                     <ext-displayfield bind="{record.created}" :label="l10n(`vue-ext`, `Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/>
 
                     <!-- status -->
-                    <ext-container>
+                    <ext-container defaults='{"labelAlign":"left","labelWidth":200}'>
                         <ext-displayfield bind="{record.started}" :label="l10n(`vue-ext`, `Started`)"/>
-                        <ext-displayfield bind="{record.error}" :label="l10n(`vue-ext`, `Status`)"/>
+                        <ext-displayfield bind="{record.error_text}" :label="l10n(`vue-ext`, `Status`)"/>
 
                         <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start`)"/>
                         <ext-button bind='{"disabled":"{!record.can_update}","hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `Stop`)"/>
