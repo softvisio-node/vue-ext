@@ -6,6 +6,7 @@ export default Ext.define( "", {
 
         // fields
         "acl_id",
+        "acl_user_permissions",
         "type",
         { "name": "static", "type": "bool" },
         "locales",
