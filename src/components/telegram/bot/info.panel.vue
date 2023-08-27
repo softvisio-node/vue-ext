@@ -10,17 +10,43 @@
                 <ext-panel defaults='{"labelAlign":"left","labelWidth":200}' padding="10 10 10 10" scrollable="true">
                     <ext-field bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)"/>
 
-                    <ext-displayfield bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
+                    <ext-fieldset>
+                        <!-- view contaoner -->
+                        <ext-container ref="viewContainer" defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox">
+                            <ext-displayfield bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
 
-                    <ext-textareafield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
+                            <ext-displayfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
 
-                    <ext-field bind="{record.description}" :label="l10n(`vue-ext`, `Description`)"/>
+                            <ext-displayfield bind="{record.description}" :label="l10n(`vue-ext`, `Description`)"/>
 
-                    <ext-displayfield bind="{record.type}" :label="l10n(`vue-ext`, `Type`)"/>
+                            <ext-container bind='{"hidden":"{!record.can_update}"}' layout="hbox">
+                                <ext-spacer width="200"/>
 
-                    <ext-displayfield bind="{record.static}" :label="l10n(`vue-ext`, `Static`)"/>
+                                <ext-button iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Edit`)" width="200" @tap="_startEdit"/>
+                            </ext-container>
+                        </ext-container>
 
-                    <ext-displayfield bind="{record.created}" :label="l10n(`vue-ext`, `Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/>
+                        <!--  edot container -->
+                        <ext-container ref="editContainer" defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox">
+                            <ext-field bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
+
+                            <ext-field bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
+
+                            <ext-textareafield bind="{record.description}" :label="l10n(`vue-ext`, `Description`)"/>
+
+                            <ext-container bind='{"hidden":"{!record.can_update}"}' layout="hbox">
+                                <ext-spacer width="200"/>
+
+                                <ext-button iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Edit`)" width="200" @tap="_startEdit"/>
+                            </ext-container>
+                        </ext-container>
+                    </ext-fieldset>
+
+                    <!-- <ext-displayfield bind="{record.type}" :label="l10n(`vue-ext`, `Type`)"/> -->
+
+                    <!-- <ext-displayfield bind="{record.static}" :label="l10n(`vue-ext`, `Static`)"/> -->
+
+                    <!-- <ext-displayfield bind="{record.created}" :label="l10n(`vue-ext`, `Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/> -->
 
                     <!-- status -->
                     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}'>
