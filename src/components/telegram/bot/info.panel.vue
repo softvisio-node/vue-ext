@@ -49,6 +49,11 @@
 
                     <!-- <ext-displayfield bind="{record.created}" :label="l10n(`vue-ext`, `Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/> -->
 
+                    <!-- acl -->
+                    <ext-container bind='{"hidden":"{!record.can_update_acl}"}'>
+                        <ext-button :text="l10n(`vue-ext`, `Edit permissions`)" @tap="_showAclDialog"/>
+                    </ext-container>
+
                     <!-- status -->
                     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}'>
                         <ext-displayfield bind="{record.status_text}" :label="l10n(`vue-ext`, `Status`)"/>
@@ -86,6 +91,7 @@
 <script>
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotModel from "./models/bot";
+import AclDialog from "#vue/components/acl/dialog";
 
 export default {
     "components": { CardsPanel },
@@ -179,6 +185,17 @@ export default {
             else {
                 this.$utils.toast( res );
             }
+        },
+
+        async _showAclDialog () {
+            const cmp = await this.$mount( AclDialog, {
+                "cache": false,
+                "props": {
+                    "aclId": this.record.get( "acl_id" ),
+                },
+            } );
+
+            cmp.ext.show();
         },
     },
 };
