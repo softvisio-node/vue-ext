@@ -15,8 +15,6 @@
 
                         <ext-displayfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
 
-                        <ext-displayfield bind="{record.description_html}" encodeHtml="false" :label="l10n(`vue-ext`, `Description`)"/>
-
                         <ext-container bind='{"hidden":"{!record.can_update}"}' layout='{"pack":"end","type":"hbox"}'>
                             <ext-spacer width="200"/>
 

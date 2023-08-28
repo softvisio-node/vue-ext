@@ -27,7 +27,9 @@ export default {
 
     "methods": {
         _ready ( e ) {
-            this.ext.getViewModel().set( "record", this.record );
+            const cmp = e.detail.cmp;
+
+            cmp.getViewModel().set( "record", this.record );
         },
 
         _cancel () {

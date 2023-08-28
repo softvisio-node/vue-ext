@@ -39,7 +39,5 @@ export default Ext.define( "", {
         { "name": "can_update_acl", "calculate": data => data.acl_user_permissions.has( "acl:update" ) },
 
         { "name": "status_text", "calculate": data => ( data.started ? app.locale.l10n( `vue-ext`, `Started` ) : app.locale.l10n( `vue-ext`, `Stopped` ) ) },
-
-        { "name": "description_html", "calculate": data => data.description.replaceAll( "\n", "<br/>" ) },
     ],
 } );
