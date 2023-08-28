@@ -10,39 +10,19 @@
                 <ext-panel defaults='{"labelAlign":"left","labelWidth":200}' padding="10 10 10 10" scrollable="true">
                     <ext-displayfield bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
 
-                    <ext-fieldset>
-                        <!-- view contaoner -->
-                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' :hidden="edit" layout="vbox">
-                            <ext-displayfield bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)"/>
+                    <ext-container defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox">
+                        <ext-displayfield bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)"/>
 
-                            <ext-displayfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
+                        <ext-displayfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
 
-                            <ext-displayfield bind="{record.description_html}" encodeHtml="false" :label="l10n(`vue-ext`, `Description`)"/>
+                        <ext-displayfield bind="{record.description_html}" encodeHtml="false" :label="l10n(`vue-ext`, `Description`)"/>
 
-                            <ext-container bind='{"hidden":"{!record.can_update}"}' layout='{"pack":"end","type":"hbox"}'>
-                                <ext-spacer width="200"/>
+                        <ext-container bind='{"hidden":"{!record.can_update}"}' layout='{"pack":"end","type":"hbox"}'>
+                            <ext-spacer width="200"/>
 
-                                <ext-button iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Edit`)" @tap="_startEdit"/>
-                            </ext-container>
+                            <ext-button iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Edit`)" @tap="_shoeEditDialog"/>
                         </ext-container>
-
-                        <!--  edot container -->
-                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' :hidden="!edit" layout="vbox">
-                            <ext-textfield bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)" maxLength="64"/>
-
-                            <ext-textfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)" maxLength="120"/>
-
-                            <ext-textareafield bind="{record.description}" :label="l10n(`vue-ext`, `Description`)" maxLength="512"/>
-
-                            <ext-container bind='{"hidden":"{!record.can_update}"}' layout='{"pack":"end","type":"hbox"}'>
-                                <ext-spacer width="200"/>
-
-                                <ext-button ref="saveButton" iconCls="fa-solid fa-check" :text="l10nd(`vue-ext`, `Save`)" ui="action" @tap="_save"/>
-                                <ext-spacer width="20"/>
-                                <ext-button ref="cancelButton" iconCls="fa-solid fa-xmark" :text="l10nd(`vue-ext`, `Cancel`)" ui="action" @tap="_cancelEdit"/>
-                            </ext-container>
-                        </ext-container>
-                    </ext-fieldset>
+                    </ext-container>
 
                     <!-- <ext-displayfield bind="{record.type}" :label="l10n(`vue-ext`, `Type`)"/> -->
 
@@ -94,6 +74,7 @@
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotModel from "./models/bot";
 import AclDialog from "#vue/components/acl/dialog";
+import DetailsGialog from "./details.dialog";
 
 export default {
     "components": { CardsPanel },
@@ -103,12 +84,6 @@ export default {
             "type": String,
             "required": true,
         },
-    },
-
-    data () {
-        return {
-            "edit": false,
-        };
     },
 
     "methods": {
@@ -129,43 +104,6 @@ export default {
         },
 
         // protected
-        _startEdit () {
-            this.edit = true;
-
-            this.record.beginEdit();
-        },
-
-        _cancelEdit () {
-            this.record.reject();
-            this.record.cancelEdit();
-
-            this.edit = false;
-        },
-
-        async _save () {
-            this.$refs.cancelButton.ext.disable();
-            this.$refs.saveButton.ext.disable();
-
-            const res = await this.$api.call( "telegram/bot/update", this.record.id, {
-                "name": this.record.get( "name" ),
-                "short_description": this.record.get( "short_description" ),
-                "description": this.record.get( "description" ),
-            } );
-
-            this.$refs.cancelButton.ext.enable();
-            this.$refs.saveButton.ext.enable();
-
-            if ( res.ok ) {
-                this.record.commit();
-                this.record.endEdit();
-
-                this.edit = false;
-            }
-            else {
-                this.$utils.toast( res );
-            }
-        },
-
         async _startBot ( e ) {
             const button = e.detail.sender,
                 record = this.record;
@@ -211,6 +149,16 @@ export default {
                 "cache": false,
                 "props": {
                     "aclId": this.record.get( "acl_id" ),
+                },
+            } );
+
+            cmp.ext.show();
+        },
+
+        async _shoeEditDialog () {
+            const cmp = await this.$mount( DetailsGialog, {
+                "props": {
+                    "record": this.record,
                 },
             } );
 
