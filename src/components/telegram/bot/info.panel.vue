@@ -37,8 +37,9 @@
                             <ext-container bind='{"hidden":"{!record.can_update}"}' layout='{"pack":"end","type":"hbox"}'>
                                 <ext-spacer width="200"/>
 
-                                <ext-button iconCls="fa-solid fa-check" :text="l10nd(`vue-ext`, `Save`)" @tap="_save"/>
-                                <ext-button iconCls="fa-solid fa-xmark" :text="l10nd(`vue-ext`, `Cancel`)" @tap="_cancelEdit"/>
+                                <ext-button iconCls="fa-solid fa-check" :text="l10nd(`vue-ext`, `Save`)" ui="action" @tap="_save"/>
+                                <ext-spacer width="20"/>
+                                <ext-button iconCls="fa-solid fa-xmark" :text="l10nd(`vue-ext`, `Cancel`)" ui="action" @tap="_cancelEdit"/>
                             </ext-container>
                         </ext-container>
                     </ext-fieldset>
@@ -50,8 +51,9 @@
                     <!-- <ext-displayfield bind="{record.created}" :label="l10n(`vue-ext`, `Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/> -->
 
                     <!-- acl -->
-                    <ext-container bind='{"hidden":"{!record.can_update_acl}"}'>
-                        <ext-button :text="l10n(`vue-ext`, `Edit permissions`)" @tap="_showAclDialog"/>
+                    <ext-container bind='{"hidden":"{!record.can_update_acl}"}' layout="hbox">
+                        <ext-spacer width="200"/>
+                        <ext-button :text="l10n(`vue-ext`, `Edit permissions`)" ui="action" @tap="_showAclDialog"/>
                     </ext-container>
 
                     <!-- status -->
