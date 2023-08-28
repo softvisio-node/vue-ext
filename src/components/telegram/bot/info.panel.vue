@@ -122,6 +122,8 @@ export default {
                 record.set( "error", true );
                 record.set( "error_text", res.statusText );
             }
+
+            record.commit( false, ["started", "error", "error_text"] );
         },
 
         async _stopBot ( e ) {
@@ -136,6 +138,7 @@ export default {
 
             if ( res.ok ) {
                 record.set( "started", false );
+                record.commit( false, ["started"] );
             }
             else {
                 this.$utils.toast( res );

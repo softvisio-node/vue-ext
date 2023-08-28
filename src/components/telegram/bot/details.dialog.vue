@@ -30,13 +30,22 @@ export default {
             const cmp = e.detail.cmp;
 
             cmp.getViewModel().set( "record", this.record );
+
+            cmp.on( "beforeClose", () => {
+                if ( this._saving ) return false;
+
+                this.record.reject();
+            } );
         },
 
         _cancel () {
+            this.record.reject();
+
             this.ext.close();
         },
 
         async _save () {
+            this._saving = true;
             this.$refs.cancelButton.ext.disable();
             this.$refs.saveButton.ext.disable();
 
@@ -46,12 +55,12 @@ export default {
                 "description": this.record.get( "description" ),
             } );
 
+            this._saving = false;
             this.$refs.cancelButton.ext.enable();
             this.$refs.saveButton.ext.enable();
 
             if ( res.ok ) {
-                this.record.commit();
-                this.record.endEdit();
+                this.record.commit( false, ["name", "short_description", "description"] );
 
                 this.ext.close();
             }
