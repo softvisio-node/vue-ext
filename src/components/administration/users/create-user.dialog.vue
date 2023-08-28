@@ -42,7 +42,7 @@ export default {
 
     data () {
         return {
-            "aclId": constants.defaultAclId,
+            "aclId": constants.mainAclId,
         };
     },
 

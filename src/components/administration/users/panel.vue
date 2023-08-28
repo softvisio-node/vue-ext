@@ -57,7 +57,7 @@ export default {
 
     data () {
         return {
-            "aclId": constants.defaultAclId,
+            "aclId": constants.mainAclId,
 
             "canCreateUser": this.$app.user.hasPermissions( "administration:create" ),
             "canUpdateUser": this.$app.user.hasPermissions( "administration:update" ),
@@ -84,7 +84,7 @@ export default {
             if ( !this._rolesLoaded ) {
                 this.$refs.cards.mask();
 
-                res = await this.$api.call( "acl/get-acl-roles", constants.defaultAclId );
+                res = await this.$api.call( "acl/get-acl-roles", constants.mainAclId );
 
                 if ( res.ok ) {
                     this._rolesLoaded = true;
@@ -308,7 +308,7 @@ export default {
 
             const cmp = await this.$mount( UserRolesDialog, {
                 "props": {
-                    "aclId": constants.defaultAclId,
+                    "aclId": constants.mainAclId,
                     "userRecord": record,
                 },
             } );
