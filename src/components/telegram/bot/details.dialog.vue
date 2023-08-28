@@ -1,11 +1,11 @@
 <template>
-    <ext-dialog height="80%" layout="vbox" :title="l10n(`vue-ext`, `Edit bot details`)" viewModel="true" width="80%" @ready="_ready">
-        <ext-fieldpanel flex="1" layout="vbox">
-            <ext-textfield bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)" maxLength="64"/>
+    <ext-dialog height="80%" layout="vbox" :title="l10n(`vue-ext`, `Edit bot details`)" width="80%" @ready="_ready">
+        <ext-fieldpanel ref="fieldPanel" flex="1" layout="vbox" modelValidation="true">
+            <ext-textfield :label="l10n(`vue-ext`, `Bot name`)" maxLength="64" name="name"/>
 
-            <ext-textfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)" maxLength="120"/>
+            <ext-textfield :label="l10n(`vue-ext`, `Short description`)" maxLength="120" name="short_description"/>
 
-            <ext-textareafield bind="{record.description}" flex="1" :label="l10n(`vue-ext`, `Description`)" maxLength="512"/>
+            <ext-textareafield flex="1" :label="l10n(`vue-ext`, `Description`)" maxLength="512" name="description"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
@@ -30,18 +30,14 @@ export default {
         _ready ( e ) {
             const cmp = e.detail.cmp;
 
-            cmp.getViewModel().set( "record", this.record );
+            this.$refs.fieldPanel.ext.setRecord( this.record );
 
             cmp.on( "beforeClose", () => {
                 if ( this._saving ) return false;
-
-                this.record.reject();
             } );
         },
 
         _cancel () {
-            this.record.reject();
-
             this.ext.close();
         },
 
@@ -61,7 +57,7 @@ export default {
             this.$refs.saveButton.ext.enable();
 
             if ( res.ok ) {
-                this.record.commit( false, ["name", "short_description", "description"] );
+                this.$refs.fieldPanel.ext.fillRecord( this.record );
 
                 this.ext.close();
             }
