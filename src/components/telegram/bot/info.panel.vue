@@ -12,7 +12,7 @@
 
                     <ext-fieldset>
                         <!-- view contaoner -->
-                        <ext-container ref="viewContainer" defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox">
+                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' :hidden="edit" layout="vbox">
                             <ext-displayfield bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
 
                             <ext-displayfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
@@ -27,17 +27,18 @@
                         </ext-container>
 
                         <!--  edot container -->
-                        <ext-container ref="editContainer" defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox">
-                            <ext-field bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
+                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' :hidden="!edit" layout="vbox">
+                            <ext-textfield bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
 
-                            <ext-field bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
+                            <ext-textfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
 
                             <ext-textareafield bind="{record.description}" :label="l10n(`vue-ext`, `Description`)"/>
 
                             <ext-container bind='{"hidden":"{!record.can_update}"}' layout="hbox">
                                 <ext-spacer width="200"/>
 
-                                <ext-button iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Edit`)" width="200" @tap="_startEdit"/>
+                                <ext-button iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Save`)" width="200" @tap="_save"/>
+                                <ext-button iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Cancel`)" width="200" @tap="_cancelEdit"/>
                             </ext-container>
                         </ext-container>
                     </ext-fieldset>
@@ -96,6 +97,12 @@ export default {
         },
     },
 
+    deta () {
+        return {
+            "edit": false,
+        };
+    },
+
     "methods": {
         async refresh () {
             this.$refs.cardsPanel.mask();
@@ -114,6 +121,18 @@ export default {
         },
 
         // protected
+        _startEdit () {
+            this.edit = true;
+        },
+
+        _cancelEdit () {
+            this.edit = false;
+        },
+
+        async _save () {
+            this.edit = false;
+        },
+
         async _startBot ( e ) {
             const button = e.detail.sender,
                 record = this.record;
