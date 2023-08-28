@@ -19,10 +19,10 @@
 
                             <ext-displayfield bind="{record.description}" :label="l10n(`vue-ext`, `Description`)"/>
 
-                            <ext-container bind='{"hidden":"{!record.can_update}"}' layout="hbox">
+                            <ext-container bind='{"hidden":"{!record.can_update}"}' layout='{"pack":"end","type":"hbox"}'>
                                 <ext-spacer width="200"/>
 
-                                <ext-button iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Edit`)" width="200" @tap="_startEdit"/>
+                                <ext-button iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Edit`)" @tap="_startEdit"/>
                             </ext-container>
                         </ext-container>
 
@@ -34,11 +34,11 @@
 
                             <ext-textareafield bind="{record.description}" :label="l10n(`vue-ext`, `Description`)"/>
 
-                            <ext-container bind='{"hidden":"{!record.can_update}"}' layout="hbox">
+                            <ext-container bind='{"hidden":"{!record.can_update}"}' layout='{"pack":"end","type":"hbox"}'>
                                 <ext-spacer width="200"/>
 
-                                <ext-button iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Save`)" width="200" @tap="_save"/>
-                                <ext-button iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Cancel`)" width="200" @tap="_cancelEdit"/>
+                                <ext-button iconCls="fa-solid fa-check" :text="l10nd(`vue-ext`, `Save`)" @tap="_save"/>
+                                <ext-button iconCls="fa-solid fa-xmark" :text="l10nd(`vue-ext`, `Cancel`)" @tap="_cancelEdit"/>
                             </ext-container>
                         </ext-container>
                     </ext-fieldset>
@@ -97,7 +97,7 @@ export default {
         },
     },
 
-    deta () {
+    data () {
         return {
             "edit": false,
         };
