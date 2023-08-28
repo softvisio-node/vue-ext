@@ -8,16 +8,16 @@
                 </ext-toolbar>
 
                 <ext-panel defaults='{"labelAlign":"left","labelWidth":200}' padding="10 10 10 10" scrollable="true">
-                    <ext-field bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)"/>
+                    <ext-displayfield bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
 
                     <ext-fieldset>
                         <!-- view contaoner -->
                         <ext-container defaults='{"labelAlign":"left","labelWidth":200}' :hidden="edit" layout="vbox">
-                            <ext-displayfield bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
+                            <ext-displayfield bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)"/>
 
                             <ext-displayfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
 
-                            <ext-displayfield bind="{record.description}" :label="l10n(`vue-ext`, `Description`)"/>
+                            <ext-displayfield bind="{record.description_html}" encodeHtml="false" :label="l10n(`vue-ext`, `Description`)"/>
 
                             <ext-container bind='{"hidden":"{!record.can_update}"}' layout='{"pack":"end","type":"hbox"}'>
                                 <ext-spacer width="200"/>
@@ -28,11 +28,11 @@
 
                         <!--  edot container -->
                         <ext-container defaults='{"labelAlign":"left","labelWidth":200}' :hidden="!edit" layout="vbox">
-                            <ext-textfield bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
+                            <ext-textfield bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)" maxLength="64"/>
 
-                            <ext-textfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
+                            <ext-textfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)" maxLength="120"/>
 
-                            <ext-textareafield bind="{record.description}" :label="l10n(`vue-ext`, `Description`)"/>
+                            <ext-textareafield bind="{record.description}" :label="l10n(`vue-ext`, `Description`)" maxLength="512"/>
 
                             <ext-container bind='{"hidden":"{!record.can_update}"}' layout='{"pack":"end","type":"hbox"}'>
                                 <ext-spacer width="200"/>
@@ -58,9 +58,9 @@
                         <ext-container bind='{"hidden":"{!record.can_update}"}' layout="hbox">
                             <ext-spacer width="200"/>
 
-                            <ext-button bind='{"hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start`)" ui="action" width="200" @tap="_startBot"/>
+                            <ext-button bind='{"hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start bot`)" ui="action" width="200" @tap="_startBot"/>
 
-                            <ext-button bind='{"hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `ui=actionStop`)" ui="action" width="200" @tap="_stopBot"/>
+                            <ext-button bind='{"hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `Stop bot`)" ui="action" width="200" @tap="_stopBot"/>
                         </ext-container>
                     </ext-fieldset>
 
@@ -123,13 +123,21 @@ export default {
         // protected
         _startEdit () {
             this.edit = true;
+
+            this.record.beginEdit();
         },
 
         _cancelEdit () {
+            this.record.reject();
+            this.record.cancelEdit();
+
             this.edit = false;
         },
 
         async _save () {
+            this.record.commit();
+            this.record.endEdit();
+
             this.edit = false;
         },
 
