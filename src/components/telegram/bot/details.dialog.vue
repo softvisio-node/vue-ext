@@ -49,7 +49,7 @@ export default {
             this.$refs.cancelButton.ext.disable();
             this.$refs.saveButton.ext.disable();
 
-            const res = await this.$api.call( "telegram/bot/update", this.record.id, {
+            const res = await this.$api.call( "telegram/bot/update-details", this.record.id, {
                 "name": this.record.get( "name" ),
                 "short_description": this.record.get( "short_description" ),
                 "description": this.record.get( "description" ),
