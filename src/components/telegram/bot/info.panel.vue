@@ -37,9 +37,9 @@
                             <ext-container bind='{"hidden":"{!record.can_update}"}' layout='{"pack":"end","type":"hbox"}'>
                                 <ext-spacer width="200"/>
 
-                                <ext-button iconCls="fa-solid fa-check" :text="l10nd(`vue-ext`, `Save`)" ui="action" @tap="_save"/>
+                                <ext-button ref="saveButton" iconCls="fa-solid fa-check" :text="l10nd(`vue-ext`, `Save`)" ui="action" @tap="_save"/>
                                 <ext-spacer width="20"/>
-                                <ext-button iconCls="fa-solid fa-xmark" :text="l10nd(`vue-ext`, `Cancel`)" ui="action" @tap="_cancelEdit"/>
+                                <ext-button ref="cancelButton" iconCls="fa-solid fa-xmark" :text="l10nd(`vue-ext`, `Cancel`)" ui="action" @tap="_cancelEdit"/>
                             </ext-container>
                         </ext-container>
                     </ext-fieldset>
@@ -143,10 +143,27 @@ export default {
         },
 
         async _save () {
-            this.record.commit();
-            this.record.endEdit();
+            this.$refs.cancelButton.ext.disable();
+            this.$refs.saveButton.ext.disable();
 
-            this.edit = false;
+            const res = await this.$api.call( "telegram/bot/update", this.record.id, {
+                "name": this.record.get( "name" ),
+                "short_description": this.record.get( "short_description" ),
+                "description": this.record.get( "description" ),
+            } );
+
+            this.$refs.cancelButton.ext.enable();
+            this.$refs.saveButton.ext.enable();
+
+            if ( res.ok ) {
+                this.record.commit();
+                this.record.endEdit();
+
+                this.edit = false;
+            }
+            else {
+                this.$utils.toast( res );
+            }
         },
 
         async _startBot ( e ) {
