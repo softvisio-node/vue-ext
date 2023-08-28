@@ -10,17 +10,15 @@
                 <ext-panel defaults='{"labelAlign":"left","labelWidth":200}' padding="10 10 10 10" scrollable="true">
                     <ext-displayfield bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
 
-                    <ext-container defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox">
-                        <ext-displayfield bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)"/>
+                    <ext-container layout="hbox">
+                        <ext-displayfield bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)" labelAlign="left" labelWidth="200"/>
 
-                        <ext-displayfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
+                        <ext-spacer/>
 
-                        <ext-container bind='{"hidden":"{!record.can_update}"}' layout='{"pack":"end","type":"hbox"}'>
-                            <ext-spacer width="200"/>
-
-                            <ext-button iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Edit`)" @tap="_shoeEditDialog"/>
-                        </ext-container>
+                        <ext-button iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Edit`)" @tap="_shoeEditDialog"/>
                     </ext-container>
+
+                    <ext-displayfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
 
                     <!-- <ext-displayfield bind="{record.type}" :label="l10n(`vue-ext`, `Type`)"/> -->
 
