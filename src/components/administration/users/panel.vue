@@ -3,7 +3,7 @@
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="l10nd(`vue-ext`, `Search users`)" width="200" @change="search"/>
-                <RolesButton aclId="aclId" @change="_onRolesFilterChange"/>
+                <RolesButton :aclId="aclId" @change="_onRolesFilterChange"/>
                 <ext-spacer/>
                 <ext-button :disabled="!canCreateUser" iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="l10nd(`vue-ext`, `Create user`)" @tap="showCreateUserDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
