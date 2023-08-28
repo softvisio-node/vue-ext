@@ -7,6 +7,7 @@
 
             <ext-textareafield bind="{record.description}" flex="1" :label="l10n(`vue-ext`, `Description`)" maxLength="512"/>
         </ext-fieldpanel>
+
         <ext-toolbar docked="bottom">
             <ext-spacer/>
             <ext-button ref="saveButton" iconCls="fa-solid fa-check" :text="l10nd(`vue-ext`, `Save`)" ui="action" @tap="_save"/>
@@ -49,7 +50,7 @@ export default {
             this.$refs.cancelButton.ext.disable();
             this.$refs.saveButton.ext.disable();
 
-            const res = await this.$api.call( "telegram/bot/update-details", this.record.id, {
+            const res = await this.$api.call( "telegram/bots/update-bot-details", this.record.id, {
                 "name": this.record.get( "name" ),
                 "short_description": this.record.get( "short_description" ),
                 "description": this.record.get( "description" ),
