@@ -35,9 +35,17 @@ export default Ext.define( "", {
         "error_text",
 
         // calculated
+        { "name": "name_html", "calculate": data => `<b>${data.name}</b><br/>@${data.telegram_username}` },
+
         { "name": "can_update", "calculate": data => data.acl_user_permissions.has( "telegram/bot:update" ) },
         { "name": "can_update_acl", "calculate": data => data.acl_user_permissions.has( "acl:update" ) },
 
         { "name": "status_text", "calculate": data => ( data.started ? app.locale.l10n( `vue-ext`, `Started` ) : app.locale.l10n( `vue-ext`, `Stopped` ) ) },
+
+        { "name": "total_subscribed_users_percent", "calculate": data => app.locale.formatNumber( data.total_subscribed_users / data.total_users ) },
+        { "name": "total_subscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_subscribed_users / data.total_users ) },
+
+        { "name": "total_unsubscribed_users_percent", "calculate": data => app.locale.formatNumber( data.total_unsubscribed_users / data.total_users ) },
+        { "name": "total_unsubscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_unsubscribed_users / data.total_users ) },
     ],
 } );

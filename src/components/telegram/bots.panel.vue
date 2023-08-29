@@ -10,11 +10,7 @@
 
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
-                <ext-column dataIndex="telegram_username" :text="l10nd(`vue-ext`, `Name`)" width="200"/>
-
-                <ext-column dataIndex="type" :text="l10nd(`vue-ext`, `Type`)" width="200"/>
-
-                <ext-column dataIndex="static" :text="l10nd(`vue-ext`, `Static`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="name_html" :text="l10nd(`vue-ext`, `Name`)" width="200"/>
 
                 <ext-numbercolumn align="right" dataIndex="total_subscribed_users" :text="l10nd(`vue-ext`, `Users`)"/>
 
