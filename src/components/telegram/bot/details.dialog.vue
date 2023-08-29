@@ -1,16 +1,16 @@
 <template>
     <ext-dialog height="80%" layout="vbox" :title="l10n(`vue-ext`, `Edit bot details`)" width="80%" @ready="_ready">
-        <ext-fieldpanel ref="fieldPanel" flex="1" layout="vbox" modelValidation="true">
+        <ext-formpanel ref="formPanel" flex="1" layout="vbox" modelValidation="true" trackResetOnLoad="true">
             <ext-textfield :label="l10n(`vue-ext`, `Bot name`)" maxLength="64" name="name"/>
 
             <ext-textfield :label="l10n(`vue-ext`, `Short description`)" maxLength="120" name="short_description"/>
 
             <ext-textareafield flex="1" :label="l10n(`vue-ext`, `Description`)" maxLength="512" name="description"/>
-        </ext-fieldpanel>
+        </ext-formpanel>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button ref="saveButton" iconCls="fa-solid fa-check" :text="l10nd(`vue-ext`, `Save`)" ui="action" @tap="_save"/>
+            <ext-button ref="saveButton" disabled="true" iconCls="fa-solid fa-check" :text="l10nd(`vue-ext`, `Save`)" ui="action" @tap="_save"/>
             <ext-spacer width="20"/>
             <ext-button ref="cancelButton" iconCls="fa-solid fa-xmark" :text="l10nd(`vue-ext`, `Cancel`)" ui="action" @tap="_cancel"/>
         </ext-toolbar>
@@ -30,11 +30,13 @@ export default {
         _ready ( e ) {
             const cmp = e.detail.cmp;
 
-            this.$refs.fieldPanel.ext.setRecord( this.record );
-
             cmp.on( "beforeClose", () => {
                 if ( this._saving ) return false;
             } );
+
+            this.$refs.formPanel.ext.on( "dirtychange", ( cmp, dirty ) => this.$refs.saveButton.ext.setDisabled( !dirty ) );
+
+            this.$refs.formPanel.ext.setRecord( this.record );
         },
 
         _cancel () {
@@ -46,18 +48,16 @@ export default {
             this.$refs.cancelButton.ext.disable();
             this.$refs.saveButton.ext.disable();
 
-            const res = await this.$api.call( "telegram/bots/update-bot-details", this.record.id, {
-                "name": this.record.get( "name" ),
-                "short_description": this.record.get( "short_description" ),
-                "description": this.record.get( "description" ),
-            } );
+            const values = this.$refs.formPanel.ext.getValues();
+
+            const res = await this.$api.call( "telegram/bots/update-bot-details", this.record.id, values );
 
             this._saving = false;
             this.$refs.cancelButton.ext.enable();
             this.$refs.saveButton.ext.enable();
 
             if ( res.ok ) {
-                this.$refs.fieldPanel.ext.fillRecord( this.record );
+                this.$refs.formPanel.ext.fillRecord( this.record );
 
                 this.ext.close();
             }
