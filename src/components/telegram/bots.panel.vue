@@ -10,13 +10,13 @@
 
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
-                <ext-column cell='{"encodeHtml":false}' dataIndex="name_html" sorter='{"property":"name"}' :text="l10nd(`vue-ext`, `Name`)" width="200"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="name_html" flex="1" sorter='{"property":"name"}' :text="l10nd(`vue-ext`, `Name`)"/>
 
-                <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10nd(`vue-ext`, `Subscribed users`)" width="150"/>
+                <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10nd(`vue-ext`, `Subscribed users`)" width="200"/>
 
                 <ext-column dataIndex="status_text" sorter='{"property":"started"}' :text="l10nd(`vue-ext`, `Status`)"/>
 
-                <ext-column width="160" @ready="_actionColReady"/>
+                <ext-column @ready="_actionColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
@@ -76,7 +76,7 @@ export default {
                             "xtype": "button",
 
                             // "iconCls": "fa-solid fa-users",
-                            "tooltip": this.l10nd( `vue-ext`, "Open bot" ),
+                            "text": this.l10nd( `vue-ext`, "Open bot" ),
                             "handler": this._showBotDialog.bind( this ),
                         },
                     ],
