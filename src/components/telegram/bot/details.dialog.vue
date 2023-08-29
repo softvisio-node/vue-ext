@@ -5,7 +5,7 @@
 
             <ext-textfield :label="l10n(`vue-ext`, `Short description`) + `.<br/>` + l10n(`vue-ext`, `Bot short description is shown on the bot profile page and is sent together with the link when users share the bot.`)" labelAlign="top" maxLength="120" name="short_description"/>
 
-            <ext-textareafield flex="1" :label="l10n(`vue-ext`, `Description.<br/>Bot description is shown in the chat with the bot if the chat is empty.`)" labelAlign="top" maxLength="512" name="description"/>
+            <ext-textareafield flex="1" :label="l10n(`vue-ext`, `Description`) + `.<br/>` + l10n(`vue-ext`, `Bot description is shown in the chat with the bot if the chat is empty.`)" labelAlign="top" maxLength="512" name="description"/>
         </ext-formpanel>
 
         <ext-toolbar docked="bottom">
