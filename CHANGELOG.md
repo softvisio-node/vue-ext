@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.8.6 (2023-08-29)
+
+Fixes:
+
+-   fix: amcharts5LicenseKey
+-   fix: app locales
+-   fix: telegram
+
 ### 8.8.5 (2023-08-15)
 
 Fixes:
