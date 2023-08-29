@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="95%" layout="fit" :title="title" width="90%" @ready="_ready"/>
+    <ext-dialog height="98%" layout="fit" :title="title" width="95%" @ready="_ready"/>
 </template>
 
 <script>
