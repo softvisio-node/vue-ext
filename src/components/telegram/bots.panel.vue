@@ -26,7 +26,7 @@
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotModel from "#src/components/telegram/bot/models/bot";
 import telegramRegistry from "#src/components/telegram/registry";
-import BotDialog from "#src/components/telegram/dialog";
+import BotDialog from "#src/components/telegram/bot/dialog";
 
 // XXX
 import "#src/components/telegram/telegram-notifications-bot/index";
