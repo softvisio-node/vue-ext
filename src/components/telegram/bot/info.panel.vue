@@ -48,6 +48,7 @@
                     </ext-fieldset>
 
                     <!-- users stats -->
+                    <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`vue-ext`, `Last new user subscribed`)"/>
                     <ext-fieldset layout="hbox" title="Users statistics">
                         <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">
                             <ext-displayfield bind="{record.total_users}" :label="l10n(`vue-ext`, `Total users`)"/>
