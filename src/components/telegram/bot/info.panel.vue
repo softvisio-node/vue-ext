@@ -61,10 +61,13 @@
                             <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`vue-ext`, `Total returned users`)"/>
                             <ext-displayfield bind="{record.total_banned_users}" :label="l10n(`vue-ext`, `Total banned users`)"/>
                         </ext-container>
-
-                        <ext-spacer width="200"/>
-                        <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Delete bot`)" @tap="_deleteBot"/>
                     </ext-fieldset>
+
+                    <!-- delete -->
+                    <ext-container bind='{"hidden":"{!record.can_delete}"}' layout="hbox">
+                        <ext-spacer width="200"/>
+                        <ext-button iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Delete bot`)" @tap="_deleteBot"/>
+                    </ext-container>
                 </ext-panel>
             </ext-panel>
         </template>
