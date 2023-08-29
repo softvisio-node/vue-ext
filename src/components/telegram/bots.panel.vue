@@ -10,13 +10,11 @@
 
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
-                <ext-column cell='{"encodeHtml":false}' dataIndex="name_html" :text="l10nd(`vue-ext`, `Name`)" width="200"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="name_html" sorter='{"property":"name"}' :text="l10nd(`vue-ext`, `Name`)" width="200"/>
 
-                <ext-column align="right" dataIndex="total_subscribed_users_text" :text="l10nd(`vue-ext`, `Subscribed users`)" width="150"/>
+                <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10nd(`vue-ext`, `Subscribed users`)" width="150"/>
 
-                <ext-column dataIndex="status_text" :text="l10nd(`vue-ext`, `Status`)"/>
-
-                <ext-column dataIndex="error_text" flex="1" :text="l10nd(`vue-ext`, `Error`)"/>
+                <ext-column dataIndex="status_text" sorter='{"property":"started"}' :text="l10nd(`vue-ext`, `Status`)"/>
 
                 <ext-column width="160" @ready="_actionColReady"/>
             </ext-grid>
