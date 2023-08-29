@@ -12,7 +12,8 @@
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
                 <ext-column cell='{"encodeHtml":false}' dataIndex="name_html" :text="l10nd(`vue-ext`, `Name`)" width="200"/>
 
-                <ext-numbercolumn align="right" dataIndex="total_subscribed_users" :text="l10nd(`vue-ext`, `Users`)"/>
+                <ext-column align="right" dataIndex="total_subscribed_users_text" :text="l10nd(`vue-ext`, `Subscribed users`)"/>
+                <ext-column align="right" dataIndex="total_unsubscribed_users_text" :text="l10nd(`vue-ext`, `Unsubscribed users`)"/>
 
                 <ext-column dataIndex="error_text" flex="1" :text="l10nd(`vue-ext`, `Error`)"/>
 

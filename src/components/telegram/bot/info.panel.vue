@@ -51,8 +51,8 @@
                     <ext-fieldset layout="hbox" title="Users statistics">
                         <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">
                             <ext-displayfield bind="{record.total_users}" :label="l10n(`vue-ext`, `Total users`)"/>
-                            <ext-displayfield bind="{record.total_subscribed_users}" :label="l10n(`vue-ext`, `Total subscribed users`)"/>
-                            <ext-displayfield bind="{record.total_unsubscribed_users}" :label="l10n(`vue-ext`, `Total unsubscribed users`)"/>
+                            <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10n(`vue-ext`, `Total subscribed users`)"/>
+                            <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10n(`vue-ext`, `Total unsubscribed users`)"/>
                         </ext-container>
 
                         <ext-container defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox">
