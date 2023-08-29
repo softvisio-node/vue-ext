@@ -61,6 +61,9 @@
                             <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`vue-ext`, `Total returned users`)"/>
                             <ext-displayfield bind="{record.total_banned_users}" :label="l10n(`vue-ext`, `Total banned users`)"/>
                         </ext-container>
+
+                        <ext-spacer width="200"/>
+                        <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Delete bot`)" @tap="_deleteBot"/>
                     </ext-fieldset>
                 </ext-panel>
             </ext-panel>
@@ -164,6 +167,24 @@ export default {
             } );
 
             cmp.ext.show();
+        },
+
+        async _deleteBot ( e ) {
+            const record = this.record,
+                button = e.detail.sender;
+
+            button.disable();
+
+            const res = await this.$api.call( "telegram/bots/delete-bot", record.id );
+
+            button.enable();
+
+            if ( res.ok ) {
+                this.refresh();
+            }
+            else {
+                this.$utils.toast( res );
+            }
         },
     },
 };
