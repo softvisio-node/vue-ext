@@ -25,6 +25,11 @@
 <script>
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotModel from "#src/components/telegram/bot/models/bot";
+import registry from "#src/components/telegram/registry";
+import BotDialog from "#src/components/telegram/dialog";
+
+// XXX
+import "#src/components/telegram/telegram-notifications-bot/index";
 
 export default {
     "components": { CardsPanel },
@@ -99,7 +104,20 @@ export default {
             }
         },
 
-        async _showBotDialog () {},
+        async _showBotDialog ( button ) {
+            const record = button.up( "gridrow" ).getRecord(),
+                panel = registry.getType( record.get( "type" ) );
+
+            const cmp = await this.$mount( BotDialog, {
+                "props": {
+                    panel,
+                    "telegramBotId": record.id,
+                    "title": record.get( "name" ),
+                },
+            } );
+
+            cmp.ext.show();
+        },
     },
 };
 </script>
