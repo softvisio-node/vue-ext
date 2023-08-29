@@ -4,6 +4,7 @@
             <ext-panel ref="dataPanel" layout="fit" viewModel="true">
                 <ext-toolbar docked="top">
                     <ext-spacer/>
+                    <ext-button bind='{"hidden":"{!record.can_update_acl}"}' :text="l10n(`vue-ext`, `Edit permissions`)" @tap="_showAclDialog"/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
@@ -32,12 +33,6 @@
                     <!-- <ext-displayfield bind="{record.static}" :label="l10n(`vue-ext`, `Static`)"/> -->
 
                     <!-- <ext-displayfield bind="{record.created}" :label="l10n(`vue-ext`, `Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/> -->
-
-                    <!-- acl -->
-                    <ext-container bind='{"hidden":"{!record.can_update_acl}"}' layout="hbox">
-                        <ext-spacer width="200"/>
-                        <ext-button :text="l10n(`vue-ext`, `Edit permissions`)" ui="action" @tap="_showAclDialog"/>
-                    </ext-container>
 
                     <!-- status -->
                     <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}'>
