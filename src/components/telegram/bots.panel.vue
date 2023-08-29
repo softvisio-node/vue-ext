@@ -12,8 +12,9 @@
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
                 <ext-column cell='{"encodeHtml":false}' dataIndex="name_html" :text="l10nd(`vue-ext`, `Name`)" width="200"/>
 
-                <ext-column align="right" dataIndex="total_subscribed_users_text" :text="l10nd(`vue-ext`, `Subscribed users`)"/>
-                <ext-column align="right" dataIndex="total_unsubscribed_users_text" :text="l10nd(`vue-ext`, `Unsubscribed users`)"/>
+                <ext-column align="right" dataIndex="total_subscribed_users_text" :text="l10nd(`vue-ext`, `Subscribed users`)" width="150"/>
+
+                <ext-column dataIndex="status_text" :text="l10nd(`vue-ext`, `Status`)"/>
 
                 <ext-column dataIndex="error_text" flex="1" :text="l10nd(`vue-ext`, `Error`)"/>
 
@@ -26,7 +27,6 @@
 <script>
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotModel from "#src/components/telegram/bot/models/bot";
-import AclDialog from "#vue/components/acl/dialog";
 
 export default {
     "components": { CardsPanel },
@@ -76,45 +76,10 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "fa-solid fa-users",
-                            "tooltip": this.l10nd( `vue-ext`, "Edit users" ),
-                            "handler": this._showAclDialog.bind( this ),
-                        },
-                        {
-                            "xtype": "button",
-                            "iconCls": "fa-regular fa-circle-play",
-                            "text": this.l10nd( `vue-ext`, "Start" ),
-                            "handler": this._startBot.bind( this ),
-                            "bind": { "hidden": "{record.started}" },
-                            "disabled": !this.canUpdate,
-                            "ui": "decline",
-                        },
-                        {
-                            "xtype": "button",
-                            "iconCls": "fa-regular fa-circle-stop",
-                            "text": this.l10nd( `vue-ext`, "Stop" ),
-                            "handler": this._stopBot.bind( this ),
-                            "bind": { "hidden": "{!record.started}" },
-                            "disabled": !this.canUpdate,
-                        },
-                        {
-                            "xtype": "button",
-                            "iconCls": "fa-solid fa-ellipsis-v",
-                            "tooltip": this.l10nd( `vue-ext`, "Actions" ),
-                            "arrow": false,
-                            "menu": {
-                                "defaults": {
-                                    "xtype": "menuitem",
-                                },
-                                "items": [
-                                    {
-                                        "iconCls": "fa-solid fa-trash-alt",
-                                        "text": this.l10nd( `vue-ext`, "Delete bot" ),
-                                        "handler": this._deleteBot.bind( this ),
-                                        "disabled": !this.canDelete,
-                                    },
-                                ],
-                            },
+
+                            // "iconCls": "fa-solid fa-users",
+                            "tooltip": this.l10nd( `vue-ext`, "Open bot" ),
+                            "handler": this._showBotDialog.bind( this ),
                         },
                     ],
                 },
@@ -136,73 +101,7 @@ export default {
             }
         },
 
-        async _startBot ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
-
-            button.disable();
-
-            const res = await this.$api.call( "administration/telegram/bots/set-bot-started", record.id, true );
-
-            button.enable();
-
-            if ( res.ok ) {
-                record.set( "started", true );
-                record.set( "error", false );
-                record.set( "error_text", null );
-            }
-            else {
-                this.$utils.toast( res );
-                record.set( "error", true );
-                record.set( "error_text", res.statusText );
-            }
-        },
-
-        async _stopBot ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
-
-            button.disable();
-
-            const res = await this.$api.call( "administration/telegram/bots/set-bot-started", record.id, false );
-
-            button.enable();
-
-            if ( res.ok ) {
-                record.set( "started", false );
-            }
-            else {
-                this.$utils.toast( res );
-            }
-        },
-
-        async _deleteBot ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
-
-            button.disable();
-
-            const res = await this.$api.call( "administration/telegram/bots/delete-bot", record.id );
-
-            button.enable();
-
-            if ( res.ok ) {
-                this.refresh();
-            }
-            else {
-                this.$utils.toast( res );
-            }
-        },
-
-        async _showAclDialog ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
-
-            const cmp = await this.$mount( AclDialog, {
-                "cache": false,
-                "props": {
-                    "aclId": record.get( "acl_id" ),
-                },
-            } );
-
-            cmp.ext.show();
-        },
+        async _showBotDialog () {},
     },
 };
 </script>
