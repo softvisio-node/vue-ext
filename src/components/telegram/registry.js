@@ -1,13 +1,13 @@
 class TelegramRegistry {
-    #types = {};
+    #botTypes = {};
 
     // public
-    register ( type, spec ) {
-        this.#types[type] = spec;
+    registerBotType ( type, spec ) {
+        this.#botTypes[type] = spec;
     }
 
-    getType ( type ) {
-        return this.#types[type];
+    getBotType ( type ) {
+        return this.#botTypes[type];
     }
 }
 
