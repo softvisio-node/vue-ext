@@ -24,6 +24,7 @@ export default Ext.define( "", {
         { "name": "telegram_can_read_all_group_messages", "type": "bool" },
         { "name": "telegram_supports_inline_queries", "type": "bool" },
 
+        { "name": "last_user_created", "type": "date" },
         "total_users",
         "total_subscribed_users",
         "total_unsubscribed_users",
@@ -43,12 +44,12 @@ export default Ext.define( "", {
         { "name": "status_text", "calculate": data => ( data.started ? app.locale.l10n( `vue-ext`, `Started` ) : app.locale.l10n( `vue-ext`, `Stopped` ) ) },
 
         { "name": "total_subscribed_users_percent", "calculate": data => app.locale.formatNumber( data.total_subscribed_users / data.total_users ) },
-        { "name": "total_subscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_subscribed_users / data.total_users ) },
+        { "name": "total_subscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_subscribed_users_percent ) },
 
         { "name": "total_subscribed_users_text", "calculate": data => `${data.total_subscribed_users} (${data.total_subscribed_users_percent_text})` },
 
         { "name": "total_unsubscribed_users_percent", "calculate": data => app.locale.formatNumber( data.total_unsubscribed_users / data.total_users ) },
-        { "name": "total_unsubscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_unsubscribed_users / data.total_users ) },
+        { "name": "total_unsubscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_unsubscribed_users_percent ) },
         { "name": "total_unsubscribed_users_text", "calculate": data => `${data.total_unsubscribed_users} (${data.total_unsubscribed_users_percent_text})` },
     ],
 } );
