@@ -64,5 +64,7 @@ export default Ext.define( "", {
         { "name": "total_unsubscribed_users_percent", "calculate": data => app.locale.formatNumber( data.total_unsubscribed_users / data.total_users ) },
         { "name": "total_unsubscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_unsubscribed_users_percent ) },
         { "name": "total_unsubscribed_users_text", "calculate": data => `${data.total_unsubscribed_users} (${data.total_unsubscribed_users_percent_text})` },
+
+        { "name": "url", "calculate": data => `https://t.me/${data.telegram_username}` },
     ],
 } );

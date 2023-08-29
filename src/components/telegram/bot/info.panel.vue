@@ -11,6 +11,13 @@
                     <ext-displayfield bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
 
                     <ext-container layout="hbox">
+                        <ext-displayfield bind="{record.url}" :label="l10n(`vue-ext`, `Telegram bot url`)" labelAlign="left" labelWidth="200"/>
+                        <ext-spacer/>
+                        <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`vue-ext`, `Copy to the clipboard`)" @tap="_copyBotUrl"/>
+                        <ext-button iconCls="fa-solid fa-arrow-up-right-from-square" :tooltip="l10n(`vue-ext`, `Open bot in Tekegram`)" @tap="_openBotUrl"/>
+                    </ext-container>
+
+                    <ext-container layout="hbox">
                         <ext-displayfield bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)" labelAlign="left" labelWidth="200"/>
 
                         <ext-spacer/>
@@ -188,6 +195,16 @@ export default {
             else {
                 this.$utils.toast( res );
             }
+        },
+
+        _copyBotUrl () {
+            this.$utils.copyToClipboard( this.record.get( "url" ) );
+
+            this.$utils.toast( this.l10nd( `vue-ext`, "Telegram link copied to the clipboard" ) );
+        },
+
+        _openBotUrl () {
+            this.$utils.clickUrl( this.record.get( "url" ) );
         },
     },
 };
