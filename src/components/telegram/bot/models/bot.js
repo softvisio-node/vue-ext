@@ -43,7 +43,17 @@ export default Ext.define( "", {
 
         { "name": "status_text", "calculate": data => ( data.started ? app.locale.l10n( `vue-ext`, `Started` ) : app.locale.l10n( `vue-ext`, `Stopped` ) ) },
 
-        { "name": "last_user_created_text", "calculate": data => ( data.last_user_created ? `${app.locale.formatDate( data.last_user_created )} (${app.locale.formatRelativeTime( data.last_user_created )})` : -"-" ) },
+        {
+            "name": "last_user_created_text",
+            calculate ( data ) {
+                if ( data.last_user_created ) {
+                    return `${app.locale.formatDate( data.last_user_created )} (${app.locale.formatRelativeTime( data.last_user_created )})`;
+                }
+                else {
+                    return "--";
+                }
+            },
+        },
 
         { "name": "total_subscribed_users_percent", "calculate": data => app.locale.formatNumber( data.total_subscribed_users / data.total_users ) },
         { "name": "total_subscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_subscribed_users_percent ) },
