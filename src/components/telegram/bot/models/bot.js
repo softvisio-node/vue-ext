@@ -40,6 +40,7 @@ export default Ext.define( "", {
 
         { "name": "can_update", "calculate": data => data.acl_user_permissions.has( "telegram/bot:update" ) },
         { "name": "can_update_acl", "calculate": data => data.acl_user_permissions.has( "acl:update" ) },
+        { "name": "can_delete", "calculate": data => !data.static && data.acl_user_permissions.has( "telegram/bot:delete" ) },
 
         { "name": "status_text", "calculate": data => ( data.started ? app.locale.l10n( `vue-ext`, `Started` ) : app.locale.l10n( `vue-ext`, `Stopped` ) ) },
 
