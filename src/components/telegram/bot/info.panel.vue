@@ -35,19 +35,14 @@
                     <!-- <ext-displayfield bind="{record.created}" :label="l10n(`vue-ext`, `Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/> -->
 
                     <!-- status -->
-                    <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}'>
-                        <ext-displayfield bind="{record.status_text}" :label="l10n(`vue-ext`, `Status`)"/>
+                    <ext-container layout="hbox">
+                        <ext-displayfield bind="{record.status_text}" :label="l10n(`vue-ext`, `Status`)" labelAlign="left" labelWidth="200"/>
+                        <ext-spacer/>
+                        <ext-button bind='{"hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start bot`)" @tap="_startBot"/>
 
-                        <ext-displayfield bind='{"hidden":"{!record.error}","value":"{record.error_text}"}'/>
-
-                        <ext-container bind='{"hidden":"{!record.can_update}"}' layout="hbox">
-                            <ext-spacer width="200"/>
-
-                            <ext-button bind='{"hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start bot`)" ui="action" width="200" @tap="_startBot"/>
-
-                            <ext-button bind='{"hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `Stop bot`)" ui="action" width="200" @tap="_stopBot"/>
-                        </ext-container>
-                    </ext-fieldset>
+                        <ext-button bind='{"hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `Stop bot`)" @tap="_stopBot"/>
+                    </ext-container>
+                    <ext-displayfield bind='{"hidden":"{!record.error}","value":"{record.error_text}"}' labelAlign="left" labelWidth="200"/>
 
                     <!-- users stats -->
                     <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`vue-ext`, `Last new user subscribed`)"/>
