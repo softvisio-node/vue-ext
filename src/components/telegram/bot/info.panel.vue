@@ -35,13 +35,7 @@
                     <!-- <ext-displayfield bind="{record.created}" :label="l10n(`vue-ext`, `Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/> -->
 
                     <!-- status -->
-                    <ext-container layout="hbox">
-                        <ext-displayfield bind="{record.status_text}" :label="l10n(`vue-ext`, `Status`)" labelAlign="left" labelWidth="200"/>
-                        <ext-spacer/>
-                        <ext-button bind='{"hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start bot`)" @tap="_startBot"/>
-
-                        <ext-button bind='{"hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `Stop bot`)" @tap="_stopBot"/>
-                    </ext-container>
+                    <ext-displayfield bind="{record.status_text}" :label="l10n(`vue-ext`, `Status`)" labelAlign="left" labelWidth="200"/>
                     <ext-displayfield bind='{"hidden":"{!record.error}","value":"{record.error_text}"}' labelAlign="left" labelWidth="200"/>
 
                     <!-- users stats -->
@@ -60,20 +54,18 @@
                         </ext-container>
                     </ext-fieldset>
 
-                    <!-- delete -->
-                    <ext-container bind='{"hidden":"{!record.can_update}"}' layout="hbox">
-                        <ext-spacer width="200"/>
-                        <ext-button iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Stop bot`)" ui="decline" @tap="_deleteBot"/>
-                    </ext-container>
+                    <ext-container defaults='{"ui":"decline","width":200}' layout='{"align":"center","type":"vbox"}'>
+                        <!-- start -->
+                        <ext-button bind='{"hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start bot`)" @tap="_startBot"/>
 
-                    <ext-container bind='{"hidden":"{!record.can_delete}"}' layout="hbox">
-                        <ext-spacer width="200"/>
-                        <ext-button iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Delete bot`)" ui="decline" @tap="_deleteBot"/>
-                    </ext-container>
+                        <!-- stop -->
+                        <ext-button bind='{"hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `Stop bot`)" @tap="_stopBot"/>
 
-                    <ext-container bind='{"hidden":"{!record.can_update}"}' layout="hbox">
-                        <ext-spacer width="200"/>
-                        <ext-button iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Change bot API key`)" ui="decline" @tap="_deleteBot"/>
+                        <!-- change api key -->
+                        <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Change bot API key`)" @tap="_deleteBot"/>
+
+                        <!-- delete bot -->
+                        <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Delete bot`)" @tap="_deleteBot"/>
                     </ext-container>
                 </ext-panel>
             </ext-panel>
