@@ -172,6 +172,8 @@ export default {
         },
 
         async _deleteBot ( e ) {
+            if ( !( await this.$utils.confirm( this.l10nd( `vue-ext`, "Are you sure you want to delete this bot and all it's data? This operation is not revertable." ) ) ) ) return;
+
             const record = this.record,
                 button = e.detail.sender;
 

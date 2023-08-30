@@ -178,6 +178,8 @@ export default {
         },
 
         async _deleteBot ( button ) {
+            if ( !( await this.$utils.confirm( this.l10nd( `vue-ext`, "Are you sure you want to delete this bot and all it's data? This operation is not revertable." ) ) ) ) return;
+
             const record = button.up( "gridrow" ).getRecord();
 
             button.disable();
