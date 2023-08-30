@@ -129,13 +129,13 @@ export default {
 
             if ( val !== "" ) {
                 this.store.addFilter( {
-                    "property": "telegram_username",
+                    "property": "name",
                     "operator": "like",
                     "value": val,
                 } );
             }
             else {
-                this.store.removeFilter( "telegram_username" );
+                this.store.removeFilter( "name" );
             }
         },
 
