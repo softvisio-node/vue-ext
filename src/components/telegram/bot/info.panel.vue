@@ -56,13 +56,13 @@
 
                     <ext-container defaults='{"ui":"decline","width":200}' layout='{"align":"center","type":"vbox"}'>
                         <!-- start -->
-                        <ext-button bind='{"hidden":"{record.started}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start bot`)" @tap="_startBot"/>
+                        <ext-button bind='{"hidden":"{record.can_start}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start bot`)" @tap="_startBot"/>
 
                         <!-- stop -->
-                        <ext-button bind='{"hidden":"{!record.started}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `Stop bot`)" @tap="_stopBot"/>
+                        <ext-button bind='{"hidden":"{!record.can_stop}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `Stop bot`)" @tap="_stopBot"/>
 
                         <!-- change api key -->
-                        <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Change bot API key`)" @tap="_deleteBot"/>
+                        <ext-button bind='{"hidden":"{!record.can_change_api_key}"}' iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Change bot API key`)" @tap="_deleteBot"/>
 
                         <!-- delete bot -->
                         <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Delete bot`)" @tap="_deleteBot"/>
