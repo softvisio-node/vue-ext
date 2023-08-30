@@ -1,7 +1,8 @@
 <template>
     <ext-panel layout="hbox">
         <BotInfoPanel flex="1" :telegramBotId="telegramBotId"/>
-        <BotStatsPanel flex="1" resizable='{"edges":"west","snap":200,"split":true}' scrollable="true" :telegramBotId="telegramBotId"/>
+
+        <BotStatsPanel minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' scrollable="true" :telegramBotId="telegramBotId" width="400"/>
     </ext-panel>
 </template>
 
