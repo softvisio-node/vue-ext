@@ -61,9 +61,19 @@
                     </ext-fieldset>
 
                     <!-- delete -->
+                    <ext-container bind='{"hidden":"{!record.can_update}"}' layout="hbox">
+                        <ext-spacer width="200"/>
+                        <ext-button iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Stop bot`)" ui="decline" @tap="_deleteBot"/>
+                    </ext-container>
+
                     <ext-container bind='{"hidden":"{!record.can_delete}"}' layout="hbox">
                         <ext-spacer width="200"/>
-                        <ext-button iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Delete bot`)" @tap="_deleteBot"/>
+                        <ext-button iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Delete bot`)" ui="decline" @tap="_deleteBot"/>
+                    </ext-container>
+
+                    <ext-container bind='{"hidden":"{!record.can_update}"}' layout="hbox">
+                        <ext-spacer width="200"/>
+                        <ext-button iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Change bot API key`)" ui="decline" @tap="_deleteBot"/>
                     </ext-container>
                 </ext-panel>
             </ext-panel>
