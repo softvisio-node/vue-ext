@@ -56,7 +56,7 @@
 
                     <ext-container defaults='{"ui":"decline","width":200}' layout='{"align":"center","type":"vbox"}'>
                         <!-- start -->
-                        <ext-button bind='{"hidden":"{record.can_start}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start bot`)" @tap="_startBot"/>
+                        <ext-button bind='{"hidden":"{!record.can_start}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start bot`)" @tap="_startBot"/>
 
                         <!-- stop -->
                         <ext-button bind='{"hidden":"{!record.can_stop}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `Stop bot`)" @tap="_stopBot"/>
