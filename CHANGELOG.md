@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.8 (2023-08-31)
+
+Fixes:
+
+-   fix: oauth buttons
+
 ### 8.8.7 (2023-08-30)
 
 Fixes:
