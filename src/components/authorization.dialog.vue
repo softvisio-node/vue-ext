@@ -3,7 +3,9 @@
         <ext-container :html="l10nd(`vue-ext`, `Authorization is required to perform this operation. Please, authorize and then repeat action again.`)"/>
 
         <!-- oauth -->
-        <OauthContainer margin="0 0 10 0" @tap="_oauthTap"/>
+        <ext-container layout="center">
+            <OauthContainer margin="0 0 10 0" width="95%" @tap="_oauthTap"/>
+        </ext-container>
 
         <ext-fieldpanel ref="form" @ready="_formReady">
             <ext-passwordfield errorTarget="under" :label="l10nd(`vue-ext`, `Password`)" name="password" :placeholder="l10nd(`vue-ext`, `Enter password`)" required="true" revealable="true"/>

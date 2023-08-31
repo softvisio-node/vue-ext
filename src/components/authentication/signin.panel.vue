@@ -7,7 +7,9 @@
         </ext-toolbar>
 
         <!-- oauth -->
-        <OauthContainer margin="0 0 10 0" @tap="_oauthTap"/>
+        <ext-container layout="center">
+            <OauthContainer margin="0 0 10 0" width="95%" @tap="_oauthTap"/>
+        </ext-container>
 
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}' @ready="_ready">
             <ext-emailfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `Email address`)" name="email" :placeholder="l10nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
