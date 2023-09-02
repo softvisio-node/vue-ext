@@ -11,7 +11,7 @@
         </template>
 
         <template #data>
-            <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' viewModel="true" @ready="_onReady">
+            <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' viewModel="true" @ready="_ready">
                 <ext-column width="40" @ready="_avatarColReady"/>
 
                 <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="l10nd(`vue-ext`, `Email`)"/>
@@ -113,7 +113,7 @@ export default {
         },
 
         // protected
-        _onReady ( e ) {
+        _ready ( e ) {
             const cmp = e.detail.cmp;
 
             const permissions = new PermissionModel( { "permissions": [] } );
