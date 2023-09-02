@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.8.12 (2023-09-02)
+
+Fixes:
+
+-   fix: icon
+-   fix: translations
+
 ### 8.8.11 (2023-09-02)
 
 Fixes:
