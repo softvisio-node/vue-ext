@@ -1,5 +1,5 @@
 <template>
-    <ext-titlebar docked="top" padding="0 0 0 10" :title="title" titleAlign="left">
+    <ext-titlebar docked="top" padding="0 0 0 15" :title="title" titleAlign="left">
         <slot name="logo"/>
 
         <!-- XXX this div is required to align components in slot after title -->
