@@ -125,28 +125,14 @@ export default {
                             "bind": {
                                 "user": "{record}",
                             },
-                            "get": data => {
-                                if ( this.$app.user.id === data.user.id ) {
-                                    return false;
-                                }
-                                else {
-                                    return permissions.get( "update" );
-                                }
-                            },
+                            "get": data => data.user.get( "editable" ) && permissions.get( "update" ),
                         },
 
                         "canDelete": {
                             "bind": {
                                 "user": "{record}",
                             },
-                            "get": data => {
-                                if ( this.$app.user.id === data.user.id ) {
-                                    return false;
-                                }
-                                else {
-                                    return permissions.get( "delete" );
-                                }
-                            },
+                            "get": data => data.user.get( "editable" ) && permissions.get( "delete" ),
                         },
                     },
                 },
