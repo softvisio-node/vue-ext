@@ -11,7 +11,7 @@
         </template>
 
         <template #data>
-            <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
+            <ext-grid layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
                 <ext-column width="40" @ready="_avatarColReady"/>
 
                 <ext-column dataIndex="email" flex="1" :text="l10nd(`vue-ext`, `Email`)" @ready="_emailColReady"/>
@@ -114,10 +114,28 @@ export default {
         },
 
         // protected
-        _onGridReady ( e ) {
+        _gridReady ( e ) {
             const cmp = e.detail.cmp;
 
-            // cmp.setColumnMenu( null );
+            cmp.setItemConfig( {
+                "viewModel": {
+                    "formulas": {
+                        "canUpdateEnabled": {
+                            "bind": {
+                                "user": "{record}",
+                            },
+                            "get": data => data.user.id !== this.$app.user.id && this.canUpdateUser,
+                        },
+
+                        "canDeleteUser": {
+                            "bind": {
+                                "user": "{record}",
+                            },
+                            "get": data => data.user.id !== this.$app.user.id && this.canDeleteUser,
+                        },
+                    },
+                },
+            } );
 
             cmp.setStore( this.store );
         },
@@ -164,9 +182,11 @@ export default {
                     "items": [
                         {
                             "xtype": "togglefield",
-                            "bind": { "value": "{record.enabled}" },
+                            "bind": {
+                                "value": "{record.enabled}",
+                                "disabled": "{!canUpdateEnabled}",
+                            },
                             "listeners": { "change": this.setUserEnabled.bind( this ) },
-                            "disabled": !this.canUpdateUser,
                         },
                     ],
                 },
@@ -218,7 +238,9 @@ export default {
                                         "iconCls": "fa-solid fa-trash-alt",
                                         "text": this.l10nd( `vue-ext`, "Delete user" ),
                                         "handler": this.deleteUser.bind( this ),
-                                        "disabled": !this.canDeleteUser,
+                                        "bind": {
+                                            "disabled": "{!canDeleteUser}",
+                                        },
                                     },
                                 ],
                             },
