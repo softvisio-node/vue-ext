@@ -1,5 +1,5 @@
 <template>
-    <ext-button ref="button" :text="l10nd(`vue-ext`, `Roles filter`)" width="180" @ready="_onReady"/>
+    <ext-button ref="button" :text="l10nd(`vue-ext`, `Roles filter`)" width="180" @ready="_ready"/>
 </template>
 
 <script>
@@ -49,7 +49,7 @@ export default {
         },
 
         // protected
-        async _onReady ( e ) {
+        async _ready ( e ) {
             this.isReady = true;
 
             this._loadRoles();

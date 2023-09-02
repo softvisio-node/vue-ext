@@ -1,5 +1,5 @@
 <template>
-    <ext-sheet layout="vbox" modal="true" side="right" width="300" @ready="_onReady">
+    <ext-sheet layout="vbox" modal="true" side="right" width="300" @ready="_ready">
         <ext-panel height="110" innerCls="x-tabbar" layout="vbox" padding="10 10 10 30">
             <ext-container layout='{"align":"start","type":"hbox"}'>
                 <AvatarUser height="60" width="60"/>
@@ -101,7 +101,7 @@ export default {
     },
 
     "methods": {
-        _onReady ( e ) {
+        _ready ( e ) {
             this.ext = e.detail.cmp;
         },
 

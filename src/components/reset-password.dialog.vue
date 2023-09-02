@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog layout="vbox" minHeight="450" :title="l10nd(`vue-ext`, `Password change`)" width="350" @destroy="_onDestroy" @ready="_onReady">
+    <ext-dialog layout="vbox" minHeight="450" :title="l10nd(`vue-ext`, `Password change`)" width="350" @destroy="_onDestroy" @ready="_ready">
         <ext-fieldpanel ref="form">
             <ext-hiddenfield name="token" :value="token"/>
 
@@ -46,7 +46,7 @@ export default {
     },
 
     "methods": {
-        _onReady ( e ) {
+        _ready ( e ) {
             this.ext = e.detail.cmp;
 
             if ( !this.token ) {

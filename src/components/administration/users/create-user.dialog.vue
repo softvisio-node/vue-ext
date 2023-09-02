@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="90%" layout="vbox" scrollable="true" :title="l10nd(`vue-ext`, `User creation`)" width="600" @ready="_onReady">
+    <ext-dialog height="90%" layout="vbox" scrollable="true" :title="l10nd(`vue-ext`, `User creation`)" width="600" @ready="_ready">
         <ext-fieldpanel ref="form" @ready="_onFormReady">
             <ext-emailfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `Email`)" labelAlign="left" labelWidth="150" name="email" :placeholder="l10nd(`vue-ext`, `Enter email`)" required="true" validators="email"/>
 
@@ -49,7 +49,7 @@ export default {
     "methods": {
 
         // protected
-        async _onReady ( e ) {
+        async _ready ( e ) {
             this.ext = e.detail.cmp;
 
             this.$refs.form.ext.getFields( "password" ).setValidators( {
