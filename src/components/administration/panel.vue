@@ -5,8 +5,8 @@
             <UsersPanel/>
         </ext-panel>
 
-        <!-- telegram bots -->
-        <ext-panel iconAlign="left" iconCls="fa-brands fa-telegram" layout="fit" title="Telegram">
+        <!-- telegram -->
+        <ext-panel :hidden="!$app.settings.components.has('telegram')" iconAlign="left" iconCls="fa-brands fa-telegram" layout="fit" title="Telegram">
             <TelegramPanel/>
         </ext-panel>
 
