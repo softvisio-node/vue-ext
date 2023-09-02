@@ -221,7 +221,7 @@ export default {
                                 "items": [
                                     {
                                         "iconCls": "fa-solid fa-copy",
-                                        "text": this.l10nd( `vue-ext`, "Copy email to the clipboard" ),
+                                        "text": this.l10nd( `vue-ext`, "Copy email" ),
                                         "handler": this._copyEmail.bind( this ),
                                     },
                                     {

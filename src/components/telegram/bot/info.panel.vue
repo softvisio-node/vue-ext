@@ -23,7 +23,7 @@
 
                         <ext-spacer/>
 
-                        <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-pen-to-square" :text="l10nd(`vue-ext`, `Edit`)" @tap="_shoeEditDialog"/>
+                        <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-pen" :text="l10nd(`vue-ext`, `Edit`)" @tap="_shoeEditDialog"/>
                     </ext-container>
 
                     <ext-displayfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
