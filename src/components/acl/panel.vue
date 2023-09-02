@@ -11,7 +11,7 @@
         </template>
 
         <template #data>
-            <ext-grid ref="grid" columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' viewModel="true" @ready="_ready">
+            <ext-grid ref="grid" columnMenu="false" columnResize="false" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' viewModel="true" @ready="_ready">
                 <ext-column width="40" @ready="_avatarColReady"/>
 
                 <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="l10nd(`vue-ext`, `Email`)"/>
@@ -118,6 +118,40 @@ export default {
 
             const permissions = new PermissionModel( { "permissions": [] } );
 
+            cmp.setItemConfig( {
+                "viewModel": {
+                    "formulas": {
+                        "canUpdate": {
+                            "bind": {
+                                "user": "{record}",
+                            },
+                            "get": data => {
+                                if ( this.$app.user.id === data.user.id ) {
+                                    return false;
+                                }
+                                else {
+                                    return permissions.get( "update" );
+                                }
+                            },
+                        },
+
+                        "canDelete": {
+                            "bind": {
+                                "user": "{record}",
+                            },
+                            "get": data => {
+                                if ( this.$app.user.id === data.user.id ) {
+                                    return false;
+                                }
+                                else {
+                                    return permissions.get( "delete" );
+                                }
+                            },
+                        },
+                    },
+                },
+            } );
+
             this.$refs.cards.ext.getViewModel().set( "permissions", permissions );
             this.$refs.grid.ext.getViewModel().set( "permissions", permissions );
 
@@ -136,6 +170,19 @@ export default {
             } );
         },
 
+        _rolesColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setRenderer( ( value, record ) => {
+                if ( !value ) {
+                    return "&mdash;";
+                }
+                else {
+                    return value.map( role => this.roles[role] ).join( ", " );
+                }
+            } );
+        },
+
         _enabledColReady ( e ) {
             const cmp = e.detail.cmp;
 
@@ -149,25 +196,12 @@ export default {
                             "xtype": "togglefield",
                             "bind": {
                                 "value": "{record.enabled}",
-                                "disabled": "{!permissions.update}",
+                                "disabled": "{!canUpdate}",
                             },
                             "listeners": { "change": this._setAclUserEnabled.bind( this ) },
                         },
                     ],
                 },
-            } );
-        },
-
-        _rolesColReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setRenderer( ( value, record ) => {
-                if ( !value ) {
-                    return "&mdash;";
-                }
-                else {
-                    return value.map( role => this.roles[role] ).join( ", " );
-                }
             } );
         },
 
@@ -187,7 +221,7 @@ export default {
                             "padding": "0 0 0 3",
                             "handler": this._showUserRolesDialog.bind( this ),
                             "bind": {
-                                "disabled": "{!permissions.update}",
+                                "disabled": "{!permissions.read}",
                             },
                         },
                         {
@@ -196,7 +230,7 @@ export default {
                             "tooltip": this.l10nd( "vue-ext", "Delete user" ),
                             "handler": this._deleteAclUser.bind( this ),
                             "bind": {
-                                "disabled": "{!permissions.delete}",
+                                "disabled": "{!canDelete}",
                             },
                         },
                     ],
