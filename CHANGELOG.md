@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.11 (2023-09-02)
+
+Fixes:
+
+-   fix: app components
+
 ### 8.8.10 (2023-09-02)
 
 Fixes:
