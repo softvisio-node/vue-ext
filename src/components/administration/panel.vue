@@ -6,8 +6,8 @@
         </ext-panel>
 
         <!-- telegram bots -->
-        <ext-panel iconAlign="left" iconCls="fa-brands fa-telegram" layout="fit" :title="l10nd(`vue-ext`, `Telegram bots`)">
-            <TelegramBotsPanel/>
+        <ext-panel iconAlign="left" iconCls="fa-brands fa-telegram" layout="fit" title="Telegram">
+            <TelegramPanel/>
         </ext-panel>
 
         <slot name="tabs"/>
@@ -16,9 +16,9 @@
 
 <script>
 import UsersPanel from "./users/panel";
-import TelegramBotsPanel from "./telegram-bots/panel";
+import TelegramPanel from "./telegram/panel";
 
 export default {
-    "components": { UsersPanel, TelegramBotsPanel },
+    "components": { UsersPanel, TelegramPanel },
 };
 </script>
