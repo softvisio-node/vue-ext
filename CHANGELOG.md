@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.10 (2023-09-02)
+
+Fixes:
+
+-   fix: user permissions
+
 ### 8.8.9 (2023-09-02)
 
 Fixes:
