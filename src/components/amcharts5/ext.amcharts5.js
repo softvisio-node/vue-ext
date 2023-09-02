@@ -7,8 +7,8 @@ Ext.define( "Ext.amcharts5", {
 
     "defaultBindProperty": "data",
 
-    "animated": false,
-    "responsive": false,
+    "animated": true,
+    "responsive": true,
     "micro": false,
 
     "am5": amcharts.am5,

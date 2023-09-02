@@ -35,7 +35,7 @@ export default {
         },
         "responsive": {
             "type": Boolean,
-            "default": false,
+            "default": true,
         },
         "micro": {
             "type": Boolean,

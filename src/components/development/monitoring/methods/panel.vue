@@ -10,7 +10,7 @@
                 <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
 
-            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","split":true}' :title="l10nd(`vue-ext`, `Latest charts`)" width="500">
+            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","snap":200,"split":true}' :title="l10nd(`vue-ext`, `Latest charts`)" width="400">
                 <LatestPanel ref="latestPanel" :record="selectedRecord"/>
             </ext-panel>
         </template>

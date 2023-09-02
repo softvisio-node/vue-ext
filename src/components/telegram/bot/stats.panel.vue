@@ -8,9 +8,9 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <AmchartsPanel ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :responsive="true" :setChartData="_setChartData"/>
+                <AmchartsPanel ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :setChartData="_setChartData"/>
 
-                <AmchartsPanel ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300" :responsive="true" :setChartData="_setChartData"/>
+                <AmchartsPanel ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300" :setChartData="_setChartData"/>
             </ext-panel>
         </template>
     </CardsPanel>
