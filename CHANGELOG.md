@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.8.9 (2023-09-02)
+
+Fixes:
+
+-   fix: acl
+-   fix: app title padding
+
 ### 8.8.8 (2023-08-31)
 
 Fixes:
