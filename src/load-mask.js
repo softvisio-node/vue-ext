@@ -1,4 +1,4 @@
-import loader from "#src/assets/loader.gif";
+import loader from "./assets/loader.gif";
 
 export default {
     "transparent": false,
