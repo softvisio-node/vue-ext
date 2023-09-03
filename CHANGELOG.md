@@ -1,5 +1,14 @@
 # Changelog
 
+### 8.8.13 (2023-09-03)
+
+Fixes:
+
+-   fix: #app alias
+-   fix: defineAsyncComponent removed
+-   fix: loader asset
+-   fix: telegram
+
 ### 8.8.12 (2023-09-02)
 
 Fixes:
