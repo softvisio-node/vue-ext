@@ -1,4 +1,4 @@
-import app from "@/app";
+import app from "#app";
 
 export default Ext.define( "", {
     "extend": "Ext.data.Model",

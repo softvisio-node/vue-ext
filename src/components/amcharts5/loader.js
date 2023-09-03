@@ -1,4 +1,4 @@
-import app from "@/app";
+import app from "#app";
 import * as am5 from "@amcharts/amcharts5";
 
 export { am5 };

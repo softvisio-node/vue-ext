@@ -1,5 +1,5 @@
 import * as amcharts from "./loader.js";
-import app from "@/app";
+import app from "#app";
 
 Ext.define( "Ext.amcharts5", {
     "extend": "Ext.Panel",

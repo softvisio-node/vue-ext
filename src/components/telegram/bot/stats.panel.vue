@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import app from "@/app";
+import app from "#app";
 import CardsPanel from "#src/components/cards.panel";
 import AmchartsPanel from "#vue/components/amcharts5/panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
