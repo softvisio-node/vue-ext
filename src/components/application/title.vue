@@ -32,6 +32,7 @@
 import AvatarUser from "#src/components/avatar/user";
 import AppMenu from "./menu";
 import NotificationsButton from "#src/components/notifications/button";
+import AccountDialog from "#vue/components/account/dialog";
 
 export default {
     "components": { AvatarUser, AppMenu, NotificationsButton },
@@ -63,8 +64,6 @@ export default {
         },
     },
 
-    "emits": ["showAccountDialog"],
-
     "computed": {
         title () {
             return this.$app.settings.title;
@@ -84,8 +83,10 @@ export default {
             this.$refs.menu.hide();
         },
 
-        showAccountDialog () {
-            this.$emit( "showAccountDialog" );
+        async showAccountDialog () {
+            const cmp = await this.$mount( AccountDialog );
+
+            cmp.ext.show();
         },
     },
 };
