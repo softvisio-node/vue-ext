@@ -42,7 +42,7 @@ export default {
 
     "computed": {
         title () {
-            return this.l10nd( "vue-ext", msgid`Historical charts for the method: ${this.record.get( "method_name" )}` );
+            return this.l10nd( "vue-ext", `Instance historical stats` );
         },
     },
 
