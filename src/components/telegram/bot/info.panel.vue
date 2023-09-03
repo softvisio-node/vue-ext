@@ -8,8 +8,8 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-panel defaults='{"labelAlign":"left","labelWidth":200}' padding="10 10 10 10" scrollable="true">
-                    <ext-displayfield bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)"/>
+                <ext-panel padding="10 10 10 10" scrollable="true">
+                    <ext-displayfield bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200"/>
 
                     <ext-container layout="hbox">
                         <ext-displayfield bind="{record.url}" :label="l10n(`vue-ext`, `Telegram bot url`)" labelAlign="left" labelWidth="200"/>
@@ -26,7 +26,7 @@
                         <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-pen" :text="l10nd(`vue-ext`, `Edit`)" @tap="_shoeEditDialog"/>
                     </ext-container>
 
-                    <ext-displayfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)"/>
+                    <ext-displayfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)" labelAlign="left" labelWidth="200"/>
 
                     <!-- <ext-displayfield bind="{record.type}" :label="l10n(`vue-ext`, `Type`)"/> -->
 
@@ -39,7 +39,7 @@
                     <ext-displayfield bind='{"hidden":"{!record.error}","value":"{record.error_text}"}' labelAlign="left" labelWidth="200"/>
 
                     <!-- users stats -->
-                    <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`vue-ext`, `Last new user subscribed`)"/>
+                    <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`vue-ext`, `Last new user subscribed`)" labelAlign="left" labelWidth="200"/>
 
                     <ext-fieldset layout="hbox" title="Users statistics">
                         <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">
