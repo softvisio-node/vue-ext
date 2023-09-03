@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.14 (2023-09-03)
+
+Fixes:
+
+-   fix: monitoring charts
+
 ### 8.8.13 (2023-09-03)
 
 Fixes:
