@@ -101,7 +101,7 @@ export default {
 
             // fill settings
             series1.fills.template.setAll( {
-                "fillOpacity": 0.5,
+                "fillOpacity": 0.3,
                 "visible": true,
             } );
 
@@ -175,7 +175,7 @@ export default {
 
             // fill settings
             series1.fills.template.setAll( {
-                "fillOpacity": 0.5,
+                "fillOpacity": 0.3,
                 "visible": true,
             } );
 
@@ -250,7 +250,7 @@ export default {
 
             // fill settings
             series1.fills.template.setAll( {
-                "fillOpacity": 0.5,
+                "fillOpacity": 0.3,
                 "visible": true,
             } );
 
