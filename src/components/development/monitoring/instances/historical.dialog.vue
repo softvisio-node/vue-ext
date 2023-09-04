@@ -216,16 +216,6 @@ export default {
             const root = cmp.root,
                 am5 = cmp.am5;
 
-            // XXX
-            // root.dateFormatter.set( "intlLocales", "en-US" );
-            // root.numberFormatter.set( "intlLocales", "en-US" );
-
-            root.dateFormatter.set( "intlLocales", "ru-RU" );
-            root.numberFormatter.set( "intlLocales", "ru-RU" );
-
-            // XXX
-            // console.log( root.dateFormatter.get( "dateFormat" ) );
-
             root.dateFormatter.set( "dateFormat", {
                 "weekday": "long",
                 "year": "numeric",

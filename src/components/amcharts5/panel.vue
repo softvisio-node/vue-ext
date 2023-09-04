@@ -178,6 +178,10 @@ export default {
 
             this.root = amcharts.am5.Root.new( this.ext.innerElement.dom );
 
+            // set locale
+            this.root.dateFormatter.set( "intlLocales", this.$app.locale.id );
+            this.root.numberFormatter.set( "intlLocales", this.$app.locale.id );
+
             const themes = [];
 
             if ( this.animated ) themes.push( amcharts.themeAnimated.new( this.root ) );
