@@ -246,6 +246,7 @@ export default {
 
             // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "numberFormat": "#,###' MB'",
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
@@ -258,6 +259,7 @@ export default {
                     "opposite": true,
                 } ),
 
+                "numberFormat": "#'%'",
                 "tooltip": am5.Tooltip.new( root, {} ),
                 "tooltipNumberFormat": "#.00'%'", // XXX
             } ) );
@@ -302,7 +304,7 @@ export default {
                 "stroke": am5.color( "#ff0000" ),
 
                 // "fill": am5.color( "#ff0000" ), // XXX
-                "connect": false,
+                "connect": true,
             } ) );
 
             seriesPercent.data.processor = am5.DataProcessor.new( root, {
