@@ -211,9 +211,27 @@ export default {
             );
         },
 
+        // XXX
         _createMemoryUsedChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
+
+            // XXX
+            // root.dateFormatter.set( "intlLocales", "en-US" );
+            // root.numberFormatter.set( "intlLocales", "en-US" );
+
+            root.dateFormatter.set( "intlLocales", "ru-RU" );
+            root.numberFormatter.set( "intlLocales", "ru-RU" );
+
+            // XXX
+            // console.log( root.dateFormatter.get( "dateFormat" ) );
+
+            root.dateFormatter.set( "dateFormat", {
+                "weekday": "long",
+                "year": "numeric",
+                "month": "long",
+                "day": "numeric",
+            } );
 
             // chart
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
@@ -243,12 +261,15 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
+            // XXX
+            this.setDateAxis( xAxis );
+
             // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
-                "numberFormat": "#,###' MB'",
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
                 "tooltip": am5.Tooltip.new( root, {} ),
-                "tooltipNumberFormat": "#,###' MB'",
+                "tooltipNumberFormat": { "style": "unit", "unit": "megabyte" },
+                "numberFormat": { "style": "unit", "unit": "megabyte" },
             } ) );
 
             const yAxisPercent = chart.yAxes.push( am5xy.ValueAxis.new( root, {
@@ -258,8 +279,8 @@ export default {
                     "opposite": true,
                 } ),
                 "tooltip": am5.Tooltip.new( root, {} ),
-                "tooltipNumberFormat": "#.00'%'",
-                "numberFormat": "#'%'",
+                "tooltipNumberFormat": { "style": "percent", "maximumFractionDigits": 0 },
+                "numberFormat": { "style": "percent", "maximumFractionDigits": 0 },
             } ) );
 
             // series 1
@@ -524,6 +545,60 @@ export default {
                 this.$refs.memryRssChart.setData( res.data );
                 this.$refs.fsUsedChart.setData( res.data );
             }
+        },
+
+        // XXX
+        setDateAxis ( axis ) {
+
+            // dateFormats
+            const dateFormats = axis.get( "dateFormats" );
+            dateFormats.millisecond = { "minute": "numeric", "second": "numeric", "fractionalSecondDigits": 3 };
+            dateFormats.second = { "hour": "numeric", "minute": "numeric", "second": "numeric" };
+            dateFormats.minute = { "hour": "numeric", "minute": "numeric" };
+            dateFormats.hour = { "hour": "numeric", "minute": "numeric" };
+            dateFormats.day = { "month": "short", "day": "numeric" };
+            dateFormats.week = { "month": "short", "day": "numeric" };
+            dateFormats.month = { "month": "short" };
+            dateFormats.year = { "year": "numeric" };
+
+            // periodChangeDateFormats
+            const periodChangeDateFormats = axis.get( "periodChangeDateFormats" );
+            periodChangeDateFormats.millisecond = { "minute": "numeric", "second": "numeric", "fractionalSecondDigits": 3 };
+            periodChangeDateFormats.second = { "hour": "numeric", "minute": "numeric", "second": "numeric" };
+            periodChangeDateFormats.minute = { "hour": "numeric", "minute": "numeric" };
+            periodChangeDateFormats.hour = { "month": "short", "day": "numeric" };
+            periodChangeDateFormats.day = { "month": "short", "day": "numeric" };
+            periodChangeDateFormats.week = { "month": "short", "day": "numeric" };
+            periodChangeDateFormats.month = { "month": "short", "year": "numeric" };
+            periodChangeDateFormats.year = { "year": "numeric" };
+
+            // tooltipDateFormats
+            const tooltipDateFormats = axis.get( "tooltipDateFormats" );
+            tooltipDateFormats.millisecond = {
+                "hour": "numeric",
+                "minute": "numeric",
+                "second": "numeric",
+                "fractionalSecondDigits": 3,
+            };
+            tooltipDateFormats.second = { "hour": "numeric", "minute": "numeric", "second": "numeric" };
+            tooltipDateFormats.minute = {
+                "year": "numeric",
+                "month": "short",
+                "day": "numeric",
+                "hour": "numeric",
+                "minute": "numeric",
+            };
+            tooltipDateFormats.hour = {
+                "year": "numeric",
+                "month": "short",
+                "day": "numeric",
+                "hour": "numeric",
+                "minute": "numeric",
+            };
+            tooltipDateFormats.day = { "year": "numeric", "month": "short", "day": "numeric" };
+            tooltipDateFormats.week = { "year": "numeric", "month": "short", "day": "numeric" };
+            tooltipDateFormats.month = { "year": "numeric", "month": "short" };
+            tooltipDateFormats.year = { "year": "numeric" };
         },
     },
 };
