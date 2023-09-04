@@ -9,10 +9,12 @@
             </template>
 
             <template #data>
-                <ext-container layput="vbox" scrollable="true">
-                    <AmchartsPanel ref="callsChart" :createChart="_createCallsChart" height="250"/>
-                    <AmchartsPanel ref="durationChart" :createChart="_createDurationChart" height="250"/>
-                    <AmchartsPanel ref="exceptionsChart" :createChart="_createExceptionsChart" height="250"/>
+                <ext-container defaults='{"height":300}' layput="vbox" scrollable="true">
+                    <AmchartsPanel ref="callsChart" :createChart="_createCallsChart"/>
+
+                    <AmchartsPanel ref="durationChart" :createChart="_createDurationChart"/>
+
+                    <AmchartsPanel ref="exceptionsChart" :createChart="_createExceptionsChart"/>
                 </ext-container>
             </template>
         </CardsPanel>
