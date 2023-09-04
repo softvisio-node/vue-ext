@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.8.15 (2023-09-04)
+
+Fixes:
+
+-   fix: monitoring
+-   fix: translations
+
 ### 8.8.14 (2023-09-03)
 
 Fixes:
