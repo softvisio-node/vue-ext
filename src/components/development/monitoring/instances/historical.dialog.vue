@@ -264,6 +264,12 @@ export default {
                 "numberFormat": { "style": "percent", "maximumFractionDigits": 0 },
             } ) );
 
+            // data processor
+            const dateProcessor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
             // series 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Used memory" ),
@@ -286,10 +292,7 @@ export default {
             } );
 
             // data processor
-            series1.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
-            } );
+            series1.data.processor = dateProcessor;
 
             const seriesPercent = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Used memory (%)" ),
@@ -304,10 +307,7 @@ export default {
                 "connect": true,
             } ) );
 
-            seriesPercent.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
-            } );
+            seriesPercent.data.processor = dateProcessor;
 
             seriesPercent.strokes.template.setAll( {
                 "strokeWidth": 3,
