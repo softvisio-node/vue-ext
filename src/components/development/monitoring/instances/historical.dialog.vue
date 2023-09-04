@@ -258,7 +258,7 @@ export default {
                     "opposite": true,
                 } ),
 
-                // "tooltip": am5.Tooltip.new( root, {} ),
+                "tooltip": am5.Tooltip.new( root, {} ),
                 "tooltipNumberFormat": "#.00'%'", // XXX
             } ) );
 
@@ -297,11 +297,11 @@ export default {
                 "valueXField": "date",
                 "valueYField": "memory_used_percent",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "Used memory" ) + ": {valueY} MB",
+                    "labelText": this.l10nd( "vue-ext", "Used memory" ) + ": {valueY}%",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
 
-                "fill": am5.color( "#ff0000" ), // XXX
+                // "fill": am5.color( "#ff0000" ), // XXX
                 "connect": false,
             } ) );
 
@@ -325,6 +325,14 @@ export default {
                     "orientation": "horizontal",
                 } )
             );
+
+            // legend
+            const legend = chart.children.push( am5.Legend.new( root, {
+                "centerX": am5.p50,
+                "x": am5.p50,
+            } ) );
+
+            legend.data.setAll( chart.series.values );
         },
 
         _createMemoryRssChart ( cmp ) {
