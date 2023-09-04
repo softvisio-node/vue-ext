@@ -8,6 +8,8 @@ export { default as themeMicro } from "@amcharts/amcharts5/themes/Micro";
 export { default as lightTheme } from "@amcharts/amcharts5/themes/Dataviz";
 export { default as darkTheme } from "@amcharts/amcharts5/themes/Dark";
 
+export { default as locale } from "./locale.js";
+
 if ( app.config.amcharts5LicenseKey ) {
     am5.addLicense( app.config.amcharts5LicenseKey );
 }
