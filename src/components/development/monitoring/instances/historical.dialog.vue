@@ -250,6 +250,18 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
+            // XXX
+            const yAxisPercent = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "min": 0,
+                "max": 100,
+                "renderer": am5xy.AxisRendererY.new( root, {
+                    "opposite": true,
+                } ),
+
+                // "tooltip": am5.Tooltip.new( root, {} ),
+                "tooltipNumberFormat": "#.00'%'", // XXX
+            } ) );
+
             // series 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Used memory" ),
@@ -273,6 +285,27 @@ export default {
 
             // data processor
             series1.data.processor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
+            // XXX
+            const seriesPercent = chart.series.push( am5xy.StepLineSeries.new( root, {
+                "name": this.l10nd( `vue-ext`, "Used memory (%)" ),
+                xAxis,
+                "yAxis": yAxisPercent,
+                "valueXField": "date",
+                "valueYField": "memory_used_percent",
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.l10nd( "vue-ext", "Used memory" ) + ": {valueY} MB",
+                } ),
+                "stroke": am5.color( "#ff0000" ),
+
+                "fill": am5.color( "#ff0000" ), // XXX
+                "connect": false,
+            } ) );
+
+            seriesPercent.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
             } );
