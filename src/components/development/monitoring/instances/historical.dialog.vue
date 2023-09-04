@@ -14,11 +14,11 @@
 
                     <AmchartsPanel ref="cpuSystemChart" :createChart="_createCpuSystemChart" height="250"/>
 
-                    <AmchartsPanel ref="memryFreeChart" :createChart="_createMemoryFreeChart" height="250"/>
+                    <AmchartsPanel ref="memryUsedChart" :createChart="_createMemoryUsedChart" height="250"/>
 
                     <AmchartsPanel ref="memryRssChart" :createChart="_createMemoryRssChart" height="250"/>
 
-                    <AmchartsPanel ref="fsFreeChart" :createChart="_createFsFreeChart" height="250"/>
+                    <AmchartsPanel ref="fsUsedChart" :createChart="_createFsUsedChart" height="250"/>
                 </ext-container>
             </template>
         </CardsPanel>
@@ -211,7 +211,7 @@ export default {
             );
         },
 
-        _createMemoryFreeChart ( cmp ) {
+        _createMemoryUsedChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -226,7 +226,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( "vue-ext", "Free memory (MB) for the last 30 days" ),
+                "text": this.l10nd( "vue-ext", "Used memory (MB) for the last 30 days" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -252,13 +252,13 @@ export default {
 
             // series 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, "Free memory" ),
+                "name": this.l10nd( `vue-ext`, "Used memory" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",
-                "valueYField": "memory_free",
+                "valueYField": "memory_used",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "Free memory" ) + ": {valueY} MB",
+                    "labelText": this.l10nd( "vue-ext", "Used memory" ) + ": {valueY} MB",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -377,7 +377,7 @@ export default {
             );
         },
 
-        _createFsFreeChart ( cmp ) {
+        _createFsUsedChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -392,7 +392,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( "vue-ext", "FS free space (MB) for the last 30 days" ),
+                "text": this.l10nd( "vue-ext", "FS used space (MB) for the last 30 days" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -418,13 +418,13 @@ export default {
 
             // series 1
             const series1 = chart.series.push( am5xy.SmoothedXLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, "FS free" ),
+                "name": this.l10nd( `vue-ext`, "FS used" ),
                 xAxis,
                 yAxis,
                 "valueXField": "date",
-                "valueYField": "fs_free",
+                "valueYField": "fs_used",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "Free" ) + ": {valueY} MB",
+                    "labelText": this.l10nd( "vue-ext", "Used" ) + ": {valueY} MB",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -478,9 +478,9 @@ export default {
 
                 this.$refs.cpuUserChart.setData( res.data );
                 this.$refs.cpuSystemChart.setData( res.data );
-                this.$refs.memryFreeChart.setData( res.data );
+                this.$refs.memryUsedChart.setData( res.data );
                 this.$refs.memryRssChart.setData( res.data );
-                this.$refs.fsFreeChart.setData( res.data );
+                this.$refs.fsUsedChart.setData( res.data );
             }
         },
     },
