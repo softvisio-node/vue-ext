@@ -240,7 +240,6 @@ export default {
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltipDateFormat": "I",
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
@@ -249,19 +248,18 @@ export default {
                 "numberFormat": "#,###' MB'",
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
                 "tooltip": am5.Tooltip.new( root, {} ),
+                "tooltipNumberFormat": "#,###' MB'",
             } ) );
 
-            // XXX
             const yAxisPercent = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "min": 0,
                 "max": 100,
                 "renderer": am5xy.AxisRendererY.new( root, {
                     "opposite": true,
                 } ),
-
-                "numberFormat": "#'%'",
                 "tooltip": am5.Tooltip.new( root, {} ),
-                "tooltipNumberFormat": "#.00'%'", // XXX
+                "tooltipNumberFormat": "#.00'%'",
+                "numberFormat": "#'%'",
             } ) );
 
             // series 1
@@ -291,7 +289,6 @@ export default {
                 "dateFormat": "i",
             } );
 
-            // XXX
             const seriesPercent = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Used memory (%)" ),
                 xAxis,
@@ -302,14 +299,16 @@ export default {
                     "labelText": this.l10nd( "vue-ext", "Used memory" ) + ": {valueY}%",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
-
-                // "fill": am5.color( "#ff0000" ), // XXX
                 "connect": true,
             } ) );
 
             seriesPercent.data.processor = am5.DataProcessor.new( root, {
                 "dateFields": ["date"],
                 "dateFormat": "i",
+            } );
+
+            seriesPercent.strokes.template.setAll( {
+                "strokeWidth": 3,
             } );
 
             // cursor
