@@ -1,3 +1,5 @@
+import app from "#app";
+
 export default {
     "firstDayOfWeek": 1,
 
@@ -56,22 +58,34 @@ export default {
     // e.g. "_date_hour" will be shown whenever we need to show time as hours.
     //
     // "date" is used as in default date format when showing standalone dates.
-    "_date": "yyyy-MM-dd",
-    "_date_millisecond": "mm:ss SSS",
-    "_date_millisecond_full": "HH:mm:ss SSS",
-    "_date_second": "HH:mm:ss",
-    "_date_second_full": "HH:mm:ss",
-    "_date_minute": "HH:mm",
-    "_date_minute_full": "HH:mm - MMM dd, yyyy",
-    "_date_hour": "HH:mm",
-    "_date_hour_full": "HH:mm - MMM dd, yyyy",
-    "_date_day": "MMM dd",
-    "_date_day_full": "MMM dd, yyyy",
+    "_date": { "year": "numeric", "month": "short", "day": "numeric" },
+    "_date_millisecond": { "minute": "numeric", "second": "numeric", "fractionalSecondDigits": 3 },
+    "_date_millisecond_full": { "hour": "numeric", "minute": "numeric", "second": "numeric", "fractionalSecondDigits": 3 },
+    "_date_second": { "hour": "numeric", "minute": "numeric", "second": "numeric" },
+    "_date_second_full": { "hour": "numeric", "minute": "numeric", "second": "numeric" },
+    "_date_minute": { "hour": "numeric", "minute": "numeric" },
+    "_date_minute_full": {
+        "year": "numeric",
+        "month": "short",
+        "day": "numeric",
+        "hour": "numeric",
+        "minute": "numeric",
+    },
+    "_date_hour": { "hour": "numeric", "minute": "numeric" },
+    "_date_hour_full": {
+        "year": "numeric",
+        "month": "short",
+        "day": "numeric",
+        "hour": "numeric",
+        "minute": "numeric",
+    },
+    "_date_day": { "month": "short", "day": "numeric" },
+    "_date_day_full": { "year": "numeric", "month": "short", "day": "numeric" },
     "_date_week": "ww",
-    "_date_week_full": "MMM dd, yyyy",
-    "_date_month": "MMM",
-    "_date_month_full": "MMM, yyyy",
-    "_date_year": "yyyy",
+    "_date_week_full": { "year": "numeric", "month": "short", "day": "numeric" },
+    "_date_month": { "month": "short" },
+    "_date_month_full": { "year": "numeric", "month": "short" },
+    "_date_year": { "year": "numeric" },
 
     // Default duration formats for various base units.
     //
@@ -187,6 +201,7 @@ export default {
     "October": "",
     "November": "",
     "December": "",
+
     "Jan": "",
     "Feb": "",
     "Mar": "",
@@ -208,6 +223,7 @@ export default {
     "Thursday": "",
     "Friday": "",
     "Saturday": "",
+
     "Sun": "",
     "Mon": "",
     "Tue": "",
@@ -342,7 +358,7 @@ export default {
     // Prompts change in relation to whether Scrollbar is vertical or horizontal.
     //
     // The final section is used to indicate the current range of selection.
-    "Use TAB to select grip buttons or left and right arrows to change selection": "",
+    "Use TAB to select grip buttons or left and right arrows to change selection": app.locale.l10nd( `vue-ext`, "Use TAB to select grip buttons or left and right arrows to change selection" ),
     "Use left and right arrows to move selection": "",
     "Use left and right arrows to move left selection": "",
     "Use left and right arrows to move right selection": "",

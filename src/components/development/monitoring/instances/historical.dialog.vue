@@ -216,13 +216,6 @@ export default {
             const root = cmp.root,
                 am5 = cmp.am5;
 
-            root.dateFormatter.set( "dateFormat", {
-                "weekday": "long",
-                "year": "numeric",
-                "month": "long",
-                "day": "numeric",
-            } );
-
             // chart
             const chart = root.container.children.push( am5xy.XYChart.new( root, {
                 "layout": root.verticalLayout,
@@ -242,7 +235,8 @@ export default {
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
-                "maxDeviation": 0,
+
+                // "maxDeviation": 0, // XXX ???
                 "baseInterval": {
                     "timeUnit": "hour",
                     "count": 1,
@@ -250,9 +244,6 @@ export default {
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
-
-            // XXX
-            this.setDateAxis( xAxis );
 
             // y axis
             const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
@@ -535,60 +526,6 @@ export default {
                 this.$refs.memryRssChart.setData( res.data );
                 this.$refs.fsUsedChart.setData( res.data );
             }
-        },
-
-        // XXX
-        setDateAxis ( axis ) {
-
-            // dateFormats
-            const dateFormats = axis.get( "dateFormats" );
-            dateFormats.millisecond = { "minute": "numeric", "second": "numeric", "fractionalSecondDigits": 3 };
-            dateFormats.second = { "hour": "numeric", "minute": "numeric", "second": "numeric" };
-            dateFormats.minute = { "hour": "numeric", "minute": "numeric" };
-            dateFormats.hour = { "hour": "numeric", "minute": "numeric" };
-            dateFormats.day = { "month": "short", "day": "numeric" };
-            dateFormats.week = { "month": "short", "day": "numeric" };
-            dateFormats.month = { "month": "short" };
-            dateFormats.year = { "year": "numeric" };
-
-            // periodChangeDateFormats
-            const periodChangeDateFormats = axis.get( "periodChangeDateFormats" );
-            periodChangeDateFormats.millisecond = { "minute": "numeric", "second": "numeric", "fractionalSecondDigits": 3 };
-            periodChangeDateFormats.second = { "hour": "numeric", "minute": "numeric", "second": "numeric" };
-            periodChangeDateFormats.minute = { "hour": "numeric", "minute": "numeric" };
-            periodChangeDateFormats.hour = { "month": "short", "day": "numeric" };
-            periodChangeDateFormats.day = { "month": "short", "day": "numeric" };
-            periodChangeDateFormats.week = { "month": "short", "day": "numeric" };
-            periodChangeDateFormats.month = { "month": "short", "year": "numeric" };
-            periodChangeDateFormats.year = { "year": "numeric" };
-
-            // tooltipDateFormats
-            const tooltipDateFormats = axis.get( "tooltipDateFormats" );
-            tooltipDateFormats.millisecond = {
-                "hour": "numeric",
-                "minute": "numeric",
-                "second": "numeric",
-                "fractionalSecondDigits": 3,
-            };
-            tooltipDateFormats.second = { "hour": "numeric", "minute": "numeric", "second": "numeric" };
-            tooltipDateFormats.minute = {
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "hour": "numeric",
-                "minute": "numeric",
-            };
-            tooltipDateFormats.hour = {
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "hour": "numeric",
-                "minute": "numeric",
-            };
-            tooltipDateFormats.day = { "year": "numeric", "month": "short", "day": "numeric" };
-            tooltipDateFormats.week = { "year": "numeric", "month": "short", "day": "numeric" };
-            tooltipDateFormats.month = { "year": "numeric", "month": "short" };
-            tooltipDateFormats.year = { "year": "numeric" };
         },
     },
 };
