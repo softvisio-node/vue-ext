@@ -255,7 +255,7 @@ export default {
 
             const yAxisPercent = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "min": 0,
-                "max": 100,
+                "max": 1,
                 "renderer": am5xy.AxisRendererY.new( root, {
                     "opposite": true,
                 } ),
