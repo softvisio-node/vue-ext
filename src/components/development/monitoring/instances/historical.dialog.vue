@@ -9,16 +9,16 @@
             </template>
 
             <template #data>
-                <ext-container layput="vbox" scrollable="true">
-                    <AmchartsPanel ref="cpuUserChart" :createChart="_createCpuUserChart" height="250"/>
+                <ext-container defaults='{"height":300}' layput="vbox" scrollable="true">
+                    <AmchartsPanel ref="cpuUserChart" :createChart="_createCpuUserChart"/>
 
-                    <AmchartsPanel ref="cpuSystemChart" :createChart="_createCpuSystemChart" height="250"/>
+                    <AmchartsPanel ref="cpuSystemChart" :createChart="_createCpuSystemChart"/>
 
-                    <AmchartsPanel ref="memryUsedChart" :createChart="_createMemoryUsedChart" height="250"/>
+                    <AmchartsPanel ref="memryUsedChart" :createChart="_createMemoryUsedChart"/>
 
-                    <AmchartsPanel ref="memryRssChart" :createChart="_createMemoryRssChart" height="250"/>
+                    <AmchartsPanel ref="memryRssChart" :createChart="_createMemoryRssChart"/>
 
-                    <AmchartsPanel ref="fsUsedChart" :createChart="_createFsUsedChart" height="250"/>
+                    <AmchartsPanel ref="fsUsedChart" :createChart="_createFsUsedChart"/>
                 </ext-container>
             </template>
         </CardsPanel>
