@@ -111,7 +111,6 @@ export default {
             cmp.on( "select", ( grid, selection ) => ( this.selectedRecord = selection[0] ) );
         },
 
-        // XXX
         _colReady ( e ) {
             const cmp = e.detail.cmp;
 
