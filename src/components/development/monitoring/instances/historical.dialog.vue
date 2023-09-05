@@ -240,14 +240,14 @@ export default {
             } ) );
 
             // y axis
-            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+            const yAxis1 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
                 "tooltip": am5.Tooltip.new( root, {} ),
                 "tooltipNumberFormat": { "style": "unit", "unit": "megabyte" },
                 "numberFormat": { "style": "unit", "unit": "megabyte" },
             } ) );
 
-            const yAxisPercent = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+            const yAxis2 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "min": 0,
                 "max": 1,
                 "renderer": am5xy.AxisRendererY.new( root, {
@@ -268,7 +268,7 @@ export default {
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Used memory" ),
                 xAxis,
-                yAxis,
+                "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "memory_used",
                 "tooltip": am5.Tooltip.new( root, {
@@ -296,10 +296,10 @@ export default {
                 "visible": true,
             } );
 
-            const seriesPercent = chart.series.push( am5xy.StepLineSeries.new( root, {
+            const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Used memory (%)" ),
                 xAxis,
-                "yAxis": yAxisPercent,
+                "yAxis": yAxis2,
                 "valueXField": "date",
                 "valueYField": "memory_used_percent",
                 "tooltip": am5.Tooltip.new( root, {
@@ -310,10 +310,10 @@ export default {
             } ) );
 
             // data processor
-            seriesPercent.data.processor = dateProcessor;
+            series2.data.processor = dateProcessor;
 
             // serie tooltip lavel formatters
-            seriesPercent.get( "tooltip" ).label.set(
+            series2.get( "tooltip" ).label.set(
                 "numberFormatter",
                 am5.NumberFormatter.new( root, {
                     "numberFormat": { "style": "percent" },
@@ -321,7 +321,7 @@ export default {
             );
 
             // stroke settings
-            seriesPercent.strokes.template.setAll( {
+            series2.strokes.template.setAll( {
                 "strokeWidth": 3,
             } );
 
