@@ -17,11 +17,16 @@
         <template #data>
             <ext-grid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
                 <ext-column dataIndex="instance_type" flex="1" :text="l10nd(`vue-ext`, `Instance type`)"/>
+
                 <ext-column dataIndex="memory_total" :text="l10nd(`vue-ext`, `Total memory`)" width="120" @ready="_colReady"/>
-                <ext-column dataIndex="memory_used" :text="l10nd(`vue-ext`, `Used memory`)" width="120" @ready="_colReady"/>
-                <ext-column dataIndex="memory_rss" :text="l10nd(`vue-ext`, `RSS memory`)" width="120" @ready="_colReady"/>
+
+                <ext-column dataIndex="memory_used_text" sorter='{"property":"memory_used"}' :text="l10nd(`vue-ext`, `Used memory`)" width="150"/>
+
+                <ext-column dataIndex="memory_rss_text" sorter='{"property":"memory_rss"}' :text="l10nd(`vue-ext`, `RSS memory`)" width="150"/>
+
                 <ext-column dataIndex="fs_total" :text="l10nd(`vue-ext`, `FS total`)" width="120" @ready="_colReady"/>
-                <ext-column dataIndex="fs_used" :text="l10nd(`vue-ext`, `FS used`)" width="120" @ready="_colReady"/>
+
+                <ext-column dataIndex="fs_used_text" sorter='{"property":"fsy_used"}' :text="l10nd(`vue-ext`, `FS used`)" width="150"/>
 
                 <ext-column width="40" @ready="_actionColReady"/>
             </ext-grid>
@@ -106,6 +111,7 @@ export default {
             cmp.on( "select", ( grid, selection ) => ( this.selectedRecord = selection[0] ) );
         },
 
+        // XXX
         _colReady ( e ) {
             const cmp = e.detail.cmp;
 
