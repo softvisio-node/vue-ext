@@ -691,7 +691,7 @@ export default {
 
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "development/monitoring/instances/get-latest-time-series", this.record.id );
+            const res = await this.$api.call( "development/monitoring/instances/get-instance-stats", this.record.id, "1 hour" );
 
             this.$refs.cardsPanel.unmask();
 
