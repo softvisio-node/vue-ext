@@ -359,7 +359,7 @@ export default {
 
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "development/monitoring/methods/get-latest-time-series", this.record.id );
+            const res = await this.$api.call( "development/monitoring/methods/get-monitoring-method-stats", this.record.id, "1 hour" );
 
             this.$refs.cardsPanel.unmask();
 

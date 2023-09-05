@@ -349,7 +349,7 @@ export default {
         async refresh () {
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "development/monitoring/methods/get-historical-time-series", this.record.id );
+            const res = await this.$api.call( "development/monitoring/methods/get-monitoring-method-stats", this.record.id, "30 days" );
 
             this.$refs.cardsPanel.unmask();
 
