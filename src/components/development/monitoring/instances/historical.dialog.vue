@@ -70,6 +70,7 @@ export default {
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "maxDeviation": 0,
                 "baseInterval": {
                     "timeUnit": "hour",
                     "count": 1,
@@ -141,7 +142,6 @@ export default {
             legend.data.setAll( chart.series.values );
         },
 
-        // XXX
         _createCpuSystemChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
@@ -157,7 +157,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( "vue-ext", "CPU (system) for the last 30 days" ),
+                "text": this.l10nd( `vue-ext`, `CPU (system) for the last 30 days` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -165,6 +165,7 @@ export default {
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "maxDeviation": 0,
                 "baseInterval": {
                     "timeUnit": "hour",
                     "count": 1,
@@ -173,36 +174,42 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
-            // y axis
-            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+            // y axis 1
+            const yAxis1 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
                 "tooltip": am5.Tooltip.new( root, {} ),
+                "tooltipNumberFormat": { "style": "unit", "unit": "megabyte" },
+                "numberFormat": {},
             } ) );
 
-            // series 1
+            // data processor
+            const dateProcessor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
+            // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, "CPU (system)" ),
+                "name": this.l10nd( `vue-ext`, `CPU (system)` ),
                 xAxis,
-                yAxis,
+                "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "cpu_system",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "CPU (system)" ) + ": {valueY}",
+                    "labelText": this.l10nd( `vue-ext`, `CPU (system)` ) + ": {valueY}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
+                "connect": false,
             } ) );
+
+            // data processor
+            series1.data.processor = dateProcessor;
 
             // fill settings
             series1.fills.template.setAll( {
                 "fillOpacity": 0.3,
                 "visible": true,
-            } );
-
-            // data processor
-            series1.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
             } );
 
             // cursor
@@ -220,6 +227,14 @@ export default {
                     "orientation": "horizontal",
                 } )
             );
+
+            // legend
+            const legend = chart.children.push( am5.Legend.new( root, {
+                "centerX": am5.p50,
+                "x": am5.p50,
+            } ) );
+
+            legend.data.setAll( chart.series.values );
         },
 
         _createMemoryUsedChart ( cmp ) {
@@ -245,6 +260,7 @@ export default {
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "maxDeviation": 0,
                 "baseInterval": {
                     "timeUnit": "hour",
                     "count": 1,
@@ -389,6 +405,7 @@ export default {
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "maxDeviation": 0,
                 "baseInterval": {
                     "timeUnit": "hour",
                     "count": 1,
@@ -533,6 +550,7 @@ export default {
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "maxDeviation": 0,
                 "baseInterval": {
                     "timeUnit": "hour",
                     "count": 1,
