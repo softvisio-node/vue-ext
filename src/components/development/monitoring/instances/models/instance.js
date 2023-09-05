@@ -11,10 +11,10 @@ export default Ext.define( "", {
         { "name": "created", "type": "date" },
         { "name": "last_updated", "type": "date" },
         "memory_total",
-        "memory_free",
+        "memory_used",
         "memory_rss",
         "fs_total",
-        "fs_free",
+        "fs_used",
 
         // calculates
         { "name": "instance_type", "calculate": data => `${data.package}/${data.service}` },
