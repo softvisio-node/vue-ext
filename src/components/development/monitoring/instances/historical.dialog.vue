@@ -239,7 +239,7 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
-            // y axis
+            // y axis 1
             const yAxis1 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
                 "tooltip": am5.Tooltip.new( root, {} ),
@@ -247,6 +247,7 @@ export default {
                 "numberFormat": { "style": "unit", "unit": "megabyte" },
             } ) );
 
+            // y axis 2
             const yAxis2 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "min": 0,
                 "max": 1,
