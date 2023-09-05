@@ -127,7 +127,8 @@ export default {
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
+
+                    // "behavior": "zoomX",
                 } )
             );
 
@@ -223,7 +224,8 @@ export default {
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
+
+                    // "behavior": "zoomX",
                 } )
             );
 
@@ -369,7 +371,8 @@ export default {
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
+
+                    // "behavior": "zoomX",
                 } )
             );
 
@@ -515,7 +518,8 @@ export default {
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
+
+                    // "behavior": "zoomX",
                 } )
             );
 
@@ -661,7 +665,8 @@ export default {
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
+
+                    // "behavior": "zoomX",
                 } )
             );
 
