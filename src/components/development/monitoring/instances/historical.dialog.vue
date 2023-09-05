@@ -47,6 +47,8 @@ export default {
     },
 
     "methods": {
+
+        // XXX
         _createCpuUserChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
@@ -127,6 +129,7 @@ export default {
             );
         },
 
+        // XXX
         _createCpuSystemChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
@@ -207,7 +210,6 @@ export default {
             );
         },
 
-        // XXX
         _createMemoryUsedChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
@@ -299,7 +301,7 @@ export default {
 
             // serie 2
             const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, "Used memory (%)" ),
+                "name": this.l10nd( `vue-ext`, `Used memory (%)` ),
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
@@ -367,7 +369,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( "vue-ext", "RSS memory (MB) for the last 30 days" ),
+                "text": this.l10nd( `vue-ext`, `RSS memory (MB) for the last 30 days` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -383,26 +385,57 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
-            // y axis
-            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+            // y axis 1
+            const yAxis1 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
                 "tooltip": am5.Tooltip.new( root, {} ),
+                "tooltipNumberFormat": { "style": "unit", "unit": "megabyte" },
+                "numberFormat": { "style": "unit", "unit": "megabyte" },
             } ) );
 
-            // series 1
+            // y axis 2
+            const yAxis2 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "min": 0,
+                "max": 1,
+                "renderer": am5xy.AxisRendererY.new( root, {
+                    "opposite": true,
+                } ),
+                "tooltip": am5.Tooltip.new( root, {} ),
+                "tooltipNumberFormat": { "style": "percent", "maximumFractionDigits": 0 },
+                "numberFormat": { "style": "percent", "maximumFractionDigits": 0 },
+            } ) );
+
+            // data processor
+            const dateProcessor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
+            // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, "RSS memory" ),
+                "name": this.l10nd( `vue-ext`, `RSS memory (MB)` ),
                 xAxis,
-                yAxis,
+                "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "memory_rss",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "RSS memory" ) + ": {valueY} MB",
+                    "labelText": this.l10nd( `vue-ext`, `RSS memory` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
                 "connect": false,
             } ) );
+
+            // data processor
+            series1.data.processor = dateProcessor;
+
+            // serie tooltip label formatters
+            series1.get( "tooltip" ).label.set(
+                "numberFormatter",
+                am5.NumberFormatter.new( root, {
+                    "numberFormat": { "style": "unit", "unit": "megabyte" },
+                } )
+            );
 
             // fill settings
             series1.fills.template.setAll( {
@@ -410,10 +443,34 @@ export default {
                 "visible": true,
             } );
 
+            // serie 2
+            const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
+                "name": this.l10nd( `vue-ext`, `RSS memory (%)` ),
+                xAxis,
+                "yAxis": yAxis2,
+                "valueXField": "date",
+                "valueYField": "memory_rss_percent",
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.l10nd( `vue-ext`, `RSS memory` ) + ": {valueY.formatNumber()}",
+                } ),
+                "stroke": am5.color( "#ff0000" ),
+                "connect": true,
+            } ) );
+
             // data processor
-            series1.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
+            series2.data.processor = dateProcessor;
+
+            // serie tooltip label formatters
+            series2.get( "tooltip" ).label.set(
+                "numberFormatter",
+                am5.NumberFormatter.new( root, {
+                    "numberFormat": { "style": "percent" },
+                } )
+            );
+
+            // stroke settings
+            series2.strokes.template.setAll( {
+                "strokeWidth": 3,
             } );
 
             // cursor
@@ -431,8 +488,17 @@ export default {
                     "orientation": "horizontal",
                 } )
             );
+
+            // legend
+            const legend = chart.children.push( am5.Legend.new( root, {
+                "centerX": am5.p50,
+                "x": am5.p50,
+            } ) );
+
+            legend.data.setAll( chart.series.values );
         },
 
+        // XXX
         _createFsUsedChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
