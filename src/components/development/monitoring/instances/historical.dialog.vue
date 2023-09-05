@@ -278,12 +278,20 @@ export default {
                 "valueXField": "date",
                 "valueYField": "memory_used",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "Used memory" ) + ": {valueY} MB",
+                    "labelText": this.l10nd( "vue-ext", "Used memory" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
                 "connect": false,
             } ) );
+
+            // XXX
+            series1.get( "tooltip" ).label.set(
+                "numberFormatter",
+                am5.NumberFormatter.new( root, {
+                    "numberFormat": { "style": "unit", "unit": "megabyte" },
+                } )
+            );
 
             // fill settings
             series1.fills.template.setAll( {
@@ -301,11 +309,19 @@ export default {
                 "valueXField": "date",
                 "valueYField": "memory_used_percent",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "Used memory" ) + ": {valueY}",
+                    "labelText": this.l10nd( "vue-ext", "Used memory" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "connect": true,
             } ) );
+
+            // XXX
+            seriesPercent.get( "tooltip" ).label.set(
+                "numberFormatter",
+                am5.NumberFormatter.new( root, {
+                    "numberFormat": { "style": "percent" },
+                } )
+            );
 
             seriesPercent.data.processor = dateProcessor;
 
