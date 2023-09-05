@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.8.19 (2023-09-05)
+
+Fixes:
+
+-   fix: engines
+-   fix: monitoring
+
 ### 8.8.18 (2023-09-05)
 
 Fixes:
