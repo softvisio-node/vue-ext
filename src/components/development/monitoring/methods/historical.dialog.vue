@@ -66,13 +66,11 @@ export default {
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
-                "maxDeviation": 0,
                 "baseInterval": {
                     "timeUnit": "hour",
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltipDateFormat": "I",
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
@@ -148,13 +146,11 @@ export default {
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
-                "maxDeviation": 0,
                 "baseInterval": {
                     "timeUnit": "hour",
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltipDateFormat": "I",
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
@@ -230,13 +226,11 @@ export default {
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
-                "maxDeviation": 0,
                 "baseInterval": {
                     "timeUnit": "hour",
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltipDateFormat": "I",
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
