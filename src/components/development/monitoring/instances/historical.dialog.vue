@@ -264,7 +264,7 @@ export default {
                 "dateFormat": "i",
             } );
 
-            // series 1
+            // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Used memory" ),
                 xAxis,
@@ -282,7 +282,7 @@ export default {
             // data processor
             series1.data.processor = dateProcessor;
 
-            // serie tooltip lavel formatters
+            // serie tooltip label formatters
             series1.get( "tooltip" ).label.set(
                 "numberFormatter",
                 am5.NumberFormatter.new( root, {
@@ -296,6 +296,7 @@ export default {
                 "visible": true,
             } );
 
+            // serie 2
             const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Used memory (%)" ),
                 xAxis,
@@ -312,7 +313,7 @@ export default {
             // data processor
             series2.data.processor = dateProcessor;
 
-            // serie tooltip lavel formatters
+            // serie tooltip label formatters
             series2.get( "tooltip" ).label.set(
                 "numberFormatter",
                 am5.NumberFormatter.new( root, {
