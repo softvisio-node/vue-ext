@@ -223,7 +223,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( "vue-ext", "Used memory (MB) for the last 30 days" ),
+                "text": this.l10nd( `vue-ext`, `Used memory (MB) for the last 30 days` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -267,13 +267,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, "Used memory" ),
+                "name": this.l10nd( `vue-ext`, `Used memory (MB)` ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "memory_used",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "Used memory" ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10nd( `vue-ext`, `Used memory` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -305,7 +305,7 @@ export default {
                 "valueXField": "date",
                 "valueYField": "memory_used_percent",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "Used memory" ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10nd( `vue-ext`, `Used memory` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "connect": true,
