@@ -301,7 +301,7 @@ export default {
                 "valueXField": "date",
                 "valueYField": "memory_used_percent",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "Used memory" ) + ": {valueY}%",
+                    "labelText": this.l10nd( "vue-ext", "Used memory" ) + ": {valueY}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "connect": true,
