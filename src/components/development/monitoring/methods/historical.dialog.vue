@@ -255,8 +255,8 @@ export default {
             } ) );
 
             // title
-            chart.children.push( am5.Label.new( root, {
-                "text": this.l10nd( "vue-ext", "Exceptions percent for the last 30 days (%)" ),
+            chart.children.unshift( am5.Label.new( root, {
+                "text": this.l10nd( `vue-ext`, `Exceptions (%) for the last 30 days` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -264,6 +264,7 @@ export default {
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "maxDeviation": 0,
                 "baseInterval": {
                     "timeUnit": "hour",
                     "count": 1,
@@ -272,36 +273,52 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
-            // y acis
-            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+            // y axis 1
+            const yAxis1 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "min": 0,
+                "max": 1,
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
                 "tooltip": am5.Tooltip.new( root, {} ),
+                "tooltipNumberFormat": { "style": "percent" },
+                "numberFormat": { "style": "percent" },
             } ) );
 
-            // series 1
+            // data processor
+            const dateProcessor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
+            // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, "Exceptions" ),
+                "name": this.l10nd( `vue-ext`, `Exceptions (%)` ),
                 xAxis,
-                yAxis,
+                "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "exceptions_percent",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "Exceptions" ) + ": {valueY}%",
+                    "labelText": this.l10nd( `vue-ext`, `Exceptions` ) + ": {valueY}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "fill": am5.color( "#ff0000" ),
+                "connect": false,
             } ) );
+
+            // data processor
+            series1.data.processor = dateProcessor;
+
+            // serie tooltip label formatters
+            series1.get( "tooltip" ).label.set(
+                "numberFormatter",
+                am5.NumberFormatter.new( root, {
+                    "numberFormat": { "style": "percent" },
+                } )
+            );
 
             // fill settings
             series1.fills.template.setAll( {
                 "fillOpacity": 0.3,
                 "visible": true,
-            } );
-
-            // dataa processor
-            series1.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
             } );
 
             // cursor
@@ -319,6 +336,14 @@ export default {
                     "orientation": "horizontal",
                 } )
             );
+
+            // legend
+            const legend = chart.children.push( am5.Legend.new( root, {
+                "centerX": am5.p50,
+                "x": am5.p50,
+            } ) );
+
+            legend.data.setAll( chart.series.values );
         },
 
         async refresh () {
