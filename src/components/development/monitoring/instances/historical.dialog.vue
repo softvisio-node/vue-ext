@@ -285,7 +285,10 @@ export default {
                 "connect": false,
             } ) );
 
-            // XXX
+            // data processor
+            series1.data.processor = dateProcessor;
+
+            // serie tooltip lavel formatters
             series1.get( "tooltip" ).label.set(
                 "numberFormatter",
                 am5.NumberFormatter.new( root, {
@@ -298,9 +301,6 @@ export default {
                 "fillOpacity": 0.3,
                 "visible": true,
             } );
-
-            // data processor
-            series1.data.processor = dateProcessor;
 
             const seriesPercent = chart.series.push( am5xy.StepLineSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, "Used memory (%)" ),
@@ -315,7 +315,10 @@ export default {
                 "connect": true,
             } ) );
 
-            // XXX
+            // data processor
+            seriesPercent.data.processor = dateProcessor;
+
+            // serie tooltip lavel formatters
             seriesPercent.get( "tooltip" ).label.set(
                 "numberFormatter",
                 am5.NumberFormatter.new( root, {
@@ -323,8 +326,7 @@ export default {
                 } )
             );
 
-            seriesPercent.data.processor = dateProcessor;
-
+            // stroke settings
             seriesPercent.strokes.template.setAll( {
                 "strokeWidth": 3,
             } );
