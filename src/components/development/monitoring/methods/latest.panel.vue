@@ -2,8 +2,8 @@
     <CardsPanel ref="cardsPanel" scrollable="true" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-container :html="title"/>
                 <ext-spacer/>
+                <ext-button iconCls="fa-solid fa-expand" :text="l10nd(`vue-ext`, `Open charts`)" @tap="_showChartsDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
@@ -22,6 +22,7 @@
 import CardsPanel from "#src/components/cards.panel";
 import AmchartsPanel from "#vue/components/amcharts5/panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
+import HistoricalChartsDialog from "./historical.dialog";
 
 export default {
     "components": { CardsPanel, AmchartsPanel },
@@ -30,12 +31,6 @@ export default {
         "record": {
             "type": Object,
             "required": true,
-        },
-    },
-
-    "computed": {
-        title () {
-            return this.l10nd( "vue-ext", msgid`Method: ${this.record?.get( "method_name" ) || "-"}` );
         },
     },
 
@@ -381,6 +376,18 @@ export default {
                 this.$refs.durationChart.setData( res.data );
                 this.$refs.exceptionsChart.setData( res.data );
             }
+        },
+
+        async _showChartsDialog () {
+            if ( !this.record ) return;
+
+            const cmp = await this.$mount( HistoricalChartsDialog, {
+                "props": {
+                    "record": this.record,
+                },
+            } );
+
+            cmp.ext.show();
         },
     },
 };

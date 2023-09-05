@@ -713,6 +713,8 @@ export default {
         },
 
         async _showChartsDialog () {
+            if ( !this.record ) return;
+
             const cmp = await this.$mount( HistoricalChartsDialog, {
                 "props": {
                     "record": this.record,
