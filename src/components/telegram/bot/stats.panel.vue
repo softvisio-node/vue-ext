@@ -251,7 +251,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( "vue-ext", "Subscribed users" ),
+                "text": this.l10nd( `vue-ext`, `Subscribed users` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -259,60 +259,76 @@ export default {
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "maxDeviation": 0,
                 "baseInterval": {
                     "timeUnit": "day",
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltipDateFormat": "HH:mm",
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
-            // y axis
-            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+            // y axis 1
+            const yAxis1 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
                 "tooltip": am5.Tooltip.new( root, {} ),
+                "tooltipNumberFormat": {},
+                "numberFormat": {},
             } ) );
 
-            // series 1
+            // data processor
+            const dateProcessor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
+            // serie 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, "Subscribed usersDelta" ),
+                "name": this.l10nd( `vue-ext`, `Subscribed users` ),
                 xAxis,
-                yAxis,
+                "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "total_subscribed_users_delta",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "Subscribed" ) + ": {valueY}",
+                    "labelText": this.l10nd( `vue-ext`, `Subscribed users` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
+                "connect": false,
             } ) );
 
-            // date processor
-            series1.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
-            } );
+            // data processor
+            series1.data.processor = dateProcessor;
 
-            // series 2
+            // fill settings
+            // series1.fills.template.setAll( {
+            //     "fillOpacity": 0.3,
+            //     "visible": true,
+            // } );
+
+            // serie 2
             const series2 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, "Unsubscribed usersDelta" ),
-                "xAxis": xAxis,
-                "yAxis": yAxis,
+                "name": this.l10nd( `vue-ext`, `Unsubscribed users` ),
+                xAxis,
+                "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "total_unsubscribed_users_delta",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "Unsubscribed" ) + ": {valueY}",
+                    "labelText": this.l10nd( `vue-ext`, `Unsubscribed users` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "fill": am5.color( "#ff0000" ),
+                "connect": false,
             } ) );
 
-            // date processor
-            series2.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
-            } );
+            // // data processor
+            series2.data.processor = dateProcessor;
+
+            // fill settings
+            // series2.fills.template.setAll( {
+            //     "fillOpacity": 0.3,
+            //     "visible": true,
+            // } );
 
             // cursor
             chart.set(
