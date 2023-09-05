@@ -132,7 +132,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( "vue-ext", "Total subscribed users" ),
+                "text": this.l10nd( `vue-ext`, `Total subscribed users` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -140,88 +140,90 @@ export default {
 
             // x axis
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "maxDeviation": 0,
                 "baseInterval": {
                     "timeUnit": "day",
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltipDateFormat": "HH:mm",
                 "tooltip": am5.Tooltip.new( root, {} ),
             } ) );
 
-            // y axis
-            const yAxis = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+            // y axis 1
+            const yAxis1 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
                 "tooltip": am5.Tooltip.new( root, {} ),
+                "tooltipNumberFormat": {},
+                "numberFormat": {},
             } ) );
 
-            // series 1
+            // data processor
+            const dateProcessor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
+            // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, "Total subscribed users" ),
+                "name": this.l10nd( `vue-ext`, `Total subscribed users` ),
                 xAxis,
-                yAxis,
+                "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "total_subscribed_users",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "Subscribed users" ) + ": {valueY}",
+                    "labelText": this.l10nd( `vue-ext`, `Subscribed users` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
-                "connect": true,
+                "connect": false,
             } ) );
+
+            // data processor
+            series1.data.processor = dateProcessor;
 
             // fill settings
             series1.fills.template.setAll( {
-                "fillOpacity": 0.5,
+                "fillOpacity": 0.3,
                 "visible": true,
             } );
 
-            // date processor
-            series1.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
-            } );
-
-            // eries 2
-            const series2 = chart.series.push( am5xy.SmoothedXLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, "Total unsubscribed users" ),
+            // serie 2
+            const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
+                "name": this.l10nd( `vue-ext`, `Total unsubscribed users` ),
                 xAxis,
-                yAxis,
+                "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "total_unsubscribed_users",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( "vue-ext", "Unsubscribed users" ) + ": {valueY}",
+                    "labelText": this.l10nd( `vue-ext`, `Unsubscribed users` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "fill": am5.color( "#ff0000" ),
-                "connect": true,
+                "connect": false,
             } ) );
+
+            // data processor
+            series2.data.processor = dateProcessor;
 
             // fill settings
             series2.fills.template.setAll( {
-                "fillOpacity": 0.5,
+                "fillOpacity": 0.3,
                 "visible": true,
             } );
-
-            // date processor
-            series2.data.processor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
-            } );
-
-            // scroll bar
-            chart.set(
-                "scrollbarX",
-                am5.Scrollbar.new( root, {
-                    "orientation": "horizontal",
-                } )
-            );
 
             // cursor
             chart.set(
                 "cursor",
                 am5xy.XYCursor.new( root, {
                     "behavior": "zoomX",
+                } )
+            );
+
+            // scroll bar
+            chart.set(
+                "scrollbarX",
+                am5.Scrollbar.new( root, {
+                    "orientation": "horizontal",
                 } )
             );
 
