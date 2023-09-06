@@ -11,7 +11,11 @@
             </ext-toolbar>
 
             <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","snap":200,"split":true}' :title="l10nd(`vue-ext`, `Latest charts`)" width="400">
-                <LatestPanel ref="latestPanel" :record="selectedRecord"/>
+                <CharstPanel ref="chartsPanel" period="1 hour" :record="selectedRecord">
+                    <template #toolbar>
+                        <ext-button iconCls="fa-solid fa-expand" :text="l10nd(`vue-ext`, `Open charts`)" @tap="showChartsDialog"/>
+                    </template>
+                </CharstPanel>
             </ext-panel>
         </template>
 
@@ -38,9 +42,9 @@
 <script>
 import CardsPanel from "#src/components/cards.panel";
 import MethodModel from "./models/method";
-import LatestPanel from "./latest.panel";
-import HistoricalDialog from "./historical.dialog";
 import ExceptionsDialog from "./exceptions.dialog";
+import ChartsDialog from "./charts.dialog";
+import CharstPanel from "./charts.panel";
 
 const DEFAULT_AUTOREFRESH_INTERVAL = 60_000;
 
@@ -48,7 +52,7 @@ const periods = [1, 3, 7, 14, 30],
     defaultPeriod = 3;
 
 export default {
-    "components": { CardsPanel, LatestPanel },
+    "components": { CardsPanel, CharstPanel },
 
     data () {
         return {
@@ -95,10 +99,12 @@ export default {
             if ( res.ok ) this.store.loadRawData( res.data );
         },
 
-        async showHistoricalDialog ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
+        async showChartsDialog ( row, button ) {
+            const record = row === "row" ? button.up( "gridrow" )?.getRecord() : this.selectedRecord;
 
-            const cmp = await this.$mount( HistoricalDialog, {
+            if ( !record ) return;
+
+            const cmp = await this.$mount( ChartsDialog, {
                 "props": {
                     record,
                 },
@@ -228,8 +234,8 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
-                            "tooltip": this.l10nd( `vue-ext`, `Historical charts` ),
-                            "handler": this.showHistoricalDialog.bind( this ),
+                            "tooltip": this.l10nd( `vue-ext`, `Open charts` ),
+                            "handler": this.showChartsDialog.bind( this, "row" ),
                         },
                         {
                             "xtype": "button",
