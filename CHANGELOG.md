@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.20 (2023-09-06)
+
+Fixes:
+
+-   fix: monitoring
+
 ### 8.8.19 (2023-09-05)
 
 Fixes:
