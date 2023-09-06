@@ -95,7 +95,9 @@ export default {
         },
 
         async showChartsDialog ( row, button ) {
-            const record = row ? button.up( "gridrow" ).getRecord() : this.selectedRecord;
+            const record = row === "row" ? button.up( "gridrow" )?.getRecord() : this.selectedRecord;
+
+            if ( !record ) return;
 
             const cmp = await this.$mount( ChartsDialog, {
                 "props": {
@@ -134,7 +136,7 @@ export default {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
                             "tooltip": this.l10nd( `vue-ext`, `Open charts` ),
-                            "handler": this.showChartsDialog.bind( this, true ),
+                            "handler": this.showChartsDialog.bind( this, "row" ),
                         },
                     ],
                 },
