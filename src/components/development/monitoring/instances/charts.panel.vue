@@ -3,6 +3,7 @@
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-spacer/>
+                <slot name="toolbar"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>

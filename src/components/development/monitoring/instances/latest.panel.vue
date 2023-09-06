@@ -1,5 +1,9 @@
 <template>
-    <CharstPanel period="1 hour" :record="record"/>
+    <CharstPanel period="1 hour" :record="record">
+        <template #toolbar>
+            <ext-button iconCls="fa-solid fa-expand" :text="l10nd(`vue-ext`, `Open charts`)" @tap="_showChartsDialog"/>
+        </template>
+    </CharstPanel>
 </template>
 
 <script>
