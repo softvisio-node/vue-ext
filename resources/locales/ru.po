@@ -13,7 +13,7 @@ msgstr ""
 "X-Search-Path: /src/**\n"
 "X-Generator: Poedit 3.3.2\n"
 
-#: src/components/development/monitoring/methods/panel.vue:202:29
+#: src/components/development/monitoring/methods/panel.vue:208:29
 #, javascript-format
 msgid "${n} day"
 msgid_plural "${n} days"
@@ -65,7 +65,7 @@ msgstr "Аккаунт"
 
 #: src/components/administration/telegram/panel.vue:106:39
 #: src/components/administration/users/panel.vue:215:39
-#: src/components/telegram/bot/ad-campaign/panel.vue:111:39
+#: src/components/telegram/bot/links/panel.vue:111:39
 msgid "Actions"
 msgstr "Действия"
 
@@ -127,14 +127,6 @@ msgstr "Авторизованно"
 msgid "Auto refresh"
 msgstr "Обновлять автоматически"
 
-#: src/components/development/monitoring/methods/historical.dialog.vue:141:24
-msgid "Average duration per call for the last 30 days (ms)"
-msgstr "Средняя длительнрсть вызова за последние 30 дней (мс)"
-
-#: src/components/development/monitoring/methods/latest.panel.vue:139:24
-msgid "Average duration per call for the last 60 minutes (ms)"
-msgstr "Средняя длительнрсть вызова за последние 60 минут (мс)"
-
 #: src/components/authentication/password-recovery.panel.vue:14:64
 #: src/components/authentication/signup.panel.vue:27:64
 msgid "Back"
@@ -160,21 +152,12 @@ msgstr ""
 msgid "Browser"
 msgstr "Браузер"
 
-#: src/components/development/monitoring/methods/historical.dialog.vue:85:24
-#: src/components/development/monitoring/methods/historical.dialog.vue:91:33
-#: src/components/development/monitoring/methods/latest.panel.vue:90:24
-#: src/components/development/monitoring/methods/latest.panel.vue:96:33
-#: src/components/development/monitoring/methods/panel.vue:152:28
+#: src/components/development/monitoring/methods/charts.panel.vue:130:24
+#: src/components/development/monitoring/methods/charts.panel.vue:136:33
+#: src/components/development/monitoring/methods/charts.panel.vue:97:24
+#: src/components/development/monitoring/methods/panel.vue:158:28
 msgid "Calls"
 msgstr "Вызовы"
-
-#: src/components/development/monitoring/methods/historical.dialog.vue:59:24
-msgid "Calls for the last 30 days"
-msgstr "Вызовы за последние 30 дней"
-
-#: src/components/development/monitoring/methods/latest.panel.vue:65:24
-msgid "Calls for the last 60 minutes"
-msgstr "Вызовы за последние 60 минут"
 
 #: src/components/reset-password.dialog.vue:16:31
 #: src/components/telegram/bot/details.dialog.vue:15:78 src/utils.js:136:36
@@ -276,35 +259,19 @@ msgstr "Копировать в буфер"
 msgid "Copy token to the clipboard"
 msgstr "Копировать токен в буфер"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:173:24
-#: src/components/development/monitoring/instances/historical.dialog.vue:179:33
-#: src/components/development/monitoring/instances/latest.panel.vue:170:24
-#: src/components/development/monitoring/instances/latest.panel.vue:176:33
+#: src/components/development/monitoring/instances/charts.panel.vue:157:24
+#: src/components/development/monitoring/instances/charts.panel.vue:163:33
 msgid "CPU (system)"
 msgstr "ЦП (система)"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:147:24
-msgid "CPU (system) for the last 30 days"
-msgstr "ЦП (система) за последние 30 дней"
-
-#: src/components/development/monitoring/instances/latest.panel.vue:145:24
-msgid "CPU (system) for the last 60 minutes"
-msgstr "ЦП (система) за последние 60 минут"
-
-#: src/components/development/monitoring/instances/historical.dialog.vue:91:24
-#: src/components/development/monitoring/instances/historical.dialog.vue:97:33
-#: src/components/development/monitoring/instances/latest.panel.vue:102:33
-#: src/components/development/monitoring/instances/latest.panel.vue:96:24
+#: src/components/development/monitoring/instances/charts.panel.vue:133:24
+#: src/components/development/monitoring/instances/charts.panel.vue:139:33
 msgid "CPU (user)"
 msgstr "ЦП (пользователь)"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:65:24
-msgid "CPU (user) for the last 30 days"
-msgstr "ЦП (пользователь) за последние 30 дней"
-
-#: src/components/development/monitoring/instances/latest.panel.vue:71:24
-msgid "CPU (user) for the last 60 minutes"
-msgstr "ЦП (пользователь) за последние 60 минут"
+#: src/components/development/monitoring/instances/charts.panel.vue:100:24
+msgid "CPU usage"
+msgstr ""
 
 #: src/components/account/tokens/create/dialog.vue:21:44
 #: src/components/account/tokens/create/dialog.vue:2:51
@@ -343,8 +310,8 @@ msgid "Delete all"
 msgstr "Удалить все"
 
 #: src/components/administration/telegram/panel.vue:115:48
-#: src/components/telegram/bot/ad-campaign/panel.vue:120:48
 #: src/components/telegram/bot/info.panel.vue:68:116
+#: src/components/telegram/bot/links/panel.vue:120:48
 msgid "Delete bot"
 msgstr "Удалить бота"
 
@@ -374,22 +341,26 @@ msgstr "Нет аккаута? Зарегистрируйтесь"
 msgid "Done"
 msgstr "Готово"
 
-#: src/components/development/monitoring/methods/historical.dialog.vue:173:33
-#: src/components/development/monitoring/methods/latest.panel.vue:170:33
+#: src/components/development/monitoring/methods/charts.panel.vue:231:33
 msgid "Duration"
 msgstr "Длительность"
 
-#: src/components/development/monitoring/methods/panel.vue:167:28
+#: src/components/development/monitoring/methods/panel.vue:173:28
 msgid "Duration (%)"
 msgstr "Длительность (%)"
 
+#: src/components/development/monitoring/methods/charts.panel.vue:225:24
 #: src/components/development/monitoring/methods/exceptions.dialog.vue:16:91
 msgid "Duration (ms)"
 msgstr "Длительность (мс)"
 
-#: src/components/development/monitoring/methods/panel.vue:160:28
+#: src/components/development/monitoring/methods/panel.vue:166:28
 msgid "Duration / call (ms)"
 msgstr "Длительность вызова (мс)"
+
+#: src/components/development/monitoring/methods/charts.panel.vue:192:24
+msgid "Duration per call (ms)"
+msgstr ""
 
 #: src/components/telegram/bot/info.panel.vue:26:110
 msgid "Edit"
@@ -473,26 +444,25 @@ msgstr "Введите ваш адрес email"
 
 #: src/components/administration/telegram/panel.vue:21:67
 #: src/components/development/cron/panel.vue:20:98
-#: src/components/telegram/bot/ad-campaign/panel.vue:21:67
+#: src/components/telegram/bot/links/panel.vue:21:67
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/components/development/monitoring/methods/historical.dialog.vue:249:24
-#: src/components/development/monitoring/methods/historical.dialog.vue:255:33
-#: src/components/development/monitoring/methods/latest.panel.vue:245:33
-#: src/components/development/monitoring/methods/panel.vue:174:28
+#: src/components/development/monitoring/methods/charts.panel.vue:336:33
+#: src/components/development/monitoring/methods/panel.vue:180:28
 msgid "Exceptions"
 msgstr "Исключения"
 
-#: src/components/development/monitoring/methods/latest.panel.vue:238:24
+#: src/components/development/monitoring/methods/charts.panel.vue:295:24
+#: src/components/development/monitoring/methods/charts.panel.vue:330:24
 msgid "Exceptions (%)"
 msgstr ""
 
-#: src/components/development/monitoring/methods/panel.vue:181:28
+#: src/components/development/monitoring/methods/panel.vue:187:28
 msgid "Exceptions / call (%)"
 msgstr "Исключения / вызов (%)"
 
-#: src/components/development/monitoring/methods/panel.vue:237:39
+#: src/components/development/monitoring/methods/panel.vue:243:39
 msgid "Exceptions log"
 msgstr "Журнал исключений"
 
@@ -501,55 +471,27 @@ msgstr "Журнал исключений"
 msgid "Exceptions log for the method: ${n}"
 msgstr "Журнал исключений для метода: ${n}"
 
-#: src/components/development/monitoring/methods/historical.dialog.vue:223:24
-msgid "Exceptions percent for the last 30 days (%)"
-msgstr "Процент Исключений за последние 30 дней"
-
-#: src/components/development/monitoring/methods/latest.panel.vue:213:24
-msgid "Exceptions percent for the last 60 minutes (%)"
-msgstr "Процент Исключений за последние 60 минут"
-
 #: src/components/authentication/signin.panel.vue:22:31
 msgid "Forgot password?"
 msgstr "Забыли пароль?"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:427:33
-#: src/components/development/monitoring/instances/latest.panel.vue:400:33
-msgid "Free"
-msgstr "Свободео"
-
-#: src/components/development/monitoring/instances/historical.dialog.vue:255:24
-#: src/components/development/monitoring/instances/historical.dialog.vue:261:33
-#: src/components/development/monitoring/instances/latest.panel.vue:244:24
-#: src/components/development/monitoring/instances/latest.panel.vue:250:33
-#: src/components/development/monitoring/instances/panel.vue:21:59
-msgid "Free memory"
-msgstr "Свободная память"
-
-#: src/components/development/monitoring/instances/historical.dialog.vue:229:24
-msgid "Free memory (MB) for the last 30 days"
-msgstr "Свободная память (МБ) за последние 30 дней"
-
-#: src/components/development/monitoring/instances/latest.panel.vue:219:24
-msgid "Free memory (MB) for the last 60 minutes"
-msgstr "Свободная память (МБ) за последние 60 минут"
-
-#: src/components/development/monitoring/instances/historical.dialog.vue:421:24
-#: src/components/development/monitoring/instances/latest.panel.vue:394:24
-#: src/components/development/monitoring/instances/panel.vue:24:55
-msgid "FS free"
-msgstr ""
-
-#: src/components/development/monitoring/instances/historical.dialog.vue:395:24
-msgid "FS free space (MB) for the last 30 days"
-msgstr ""
-
-#: src/components/development/monitoring/instances/latest.panel.vue:369:24
-msgid "FS free space (MB) for the last 60 minutes"
-msgstr ""
-
-#: src/components/development/monitoring/instances/panel.vue:23:56
+#: src/components/development/monitoring/instances/panel.vue:31:56
 msgid "FS total"
+msgstr ""
+
+#: src/components/development/monitoring/instances/charts.panel.vue:561:33
+#: src/components/development/monitoring/instances/charts.panel.vue:593:33
+#: src/components/development/monitoring/instances/panel.vue:33:93
+msgid "FS used"
+msgstr ""
+
+#: src/components/development/monitoring/instances/charts.panel.vue:587:24
+msgid "FS used (%)"
+msgstr ""
+
+#: src/components/development/monitoring/instances/charts.panel.vue:510:24
+#: src/components/development/monitoring/instances/charts.panel.vue:555:24
+msgid "FS used (MB)"
 msgstr ""
 
 #: src/components/administration/users/create-user.dialog.vue:11:35
@@ -559,17 +501,6 @@ msgstr ""
 msgid "Generate random password"
 msgstr "Сгенерировать случайный пароль"
 
-#: src/components/development/monitoring/instances/panel.vue:127:39
-#: src/components/development/monitoring/methods/panel.vue:231:39
-msgid "Historical charts"
-msgstr "Исторические графики"
-
-#: src/components/development/monitoring/instances/historical.dialog.vue:45:19
-#: src/components/development/monitoring/methods/historical.dialog.vue:39:19
-#, javascript-format
-msgid "Historical charts for the method: ${n}"
-msgstr "Исторические диаграммы для метода: ${n}"
-
 #: src/components/notifications/link-telegram.dialig.vue:3:30
 msgid "If you have Telegram installed on <b>THIS</b> device, then press button below to open Telegram bot and then click \"Start\":"
 msgstr "Если у вас установлен Telegram на <b>ЭТОМ</b> устройстве, нажмите кнопку ниже, чтобы открыть Telegram-бота, а затем нажмите «Старт»:"
@@ -578,7 +509,11 @@ msgstr "Если у вас установлен Telegram на <b>ЭТОМ</b> у
 msgid "Inbox"
 msgstr "Входяшие"
 
-#: src/components/development/monitoring/instances/panel.vue:19:70
+#: src/components/development/monitoring/instances/charts.dialog.vue:22:19
+msgid "Instance stats"
+msgstr ""
+
+#: src/components/development/monitoring/instances/panel.vue:23:70
 msgid "Instance type"
 msgstr "Тип экземпляра"
 
@@ -655,15 +590,13 @@ msgstr "Отметить как готово"
 msgid "Maximize"
 msgstr "Максимизировать"
 
-#: src/components/development/monitoring/methods/panel.vue:143:28
+#: src/components/development/monitoring/methods/panel.vue:149:28
 msgid "Method name"
 msgstr "Имя метода"
 
-#: src/components/development/monitoring/instances/latest.panel.vue:44:19
-#: src/components/development/monitoring/methods/latest.panel.vue:38:19
-#, javascript-format
-msgid "Method: ${n}"
-msgstr "Метод: ${n}"
+#: src/components/development/monitoring/methods/charts.dialog.vue:22:19
+msgid "Method stats"
+msgstr ""
 
 #: src/components/development/panel.vue:9:40
 msgid "Methods monitoring"
@@ -688,7 +621,7 @@ msgstr "Переместить во входящие"
 
 #: src/components/administration/telegram/panel.vue:13:65
 #: src/components/development/cron/panel.vue:14:52
-#: src/components/telegram/bot/ad-campaign/panel.vue:13:65
+#: src/components/telegram/bot/links/panel.vue:13:65
 #: src/components/telegram/bots.panel.vue:13:123
 msgid "Name"
 msgstr "Имя"
@@ -730,6 +663,13 @@ msgstr "Ok"
 
 #: src/components/telegram/bots.panel.vue:84:36
 msgid "Open bot"
+msgstr ""
+
+#: src/components/development/monitoring/instances/panel.vue:138:39
+#: src/components/development/monitoring/instances/panel.vue:15:72
+#: src/components/development/monitoring/methods/panel.vue:16:72
+#: src/components/development/monitoring/methods/panel.vue:237:39
+msgid "Open charts"
 msgstr ""
 
 #: src/components/notifications/settings.panel.vue:31:43
@@ -784,8 +724,8 @@ msgstr "Токен восстановления пароля не найден"
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
-#: src/components/development/monitoring/methods/panel.vue:204:61
-#: src/components/development/monitoring/methods/panel.vue:300:49
+#: src/components/development/monitoring/methods/panel.vue:210:61
+#: src/components/development/monitoring/methods/panel.vue:306:49
 msgid "Period"
 msgstr "Период"
 
@@ -835,15 +775,13 @@ msgstr "Восстановить"
 #: src/components/administration/users/panel.vue:9:62
 #: src/components/cards.panel.vue:14:58
 #: src/components/development/cron/panel.vue:6:62
-#: src/components/development/monitoring/instances/historical.dialog.vue:7:66
-#: src/components/development/monitoring/instances/latest.panel.vue:7:62
+#: src/components/development/monitoring/instances/charts.panel.vue:7:62
 #: src/components/development/monitoring/instances/panel.vue:9:82
+#: src/components/development/monitoring/methods/charts.panel.vue:7:62
 #: src/components/development/monitoring/methods/exceptions.dialog.vue:8:66
-#: src/components/development/monitoring/methods/historical.dialog.vue:7:66
-#: src/components/development/monitoring/methods/latest.panel.vue:7:62
 #: src/components/development/monitoring/methods/panel.vue:10:82
-#: src/components/telegram/bot/ad-campaign/panel.vue:7:62
 #: src/components/telegram/bot/info.panel.vue:8:66
+#: src/components/telegram/bot/links/panel.vue:7:62
 #: src/components/telegram/bot/stats.panel.vue:8:66
 #: src/components/telegram/bots.panel.vue:7:62
 #: src/components/user-sessions/panel.vue:8:62
@@ -873,28 +811,19 @@ msgstr "Роли"
 msgid "Roles filter"
 msgstr "Фильтр ролей"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:338:24
-#: src/components/development/monitoring/instances/historical.dialog.vue:344:33
-#: src/components/development/monitoring/instances/latest.panel.vue:325:33
-#: src/components/development/monitoring/instances/panel.vue:22:58
+#: src/components/development/monitoring/instances/charts.panel.vue:416:33
+#: src/components/development/monitoring/instances/charts.panel.vue:448:33
+#: src/components/development/monitoring/instances/panel.vue:29:98
 msgid "RSS memory"
 msgstr "RSS-память"
 
-#: src/components/development/monitoring/instances/historical.dialog.vue:312:24
-msgid "RSS memory (MB) for the last 30 days"
-msgstr "Память RSS (МБ) за последние 30 дней"
-
-#: src/components/development/monitoring/instances/latest.panel.vue:294:24
-msgid "RSS memory (MB) for the last 60 minutes"
-msgstr "Память RSS (МБ) за последние 60 минут"
-
-#: src/components/development/monitoring/instances/latest.panel.vue:319:24
-msgid "RSS memry"
+#: src/components/development/monitoring/instances/charts.panel.vue:442:24
+msgid "RSS memory (%)"
 msgstr ""
 
-#: src/components/development/monitoring/methods/historical.dialog.vue:167:24
-#: src/components/development/monitoring/methods/latest.panel.vue:164:24
-msgid "Runtime"
+#: src/components/development/monitoring/instances/charts.panel.vue:365:24
+#: src/components/development/monitoring/instances/charts.panel.vue:410:24
+msgid "RSS memory (MB)"
 msgstr ""
 
 #: src/components/telegram/bot/details.dialog.vue:13:92
@@ -902,7 +831,7 @@ msgid "Save"
 msgstr "Сохранить"
 
 #: src/components/administration/telegram/panel.vue:5:47
-#: src/components/telegram/bot/ad-campaign/panel.vue:5:47
+#: src/components/telegram/bot/links/panel.vue:5:47
 #: src/components/telegram/bots.panel.vue:5:47
 msgid "Search bots"
 msgstr "Искать ботов"
@@ -979,7 +908,7 @@ msgid "Sign up"
 msgstr "Зарегистрироваться"
 
 #: src/components/administration/telegram/panel.vue:89:36
-#: src/components/telegram/bot/ad-campaign/panel.vue:94:36
+#: src/components/telegram/bot/links/panel.vue:94:36
 msgid "Start"
 msgstr "Запустить"
 
@@ -992,7 +921,7 @@ msgid "Started"
 msgstr "Запущен"
 
 #: src/components/administration/telegram/panel.vue:17:54
-#: src/components/telegram/bot/ad-campaign/panel.vue:17:54
+#: src/components/telegram/bot/links/panel.vue:17:54
 msgid "Static"
 msgstr "Статический"
 
@@ -1006,7 +935,7 @@ msgid "Status text"
 msgstr "Текст статуса"
 
 #: src/components/administration/telegram/panel.vue:98:36
-#: src/components/telegram/bot/ad-campaign/panel.vue:103:36
+#: src/components/telegram/bot/links/panel.vue:103:36
 msgid "Stop"
 msgstr "Остановить"
 
@@ -1014,18 +943,12 @@ msgstr "Остановить"
 msgid "Stop bot"
 msgstr ""
 
-#: src/components/telegram/bot/stats.panel.vue:283:33
-msgid "Subscribed"
-msgstr ""
-
-#: src/components/telegram/bot/stats.panel.vue:166:33
-#: src/components/telegram/bot/stats.panel.vue:252:24
+#: src/components/telegram/bot/stats.panel.vue:174:33
+#: src/components/telegram/bot/stats.panel.vue:254:24
+#: src/components/telegram/bot/stats.panel.vue:287:24
+#: src/components/telegram/bot/stats.panel.vue:293:33
 #: src/components/telegram/bots.panel.vue:15:136
 msgid "Subscribed users"
-msgstr ""
-
-#: src/components/telegram/bot/stats.panel.vue:277:24
-msgid "Subscribed usersDelta"
 msgstr ""
 
 #: src/components/administration/telegram/dialog.vue:34:33
@@ -1070,21 +993,21 @@ msgstr "Токен удален"
 msgid "Token name"
 msgstr "Имя токена"
 
-#: src/components/development/monitoring/instances/panel.vue:20:60
+#: src/components/development/monitoring/instances/panel.vue:25:60
 msgid "Total memory"
 msgstr "Общая память"
 
 #: src/components/telegram/bot/stats.panel.vue:135:24
-#: src/components/telegram/bot/stats.panel.vue:160:24
+#: src/components/telegram/bot/stats.panel.vue:168:24
 msgid "Total subscribed users"
 msgstr ""
 
-#: src/components/telegram/bot/stats.panel.vue:187:24
+#: src/components/telegram/bot/stats.panel.vue:192:24
 msgid "Total unsubscribed users"
 msgstr ""
 
 #: src/components/administration/telegram/panel.vue:15:52
-#: src/components/telegram/bot/ad-campaign/panel.vue:15:52
+#: src/components/telegram/bot/links/panel.vue:15:52
 msgid "Type"
 msgstr "Тип"
 
@@ -1108,21 +1031,30 @@ msgstr "Не удалось загрузить данные"
 msgid "Unlink Telegram"
 msgstr "Отвязать Telegram"
 
-#: src/components/telegram/bot/stats.panel.vue:303:33
-msgid "Unsubscribed"
-msgstr ""
-
-#: src/components/telegram/bot/stats.panel.vue:193:33
+#: src/components/telegram/bot/stats.panel.vue:198:33
+#: src/components/telegram/bot/stats.panel.vue:311:24
+#: src/components/telegram/bot/stats.panel.vue:317:33
 msgid "Unsubscribed users"
-msgstr ""
-
-#: src/components/telegram/bot/stats.panel.vue:297:24
-msgid "Unsubscribed usersDelta"
 msgstr ""
 
 #: src/components/device-dark-mode.button.vue:28:19
 msgid "Use device dark mode"
 msgstr "Использовать темный режим устройства"
+
+#: src/components/development/monitoring/instances/charts.panel.vue:271:33
+#: src/components/development/monitoring/instances/charts.panel.vue:303:33
+#: src/components/development/monitoring/instances/panel.vue:27:100
+msgid "Used memory"
+msgstr ""
+
+#: src/components/development/monitoring/instances/charts.panel.vue:297:24
+msgid "Used memory (%)"
+msgstr ""
+
+#: src/components/development/monitoring/instances/charts.panel.vue:220:24
+#: src/components/development/monitoring/instances/charts.panel.vue:265:24
+msgid "Used memory (MB)"
+msgstr ""
 
 #: src/components/administration/users/user-sessions.panel.vue:20:19
 msgid "User"
@@ -1161,7 +1093,7 @@ msgstr "Используйте настройки темного режима в
 #: src/components/administration/panel.vue:4:40
 #: src/components/administration/telegram/panel.vue:19:90
 #: src/components/administration/users/dialog.vue:34:33
-#: src/components/telegram/bot/ad-campaign/panel.vue:19:90
+#: src/components/telegram/bot/links/panel.vue:19:90
 msgid "Users"
 msgstr "Пользователи"
 
@@ -1285,6 +1217,18 @@ msgstr "Уменьшить"
 #~ msgid "Are you sure you want to do that?"
 #~ msgstr "Вы уверены, что хотите сделать это?"
 
+#~ msgid "Average duration per call for the last 30 days (ms)"
+#~ msgstr "Средняя длительнрсть вызова за последние 30 дней (мс)"
+
+#~ msgid "Average duration per call for the last 60 minutes (ms)"
+#~ msgstr "Средняя длительнрсть вызова за последние 60 минут (мс)"
+
+#~ msgid "Calls for the last 30 days"
+#~ msgstr "Вызовы за последние 30 дней"
+
+#~ msgid "Calls for the last 60 minutes"
+#~ msgstr "Вызовы за последние 60 минут"
+
 #~ msgid "Choose update"
 #~ msgstr "Выберите обновление"
 
@@ -1305,6 +1249,18 @@ msgstr "Уменьшить"
 
 #~ msgid "Copy version info to clipboard"
 #~ msgstr "Скопировать информацию о версии в буфер"
+
+#~ msgid "CPU (system) for the last 30 days"
+#~ msgstr "ЦП (система) за последние 30 дней"
+
+#~ msgid "CPU (system) for the last 60 minutes"
+#~ msgstr "ЦП (система) за последние 60 минут"
+
+#~ msgid "CPU (user) for the last 30 days"
+#~ msgstr "ЦП (пользователь) за последние 30 дней"
+
+#~ msgid "CPU (user) for the last 60 minutes"
+#~ msgstr "ЦП (пользователь) за последние 60 минут"
 
 #~ msgid "CPU system"
 #~ msgstr "ЦП система"
@@ -1367,6 +1323,12 @@ msgstr "Уменьшить"
 #~ msgid "Enter your username or email"
 #~ msgstr "Введите ваше имя пользователя или email"
 
+#~ msgid "Exceptions percent for the last 30 days (%)"
+#~ msgstr "Процент Исключений за последние 30 дней"
+
+#~ msgid "Exceptions percent for the last 60 minutes (%)"
+#~ msgstr "Процент Исключений за последние 60 минут"
+
 #~ msgid "File system free space (MB) for the last 30 days"
 #~ msgstr "Свободное место в файловой системе (МБ) за последние 30 дней"
 
@@ -1384,6 +1346,18 @@ msgstr "Уменьшить"
 #~ msgid "Format: username <email@address>."
 #~ msgstr "Формат: имя пользователя <email@address>."
 
+#~ msgid "Free"
+#~ msgstr "Свободео"
+
+#~ msgid "Free memory"
+#~ msgstr "Свободная память"
+
+#~ msgid "Free memory (MB) for the last 30 days"
+#~ msgstr "Свободная память (МБ) за последние 30 дней"
+
+#~ msgid "Free memory (MB) for the last 60 minutes"
+#~ msgstr "Свободная память (МБ) за последние 60 минут"
+
 #~ msgid "From"
 #~ msgstr "От"
 
@@ -1392,6 +1366,13 @@ msgstr "Уменьшить"
 
 #~ msgid "HDD total"
 #~ msgstr "HDD всего"
+
+#~ msgid "Historical charts"
+#~ msgstr "Исторические графики"
+
+#, javascript-format
+#~ msgid "Historical charts for the method: ${n}"
+#~ msgstr "Исторические диаграммы для метода: ${n}"
 
 #, javascript-format
 #~ msgid "In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${n}</b> and press <b>\"Start\"</b>."
@@ -1406,6 +1387,10 @@ msgstr "Уменьшить"
 
 #~ msgid "Mark as read"
 #~ msgstr "Отметить как прочитанное"
+
+#, javascript-format
+#~ msgid "Method: ${n}"
+#~ msgstr "Метод: ${n}"
 
 #~ msgid "No"
 #~ msgstr "Нет"
@@ -1460,6 +1445,12 @@ msgstr "Уменьшить"
 
 #~ msgid "root user"
 #~ msgstr "root пользователь"
+
+#~ msgid "RSS memory (MB) for the last 30 days"
+#~ msgstr "Память RSS (МБ) за последние 30 дней"
+
+#~ msgid "RSS memory (MB) for the last 60 minutes"
+#~ msgstr "Память RSS (МБ) за последние 60 минут"
 
 #~ msgid "Runtime (sec.)"
 #~ msgstr "Время выполнение (сек.)"
