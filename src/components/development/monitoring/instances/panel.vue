@@ -10,7 +10,11 @@
             </ext-toolbar>
 
             <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","snap":200,"split":true}' :title="l10nd(`vue-ext`, `Latest charts`)" width="400">
-                <LatestPanel ref="latestPanel" :record="selectedRecord"/>
+                <CharstPanel ref="chartsPanel" period="1 hour" :record="selectedRecord">
+                    <template #toolbar>
+                        <ext-button iconCls="fa-solid fa-expand" :text="l10nd(`vue-ext`, `Open charts`)" @tap="_showChartsDialog"/>
+                    </template>
+                </CharstPanel>
             </ext-panel>
         </template>
 
@@ -37,13 +41,13 @@
 <script>
 import CardsPanel from "#src/components/cards.panel";
 import InstanceModel from "./models/instance";
-import LatestPanel from "./latest.panel";
 import ChartsDialog from "./charts.dialog";
+import CharstPanel from "./charts.panel";
 
 const DEFAULT_AUTOREFRESH_INTERVAL = 60_000;
 
 export default {
-    "components": { CardsPanel, LatestPanel },
+    "components": { CardsPanel, CharstPanel },
 
     data () {
         return {
@@ -175,7 +179,7 @@ export default {
             this.autoRefreshInterval = setInterval( () => {
                 this.refresh();
 
-                this.$refs.latestPanel.refresh();
+                this.$refs.chartsPanel.refresh();
             }, DEFAULT_AUTOREFRESH_INTERVAL );
         },
 
