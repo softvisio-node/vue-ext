@@ -38,7 +38,7 @@
 import CardsPanel from "#src/components/cards.panel";
 import InstanceModel from "./models/instance";
 import LatestPanel from "./latest.panel";
-import HistoricalDialog from "./historical.dialog";
+import ChartsDialog from "./charts.dialog";
 
 const DEFAULT_AUTOREFRESH_INTERVAL = 60_000;
 
@@ -90,10 +90,10 @@ export default {
             if ( res.ok ) this.store.loadRawData( res.data );
         },
 
-        async showHistoricalDialog ( button ) {
+        async showChartsDialog ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            const cmp = await this.$mount( HistoricalDialog, {
+            const cmp = await this.$mount( ChartsDialog, {
                 "props": {
                     record,
                 },
@@ -129,8 +129,8 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
-                            "tooltip": this.l10nd( `vue-ext`, `Historical charts` ),
-                            "handler": this.showHistoricalDialog.bind( this ),
+                            "tooltip": this.l10nd( `vue-ext`, `Open charts` ),
+                            "handler": this.showChartsDialog.bind( this ),
                         },
                     ],
                 },

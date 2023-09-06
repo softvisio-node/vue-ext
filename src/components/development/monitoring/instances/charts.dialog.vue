@@ -19,7 +19,7 @@ export default {
 
     "computed": {
         title () {
-            return this.l10nd( "vue-ext", `Instance historical stats` );
+            return this.l10nd( "vue-ext", `Instance stats` );
         },
     },
 
