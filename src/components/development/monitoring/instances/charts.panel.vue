@@ -40,7 +40,38 @@ export default {
         },
     },
 
+    "watch": {
+        record ( newValue, OldValue ) {
+            if ( newValue !== OldValue ) this.refresh();
+        },
+    },
+
     "methods": {
+        async refresh () {
+            if ( !this.record ) return;
+
+            this.$refs.cardsPanel.mask();
+
+            const res = await this.$api.call( "development/monitoring/instances/get-instance-stats", this.record.id, this.period );
+
+            this.$refs.cardsPanel.unmask();
+
+            if ( !res.ok ) {
+                this.$refs.cardsPanel.setResult( res );
+            }
+            else if ( !res.data?.length ) {
+                this.$refs.cardsPanel.showNoDataCard();
+            }
+            else {
+                this.$refs.cardsPanel.setResult( res );
+
+                this.$refs.cpuUsageChart.setData( res.data );
+                this.$refs.memryUsedChart.setData( res.data );
+                this.$refs.memryRssChart.setData( res.data );
+                this.$refs.fsUsedChart.setData( res.data );
+            }
+        },
+
         _createCpuUsageChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
@@ -594,29 +625,6 @@ export default {
             } ) );
 
             legend.data.setAll( chart.series.values );
-        },
-
-        async refresh () {
-            this.$refs.cardsPanel.mask();
-
-            const res = await this.$api.call( "development/monitoring/instances/get-instance-stats", this.record.id, this.period );
-
-            this.$refs.cardsPanel.unmask();
-
-            if ( !res.ok ) {
-                this.$refs.cardsPanel.setResult( res );
-            }
-            else if ( !res.data?.length ) {
-                this.$refs.cardsPanel.showNoDataCard();
-            }
-            else {
-                this.$refs.cardsPanel.setResult( res );
-
-                this.$refs.cpuUsageChart.setData( res.data );
-                this.$refs.memryUsedChart.setData( res.data );
-                this.$refs.memryRssChart.setData( res.data );
-                this.$refs.fsUsedChart.setData( res.data );
-            }
         },
     },
 };
