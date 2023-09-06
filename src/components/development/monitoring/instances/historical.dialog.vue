@@ -10,9 +10,7 @@
 
             <template #data>
                 <ext-container defaults='{"height":300}' layput="vbox" scrollable="true">
-                    <AmchartsPanel ref="cpuUserChart" :createChart="_createCpuUserChart"/>
-
-                    <AmchartsPanel ref="cpuSystemChart" :createChart="_createCpuSystemChart"/>
+                    <AmchartsPanel ref="cpuUsageChart" :createChart="_createCpuUsageChart"/>
 
                     <AmchartsPanel ref="memryUsedChart" :createChart="_createMemoryUsedChart"/>
 
@@ -47,7 +45,7 @@ export default {
     },
 
     "methods": {
-        _createCpuUserChart ( cmp ) {
+        _createCpuUsageChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -62,7 +60,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( `vue-ext`, `CPU (user) for the last 30 days` ),
+                "text": this.l10nd( `vue-ext`, `CPU usage for the last 30 days` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -94,7 +92,7 @@ export default {
             } );
 
             // serie 1
-            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
+            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, `CPU (user)` ),
                 xAxis,
                 "yAxis": yAxis1,
@@ -106,90 +104,19 @@ export default {
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
                 "connect": false,
+                "stacked": true,
             } ) );
 
             // data processor
             series1.data.processor = dateProcessor;
 
             // fill settings
-            series1.fills.template.setAll( {
-                "fillOpacity": 0.3,
-                "visible": true,
-            } );
+            // series1.fills.template.setAll( {
+            //     "fillOpacity": 0.3,
+            //     "visible": true,
+            // } );
 
-            // cursor
-            chart.set(
-                "cursor",
-                am5xy.XYCursor.new( root, {
-                    "behavior": "zoomX",
-                } )
-            );
-
-            // scroll bar
-            chart.set(
-                "scrollbarX",
-                am5.Scrollbar.new( root, {
-                    "orientation": "horizontal",
-                } )
-            );
-
-            // legend
-            const legend = chart.children.push( am5.Legend.new( root, {
-                "centerX": am5.p50,
-                "x": am5.p50,
-            } ) );
-
-            legend.data.setAll( chart.series.values );
-        },
-
-        _createCpuSystemChart ( cmp ) {
-            const root = cmp.root,
-                am5 = cmp.am5;
-
-            // chart
-            const chart = root.container.children.push( am5xy.XYChart.new( root, {
-                "layout": root.verticalLayout,
-                "panX": true,
-                "pinchZoomX": true,
-                "wheelX": "panX",
-                "wheelY": "none",
-            } ) );
-
-            // title
-            chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( `vue-ext`, `CPU (system) for the last 30 days` ),
-                "fontSize": 12,
-                "x": am5.percent( 50 ),
-                "centerX": am5.percent( 50 ),
-            } ) );
-
-            // x axis
-            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
-                "maxDeviation": 0,
-                "baseInterval": {
-                    "timeUnit": "hour",
-                    "count": 1,
-                },
-                "renderer": am5xy.AxisRendererX.new( root, {} ),
-                "tooltip": am5.Tooltip.new( root, {} ),
-            } ) );
-
-            // y axis 1
-            const yAxis1 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
-                "renderer": am5xy.AxisRendererY.new( root, {} ),
-                "tooltip": am5.Tooltip.new( root, {} ),
-                "tooltipNumberFormat": {},
-                "numberFormat": {},
-            } ) );
-
-            // data processor
-            const dateProcessor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
-                "dateFormat": "i",
-            } );
-
-            // serie 1
-            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
+            const series2 = chart.series.push( am5xy.ColumnSeries.new( root, {
                 "name": this.l10nd( `vue-ext`, `CPU (system)` ),
                 xAxis,
                 "yAxis": yAxis1,
@@ -198,19 +125,20 @@ export default {
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": this.l10nd( `vue-ext`, `CPU (system)` ) + ": {valueY}",
                 } ),
-                "stroke": am5.color( "#00ff00" ),
-                "fill": am5.color( "#00ff00" ),
+                "stroke": am5.color( "#ff0000" ),
+                "fill": am5.color( "#ff0000" ),
                 "connect": false,
+                "stacked": true,
             } ) );
 
             // data processor
-            series1.data.processor = dateProcessor;
+            series2.data.processor = dateProcessor;
 
             // fill settings
-            series1.fills.template.setAll( {
-                "fillOpacity": 0.3,
-                "visible": true,
-            } );
+            // series2.fills.template.setAll( {
+            //     "fillOpacity": 0.3,
+            //     "visible": true,
+            // } );
 
             // cursor
             chart.set(
@@ -688,8 +616,7 @@ export default {
             else {
                 this.$refs.cardsPanel.setResult( res );
 
-                this.$refs.cpuUserChart.setData( res.data );
-                this.$refs.cpuSystemChart.setData( res.data );
+                this.$refs.cpuUsageChart.setData( res.data );
                 this.$refs.memryUsedChart.setData( res.data );
                 this.$refs.memryRssChart.setData( res.data );
                 this.$refs.fsUsedChart.setData( res.data );
