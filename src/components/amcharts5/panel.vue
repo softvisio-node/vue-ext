@@ -5,7 +5,8 @@
 <script>
 import Events from "#core/events";
 import * as amcharts from "./loader.js";
-import "./ext.amcharts5.js";
+
+// import "./ext.amcharts5.js";
 
 export default {
     "props": {
@@ -185,16 +186,16 @@ export default {
 
             const themes = [];
 
-            if ( this.animated ) themes.push( amcharts.themeAnimated.new( this.root ) );
-            if ( this.responsive ) themes.push( amcharts.themeResponsive.new( this.root ) );
-            if ( this.micro ) themes.push( amcharts.themeMicro.new( this.root ) );
+            if ( this.animated ) themes.push( amcharts.ThemeAnimated.new( this.root ) );
+            if ( this.responsive ) themes.push( amcharts.ThemeResponsive.new( this.root ) );
+            if ( this.micro ) themes.push( amcharts.ThemeMicro.new( this.root ) );
 
             // color theme
             if ( this.$app.theme.darkMode ) {
-                themes.push( amcharts.darkTheme.new( this.root ) );
+                themes.push( amcharts.DarkTheme.new( this.root ) );
             }
             else {
-                themes.push( amcharts.lightTheme.new( this.root ) );
+                themes.push( amcharts.LightTheme.new( this.root ) );
             }
 
             this.root.setThemes( themes );
