@@ -12,7 +12,7 @@
             <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","snap":200,"split":true}' :title="l10nd(`vue-ext`, `Latest charts`)" width="400">
                 <CharstPanel ref="chartsPanel" period="1 hour" :record="selectedRecord">
                     <template #toolbar>
-                        <ext-button iconCls="fa-solid fa-expand" :text="l10nd(`vue-ext`, `Open charts`)" @tap="_showChartsDialog"/>
+                        <ext-button iconCls="fa-solid fa-expand" :text="l10nd(`vue-ext`, `Open charts`)" @tap="showChartsDialog"/>
                     </template>
                 </CharstPanel>
             </ext-panel>
@@ -94,8 +94,8 @@ export default {
             if ( res.ok ) this.store.loadRawData( res.data );
         },
 
-        async showChartsDialog ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
+        async showChartsDialog ( row, button ) {
+            const record = row ? button.up( "gridrow" ).getRecord() : this.selectedRecord;
 
             const cmp = await this.$mount( ChartsDialog, {
                 "props": {
@@ -134,7 +134,7 @@ export default {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
                             "tooltip": this.l10nd( `vue-ext`, `Open charts` ),
-                            "handler": this.showChartsDialog.bind( this ),
+                            "handler": this.showChartsDialog.bind( this, true ),
                         },
                     ],
                 },
