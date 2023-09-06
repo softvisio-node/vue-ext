@@ -26,6 +26,11 @@ import CardsPanel from "#src/components/cards.panel";
 import AmchartsPanel from "#vue/components/amcharts5/panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
+const PERIODS = {
+    "1 hour": "minute",
+    "30 days": "hour",
+};
+
 export default {
     "components": { CardsPanel, AmchartsPanel },
 
@@ -48,7 +53,11 @@ export default {
 
     "methods": {
         async refresh () {
-            if ( !this.record ) return;
+            if ( !this.record ) {
+                this.$refs.cardsPanel.showNoDataCard();
+
+                return;
+            }
 
             this.$refs.cardsPanel.mask();
 
@@ -97,7 +106,7 @@ export default {
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "maxDeviation": 0,
                 "baseInterval": {
-                    "timeUnit": "hour",
+                    "timeUnit": PERIODS[this.period],
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
@@ -217,7 +226,7 @@ export default {
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "maxDeviation": 0,
                 "baseInterval": {
-                    "timeUnit": "hour",
+                    "timeUnit": PERIODS[this.period],
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
@@ -362,7 +371,7 @@ export default {
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "maxDeviation": 0,
                 "baseInterval": {
-                    "timeUnit": "hour",
+                    "timeUnit": PERIODS[this.period],
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
@@ -507,7 +516,7 @@ export default {
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "maxDeviation": 0,
                 "baseInterval": {
-                    "timeUnit": "hour",
+                    "timeUnit": PERIODS[this.period],
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
