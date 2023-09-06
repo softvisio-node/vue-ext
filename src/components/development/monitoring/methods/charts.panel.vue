@@ -94,7 +94,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( `vue-ext`, `Calls for the last 30 days` ),
+                "text": this.l10nd( `vue-ext`, `Calls` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -189,7 +189,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( `vue-ext`, `Duration per call (ms) for the last 30 days` ),
+                "text": this.l10nd( `vue-ext`, `Duration per call (ms)` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -292,7 +292,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( `vue-ext`, `Exceptions (%) for the last 30 days` ),
+                "text": this.l10nd( `vue-ext`, `Exceptions (%)` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
