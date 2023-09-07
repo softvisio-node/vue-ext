@@ -115,11 +115,13 @@ export default {
             } ) );
 
             // y axis 1
-            const yAxis1 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+            const yAxis2 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "min": 0,
+                "max": 1,
                 "renderer": am5xy.AxisRendererY.new( root, {} ),
                 "tooltip": am5.Tooltip.new( root, {} ),
-                "tooltipNumberFormat": {},
-                "numberFormat": {},
+                "tooltipNumberFormat": { "style": "percent", "maximumFractionDigits": 0 },
+                "numberFormat": { "style": "percent", "maximumFractionDigits": 0 },
             } ) );
 
             // data processor
@@ -129,53 +131,36 @@ export default {
             } );
 
             // serie 1
-            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, `CPU (user)` ),
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
+                "name": this.l10nd( `vue-ext`, `CPU usage` ),
                 xAxis,
-                "yAxis": yAxis1,
+                "yAxis": yAxis2,
                 "valueXField": "date",
-                "valueYField": "cpu_user",
+                "valueYField": "cpu_usage",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( `vue-ext`, `CPU (user)` ) + ": {valueY}",
+                    "labelText": this.l10nd( `vue-ext`, `CPU usage` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
                 "connect": false,
-                "stacked": true,
             } ) );
 
             // data processor
             series1.data.processor = dateProcessor;
 
-            // fill settings
-            // series1.fills.template.setAll( {
-            //     "fillOpacity": 0.3,
-            //     "visible": true,
-            // } );
-
-            const series2 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, `CPU (system)` ),
-                xAxis,
-                "yAxis": yAxis1,
-                "valueXField": "date",
-                "valueYField": "cpu_system",
-                "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( `vue-ext`, `CPU (system)` ) + ": {valueY}",
-                } ),
-                "stroke": am5.color( "#ff0000" ),
-                "fill": am5.color( "#ff0000" ),
-                "connect": false,
-                "stacked": true,
-            } ) );
-
-            // data processor
-            series2.data.processor = dateProcessor;
+            // serie tooltip label formatters
+            series1.get( "tooltip" ).label.set(
+                "numberFormatter",
+                am5.NumberFormatter.new( root, {
+                    "numberFormat": { "style": "percent" },
+                } )
+            );
 
             // fill settings
-            // series2.fills.template.setAll( {
-            //     "fillOpacity": 0.3,
-            //     "visible": true,
-            // } );
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.3,
+                "visible": true,
+            } );
 
             // cursor
             chart.set(
