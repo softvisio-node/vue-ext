@@ -1,7 +1,7 @@
-import DarkThemeOrig from "@amcharts/amcharts5/themes/Dark";
+import BaseTheme from "@amcharts/amcharts5/themes/Dark";
 import { Color } from "@amcharts/amcharts5/.internal/core//util/Color";
 
-class DarkTheme extends DarkThemeOrig {
+class Theme extends BaseTheme {
     setupDefaultRules () {
         super.setupDefaultRules();
 
@@ -14,4 +14,4 @@ class DarkTheme extends DarkThemeOrig {
     }
 }
 
-export default DarkTheme;
+export default Theme;
