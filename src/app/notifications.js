@@ -67,7 +67,7 @@ export default class VueExtNotifications extends VueNotifications {
             this.#inboxStore.each( record => record.set( "relative_time", this._getRelativeTime( record.get( "created" ) ) ) );
         }
         else if ( type === "done" ) {
-            this._totalDone = this.#doneStore.getSummaryRecord().get( "total" );
+            this._reactive.totalDone = this.#doneStore.getSummaryRecord().get( "total" );
 
             this.#doneStore.each( record => record.set( "relative_time", this._getRelativeTime( record.get( "created" ) ) ) );
         }
