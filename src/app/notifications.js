@@ -62,7 +62,7 @@ export default class VueExtNotifications extends VueNotifications {
     // private
     #onLoad ( type ) {
         if ( type === "inbox" ) {
-            this._totalInbox = this.#inboxStore.getSummaryRecord().get( "total" );
+            this._reactive.totalInbox = this.#inboxStore.getSummaryRecord().get( "total" );
 
             this.#inboxStore.each( record => record.set( "relative_time", this._getRelativeTime( record.get( "created" ) ) ) );
         }
