@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.22 (2023-09-07)
+
+Fixes:
+
+-   fix: chunk names
+
 ### 8.8.21 (2023-09-07)
 
 Fixes:
