@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.8.21 (2023-09-07)
+
+Fixes:
+
+-   fix: amcharts theme
+-   fix: store replaced with reactive
+-   fix: telegram
+
 ### 8.8.20 (2023-09-06)
 
 Fixes:
