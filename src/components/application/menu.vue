@@ -130,7 +130,7 @@ export default {
         async showAdministrationDialog () {
             this.hide();
 
-            const module = await import( "#src/components/administration/dialog" );
+            const module = await import( /* webpackChunkName: "administration" */ "#src/components/administration/dialog" );
 
             const cmp = await this.$mount( module.default );
 
@@ -140,7 +140,7 @@ export default {
         async showDevelopmentDialog () {
             this.hide();
 
-            const module = await import( "#src/components/development/dialog" );
+            const module = await import( /* webpackChunkName: "development" */ "#src/components/development/dialog" );
 
             const cmp = await this.$mount( module.default );
 
