@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.24 (2023-09-09)
+
+Fixes:
+
+-   fix: pofile extracted comments
+
 ### 8.8.23 (2023-09-07)
 
 Fixes:
