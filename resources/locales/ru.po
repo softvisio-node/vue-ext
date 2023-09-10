@@ -43,9 +43,9 @@ msgid "Accent color"
 msgstr "Цвет акцента"
 
 #. !domains: vue-ext
-#: src/components/account/tokens/panel.vue:152:89
-#: src/components/acl/panel.vue:261:89
-#: src/components/administration/users/panel.vue:274:89
+#: src/components/account/tokens/panel.vue:152:102
+#: src/components/acl/panel.vue:261:102
+#: src/components/administration/users/panel.vue:274:102
 msgid "Access disabled"
 msgstr "Доступ запрещен"
 
@@ -171,8 +171,24 @@ msgid "Base color"
 msgstr "Базовый цвет"
 
 #. !domains: vue-ext
+#: src/components/telegram/bot/details.dialog.vue:8:104
+msgid "Bot description is shown in the chat with the bot if the chat is empty."
+msgstr ""
+
+#. !domains: vue-ext
 #: src/components/telegram/telegram-notifications-bot/panel.vue:4:72
 msgid "Bot info"
+msgstr ""
+
+#. !domains: vue-ext
+#: src/components/telegram/bot/details.dialog.vue:4:35
+#: src/components/telegram/bot/info.panel.vue:22:71
+msgid "Bot name"
+msgstr ""
+
+#. !domains: vue-ext
+#: src/components/telegram/bot/details.dialog.vue:6:101
+msgid "Bot short description is shown on the bot profile page and is sent together with the link when users share the bot."
 msgstr ""
 
 #. !domains: vue-ext
@@ -255,17 +271,17 @@ msgid "Confirm"
 msgstr "Подтвердить"
 
 #. !domains: vue-ext
-#: src/components/change-password.dialog.vue:8:147
+#: src/components/change-password.dialog.vue:8:158
 #: src/components/change-password.dialog.vue:8:66
-#: src/components/reset-password.dialog.vue:8:147
+#: src/components/reset-password.dialog.vue:8:158
 #: src/components/reset-password.dialog.vue:8:66
 msgid "Confirm new password"
 msgstr "Подтвердите новый пароль"
 
 #. !domains: vue-ext
-#: src/components/administration/users/create-user.dialog.vue:8:178
+#: src/components/administration/users/create-user.dialog.vue:8:189
 #: src/components/administration/users/create-user.dialog.vue:8:66
-#: src/components/authentication/signup.panel.vue:19:143
+#: src/components/authentication/signup.panel.vue:19:154
 #: src/components/authentication/signup.panel.vue:19:66
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
@@ -304,6 +320,11 @@ msgstr "Копировать ссылку"
 #: src/components/about.dialog.vue:12:60
 msgid "Copy to clipboard"
 msgstr "Копировать в буфер"
+
+#. !domains: vue-ext
+#: src/components/telegram/bot/info.panel.vue:17:75
+msgid "Copy to the clipboard"
+msgstr ""
 
 #. !domains: vue-ext
 #: src/components/account/tokens/create/dialog.vue:15:62
@@ -374,6 +395,11 @@ msgid "Delete user"
 msgstr "Удалить пользователя"
 
 #. !domains: vue-ext
+#: src/components/telegram/bot/details.dialog.vue:8:48
+msgid "Description"
+msgstr "Описание"
+
+#. !domains: vue-ext
 #: src/components/application/menu.vue:26:64
 #: src/components/development/dialog.vue:2:72
 msgid "Development"
@@ -431,6 +457,16 @@ msgid "Edit"
 msgstr ""
 
 #. !domains: vue-ext
+#: src/components/telegram/bot/details.dialog.vue:2:51
+msgid "Edit bot details"
+msgstr ""
+
+#. !domains: vue-ext
+#: src/components/telegram/bot/info.panel.vue:7:84
+msgid "Edit permissions"
+msgstr ""
+
+#. !domains: vue-ext
 #: src/components/acl/panel.vue:206:39 src/components/acl/roles.dialog.vue:2:50
 #: src/components/administration/users/panel.vue:208:39
 msgid "Edit user roles"
@@ -477,17 +513,17 @@ msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
 
 #. !domains: vue-ext
-#: src/components/change-email.dialog.vue:8:137
+#: src/components/change-email.dialog.vue:8:148
 msgid "Enter confirmation token"
 msgstr "Введите токен подтверждения"
 
 #. !domains: vue-ext
-#: src/components/administration/users/create-user.dialog.vue:4:152
+#: src/components/administration/users/create-user.dialog.vue:4:163
 msgid "Enter email"
 msgstr "Введите email"
 
 #. !domains: vue-ext
-#: src/components/change-email.dialog.vue:6:122
+#: src/components/change-email.dialog.vue:6:133
 msgid "Enter new email address"
 msgstr "Введите новый адрес email"
 
@@ -497,28 +533,28 @@ msgid "Enter new email address which you want to use."
 msgstr "Введите новый адрес электронной почты, который вы хотите использовать."
 
 #. !domains: vue-ext
-#: src/components/change-password.dialog.vue:6:130
-#: src/components/reset-password.dialog.vue:6:130
+#: src/components/change-password.dialog.vue:6:141
+#: src/components/reset-password.dialog.vue:6:141
 msgid "Enter new password"
 msgstr "Введите новый пароль"
 
 #. !domains: vue-ext
-#: src/components/account/tokens/create/dialog.vue:4:104
+#: src/components/account/tokens/create/dialog.vue:4:115
 msgid "Enter new token name"
 msgstr "Введите имя нового токена"
 
 #. !domains: vue-ext
-#: src/components/administration/users/create-user.dialog.vue:6:161
-#: src/components/authentication/signin.panel.vue:17:126
-#: src/components/authentication/signup.panel.vue:17:126
-#: src/components/authorization.dialog.vue:11:119
+#: src/components/administration/users/create-user.dialog.vue:6:172
+#: src/components/authentication/signin.panel.vue:17:137
+#: src/components/authentication/signup.panel.vue:17:137
+#: src/components/authorization.dialog.vue:11:130
 msgid "Enter password"
 msgstr "Введите пароль"
 
 #. !domains: vue-ext
-#: src/components/authentication/password-recovery.panel.vue:10:125
-#: src/components/authentication/signin.panel.vue:15:125
-#: src/components/authentication/signup.panel.vue:15:125
+#: src/components/authentication/password-recovery.panel.vue:10:136
+#: src/components/authentication/signin.panel.vue:15:136
+#: src/components/authentication/signup.panel.vue:15:136
 msgid "Enter your email address"
 msgstr "Введите ваш адрес email"
 
@@ -547,7 +583,7 @@ msgid "Exceptions / call (%)"
 msgstr "Исключения / вызов (%)"
 
 #. !domains: vue-ext
-#: src/components/development/monitoring/methods/panel.vue:243:39
+#: src/components/development/monitoring/methods/panel.vue:247:39
 msgid "Exceptions log"
 msgstr "Журнал исключений"
 
@@ -645,7 +681,7 @@ msgstr[1] ""
 msgstr[2] ""
 
 #. !domains: vue-ext
-#: src/components/telegram/bot/stats.panel.vue:31:16
+#: src/components/telegram/bot/stats.panel.vue:34:16
 #, javascript-format
 msgid "Last month"
 msgid_plural "Last ${n} months"
@@ -654,12 +690,17 @@ msgstr[1] ""
 msgstr[2] ""
 
 #. !domains: vue-ext
+#: src/components/telegram/bot/info.panel.vue:42:85
+msgid "Last new user subscribed"
+msgstr ""
+
+#. !domains: vue-ext
 #: src/components/development/cron/panel.vue:18:58
 msgid "Last start"
 msgstr "Последний старт"
 
 #. !domains: vue-ext
-#: src/components/telegram/bot/stats.panel.vue:35:16
+#: src/components/telegram/bot/stats.panel.vue:41:16
 #, javascript-format
 msgid "Last year"
 msgid_plural "Last ${n} year"
@@ -792,10 +833,15 @@ msgid "Open bot"
 msgstr ""
 
 #. !domains: vue-ext
+#: src/components/telegram/bot/info.panel.vue:18:95
+msgid "Open bot in Tekegram"
+msgstr ""
+
+#. !domains: vue-ext
 #: src/components/development/monitoring/instances/panel.vue:138:39
 #: src/components/development/monitoring/instances/panel.vue:15:72
 #: src/components/development/monitoring/methods/panel.vue:16:72
-#: src/components/development/monitoring/methods/panel.vue:237:39
+#: src/components/development/monitoring/methods/panel.vue:241:39
 msgid "Open charts"
 msgstr ""
 
@@ -862,8 +908,10 @@ msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
 #. !domains: vue-ext
-#: src/components/development/monitoring/methods/panel.vue:210:61
-#: src/components/development/monitoring/methods/panel.vue:306:49
+#: src/components/development/monitoring/methods/panel.vue:214:61
+#: src/components/development/monitoring/methods/panel.vue:310:49
+#: src/components/telegram/bot/stats.panel.vue:110:25
+#: src/components/telegram/bot/stats.panel.vue:124:28
 msgid "Period"
 msgstr "Период"
 
@@ -942,7 +990,7 @@ msgid "Role"
 msgstr "Роль"
 
 #. !domains: vue-ext
-#: src/components/acl/roles.panel.vue:153:87
+#: src/components/acl/roles.panel.vue:153:100
 msgid "Role disabled"
 msgstr "Роль отключена"
 
@@ -959,7 +1007,7 @@ msgid "Roles"
 msgstr "Роли"
 
 #. !domains: vue-ext
-#: src/components/acl/roles.button.vue:120:32
+#: src/components/acl/roles.button.vue:124:32
 #: src/components/acl/roles.button.vue:2:36
 msgid "Roles filter"
 msgstr "Фильтр ролей"
@@ -1052,6 +1100,12 @@ msgid "Settings"
 msgstr "Настройки"
 
 #. !domains: vue-ext
+#: src/components/telegram/bot/details.dialog.vue:6:39
+#: src/components/telegram/bot/info.panel.vue:29:80
+msgid "Short description"
+msgstr ""
+
+#. !domains: vue-ext
 #: src/components/authentication/signin.panel.vue:32:31
 #: src/components/authentication/signin.panel.vue:5:34
 msgid "Sign in"
@@ -1094,6 +1148,7 @@ msgstr ""
 
 #. !domains: vue-ext
 #: src/components/development/monitoring/methods/exceptions.dialog.vue:14:108
+#: src/components/telegram/bot/models/bot.js:48:71
 msgid "Started"
 msgstr "Запущен"
 
@@ -1105,6 +1160,7 @@ msgstr "Статический"
 
 #. !domains: vue-ext
 #: src/components/development/monitoring/methods/exceptions.dialog.vue:18:90
+#: src/components/telegram/bot/info.panel.vue:38:74
 #: src/components/telegram/bots.panel.vue:17:91
 msgid "Status"
 msgstr "Статус"
@@ -1126,12 +1182,22 @@ msgid "Stop bot"
 msgstr ""
 
 #. !domains: vue-ext
-#: src/components/telegram/bot/stats.panel.vue:174:33
-#: src/components/telegram/bot/stats.panel.vue:254:24
-#: src/components/telegram/bot/stats.panel.vue:287:24
-#: src/components/telegram/bot/stats.panel.vue:293:33
+#: src/components/telegram/bot/models/bot.js:48:127
+msgid "Stopped"
+msgstr ""
+
+#. !domains: vue-ext
+#: src/components/telegram/bot/stats.panel.vue:183:33
+#: src/components/telegram/bot/stats.panel.vue:263:24
+#: src/components/telegram/bot/stats.panel.vue:296:24
+#: src/components/telegram/bot/stats.panel.vue:302:33
 #: src/components/telegram/bots.panel.vue:15:136
 msgid "Subscribed users"
+msgstr ""
+
+#. !domains: vue-ext
+#: src/components/telegram/bot/info.panel.vue:15:70
+msgid "Telegram bot url"
 msgstr ""
 
 #. !domains: vue-ext
@@ -1154,6 +1220,11 @@ msgstr "Telegram привязвн"
 #: src/components/notifications/settings.panel.vue:126:35
 msgid "Telegram unlinked"
 msgstr "Telegram отвязан"
+
+#. !domains: vue-ext
+#: src/components/telegram/bot/info.panel.vue:12:80
+msgid "Telegram username"
+msgstr ""
 
 #. !domains: vue-ext
 #: src/components/notifications/settings.panel.vue:21:42
@@ -1187,19 +1258,36 @@ msgid "Token name"
 msgstr "Имя токена"
 
 #. !domains: vue-ext
+#: src/components/telegram/bot/info.panel.vue:53:89
+msgid "Total banned users"
+msgstr ""
+
+#. !domains: vue-ext
 #: src/components/development/monitoring/instances/panel.vue:25:60
 msgid "Total memory"
 msgstr "Общая память"
 
 #. !domains: vue-ext
-#: src/components/telegram/bot/stats.panel.vue:135:24
-#: src/components/telegram/bot/stats.panel.vue:168:24
+#: src/components/telegram/bot/info.panel.vue:52:91
+msgid "Total returned users"
+msgstr ""
+
+#. !domains: vue-ext
+#: src/components/telegram/bot/info.panel.vue:47:98
+#: src/components/telegram/bot/stats.panel.vue:144:24
+#: src/components/telegram/bot/stats.panel.vue:177:24
 msgid "Total subscribed users"
 msgstr ""
 
 #. !domains: vue-ext
-#: src/components/telegram/bot/stats.panel.vue:192:24
+#: src/components/telegram/bot/info.panel.vue:48:100
+#: src/components/telegram/bot/stats.panel.vue:201:24
 msgid "Total unsubscribed users"
+msgstr ""
+
+#. !domains: vue-ext
+#: src/components/telegram/bot/info.panel.vue:46:82
+msgid "Total users"
 msgstr ""
 
 #. !domains: vue-ext
@@ -1234,9 +1322,9 @@ msgid "Unlink Telegram"
 msgstr "Отвязать Telegram"
 
 #. !domains: vue-ext
-#: src/components/telegram/bot/stats.panel.vue:198:33
-#: src/components/telegram/bot/stats.panel.vue:311:24
-#: src/components/telegram/bot/stats.panel.vue:317:33
+#: src/components/telegram/bot/stats.panel.vue:207:33
+#: src/components/telegram/bot/stats.panel.vue:320:24
+#: src/components/telegram/bot/stats.panel.vue:326:33
 msgid "Unsubscribed users"
 msgstr ""
 
@@ -1322,36 +1410,6 @@ msgstr "Информация о версии скопирована в буфе�
 #: src/components/administration/users/panel.vue:228:48
 msgid "View user sessions"
 msgstr "Просмотр сессий пользователя"
-
-#: src/components/telegram/bot/details.dialog.vue:2:51
-#: src/components/telegram/bot/details.dialog.vue:4:35
-#: src/components/telegram/bot/details.dialog.vue:6:39
-#: src/components/telegram/bot/details.dialog.vue:6:89
-#: src/components/telegram/bot/details.dialog.vue:8:48
-#: src/components/telegram/bot/details.dialog.vue:8:92
-#: src/components/telegram/bot/info.panel.vue:12:80
-#: src/components/telegram/bot/info.panel.vue:15:70
-#: src/components/telegram/bot/info.panel.vue:17:75
-#: src/components/telegram/bot/info.panel.vue:18:95
-#: src/components/telegram/bot/info.panel.vue:22:71
-#: src/components/telegram/bot/info.panel.vue:29:80
-#: src/components/telegram/bot/info.panel.vue:38:74
-#: src/components/telegram/bot/info.panel.vue:42:85
-#: src/components/telegram/bot/info.panel.vue:46:82
-#: src/components/telegram/bot/info.panel.vue:47:98
-#: src/components/telegram/bot/info.panel.vue:48:100
-#: src/components/telegram/bot/info.panel.vue:52:91
-#: src/components/telegram/bot/info.panel.vue:53:89
-#: src/components/telegram/bot/info.panel.vue:7:84
-#: src/components/telegram/bot/models/bot.js:48:113
-#: src/components/telegram/bot/models/bot.js:48:71
-#: src/components/telegram/bot/stats.panel.vue:101:25
-#: src/components/telegram/bot/stats.panel.vue:115:28
-msgid "vue-ext"
-msgid_plural "Bot name"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
 
 #. !domains: vue-ext
 #: src/utils.js:6:14
@@ -1524,9 +1582,6 @@ msgstr "Уменьшить"
 
 #~ msgid "Created"
 #~ msgstr "Создан"
-
-#~ msgid "Description"
-#~ msgstr "Описание"
 
 #~ msgid "Edit token permissions"
 #~ msgstr "Редактировать права токена"
