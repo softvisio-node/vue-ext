@@ -4,68 +4,68 @@
             <ext-panel ref="dataPanel" layout="fit" viewModel="true">
                 <ext-toolbar docked="top">
                     <ext-spacer/>
-                    <ext-button bind='{"hidden":"{!record.can_update_acl}"}' :text="l10nd(`vue-ext`, `Edit permissions`)" @tap="_showAclDialog"/>
-                    <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                    <ext-button bind='{"hidden":"{!record.can_update_acl}"}' :text="l10n(`Edit permissions`, { domain: `vue-ext` })" @tap="_showAclDialog"/>
+                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
                 </ext-toolbar>
 
                 <ext-panel padding="10 10 10 10" scrollable="true">
-                    <ext-displayfield bind="{record.telegram_username}" :label="l10nd(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200"/>
+                    <ext-displayfield bind="{record.telegram_username}" :label="l10n(`Telegram username`, { domain: `vue-ext` })" labelAlign="left" labelWidth="200"/>
 
                     <ext-container layout="hbox">
-                        <ext-displayfield bind="{record.url}" :label="l10nd(`vue-ext`, `Telegram bot url`)" labelAlign="left" labelWidth="200"/>
+                        <ext-displayfield bind="{record.url}" :label="l10n(`Telegram bot url`, { domain: `vue-ext` })" labelAlign="left" labelWidth="200"/>
                         <ext-spacer/>
-                        <ext-button iconCls="fa-regular fa-copy" :tooltip="l10nd(`vue-ext`, `Copy to the clipboard`)" @tap="_copyBotUrl"/>
-                        <ext-button iconCls="fa-solid fa-arrow-up-right-from-square" :tooltip="l10nd(`vue-ext`, `Open bot in Tekegram`)" @tap="_openBotUrl"/>
+                        <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`, { domain: `vue-ext` })" @tap="_copyBotUrl"/>
+                        <ext-button iconCls="fa-solid fa-arrow-up-right-from-square" :tooltip="l10n(`Open bot in Tekegram`, { domain: `vue-ext` })" @tap="_openBotUrl"/>
                     </ext-container>
 
                     <ext-container layout="hbox">
-                        <ext-displayfield bind="{record.name}" :label="l10nd(`vue-ext`, `Bot name`)" labelAlign="left" labelWidth="200"/>
+                        <ext-displayfield bind="{record.name}" :label="l10n(`Bot name`, { domain: `vue-ext` })" labelAlign="left" labelWidth="200"/>
 
                         <ext-spacer/>
 
-                        <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-pen" :text="l10nd(`vue-ext`, `Edit`)" @tap="_shoeEditDialog"/>
+                        <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`, { domain: `vue-ext` })" @tap="_shoeEditDialog"/>
                     </ext-container>
 
-                    <ext-displayfield bind="{record.short_description}" :label="l10nd(`vue-ext`, `Short description`)" labelAlign="left" labelWidth="200"/>
+                    <ext-displayfield bind="{record.short_description}" :label="l10n(`Short description`, { domain: `vue-ext` })" labelAlign="left" labelWidth="200"/>
 
-                    <!-- <ext-displayfield bind="{record.type}" :label="l10nd(`vue-ext`, `Type`)"/> -->
+                    <!-- <ext-displayfield bind="{record.type}" :label="l10n( `Type`, { domain: `vue-ext` } )"/> -->
 
-                    <!-- <ext-displayfield bind="{record.static}" :label="l10nd(`vue-ext`, `Static`)"/> -->
+                    <!-- <ext-displayfield bind="{record.static}" :label="l10n( `Static`, { domain: `vue-ext` } )"/> -->
 
-                    <!-- <ext-displayfield bind="{record.created}" :label="l10nd(`vue-ext`, `Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/> -->
+                    <!-- <ext-displayfield bind="{record.created}" :label="l10n( `Creation date`, { domain: `vue-ext` } )" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/> -->
 
                     <!-- status -->
-                    <ext-displayfield bind="{record.status_text}" :label="l10nd(`vue-ext`, `Status`)" labelAlign="left" labelWidth="200"/>
+                    <ext-displayfield bind="{record.status_text}" :label="l10n(`Status`, { domain: `vue-ext` })" labelAlign="left" labelWidth="200"/>
                     <ext-displayfield bind='{"hidden":"{!record.error}","value":"{record.error_text}"}' labelAlign="left" labelWidth="200"/>
 
                     <!-- users stats -->
-                    <ext-displayfield bind="{record.last_user_created_text}" :label="l10nd(`vue-ext`, `Last new user subscribed`)" labelAlign="left" labelWidth="200"/>
+                    <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`Last new user subscribed`, { domain: `vue-ext` })" labelAlign="left" labelWidth="200"/>
 
                     <ext-fieldset layout="hbox" title="Users statistics">
                         <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">
-                            <ext-displayfield bind="{record.total_users}" :label="l10nd(`vue-ext`, `Total users`)"/>
-                            <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10nd(`vue-ext`, `Total subscribed users`)"/>
-                            <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10nd(`vue-ext`, `Total unsubscribed users`)"/>
+                            <ext-displayfield bind="{record.total_users}" :label="l10n(`Total users`, { domain: `vue-ext` })"/>
+                            <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10n(`Total subscribed users`, { domain: `vue-ext` })"/>
+                            <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10n(`Total unsubscribed users`, { domain: `vue-ext` })"/>
                         </ext-container>
 
                         <ext-container defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox">
-                            <ext-displayfield bind="{record.total_returned_users}" :label="l10nd(`vue-ext`, `Total returned users`)"/>
-                            <ext-displayfield bind="{record.total_banned_users}" :label="l10nd(`vue-ext`, `Total banned users`)"/>
+                            <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`Total returned users`, { domain: `vue-ext` })"/>
+                            <ext-displayfield bind="{record.total_banned_users}" :label="l10n(`Total banned users`, { domain: `vue-ext` })"/>
                         </ext-container>
                     </ext-fieldset>
 
                     <ext-container defaults='{"ui":"decline","width":200}' layout='{"align":"center","type":"vbox"}'>
                         <!-- start -->
-                        <ext-button bind='{"hidden":"{!record.can_start}"}' iconCls="fa-regular fa-circle-play" :text="l10nd(`vue-ext`, `Start bot`)" @tap="_startBot"/>
+                        <ext-button bind='{"hidden":"{!record.can_start}"}' iconCls="fa-regular fa-circle-play" :text="l10n(`Start bot`, { domain: `vue-ext` })" @tap="_startBot"/>
 
                         <!-- stop -->
-                        <ext-button bind='{"hidden":"{!record.can_stop}"}' iconCls="fa-regular fa-circle-stop" :text="l10nd(`vue-ext`, `Stop bot`)" @tap="_stopBot"/>
+                        <ext-button bind='{"hidden":"{!record.can_stop}"}' iconCls="fa-regular fa-circle-stop" :text="l10n(`Stop bot`, { domain: `vue-ext` })" @tap="_stopBot"/>
 
                         <!-- change api key -->
-                        <ext-button bind='{"hidden":"{!record.can_change_api_key}"}' iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Change bot API key`)" @tap="_deleteBot"/>
+                        <ext-button bind='{"hidden":"{!record.can_change_api_key}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Change bot API key`, { domain: `vue-ext` })" @tap="_deleteBot"/>
 
                         <!-- delete bot -->
-                        <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Delete bot`)" @tap="_deleteBot"/>
+                        <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete bot`, { domain: `vue-ext` })" @tap="_deleteBot"/>
                     </ext-container>
                 </ext-panel>
             </ext-panel>
@@ -172,7 +172,7 @@ export default {
         },
 
         async _deleteBot ( e ) {
-            if ( !( await this.$utils.confirm( this.l10nd( `vue-ext`, "Are you sure you want to delete this bot and all it's data? This operation is not revertable." ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this bot and all it's data? This operation is not revertable.", { "domain": `vue-ext` } ) ) ) ) return;
 
             const record = this.record,
                 button = e.detail.sender;
@@ -194,7 +194,7 @@ export default {
         _copyBotUrl () {
             this.$utils.copyToClipboard( this.record.get( "url" ) );
 
-            this.$utils.toast( this.l10nd( `vue-ext`, "Telegram link copied to the clipboard" ) );
+            this.$utils.toast( this.l10n( "Telegram link copied to the clipboard", { "domain": `vue-ext` } ) );
         },
 
         _openBotUrl () {

@@ -2,19 +2,19 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="l10nd(`vue-ext`, `Search bots`)" width="200" @change="_search"/>
+                <ext-searchfield :placeholder="l10n(`Search bots`, { domain: `vue-ext` })" width="200" @change="_search"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
-                <ext-column cell='{"encodeHtml":false}' dataIndex="name_html" flex="1" sorter='{"property":"name"}' :text="l10nd(`vue-ext`, `Name`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="name_html" flex="1" sorter='{"property":"name"}' :text="l10n(`Name`, { domain: `vue-ext` })"/>
 
-                <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10nd(`vue-ext`, `Subscribed users`)" width="200"/>
+                <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`, { domain: `vue-ext` })" width="200"/>
 
-                <ext-column dataIndex="status_text" sorter='{"property":"started"}' :text="l10nd(`vue-ext`, `Status`)"/>
+                <ext-column dataIndex="status_text" sorter='{"property":"started"}' :text="l10n(`Status`, { domain: `vue-ext` })"/>
 
                 <ext-column @ready="_actionColReady"/>
             </ext-grid>
@@ -81,7 +81,7 @@ export default {
                             "xtype": "button",
 
                             // "iconCls": "fa-solid fa-users",
-                            "text": this.l10nd( `vue-ext`, "Open bot" ),
+                            "text": this.l10n( "Open bot", { "domain": `vue-ext` } ),
                             "handler": this._showBotDialog.bind( this ),
                         },
                     ],

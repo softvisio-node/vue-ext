@@ -23,7 +23,7 @@ export default {
 
     "computed": {
         titleText () {
-            return this.title || this.l10nd( "vue-ext", "Users" );
+            return this.title || this.l10n( "Users", { "domain": "vue-ext" } );
         },
     },
 };

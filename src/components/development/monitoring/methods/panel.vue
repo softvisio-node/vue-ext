@@ -2,18 +2,18 @@
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="l10nd(`vue-ext`, `Search for methods by name`)" width="200" @change="_search"/>
+                <ext-searchfield :placeholder="l10n(`Search for methods by name`, { domain: `vue-ext` })" width="200" @change="_search"/>
                 <ext-spacer width="20"/>
                 <ext-button ref="periodButton" @ready="_periodButtonReady"/>
                 <ext-spacer/>
-                <ext-togglefield :label="l10nd(`vue-ext`, `Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
-                <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-togglefield :label="l10n(`Auto refresh`, { domain: `vue-ext` })" labelAlign="right" @change="autoRefreshChange"/>
+                <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
             </ext-toolbar>
 
-            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","snap":200,"split":true}' :title="l10nd(`vue-ext`, `Latest charts`)" width="400">
+            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`Latest charts`, { domain: `vue-ext` })" width="400">
                 <CharstPanel ref="chartsPanel" period="1 hour" :record="selectedRecord">
                     <template #toolbar>
-                        <ext-button iconCls="fa-solid fa-expand" :text="l10nd(`vue-ext`, `Open charts`)" @tap="showChartsDialog"/>
+                        <ext-button iconCls="fa-solid fa-expand" :text="l10n(`Open charts`, { domain: `vue-ext` })" @tap="showChartsDialog"/>
                     </template>
                 </CharstPanel>
             </ext-panel>
@@ -21,17 +21,17 @@
 
         <template #data>
             <ext-lockedgrid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
-                <!-- <ext-column dataIndex="id" flex="1" locked="left" minWidth="290" :text="l10nd(`vue-ext`, `Method name`)"/> -->
+                <!-- <ext-column dataIndex="id" flex="1" locked="left" minWidth="290" :text="l10n( `Method name`, { domain: `vue-ext` } )"/> -->
 
-                <!-- <ext-column align="right" dataIndex="calls_text" sorter='{"property":"calls"}' :text="l10nd(`vue-ext`, `Calls`)" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="calls_text" sorter='{"property":"calls"}' :text="l10n( `Calls`, { domain: `vue-ext` } )" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="l10nd(`vue-ext`, `Duration / call (ms)`)" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="l10n( `Duration / call (ms)`, { domain: `vue-ext` } )" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="l10nd(`vue-ext`, `Duration (%)`)" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="l10n( `Duration (%)`, { domain: `vue-ext` } )" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="l10nd(`vue-ext`, `Exceptions`)" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="l10n( `Exceptions`, { domain: `vue-ext` } )" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="l10nd(`vue-ext`, `Exceptions / call (%)`)" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="l10n( `Exceptions / call (%)`, { domain: `vue-ext` } )" width="140"/> -->
 
                 <!-- <ext-column locked="right" width="80" @ready="_actionColReady"/> -->
             </ext-lockedgrid>
@@ -146,7 +146,7 @@ export default {
                     "dataIndex": "method_display_name",
                     "flex": 1,
                     "minWidth": 290,
-                    "text": this.l10nd( `vue-ext`, `Method name` ),
+                    "text": this.l10n( `Method name`, { "domain": `vue-ext` } ),
                     "locked": "left",
                     "sorter": { "property": "method_name" },
                     "cell": { "encodeHtml": false, "height": 60 },
@@ -155,7 +155,7 @@ export default {
                     "align": "right",
                     "dataIndex": "calls_text",
                     "sorter": { "property": "calls" },
-                    "text": this.l10nd( `vue-ext`, `Calls` ),
+                    "text": this.l10n( `Calls`, { "domain": `vue-ext` } ),
                     "width": 140,
                     "cell": { "height": 60 },
                 },
@@ -163,28 +163,28 @@ export default {
                     "align": "right",
                     "dataIndex": "duration_per_call_text",
                     "sorter": { "property": "duration_per_call" },
-                    "text": this.l10nd( `vue-ext`, `Duration / call (ms)` ),
+                    "text": this.l10n( `Duration / call (ms)`, { "domain": `vue-ext` } ),
                     "width": 140,
                 },
                 {
                     "align": "right",
                     "dataIndex": "duration_text",
                     "sorter": { "property": "duration_share" },
-                    "text": this.l10nd( `vue-ext`, `Duration (%)` ),
+                    "text": this.l10n( `Duration (%)`, { "domain": `vue-ext` } ),
                     "width": 140,
                 },
                 {
                     "align": "right",
                     "dataIndex": "exceptions_text",
                     "sorter": { "property": "exceptions" },
-                    "text": this.l10nd( `vue-ext`, `Exceptions` ),
+                    "text": this.l10n( `Exceptions`, { "domain": `vue-ext` } ),
                     "width": 140,
                 },
                 {
                     "align": "right",
                     "dataIndex": "exceptions_per_call_text",
                     "sorter": { "property": "exceptions_per_call" },
-                    "text": this.l10nd( `vue-ext`, `Exceptions / call (%)` ),
+                    "text": this.l10n( `Exceptions / call (%)`, { "domain": `vue-ext` } ),
                     "width": 140,
                 },
                 {
@@ -207,7 +207,7 @@ export default {
             for ( const period of periods ) {
                 const text = this.l10nd( `vue-ext`, msgid`${period} day`, msgid`${period} days`, period );
 
-                if ( period === defaultPeriod ) cmp.setText( this.l10nd( `vue-ext`, `Period` ) + ": " + text );
+                if ( period === defaultPeriod ) cmp.setText( this.l10n( `Period`, { "domain": `vue-ext` } ) + ": " + text );
 
                 menu.push( {
                     "xtype": "menuradioitem",
@@ -234,13 +234,13 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
-                            "tooltip": this.l10nd( `vue-ext`, `Open charts` ),
+                            "tooltip": this.l10n( `Open charts`, { "domain": `vue-ext` } ),
                             "handler": this.showChartsDialog.bind( this, "row" ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-triangle-exclamation",
-                            "tooltip": this.l10nd( `vue-ext`, `Exceptions log` ),
+                            "tooltip": this.l10n( `Exceptions log`, { "domain": `vue-ext` } ),
                             "handler": this.showExceptions.bind( this ),
                         },
                     ],
@@ -303,7 +303,7 @@ export default {
 
             this.period = period;
 
-            this.$refs.periodButton.ext.setText( this.l10nd( `vue-ext`, `Period` ) + ": " + menuItem.getText() );
+            this.$refs.periodButton.ext.setText( this.l10n( `Period`, { "domain": `vue-ext` } ) + ": " + menuItem.getText() );
 
             this.refresh();
         },

@@ -4,7 +4,7 @@
             <ext-toolbar docked="top">
                 <ext-spacer/>
                 <slot name="toolbar"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -94,7 +94,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( `vue-ext`, `Calls` ),
+                "text": this.l10n( `Calls`, { "domain": `vue-ext` } ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -127,13 +127,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, `Calls` ),
+                "name": this.l10n( `Calls`, { "domain": `vue-ext` } ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "calls",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( `vue-ext`, `Calls` ) + ": {valueY}",
+                    "labelText": this.l10n( `Calls`, { "domain": `vue-ext` } ) + ": {valueY}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -189,7 +189,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( `vue-ext`, `Duration per call (ms)` ),
+                "text": this.l10n( `Duration per call (ms)`, { "domain": `vue-ext` } ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -222,13 +222,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, `Duration (ms)` ),
+                "name": this.l10n( `Duration (ms)`, { "domain": `vue-ext` } ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "duration_per_call",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( `vue-ext`, `Duration` ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10n( `Duration`, { "domain": `vue-ext` } ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -292,7 +292,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( `vue-ext`, `Exceptions (%)` ),
+                "text": this.l10n( `Exceptions (%)`, { "domain": `vue-ext` } ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -327,13 +327,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, `Exceptions (%)` ),
+                "name": this.l10n( `Exceptions (%)`, { "domain": `vue-ext` } ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "exceptions_percent",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( `vue-ext`, `Exceptions` ) + ": {valueY}",
+                    "labelText": this.l10n( `Exceptions`, { "domain": `vue-ext` } ) + ": {valueY}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "fill": am5.color( "#ff0000" ),

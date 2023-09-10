@@ -1,18 +1,18 @@
 <template>
     <ext-dialog height="400" :title="title" width="350" @ready="_ready">
         <ext-fieldpanel ref="form" @ready="formReady">
-            <ext-container :html="l10nd(`vue-ext`, `Enter new email address which you want to use.`)" layout="center"/>
+            <ext-container :html="l10n(`Enter new email address which you want to use.`, { domain: `vue-ext` })" layout="center"/>
 
-            <ext-emailfield errorTarget="under" :label="l10nd(`vue-ext`, `New email address`)" name="email" :placeholder="l10nd(`vue-ext`, `Enter new email address`)" required="true" validators="email"/>
+            <ext-emailfield errorTarget="under" :label="l10n(`New email address`, { domain: `vue-ext` })" name="email" :placeholder="l10n(`Enter new email address`, { domain: `vue-ext` })" required="true" validators="email"/>
 
-            <ext-textfield errorTarget="under" :hidden="true" :label="l10nd(`vue-ext`, `Confirmation token`)" name="token" :placeholder="l10nd(`vue-ext`, `Enter confirmation token`)" required="true"/>
+            <ext-textfield errorTarget="under" :hidden="true" :label="l10n(`Confirmation token`, { domain: `vue-ext` })" name="token" :placeholder="l10n(`Enter confirmation token`, { domain: `vue-ext` })" required="true"/>
         </ext-fieldpanel>
 
-        <ext-container ref="tokenSentText" :hidden="true" :html="l10nd(`vue-ext`, `We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above.`)" padding="20 0 0 0"/>
+        <ext-container ref="tokenSentText" :hidden="true" :html="l10n(`We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above.`, { domain: `vue-ext` })" padding="20 0 0 0"/>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-            <ext-button ref="sendTokenButton" :text="l10nd(`vue-ext`, `Send token`)" ui="action" @tap="_sendToken"/>
-            <ext-button ref="setEmailButton" :hidden="true" :text="l10nd(`vue-ext`, `Change email`)" ui="action" @tap="_setEmail"/>
+            <ext-button ref="sendTokenButton" :text="l10n(`Send token`, { domain: `vue-ext` })" ui="action" @tap="_sendToken"/>
+            <ext-button ref="setEmailButton" :hidden="true" :text="l10n(`Change email`, { domain: `vue-ext` })" ui="action" @tap="_setEmail"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -23,7 +23,7 @@ import loadMask from "#src/load-mask";
 export default {
     "computed": {
         title () {
-            return this.l10nd( `vue-ext`, `Email change` );
+            return this.l10n( `Email change`, { "domain": `vue-ext` } );
         },
     },
 
@@ -63,7 +63,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10nd( `vue-ext`, "Change email token was sent to the new email address" ) );
+                this.$utils.toast( this.l10n( "Change email token was sent to the new email address", { "domain": `vue-ext` } ) );
 
                 form.getFields( "email" ).setReadOnly( true );
                 form.getFields( "token" ).show();
@@ -90,7 +90,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10nd( `vue-ext`, "Email address changed" ) );
+                this.$utils.toast( this.l10n( "Email address changed", { "domain": `vue-ext` } ) );
 
                 this.ext.close();
             }

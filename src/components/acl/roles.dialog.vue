@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="90%" layout="fit" :title="l10nd(`vue-ext`, `Edit user roles`)" width="600">
+    <ext-dialog height="90%" layout="fit" :title="l10n(`Edit user roles`, { domain: `vue-ext` })" width="600">
         <RolesPanel ref="rolesPanel" :aclId="aclId" :userId="userId" @update="_onRolesUpdate"/>
     </ext-dialog>
 </template>

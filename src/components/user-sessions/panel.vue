@@ -4,24 +4,24 @@
             <ext-toolbar docked="top">
                 <ext-container :html="title"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-sign-out-alt" :text="l10nd(`vue-ext`, `Sign out of all sessions`)" @tap="_signOutAllSessions"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-sign-out-alt" :text="l10n(`Sign out of all sessions`, { domain: `vue-ext` })" @tap="_signOutAllSessions"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
         <template #data>
             <ext-grid layout="fit" multicolumnSort="true" plugins='{"gridviewoptions":true}' @ready="_gridReady">
-                <ext-column cell='{"encodeHtml":false}' dataIndex="device_text" flex="1" sorter='{"property":"device_vendor"}' :text="l10nd(`vue-ext`, `Device`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="device_text" flex="1" sorter='{"property":"device_vendor"}' :text="l10n(`Device`, { domain: `vue-ext` })"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="os_text" flex="1" sorter='{"property":"os_name"}' :text="l10nd(`vue-ext`, `Platform`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="os_text" flex="1" sorter='{"property":"os_name"}' :text="l10n(`Platform`, { domain: `vue-ext` })"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="browser_text" flex="1" sorter='{"property":"browser_name"}' :text="l10nd(`vue-ext`, `Browser`)"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="browser_text" flex="1" sorter='{"property":"browser_name"}' :text="l10n(`Browser`, { domain: `vue-ext` })"/>
 
-                <ext-column dataIndex="remote_address" :text="l10nd(`vue-ext`, `IP address`)" width="130"/>
+                <ext-column dataIndex="remote_address" :text="l10n(`IP address`, { domain: `vue-ext` })" width="130"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="l10nd(`vue-ext`, `Last activity`)" width="150"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="l10n(`Last activity`, { domain: `vue-ext` })" width="150"/>
 
-                <ext-column dataIndex="created" formatter="date()" :text="l10nd(`vue-ext`, `Creation date`)" width="150"/>
+                <ext-column dataIndex="created" formatter="date()" :text="l10n(`Creation date`, { domain: `vue-ext` })" width="150"/>
 
                 <ext-column width="50" @ready="_actionColReady"/>
             </ext-grid>
@@ -38,7 +38,7 @@ export default {
 
     "computed": {
         title () {
-            return this.l10nd( `vue-ext`, `Your sessions` );
+            return this.l10n( `Your sessions`, { "domain": `vue-ext` } );
         },
     },
 
@@ -73,7 +73,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-sign-out-alt",
-                            "tooltip": this.l10nd( `vue-ext`, "Sign out" ),
+                            "tooltip": this.l10n( "Sign out", { "domain": `vue-ext` } ),
                             "handler": this._signOutSession.bind( this ),
                             "bind": { "hidden": "{record.current_session}" },
                         },
@@ -92,7 +92,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10nd( `vue-ext`, "Session was deleted" ) );
+                this.$utils.toast( this.l10n( "Session was deleted", { "domain": `vue-ext` } ) );
 
                 this.store.remove( record );
             }
@@ -114,7 +114,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( this.l10nd( `vue-ext`, "Sessions were deleted" ) );
+                this.$utils.toast( this.l10n( "Sessions were deleted", { "domain": `vue-ext` } ) );
 
                 this.refresh();
             }

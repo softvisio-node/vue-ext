@@ -3,10 +3,10 @@
         <template #docked>
             <ext-toolbar docked="top">
                 <!-- set all as done                         -->
-                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-check" :text="l10nd(`vue-ext`, `Mark all as done`)" @tap="setDoneAll"/>
+                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-check" :text="l10n(`Mark all as done`, { domain: `vue-ext` })" @tap="setDoneAll"/>
 
                 <!-- delete all -->
-                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
+                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete all`, { domain: `vue-ext` })" @tap="deleteAll"/>
             </ext-toolbar>
         </template>
 
@@ -75,13 +75,13 @@ export default {
                                 {
                                     "xtype": "button",
                                     "iconCls": "fa-solid fa-check",
-                                    "tooltip": this.l10nd( "vue-ext", "Mark as done" ),
+                                    "tooltip": this.l10n( "Mark as done", { "domain": "vue-ext" } ),
                                     "handler": this._setDone.bind( this ),
                                 },
                                 {
                                     "xtype": "button",
                                     "iconCls": "fa-solid fa-trash-alt",
-                                    "tooltip": this.l10nd( "vue-ext", "Delete" ),
+                                    "tooltip": this.l10n( "Delete", { "domain": "vue-ext" } ),
                                     "handler": this._delete.bind( this ),
                                 },
                             ],

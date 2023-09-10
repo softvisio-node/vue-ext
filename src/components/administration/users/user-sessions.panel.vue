@@ -17,7 +17,7 @@ export default {
 
     "computed": {
         title () {
-            return this.l10nd( "vue-ext", "User" ) + ": " + this.userEmail;
+            return this.l10n( "User", { "domain": "vue-ext" } ) + ": " + this.userEmail;
         },
     },
 

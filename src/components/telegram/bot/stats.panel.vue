@@ -5,7 +5,7 @@
                 <ext-toolbar docked="top">
                     <ext-button ref="periodButton" stretchMenu="true" @ready="_periodButtonReady"/>
                     <ext-spacer/>
-                    <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
                 </ext-toolbar>
 
                 <AmchartsPanel ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :setChartData="_setChartData"/>
@@ -98,7 +98,7 @@ export default {
 
             cmp.setMenu( menu );
 
-            cmp.setText( this.l10nd( `vue-ext`, `Period` ) + ": " + PERIODS[this._period].text );
+            cmp.setText( this.l10n( `Period`, { "domain": `vue-ext` } ) + ": " + PERIODS[this._period].text );
 
             this.refresh();
         },
@@ -112,7 +112,7 @@ export default {
 
             this._period = menuItem.getValue();
 
-            button.setText( this.l10nd( `vue-ext`, `Period` ) + ": " + PERIODS[this._period].text );
+            button.setText( this.l10n( `Period`, { "domain": `vue-ext` } ) + ": " + PERIODS[this._period].text );
 
             this.refresh();
         },
@@ -132,7 +132,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( `vue-ext`, `Total subscribed users` ),
+                "text": this.l10n( `Total subscribed users`, { "domain": `vue-ext` } ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -165,13 +165,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, `Total subscribed users` ),
+                "name": this.l10n( `Total subscribed users`, { "domain": `vue-ext` } ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "total_subscribed_users",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( `vue-ext`, `Subscribed users` ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10n( `Subscribed users`, { "domain": `vue-ext` } ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -189,13 +189,13 @@ export default {
 
             // serie 2
             const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, `Total unsubscribed users` ),
+                "name": this.l10n( `Total unsubscribed users`, { "domain": `vue-ext` } ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "total_unsubscribed_users",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( `vue-ext`, `Unsubscribed users` ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10n( `Unsubscribed users`, { "domain": `vue-ext` } ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "fill": am5.color( "#ff0000" ),
@@ -251,7 +251,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10nd( `vue-ext`, `Subscribed users` ),
+                "text": this.l10n( `Subscribed users`, { "domain": `vue-ext` } ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -284,13 +284,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, `Subscribed users` ),
+                "name": this.l10n( `Subscribed users`, { "domain": `vue-ext` } ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "total_subscribed_users_delta",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( `vue-ext`, `Subscribed users` ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10n( `Subscribed users`, { "domain": `vue-ext` } ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -308,13 +308,13 @@ export default {
 
             // serie 2
             const series2 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": this.l10nd( `vue-ext`, `Unsubscribed users` ),
+                "name": this.l10n( `Unsubscribed users`, { "domain": `vue-ext` } ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "total_unsubscribed_users_delta",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10nd( `vue-ext`, `Unsubscribed users` ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10n( `Unsubscribed users`, { "domain": `vue-ext` } ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "fill": am5.color( "#ff0000" ),

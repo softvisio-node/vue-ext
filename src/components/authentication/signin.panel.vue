@@ -2,7 +2,7 @@
     <ext-panel layout="vbox" scrollable="true">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-container :html="l10nd(`vue-ext`, `Sign in`)"/>
+            <ext-container :html="l10n(`Sign in`, { domain: `vue-ext` })"/>
             <ext-spacer/>
         </ext-toolbar>
 
@@ -12,24 +12,24 @@
         </ext-container>
 
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}' @ready="_ready">
-            <ext-emailfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `Email address`)" name="email" :placeholder="l10nd(`vue-ext`, `Enter your email address`)" required="true" validators="email"/>
+            <ext-emailfield :errorTarget="errorTarget" :label="l10n(`Email address`, { domain: `vue-ext` })" name="email" :placeholder="l10n(`Enter your email address`, { domain: `vue-ext` })" required="true" validators="email"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `Password`)" name="password" :placeholder="l10nd(`vue-ext`, `Enter password`)" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Password`, { domain: `vue-ext` })" name="password" :placeholder="l10n(`Enter password`, { domain: `vue-ext` })" required="true" revealable="true"/>
         </ext-fieldpanel>
 
         <!-- password recovery -->
         <ext-container :hidden="!passwordRecoveryEnabled" layout="center" margin="10 0 0 0">
-            <ext-button :text="l10nd(`vue-ext`, `Forgot password?`)" @tap="showPasswordRecovery"/>
+            <ext-button :text="l10n(`Forgot password?`, { domain: `vue-ext` })" @tap="showPasswordRecovery"/>
         </ext-container>
 
         <!-- sign up -->
         <ext-container :hidden="!signupEnabled" layout="center" margin="10 0 0 0">
-            <ext-button :text="l10nd(`vue-ext`, `Do not have account? Sign up`)" @tap="showSignup"/>
+            <ext-button :text="l10n(`Do not have account? Sign up`, { domain: `vue-ext` })" @tap="showSignup"/>
         </ext-container>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button :text="l10nd(`vue-ext`, `Sign in`)" ui="action" @tap="_submit"/>
+            <ext-button :text="l10n(`Sign in`, { domain: `vue-ext` })" ui="action" @tap="_submit"/>
         </ext-toolbar>
     </ext-panel>
 </template>
@@ -76,7 +76,7 @@ export default {
             const form = this.$refs.form.ext;
 
             if ( !form.validate() ) {
-                this.$utils.toast( this.l10nd( `vue-ext`, `Please, correctly fill all required fields` ) );
+                this.$utils.toast( this.l10n( `Please, correctly fill all required fields`, { "domain": `vue-ext` } ) );
 
                 return;
             }

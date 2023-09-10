@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="95%" layout="fit" scrollable="true" :title="l10nd(`vue-ext`, `Monitoring`)" width="95%">
+    <ext-dialog height="95%" layout="fit" scrollable="true" :title="l10n(`Monitoring`, { domain: `vue-ext` })" width="95%">
         <Panel/>
     </ext-dialog>
 </template>

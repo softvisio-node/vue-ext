@@ -8,10 +8,10 @@
 
         <!-- error card -->
         <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
-            <ext-container :html="l10nd(`vue-ext`, `Unable to load data`)"/>
+            <ext-container :html="l10n(`Unable to load data`, { domain: `vue-ext` })"/>
             <ext-container ref="errorMessage"/>
             <ext-container height="10"/>
-            <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" ui="action" @tap="refresh"/>
+            <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" ui="action" @tap="refresh"/>
         </ext-container>
 
         <!-- data card -->
@@ -62,7 +62,7 @@ export default {
 
     "computed": {
         noDataMessageText () {
-            return this.noDataMessage || this.l10nd( `vue-ext`, `No data match search criteria` );
+            return this.noDataMessage || this.l10n( `No data match search criteria`, { "domain": `vue-ext` } );
         },
     },
 

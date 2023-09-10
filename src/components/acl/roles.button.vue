@@ -1,5 +1,5 @@
 <template>
-    <ext-button ref="button" :text="l10nd(`vue-ext`, `Roles filter`)" width="180" @ready="_ready"/>
+    <ext-button ref="button" :text="l10n(`Roles filter`, { domain: `vue-ext` })" width="180" @ready="_ready"/>
 </template>
 
 <script>
@@ -69,7 +69,7 @@ export default {
                     "xtype": "menuitem",
                     "separator": true,
                     "iconCls": "fa-solid fa-redo",
-                    "text": this.l10nd( "vue-ext", "Refresh" ),
+                    "text": this.l10n( "Refresh", { "domain": "vue-ext" } ),
                     "handler": this._loadRoles.bind( this ),
                 } );
             }
@@ -91,7 +91,7 @@ export default {
                         "xtype": "menuitem",
                         "separator": true,
                         "iconCls": "fa-solid fa-xmark",
-                        "text": this.l10nd( "vue-ext", "Clear filter" ),
+                        "text": this.l10n( "Clear filter", { "domain": "vue-ext" } ),
                         "handler": this.clear.bind( this, false ),
                     }
                 );
@@ -117,7 +117,7 @@ export default {
                 this.$emit( "change", checkedItems );
             }
             else {
-                button.setText( this.l10nd( "vue-ext", "Roles filter" ) );
+                button.setText( this.l10n( "Roles filter", { "domain": "vue-ext" } ) );
 
                 this.$emit( "change" );
             }

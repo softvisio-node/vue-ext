@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :height="height" layout="fit" scrollable="true" :title="l10nd(`vue-ext`, `User sessions`)" :width="width">
+    <ext-dialog :height="height" layout="fit" scrollable="true" :title="l10n(`User sessions`, { domain: `vue-ext` })" :width="width">
         <UserSessionsPanel :userEmail="userEmail" :userId="userId"/>
     </ext-dialog>
 </template>

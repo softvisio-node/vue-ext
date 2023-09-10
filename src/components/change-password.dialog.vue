@@ -3,17 +3,17 @@
         <ext-container :html="header" style="text-align: center"/>
 
         <ext-fieldpanel ref="form" @ready="formReady">
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `New password`)" name="password" :placeholder="l10nd(`vue-ext`, `Enter new password`)" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`New password`, { domain: `vue-ext` })" name="password" :placeholder="l10n(`Enter new password`, { domain: `vue-ext` })" required="true" revealable="true"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10nd(`vue-ext`, `Confirm new password`)" name="confirmedPassword" :placeholder="l10nd(`vue-ext`, `Confirm new password`)" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Confirm new password`, { domain: `vue-ext` })" name="confirmedPassword" :placeholder="l10n(`Confirm new password`, { domain: `vue-ext` })" required="true" revealable="true"/>
         </ext-fieldpanel>
 
         <ext-container layout="center">
-            <ext-button :text="l10nd(`vue-ext`, `Generate random password`)" @tap="_generatePassword"/>
+            <ext-button :text="l10n(`Generate random password`, { domain: `vue-ext` })" @tap="_generatePassword"/>
         </ext-container>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-\ <ext-button :text="l10nd(`vue-ext`, `Change password`)" ui="action" @tap="submit"/>
+\ <ext-button :text="l10n(`Change password`, { domain: `vue-ext` })" ui="action" @tap="submit"/>
 </ext-toolbar>
     </ext-dialog>
 </template>
@@ -32,7 +32,7 @@ export default {
 
     "computed": {
         title () {
-            return this.l10nd( `vue-ext`, `Password change` );
+            return this.l10n( `Password change`, { "domain": `vue-ext` } );
         },
     },
 
@@ -60,7 +60,7 @@ export default {
             const values = form.getValues();
 
             if ( values.password !== values.confirmedPassword ) {
-                form.getFields( "confirmedPassword" ).setError( this.l10nd( "vue-ext", "Passwords do not match" ) );
+                form.getFields( "confirmedPassword" ).setError( this.l10n( "Passwords do not match", { "domain": "vue-ext" } ) );
 
                 return;
             }
@@ -72,7 +72,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10nd( `vue-ext`, "Password changed" ) );
+                this.$utils.toast( this.l10n( "Password changed", { "domain": `vue-ext` } ) );
 
                 this.ext.close();
             }
@@ -90,7 +90,7 @@ export default {
 
             this.$utils.copyToClipboard( password );
 
-            this.$utils.toast( this.l10nd( `vue-ext`, `Password copied to the clipboard` ) );
+            this.$utils.toast( this.l10n( `Password copied to the clipboard`, { "domain": `vue-ext` } ) );
 
             this.$refs.form.ext.getFields( "password" ).setValue( password );
             this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );

@@ -33,7 +33,7 @@ export default {
                 return "";
             }
             else {
-                return this.l10nd( `vue-ext`, `Receive push notifications` );
+                return this.l10n( `Receive push notifications`, { "domain": `vue-ext` } );
             }
         },
 
@@ -69,10 +69,10 @@ export default {
             }
             else {
                 if ( value ) {
-                    this.$utils.toast( this.l10nd( "vue-ext", "Push notifications enabled" ) );
+                    this.$utils.toast( this.l10n( "Push notifications enabled", { "domain": "vue-ext" } ) );
                 }
                 else {
-                    this.$utils.toast( this.l10nd( "vue-ext", "Push notifications disabled" ) );
+                    this.$utils.toast( this.l10n( "Push notifications disabled", { "domain": "vue-ext" } ) );
                 }
             }
 

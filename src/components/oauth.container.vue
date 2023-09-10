@@ -1,10 +1,10 @@
 <template>
     <ext-container defaults='{"margin":"5 0 0 0","ui":"action"}' layout='{"pack":"center","type":"vbox"}'>
-        <ext-button :hidden="!signinGoogleEnabled" iconCls="fa-brands fa-google" :text="l10nd(`vue-ext`, `Sign in with`) + ` Google`" @tap="_oauthGoogle"/>
+        <ext-button :hidden="!signinGoogleEnabled" iconCls="fa-brands fa-google" :text="l10n(`Sign in with`, { domain: `vue-ext` }) + ` Google`" @tap="_oauthGoogle"/>
 
-        <ext-button :hidden="!signinFacebookEnabled" iconCls="fa-brands fa-square-facebook" :text="l10nd(`vue-ext`, `Sign in with`) + ` Facebook`" @tap="_oauthFacebook"/>
+        <ext-button :hidden="!signinFacebookEnabled" iconCls="fa-brands fa-square-facebook" :text="l10n(`Sign in with`, { domain: `vue-ext` }) + ` Facebook`" @tap="_oauthFacebook"/>
 
-        <ext-button :hidden="!signinGitHubEnabled" iconCls="fa-brands fa-github" :text="l10nd(`vue-ext`, `Sign in with`) + ` GitHub`" @tap="_oauthGitHub"/>
+        <ext-button :hidden="!signinGitHubEnabled" iconCls="fa-brands fa-github" :text="l10n(`Sign in with`, { domain: `vue-ext` }) + ` GitHub`" @tap="_oauthGitHub"/>
     </ext-container>
 </template>
 

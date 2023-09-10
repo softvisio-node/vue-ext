@@ -1,6 +1,6 @@
 <template>
     <ext-container :hidden="hidden" @ready="_ready">
-        <ext-button ref="button" iconCls="fa-regular fa-eye" :text="l10nd(`vue-ext`, `Watch`)" :ui="ui" @tap="showNotificationsSubscribeDialog"/>
+        <ext-button ref="button" iconCls="fa-regular fa-eye" :text="l10n(`Watch`, { domain: `vue-ext` })" :ui="ui" @tap="showNotificationsSubscribeDialog"/>
 
         <NotificationsSubscribeDialog ref="dialog" :aclId="aclId"/>
     </ext-container>

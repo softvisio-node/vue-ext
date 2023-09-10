@@ -3,7 +3,7 @@ export * from "@softvisio/vue/utils";
 const ICON_SIZE = "2em";
 
 export async function alert ( message, { title, width = 350, height = 200, iconCls } = {} ) {
-    title ??= window.l10nd( `vue-ext`, `Warning` );
+    title ??= window.l10n( `Warning`, { "domain": `vue-ext` } );
     iconCls ??= "fa-solid fa-triangle-exclamation";
 
     return new Promise( resolve => {
@@ -33,7 +33,7 @@ export async function alert ( message, { title, width = 350, height = 200, iconC
                     "items": [
                         {
                             "id": "ok",
-                            "text": window.l10nd( "vue-ext", "Ok" ),
+                            "text": window.l10n( "Ok", { "domain": "vue-ext" } ),
                             "ui": "action",
                             "handler": () => dialog.close(),
                         },
@@ -49,7 +49,7 @@ export async function alert ( message, { title, width = 350, height = 200, iconC
 }
 
 export async function confirm ( message, { title, width = 350, height = 200, iconCls } = {} ) {
-    title ??= window.l10nd( `vue-ext`, "Confirmation" );
+    title ??= window.l10n( "Confirmation", { "domain": `vue-ext` } );
     iconCls ??= "fa-solid fa-circle-question";
 
     return new Promise( resolve => {
@@ -80,12 +80,12 @@ export async function confirm ( message, { title, width = 350, height = 200, ico
                     "docked": "bottom",
                     "items": [
                         {
-                            "text": window.l10nd( "vue-ext", "Cancel" ),
+                            "text": window.l10n( "Cancel", { "domain": "vue-ext" } ),
                             "handler": () => dialog.close(),
                         },
                         {
                             "id": "ok",
-                            "text": window.l10nd( "vue-ext", "Ok" ),
+                            "text": window.l10n( "Ok", { "domain": "vue-ext" } ),
                             "ui": "action",
                             "handler": () => {
                                 res = true;
@@ -133,12 +133,12 @@ export async function prompt ( message, { title, width = 450, height = 300 } = {
                     "docked": "bottom",
                     "items": [
                         {
-                            "text": window.l10nd( "vue-ext", "Cancel" ),
+                            "text": window.l10n( "Cancel", { "domain": "vue-ext" } ),
                             "handler": () => dialog.close(),
                         },
                         {
                             "id": "ok",
-                            "text": window.l10nd( "vue-ext", "Ok" ),
+                            "text": window.l10n( "Ok", { "domain": "vue-ext" } ),
                             "ui": "action",
                             "handler": () => {
                                 res = dialog.down( "#input" ).getValue().trim();

@@ -2,23 +2,23 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="l10nd(`vue-ext`, `Search bots`)" width="200" @change="_search"/>
+                <ext-searchfield :placeholder="l10n(`Search bots`, { domain: `vue-ext` })" width="200" @change="_search"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
-                <ext-column dataIndex="telegram_username" :text="l10nd(`vue-ext`, `Name`)" width="200"/>
+                <ext-column dataIndex="telegram_username" :text="l10n(`Name`, { domain: `vue-ext` })" width="200"/>
 
-                <ext-column dataIndex="type" :text="l10nd(`vue-ext`, `Type`)" width="200"/>
+                <ext-column dataIndex="type" :text="l10n(`Type`, { domain: `vue-ext` })" width="200"/>
 
-                <ext-column dataIndex="static" :text="l10nd(`vue-ext`, `Static`)"/>
+                <ext-column dataIndex="static" :text="l10n(`Static`, { domain: `vue-ext` })"/>
 
-                <ext-numbercolumn align="right" dataIndex="total_subscribed_users" :text="l10nd(`vue-ext`, `Users`)"/>
+                <ext-numbercolumn align="right" dataIndex="total_subscribed_users" :text="l10n(`Users`, { domain: `vue-ext` })"/>
 
-                <ext-column dataIndex="error_text" flex="1" :text="l10nd(`vue-ext`, `Error`)"/>
+                <ext-column dataIndex="error_text" flex="1" :text="l10n(`Error`, { domain: `vue-ext` })"/>
 
                 <ext-column width="160" @ready="_actionColReady"/>
             </ext-grid>
@@ -80,13 +80,13 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-users",
-                            "tooltip": this.l10nd( `vue-ext`, "Edit users" ),
+                            "tooltip": this.l10n( "Edit users", { "domain": `vue-ext` } ),
                             "handler": this._showAclDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-circle-play",
-                            "text": this.l10nd( `vue-ext`, "Start" ),
+                            "text": this.l10n( "Start", { "domain": `vue-ext` } ),
                             "handler": this._startBot.bind( this ),
                             "bind": { "hidden": "{record.started}" },
                             "disabled": !this.canUpdate,
@@ -95,7 +95,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-circle-stop",
-                            "text": this.l10nd( `vue-ext`, "Stop" ),
+                            "text": this.l10n( "Stop", { "domain": `vue-ext` } ),
                             "handler": this._stopBot.bind( this ),
                             "bind": { "hidden": "{!record.started}" },
                             "disabled": !this.canUpdate,
@@ -103,7 +103,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-ellipsis-v",
-                            "tooltip": this.l10nd( `vue-ext`, "Actions" ),
+                            "tooltip": this.l10n( "Actions", { "domain": `vue-ext` } ),
                             "arrow": false,
                             "menu": {
                                 "defaults": {
@@ -112,7 +112,7 @@ export default {
                                 "items": [
                                     {
                                         "iconCls": "fa-solid fa-trash-alt",
-                                        "text": this.l10nd( `vue-ext`, "Delete bot" ),
+                                        "text": this.l10n( "Delete bot", { "domain": `vue-ext` } ),
                                         "handler": this._deleteBot.bind( this ),
                                         "disabled": !this.canDelete,
                                     },
@@ -178,7 +178,7 @@ export default {
         },
 
         async _deleteBot ( button ) {
-            if ( !( await this.$utils.confirm( this.l10nd( `vue-ext`, "Are you sure you want to delete this bot and all it's data? This operation is not revertable." ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this bot and all it's data? This operation is not revertable.", { "domain": `vue-ext` } ) ) ) ) return;
 
             const record = button.up( "gridrow" ).getRecord();
 

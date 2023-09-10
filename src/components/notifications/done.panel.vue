@@ -3,10 +3,10 @@
         <template #docked>
             <ext-toolbar docked="top">
                 <!-- set all as done                         -->
-                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-arrow-right" :text="l10nd(`vue-ext`, `Move all to inbox`)" @tap="moveAllToInbox"/>
+                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-arrow-right" :text="l10n(`Move all to inbox`, { domain: `vue-ext` })" @tap="moveAllToInbox"/>
 
                 <!-- delete all -->
-                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-trash-alt" :text="l10nd(`vue-ext`, `Delete all`)" @tap="deleteAll"/>
+                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete all`, { domain: `vue-ext` })" @tap="deleteAll"/>
             </ext-toolbar>
         </template>
 
@@ -75,13 +75,13 @@ export default {
                                 {
                                     "xtype": "button",
                                     "iconCls": "fa-solid fa-arrow-right",
-                                    "tooltip": this.l10nd( "vue-ext", "Move to inbox" ),
+                                    "tooltip": this.l10n( "Move to inbox", { "domain": "vue-ext" } ),
                                     "handler": this._moveToInbox.bind( this ),
                                 },
                                 {
                                     "xtype": "button",
                                     "iconCls": "fa-solid fa-trash-alt",
-                                    "tooltip": this.l10nd( "vue-ext", "Delete" ),
+                                    "tooltip": this.l10n( "Delete", { "domain": "vue-ext" } ),
                                     "handler": this._delete.bind( this ),
                                 },
                             ],
