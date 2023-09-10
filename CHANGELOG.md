@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.27 (2023-09-10)
+
+Fixes:
+
+-   fix: backend locale removed
+
 ### 8.8.26 (2023-09-10)
 
 Fixes:
