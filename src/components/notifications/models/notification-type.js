@@ -1,5 +1,3 @@
-import app from "#app";
-
 export default Ext.define( "", {
     "extend": "Ext.data.Model",
 
@@ -12,7 +10,7 @@ export default Ext.define( "", {
         "channels",
 
         // calculated
-        { "name": "title", "calculate": data => `<div class="notification-type-name">${app.locale.l10n( data.name, { "domain": "backend" } )}</div>${app.locale.l10n( data.description, { "domain": "backend" } )}` },
+        { "name": "title", "calculate": data => `<div class="notification-type-name">${data.name}</div>${data.description}` },
 
         {
             "name": "enabled",
