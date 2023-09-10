@@ -112,7 +112,11 @@ export default {
             } );
 
             if ( checkedItems.length ) {
-                button.setText( this.l10nd( "vue-ext", msgid`${checkedItems.length} role selected`, msgid`${checkedItems.length} roles selected`, checkedItems.length ) );
+                button.setText( this.l10n( msgid`${checkedItems.length} role selected`, {
+                    "domain": "vue-ext",
+                    "plural": msgid`${checkedItems.length} roles selected`,
+                    "pluralNumber": checkedItems.length,
+                } ) );
 
                 this.$emit( "change", checkedItems );
             }
