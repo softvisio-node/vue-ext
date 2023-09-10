@@ -1,5 +1,3 @@
-import app from "#app";
-
 export default Ext.define( "", {
     "extend": "Ext.data.Model",
 
@@ -13,6 +11,6 @@ export default Ext.define( "", {
         { "name": "enabled", "type": "bool" },
 
         // calculated
-        { "name": "title_html", "calculate": data => `<b>${app.locale.l10n( data.name, { "domain": "backend" } )}</b><br/>${app.locale.l10n( data.description, { "domain": "backend" } )}` },
+        { "name": "title_html", "calculate": data => `<b>${data.name}</b><br/>${data.description}` },
     ],
 } );
