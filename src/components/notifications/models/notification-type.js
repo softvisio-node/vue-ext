@@ -12,7 +12,7 @@ export default Ext.define( "", {
         "channels",
 
         // calculated
-        { "name": "title", "calculate": data => `<div class="notification-type-name">${app.locale.l10nd( "backend", data.name )}</div>${app.locale.l10nd( "backend", data.description )}` },
+        { "name": "title", "calculate": data => `<div class="notification-type-name">${app.locale.l10n( data.name, { "domain": "backend" } )}</div>${app.locale.l10n( data.description, { "domain": "backend" } )}` },
 
         {
             "name": "enabled",
