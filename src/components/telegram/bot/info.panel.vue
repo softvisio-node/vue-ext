@@ -4,53 +4,53 @@
             <ext-panel ref="dataPanel" layout="fit" viewModel="true">
                 <ext-toolbar docked="top">
                     <ext-spacer/>
-                    <ext-button bind='{"hidden":"{!record.can_update_acl}"}' :text="l10n(`vue-ext`, `Edit permissions`)" @tap="_showAclDialog"/>
+                    <ext-button bind='{"hidden":"{!record.can_update_acl}"}' :text="l10nd(`vue-ext`, `Edit permissions`)" @tap="_showAclDialog"/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10nd(`vue-ext`, `Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
                 <ext-panel padding="10 10 10 10" scrollable="true">
-                    <ext-displayfield bind="{record.telegram_username}" :label="l10n(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200"/>
+                    <ext-displayfield bind="{record.telegram_username}" :label="l10nd(`vue-ext`, `Telegram username`)" labelAlign="left" labelWidth="200"/>
 
                     <ext-container layout="hbox">
-                        <ext-displayfield bind="{record.url}" :label="l10n(`vue-ext`, `Telegram bot url`)" labelAlign="left" labelWidth="200"/>
+                        <ext-displayfield bind="{record.url}" :label="l10nd(`vue-ext`, `Telegram bot url`)" labelAlign="left" labelWidth="200"/>
                         <ext-spacer/>
-                        <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`vue-ext`, `Copy to the clipboard`)" @tap="_copyBotUrl"/>
-                        <ext-button iconCls="fa-solid fa-arrow-up-right-from-square" :tooltip="l10n(`vue-ext`, `Open bot in Tekegram`)" @tap="_openBotUrl"/>
+                        <ext-button iconCls="fa-regular fa-copy" :tooltip="l10nd(`vue-ext`, `Copy to the clipboard`)" @tap="_copyBotUrl"/>
+                        <ext-button iconCls="fa-solid fa-arrow-up-right-from-square" :tooltip="l10nd(`vue-ext`, `Open bot in Tekegram`)" @tap="_openBotUrl"/>
                     </ext-container>
 
                     <ext-container layout="hbox">
-                        <ext-displayfield bind="{record.name}" :label="l10n(`vue-ext`, `Bot name`)" labelAlign="left" labelWidth="200"/>
+                        <ext-displayfield bind="{record.name}" :label="l10nd(`vue-ext`, `Bot name`)" labelAlign="left" labelWidth="200"/>
 
                         <ext-spacer/>
 
                         <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-pen" :text="l10nd(`vue-ext`, `Edit`)" @tap="_shoeEditDialog"/>
                     </ext-container>
 
-                    <ext-displayfield bind="{record.short_description}" :label="l10n(`vue-ext`, `Short description`)" labelAlign="left" labelWidth="200"/>
+                    <ext-displayfield bind="{record.short_description}" :label="l10nd(`vue-ext`, `Short description`)" labelAlign="left" labelWidth="200"/>
 
-                    <!-- <ext-displayfield bind="{record.type}" :label="l10n(`vue-ext`, `Type`)"/> -->
+                    <!-- <ext-displayfield bind="{record.type}" :label="l10nd(`vue-ext`, `Type`)"/> -->
 
-                    <!-- <ext-displayfield bind="{record.static}" :label="l10n(`vue-ext`, `Static`)"/> -->
+                    <!-- <ext-displayfield bind="{record.static}" :label="l10nd(`vue-ext`, `Static`)"/> -->
 
-                    <!-- <ext-displayfield bind="{record.created}" :label="l10n(`vue-ext`, `Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/> -->
+                    <!-- <ext-displayfield bind="{record.created}" :label="l10nd(`vue-ext`, `Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/> -->
 
                     <!-- status -->
-                    <ext-displayfield bind="{record.status_text}" :label="l10n(`vue-ext`, `Status`)" labelAlign="left" labelWidth="200"/>
+                    <ext-displayfield bind="{record.status_text}" :label="l10nd(`vue-ext`, `Status`)" labelAlign="left" labelWidth="200"/>
                     <ext-displayfield bind='{"hidden":"{!record.error}","value":"{record.error_text}"}' labelAlign="left" labelWidth="200"/>
 
                     <!-- users stats -->
-                    <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`vue-ext`, `Last new user subscribed`)" labelAlign="left" labelWidth="200"/>
+                    <ext-displayfield bind="{record.last_user_created_text}" :label="l10nd(`vue-ext`, `Last new user subscribed`)" labelAlign="left" labelWidth="200"/>
 
                     <ext-fieldset layout="hbox" title="Users statistics">
                         <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">
-                            <ext-displayfield bind="{record.total_users}" :label="l10n(`vue-ext`, `Total users`)"/>
-                            <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10n(`vue-ext`, `Total subscribed users`)"/>
-                            <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10n(`vue-ext`, `Total unsubscribed users`)"/>
+                            <ext-displayfield bind="{record.total_users}" :label="l10nd(`vue-ext`, `Total users`)"/>
+                            <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10nd(`vue-ext`, `Total subscribed users`)"/>
+                            <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10nd(`vue-ext`, `Total unsubscribed users`)"/>
                         </ext-container>
 
                         <ext-container defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox">
-                            <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`vue-ext`, `Total returned users`)"/>
-                            <ext-displayfield bind="{record.total_banned_users}" :label="l10n(`vue-ext`, `Total banned users`)"/>
+                            <ext-displayfield bind="{record.total_returned_users}" :label="l10nd(`vue-ext`, `Total returned users`)"/>
+                            <ext-displayfield bind="{record.total_banned_users}" :label="l10nd(`vue-ext`, `Total banned users`)"/>
                         </ext-container>
                     </ext-fieldset>
 

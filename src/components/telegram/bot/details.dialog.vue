@@ -1,11 +1,11 @@
 <template>
-    <ext-dialog height="80%" layout="vbox" :title="l10n(`vue-ext`, `Edit bot details`)" width="80%" @ready="_ready">
+    <ext-dialog height="80%" layout="vbox" :title="l10nd(`vue-ext`, `Edit bot details`)" width="80%" @ready="_ready">
         <ext-formpanel ref="formPanel" flex="1" layout="vbox" modelValidation="true" trackResetOnLoad="true">
-            <ext-textfield :label="l10n(`vue-ext`, `Bot name`)" labelAlign="top" maxLength="64" name="name"/>
+            <ext-textfield :label="l10nd(`vue-ext`, `Bot name`)" labelAlign="top" maxLength="64" name="name"/>
 
-            <ext-textareafield :label="l10n(`vue-ext`, `Short description`) + `.<br/>` + l10n(`vue-ext`, `Bot short description is shown on the bot profile page and is sent together with the link when users share the bot.`)" labelAlign="top" maxLength="120" name="short_description"/>
+            <ext-textareafield :label="l10nd(`vue-ext`, `Short description`) + `.<br/>` + l10nd(`vue-ext`, `Bot short description is shown on the bot profile page and is sent together with the link when users share the bot.`)" labelAlign="top" maxLength="120" name="short_description"/>
 
-            <ext-textareafield flex="1" :label="l10n(`vue-ext`, `Description`) + `.<br/>` + l10n(`vue-ext`, `Bot description is shown in the chat with the bot if the chat is empty.`)" labelAlign="top" maxLength="512" name="description"/>
+            <ext-textareafield flex="1" :label="l10nd(`vue-ext`, `Description`) + `.<br/>` + l10nd(`vue-ext`, `Bot description is shown in the chat with the bot if the chat is empty.`)" labelAlign="top" maxLength="512" name="description"/>
         </ext-formpanel>
 
         <ext-toolbar docked="bottom">

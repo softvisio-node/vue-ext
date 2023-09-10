@@ -45,7 +45,7 @@ export default Ext.define( "", {
         { "name": "can_start", "calculate": data => data.acl_user_permissions.has( "telegram/bot:update" ) && !data.started },
         { "name": "can_stop", "calculate": data => data.acl_user_permissions.has( "telegram/bot:update" ) && data.started },
 
-        { "name": "status_text", "calculate": data => ( data.started ? app.locale.l10n( `vue-ext`, `Started` ) : app.locale.l10n( `vue-ext`, `Stopped` ) ) },
+        { "name": "status_text", "calculate": data => ( data.started ? app.locale.l10nd( `vue-ext`, `Started` ) : app.locale.l10nd( `vue-ext`, `Stopped` ) ) },
 
         {
             "name": "last_user_created_text",

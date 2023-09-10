@@ -98,7 +98,7 @@ export default {
 
             cmp.setMenu( menu );
 
-            cmp.setText( this.l10n( `vue-ext`, `Period` ) + ": " + PERIODS[this._period].text );
+            cmp.setText( this.l10nd( `vue-ext`, `Period` ) + ": " + PERIODS[this._period].text );
 
             this.refresh();
         },
@@ -112,7 +112,7 @@ export default {
 
             this._period = menuItem.getValue();
 
-            button.setText( this.l10n( `vue-ext`, `Period` ) + ": " + PERIODS[this._period].text );
+            button.setText( this.l10nd( `vue-ext`, `Period` ) + ": " + PERIODS[this._period].text );
 
             this.refresh();
         },
