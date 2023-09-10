@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.28 (2023-09-10)
+
+Fixes:
+
+-   fix: po-message domains removed
+
 ### 8.8.27 (2023-09-10)
 
 Fixes:
