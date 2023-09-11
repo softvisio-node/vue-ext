@@ -203,7 +203,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.l10n( "Edit user roles", { "domain": "vue-ext" } ),
+                            "tooltip": this.l10n( "Edit user roles" ),
                             "padding": "0 0 0 3",
                             "handler": this._showUserRolesDialog.bind( this ),
                             "bind": {
@@ -213,7 +213,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
-                            "tooltip": this.l10n( "Delete user", { "domain": "vue-ext" } ),
+                            "tooltip": this.l10n( "Delete user" ),
                             "handler": this._deleteAclUser.bind( this ),
                             "bind": {
                                 "disabled": "{!canDelete}",

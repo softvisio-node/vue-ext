@@ -75,13 +75,13 @@ export default {
                                 {
                                     "xtype": "button",
                                     "iconCls": "fa-solid fa-check",
-                                    "tooltip": this.l10n( "Mark as done", { "domain": "vue-ext" } ),
+                                    "tooltip": this.l10n( "Mark as done" ),
                                     "handler": this._setDone.bind( this ),
                                 },
                                 {
                                     "xtype": "button",
                                     "iconCls": "fa-solid fa-trash-alt",
-                                    "tooltip": this.l10n( "Delete", { "domain": "vue-ext" } ),
+                                    "tooltip": this.l10n( "Delete" ),
                                     "handler": this._delete.bind( this ),
                                 },
                             ],

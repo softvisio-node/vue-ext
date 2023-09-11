@@ -17,7 +17,7 @@ export default {
 
     "computed": {
         header () {
-            return this.l10n( `Change password for user`, { "domain": "vue-ext" } ) + `<br/><b>${this.userEmail}</b>`;
+            return this.l10n( `Change password for user` ) + `<br/><b>${this.userEmail}</b>`;
         },
     },
 

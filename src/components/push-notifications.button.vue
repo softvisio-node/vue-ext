@@ -69,10 +69,10 @@ export default {
             }
             else {
                 if ( value ) {
-                    this.$utils.toast( this.l10n( "Push notifications enabled", { "domain": "vue-ext" } ) );
+                    this.$utils.toast( this.l10n( "Push notifications enabled" ) );
                 }
                 else {
-                    this.$utils.toast( this.l10n( "Push notifications disabled", { "domain": "vue-ext" } ) );
+                    this.$utils.toast( this.l10n( "Push notifications disabled" ) );
                 }
             }
 

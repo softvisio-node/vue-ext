@@ -99,7 +99,7 @@ export default {
             const values = form.getValues();
 
             if ( values.password !== values.confirmedPassword ) {
-                form.getFields( "confirmedPassword" ).setError( this.l10n( "Passwords do not match", { "domain": "vue-ext" } ) );
+                form.getFields( "confirmedPassword" ).setError( this.l10n( "Passwords do not match" ) );
 
                 return;
             }

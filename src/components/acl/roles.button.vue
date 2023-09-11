@@ -69,7 +69,7 @@ export default {
                     "xtype": "menuitem",
                     "separator": true,
                     "iconCls": "fa-solid fa-redo",
-                    "text": this.l10n( "Refresh", { "domain": "vue-ext" } ),
+                    "text": this.l10n( "Refresh" ),
                     "handler": this._loadRoles.bind( this ),
                 } );
             }
@@ -91,7 +91,7 @@ export default {
                         "xtype": "menuitem",
                         "separator": true,
                         "iconCls": "fa-solid fa-xmark",
-                        "text": this.l10n( "Clear filter", { "domain": "vue-ext" } ),
+                        "text": this.l10n( "Clear filter" ),
                         "handler": this.clear.bind( this, false ),
                     }
                 );
@@ -121,7 +121,7 @@ export default {
                 this.$emit( "change", checkedItems );
             }
             else {
-                button.setText( this.l10n( "Roles filter", { "domain": "vue-ext" } ) );
+                button.setText( this.l10n( "Roles filter" ) );
 
                 this.$emit( "change" );
             }

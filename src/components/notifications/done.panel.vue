@@ -75,13 +75,13 @@ export default {
                                 {
                                     "xtype": "button",
                                     "iconCls": "fa-solid fa-arrow-right",
-                                    "tooltip": this.l10n( "Move to inbox", { "domain": "vue-ext" } ),
+                                    "tooltip": this.l10n( "Move to inbox" ),
                                     "handler": this._moveToInbox.bind( this ),
                                 },
                                 {
                                     "xtype": "button",
                                     "iconCls": "fa-solid fa-trash-alt",
-                                    "tooltip": this.l10n( "Delete", { "domain": "vue-ext" } ),
+                                    "tooltip": this.l10n( "Delete" ),
                                     "handler": this._delete.bind( this ),
                                 },
                             ],

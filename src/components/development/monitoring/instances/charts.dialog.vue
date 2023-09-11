@@ -19,7 +19,7 @@ export default {
 
     "computed": {
         title () {
-            return this.l10n( `Instance stats`, { "domain": "vue-ext" } );
+            return this.l10n( `Instance stats` );
         },
     },
 

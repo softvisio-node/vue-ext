@@ -33,7 +33,7 @@ export async function alert ( message, { title, width = 350, height = 200, iconC
                     "items": [
                         {
                             "id": "ok",
-                            "text": window.l10n( "Ok", { "domain": "vue-ext" } ),
+                            "text": window.l10n( "Ok" ),
                             "ui": "action",
                             "handler": () => dialog.close(),
                         },
@@ -80,12 +80,12 @@ export async function confirm ( message, { title, width = 350, height = 200, ico
                     "docked": "bottom",
                     "items": [
                         {
-                            "text": window.l10n( "Cancel", { "domain": "vue-ext" } ),
+                            "text": window.l10n( "Cancel" ),
                             "handler": () => dialog.close(),
                         },
                         {
                             "id": "ok",
-                            "text": window.l10n( "Ok", { "domain": "vue-ext" } ),
+                            "text": window.l10n( "Ok" ),
                             "ui": "action",
                             "handler": () => {
                                 res = true;
@@ -133,12 +133,12 @@ export async function prompt ( message, { title, width = 450, height = 300 } = {
                     "docked": "bottom",
                     "items": [
                         {
-                            "text": window.l10n( "Cancel", { "domain": "vue-ext" } ),
+                            "text": window.l10n( "Cancel" ),
                             "handler": () => dialog.close(),
                         },
                         {
                             "id": "ok",
-                            "text": window.l10n( "Ok", { "domain": "vue-ext" } ),
+                            "text": window.l10n( "Ok" ),
                             "ui": "action",
                             "handler": () => {
                                 res = dialog.down( "#input" ).getValue().trim();
