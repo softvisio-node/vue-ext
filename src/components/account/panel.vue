@@ -1,28 +1,28 @@
 <template>
     <ext-tabpanel defaults='{"padding":"0 10 0 10"}' layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":40,"padding":"0 10 0 0","textAlign":"right","width":200},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none" @ready="_ready">
         <!-- security -->
-        <ext-panel layout="fit" padding="0 0 0 0" :title="l10n(`Account`, { domain: `vue-ext` })">
+        <ext-panel layout="fit" padding="0 0 0 0" :title="l10n(`Account`)">
             <AccountPanel flex="1"/>
         </ext-panel>
 
         <!-- notifications -->
-        <ext-panel layout="fit" :title="l10n(`Notifications`, { domain: `vue-ext` })">
+        <ext-panel layout="fit" :title="l10n(`Notifications`)">
             <ext-toolbar docked="top">
-                <ext-container :html="l10n(`Notifications settings`, { domain: `vue-ext` })"/>
+                <ext-container :html="l10n(`Notifications settings`)"/>
             </ext-toolbar>
 
             <NotificationsSettingsPanel/>
         </ext-panel>
 
         <!-- tokens -->
-        <ext-panel iconAlign="left" iconCls="fa-solid fa-key" layout="fit" :title="l10n(`Access tokens`, { domain: `vue-ext` })">
+        <ext-panel iconAlign="left" iconCls="fa-solid fa-key" layout="fit" :title="l10n(`Access tokens`)">
             <UserTokensPanel/>
         </ext-panel>
 
         <!-- appearance -->
-        <ext-panel layout="vbox" :title="l10n(`Appearance`, { domain: `vue-ext` })" viewModel="true">
+        <ext-panel layout="vbox" :title="l10n(`Appearance`)" viewModel="true">
             <ext-toolbar docked="top">
-                <ext-container :html="l10n(`Appearance`, { domain: `vue-ext` })"/>
+                <ext-container :html="l10n(`Appearance`)"/>
             </ext-toolbar>
 
             <AppearancePanel/>

@@ -1,14 +1,14 @@
 <template>
-    <ext-dialog height="90%" layout="vbox" :title="l10n(`Adding a user`, { domain: `vue-ext` })" width="600">
-        <ext-comboboxfield ref="addUserCombo" displayField="email" forceSelection="true" :label="l10n(`Select user`, { domain: `vue-ext` })" labelAlign="left" labelWidth="150" minChars="1" primaryFilter='{"operator":"like","property":"email"}' required="true" triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
+    <ext-dialog height="90%" layout="vbox" :title="l10n(`Adding a user`)" width="600">
+        <ext-comboboxfield ref="addUserCombo" displayField="email" forceSelection="true" :label="l10n(`Select user`)" labelAlign="left" labelWidth="150" minChars="1" primaryFilter='{"operator":"like","property":"email"}' required="true" triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
 
-        <ext-togglefield ref="enabledField" :label="l10n(`Access enabled`, { domain: `vue-ext` })" labelAlign="left" labelWidth="150" value="true"/>
+        <ext-togglefield ref="enabledField" :label="l10n(`Access enabled`)" labelAlign="left" labelWidth="150" value="true"/>
 
         <RolesPanel ref="rolesPanel" :aclId="aclId" flex="1"/>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button :text="l10n(`Add user`, { domain: `vue-ext` })" ui="action" @tap="_addUser"/>
+            <ext-button :text="l10n(`Add user`)" ui="action" @tap="_addUser"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

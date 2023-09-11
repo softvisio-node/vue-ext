@@ -3,10 +3,10 @@
         <template #docked>
             <ext-toolbar docked="top">
                 <!-- set all as done                         -->
-                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-check" :text="l10n(`Mark all as done`, { domain: `vue-ext` })" @tap="setDoneAll"/>
+                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-check" :text="l10n(`Mark all as done`)" @tap="setDoneAll"/>
 
                 <!-- delete all -->
-                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete all`, { domain: `vue-ext` })" @tap="deleteAll"/>
+                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete all`)" @tap="deleteAll"/>
             </ext-toolbar>
         </template>
 

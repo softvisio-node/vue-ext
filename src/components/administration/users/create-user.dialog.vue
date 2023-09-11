@@ -1,24 +1,24 @@
 <template>
-    <ext-dialog height="90%" layout="vbox" scrollable="true" :title="l10n(`User creation`, { domain: `vue-ext` })" width="600" @ready="_ready">
+    <ext-dialog height="90%" layout="vbox" scrollable="true" :title="l10n(`User creation`)" width="600" @ready="_ready">
         <ext-fieldpanel ref="form" @ready="_onFormReady">
-            <ext-emailfield :errorTarget="errorTarget" :label="l10n(`Email`, { domain: `vue-ext` })" labelAlign="left" labelWidth="150" name="email" :placeholder="l10n(`Enter email`, { domain: `vue-ext` })" required="true" validators="email"/>
+            <ext-emailfield :errorTarget="errorTarget" :label="l10n(`Email`)" labelAlign="left" labelWidth="150" name="email" :placeholder="l10n(`Enter email`)" required="true" validators="email"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Password`, { domain: `vue-ext` })" labelAlign="left" labelWidth="150" name="password" :placeholder="l10n(`Enter password`, { domain: `vue-ext` })" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Password`)" labelAlign="left" labelWidth="150" name="password" :placeholder="l10n(`Enter password`)" required="true" revealable="true"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Confirm password`, { domain: `vue-ext` })" labelAlign="left" labelWidth="150" name="confirmedPassword" :placeholder="l10n(`Confirm password`, { domain: `vue-ext` })" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Confirm password`)" labelAlign="left" labelWidth="150" name="confirmedPassword" :placeholder="l10n(`Confirm password`)" required="true" revealable="true"/>
 
             <ext-container layout="center">
-                <ext-button :text="l10n(`Generate random password`, { domain: `vue-ext` })" @tap="_generatePassword"/>
+                <ext-button :text="l10n(`Generate random password`)" @tap="_generatePassword"/>
             </ext-container>
 
-            <ext-togglefield :label="l10n(`Access enabled`, { domain: `vue-ext` })" labelAlign="left" labelWidth="150" name="enabled" value="true"/>
+            <ext-togglefield :label="l10n(`Access enabled`)" labelAlign="left" labelWidth="150" name="enabled" value="true"/>
         </ext-fieldpanel>
 
         <RolesPanel ref="rolesPanel" :aclId="aclId" flex="1"/>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button :text="l10n(`Create user`, { domain: `vue-ext` })" ui="action" @tap="_submit"/>
+            <ext-button :text="l10n(`Create user`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

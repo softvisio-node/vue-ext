@@ -5,7 +5,7 @@
                 <ext-toolbar docked="top">
                     <ext-button ref="periodButton" stretchMenu="true" @ready="_periodButtonReady"/>
                     <ext-spacer/>
-                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
+                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
                 <AmchartsPanel ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :setChartData="_setChartData"/>

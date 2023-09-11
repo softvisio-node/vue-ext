@@ -2,23 +2,23 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="l10n(`Search bots`, { domain: `vue-ext` })" width="200" @change="_search"/>
+                <ext-searchfield :placeholder="l10n(`Search bots`)" width="200" @change="_search"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
-                <ext-column dataIndex="telegram_username" :text="l10n(`Name`, { domain: `vue-ext` })" width="200"/>
+                <ext-column dataIndex="telegram_username" :text="l10n(`Name`)" width="200"/>
 
-                <ext-column dataIndex="type" :text="l10n(`Type`, { domain: `vue-ext` })" width="200"/>
+                <ext-column dataIndex="type" :text="l10n(`Type`)" width="200"/>
 
-                <ext-column dataIndex="static" :text="l10n(`Static`, { domain: `vue-ext` })"/>
+                <ext-column dataIndex="static" :text="l10n(`Static`)"/>
 
-                <ext-numbercolumn align="right" dataIndex="total_subscribed_users" :text="l10n(`Users`, { domain: `vue-ext` })"/>
+                <ext-numbercolumn align="right" dataIndex="total_subscribed_users" :text="l10n(`Users`)"/>
 
-                <ext-column dataIndex="error_text" flex="1" :text="l10n(`Error`, { domain: `vue-ext` })"/>
+                <ext-column dataIndex="error_text" flex="1" :text="l10n(`Error`)"/>
 
                 <ext-column width="120" @ready="_actionColReady"/>
             </ext-grid>

@@ -2,7 +2,7 @@
     <ext-panel layout="vbox" scrollable="true" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-container :html="l10n(`Sign up`, { domain: `vue-ext` })"/>
+            <ext-container :html="l10n(`Sign up`)"/>
             <ext-spacer/>
         </ext-toolbar>
 
@@ -12,21 +12,21 @@
         </ext-container>
 
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}'>
-            <ext-emailfield :errorTarget="errorTarget" :label="l10n(`Email address`, { domain: `vue-ext` })" name="email" :placeholder="l10n(`Enter your email address`, { domain: `vue-ext` })" required="true" validators="email"/>
+            <ext-emailfield :errorTarget="errorTarget" :label="l10n(`Email address`)" name="email" :placeholder="l10n(`Enter your email address`)" required="true" validators="email"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Password`, { domain: `vue-ext` })" name="password" :placeholder="l10n(`Enter password`, { domain: `vue-ext` })" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Password`)" name="password" :placeholder="l10n(`Enter password`)" required="true" revealable="true"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Confirm password`, { domain: `vue-ext` })" name="confirmedPassword" :placeholder="l10n(`Confirm password`, { domain: `vue-ext` })" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Confirm password`)" name="confirmedPassword" :placeholder="l10n(`Confirm password`)" required="true" revealable="true"/>
 
             <ext-container layout="center">
-                <ext-button :text="l10n(`Generate random password`, { domain: `vue-ext` })" @tap="_generatePassword"/>
+                <ext-button :text="l10n(`Generate random password`)" @tap="_generatePassword"/>
             </ext-container>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"align":"center","type":"hbox"}'>
-            <ext-button iconCls="fa-solid fa-arrow-left" :text="l10n(`Back`, { domain: `vue-ext` })" @tap="back"/>
+            <ext-button iconCls="fa-solid fa-arrow-left" :text="l10n(`Back`)" @tap="back"/>
             <ext-spacer/>
-            <ext-button :text="l10n(`Sign up`, { domain: `vue-ext` })" ui="action" @tap="_submit"/>
+            <ext-button :text="l10n(`Sign up`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
     </ext-panel>
 </template>

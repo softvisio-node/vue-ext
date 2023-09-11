@@ -4,7 +4,7 @@
             <ext-toolbar docked="top">
                 <ext-spacer/>
                 <slot name="toolbar"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 

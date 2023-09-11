@@ -2,17 +2,17 @@
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="l10n(`Search for instances`, { domain: `vue-ext` })" width="200" @change="_search"/>
+                <ext-searchfield :placeholder="l10n(`Search for instances`)" width="200" @change="_search"/>
                 <ext-spacer width="20"/>
                 <ext-spacer/>
-                <ext-togglefield :label="l10n(`Auto refresh`, { domain: `vue-ext` })" labelAlign="right" @change="autoRefreshChange"/>
-                <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
+                <ext-togglefield :label="l10n(`Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
+                <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
 
-            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`Latest charts`, { domain: `vue-ext` })" width="400">
+            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`Latest charts`)" width="400">
                 <CharstPanel ref="chartsPanel" period="1 hour" :record="selectedRecord">
                     <template #toolbar>
-                        <ext-button iconCls="fa-solid fa-expand" :text="l10n(`Open charts`, { domain: `vue-ext` })" @tap="showChartsDialog"/>
+                        <ext-button iconCls="fa-solid fa-expand" :text="l10n(`Open charts`)" @tap="showChartsDialog"/>
                     </template>
                 </CharstPanel>
             </ext-panel>
@@ -20,17 +20,17 @@
 
         <template #data>
             <ext-grid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
-                <ext-column dataIndex="instance_type" flex="1" :text="l10n(`Instance type`, { domain: `vue-ext` })"/>
+                <ext-column dataIndex="instance_type" flex="1" :text="l10n(`Instance type`)"/>
 
-                <ext-column dataIndex="memory_total" :text="l10n(`Total memory`, { domain: `vue-ext` })" width="120" @ready="_colReady"/>
+                <ext-column dataIndex="memory_total" :text="l10n(`Total memory`)" width="120" @ready="_colReady"/>
 
-                <ext-column dataIndex="memory_used_text" sorter='{"property":"memory_used"}' :text="l10n(`Used memory`, { domain: `vue-ext` })" width="150"/>
+                <ext-column dataIndex="memory_used_text" sorter='{"property":"memory_used"}' :text="l10n(`Used memory`)" width="150"/>
 
-                <ext-column dataIndex="memory_rss_text" sorter='{"property":"memory_rss"}' :text="l10n(`RSS memory`, { domain: `vue-ext` })" width="150"/>
+                <ext-column dataIndex="memory_rss_text" sorter='{"property":"memory_rss"}' :text="l10n(`RSS memory`)" width="150"/>
 
-                <ext-column dataIndex="fs_total" :text="l10n(`FS total`, { domain: `vue-ext` })" width="120" @ready="_colReady"/>
+                <ext-column dataIndex="fs_total" :text="l10n(`FS total`)" width="120" @ready="_colReady"/>
 
-                <ext-column dataIndex="fs_used_text" sorter='{"property":"fsy_used"}' :text="l10n(`FS used`, { domain: `vue-ext` })" width="150"/>
+                <ext-column dataIndex="fs_used_text" sorter='{"property":"fsy_used"}' :text="l10n(`FS used`)" width="150"/>
 
                 <ext-column width="40" @ready="_actionColReady"/>
             </ext-grid>

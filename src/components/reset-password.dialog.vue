@@ -1,20 +1,20 @@
 <template>
-    <ext-dialog layout="vbox" minHeight="450" :title="l10n(`Password change`, { domain: `vue-ext` })" width="350" @destroy="_onDestroy" @ready="_ready">
+    <ext-dialog layout="vbox" minHeight="450" :title="l10n(`Password change`)" width="350" @destroy="_onDestroy" @ready="_ready">
         <ext-fieldpanel ref="form">
             <ext-hiddenfield name="token" :value="token"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`New password`, { domain: `vue-ext` })" name="password" :placeholder="l10n(`Enter new password`, { domain: `vue-ext` })" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`New password`)" name="password" :placeholder="l10n(`Enter new password`)" required="true" revealable="true"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Confirm new password`, { domain: `vue-ext` })" name="confirmedPassword" :placeholder="l10n(`Confirm new password`, { domain: `vue-ext` })" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Confirm new password`)" name="confirmedPassword" :placeholder="l10n(`Confirm new password`)" required="true" revealable="true"/>
 
             <ext-container layout="center">
-                <ext-button :text="l10n(`Generate random password`, { domain: `vue-ext` })" @tap="_generatePassword"/>
+                <ext-button :text="l10n(`Generate random password`)" @tap="_generatePassword"/>
             </ext-container>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-            <ext-button :text="l10n(`Cancel`, { domain: `vue-ext` })" ui="decline" @tap="close"/>
-            <ext-button :text="l10n(`Change password`, { domain: `vue-ext` })" ui="action" @tap="_submit"/>
+            <ext-button :text="l10n(`Cancel`)" ui="decline" @tap="close"/>
+            <ext-button :text="l10n(`Change password`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

@@ -2,17 +2,17 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="l10n(`Search roles`, { domain: `vue-ext` })" width="200" @change="_searchRoles"/>
+                <ext-searchfield :placeholder="l10n(`Search roles`)" width="200" @change="_searchRoles"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
         <template #data>
             <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_gridReady">
-                <ext-column cell='{"encodeHtml":false}' dataIndex="title_html" flex="1" sorter='{"property":"name"}' :text="l10n(`Role`, { domain: `vue-ext` })"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="title_html" flex="1" sorter='{"property":"name"}' :text="l10n(`Role`)"/>
 
-                <ext-column align="center" sorter='{"property":"enabled"}' :text="l10n(`Role enabled`, { domain: `vue-ext` })" width="160" @ready="_enabledColReady"/>
+                <ext-column align="center" sorter='{"property":"enabled"}' :text="l10n(`Role enabled`)" width="160" @ready="_enabledColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>

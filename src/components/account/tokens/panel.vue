@@ -2,23 +2,23 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-container :hidden="hideTitle" :html="l10n(`Access tokens`, { domain: `vue-ext` })"/>
-                <ext-searchfield :placeholder="l10n(`Search tokens by name`, { domain: `vue-ext` })" width="200" @change="search"/>
+                <ext-container :hidden="hideTitle" :html="l10n(`Access tokens`)"/>
+                <ext-searchfield :placeholder="l10n(`Search tokens by name`)" width="200" @change="search"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-plus" :text="l10n(`Create token`, { domain: `vue-ext` })" @tap="showCreateTokenDialog"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-plus" :text="l10n(`Create token`)" @tap="showCreateTokenDialog"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
         <template #data>
             <ext-grid layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
-                <ext-column dataIndex="name" flex="1" :text="l10n(`Token name`, { domain: `vue-ext` })"/>
+                <ext-column dataIndex="name" flex="1" :text="l10n(`Token name`)"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="l10n(`Last activity`, { domain: `vue-ext` })" width="150"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="l10n(`Last activity`)" width="150"/>
 
-                <ext-column dataIndex="created" formatter='date("dateStyle:short,timeStyle:short")' :text="l10n(`Creation date`, { domain: `vue-ext` })" width="150"/>
+                <ext-column dataIndex="created" formatter='date("dateStyle:short,timeStyle:short")' :text="l10n(`Creation date`)" width="150"/>
 
-                <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="l10n(`Access enabled`, { domain: `vue-ext` })" width="160" @ready="enabledColReady"/>
+                <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="l10n(`Access enabled`)" width="160" @ready="enabledColReady"/>
 
                 <ext-column width="80" @ready="actionColReady"/>
             </ext-grid>
@@ -94,7 +94,7 @@ export default {
                         // {
                         //     "xtype": "button",
                         //     "iconCls": "fa-solid fa-unlock-alt",
-                        //     "tooltip": this.l10n( "Edit token roles", { domain: `vue-ext` } ),
+                        //     "tooltip": this.l10n( "Edit token roles" ),
                         //     "handler": this.showTokenRolesDialog.bind( this ),
                         // },
                         {

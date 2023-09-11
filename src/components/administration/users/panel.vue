@@ -2,11 +2,11 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="l10n(`Search users`, { domain: `vue-ext` })" width="200" @change="search"/>
+                <ext-searchfield :placeholder="l10n(`Search users`)" width="200" @change="search"/>
                 <RolesButton :aclId="aclId" @change="_onRolesFilterChange"/>
                 <ext-spacer/>
-                <ext-button :disabled="!canCreateUser" iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="l10n(`Create user`, { domain: `vue-ext` })" @tap="showCreateUserDialog"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
+                <ext-button :disabled="!canCreateUser" iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="l10n(`Create user`)" @tap="showCreateUserDialog"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -14,15 +14,15 @@
             <ext-grid layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
                 <ext-column width="40" @ready="_avatarColReady"/>
 
-                <ext-column dataIndex="email" flex="1" :text="l10n(`Email`, { domain: `vue-ext` })" @ready="_emailColReady"/>
+                <ext-column dataIndex="email" flex="1" :text="l10n(`Email`)" @ready="_emailColReady"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="roles" flex="1" sortable="false" :text="l10n(`Roles`, { domain: `vue-ext` })" @ready="_rolesColReady"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="roles" flex="1" sortable="false" :text="l10n(`Roles`)" @ready="_rolesColReady"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" :hidden="lastActivityColumnHidden" sorter='{"property":"last_activity"}' :text="l10n(`Last activity`, { domain: `vue-ext` })" width="150"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" :hidden="lastActivityColumnHidden" sorter='{"property":"last_activity"}' :text="l10n(`Last activity`)" width="150"/>
 
-                <ext-column dataIndex="created" formatter="date()" :hidden="createdColumnHidden" :text="l10n(`Creation date`, { domain: `vue-ext` })" width="150"/>
+                <ext-column dataIndex="created" formatter="date()" :hidden="createdColumnHidden" :text="l10n(`Creation date`)" width="150"/>
 
-                <ext-column sorter='{"property":"enabled"}' :text="l10n(`Access enabled`, { domain: `vue-ext` })" width="160" @ready="_enabledColReady"/>
+                <ext-column sorter='{"property":"enabled"}' :text="l10n(`Access enabled`)" width="160" @ready="_enabledColReady"/>
 
                 <ext-column width="80" @ready="_actionColReady"/>
             </ext-grid>

@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog :height="height" layout="fit" scrollable="true" :title="l10n(`Administration`, { domain: `vue-ext` })" :width="width">
+    <ext-dialog :height="height" layout="fit" scrollable="true" :title="l10n(`Administration`)" :width="width">
         <AdministrationPanel :apiCallLogEnabled="apiCallLogEnabled">
             <template #tabs>
                 <slot name="tabs"/>

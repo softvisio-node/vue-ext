@@ -3,8 +3,8 @@
         <!-- device dart mode -->
         <ext-container layout='{"align":"start","type":"hbox"}'>
             <ext-container layout="vbox" width="260">
-                <ext-container :html="l10n(`Device dark mode`, { domain: `vue-ext` })" style="font-size: 1.3em"/>
-                <ext-container :html="l10n(`User your device dark mode settings`, { domain: `vue-ext` })"/>
+                <ext-container :html="l10n(`Device dark mode`)" style="font-size: 1.3em"/>
+                <ext-container :html="l10n(`User your device dark mode settings`)"/>
             </ext-container>
             <ext-container>
                 <DeviceDarkModeButton label=""/>
@@ -16,8 +16,8 @@
         <!-- dart mode -->
         <ext-container layout='{"align":"start","type":"hbox"}'>
             <ext-container layout="vbox" width="260">
-                <ext-container :html="l10n(`Dark mode`, { domain: `vue-ext` })" style="font-size: 1.3em"/>
-                <ext-container :html="l10n(`Toggle dark mode`, { domain: `vue-ext` })"/>
+                <ext-container :html="l10n(`Dark mode`)" style="font-size: 1.3em"/>
+                <ext-container :html="l10n(`Toggle dark mode`)"/>
             </ext-container>
             <ext-container>
                 <DarkModeButton :disabled="deviceDarkMode" :hideLabel="true"/>
@@ -29,8 +29,8 @@
         <!-- base color -->
         <ext-container layout='{"align":"start","type":"hbox"}'>
             <ext-container layout="vbox" width="260">
-                <ext-container :html="l10n(`Base color`, { domain: `vue-ext` })" style="font-size: 1.3em"/>
-                <ext-container :html="l10n(`Interface base color`, { domain: `vue-ext` })"/>
+                <ext-container :html="l10n(`Base color`)" style="font-size: 1.3em"/>
+                <ext-container :html="l10n(`Interface base color`)"/>
             </ext-container>
             <ext-container flex="1">
                 <ext-dataview inline="true" @childtap="themeBaseChanged" @ready="themesColorsViewReady"/>
@@ -42,8 +42,8 @@
         <!-- accent color -->
         <ext-container layout='{"align":"start","type":"hbox"}'>
             <ext-container layout="vbox" width="260">
-                <ext-container :html="l10n(`Accent color`, { domain: `vue-ext` })" style="font-size: 1.3em"/>
-                <ext-container :html="l10n(`Color for badges, etc.`, { domain: `vue-ext` })"/>
+                <ext-container :html="l10n(`Accent color`)" style="font-size: 1.3em"/>
+                <ext-container :html="l10n(`Color for badges, etc.`)"/>
             </ext-container>
             <ext-container flex="1">
                 <ext-componentdataview inline="true" @childtap="themeAccentChanged" @ready="themesColorsViewReady"/>

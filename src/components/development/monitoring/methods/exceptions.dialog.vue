@@ -3,21 +3,21 @@
         <CardsPanel ref="cardsPanel" :store="store" @refresh="refresh">
             <template #docked>
                 <ext-toolbar docked="top">
-                    <ext-button :disabled="!canDelete" iconCls="fa-solid fa-trash-alt" :text="l10n(`Clear log`, { domain: `vue-ext` })" @tap="_clearLog"/>
+                    <ext-button :disabled="!canDelete" iconCls="fa-solid fa-trash-alt" :text="l10n(`Clear log`)" @tap="_clearLog"/>
                     <ext-spacer/>
-                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
+                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
             </template>
 
             <template #data>
                 <ext-grid ref="grid" layout="fit" multicolumnSort="true" @ready="gridReady">
-                    <ext-column dataIndex="date" formatter='date("dateStyle:short,timeStyle:short")' :text="l10n(`Started`, { domain: `vue-ext` })" width="150"/>
+                    <ext-column dataIndex="date" formatter='date("dateStyle:short,timeStyle:short")' :text="l10n(`Started`)" width="150"/>
 
-                    <ext-column align="right" dataIndex="duration" sortable="false" :text="l10n(`Duration (ms)`, { domain: `vue-ext` })" width="150"/>
+                    <ext-column align="right" dataIndex="duration" sortable="false" :text="l10n(`Duration (ms)`)" width="150"/>
 
-                    <ext-column align="center" dataIndex="status" sortable="false" :text="l10n(`Status`, { domain: `vue-ext` })" width="100"/>
+                    <ext-column align="center" dataIndex="status" sortable="false" :text="l10n(`Status`)" width="100"/>
 
-                    <ext-column dataIndex="status_text" flex="1" sortable="false" :text="l10n(`Status text`, { domain: `vue-ext` })"/>
+                    <ext-column dataIndex="status_text" flex="1" sortable="false" :text="l10n(`Status text`)"/>
                 </ext-grid>
             </template>
         </CardsPanel>

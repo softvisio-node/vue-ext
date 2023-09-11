@@ -2,18 +2,18 @@
     <ext-panel layout="vbox" scrollable="true" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
-            <ext-container :html="l10n(`Password recovery`, { domain: `vue-ext` })"/>
+            <ext-container :html="l10n(`Password recovery`)"/>
             <ext-spacer/>
         </ext-toolbar>
 
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}'>
-            <ext-emailfield :errorTarget="errorTarget" :label="l10n(`Email address`, { domain: `vue-ext` })" name="email" :placeholder="l10n(`Enter your email address`, { domain: `vue-ext` })" required="true" validators="email"/>
+            <ext-emailfield :errorTarget="errorTarget" :label="l10n(`Email address`)" name="email" :placeholder="l10n(`Enter your email address`)" required="true" validators="email"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
-            <ext-button iconCls="fa-solid fa-arrow-left" :text="l10n(`Back`, { domain: `vue-ext` })" @tap="back"/>
+            <ext-button iconCls="fa-solid fa-arrow-left" :text="l10n(`Back`)" @tap="back"/>
             <ext-spacer/>
-            <ext-button :text="l10n(`Recover`, { domain: `vue-ext` })" ui="action" @tap="_submit"/>
+            <ext-button :text="l10n(`Recover`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
     </ext-panel>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="300" layout="fit" padding="0 5 5 5" :title="l10n(`Notifications`, { domain: `vue-ext` })" width="300" @ready="_ready">
+    <ext-dialog closeAction="hide" height="300" layout="fit" padding="0 5 5 5" :title="l10n(`Notifications`)" width="300" @ready="_ready">
         <NotificationsSubscribePanel ref="panel" :aclId="aclId"/>
     </ext-dialog>
 </template>

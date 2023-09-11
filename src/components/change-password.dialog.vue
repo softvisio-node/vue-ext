@@ -3,17 +3,17 @@
         <ext-container :html="header" style="text-align: center"/>
 
         <ext-fieldpanel ref="form" @ready="formReady">
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`New password`, { domain: `vue-ext` })" name="password" :placeholder="l10n(`Enter new password`, { domain: `vue-ext` })" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`New password`)" name="password" :placeholder="l10n(`Enter new password`)" required="true" revealable="true"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Confirm new password`, { domain: `vue-ext` })" name="confirmedPassword" :placeholder="l10n(`Confirm new password`, { domain: `vue-ext` })" required="true" revealable="true"/>
+            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Confirm new password`)" name="confirmedPassword" :placeholder="l10n(`Confirm new password`)" required="true" revealable="true"/>
         </ext-fieldpanel>
 
         <ext-container layout="center">
-            <ext-button :text="l10n(`Generate random password`, { domain: `vue-ext` })" @tap="_generatePassword"/>
+            <ext-button :text="l10n(`Generate random password`)" @tap="_generatePassword"/>
         </ext-container>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-\ <ext-button :text="l10n(`Change password`, { domain: `vue-ext` })" ui="action" @tap="submit"/>
+\ <ext-button :text="l10n(`Change password`)" ui="action" @tap="submit"/>
 </ext-toolbar>
     </ext-dialog>
 </template>

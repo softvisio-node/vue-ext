@@ -2,18 +2,18 @@
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="l10n(`Search for methods by name`, { domain: `vue-ext` })" width="200" @change="_search"/>
+                <ext-searchfield :placeholder="l10n(`Search for methods by name`)" width="200" @change="_search"/>
                 <ext-spacer width="20"/>
                 <ext-button ref="periodButton" @ready="_periodButtonReady"/>
                 <ext-spacer/>
-                <ext-togglefield :label="l10n(`Auto refresh`, { domain: `vue-ext` })" labelAlign="right" @change="autoRefreshChange"/>
-                <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
+                <ext-togglefield :label="l10n(`Auto refresh`)" labelAlign="right" @change="autoRefreshChange"/>
+                <ext-button ref="refreshButton" iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
 
-            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`Latest charts`, { domain: `vue-ext` })" width="400">
+            <ext-panel collapsed="true" collapsible="right" docked="right" layout="fit" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`Latest charts`)" width="400">
                 <CharstPanel ref="chartsPanel" period="1 hour" :record="selectedRecord">
                     <template #toolbar>
-                        <ext-button iconCls="fa-solid fa-expand" :text="l10n(`Open charts`, { domain: `vue-ext` })" @tap="showChartsDialog"/>
+                        <ext-button iconCls="fa-solid fa-expand" :text="l10n(`Open charts`)" @tap="showChartsDialog"/>
                     </template>
                 </CharstPanel>
             </ext-panel>
@@ -21,17 +21,17 @@
 
         <template #data>
             <ext-lockedgrid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
-                <!-- <ext-column dataIndex="id" flex="1" locked="left" minWidth="290" :text="l10n( `Method name`, { domain: `vue-ext` } )"/> -->
+                <!-- <ext-column dataIndex="id" flex="1" locked="left" minWidth="290" :text="l10n( `Method name` )"/> -->
 
-                <!-- <ext-column align="right" dataIndex="calls_text" sorter='{"property":"calls"}' :text="l10n( `Calls`, { domain: `vue-ext` } )" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="calls_text" sorter='{"property":"calls"}' :text="l10n( `Calls` )" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="l10n( `Duration / call (ms)`, { domain: `vue-ext` } )" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="duration_per_call_text" sorter='{"property":"duration_per_call"}' :text="l10n( `Duration / call (ms)` )" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="l10n( `Duration (%)`, { domain: `vue-ext` } )" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="duration_text" sorter='{"property":"duration_share"}' :text="l10n( `Duration (%)` )" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="l10n( `Exceptions`, { domain: `vue-ext` } )" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="exceptions_text" sorter='{"property":"exceptions"}' :text="l10n( `Exceptions` )" width="140"/> -->
 
-                <!-- <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="l10n( `Exceptions / call (%)`, { domain: `vue-ext` } )" width="140"/> -->
+                <!-- <ext-column align="right" dataIndex="exceptions_per_call_text" sorter='{"property":"exceptions_per_call"}' :text="l10n( `Exceptions / call (%)` )" width="140"/> -->
 
                 <!-- <ext-column locked="right" width="80" @ready="_actionColReady"/> -->
             </ext-lockedgrid>

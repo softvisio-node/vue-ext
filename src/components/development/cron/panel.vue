@@ -3,21 +3,21 @@
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
         <template #data>
             <ext-grid layout="fit" multicolumnSort="true" @ready="_gridReady">
-                <ext-column dataIndex="module" :text="l10n(`Module`, { domain: `vue-ext` })" width="150"/>
+                <ext-column dataIndex="module" :text="l10n(`Module`)" width="150"/>
 
-                <ext-column dataIndex="name" :text="l10n(`Name`, { domain: `vue-ext` })" width="150"/>
+                <ext-column dataIndex="name" :text="l10n(`Name`)" width="150"/>
 
-                <ext-column dataIndex="next_start" :text="l10n(`Next start`, { domain: `vue-ext` })" width="150" @ready="_dateColReady"/>
+                <ext-column dataIndex="next_start" :text="l10n(`Next start`)" width="150" @ready="_dateColReady"/>
 
-                <ext-column dataIndex="last_start" :text="l10n(`Last start`, { domain: `vue-ext` })" width="150" @ready="_dateColReady"/>
+                <ext-column dataIndex="last_start" :text="l10n(`Last start`)" width="150" @ready="_dateColReady"/>
 
-                <ext-column dataIndex="status_text" flex="1" sorter='{"property":"error"}' :text="l10n(`Error`, { domain: `vue-ext` })"/>
+                <ext-column dataIndex="status_text" flex="1" sorter='{"property":"error"}' :text="l10n(`Error`)"/>
             </ext-grid>
         </template>
     </CardsPanel>

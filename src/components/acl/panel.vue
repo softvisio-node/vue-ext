@@ -2,11 +2,11 @@
     <CardsPanel ref="cards" :store="store" viewModel="true" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="l10n(`Search users`, { domain: `vue-ext` })" width="200" @change="_searchUsers"/>
+                <ext-searchfield :placeholder="l10n(`Search users`)" width="200" @change="_searchUsers"/>
                 <RolesButton :aclId="aclId" @change="_onRolesFilterChange"/>
                 <ext-spacer/>
-                <ext-button bind='{"hidden":"{!permissions.create}"}' iconCls="fa-solid fa-plus" :text="l10n(`Add user`, { domain: `vue-ext` })" @tap="_showAddUserDialog"/>
-                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`, { domain: `vue-ext` })" @tap="refresh"/>
+                <ext-button bind='{"hidden":"{!permissions.create}"}' iconCls="fa-solid fa-plus" :text="l10n(`Add user`)" @tap="_showAddUserDialog"/>
+                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
 
@@ -14,11 +14,11 @@
             <ext-grid ref="grid" columnMenu="false" columnResize="false" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' viewModel="true" @ready="_ready">
                 <ext-column width="40" @ready="_avatarColReady"/>
 
-                <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="l10n(`Email`, { domain: `vue-ext` })"/>
+                <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="l10n(`Email`)"/>
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="roles" flex="1" sortable="false" :text="l10n(`Roles`, { domain: `vue-ext` })" @ready="_rolesColReady"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="roles" flex="1" sortable="false" :text="l10n(`Roles`)" @ready="_rolesColReady"/>
 
-                <ext-column sorter='{"property":"enabled"}' :text="l10n(`Access enabled`, { domain: `vue-ext` })" width="160" @ready="_enabledColReady"/>
+                <ext-column sorter='{"property":"enabled"}' :text="l10n(`Access enabled`)" width="160" @ready="_enabledColReady"/>
 
                 <ext-column width="80" @ready="_actionColReady"/>
             </ext-grid>

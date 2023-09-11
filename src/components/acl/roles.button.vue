@@ -1,5 +1,5 @@
 <template>
-    <ext-button ref="button" :text="l10n(`Roles filter`, { domain: `vue-ext` })" width="180" @ready="_ready"/>
+    <ext-button ref="button" :text="l10n(`Roles filter`)" width="180" @ready="_ready"/>
 </template>
 
 <script>
