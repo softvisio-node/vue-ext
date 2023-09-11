@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.30 (2023-09-11)
+
+Fixes:
+
+-   fix: locale domains
+
 ### 8.8.29 (2023-09-10)
 
 Fixes:
