@@ -206,7 +206,6 @@ export default {
 
             for ( const period of periods ) {
                 const text = this.l10n( msgid`${period} day`, {
-                    "domain": `vue-ext`,
                     "plural": msgid`${period} days`,
                     "pluralNumber": period,
                 } );
