@@ -485,7 +485,7 @@ msgstr ""
 msgid "Exceptions / call (%)"
 msgstr "Исключения / вызов (%)"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:246:39
+#: ../../src/components/development/monitoring/methods/panel.vue:243:39
 msgid "Exceptions log"
 msgstr "Журнал исключений"
 
@@ -566,7 +566,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../../src/components/telegram/bot/stats.panel.vue:33:16
+#: ../../src/components/telegram/bot/stats.panel.vue:31:16
 #, javascript-format
 msgid "Last month"
 msgid_plural "Last ${n} months"
@@ -582,7 +582,7 @@ msgstr ""
 msgid "Last start"
 msgstr "Последний старт"
 
-#: ../../src/components/telegram/bot/stats.panel.vue:39:16
+#: ../../src/components/telegram/bot/stats.panel.vue:35:16
 #, javascript-format
 msgid "Last year"
 msgid_plural "Last ${n} year"
@@ -699,7 +699,7 @@ msgstr ""
 #: ../../src/components/development/monitoring/instances/panel.vue:138:39
 #: ../../src/components/development/monitoring/instances/panel.vue:15:72
 #: ../../src/components/development/monitoring/methods/panel.vue:16:72
-#: ../../src/components/development/monitoring/methods/panel.vue:240:39
+#: ../../src/components/development/monitoring/methods/panel.vue:237:39
 msgid "Open charts"
 msgstr ""
 
@@ -755,10 +755,10 @@ msgstr "Токен восстановления пароля не найден"
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:213:61
-#: ../../src/components/development/monitoring/methods/panel.vue:309:49
-#: ../../src/components/telegram/bot/stats.panel.vue:107:25
-#: ../../src/components/telegram/bot/stats.panel.vue:121:28
+#: ../../src/components/development/monitoring/methods/panel.vue:210:61
+#: ../../src/components/development/monitoring/methods/panel.vue:306:49
+#: ../../src/components/telegram/bot/stats.panel.vue:101:25
+#: ../../src/components/telegram/bot/stats.panel.vue:115:28
 msgid "Period"
 msgstr "Период"
 
@@ -840,7 +840,7 @@ msgstr "Роль включена"
 msgid "Roles"
 msgstr "Роли"
 
-#: ../../src/components/acl/roles.button.vue:123:32
+#: ../../src/components/acl/roles.button.vue:120:32
 #: ../../src/components/acl/roles.button.vue:2:36
 msgid "Roles filter"
 msgstr "Фильтр ролей"
@@ -988,10 +988,10 @@ msgstr ""
 msgid "Stopped"
 msgstr ""
 
-#: ../../src/components/telegram/bot/stats.panel.vue:180:33
-#: ../../src/components/telegram/bot/stats.panel.vue:260:24
-#: ../../src/components/telegram/bot/stats.panel.vue:293:24
-#: ../../src/components/telegram/bot/stats.panel.vue:299:33
+#: ../../src/components/telegram/bot/stats.panel.vue:174:33
+#: ../../src/components/telegram/bot/stats.panel.vue:254:24
+#: ../../src/components/telegram/bot/stats.panel.vue:287:24
+#: ../../src/components/telegram/bot/stats.panel.vue:293:33
 #: ../../src/components/telegram/bots.panel.vue:15:136
 msgid "Subscribed users"
 msgstr ""
@@ -1059,13 +1059,13 @@ msgid "Total returned users"
 msgstr ""
 
 #: ../../src/components/telegram/bot/info.panel.vue:47:98
-#: ../../src/components/telegram/bot/stats.panel.vue:141:24
-#: ../../src/components/telegram/bot/stats.panel.vue:174:24
+#: ../../src/components/telegram/bot/stats.panel.vue:135:24
+#: ../../src/components/telegram/bot/stats.panel.vue:168:24
 msgid "Total subscribed users"
 msgstr ""
 
 #: ../../src/components/telegram/bot/info.panel.vue:48:100
-#: ../../src/components/telegram/bot/stats.panel.vue:198:24
+#: ../../src/components/telegram/bot/stats.panel.vue:192:24
 msgid "Total unsubscribed users"
 msgstr ""
 
@@ -1098,9 +1098,9 @@ msgstr "Не удалось загрузить данные"
 msgid "Unlink Telegram"
 msgstr "Отвязать Telegram"
 
-#: ../../src/components/telegram/bot/stats.panel.vue:204:33
-#: ../../src/components/telegram/bot/stats.panel.vue:317:24
-#: ../../src/components/telegram/bot/stats.panel.vue:323:33
+#: ../../src/components/telegram/bot/stats.panel.vue:198:33
+#: ../../src/components/telegram/bot/stats.panel.vue:311:24
+#: ../../src/components/telegram/bot/stats.panel.vue:317:33
 msgid "Unsubscribed users"
 msgstr ""
 
