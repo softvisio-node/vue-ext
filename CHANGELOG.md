@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.32 (2023-09-11)
+
+Fixes:
+
+-   fix: l10n domain removed
+
 ### 8.8.31 (2023-09-11)
 
 Fixes:
