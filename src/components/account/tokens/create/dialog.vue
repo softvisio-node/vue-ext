@@ -68,7 +68,7 @@ export default {
                 this.$refs.submit.ext.setHidden( true );
                 this.$refs.close.ext.setHidden( false );
 
-                this.$utils.toast( this.l10n( "Token created", { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( "Token created" ) );
 
                 this.$emit( "created" );
             }
@@ -80,7 +80,7 @@ export default {
         copyToClipboard () {
             this.$utils.copyToClipboard( this.$refs.token.ext.getValue() );
 
-            this.$utils.toast( this.l10n( "Token copied to the clipboard", { "domain": `vue-ext` } ) );
+            this.$utils.toast( this.l10n( "Token copied to the clipboard" ) );
         },
     },
 };

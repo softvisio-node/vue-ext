@@ -135,7 +135,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
-                            "tooltip": this.l10n( `Open charts`, { "domain": `vue-ext` } ),
+                            "tooltip": this.l10n( `Open charts` ),
                             "handler": this.showChartsDialog.bind( this, "row" ),
                         },
                     ],

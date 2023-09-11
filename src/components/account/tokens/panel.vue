@@ -149,7 +149,7 @@ export default {
             else {
                 record.commit();
 
-                this.$utils.toast( enabled ? this.l10n( `Access enabled`, { "domain": `vue-ext` } ) : this.l10n( `Access disabled`, { "domain": `vue-ext` } ) );
+                this.$utils.toast( enabled ? this.l10n( `Access enabled` ) : this.l10n( `Access disabled` ) );
             }
 
             button.enable();
@@ -159,12 +159,12 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this token?", { "domain": `vue-ext` } ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this token?" ) ) ) ) return;
 
             var res = await this.$api.call( "account/tokens/delete", record.getId() );
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Token deleted", { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( "Token deleted" ) );
 
                 this.store.remove( record );
             }

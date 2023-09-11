@@ -97,7 +97,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10n( `CPU usage`, { "domain": `vue-ext` } ),
+                "text": this.l10n( `CPU usage` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -132,13 +132,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10n( `CPU usage`, { "domain": `vue-ext` } ),
+                "name": this.l10n( `CPU usage` ),
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
                 "valueYField": "cpu_usage",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10n( `CPU usage`, { "domain": `vue-ext` } ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10n( `CPU usage` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -202,7 +202,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10n( `Used memory (MB)`, { "domain": `vue-ext` } ),
+                "text": this.l10n( `Used memory (MB)` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -247,13 +247,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10n( `Used memory (MB)`, { "domain": `vue-ext` } ),
+                "name": this.l10n( `Used memory (MB)` ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "memory_used",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10n( `Used memory`, { "domain": `vue-ext` } ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10n( `Used memory` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -279,13 +279,13 @@ export default {
 
             // serie 2
             const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10n( `Used memory (%)`, { "domain": `vue-ext` } ),
+                "name": this.l10n( `Used memory (%)` ),
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
                 "valueYField": "memory_used_percent",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10n( `Used memory`, { "domain": `vue-ext` } ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10n( `Used memory` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "connect": true,
@@ -347,7 +347,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10n( `RSS memory (MB)`, { "domain": `vue-ext` } ),
+                "text": this.l10n( `RSS memory (MB)` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -392,13 +392,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10n( `RSS memory (MB)`, { "domain": `vue-ext` } ),
+                "name": this.l10n( `RSS memory (MB)` ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "memory_rss",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10n( `RSS memory`, { "domain": `vue-ext` } ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10n( `RSS memory` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -424,13 +424,13 @@ export default {
 
             // serie 2
             const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10n( `RSS memory (%)`, { "domain": `vue-ext` } ),
+                "name": this.l10n( `RSS memory (%)` ),
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
                 "valueYField": "memory_rss_percent",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10n( `RSS memory`, { "domain": `vue-ext` } ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10n( `RSS memory` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "connect": true,
@@ -492,7 +492,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": this.l10n( `FS used (MB)`, { "domain": `vue-ext` } ),
+                "text": this.l10n( `FS used (MB)` ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -537,13 +537,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.SmoothedXLineSeries.new( root, {
-                "name": this.l10n( `FS used (MB)`, { "domain": `vue-ext` } ),
+                "name": this.l10n( `FS used (MB)` ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "fs_used",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10n( `FS used`, { "domain": `vue-ext` } ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10n( `FS used` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -569,13 +569,13 @@ export default {
 
             // serie 2
             const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": this.l10n( `FS used (%)`, { "domain": `vue-ext` } ),
+                "name": this.l10n( `FS used (%)` ),
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
                 "valueYField": "fs_used_percent",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": this.l10n( `FS used`, { "domain": `vue-ext` } ) + ": {valueY.formatNumber()}",
+                    "labelText": this.l10n( `FS used` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "connect": true,

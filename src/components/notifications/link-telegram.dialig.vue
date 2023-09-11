@@ -37,7 +37,7 @@ export default {
         _copyTelegramLink () {
             this.$utils.copyToClipboard( this.linkTelegramBotUrl );
 
-            this.$utils.toast( this.l10n( "Telegram link copied to the clipboard", { "domain": `vue-ext` } ) );
+            this.$utils.toast( this.l10n( "Telegram link copied to the clipboard" ) );
         },
     },
 };

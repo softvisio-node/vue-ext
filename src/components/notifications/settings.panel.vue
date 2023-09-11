@@ -120,10 +120,10 @@ export default {
             this.linkedTelegramUsername = linkedTelegramUsername;
 
             if ( linkedTelegramUsername ) {
-                this.$utils.toast( this.l10n( `Telegram linked`, { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( `Telegram linked` ) );
             }
             else {
-                this.$utils.toast( this.l10n( `Telegram unlinked`, { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( `Telegram unlinked` ) );
             }
         };
 

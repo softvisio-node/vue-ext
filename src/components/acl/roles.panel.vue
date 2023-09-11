@@ -150,7 +150,7 @@ export default {
             }
 
             if ( res.ok ) {
-                this.$utils.toast( enabled ? this.l10n( `Role enabled`, { "domain": `vue-ext` } ) : this.l10n( `Role disabled`, { "domain": `vue-ext` } ) );
+                this.$utils.toast( enabled ? this.l10n( `Role enabled` ) : this.l10n( `Role disabled` ) );
 
                 this.$emit( "update", this.getEnabledRoles() );
             }

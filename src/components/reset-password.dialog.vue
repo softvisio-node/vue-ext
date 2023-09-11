@@ -50,7 +50,7 @@ export default {
             this.ext = e.detail.cmp;
 
             if ( !this.token ) {
-                this.$utils.toast( this.l10n( "Password recovery token was not found", { "domain": `vue-ext` } ), 5000 );
+                this.$utils.toast( this.l10n( "Password recovery token was not found" ), 5000 );
 
                 this.close();
             }
@@ -91,7 +91,7 @@ export default {
             form.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Password changed", { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( "Password changed" ) );
 
                 this.close();
             }
@@ -105,7 +105,7 @@ export default {
 
             this.$utils.copyToClipboard( password );
 
-            this.$utils.toast( this.l10n( `Password copied to the clipboard`, { "domain": `vue-ext` } ) );
+            this.$utils.toast( this.l10n( `Password copied to the clipboard` ) );
 
             this.$refs.form.ext.getFields( "password" ).setValue( password );
             this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );

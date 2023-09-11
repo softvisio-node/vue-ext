@@ -81,7 +81,7 @@ export default {
 
             this.$utils.copyToClipboard( password );
 
-            this.$utils.toast( this.l10n( `Password copied to the clipboard`, { "domain": `vue-ext` } ) );
+            this.$utils.toast( this.l10n( `Password copied to the clipboard` ) );
 
             this.$refs.form.ext.getFields( "password" ).setValue( password );
             this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );
@@ -91,7 +91,7 @@ export default {
             const form = this.$refs.form.ext;
 
             if ( !form.validate() ) {
-                this.$utils.toast( this.l10n( `Please, correctly fill all required fields`, { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( `Please, correctly fill all required fields` ) );
 
                 return;
             }

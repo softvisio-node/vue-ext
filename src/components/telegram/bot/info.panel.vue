@@ -172,7 +172,7 @@ export default {
         },
 
         async _deleteBot ( e ) {
-            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this bot and all it's data? This operation is not revertable.", { "domain": `vue-ext` } ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this bot and all it's data? This operation is not revertable." ) ) ) ) return;
 
             const record = this.record,
                 button = e.detail.sender;
@@ -194,7 +194,7 @@ export default {
         _copyBotUrl () {
             this.$utils.copyToClipboard( this.record.get( "url" ) );
 
-            this.$utils.toast( this.l10n( "Telegram link copied to the clipboard", { "domain": `vue-ext` } ) );
+            this.$utils.toast( this.l10n( "Telegram link copied to the clipboard" ) );
         },
 
         _openBotUrl () {

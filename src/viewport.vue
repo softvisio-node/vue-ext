@@ -69,7 +69,7 @@ export default {
             if ( token ) token = token[1];
 
             if ( !token ) {
-                this.$utils.toast( this.l10n( "Email confirmation token is invalid", { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( "Email confirmation token is invalid" ) );
             }
             else {
                 Ext.Viewport.mask();
@@ -79,7 +79,7 @@ export default {
                 Ext.Viewport.unmask();
 
                 if ( res.ok ) {
-                    this.$utils.toast( this.l10n( "Email confirmed successfully", { "domain": `vue-ext` } ) );
+                    this.$utils.toast( this.l10n( "Email confirmed successfully" ) );
                 }
                 else {
                     this.$utils.toast( res );

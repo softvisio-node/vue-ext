@@ -38,7 +38,7 @@ export default {
 
     "computed": {
         title () {
-            return this.l10n( `Your sessions`, { "domain": `vue-ext` } );
+            return this.l10n( `Your sessions` );
         },
     },
 
@@ -73,7 +73,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-sign-out-alt",
-                            "tooltip": this.l10n( "Sign out", { "domain": `vue-ext` } ),
+                            "tooltip": this.l10n( "Sign out" ),
                             "handler": this._signOutSession.bind( this ),
                             "bind": { "hidden": "{record.current_session}" },
                         },
@@ -92,7 +92,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Session was deleted", { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( "Session was deleted" ) );
 
                 this.store.remove( record );
             }
@@ -114,7 +114,7 @@ export default {
                 this.$utils.toast( res );
             }
             else {
-                this.$utils.toast( this.l10n( "Sessions were deleted", { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( "Sessions were deleted" ) );
 
                 this.refresh();
             }

@@ -32,7 +32,7 @@ export default {
 
     "computed": {
         title () {
-            return this.l10n( `Password change`, { "domain": `vue-ext` } );
+            return this.l10n( `Password change` );
         },
     },
 
@@ -72,7 +72,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Password changed", { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( "Password changed" ) );
 
                 this.ext.close();
             }
@@ -90,7 +90,7 @@ export default {
 
             this.$utils.copyToClipboard( password );
 
-            this.$utils.toast( this.l10n( `Password copied to the clipboard`, { "domain": `vue-ext` } ) );
+            this.$utils.toast( this.l10n( `Password copied to the clipboard` ) );
 
             this.$refs.form.ext.getFields( "password" ).setValue( password );
             this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );

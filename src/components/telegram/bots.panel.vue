@@ -81,7 +81,7 @@ export default {
                             "xtype": "button",
 
                             // "iconCls": "fa-solid fa-users",
-                            "text": this.l10n( "Open bot", { "domain": `vue-ext` } ),
+                            "text": this.l10n( "Open bot" ),
                             "handler": this._showBotDialog.bind( this ),
                         },
                     ],

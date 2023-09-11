@@ -56,7 +56,7 @@ export default {
 
         async _addUser () {
             if ( !this.$refs.addUserCombo.ext.validate() ) {
-                this.$utils.toast( this.l10n( `Please, correctly fill all required fields`, { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( `Please, correctly fill all required fields` ) );
 
                 return;
             }
@@ -67,7 +67,7 @@ export default {
             } );
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( `User added`, { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( `User added` ) );
 
                 this.$emit( "add" );
 

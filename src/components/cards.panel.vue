@@ -62,7 +62,7 @@ export default {
 
     "computed": {
         noDataMessageText () {
-            return this.noDataMessage || this.l10n( `No data match search criteria`, { "domain": `vue-ext` } );
+            return this.noDataMessage || this.l10n( `No data match search criteria` );
         },
     },
 

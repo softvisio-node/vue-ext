@@ -76,7 +76,7 @@ export default {
             const form = this.$refs.form.ext;
 
             if ( !form.validate() ) {
-                this.$utils.toast( this.l10n( `Please, correctly fill all required fields`, { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( `Please, correctly fill all required fields` ) );
 
                 return;
             }

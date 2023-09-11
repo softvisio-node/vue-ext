@@ -33,7 +33,7 @@ export default {
                 return "";
             }
             else {
-                return this.l10n( `Receive push notifications`, { "domain": `vue-ext` } );
+                return this.l10n( `Receive push notifications` );
             }
         },
 

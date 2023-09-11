@@ -23,7 +23,7 @@ import loadMask from "#src/load-mask";
 export default {
     "computed": {
         title () {
-            return this.l10n( `Email change`, { "domain": `vue-ext` } );
+            return this.l10n( `Email change` );
         },
     },
 
@@ -63,7 +63,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Change email token was sent to the new email address", { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( "Change email token was sent to the new email address" ) );
 
                 form.getFields( "email" ).setReadOnly( true );
                 form.getFields( "token" ).show();
@@ -90,7 +90,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Email address changed", { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( "Email address changed" ) );
 
                 this.ext.close();
             }

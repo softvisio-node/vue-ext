@@ -25,7 +25,7 @@ export default {
 
     "computed": {
         label () {
-            return this.l10n( `Use device dark mode`, { "domain": `vue-ext` } );
+            return this.l10n( `Use device dark mode` );
         },
 
         darkMode () {

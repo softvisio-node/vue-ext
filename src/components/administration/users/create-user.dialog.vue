@@ -69,7 +69,7 @@ export default {
 
             this.$utils.copyToClipboard( password );
 
-            this.$utils.toast( this.l10n( `Password copied to the clipboard`, { "domain": `vue-ext` } ) );
+            this.$utils.toast( this.l10n( `Password copied to the clipboard` ) );
 
             this.$refs.form.ext.getFields( "password" ).setValue( password );
             this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );
@@ -96,7 +96,7 @@ export default {
             const res = await this.$api.call( "administration/users/create", email, values, this.$refs.rolesPanel.getEnabledRoles() );
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "User created", { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( "User created" ) );
 
                 this.$emit( "created" );
 

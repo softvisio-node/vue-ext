@@ -26,8 +26,8 @@ export default {
                 {
                     "xtype": "button",
                     "iconCls": "fa-solid fa-cog",
-                    "text": this.l10n( `Settings`, { "domain": `vue-ext` } ),
-                    "tooltip": this.l10n( `Notifications settings`, { "domain": `vue-ext` } ),
+                    "text": this.l10n( `Settings` ),
+                    "tooltip": this.l10n( `Notifications settings` ),
                     "handler": this.showNotificationsSettingsDialog.bind( this ),
                 },
             ] );

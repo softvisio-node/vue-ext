@@ -31,7 +31,7 @@ export default {
 
     "computed": {
         _title () {
-            return this.title || this.l10n( `Telegram bots`, { "domain": `vue-ext` } );
+            return this.title || this.l10n( `Telegram bots` );
         },
     },
 };

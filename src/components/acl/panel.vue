@@ -258,7 +258,7 @@ export default {
             else {
                 record.commit();
 
-                this.$utils.toast( enabled ? this.l10n( `Access enabled`, { "domain": `vue-ext` } ) : this.l10n( `Access disabled`, { "domain": `vue-ext` } ) );
+                this.$utils.toast( enabled ? this.l10n( `Access enabled` ) : this.l10n( `Access disabled` ) );
             }
 
             button.enable();
@@ -267,7 +267,7 @@ export default {
         async _deleteAclUser ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete user?", { "domain": `vue-ext` } ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete user?" ) ) ) ) return;
 
             button.disable();
 
@@ -276,7 +276,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "User deleted", { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( "User deleted" ) );
 
                 this.store.remove( record );
             }

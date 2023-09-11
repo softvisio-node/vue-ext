@@ -69,7 +69,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Authorized", { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( "Authorized" ) );
 
                 this._resolve( true );
 

@@ -84,7 +84,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( `Confirmation email sent`, { "domain": `vue-ext` } ) );
+                this.$utils.toast( this.l10n( `Confirmation email sent` ) );
             }
             else {
                 this.$utils.toast( res );

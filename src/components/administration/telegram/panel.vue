@@ -80,13 +80,13 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-users",
-                            "tooltip": this.l10n( "Edit users", { "domain": `vue-ext` } ),
+                            "tooltip": this.l10n( "Edit users" ),
                             "handler": this._showAclDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-circle-play",
-                            "text": this.l10n( "Start", { "domain": `vue-ext` } ),
+                            "text": this.l10n( "Start" ),
                             "handler": this._startBot.bind( this ),
                             "bind": { "hidden": "{record.started}" },
                             "disabled": !this.canUpdate,
@@ -95,7 +95,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-circle-stop",
-                            "text": this.l10n( "Stop", { "domain": `vue-ext` } ),
+                            "text": this.l10n( "Stop" ),
                             "handler": this._stopBot.bind( this ),
                             "bind": { "hidden": "{!record.started}" },
                             "disabled": !this.canUpdate,
@@ -103,7 +103,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-ellipsis-v",
-                            "tooltip": this.l10n( "Actions", { "domain": `vue-ext` } ),
+                            "tooltip": this.l10n( "Actions" ),
                             "arrow": false,
                             "menu": {
                                 "defaults": {
@@ -112,7 +112,7 @@ export default {
                                 "items": [
                                     {
                                         "iconCls": "fa-solid fa-trash-alt",
-                                        "text": this.l10n( "Delete bot", { "domain": `vue-ext` } ),
+                                        "text": this.l10n( "Delete bot" ),
                                         "handler": this._deleteBot.bind( this ),
                                         "disabled": !this.canDelete,
                                     },
@@ -178,7 +178,7 @@ export default {
         },
 
         async _deleteBot ( button ) {
-            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this bot and all it's data? This operation is not revertable.", { "domain": `vue-ext` } ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this bot and all it's data? This operation is not revertable." ) ) ) ) return;
 
             const record = button.up( "gridrow" ).getRecord();
 
