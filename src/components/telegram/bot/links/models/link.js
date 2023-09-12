@@ -1,3 +1,5 @@
+import app from "#app";
+
 export default Ext.define( "", {
     "extend": "Ext.data.Model",
 
@@ -22,5 +24,12 @@ export default Ext.define( "", {
         "total_unsubscribed_users",
         "total_returned_users",
         "total_banned_users",
+
+        // calculated
+        { "name": "total_subscribed_users_percent", "calculate": data => app.locale.formatNumber( data.total_subscribed_users / data.total_users ) },
+
+        { "name": "total_subscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_subscribed_users_percent ) },
+
+        { "name": "total_subscribed_users_text", "calculate": data => `${data.total_subscribed_users} (${data.total_subscribed_users_percent_text})` },
     ],
 } );
