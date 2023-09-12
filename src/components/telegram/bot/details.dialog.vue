@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="80%" layout="vbox" :title="l10n(`Edit bot details`)" width="80%" @ready="_ready">
+    <ext-dialog height="90%" layout="vbox" :title="l10n(`Edit bot details`)" width="700" @ready="_ready">
         <ext-formpanel ref="formPanel" flex="1" layout="vbox" modelValidation="true" trackResetOnLoad="true">
             <ext-textfield :label="l10n(`Bot name`)" labelAlign="top" maxLength="64" name="name"/>
 
