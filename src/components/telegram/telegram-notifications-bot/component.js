@@ -1,5 +1,5 @@
 import app from "#app";
-import TelegramBotComponent from "#src/telegram/bot/component";
+import TelegramBotComponent from "#src/components/telegram/bot/component";
 
 class Component extends TelegramBotComponent {
 
