@@ -1,5 +1,5 @@
 import app from "#app";
-import telegramRegistry from "#src/components/telegram/registry";
+import TelegramBotComponent from "#src/components/telegram/bot/component";
 
 export default Ext.define( "", {
     "extend": "Ext.data.Model",
@@ -37,7 +37,7 @@ export default Ext.define( "", {
         "error_text",
 
         // calculated
-        { "name": "type_name", "calculate": data => telegramRegistry.getBotType( data.type )?.name },
+        { "name": "type_name", "calculate": data => TelegramBotComponent.get( data.type )?.name },
 
         { "name": "can_update", "calculate": data => data.acl_user_permissions.has( "telegram/bot:update" ) },
         { "name": "can_update_acl", "calculate": data => data.acl_user_permissions.has( "acl:update" ) },

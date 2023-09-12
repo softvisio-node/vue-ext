@@ -1,8 +1,16 @@
-import telegramRegistry from "#src/components/telegram/registry";
+const REGISTRY = {};
 
 export default class TelegramBotComponent {
     constructor () {
-        telegramRegistry.registerBotType( this );
+        if ( REGISTRY[this.type] ) {
+            throw Error( `Telegram bot type ${this.type} already registered` );
+        }
+
+        REGISTRY[this.type] = this;
+    }
+
+    static get ( type ) {
+        return REGISTRY[type];
     }
 
     // propertirs
