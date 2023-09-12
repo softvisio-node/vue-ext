@@ -2,8 +2,8 @@ class TelegramRegistry {
     #botTypes = {};
 
     // public
-    registerBotType ( type, spec ) {
-        this.#botTypes[type] = spec;
+    registerBotType ( component ) {
+        this.#botTypes[component.type] = component;
     }
 
     getBotType ( type ) {

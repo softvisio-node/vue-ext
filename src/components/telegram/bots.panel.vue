@@ -30,7 +30,7 @@ import telegramRegistry from "#src/components/telegram/registry";
 import BotDialog from "#src/components/telegram/bot/dialog";
 
 // XXX
-import "#src/components/telegram/telegram-notifications-bot/index";
+import "#src/components/telegram/telegram-notifications-bot/component";
 
 export default {
     "components": { CardsPanel },
@@ -107,7 +107,7 @@ export default {
 
         async _showBotDialog ( button ) {
             const record = button.up( "gridrow" ).getRecord(),
-                panel = telegramRegistry.getBotType( record.get( "type" ) );
+                panel = telegramRegistry.getBotType( record.get( "type" ) ).panel;
 
             const cmp = await this.$mount( BotDialog, {
                 "props": {
