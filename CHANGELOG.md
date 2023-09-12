@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.8.33 (2023-09-12)
+
+Fixes:
+
+-   fix: mount promise
+-   fix: telegram
+-   fix: vue $toast
+
 ### 8.8.32 (2023-09-11)
 
 Fixes:
