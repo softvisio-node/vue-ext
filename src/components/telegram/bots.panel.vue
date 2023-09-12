@@ -10,7 +10,8 @@
 
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
-                <ext-column cell='{"encodeHtml":false}' dataIndex="name_html" flex="1" sorter='{"property":"name"}' :text="l10n(`Name`)"/>
+                <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
+                <ext-column dataIndex="telegram_username" flex="1" :text="l10n(`Telegram username`)"/>
 
                 <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="200"/>
 

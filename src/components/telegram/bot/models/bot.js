@@ -36,8 +36,6 @@ export default Ext.define( "", {
         "error_text",
 
         // calculated
-        { "name": "name_html", "calculate": data => `<b>${data.name}</b><br/>@${data.telegram_username}` },
-
         { "name": "can_update", "calculate": data => data.acl_user_permissions.has( "telegram/bot:update" ) },
         { "name": "can_update_acl", "calculate": data => data.acl_user_permissions.has( "acl:update" ) },
         { "name": "can_delete", "calculate": data => !data.static && data.acl_user_permissions.has( "telegram/bot:delete" ) },
