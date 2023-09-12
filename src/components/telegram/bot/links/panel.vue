@@ -52,8 +52,8 @@ export default {
             "model": TelegramBotLinkModel,
             "autoLoad": false,
             "pageSize": 50,
-            "filter": {
-                "property": "bot_id",
+            "filters": {
+                "property": "telegram_bot_id",
                 "operator": "=",
                 "value": this.telegramBotId,
             },

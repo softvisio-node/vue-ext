@@ -3,7 +3,7 @@ export default Ext.define( "", {
 
     "proxy": {
         "api": {
-            "read": "telegram/bots/lunks/read",
+            "read": "telegram/bots/links/read",
         },
     },
 
