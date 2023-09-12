@@ -110,7 +110,7 @@ export default {
 
                 button.setValue( currentValue );
 
-                this.$utils.toast( res );
+                this.$toast( res );
             }
             else {
                 for ( const channel of Object.values( record.get( "channels" ) ) ) {

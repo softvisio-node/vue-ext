@@ -58,7 +58,7 @@ export default {
             this.$refs.cards.setResult( res );
 
             if ( !res.ok ) {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
             else {
                 const record = new AccountModel( res.data );
@@ -84,10 +84,10 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( `Confirmation email sent` ) );
+                this.$toast( this.l10n( `Confirmation email sent` ) );
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
 

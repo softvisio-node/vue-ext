@@ -63,7 +63,7 @@ export default {
             if ( !res.ok ) {
                 this.$refs.cards.setResult( res );
 
-                this.$utils.toast( res );
+                this.$toast( res );
             }
             else {
                 this.store.loadRawData( res.data );
@@ -150,7 +150,7 @@ export default {
             }
 
             if ( res.ok ) {
-                this.$utils.toast( enabled ? this.l10n( `Role enabled` ) : this.l10n( `Role disabled` ) );
+                this.$toast( enabled ? this.l10n( `Role enabled` ) : this.l10n( `Role disabled` ) );
 
                 this.$emit( "update", this.getEnabledRoles() );
             }
@@ -159,7 +159,7 @@ export default {
 
                 record.set( "enabled", !enabled );
 
-                this.$utils.toast( res );
+                this.$toast( res );
             }
 
             button.enable();

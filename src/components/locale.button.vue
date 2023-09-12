@@ -63,7 +63,7 @@ export default {
             menu.unmask();
 
             if ( !res.ok ) {
-                this.$utils.toast( res );
+                this.$toast( res );
 
                 // revert locale
                 menu.getItems().each( item => {

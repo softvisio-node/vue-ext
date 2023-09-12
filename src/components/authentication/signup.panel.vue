@@ -81,7 +81,7 @@ export default {
 
             this.$utils.copyToClipboard( password );
 
-            this.$utils.toast( this.l10n( `Password copied to the clipboard` ) );
+            this.$toast( this.l10n( `Password copied to the clipboard` ) );
 
             this.$refs.form.ext.getFields( "password" ).setValue( password );
             this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );
@@ -91,7 +91,7 @@ export default {
             const form = this.$refs.form.ext;
 
             if ( !form.validate() ) {
-                this.$utils.toast( this.l10n( `Please, correctly fill all required fields` ) );
+                this.$toast( this.l10n( `Please, correctly fill all required fields` ) );
 
                 return;
             }
@@ -128,14 +128,14 @@ export default {
 
                 Ext.Viewport.unmask();
 
-                this.$utils.toast( res, 5000 );
+                this.$toast( res, 5000 );
 
                 this.back();
             }
             else {
                 Ext.Viewport.unmask();
 
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
     },

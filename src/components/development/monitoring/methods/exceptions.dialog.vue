@@ -87,7 +87,7 @@ export default {
                 this.store.removeAll();
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
     },

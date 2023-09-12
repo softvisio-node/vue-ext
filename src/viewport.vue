@@ -69,7 +69,7 @@ export default {
             if ( token ) token = token[1];
 
             if ( !token ) {
-                this.$utils.toast( this.l10n( "Email confirmation token is invalid" ) );
+                this.$toast( this.l10n( "Email confirmation token is invalid" ) );
             }
             else {
                 Ext.Viewport.mask();
@@ -79,10 +79,10 @@ export default {
                 Ext.Viewport.unmask();
 
                 if ( res.ok ) {
-                    this.$utils.toast( this.l10n( "Email confirmed successfully" ) );
+                    this.$toast( this.l10n( "Email confirmed successfully" ) );
                 }
                 else {
-                    this.$utils.toast( res );
+                    this.$toast( res );
                 }
             }
 

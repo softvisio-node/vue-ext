@@ -56,7 +56,7 @@ export default {
 
         async _addUser () {
             if ( !this.$refs.addUserCombo.ext.validate() ) {
-                this.$utils.toast( this.l10n( `Please, correctly fill all required fields` ) );
+                this.$toast( this.l10n( `Please, correctly fill all required fields` ) );
 
                 return;
             }
@@ -67,14 +67,14 @@ export default {
             } );
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( `User added` ) );
+                this.$toast( this.l10n( `User added` ) );
 
                 this.$emit( "add" );
 
                 this.ext.close();
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
     },

@@ -154,7 +154,7 @@ export default {
                 record.set( "error_text", null );
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
                 record.set( "error", true );
                 record.set( "error_text", res.statusText );
             }
@@ -173,7 +173,7 @@ export default {
                 record.set( "started", false );
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
 
@@ -192,7 +192,7 @@ export default {
                 this.refresh();
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
 

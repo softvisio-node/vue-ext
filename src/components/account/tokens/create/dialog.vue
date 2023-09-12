@@ -68,19 +68,19 @@ export default {
                 this.$refs.submit.ext.setHidden( true );
                 this.$refs.close.ext.setHidden( false );
 
-                this.$utils.toast( this.l10n( "Token created" ) );
+                this.$toast( this.l10n( "Token created" ) );
 
                 this.$emit( "created" );
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
 
         copyToClipboard () {
             this.$utils.copyToClipboard( this.$refs.token.ext.getValue() );
 
-            this.$utils.toast( this.l10n( "Token copied to the clipboard" ) );
+            this.$toast( this.l10n( "Token copied to the clipboard" ) );
         },
     },
 };

@@ -65,14 +65,14 @@ export default {
 
                 button.setValue( !value );
 
-                this.$utils.toast( res );
+                this.$toast( res );
             }
             else {
                 if ( value ) {
-                    this.$utils.toast( this.l10n( "Push notifications enabled" ) );
+                    this.$toast( this.l10n( "Push notifications enabled" ) );
                 }
                 else {
-                    this.$utils.toast( this.l10n( "Push notifications disabled" ) );
+                    this.$toast( this.l10n( "Push notifications disabled" ) );
                 }
             }
 

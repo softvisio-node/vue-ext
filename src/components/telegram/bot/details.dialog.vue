@@ -62,7 +62,7 @@ export default {
                 this.ext.close();
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
     },

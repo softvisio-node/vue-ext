@@ -76,7 +76,7 @@ export default {
             const form = this.$refs.form.ext;
 
             if ( !form.validate() ) {
-                this.$utils.toast( this.l10n( `Please, correctly fill all required fields` ) );
+                this.$toast( this.l10n( `Please, correctly fill all required fields` ) );
 
                 return;
             }
@@ -98,7 +98,7 @@ export default {
             if ( !res.ok ) {
                 Ext.Viewport.unmask();
 
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
     },

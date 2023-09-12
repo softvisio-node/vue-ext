@@ -120,10 +120,10 @@ export default {
             this.linkedTelegramUsername = linkedTelegramUsername;
 
             if ( linkedTelegramUsername ) {
-                this.$utils.toast( this.l10n( `Telegram linked` ) );
+                this.$toast( this.l10n( `Telegram linked` ) );
             }
             else {
-                this.$utils.toast( this.l10n( `Telegram unlinked` ) );
+                this.$toast( this.l10n( `Telegram unlinked` ) );
             }
         };
 
@@ -242,7 +242,7 @@ export default {
                 await new Promise( resolve => setTimeout( resolve, 500 ) );
                 button.setValue( currentValue );
 
-                this.$utils.toast( res );
+                this.$toast( res );
             }
             else {
                 button.setValue( newValue );
@@ -266,7 +266,7 @@ export default {
             const res = await this.$api.call( "account/notifications/get-telegram-link-url" );
 
             if ( !res.ok ) {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
             else {
                 if ( res.data.linkedTelegramUsername ) {
@@ -288,7 +288,7 @@ export default {
             const res = await this.$api.call( "account/notifications/unlink-telegram" );
 
             if ( !res.ok ) {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
             else {
                 this.linkedTelegramUsername = null;

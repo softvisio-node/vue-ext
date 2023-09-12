@@ -63,7 +63,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Change email token was sent to the new email address" ) );
+                this.$toast( this.l10n( "Change email token was sent to the new email address" ) );
 
                 form.getFields( "email" ).setReadOnly( true );
                 form.getFields( "token" ).show();
@@ -72,7 +72,7 @@ export default {
                 this.$refs.setEmailButton.ext.show();
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
 
@@ -90,12 +90,12 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Email address changed" ) );
+                this.$toast( this.l10n( "Email address changed" ) );
 
                 this.ext.close();
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
     },

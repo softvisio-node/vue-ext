@@ -50,7 +50,7 @@ export default {
             this.ext = e.detail.cmp;
 
             if ( !this.token ) {
-                this.$utils.toast( this.l10n( "Password recovery token was not found" ), 5000 );
+                this.$toast( this.l10n( "Password recovery token was not found" ), 5000 );
 
                 this.close();
             }
@@ -91,12 +91,12 @@ export default {
             form.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Password changed" ) );
+                this.$toast( this.l10n( "Password changed" ) );
 
                 this.close();
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
 
@@ -105,7 +105,7 @@ export default {
 
             this.$utils.copyToClipboard( password );
 
-            this.$utils.toast( this.l10n( `Password copied to the clipboard` ) );
+            this.$toast( this.l10n( `Password copied to the clipboard` ) );
 
             this.$refs.form.ext.getFields( "password" ).setValue( password );
             this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );

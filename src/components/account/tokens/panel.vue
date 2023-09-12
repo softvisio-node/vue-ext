@@ -144,12 +144,12 @@ export default {
 
                 record.set( "enabled", !enabled );
 
-                this.$utils.toast( res );
+                this.$toast( res );
             }
             else {
                 record.commit();
 
-                this.$utils.toast( enabled ? this.l10n( `Access enabled` ) : this.l10n( `Access disabled` ) );
+                this.$toast( enabled ? this.l10n( `Access enabled` ) : this.l10n( `Access disabled` ) );
             }
 
             button.enable();
@@ -164,12 +164,12 @@ export default {
             var res = await this.$api.call( "account/tokens/delete", record.getId() );
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Token deleted" ) );
+                this.$toast( this.l10n( "Token deleted" ) );
 
                 this.store.remove( record );
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
 

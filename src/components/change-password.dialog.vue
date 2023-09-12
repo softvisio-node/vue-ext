@@ -72,12 +72,12 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Password changed" ) );
+                this.$toast( this.l10n( "Password changed" ) );
 
                 this.ext.close();
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
 
@@ -90,7 +90,7 @@ export default {
 
             this.$utils.copyToClipboard( password );
 
-            this.$utils.toast( this.l10n( `Password copied to the clipboard` ) );
+            this.$toast( this.l10n( `Password copied to the clipboard` ) );
 
             this.$refs.form.ext.getFields( "password" ).setValue( password );
             this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );

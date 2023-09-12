@@ -69,7 +69,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Authorized" ) );
+                this.$toast( this.l10n( "Authorized" ) );
 
                 this._resolve( true );
 
@@ -78,7 +78,7 @@ export default {
                 this.ext.close();
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
     },

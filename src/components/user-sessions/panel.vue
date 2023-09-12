@@ -92,12 +92,12 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$utils.toast( this.l10n( "Session was deleted" ) );
+                this.$toast( this.l10n( "Session was deleted" ) );
 
                 this.store.remove( record );
             }
             else {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
         },
 
@@ -111,10 +111,10 @@ export default {
             button.enable();
 
             if ( !res.ok ) {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
             else {
-                this.$utils.toast( this.l10n( "Sessions were deleted" ) );
+                this.$toast( this.l10n( "Sessions were deleted" ) );
 
                 this.refresh();
             }
@@ -130,7 +130,7 @@ export default {
             if ( !res.ok ) {
                 this.$refs.cards.setResult( res );
 
-                this.$utils.toast( res );
+                this.$toast( res );
             }
             else {
                 this.store.loadRawData( res.data );
