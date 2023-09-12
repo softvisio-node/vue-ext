@@ -4,6 +4,7 @@
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="l10n(`Search bots`)" width="200" @change="_search"/>
                 <ext-spacer/>
+                <ext-button iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
@@ -29,6 +30,7 @@
 <script>
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotLinkModel from "./models/link";
+import CreateLinkDialog from "./create.dialog";
 
 export default {
     "components": { CardsPanel },
@@ -192,6 +194,17 @@ export default {
             else {
                 this.$utils.toast( res );
             }
+        },
+
+        async _showCreateLinkDialog () {
+            const cmp = await this.$mount( CreateLinkDialog, {
+                "props": {
+                    "telegramBotId": this.telegramBotId,
+                    "oncreate": this.refresh.bind( this ),
+                },
+            } );
+
+            cmp.ext.show();
         },
     },
 };

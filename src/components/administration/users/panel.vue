@@ -5,7 +5,7 @@
                 <ext-searchfield :placeholder="l10n(`Search users`)" width="200" @change="search"/>
                 <RolesButton :aclId="aclId" @change="_onRolesFilterChange"/>
                 <ext-spacer/>
-                <ext-button :disabled="!canCreateUser" iconCls="fa-solid fa-user-plus" padding="0 0 0 5" :text="l10n(`Create user`)" @tap="showCreateUserDialog"/>
+                <ext-button :disabled="!canCreateUser" iconCls="fa-solid fa-plus" padding="0 0 0 5" :text="l10n(`Create user`)" @tap="showCreateUserDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
