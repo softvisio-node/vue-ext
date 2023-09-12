@@ -10,9 +10,9 @@
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button ref="saveButton" disabled="true" iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="_save"/>
-            <ext-spacer width="20"/>
             <ext-button ref="cancelButton" iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" @tap="_cancel"/>
+            <ext-spacer width="20"/>
+            <ext-button ref="saveButton" disabled="true" iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="_save"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
