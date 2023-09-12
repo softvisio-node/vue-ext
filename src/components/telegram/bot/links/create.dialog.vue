@@ -41,7 +41,7 @@ export default {
 
             const values = form.getValues();
 
-            const res = await this.$api.call( "telegram/bots/links/create", this.telegramBotId, values );
+            const res = await this.$api.call( "telegram/bots/links/create-link", this.telegramBotId, values );
 
             if ( !res.ok ) {
                 this.$toast( res );
