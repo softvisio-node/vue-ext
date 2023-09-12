@@ -44,7 +44,7 @@ export default {
             const res = await this.$api.call( "telegram/bots/links/create", this.telegramBotId, values );
 
             if ( !res.ok ) {
-                this.$utils.toast( res );
+                this.$toast( res );
             }
             else {
                 this.$emit( "create" );
