@@ -11,15 +11,7 @@
 
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
-                <ext-column dataIndex="telegram_username" :text="l10n(`Name`)" width="200"/>
-
-                <ext-column dataIndex="type" :text="l10n(`Type`)" width="200"/>
-
-                <ext-column dataIndex="static" :text="l10n(`Static`)"/>
-
-                <ext-numbercolumn align="right" dataIndex="total_subscribed_users" :text="l10n(`Users`)"/>
-
-                <ext-column dataIndex="error_text" flex="1" :text="l10n(`Error`)"/>
+                <ext-column dataIndex="name" :text="l10n(`Name`)" width="200"/>
 
                 <ext-column width="120" @ready="_actionColReady"/>
             </ext-grid>
@@ -200,7 +192,7 @@ export default {
             const cmp = await this.$mount( CreateLinkDialog, {
                 "props": {
                     "telegramBotId": this.telegramBotId,
-                    "oncreate": this.refresh.bind( this ),
+                    "onCreate": this.refresh.bind( this ),
                 },
             } );
 
