@@ -11,7 +11,9 @@
 
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
-                <ext-column dataIndex="name" :text="l10n(`Name`)" width="200"/>
+                <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
+
+                <ext-column dataIndex="last_user_created" renderer="Ext.util.Format.dateRenderer()" :text="l10n(`Last user created`)" width="200"/>
 
                 <ext-column width="120" @ready="_actionColReady"/>
             </ext-grid>
