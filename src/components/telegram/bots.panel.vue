@@ -13,6 +13,8 @@
                 <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
                 <ext-column dataIndex="telegram_username" flex="1" :text="l10n(`Telegram username`)"/>
 
+                <ext-column dataIndex="type_name" flex="1" sorter='{"property":"type"}' :text="l10n(`Bot type`)"/>
+
                 <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="200"/>
 
                 <ext-column dataIndex="status_text" sorter='{"property":"started"}' :text="l10n(`Status`)"/>
