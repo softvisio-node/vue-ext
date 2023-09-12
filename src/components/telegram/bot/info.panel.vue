@@ -194,9 +194,7 @@ export default {
         _copyBotUrl () {
             this.$utils.copyToClipboard( this.record.get( "url" ) );
 
-            this.$utils.toast( this.l10n( "Telegram link copied to the clipboard" ) );
-
-            this.$toast( this.l10n( `Link copied` ) );
+            this.$toast( this.l10n( "Link copied to the clipboard" ) );
         },
 
         _openBotUrl () {

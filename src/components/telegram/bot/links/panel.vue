@@ -115,7 +115,7 @@ export default {
 
             this.$utils.copyToClipboard( record.get( "url" ) );
 
-            this.$toast( this.l10n( `Link copied` ) );
+            this.$toast( this.l10n( "Link copied to the clipboard" ) );
         },
 
         async _showCreateLinkDialog () {
