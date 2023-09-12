@@ -19,7 +19,7 @@
 
                 <ext-column dataIndex="last_user_created" renderer="Ext.util.Format.dateRenderer()" :text="l10n(`Last user created`)" width="120"/>
 
-                <ext-column width="50" @ready="_actionColReady"/>
+                <ext-column width="150" @ready="_actionColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
@@ -40,6 +40,7 @@ export default {
         },
     },
 
+    // XXX
     data () {
         return {
             "canUpdate": this.$app.user.hasPermissions( "administration:update" ),
@@ -86,7 +87,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-copy",
-                            "tooltip": this.l10n( "Copy link" ),
+                            "text": this.l10n( "Copy link" ),
                             "handler": this._copyLink.bind( this ),
                         },
                     ],
@@ -99,13 +100,13 @@ export default {
 
             if ( val !== "" ) {
                 this.store.addFilter( {
-                    "property": "telegram_username",
+                    "property": "name",
                     "operator": "like",
                     "value": val,
                 } );
             }
             else {
-                this.store.removeFilter( "telegram_username" );
+                this.store.removeFilter( "name" );
             }
         },
 
@@ -115,23 +116,6 @@ export default {
             this.$utils.copyToClipboard( record.get( "url" ) );
 
             this.$toast( this.l10n( `Link copied` ) );
-        },
-
-        async _deleteBot ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
-
-            button.disable();
-
-            const res = await this.$api.call( "administration/telegram/bots/delete-bot", record.id );
-
-            button.enable();
-
-            if ( res.ok ) {
-                this.refresh();
-            }
-            else {
-                this.$utils.toast( res );
-            }
         },
 
         async _showCreateLinkDialog () {
