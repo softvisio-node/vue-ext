@@ -2,7 +2,7 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="l10n(`Search bots`)" width="200" @change="_search"/>
+                <ext-searchfield :placeholder="l10n(`Search links`)" width="200" @change="_search"/>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
