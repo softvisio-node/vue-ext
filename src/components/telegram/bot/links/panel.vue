@@ -28,7 +28,7 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import TelegramBotAdCampaignModel from "./models/ad-campaign";
+import TelegramBotLinkModel from "./models/link";
 
 export default {
     "components": { CardsPanel },
@@ -49,18 +49,13 @@ export default {
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {
-            "model": TelegramBotAdCampaignModel,
+            "model": TelegramBotLinkModel,
             "autoLoad": false,
             "pageSize": 50,
-            "proxy": {
-                "api": {
-                    "read": "administration/telegram/bots/ad-campaigns/read",
-                },
-                "filter": {
-                    "property": "bot_id",
-                    "operator": "=",
-                    "value": this.telegramBotId,
-                },
+            "filter": {
+                "property": "bot_id",
+                "operator": "=",
+                "value": this.telegramBotId,
             },
         } );
     },
