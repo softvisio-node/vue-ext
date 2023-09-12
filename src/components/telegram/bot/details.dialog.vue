@@ -3,9 +3,9 @@
         <ext-formpanel ref="formPanel" flex="1" layout="vbox" modelValidation="true" trackResetOnLoad="true">
             <ext-textfield :label="l10n(`Bot name`)" labelAlign="top" maxLength="64" name="name"/>
 
-            <ext-textareafield :label="l10n(`Short description`) + `.<br/>` + l10n(`Bot short description is shown on the bot profile page and is sent together with the link when users share the bot.`)" labelAlign="top" maxLength="120" name="short_description"/>
+            <ext-textareafield :label="l10n(`Short description`) + `.<br/>` + l10n(`Bot short description is shown on the bot profile page and is sent together with the link when users share the bot.`)" labelAlign="top" maxLength="120" name="short_description" wrap="off"/>
 
-            <ext-textareafield flex="1" :label="l10n(`Description`) + `.<br/>` + l10n(`Bot description is shown in the chat with the bot if the chat is empty.`)" labelAlign="top" maxLength="512" name="description"/>
+            <ext-textareafield flex="1" :label="l10n(`Description`) + `.<br/>` + l10n(`Bot description is shown in the chat with the bot if the chat is empty.`)" labelAlign="top" maxLength="512" name="description" wrap="off"/>
         </ext-formpanel>
 
         <ext-toolbar docked="bottom">
