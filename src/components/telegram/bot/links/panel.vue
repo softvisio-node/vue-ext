@@ -17,7 +17,7 @@
 
                 <ext-column dataIndex="last_user_created" renderer="Ext.util.Format.dateRenderer()" :text="l10n(`Last user created`)" width="200"/>
 
-                <ext-column width="120" @ready="_actionColReady"/>
+                <ext-column width="50" @ready="_actionColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
@@ -83,39 +83,9 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "fa-regular fa-circle-play",
-                            "text": this.l10n( "Start" ),
-                            "handler": this._startBot.bind( this ),
-                            "bind": { "hidden": "{record.started}" },
-                            "disabled": !this.canUpdate,
-                            "ui": "decline",
-                        },
-                        {
-                            "xtype": "button",
-                            "iconCls": "fa-regular fa-circle-stop",
-                            "text": this.l10n( "Stop" ),
-                            "handler": this._stopBot.bind( this ),
-                            "bind": { "hidden": "{!record.started}" },
-                            "disabled": !this.canUpdate,
-                        },
-                        {
-                            "xtype": "button",
-                            "iconCls": "fa-solid fa-ellipsis-v",
-                            "tooltip": this.l10n( "Actions" ),
-                            "arrow": false,
-                            "menu": {
-                                "defaults": {
-                                    "xtype": "menuitem",
-                                },
-                                "items": [
-                                    {
-                                        "iconCls": "fa-solid fa-trash-alt",
-                                        "text": this.l10n( "Delete bot" ),
-                                        "handler": this._deleteBot.bind( this ),
-                                        "disabled": !this.canDelete,
-                                    },
-                                ],
-                            },
+                            "iconCls": "fa-regular fa-copy",
+                            "tooltip": this.l10n( "Copy link" ),
+                            "handler": this._copyLink.bind( this ),
                         },
                     ],
                 },
@@ -137,42 +107,12 @@ export default {
             }
         },
 
-        async _startBot ( button ) {
+        async _copyLink ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            button.disable();
+            this.$utils.copyToClipboard( record.get( "url" ) );
 
-            const res = await this.$api.call( "administration/telegram/bots/set-bot-started", record.id, true );
-
-            button.enable();
-
-            if ( res.ok ) {
-                record.set( "started", true );
-                record.set( "error", false );
-                record.set( "error_text", null );
-            }
-            else {
-                this.$utils.toast( res );
-                record.set( "error", true );
-                record.set( "error_text", res.statusText );
-            }
-        },
-
-        async _stopBot ( button ) {
-            const record = button.up( "gridrow" ).getRecord();
-
-            button.disable();
-
-            const res = await this.$api.call( "administration/telegram/bots/set-bot-started", record.id, false );
-
-            button.enable();
-
-            if ( res.ok ) {
-                record.set( "started", false );
-            }
-            else {
-                this.$utils.toast( res );
-            }
+            this.$toast( this.l10n( `Link copied` ) );
         },
 
         async _deleteBot ( button ) {
