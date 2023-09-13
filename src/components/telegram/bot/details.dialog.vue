@@ -10,8 +10,6 @@
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button ref="cancelButton" iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" @tap="_cancel"/>
-            <ext-spacer width="20"/>
             <ext-button ref="saveButton" disabled="true" iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="_save"/>
         </ext-toolbar>
     </ext-dialog>
@@ -37,10 +35,6 @@ export default {
             this.$refs.formPanel.ext.on( "dirtychange", ( cmp, dirty ) => this.$refs.saveButton.ext.setDisabled( !dirty ) );
 
             this.$refs.formPanel.ext.setRecord( this.record );
-        },
-
-        _cancel () {
-            this.ext.close();
         },
 
         async _save () {
