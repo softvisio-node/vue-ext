@@ -3,15 +3,15 @@
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
                 <ext-toolbar docked="top">
-                    <ext-searchfield :placeholder="l10n(`search links`)" width="200" @change="_search"/>
+                    <ext-searchfield :placeholder="l10n(`Search links`)" width="200" @change="_search"/>
 
                     <ext-spacer/>
 
-                    <ext-button iconcls="fa-solid fa-plus" :text="l10n(`create link`)" @tap="_showcreatelinkdialog"/>
+                    <ext-button iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
 
-                    <ext-button iconcls="fa-solid fa-redo" :text="l10n(`refresh`)" @tap="refresh"/>
+                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
 
-                    <ext-button iconcls="fa-solid fa-table-columns" :tooltip="l10n(`toggle lunk details`)" @tap="_togglelinkdetails"/>
+                    <ext-button iconCls="fa-solid fa-table-columns" :tooltip="l10n(`Toggle lunk details`)" @tap="_toggleLinkDetails"/>
                 </ext-toolbar>
 
                 <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
