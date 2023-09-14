@@ -3,9 +3,14 @@
         <template #docked>
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="l10n(`Search links`)" width="200" @change="_search"/>
+
                 <ext-spacer/>
+
                 <ext-button iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
+
                 <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
+
+                <ext-button iconCls="fa-solid fa-table-columns" :tooltip="l10n(`Toggle lunk details`)" @tap="_toggleLinkDetails"/>
             </ext-toolbar>
         </template>
 
@@ -21,6 +26,8 @@
 
                 <ext-column width="150" @ready="_actionColReady"/>
             </ext-grid>
+
+            <DetailsPanel ref="detailsPanel" docked="right" hidden="true" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' scrollable="true" :telegramBotId="telegramBotId" :telegramBotLinkId="telegramBotLinkId" width="400"/>
         </template>
     </CardsPanel>
 </template>
@@ -29,9 +36,10 @@
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotLinkModel from "./models/link";
 import CreateLinkDialog from "./create.dialog";
+import DetailsPanel from "./details.panel";
 
 export default {
-    "components": { CardsPanel },
+    "components": { CardsPanel, DetailsPanel },
 
     "props": {
         "telegramBotId": {
@@ -127,6 +135,15 @@ export default {
             } );
 
             cmp.ext.show();
+        },
+
+        _toggleLinkDetails ( e ) {
+            const button = e.detail.sender,
+                hidden = !button.getPressed();
+
+            button.setPressed( hidden );
+
+            this.$refs.detailsPanel.ext.setHidden( !hidden );
         },
     },
 };
