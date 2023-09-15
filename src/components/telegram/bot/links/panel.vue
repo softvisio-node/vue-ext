@@ -23,7 +23,7 @@
                 <ext-column width="150" @ready="_actionColReady"/>
             </ext-grid>
 
-            <ext-panel collapsed="false" collapsible="right" docked="right" headerPosition="left" layout="fit" minWidth="400" padding="0 0 0 1" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`Bot link details`)" width="400">
+            <ext-panel docked="right" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' width="400">
                 <DetailsPanel :telegramBotLinkRecord="selectedRecord"/>
             </ext-panel>
         </template>
