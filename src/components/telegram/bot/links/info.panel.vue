@@ -7,13 +7,15 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-panel defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox" padding="0 5 0 5" scrollable="true">
-                    <ext-displayfield bind="{record.name}" :label="l10n(`Name`)"/>
+                <ext-formpanel ref="form" defaults='{"labelAlign":"top"}' layout="vbox" padding="0 5 0 5" scrollable="true">
+                    <ext-displayfield bind="{record.name}" :hidden="edit" :label="l10n(`Name`)"/>
+                    <ext-textfield :hidden="!edit" :label="l10n(`Name`)" name="name" required="truw"/>
 
                     <ext-displayfield bind="{record.created}" :label="l10n(`Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/>
 
-                    <ext-displayfield bind="{record.description}" :label="l10n(`Description`)"/>
-                </ext-panel>
+                    <ext-displayfield bind="{record.description}" :hidden="edit" :label="l10n(`Description`)"/>
+                    <ext-textareafield flex="1" :hidden="!edit" :label="l10n(`Description`)" name="description"/>
+                </ext-formpanel>
 
                 <ext-toolbar docked="bottom">
                     <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete bot`)" @tap="_deleteBot"/>
@@ -61,6 +63,8 @@ export default {
         _onRecordChange () {
             this.$refs.dataPanel.ext.getViewModel().set( "record", this.telegramBotLinkRecord );
 
+            this.cancel();
+
             if ( this.telegramBotLinkRecord ) {
                 this.$refs.cardsPanel.showDataPanel();
             }
@@ -70,10 +74,27 @@ export default {
         },
 
         startEdit () {
+            if ( !this.telegramBotLinkRecord ) return;
+
+            this.$refs.form.ext.setRecord( this.telegramBotLinkRecord );
+
             this.edit = true;
         },
 
         cancel () {
+            this.edit = false;
+
+            this.$refs.form.ext.reset();
+        },
+
+        // XXX
+        async save () {
+            if ( !this.$refs.form.ext.validate() ) return;
+
+            this.$refs.form.ext.fillRecord( this.telegramBotLinkRecord );
+
+            this.telegramBotLinkRecord.commit();
+
             this.edit = false;
         },
 
