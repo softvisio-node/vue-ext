@@ -26,11 +26,11 @@ const PERIODS = {
     "7 days": {
         "text": app.locale.l10n( "Last day", msgid`Last ${7} days` ),
         "timeUnit": "hour",
+        "checked": true,
     },
     "3 months": {
         "text": app.locale.l10n( "Last month", msgid`Last ${3} months` ),
         "timeUnit": "day",
-        "checked": true,
     },
     "1 year": {
         "text": app.locale.l10n( "Last year", msgid`Last ${1} year` ),
@@ -57,8 +57,15 @@ export default {
     "methods": {
 
         // public
+        // XXX
         async refresh () {
-            if ( !this.telegramBotLinkRecord ) return;
+            if ( !this.telegramBotLinkRecord ) {
+                this.$refs.catdsPanel.showNoDataPanel();
+
+                return;
+            }
+
+            alert( 1 );
 
             this.$refs.cardsPanel.mask();
 
@@ -102,8 +109,6 @@ export default {
             cmp.setMenu( menu );
 
             cmp.setText( this.l10n( `Period` ) + ": " + PERIODS[this._period].text );
-
-            this.refresh();
         },
 
         _setPeriod ( menuItem ) {
