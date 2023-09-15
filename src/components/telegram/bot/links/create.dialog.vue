@@ -49,6 +49,8 @@ export default {
             else {
                 this.$emit( "create" );
 
+                this.$toast( this.l10n( `Link created` ) );
+
                 this.ext.close();
             }
         },
