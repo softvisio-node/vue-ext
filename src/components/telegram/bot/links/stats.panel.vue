@@ -67,7 +67,8 @@ export default {
                 return;
             }
 
-            alert( this.$refs.cardsPanel.ext.isVisible() );
+            // XXX
+            alert( "LOAD" );
 
             this.$refs.cardsPanel.mask();
 
