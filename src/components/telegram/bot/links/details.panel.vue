@@ -1,5 +1,5 @@
 <template>
-    <ext-panel layout="hbox">
+    <ext-panel layout="vbox">
         <BotLinkInfoPanel flex="1" :telegramBotLink="telegramBotLink"/>
 
         <BotLinkStatsPanel minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' scrollable="true" :telegramBotLink="telegramBotLink" width="400"/>
