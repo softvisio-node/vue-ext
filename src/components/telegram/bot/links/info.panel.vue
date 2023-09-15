@@ -80,9 +80,9 @@ export default {
     "components": { CardsPanel },
 
     "props": {
-        "telegramBotLinkId": {
-            "type": String,
-            "required": true,
+        "telegramBotLink": {
+            "type": Object,
+            "default": null,
         },
     },
 
@@ -90,7 +90,7 @@ export default {
         async refresh () {
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "telegram/bots/links/get-link", this.telegramBotLinkId );
+            const res = await this.$api.call( "telegram/bots/links/get-link", this.telegramBotLink.id );
 
             this.$refs.cardsPanel.setResult( res );
 
