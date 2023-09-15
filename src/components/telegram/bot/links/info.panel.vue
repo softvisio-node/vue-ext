@@ -101,10 +101,10 @@ export default {
             this.$refs.dataPanel.ext.getViewModel().set( "record", this.telegramBotLink );
 
             if ( this.telegramBotLink ) {
-                this.$refs.cardsPanel.showDataPanel();
+                this.$refs.cardsPanel.showDataCard();
             }
             else {
-                this.$refs.cardsPanel.showNoDataPanel();
+                this.$refs.cardsPanel.showNoDataCard();
             }
         },
 
