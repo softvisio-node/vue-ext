@@ -23,7 +23,9 @@
                 <ext-column width="150" @ready="_actionColReady"/>
             </ext-grid>
 
-            <DetailsPanel ref="detailsPanel" collapsed="false" collapsible="true" docked="right" headerPosition="left" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' scrollable="true" :telegramBotId="telegramBotId" :telegramBotLinkId="telegramBotLinkId" width="400"/>
+            <ext-panel collapsed="false" collapsible="right" docked="right" headerPosition="left" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`Bot link details`)" width="400" @ready="ready">
+                <DetailsPanel/>
+            </ext-panel>
         </template>
     </CardsPanel>
 </template>
