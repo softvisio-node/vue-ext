@@ -90,8 +90,6 @@ export default {
     },
 
     "methods": {
-
-        // XXX
         ready ( e ) {
             this._onRecordChange();
         },
