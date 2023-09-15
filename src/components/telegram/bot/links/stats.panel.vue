@@ -30,6 +30,7 @@ const PERIODS = {
     "3 months": {
         "text": app.locale.l10n( "Last month", msgid`Last ${3} months` ),
         "timeUnit": "day",
+        "checked": true,
     },
     "1 year": {
         "text": app.locale.l10n( "Last year", msgid`Last ${1} year` ),
@@ -45,12 +46,6 @@ export default {
             "type": Object,
             "default": null,
         },
-    },
-
-    data () {
-        return {
-            "period": "7 days",
-        };
     },
 
     "watch": {
@@ -89,9 +84,7 @@ export default {
 
             const menu = [];
 
-            let checked = true;
-
-            for ( const [value, { text }] of Object.entries( PERIODS ) ) {
+            for ( const [value, { text, checked }] of Object.entries( PERIODS ) ) {
                 menu.push( {
                     "xtype": "menuradioitem",
                     value,
@@ -103,8 +96,6 @@ export default {
 
                 if ( checked ) {
                     this._period = value;
-
-                    checked = false;
                 }
             }
 
