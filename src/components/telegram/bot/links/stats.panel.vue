@@ -7,18 +7,15 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-panel padding="10 10 10 10" scrollable="true">
-                    <!-- users stats -->
-                    <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`Last new user subscribed`)" labelAlign="left" labelWidth="200"/>
+                <ext-panel defaults='{"labelAlign":"left","labelWidth":200}' padding="0 5 0 5">
+                    <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`Last user created`)" labelAlign="top"/>
 
-                    <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox" title="Users statistics">
-                        <ext-displayfield bind="{record.total_users}" :label="l10n(`Total users`)"/>
-                        <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10n(`Total subscribed users`)"/>
-                        <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10n(`Total unsubscribed users`)"/>
+                    <ext-displayfield bind="{record.total_users}" :label="l10n(`Total users`)"/>
+                    <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10n(`Total subscribed users`)"/>
+                    <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10n(`Total unsubscribed users`)"/>
 
-                        <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`Total returned users`)"/>
-                        <ext-displayfield bind="{record.total_banned_users}" :label="l10n(`Total banned users`)"/>
-                    </ext-fieldset>
+                    <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`Total returned users`)"/>
+                    <ext-displayfield bind="{record.total_banned_users}" :label="l10n(`Total banned users`)"/>
                 </ext-panel>
             </ext-panel>
         </template>
@@ -59,34 +56,6 @@ export default {
             else {
                 this.$refs.cardsPanel.showNoDataPanel();
             }
-        },
-
-        // XXX
-        async _deleteLink ( e ) {
-            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this bot and all it's data? This operation is not revertable." ) ) ) ) return;
-
-            const record = this.record,
-                button = e.detail.sender;
-
-            button.disable();
-
-            const res = await this.$api.call( "telegram/bots/delete-bot", record.id );
-
-            button.enable();
-
-            if ( res.ok ) {
-                this.refresh();
-            }
-            else {
-                this.$toast( res );
-            }
-        },
-
-        // XXX
-        _copyBotUrl () {
-            this.$utils.copyToClipboard( this.record.get( "url" ) );
-
-            this.$toast( this.l10n( "Link copied to the clipboard" ) );
         },
     },
 };
