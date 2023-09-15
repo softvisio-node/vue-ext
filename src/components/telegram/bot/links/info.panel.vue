@@ -7,13 +7,13 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-formpanel ref="form" defaults='{"labelAlign":"top"}' layout="vbox" padding="0 5 0 5" scrollable="true">
+                <ext-formpanel ref="form" defaults='{"labelAlign":"top"}' layout="vbox" padding="0 0 0 5">
                     <ext-displayfield bind="{record.name}" :hidden="edit" :label="l10n(`Name`)"/>
                     <ext-textfield :hidden="!edit" :label="l10n(`Name`)" name="name" required="truw"/>
 
                     <ext-displayfield bind="{record.created}" :label="l10n(`Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/>
 
-                    <ext-displayfield bind="{record.description}" :hidden="edit" :label="l10n(`Description`)"/>
+                    <ext-textareafield bind="{record.description}" flex="1" :hidden="edit" :label="l10n(`Description`)" readOnly="true"/>
                     <ext-textareafield flex="1" :hidden="!edit" :label="l10n(`Description`)" name="description"/>
                 </ext-formpanel>
 
