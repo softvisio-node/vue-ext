@@ -59,6 +59,8 @@ export default {
         // public
         // XXX
         async refresh () {
+            if ( !this.$refs.cardsPanel.isRendered ) return;
+
             if ( !this.telegramBotLinkRecord ) {
                 this.$refs.cardsPanel.showNoDataPanel();
 
