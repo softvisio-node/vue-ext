@@ -53,7 +53,7 @@ export default {
     "methods": {
         async refresh () {
             if ( !this.record ) {
-                this.$refs.cardsPanel.showNoDataCard();
+                this.$refs.cardsPanel.showNoDataPanel();
 
                 return;
             }
@@ -68,7 +68,7 @@ export default {
                 this.$refs.cardsPanel.setResult( res );
             }
             else if ( !res.data?.length ) {
-                this.$refs.cardsPanel.showNoDataCard();
+                this.$refs.cardsPanel.showNoDataPanel();
             }
             else {
                 this.$refs.cardsPanel.setResult( res );

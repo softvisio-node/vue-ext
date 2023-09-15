@@ -67,7 +67,7 @@ export default {
                 this.$refs.cardsPanel.setResult( res );
             }
             else if ( !res.data?.length ) {
-                this.$refs.cardsPanel.showNoDataCard();
+                this.$refs.cardsPanel.showNoDataPanel();
             }
             else {
                 this.$refs.cardsPanel.setResult( res );

@@ -99,10 +99,10 @@ export default {
             this.$refs.dataPanel.ext.getViewModel().set( "record", this.telegramBotLinkRecord );
 
             if ( this.telegramBotLinkRecord ) {
-                this.$refs.cardsPanel.showDataCard();
+                this.$refs.cardsPanel.showDataPanel();
             }
             else {
-                this.$refs.cardsPanel.showNoDataCard();
+                this.$refs.cardsPanel.showNoDataPanel();
             }
         },
 

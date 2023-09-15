@@ -126,20 +126,20 @@ export default {
 
         setResult ( res ) {
             if ( !res.ok ) {
-                this.showErrorCard( res.statusText );
+                this.showErrorPanel( res.statusText );
             }
             else {
-                this.showDataCard();
+                this.showDataPanel();
             }
         },
 
-        showDefaultCard () {
+        showDefaultPanel () {
             this.ext.setActiveItem( this.$refs.defaultCard.ext );
 
             this.unmask();
         },
 
-        showErrorCard ( message ) {
+        showErrorPanel ( message ) {
             if ( message && this.showErrorMessage ) {
                 this.$refs.errorMessage.ext.setHtml( message + "" );
             }
@@ -152,13 +152,13 @@ export default {
             this.unmask();
         },
 
-        showNoDataCard () {
+        showNoDataPanel () {
             this.ext.setActiveItem( this.$refs.noDataCard.ext );
 
             this.unmask();
         },
 
-        showDataCard () {
+        showDataPanel () {
             this.ext.setActiveItem( this.$refs.dataCard.ext );
 
             this.unmask();
@@ -168,22 +168,22 @@ export default {
             this.$emit( "storeLoad", store, records, success, eOpts );
 
             if ( !success ) {
-                this.showErrorCard( eOpts );
+                this.showErrorPanel( eOpts );
             }
             else if ( !store.getCount() ) {
-                this.showNoDataCard();
+                this.showNoDataPanel();
             }
             else {
-                this.showDataCard();
+                this.showDataPanel();
             }
         },
 
         _onStoreDataChanged ( store ) {
             if ( !store.getCount() ) {
-                this.showNoDataCard();
+                this.showNoDataPanel();
             }
             else {
-                this.showDataCard();
+                this.showDataPanel();
             }
         },
     },
