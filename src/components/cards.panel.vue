@@ -60,6 +60,12 @@ export default {
 
     "emits": ["render", "refresh", "storeLoad"],
 
+    data () {
+        return {
+            "isRendered": false,
+        };
+    },
+
     "computed": {
         noDataMessageText () {
             return this.noDataMessage || this.l10n( `No data match search criteria` );
@@ -87,6 +93,8 @@ export default {
         },
 
         _onRender () {
+            this.isRendered = true;
+
             this.$emit( "render" );
 
             if ( this.refreshOnRender ) this.$emit( "refresh" );
