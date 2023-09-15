@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cardsPanel" @refresh="refresh">
+    <CardsPanel ref="cardsPanel" @ready="ready">
         <template #data>
             <ext-panel ref="dataPanel" layout="fit" viewModel="true">
                 <ext-toolbar docked="top">
@@ -73,9 +73,6 @@
 <script>
 import CardsPanel from "#src/components/cards.panel";
 
-// XXX
-const TelegramBotModel = "";
-
 export default {
     "components": { CardsPanel },
 
@@ -86,68 +83,33 @@ export default {
         },
     },
 
+    "watch": {
+        telegramBotLink ( newValue, oldValue ) {
+            if ( newValue !== oldValue ) this._onRecordChange();
+        },
+    },
+
     "methods": {
-        async refresh () {
-            this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "telegram/bots/links/get-link", this.telegramBotLink.id );
-
-            this.$refs.cardsPanel.setResult( res );
-
-            if ( res.ok ) {
-                const record = new TelegramBotModel( res.data );
-
-                this.record = record;
-
-                this.$refs.dataPanel.ext.getViewModel().set( "record", record );
-            }
+        // XXX
+        ready ( e ) {
+            this._onRecordChange();
         },
 
         // protected
-        async _startBot ( e ) {
-            const button = e.detail.sender,
-                record = this.record;
+        _onRecordChange () {
+            this.$refs.dataPanel.ext.getViewModel().set( "record", this.telegramBotLink );
 
-            button.disable();
-
-            const res = await this.$api.call( "telegram/bots/set-bot-started", record.id, true );
-
-            button.enable();
-
-            if ( res.ok ) {
-                record.set( "started", true );
-                record.set( "error", false );
-                record.set( "error_text", null );
+            if ( this.telegramBotLink ) {
+                this.$refs.cardsPanel.showDataPanel();
             }
             else {
-                this.$toast( res );
-                record.set( "error", true );
-                record.set( "error_text", res.statusText );
-            }
-
-            record.commit( false, ["started", "error", "error_text"] );
-        },
-
-        async _stopBot ( e ) {
-            const button = e.detail.sender,
-                record = this.record;
-
-            button.disable();
-
-            const res = await this.$api.call( "telegram/bots/set-bot-started", record.id, false );
-
-            button.enable();
-
-            if ( res.ok ) {
-                record.set( "started", false );
-                record.commit( false, ["started"] );
-            }
-            else {
-                this.$toast( res );
+                this.$refs.cardsPanel.showNoDataPanel();
             }
         },
 
-        async _deleteBot ( e ) {
+        // XXX
+        async _deleteLink ( e ) {
             if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this bot and all it's data? This operation is not revertable." ) ) ) ) return;
 
             const record = this.record,
@@ -167,14 +129,11 @@ export default {
             }
         },
 
+        // XXX
         _copyBotUrl () {
             this.$utils.copyToClipboard( this.record.get( "url" ) );
 
             this.$toast( this.l10n( "Link copied to the clipboard" ) );
-        },
-
-        _openBotUrl () {
-            this.$utils.clickUrl( this.record.get( "url" ) );
         },
     },
 };
