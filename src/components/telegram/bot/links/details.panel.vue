@@ -2,7 +2,7 @@
     <ext-panel layout="vbox">
         <BotLinkInfoPanel flex="1" :telegramBotLinkRecord="telegramBotLinkRecord"/>
 
-        <BotLinkStatsPanel flex="1" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' scrollable="true" :telegramBotLinkRecord="telegramBotLinkRecord" width="400"/>
+        <BotLinkStatsPanel flex="1" scrollable="true" :telegramBotLinkRecord="telegramBotLinkRecord"/>
     </ext-panel>
 </template>
 
