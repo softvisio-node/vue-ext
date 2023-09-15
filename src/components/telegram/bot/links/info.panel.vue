@@ -8,11 +8,11 @@
                 </ext-toolbar>
 
                 <ext-panel padding="10 10 10 10" scrollable="true">
-                    <ext-displayfield bind="{record.name}" :label="l10n(`Link name`)" labelAlign="left" labelWidth="200"/>
-
-                    <ext-displayfield bind="{record.description}" :label="l10n(`Link description`)" labelAlign="left" labelWidth="200"/>
+                    <ext-displayfield bind="{record.name}" :label="l10n(`Name`)" labelAlign="top" labelWidth="200"/>
 
                     <ext-displayfield bind="{record.created}" :label="l10n(`Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/>
+
+                    <ext-displayfield bind="{record.description}" :label="l10n(`Description`)" labelAlign="top" labelWidth="200" readOnly="true"/>
 
                     <!-- users stats -->
                     <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`Last new user subscribed`)" labelAlign="left" labelWidth="200"/>
