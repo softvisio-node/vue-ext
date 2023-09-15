@@ -1,9 +1,13 @@
 <template>
-    <ext-panel layout="vbox">
-        <BotLinkInfoPanel flex="1" :telegramBotLinkRecord="telegramBotLinkRecord"/>
+    <ext-tabpanel>
+        <ext-panel layout="fit" :title="l10n(`Info`)">
+            <BotLinkInfoPanel flex="1" :telegramBotLinkRecord="telegramBotLinkRecord"/>
+        </ext-panel>
 
-        <BotLinkStatsPanel flex="1" scrollable="true" :telegramBotLinkRecord="telegramBotLinkRecord"/>
-    </ext-panel>
+        <ext-panel layout="fit" :title="l10n(`Charts`)">
+            <BotLinkStatsPanel flex="1" scrollable="true" :telegramBotLinkRecord="telegramBotLinkRecord"/>
+        </ext-panel>
+    </ext-tabpanel>
 </template>
 
 <script>
