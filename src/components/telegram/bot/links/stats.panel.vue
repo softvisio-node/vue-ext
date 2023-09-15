@@ -41,15 +41,15 @@ export default {
     "components": { CardsPanel, AmchartsPanel },
 
     "props": {
-        "telegramBotLink": {
+        "telegramBotLinkRecord": {
             "type": Object,
             "default": null,
         },
     },
 
     "watch": {
-        telegramBotLink ( newValue, oldValue ) {
-            if ( newValue !== oldValue ) this.refresh();
+        telegramBotLinkRecord ( newValue, oldValue ) {
+            this.refresh();
         },
     },
 
@@ -61,7 +61,7 @@ export default {
 
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "telegram/bots/links/get-link-stats", this.telegramBotLink.id, this._period );
+            const res = await this.$api.call( "telegram/bots/links/get-link-stats", this.telegramBotLinkRecord.id, this._period );
 
             if ( !res.ok ) {
                 this.$refs.cardsPanel.setResult( res );

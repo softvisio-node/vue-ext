@@ -77,15 +77,15 @@ export default {
     "components": { CardsPanel },
 
     "props": {
-        "telegramBotLink": {
+        "telegramBotLinkRecord": {
             "type": Object,
             "default": null,
         },
     },
 
     "watch": {
-        telegramBotLink ( newValue, oldValue ) {
-            if ( newValue !== oldValue ) this._onRecordChange();
+        telegramBotLinkRecord ( newValue, oldValue ) {
+            this._onRecordChange();
         },
     },
 
@@ -98,9 +98,9 @@ export default {
 
         // protected
         _onRecordChange () {
-            this.$refs.dataPanel.ext.getViewModel().set( "record", this.telegramBotLink );
+            this.$refs.dataPanel.ext.getViewModel().set( "record", this.telegramBotLinkRecord );
 
-            if ( this.telegramBotLink ) {
+            if ( this.telegramBotLinkRecord ) {
                 this.$refs.cardsPanel.showDataCard();
             }
             else {

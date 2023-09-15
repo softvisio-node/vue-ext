@@ -1,8 +1,8 @@
 <template>
     <ext-panel layout="vbox">
-        <BotLinkInfoPanel flex="1" :telegramBotLink="telegramBotLink"/>
+        <BotLinkInfoPanel flex="1" :telegramBotLinkRecord="telegramBotLinkRecord"/>
 
-        <BotLinkStatsPanel minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' scrollable="true" :telegramBotLink="telegramBotLink" width="400"/>
+        <BotLinkStatsPanel minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' scrollable="true" :telegramBotLinkRecord="telegramBotLinkRecord" width="400"/>
     </ext-panel>
 </template>
 
@@ -14,7 +14,7 @@ export default {
     "components": { BotLinkInfoPanel, BotLinkStatsPanel },
 
     "props": {
-        "telegramBotLink": {
+        "telegramBotLinkRecord": {
             "type": Object,
             "default": null,
         },
