@@ -4,8 +4,12 @@
             <BotLinkInfoPanel :telegramBotLinkRecord="telegramBotLinkRecord"/>
         </ext-panel>
 
+        <ext-panel layout="fit" :title="l10n(`Stats`)">
+            <BotLinkStatsPanel :telegramBotLinkRecord="telegramBotLinkRecord"/>
+        </ext-panel>
+
         <ext-panel iconAlign="left" iconCls="fa-solid fa-chart-line" layout="fit" :title="l10n(`Charts`)">
-            <BotLinkStatsPanel scrollable="true" :telegramBotLinkRecord="telegramBotLinkRecord"/>
+            <BotLinkChartsPanel scrollable="true" :telegramBotLinkRecord="telegramBotLinkRecord"/>
         </ext-panel>
     </ext-tabpanel>
 </template>
@@ -13,9 +17,10 @@
 <script>
 import BotLinkInfoPanel from "./info.panel";
 import BotLinkStatsPanel from "./stats.panel";
+import BotLinkChartsPanel from "./charts.panel";
 
 export default {
-    "components": { BotLinkInfoPanel, BotLinkStatsPanel },
+    "components": { BotLinkInfoPanel, BotLinkStatsPanel, BotLinkChartsPanel },
 
     "props": {
         "telegramBotLinkRecord": {

@@ -1,0 +1,383 @@
+<template>
+    <CardsPanel ref="cardsPanel" @refresh="refresh">
+        <template #data>
+            <ext-panel ref="dataPanel" layout="vbox" scrollable="true">
+                <ext-toolbar docked="top">
+                    <ext-button ref="periodButton" stretchMenu="true" @ready="_periodButtonReady"/>
+                    <ext-spacer/>
+                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
+                </ext-toolbar>
+
+                <AmchartsPanel ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :setChartData="_setChartData"/>
+
+                <AmchartsPanel ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300" :setChartData="_setChartData"/>
+            </ext-panel>
+        </template>
+    </CardsPanel>
+</template>
+
+<script>
+import app from "#app";
+import CardsPanel from "#src/components/cards.panel";
+import AmchartsPanel from "#vue/components/amcharts5/panel";
+import * as am5xy from "@amcharts/amcharts5/xy";
+
+const PERIODS = {
+    "7 days": {
+        "text": app.locale.l10n( "Last day", msgid`Last ${7} days` ),
+        "timeUnit": "hour",
+        "checked": true,
+    },
+    "3 months": {
+        "text": app.locale.l10n( "Last month", msgid`Last ${3} months` ),
+        "timeUnit": "day",
+    },
+    "1 year": {
+        "text": app.locale.l10n( "Last year", msgid`Last ${1} year` ),
+        "timeUnit": "day",
+    },
+};
+
+export default {
+    "components": { CardsPanel, AmchartsPanel },
+
+    "props": {
+        "telegramBotLinkRecord": {
+            "type": Object,
+            "default": null,
+        },
+    },
+
+    "watch": {
+        telegramBotLinkRecord ( newValue, oldValue ) {
+            this.refresh();
+        },
+    },
+
+    "methods": {
+
+        // public
+        // XXX
+        async refresh () {
+            if ( !this.$refs.cardsPanel.isRendered ) return;
+
+            if ( !this.telegramBotLinkRecord ) {
+                this.$refs.cardsPanel.showNoDataPanel();
+
+                return;
+            }
+
+            // XXX
+            // if ( !this.$refs.cardsPanel.ext.isVisible( true ) ) return;
+
+            // XXX
+            // alert( "LOAD: " + this.$refs.cardsPanel.ext.isVisible( true ) );
+
+            this.$refs.cardsPanel.mask();
+
+            const res = await this.$api.call( "telegram/bots/links/get-link-stats", this.telegramBotLinkRecord.id, this._period );
+
+            if ( !res.ok ) {
+                this.$refs.cardsPanel.setResult( res );
+            }
+            else if ( !res.data?.length ) {
+                this.$refs.cardsPanel.showNoDataPanel();
+            }
+            else {
+                this.$refs.cardsPanel.setResult( res );
+
+                this.$refs.totalSubscribedUsersChart.setData( res.data );
+                this.$refs.subscriptionsChart.setData( res.data );
+            }
+        },
+
+        // protected
+        _periodButtonReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            const menu = [];
+
+            for ( const [value, { text, checked }] of Object.entries( PERIODS ) ) {
+                menu.push( {
+                    "xtype": "menuradioitem",
+                    value,
+                    text,
+                    "group": "period",
+                    checked,
+                    "handler": this._setPeriod.bind( this ),
+                } );
+
+                if ( checked ) {
+                    this._period = value;
+                }
+            }
+
+            cmp.setMenu( menu );
+
+            cmp.setText( this.l10n( `Period` ) + ": " + PERIODS[this._period].text );
+        },
+
+        _setPeriod ( menuItem ) {
+            const button = this.$refs.periodButton.ext;
+
+            button.getMenu().hide();
+
+            if ( this._period === menuItem.getValue() ) return;
+
+            this._period = menuItem.getValue();
+
+            button.setText( this.l10n( `Period` ) + ": " + PERIODS[this._period].text );
+
+            this.refresh();
+        },
+
+        _createTotalSubscribedUsersChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            // chart
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+                "layout": root.verticalLayout,
+                "panX": true,
+                "pinchZoomX": true,
+                "wheelX": "panX",
+                "wheelY": "none",
+            } ) );
+
+            // title
+            chart.children.unshift( am5.Label.new( root, {
+                "text": this.l10n( `Total subscribed users` ),
+                "fontSize": 12,
+                "x": am5.percent( 50 ),
+                "centerX": am5.percent( 50 ),
+            } ) );
+
+            // x axis
+            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "maxDeviation": 0,
+                "baseInterval": {
+                    "timeUnit": "day",
+                    "count": 1,
+                },
+                "renderer": am5xy.AxisRendererX.new( root, {} ),
+                "tooltip": am5.Tooltip.new( root, {} ),
+            } ) );
+
+            // y axis 1
+            const yAxis1 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "renderer": am5xy.AxisRendererY.new( root, {} ),
+                "tooltip": am5.Tooltip.new( root, {} ),
+                "tooltipNumberFormat": {},
+                "numberFormat": {},
+            } ) );
+
+            // data processor
+            const dateProcessor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
+            // serie 1
+            const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
+                "name": this.l10n( `Total subscribed users` ),
+                xAxis,
+                "yAxis": yAxis1,
+                "valueXField": "date",
+                "valueYField": "total_subscribed_users",
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.l10n( `Subscribed users` ) + ": {valueY.formatNumber()}",
+                } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
+                "connect": true,
+            } ) );
+
+            // data processor
+            series1.data.processor = dateProcessor;
+
+            // fill settings
+            series1.fills.template.setAll( {
+                "fillOpacity": 0.3,
+                "visible": true,
+            } );
+
+            // serie 2
+            const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
+                "name": this.l10n( `Total unsubscribed users` ),
+                xAxis,
+                "yAxis": yAxis1,
+                "valueXField": "date",
+                "valueYField": "total_unsubscribed_users",
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.l10n( `Unsubscribed users` ) + ": {valueY.formatNumber()}",
+                } ),
+                "stroke": am5.color( "#ff0000" ),
+                "fill": am5.color( "#ff0000" ),
+                "connect": true,
+            } ) );
+
+            // data processor
+            series2.data.processor = dateProcessor;
+
+            // fill settings
+            series2.fills.template.setAll( {
+                "fillOpacity": 0.3,
+                "visible": true,
+            } );
+
+            // cursor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "zoomX",
+                } )
+            );
+
+            // scroll bar
+            chart.set(
+                "scrollbarX",
+                am5.Scrollbar.new( root, {
+                    "orientation": "horizontal",
+                } )
+            );
+
+            // legend
+            const legend = chart.children.push( am5.Legend.new( root, {
+                "centerX": am5.p50,
+                "x": am5.p50,
+            } ) );
+
+            legend.data.setAll( chart.series.values );
+        },
+
+        _createSubscriptionsChart ( cmp ) {
+            const root = cmp.root,
+                am5 = cmp.am5;
+
+            // chart
+            const chart = root.container.children.push( am5xy.XYChart.new( root, {
+                "layout": root.verticalLayout,
+                "panX": true,
+                "pinchZoomX": true,
+                "wheelX": "panX",
+                "wheelY": "none",
+            } ) );
+
+            // title
+            chart.children.unshift( am5.Label.new( root, {
+                "text": this.l10n( `Subscribed users` ),
+                "fontSize": 12,
+                "x": am5.percent( 50 ),
+                "centerX": am5.percent( 50 ),
+            } ) );
+
+            // x axis
+            const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
+                "maxDeviation": 0,
+                "baseInterval": {
+                    "timeUnit": "day",
+                    "count": 1,
+                },
+                "renderer": am5xy.AxisRendererX.new( root, {} ),
+                "tooltip": am5.Tooltip.new( root, {} ),
+            } ) );
+
+            // y axis 1
+            const yAxis1 = chart.yAxes.push( am5xy.ValueAxis.new( root, {
+                "renderer": am5xy.AxisRendererY.new( root, {} ),
+                "tooltip": am5.Tooltip.new( root, {} ),
+                "tooltipNumberFormat": {},
+                "numberFormat": {},
+            } ) );
+
+            // data processor
+            const dateProcessor = am5.DataProcessor.new( root, {
+                "dateFields": ["date"],
+                "dateFormat": "i",
+            } );
+
+            // serie 1
+            const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": this.l10n( `Subscribed users` ),
+                xAxis,
+                "yAxis": yAxis1,
+                "valueXField": "date",
+                "valueYField": "total_subscribed_users_delta",
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.l10n( `Subscribed users` ) + ": {valueY.formatNumber()}",
+                } ),
+                "stroke": am5.color( "#00ff00" ),
+                "fill": am5.color( "#00ff00" ),
+                "connect": false,
+            } ) );
+
+            // data processor
+            series1.data.processor = dateProcessor;
+
+            // fill settings
+            // series1.fills.template.setAll( {
+            //     "fillOpacity": 0.3,
+            //     "visible": true,
+            // } );
+
+            // serie 2
+            const series2 = chart.series.push( am5xy.ColumnSeries.new( root, {
+                "name": this.l10n( `Unsubscribed users` ),
+                xAxis,
+                "yAxis": yAxis1,
+                "valueXField": "date",
+                "valueYField": "total_unsubscribed_users_delta",
+                "tooltip": am5.Tooltip.new( root, {
+                    "labelText": this.l10n( `Unsubscribed users` ) + ": {valueY.formatNumber()}",
+                } ),
+                "stroke": am5.color( "#ff0000" ),
+                "fill": am5.color( "#ff0000" ),
+                "connect": false,
+            } ) );
+
+            // // data processor
+            series2.data.processor = dateProcessor;
+
+            // fill settings
+            // series2.fills.template.setAll( {
+            //     "fillOpacity": 0.3,
+            //     "visible": true,
+            // } );
+
+            // cursor
+            chart.set(
+                "cursor",
+                am5xy.XYCursor.new( root, {
+                    "behavior": "zoomX",
+                } )
+            );
+
+            // scroll bar
+            chart.set(
+                "scrollbarX",
+                am5.Scrollbar.new( root, {
+                    "orientation": "horizontal",
+                } )
+            );
+
+            // legend
+            const legend = chart.children.push( am5.Legend.new( root, {
+                "centerX": am5.p50,
+                "x": am5.p50,
+            } ) );
+
+            legend.data.setAll( chart.series.values );
+        },
+
+        _setChartData ( chart, data ) {
+            const xAxis = chart.root.container.children.values[0].xAxes.values[0];
+
+            if ( xAxis.get( "baseInterval" ).timeUnit !== PERIODS[this._period].timeUnit ) {
+                xAxis.get( "baseInterval" ).timeUnit = PERIODS[this._period].timeUnit;
+            }
+
+            return data;
+        },
+    },
+};
+</script>
