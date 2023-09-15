@@ -1,7 +1,7 @@
 <template>
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #data>
-            <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
+            <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
                 <ext-toolbar docked="top">
                     <ext-searchfield :placeholder="l10n(`Search links`)" width="200" @change="_search"/>
 
@@ -24,7 +24,7 @@
             </ext-grid>
 
             <ext-panel collapsed="false" collapsible="right" docked="right" headerPosition="left" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`Bot link details`)" width="400" @ready="ready">
-                <DetailsPanel :telegramBotId="telegramBotId" :telegramBotLinkId="telegramBotLinkId"/>
+                <DetailsPanel :telegramBotLink="selectedRecord"/>
             </ext-panel>
         </template>
     </CardsPanel>
@@ -49,6 +49,7 @@ export default {
     // XXX
     data () {
         return {
+            "selectedRecord": null,
             "canUpdate": this.$app.user.hasPermissions( "administration:update" ),
             "canDelete": this.$app.user.hasPermissions( "administration:delete" ),
         };
@@ -75,8 +76,10 @@ export default {
         },
 
         // protected
-        _onGridReady ( e ) {
+        _gridReady ( e ) {
             const cmp = e.detail.cmp;
+
+            cmp.on( "select", ( grid, selection ) => ( this.selectedRecord = selection[0] ) );
 
             cmp.setStore( this.store );
         },

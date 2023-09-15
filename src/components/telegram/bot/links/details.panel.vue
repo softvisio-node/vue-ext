@@ -9,9 +9,9 @@
 <script>
 export default {
     "props": {
-        "telegramBotId": {
-            "type": String,
-            "required": true,
+        "telegramBotLink": {
+            "type": Object,
+            "default": null,
         },
     },
 
