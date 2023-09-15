@@ -1,13 +1,21 @@
 <template>
-    <ext-panel ref="form" layout="vbox">
-        <ext-textfield :label="l10n(`Link name`)" name="name" required="tue"/>
+    <CardsPanel ref="cards" :store="store" @refresh="refresh">
+        <template #data>
+            <ext-panel ref="form" layout="vbox">
+                <ext-textfield :label="l10n(`Link name`)" name="name" required="tue"/>
 
-        <ext-textareafield flex="1" :label="l10n(`Link description`)" name="description" wrap="off"/>
-    </ext-panel>
+                <ext-textareafield flex="1" :label="l10n(`Link description`)" name="description" wrap="off"/>
+            </ext-panel>
+        </template>
+    </CardsPanel>
 </template>
 
 <script>
+import CardsPanel from "#src/components/cards.panel";
+
 export default {
+    "components": { CardsPanel },
+
     "props": {
         "telegramBotLink": {
             "type": Object,
