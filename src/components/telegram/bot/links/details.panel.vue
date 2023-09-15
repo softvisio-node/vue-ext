@@ -1,8 +1,12 @@
 <template>
     <ext-tabpanel layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":150,"textAlign":"center","width":45},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation1="none" viewModel="true">
-        <BotLinkInfoPanel layout="fit" :telegramBotLinkRecord="telegramBotLinkRecord" :title="l10n(`Info`)"/>
+        <ext-panel layout="fit" :title="l10n(`Info`)">
+            <BotLinkInfoPanel :telegramBotLinkRecord="telegramBotLinkRecord"/>
+        </ext-panel>
 
-        <BotLinkStatsPanel iconAlign="left" iconCls="fa-solid fa-chart-line" scrollable="true" :telegramBotLinkRecord="telegramBotLinkRecord" :title="l10n(`Charts`)"/>
+        <ext-panel iconAlign="left" iconCls="fa-solid fa-chart-line" layout="fit" :title="l10n(`Charts`)">
+            <BotLinkStatsPanel scrollable="true" :telegramBotLinkRecord="telegramBotLinkRecord"/>
+        </ext-panel>
     </ext-tabpanel>
 </template>
 
