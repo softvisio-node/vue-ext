@@ -84,18 +84,21 @@ export default {
         cancel () {
             this.edit = false;
 
-            this.$refs.form.ext.reset();
+            this.$refs.form.ext.setRecord( null );
         },
 
         // XXX
         async save () {
+
+            // form is not valid
             if ( !this.$refs.form.ext.validate() ) return;
 
             this.$refs.form.ext.fillRecord( this.telegramBotLinkRecord );
-
-            this.telegramBotLinkRecord.commit();
+            this.$refs.form.ext.setRecord( null );
 
             this.edit = false;
+
+            this.telegramBotLinkRecord.commit();
         },
 
         // XXX
