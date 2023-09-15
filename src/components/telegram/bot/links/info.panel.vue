@@ -4,7 +4,6 @@
             <ext-panel ref="dataPanel" layout="fit" viewModel="true">
                 <ext-toolbar docked="top">
                     <ext-spacer/>
-                    <ext-button bind='{"hidden":"{!record.can_update_acl}"}' :text="l10n(`Edit permissions`)" @tap="_showAclDialog"/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
@@ -22,8 +21,6 @@
                         <ext-displayfield bind="{record.name}" :label="l10n(`Bot name`)" labelAlign="left" labelWidth="200"/>
 
                         <ext-spacer/>
-
-                        <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="_shoeEditDialog"/>
                     </ext-container>
 
                     <ext-displayfield bind="{record.short_description}" :label="l10n(`Short description`)" labelAlign="left" labelWidth="200"/>
@@ -75,9 +72,9 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import TelegramBotModel from "./models/bot";
-import AclDialog from "#vue/components/acl/dialog";
-import DetailsGialog from "./details.dialog";
+
+// XXX
+const TelegramBotModel = "";
 
 export default {
     "components": { CardsPanel },
@@ -148,27 +145,6 @@ export default {
             else {
                 this.$toast( res );
             }
-        },
-
-        async _showAclDialog () {
-            const cmp = await this.$mount( AclDialog, {
-                "cache": false,
-                "props": {
-                    "aclId": this.record.get( "acl_id" ),
-                },
-            } );
-
-            cmp.ext.show();
-        },
-
-        async _shoeEditDialog () {
-            const cmp = await this.$mount( DetailsGialog, {
-                "props": {
-                    "record": this.record,
-                },
-            } );
-
-            cmp.ext.show();
         },
 
         async _deleteBot ( e ) {
