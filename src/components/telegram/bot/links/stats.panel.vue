@@ -47,6 +47,12 @@ export default {
         },
     },
 
+    data () {
+        return {
+            "period": "7 days",
+        };
+    },
+
     "watch": {
         telegramBotLinkRecord ( newValue, oldValue ) {
             this.refresh();
@@ -57,7 +63,7 @@ export default {
 
         // public
         async refresh () {
-            if ( !this._period ) return;
+            if ( !this.telegramBotLinkRecord ) return;
 
             this.$refs.cardsPanel.mask();
 
