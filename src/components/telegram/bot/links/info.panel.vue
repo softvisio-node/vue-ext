@@ -8,47 +8,22 @@
                 </ext-toolbar>
 
                 <ext-panel padding="10 10 10 10" scrollable="true">
-                    <ext-displayfield bind="{record.telegram_username}" :label="l10n(`Telegram username`)" labelAlign="left" labelWidth="200"/>
+                    <ext-displayfield bind="{record.name}" :label="l10n(`Link name`)" labelAlign="left" labelWidth="200"/>
 
-                    <ext-container layout="hbox">
-                        <ext-displayfield bind="{record.url}" :label="l10n(`Telegram bot url`)" labelAlign="left" labelWidth="200"/>
-                        <ext-spacer/>
-                        <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`)" @tap="_copyBotUrl"/>
-                        <ext-button iconCls="fa-solid fa-arrow-up-right-from-square" :tooltip="l10n(`Open bot in Tekegram`)" @tap="_openBotUrl"/>
-                    </ext-container>
+                    <ext-displayfield bind="{record.description}" :label="l10n(`Link description`)" labelAlign="left" labelWidth="200"/>
 
-                    <ext-container layout="hbox">
-                        <ext-displayfield bind="{record.name}" :label="l10n(`Bot name`)" labelAlign="left" labelWidth="200"/>
-
-                        <ext-spacer/>
-                    </ext-container>
-
-                    <ext-displayfield bind="{record.short_description}" :label="l10n(`Short description`)" labelAlign="left" labelWidth="200"/>
-
-                    <!-- <ext-displayfield bind="{record.type}" :label="l10n( `Type` )"/> -->
-
-                    <!-- <ext-displayfield bind="{record.static}" :label="l10n( `Static` )"/> -->
-
-                    <!-- <ext-displayfield bind="{record.created}" :label="l10n( `Creation date` )" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/> -->
-
-                    <!-- status -->
-                    <ext-displayfield bind="{record.status_text}" :label="l10n(`Status`)" labelAlign="left" labelWidth="200"/>
-                    <ext-displayfield bind='{"hidden":"{!record.error}","value":"{record.error_text}"}' labelAlign="left" labelWidth="200"/>
+                    <ext-displayfield bind="{record.created}" :label="l10n(`Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/>
 
                     <!-- users stats -->
                     <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`Last new user subscribed`)" labelAlign="left" labelWidth="200"/>
 
-                    <ext-fieldset layout="hbox" title="Users statistics">
-                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">
-                            <ext-displayfield bind="{record.total_users}" :label="l10n(`Total users`)"/>
-                            <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10n(`Total subscribed users`)"/>
-                            <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10n(`Total unsubscribed users`)"/>
-                        </ext-container>
+                    <ext-fieldset defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox" title="Users statistics">
+                        <ext-displayfield bind="{record.total_users}" :label="l10n(`Total users`)"/>
+                        <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10n(`Total subscribed users`)"/>
+                        <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10n(`Total unsubscribed users`)"/>
 
-                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox">
-                            <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`Total returned users`)"/>
-                            <ext-displayfield bind="{record.total_banned_users}" :label="l10n(`Total banned users`)"/>
-                        </ext-container>
+                        <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`Total returned users`)"/>
+                        <ext-displayfield bind="{record.total_banned_users}" :label="l10n(`Total banned users`)"/>
                     </ext-fieldset>
 
                     <ext-container defaults='{"ui":"decline","width":200}' layout='{"align":"center","type":"vbox"}'>
