@@ -10,6 +10,8 @@
                     <ext-button iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
 
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
+
+                    <ext-button iconCls="fa-solid fa-table-columns" pressed="true" :tooltip="l10n(`Toggle link details panel`)" @tap="toggleLinkDetailsPanel"/>
                 </ext-toolbar>
 
                 <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
@@ -23,7 +25,8 @@
                 <ext-column width="150" @ready="_actionColReady"/>
             </ext-grid>
 
-            <ext-panel docked="right" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' width="400">
+            <!-- details panel -->
+            <ext-panel ref="linkDetailsPanel" docked="right" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' width="400">
                 <DetailsPanel :telegramBotLinkRecord="selectedRecord"/>
             </ext-panel>
         </template>
@@ -136,6 +139,20 @@ export default {
             } );
 
             cmp.ext.show();
+        },
+
+        toggleLinkDetailsPanel ( e ) {
+            const button = e.detail.sender,
+                pressed = button.getPressed();
+
+            button.setPressed( !pressed );
+
+            if ( !pressed ) {
+                this.$refs.linkDetailsPanel.ext.show();
+            }
+            else {
+                this.$refs.linkDetailsPanel.ext.hide();
+            }
         },
     },
 };
