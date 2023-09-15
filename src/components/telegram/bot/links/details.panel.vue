@@ -1,5 +1,5 @@
 <template>
-    <ext-panel ref="form" headerPosition="left" layout="vbox" :title="l10n(`Bot link details`)" @ready="ready">
+    <ext-panel ref="form" layout="vbox" :title="l10n(`Bot link details`)" @ready="ready">
         <ext-textfield :label="l10n(`Link name`)" name="name" required="tue"/>
 
         <ext-textareafield flex="1" :label="l10n(`Link description`)" name="description" wrap="off"/>

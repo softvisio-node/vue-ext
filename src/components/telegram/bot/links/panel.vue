@@ -10,8 +10,6 @@
                     <ext-button iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
 
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
-
-                    <ext-button iconCls="fa-solid fa-table-columns" :tooltip="l10n(`Toggle lunk details`)" @tap="_toggleLinkDetails"/>
                 </ext-toolbar>
 
                 <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
@@ -25,7 +23,7 @@
                 <ext-column width="150" @ready="_actionColReady"/>
             </ext-grid>
 
-            <DetailsPanel ref="detailsPanel" docked="right" hidden="true" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' scrollable="true" :telegramBotId="telegramBotId" :telegramBotLinkId="telegramBotLinkId" width="400"/>
+            <DetailsPanel ref="detailsPanel" collapsed="false" collapsible="true" docked="right" headerPosition="left" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' scrollable="true" :telegramBotId="telegramBotId" :telegramBotLinkId="telegramBotLinkId" width="400"/>
         </template>
     </CardsPanel>
 </template>
@@ -133,15 +131,6 @@ export default {
             } );
 
             cmp.ext.show();
-        },
-
-        _toggleLinkDetails ( e ) {
-            const button = e.detail.sender,
-                hidden = !button.getPressed();
-
-            button.setPressed( hidden );
-
-            this.$refs.detailsPanel.ext.setHidden( !hidden );
         },
     },
 };
