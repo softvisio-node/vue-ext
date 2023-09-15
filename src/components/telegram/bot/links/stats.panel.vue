@@ -60,12 +60,12 @@ export default {
         // XXX
         async refresh () {
             if ( !this.telegramBotLinkRecord ) {
-                this.$refs.catdsPanel.showNoDataPanel();
+                this.$refs.cardsPanel.showNoDataPanel();
 
                 return;
             }
 
-            alert( 1 );
+            alert( this.$refs.cardsPanel.ext.isVisible() );
 
             this.$refs.cardsPanel.mask();
 
