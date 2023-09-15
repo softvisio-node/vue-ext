@@ -18,7 +18,9 @@
                 <ext-toolbar docked="bottom">
                     <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete bot`)" @tap="_deleteBot"/>
                     <ext-spacer/>
-                    <ext-button iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="refresh"/>
+                    <ext-button :hidden="edit" iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="startEdit"/>
+                    <ext-button :hidden="!edit" iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="save"/>
+                    <ext-button :hidden="!edit" iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" ui="decline" @tap="cancel"/>
                 </ext-toolbar>
             </ext-panel>
         </template>
@@ -36,6 +38,12 @@ export default {
             "type": Object,
             "default": null,
         },
+    },
+
+    data () {
+        return {
+            "edit": false,
+        };
     },
 
     "watch": {
@@ -59,6 +67,14 @@ export default {
             else {
                 this.$refs.cardsPanel.showNoDataPanel();
             }
+        },
+
+        startEdit () {
+            this.edit = true;
+        },
+
+        cancel () {
+            this.edit = false;
         },
 
         // XXX
