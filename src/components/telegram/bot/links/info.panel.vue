@@ -125,7 +125,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "telegram/bots/links/delete-bot", this.telegramBotLinkRecord.id );
+            const res = await this.$api.call( "telegram/bots/links/delete-link", this.telegramBotLinkRecord.id );
 
             button.enable();
 
