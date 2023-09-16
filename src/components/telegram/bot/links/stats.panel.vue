@@ -8,6 +8,8 @@
                 </ext-toolbar>
 
                 <ext-panel defaults='{"labelAlign":"left","labelWidth":200}' padding="0 5 0 5">
+                    <ext-displayfield bind="{record.created}" :label="l10n(`Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/>
+
                     <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`Last user created`)" labelAlign="top"/>
 
                     <ext-displayfield bind="{record.total_users}" :label="l10n(`Total users`)"/>

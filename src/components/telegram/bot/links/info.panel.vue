@@ -7,22 +7,29 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-formpanel ref="form" defaults='{"labelAlign":"top"}' layout="vbox" padding="0 0 0 5">
-                    <ext-displayfield bind="{record.name}" :hidden="edit" :label="l10n(`Name`)"/>
-                    <ext-textfield :hidden="!edit" :label="l10n(`Name`)" name="name" required="truw"/>
+                <!-- view -->
+                <ext-formpanel ref="view" defaults='{"labelAlign":"top"}' :hidden="edit" layout="vbox" padding="0 0 0 5">
+                    <ext-displayfield :label="l10n(`Name`)" name="name"/>
 
-                    <ext-displayfield bind="{record.created}" :label="l10n(`Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/>
+                    <ext-textareafield flex="1" :label="l10n(`Description`)" name="description" readOnly="true"/>
+                </ext-formpanel>
 
-                    <ext-textareafield bind="{record.description}" flex="1" :hidden="edit" :label="l10n(`Description`)" readOnly="true"/>
-                    <ext-textareafield flex="1" :hidden="!edit" :label="l10n(`Description`)" name="description"/>
+                <!-- edit -->
+                <ext-formpanel ref="edit" defaults='{"labelAlign":"top"}' :hidden="!edit" layout="vbox" padding="0 0 0 5" trackResetOnLoad="true">
+                    <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/>
+
+                    <ext-textareafield flex="1" :label="l10n(`Description`)" name="description"/>
                 </ext-formpanel>
 
                 <ext-toolbar docked="bottom">
-                    <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete bot`)" @tap="_deleteBot"/>
+                    <ext-button bind1='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" @tap="_deleteLink"/>
+
                     <ext-spacer/>
+
                     <ext-button :hidden="edit" iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="startEdit"/>
-                    <ext-button :hidden="!edit" iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="save"/>
-                    <ext-button :hidden="!edit" iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" ui="decline" @tap="cancel"/>
+
+                    <ext-button :disabled="!dirty" :hidden="!edit" iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="save"/>
+                    <ext-button :hidden="!edit" iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" @tap="cancel"/>
                 </ext-toolbar>
             </ext-panel>
         </template>
@@ -45,6 +52,7 @@ export default {
     data () {
         return {
             "edit": false,
+            "dirty": false,
         };
     },
 
@@ -56,17 +64,19 @@ export default {
 
     "methods": {
         ready ( e ) {
+            this.$refs.edit.ext.on( "dirtyChange", ( form, dirty ) => ( this.dirty = dirty ) );
+
             this._onRecordChange();
         },
 
         // protected
         _onRecordChange () {
-            this.$refs.dataPanel.ext.getViewModel().set( "record", this.telegramBotLinkRecord );
-
-            this.cancel();
-
             if ( this.telegramBotLinkRecord ) {
+                this.cancel();
+
                 this.$refs.cardsPanel.showDataPanel();
+
+                this.$refs.view.ext.setRecord( this.telegramBotLinkRecord );
             }
             else {
                 this.$refs.cardsPanel.showNoDataPanel();
@@ -74,31 +84,29 @@ export default {
         },
 
         startEdit () {
-            if ( !this.telegramBotLinkRecord ) return;
-
-            this.$refs.form.ext.setRecord( this.telegramBotLinkRecord );
+            this.$refs.edit.ext.setValues( this.telegramBotLinkRecord.getData() );
 
             this.edit = true;
         },
 
         cancel () {
             this.edit = false;
-
-            this.$refs.form.ext.setRecord( null );
         },
 
         // XXX
         async save () {
 
             // form is not valid
-            if ( !this.$refs.form.ext.validate() ) return;
+            if ( !this.$refs.edit.ext.validate() ) return;
 
-            this.$refs.form.ext.fillRecord( this.telegramBotLinkRecord );
-            this.$refs.form.ext.setRecord( null );
-
-            this.edit = false;
+            this.$refs.edit.ext.fillRecord( this.telegramBotLinkRecord );
 
             this.telegramBotLinkRecord.commit();
+
+            this.$refs.view.ext.setRecord( null );
+            this.$refs.view.ext.setRecord( this.telegramBotLinkRecord );
+
+            this.edit = false;
         },
 
         // XXX
