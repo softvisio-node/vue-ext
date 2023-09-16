@@ -119,19 +119,22 @@ export default {
 
         // XXX
         async _deleteLink ( e ) {
-            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this bot and all it's data? This operation is not revertable." ) ) ) ) return;
+            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this link and all it's data? This operation is not revertable." ) ) ) ) return;
 
-            const record = this.record,
-                button = e.detail.sender;
+            const button = e.detail.sender;
 
             button.disable();
 
-            const res = await this.$api.call( "telegram/bots/delete-bot", record.id );
+            const res = await this.$api.call( "telegram/bots/links/delete-bot", this.telegramBotLinkRecord.id );
 
             button.enable();
 
             if ( res.ok ) {
-                this.refresh();
+                this.$toast( this.l10n( `Link deleted` ) );
+
+                this.$refs.cardsPanel.shpwNoDataPanel();
+
+                this.telegramBotLinkRecord.remove();
             }
             else {
                 this.$toast( res );
