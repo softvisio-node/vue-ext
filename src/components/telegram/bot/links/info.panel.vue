@@ -99,14 +99,23 @@ export default {
             // form is not valid
             if ( !this.$refs.edit.ext.validate() ) return;
 
-            this.$refs.edit.ext.fillRecord( this.telegramBotLinkRecord );
+            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, this.$refs.edit.ext.getValues() );
 
-            this.telegramBotLinkRecord.commit();
+            if ( res.ok ) {
+                this.$refs.edit.ext.fillRecord( this.telegramBotLinkRecord );
 
-            this.$refs.view.ext.setRecord( null );
-            this.$refs.view.ext.setRecord( this.telegramBotLinkRecord );
+                this.telegramBotLinkRecord.commit();
 
-            this.edit = false;
+                this.$refs.view.ext.setRecord( null );
+                this.$refs.view.ext.setRecord( this.telegramBotLinkRecord );
+
+                this.edit = false;
+
+                this.$toast( this.l10n( `Link updated` ) );
+            }
+            else {
+                this.$toast( res );
+            }
         },
 
         // XXX
