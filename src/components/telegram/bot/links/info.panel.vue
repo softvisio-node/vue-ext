@@ -28,7 +28,7 @@
 
                     <ext-button :hidden="edit" iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="startEdit"/>
 
-                    <ext-button :disabled="!dirty" :hidden="!edit" iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="save"/>
+                    <ext-button :disabled="!dirty" :hidden="!edit" iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="updateLink"/>
                     <ext-button :hidden="!edit" iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" @tap="cancelEdit"/>
                 </ext-toolbar>
             </ext-panel>
@@ -93,8 +93,7 @@ export default {
             this.edit = false;
         },
 
-        // XXX
-        async save () {
+        async updateLink () {
 
             // form is not valid
             if ( !this.$refs.edit.ext.validate() ) return;
