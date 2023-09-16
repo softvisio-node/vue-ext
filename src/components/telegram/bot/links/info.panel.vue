@@ -29,7 +29,7 @@
                     <ext-button :hidden="edit" iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="startEdit"/>
 
                     <ext-button :disabled="!dirty" :hidden="!edit" iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="save"/>
-                    <ext-button :hidden="!edit" iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" @tap="cancel"/>
+                    <ext-button :hidden="!edit" iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" @tap="cancelEdit"/>
                 </ext-toolbar>
             </ext-panel>
         </template>
@@ -72,7 +72,7 @@ export default {
         // protected
         _onRecordChange () {
             if ( this.telegramBotLinkRecord ) {
-                this.cancel();
+                this.cancelEdit();
 
                 this.$refs.cardsPanel.showDataPanel();
 
@@ -89,7 +89,7 @@ export default {
             this.edit = true;
         },
 
-        cancel () {
+        cancelEdit () {
             this.edit = false;
         },
 
