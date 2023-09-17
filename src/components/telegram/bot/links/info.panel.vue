@@ -11,7 +11,11 @@
                 <ext-formpanel ref="view" bind='{"hidden":"{editStarted}"}' defaults='{"labelAlign":"left","labelWidth":50}' flex="1" layout="vbox" padding="0 0 0 10">
                     <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)"/>
 
-                    <ext-displayfield bind="{telegramBotLinkRecord.url}" :label="l10n(`Link`)"/>
+                    <ext-container layout="hbox">
+                        <ext-displayfield bind="{telegramBotLinkRecord.url}" flex="1" :label="l10n(`Link`)" labelAlign="left" labelWidth="50"/>
+
+                        <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy link`)"/>
+                    </ext-container>
 
                     <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" :label="l10n(`Description`)" labelAlign="top" readOnly="true"/>
                 </ext-formpanel>
