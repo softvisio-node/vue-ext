@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @refresh="refresh">
+    <CardsPanel ref="cardsPanel" :store="store" viewModel="true" @refresh="refresh">
         <template #data>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
                 <ext-toolbar docked="top">
@@ -7,7 +7,7 @@
 
                     <ext-spacer/>
 
-                    <ext-button iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
+                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_create_link}"}' iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
 
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
 
@@ -38,6 +38,7 @@ import CardsPanel from "#src/components/cards.panel";
 import TelegramBotLinkModel from "./models/link";
 import CreateLinkDialog from "./create.dialog";
 import DetailsPanel from "./details.panel";
+import TelegramBotModel from "../models/bot.js";
 
 export default {
     "components": { CardsPanel, DetailsPanel },
@@ -53,6 +54,7 @@ export default {
     data () {
         return {
             "selectedRecord": null,
+            "telegramBotRecord": null,
             "canUpdate": this.$app.user.hasPermissions( "administration:update" ),
             "canDelete": this.$app.user.hasPermissions( "administration:delete" ),
         };
@@ -75,7 +77,17 @@ export default {
 
         // public
         async refresh () {
-            this.store.loadPage( 1 );
+            const res = await this.$api.call( "telegram/bots/get-bot", this.telegramBotId );
+
+            if ( !res.ok ) {
+                this.$refs.cardsPanel.setResult( res );
+            }
+            else {
+                this.telegramBotRecord = new TelegramBotModel( res.data );
+                this.$refs.cardsPanel.ext.getViewModel().set( "telegramBotRecord", this.telegramBotRecord );
+
+                this.store.loadPage( 1 );
+            }
         },
 
         // protected

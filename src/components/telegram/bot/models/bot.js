@@ -46,6 +46,11 @@ export default Ext.define( "", {
         { "name": "can_start", "calculate": data => data.acl_user_permissions.has( "telegram/bot:update" ) && !data.started },
         { "name": "can_stop", "calculate": data => data.acl_user_permissions.has( "telegram/bot:update" ) && data.started },
 
+        { "name": "can_create_link", "calculate": data => data.acl_user_permissions.has( "telegram/bot/links:create" ) },
+        { "name": "can_read_link", "calculate": data => data.acl_user_permissions.has( "telegram/bot/links:read" ) },
+        { "name": "can_update_link", "calculate": data => data.acl_user_permissions.has( "telegram/bot/links:update" ) },
+        { "name": "can_delete_link", "calculate": data => data.acl_user_permissions.has( "telegram/bot/links:delete" ) },
+
         { "name": "status_text", "calculate": data => ( data.started ? app.locale.l10n( `Started` ) : app.locale.l10n( `Stopped` ) ) },
 
         {
