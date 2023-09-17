@@ -10,9 +10,9 @@
 
                 <!-- view -->
                 <ext-formpanel ref="view" bind='{"hidden":"{editStarted}"}' defaults='{"labelAlign":"top"}' flex="1" layout="vbox" padding="0 0 0 5">
-                    <ext-displayfield :label="l10n(`Name`)" name="name"/>
+                    <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)"/>
 
-                    <ext-textareafield flex="1" :label="l10n(`Description`)" name="description" readOnly="true"/>
+                    <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" :label="l10n(`Description`)" readOnly="true"/>
                 </ext-formpanel>
 
                 <!-- edit -->
@@ -130,12 +130,12 @@ export default {
 
         // protected
         _onRecordChange () {
+            this.cancelEdit();
+
+            this.$refs.dataPanel.ext.getViewModel().set( "telegramBotLinkRecord", this.telegramBotLinkRecord );
+
             if ( this.telegramBotLinkRecord ) {
-                this.cancelEdit();
-
                 this.$refs.cardsPanel.showDataPanel();
-
-                this.$refs.view.ext.setRecord( this.telegramBotLinkRecord );
             }
             else {
                 this.$refs.cardsPanel.showNoDataPanel();
@@ -168,9 +168,6 @@ export default {
                 this.$refs.edit.ext.fillRecord( this.telegramBotLinkRecord );
 
                 this.telegramBotLinkRecord.commit();
-
-                this.$refs.view.ext.setRecord( null );
-                this.$refs.view.ext.setRecord( this.telegramBotLinkRecord );
 
                 this.$refs.dataPanel.ext.getViewModel().set( "editStarted", false );
 
