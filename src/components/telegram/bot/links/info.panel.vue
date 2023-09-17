@@ -8,14 +8,14 @@
                 </ext-toolbar>
 
                 <!-- view -->
-                <ext-formpanel ref="view" defaults='{"labelAlign":"top"}' :hidden="edit" layout="vbox" padding="0 0 0 5">
+                <ext-formpanel ref="view" bind='{"hidden":"{editStarted}"}' defaults='{"labelAlign":"top"}' layout="vbox" padding="0 0 0 5">
                     <ext-displayfield :label="l10n(`Name`)" name="name"/>
 
                     <ext-textareafield flex="1" :label="l10n(`Description`)" name="description" readOnly="true"/>
                 </ext-formpanel>
 
                 <!-- edit -->
-                <ext-formpanel ref="edit" defaults='{"labelAlign":"top"}' :hidden="!edit" layout="vbox" padding="0 0 0 5" trackResetOnLoad="true">
+                <ext-formpanel ref="edit" bind='{"hidden":"{!editStarted}"}' defaults='{"labelAlign":"top"}' layout="vbox" padding="0 0 0 5" trackResetOnLoad="true">
                     <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/>
 
                     <ext-textareafield flex="1" :label="l10n(`Description`)" name="description"/>
@@ -26,10 +26,10 @@
 
                     <ext-spacer/>
 
-                    <ext-button :hidden="edit" iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="startEdit"/>
+                    <ext-button bind='{"hidden":"{editButtonHidden}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="startEdit"/>
 
-                    <ext-button :disabled="!dirty" :hidden="!edit" iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="updateLink"/>
-                    <ext-button :hidden="!edit" iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" @tap="cancelEdit"/>
+                    <ext-button bind='{"disabled":"{saveButtonDisabled}","hidden":"{saveButtonHidden}"}' iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="updateLink"/>
+                    <ext-button bind='{"hidden":"{cancelButtonHidden}"}' iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" @tap="cancelEdit"/>
                 </ext-toolbar>
             </ext-panel>
         </template>
@@ -49,13 +49,6 @@ export default {
         },
     },
 
-    data () {
-        return {
-            "edit": false,
-            "dirty": false,
-        };
-    },
-
     "watch": {
         telegramBotLinkRecord ( newValue, oldValue ) {
             this._onRecordChange();
@@ -64,7 +57,61 @@ export default {
 
     "methods": {
         ready ( e ) {
-            this.$refs.edit.ext.on( "dirtyChange", ( form, dirty ) => ( this.dirty = dirty ) );
+            this.$refs.dataPanel.ext.getViewModel().setFormulas( {
+                "editButtonHidden": {
+                    "bind": {
+                        "canEdit": "{telegramBotRecord.can_update_link}",
+                        "editStarted": "{editStarted}",
+                    },
+                    get ( data ) {
+                        if ( !data.canEdit ) return true;
+
+                        if ( data.editStarted ) return true;
+
+                        return false;
+                    },
+                },
+                "cancelButtonHidden": {
+                    "bind": {
+                        "canEdit": "{telegramBotRecord.can_update_link}",
+                        "editStarted": "{editStarted}",
+                    },
+                    get ( data ) {
+                        if ( !data.canEdit ) return true;
+
+                        if ( !data.editStarted ) return true;
+
+                        return false;
+                    },
+                },
+
+                "saveButtonHidden": {
+                    "bind": {
+                        "canEdit": "{telegramBotRecord.can_update_link}",
+                        "editStarted": "{editStarted}",
+                    },
+                    get ( data ) {
+                        if ( !data.canEdit ) return true;
+
+                        if ( !data.editStarted ) return true;
+
+                        return false;
+                    },
+                },
+
+                "saveButtonDisabled": {
+                    "bind": {
+                        "dirty": "{dirty}",
+                    },
+                    get ( data ) {
+                        return !data.dirty;
+                    },
+                },
+            } );
+
+            this.$refs.edit.ext.on( "dirtyChange", ( form, dirty ) => {
+                this.$refs.dataPanel.ext.getViewModel().set( "dirty", dirty );
+            } );
 
             this._onRecordChange();
         },
@@ -86,11 +133,11 @@ export default {
         startEdit () {
             this.$refs.edit.ext.setValues( this.telegramBotLinkRecord.getData() );
 
-            this.edit = true;
+            this.$refs.dataPanel.ext.getViewModel().set( "editStarted", true );
         },
 
         cancelEdit () {
-            this.edit = false;
+            this.$refs.dataPanel.ext.getViewModel().set( "editStarted", false );
         },
 
         async updateLink () {
@@ -108,7 +155,7 @@ export default {
                 this.$refs.view.ext.setRecord( null );
                 this.$refs.view.ext.setRecord( this.telegramBotLinkRecord );
 
-                this.edit = false;
+                this.$refs.dataPanel.ext.getViewModel().set( "editStarted", false );
 
                 this.$toast( this.l10n( `Link updated` ) );
             }

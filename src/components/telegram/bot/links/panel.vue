@@ -53,7 +53,6 @@ export default {
     data () {
         return {
             "selectedRecord": null,
-            "telegramBotRecord": null,
         };
     },
 
@@ -80,8 +79,9 @@ export default {
                 this.$refs.cardsPanel.setResult( res );
             }
             else {
-                this.telegramBotRecord = new TelegramBotModel( res.data );
-                this.$refs.cardsPanel.ext.getViewModel().set( "telegramBotRecord", this.telegramBotRecord );
+                const telegramBotRecord = new TelegramBotModel( res.data );
+
+                this.$refs.cardsPanel.ext.getViewModel().set( "telegramBotRecord", telegramBotRecord );
 
                 this.store.loadPage( 1 );
             }
