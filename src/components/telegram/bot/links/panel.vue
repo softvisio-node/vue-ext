@@ -27,7 +27,7 @@
 
             <!-- details panel -->
             <ext-panel ref="linkDetailsPanel" docked="right" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' width="400">
-                <DetailsPanel :telegramBotLinkRecord="selectedRecord"/>
+                <DetailsPanel :telegramBotLinkRecord="selectedRecord" @delete="_onLinkDelete"/>
             </ext-panel>
         </template>
     </CardsPanel>
@@ -162,6 +162,12 @@ export default {
             else {
                 this.$refs.linkDetailsPanel.ext.hide();
             }
+        },
+
+        _onLinkDelete ( telegramBotLinkrecord ) {
+            this.selectedRecord = null;
+
+            this.refresh();
         },
     },
 };

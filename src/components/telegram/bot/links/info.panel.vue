@@ -49,6 +49,8 @@ export default {
         },
     },
 
+    "emits": ["delete"],
+
     "watch": {
         telegramBotLinkRecord ( newValue, oldValue ) {
             this._onRecordChange();
@@ -164,7 +166,6 @@ export default {
             }
         },
 
-        // XXX
         async _deleteLink ( e ) {
             if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this link and all it's data? This operation is not revertable." ) ) ) ) return;
 
@@ -181,7 +182,7 @@ export default {
 
                 this.$refs.cardsPanel.showNoDataPanel();
 
-                this.telegramBotLinkRecord.remove();
+                this.$emit( "delete", this.telegramBotLinkRecord );
             }
             else {
                 this.$toast( res );

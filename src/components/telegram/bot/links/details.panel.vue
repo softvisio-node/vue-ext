@@ -1,7 +1,7 @@
 <template>
     <ext-tabpanel layout='{"animation":{"direction":"vertical","type":"slide"}}' tabBar='{"defaults":{"flex":null,"height":150,"textAlign":"center","width":45},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation1="none" viewModel="true">
         <ext-panel layout="fit" :title="l10n(`Info`)">
-            <BotLinkInfoPanel :telegramBotLinkRecord="telegramBotLinkRecord"/>
+            <BotLinkInfoPanel :telegramBotLinkRecord="telegramBotLinkRecord" @delete="_onLinkDelete"/>
         </ext-panel>
 
         <ext-panel layout="fit" :title="l10n(`Stats`)">
@@ -26,6 +26,14 @@ export default {
         "telegramBotLinkRecord": {
             "type": Object,
             "default": null,
+        },
+    },
+
+    "emits": ["delete"],
+
+    "methods": {
+        _onLinkDelete ( telegramBotLinkrecord ) {
+            this.$emit( "delete", telegramBotLinkrecord );
         },
     },
 };
