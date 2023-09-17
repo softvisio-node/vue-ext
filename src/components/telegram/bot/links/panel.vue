@@ -16,7 +16,7 @@
 
                 <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
 
-                <ext-column dataIndex="created" renderer="Ext.util.Format.dateRenderer()" :text="l10n(`Creation date`)" width="120"/>
+                <ext-column dataIndex="created_text" :text="l10n(`Creation date`)" width="120"/>
 
                 <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="170"/>
 

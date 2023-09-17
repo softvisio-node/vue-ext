@@ -26,6 +26,9 @@ export default Ext.define( "", {
         "total_banned_users",
 
         // calculated
+        { "name": "created_text", "calculate": data => app.locale.formatDate( data.created, "dateStyle:short,timeStyle:short" ) },
+        { "name": "created_relative", "calculate": data => app.locale.formatRelativeTime( data.created ) },
+
         {
             "name": "total_subscribed_users_percent",
             calculate ( data ) {
