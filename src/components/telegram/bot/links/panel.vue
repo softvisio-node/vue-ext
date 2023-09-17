@@ -50,13 +50,10 @@ export default {
         },
     },
 
-    // XXX
     data () {
         return {
             "selectedRecord": null,
             "telegramBotRecord": null,
-            "canUpdate": this.$app.user.hasPermissions( "administration:update" ),
-            "canDelete": this.$app.user.hasPermissions( "administration:delete" ),
         };
     },
 
