@@ -7,7 +7,7 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-panel defaults='{"labelAlign":"left","labelWidth":200}' padding="0 0 0 10">
+                <ext-panel defaults='{"labelAlign":"left","labelWidth":150}' padding="0 0 0 10">
                     <ext-displayfield bind="{record.created}" :label="l10n(`Creation date`)" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/>
 
                     <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`Last user created`)" labelAlign="top"/>
