@@ -10,7 +10,7 @@
                 <ext-panel defaults='{"labelAlign":"left","labelWidth":150}' padding="0 0 0 10">
                     <ext-displayfield bind="{record.created_html}" encodeHtml="false" :label="l10n(`Creation date`)"/>
 
-                    <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`Last user created`)" labelAlign="top"/>
+                    <ext-displayfield bind="{record.last_user_created_html}" encodeHtml="false" :label="l10n(`Last user created`)" labelAlign="top"/>
 
                     <ext-displayfield bind="{record.total_users}" :label="l10n(`Total users`)"/>
                     <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10n(`Total subscribed users`)"/>

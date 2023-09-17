@@ -16,11 +16,11 @@
 
                 <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
 
-                <ext-column dataIndex="created_text" :text="l10n(`Creation date`)" width="120"/>
+                <ext-column dataIndex="created_text" sorter='{"property":"created"}' :text="l10n(`Creation date`)" width="120"/>
 
                 <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="170"/>
 
-                <ext-column dataIndex="last_user_created" renderer="Ext.util.Format.dateRenderer()" :text="l10n(`Last user created`)" width="120"/>
+                <ext-column dataIndex="last_user_created_text" sorter='{"property":"last_user_created"}' :text="l10n(`Last user created`)" width="120"/>
 
                 <ext-column width="150" @ready="_actionColReady"/>
             </ext-grid>
