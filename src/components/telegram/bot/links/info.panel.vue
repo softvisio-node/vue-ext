@@ -132,7 +132,7 @@ export default {
             if ( res.ok ) {
                 this.$toast( this.l10n( `Link deleted` ) );
 
-                this.$refs.cardsPanel.shpwNoDataPanel();
+                this.$refs.cardsPanel.showNoDataPanel();
 
                 this.telegramBotLinkRecord.remove();
             }
