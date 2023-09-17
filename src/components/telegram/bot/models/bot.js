@@ -57,7 +57,7 @@ export default Ext.define( "", {
             "name": "last_user_created_text",
             calculate ( data ) {
                 if ( data.last_user_created ) {
-                    return `${app.locale.formatDate( data.last_user_created )} (${app.locale.formatRelativeTime( data.last_user_created )})`;
+                    return `${app.locale.formatDate( data.last_user_created )} (${app.locale.formatRelativeDate( data.last_user_created )})`;
                 }
                 else {
                     return "--";

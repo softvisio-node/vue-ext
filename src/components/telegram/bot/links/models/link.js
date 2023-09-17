@@ -27,7 +27,7 @@ export default Ext.define( "", {
 
         // calculated
         { "name": "created_text", "calculate": data => app.locale.formatDate( data.created, "dateStyle:short,timeStyle:short" ) },
-        { "name": "created_relative", "calculate": data => app.locale.formatRelativeTime( data.created ) },
+        { "name": "created_relative", "calculate": data => app.locale.formatRelativeDate( data.created ) },
 
         {
             "name": "total_subscribed_users_percent",
