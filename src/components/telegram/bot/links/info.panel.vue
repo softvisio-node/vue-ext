@@ -1,34 +1,33 @@
 <template>
     <CardsPanel ref="cardsPanel" @ready="ready">
         <template #data>
-            <ext-panel ref="dataPanel" layout="fit" viewModel="true">
+            <ext-panel ref="dataPanel" layout="vbox" viewModel="true">
                 <ext-toolbar docked="top">
+                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" @tap="_deleteLink"/>
                     <ext-spacer/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
                 <!-- view -->
-                <ext-formpanel ref="view" bind='{"hidden":"{editStarted}"}' defaults='{"labelAlign":"top"}' layout="vbox" padding="0 0 0 5">
+                <ext-formpanel ref="view" bind='{"hidden":"{editStarted}"}' defaults='{"labelAlign":"top"}' flex="1" layout="vbox" padding="0 0 0 5">
                     <ext-displayfield :label="l10n(`Name`)" name="name"/>
 
                     <ext-textareafield flex="1" :label="l10n(`Description`)" name="description" readOnly="true"/>
                 </ext-formpanel>
 
                 <!-- edit -->
-                <ext-formpanel ref="edit" bind='{"hidden":"{!editStarted}"}' defaults='{"labelAlign":"top"}' layout="vbox" padding="0 0 0 5" trackResetOnLoad="true">
+                <ext-formpanel ref="edit" bind='{"hidden":"{!editStarted}"}' defaults='{"labelAlign":"top"}' flex="1" layout="vbox" padding="0 0 0 5" trackResetOnLoad="true">
                     <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/>
 
                     <ext-textareafield flex="1" :label="l10n(`Description`)" name="description"/>
                 </ext-formpanel>
 
-                <ext-toolbar docked="bottom">
-                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" @tap="_deleteLink"/>
-
+                <ext-toolbar>
                     <ext-spacer/>
 
                     <ext-button bind='{"hidden":"{editButtonHidden}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="startEdit"/>
 
-                    <ext-button bind='{"disabled":"{saveButtonDisabled}","hidden":"{saveButtonHidden}"}' iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="updateLink"/>
+                    <ext-button bind='{"disabled":"{saveButtonDisabled}","hidden":"{saveButtonHidden}"}' iconCls="fa-solid fa-check" :text="l10n(`Save`)" @tap="updateLink"/>
                     <ext-button bind='{"hidden":"{cancelButtonHidden}"}' iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" @tap="cancelEdit"/>
                 </ext-toolbar>
             </ext-panel>
@@ -146,6 +145,11 @@ export default {
 
             // form is not valid
             if ( !this.$refs.edit.ext.validate() ) return;
+
+            // data not changed
+            if ( !this.$refs.dataPanel.ext.getViewModel().get( "dirty" ) ) {
+                return this.cancelEdit();
+            }
 
             const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, this.$refs.edit.ext.getValues() );
 
