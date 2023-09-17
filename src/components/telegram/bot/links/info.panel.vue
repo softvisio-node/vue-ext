@@ -22,7 +22,7 @@
                 </ext-formpanel>
 
                 <ext-toolbar docked="bottom">
-                    <ext-button bind1='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" @tap="_deleteLink"/>
+                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" @tap="_deleteLink"/>
 
                     <ext-spacer/>
 
