@@ -22,7 +22,7 @@
 
                     <ext-displayfield bind="{telegramBotLinkRecord.url}" :label="l10n(`Link`)"/>
 
-                    <ext-textareafield flex="1" :label="l10n(`Description`)" labelAlign="left" name="description"/>
+                    <ext-textareafield flex="1" :label="l10n(`Description`)" labelAlign="top" name="description"/>
                 </ext-formpanel>
 
                 <ext-toolbar docked="bottom">
