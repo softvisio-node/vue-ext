@@ -26,10 +26,68 @@ export default Ext.define( "", {
         "total_banned_users",
 
         // calculated
-        { "name": "total_subscribed_users_percent", "calculate": data => app.locale.formatNumber( data.total_subscribed_users / data.total_users ) },
+        {
+            "name": "total_subscribed_users_percent",
+            calculate ( data ) {
+                if ( data.total_users ) {
+                    return app.locale.formatNumber( data.total_subscribed_users / data.total_users );
+                }
+                else {
+                    return 0;
+                }
+            },
+        },
 
         { "name": "total_subscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_subscribed_users_percent ) },
 
         { "name": "total_subscribed_users_text", "calculate": data => `${data.total_subscribed_users} (${data.total_subscribed_users_percent_text})` },
+
+        {
+            "name": "total_unsubscribed_users_percent",
+            calculate ( data ) {
+                if ( data.total_users ) {
+                    return app.locale.formatNumber( data.total_unsubscribed_users / data.total_users );
+                }
+                else {
+                    return 0;
+                }
+            },
+        },
+
+        { "name": "total_unsubscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_unsubscribed_users_percent ) },
+
+        { "name": "total_unsubscribed_users_text", "calculate": data => `${data.total_unsubscribed_users} (${data.total_unsubscribed_users_percent_text})` },
+
+        {
+            "name": "total_returned_users_percent",
+            calculate ( data ) {
+                if ( data.total_users ) {
+                    return app.locale.formatNumber( data.total_returned_users / data.total_users );
+                }
+                else {
+                    return 0;
+                }
+            },
+        },
+
+        { "name": "total_returned_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_returned_users_percent ) },
+
+        { "name": "total_returned_users_text", "calculate": data => `${data.total_returned_users} (${data.total_returned_users_percent_text})` },
+
+        {
+            "name": "total_banned_users_percent",
+            calculate ( data ) {
+                if ( data.total_users ) {
+                    return app.locale.formatNumber( data.total_banned_users / data.total_users );
+                }
+                else {
+                    return 0;
+                }
+            },
+        },
+
+        { "name": "total_banned_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_banned_users_percent ) },
+
+        { "name": "total_banned_users_text", "calculate": data => `${data.total_banned_users} (${data.total_banned_users_percent_text})` },
     ],
 } );
