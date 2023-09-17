@@ -22,7 +22,7 @@
                     <ext-textareafield flex="1" :label="l10n(`Description`)" name="description"/>
                 </ext-formpanel>
 
-                <ext-toolbar>
+                <ext-toolbar docked="bottom">
                     <ext-spacer/>
 
                     <ext-button bind='{"hidden":"{editButtonHidden}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="startEdit"/>
@@ -191,13 +191,6 @@ export default {
             else {
                 this.$toast( res );
             }
-        },
-
-        // XXX
-        _copyBotUrl () {
-            this.$utils.copyToClipboard( this.record.get( "url" ) );
-
-            this.$toast( this.l10n( "Link copied to the clipboard" ) );
         },
     },
 };
