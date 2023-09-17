@@ -3,7 +3,6 @@
         <template #data>
             <ext-panel ref="dataPanel" layout="vbox" viewModel="true">
                 <ext-toolbar docked="top">
-                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" @tap="_deleteLink"/>
                     <ext-spacer/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
@@ -23,6 +22,8 @@
                 </ext-formpanel>
 
                 <ext-toolbar docked="bottom">
+                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" @tap="_deleteLink"/>
+
                     <ext-spacer/>
 
                     <ext-button bind='{"hidden":"{editButtonHidden}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="startEdit"/>

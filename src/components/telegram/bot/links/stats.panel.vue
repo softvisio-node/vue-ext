@@ -48,6 +48,17 @@ export default {
             this._onRecordChange();
         },
 
+        async refresh () {
+            const res = await this.$api.call( "telegram/bots/links/get-link", this.telegramBotLinkRecord.id );
+
+            if ( res.ok ) {
+                this.telegramBotLinkRecord.set( res.data );
+            }
+            else {
+                this.$toast( res );
+            }
+        },
+
         // protected
         _onRecordChange () {
             this.$refs.dataPanel.ext.getViewModel().set( "record", this.telegramBotLinkRecord );
