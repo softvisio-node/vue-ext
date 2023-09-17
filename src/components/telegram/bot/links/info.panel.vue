@@ -8,25 +8,29 @@
                 </ext-toolbar>
 
                 <!-- view -->
-                <ext-formpanel ref="view" bind='{"hidden":"{editStarted}"}' defaults='{"labelAlign":"left","labelWidth":50}' flex="1" layout="vbox" padding="0 0 0 10">
+                <ext-formpanel ref="view" bind='{"hidden":"{editStarted}"}' flex="1" layout="vbox" padding="0 0 0 10">
                     <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)"/>
 
                     <ext-container layout="hbox">
-                        <ext-displayfield bind="{telegramBotLinkRecord.url}" flex="1" :label="l10n(`Link`)" labelAlign="left" labelWidth="50"/>
+                        <ext-displayfield bind="{telegramBotLinkRecord.url}" flex="1" :label="l10n(`Link`)"/>
 
                         <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy link`)"/>
                     </ext-container>
 
-                    <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" :label="l10n(`Description`)" labelAlign="top" readOnly="true"/>
+                    <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" :label="l10n(`Description`)" readOnly="true"/>
                 </ext-formpanel>
 
                 <!-- edit -->
-                <ext-formpanel ref="edit" bind='{"hidden":"{!editStarted}"}' defaults='{"labelAlign":"left","labelWidth":50}' flex="1" layout="vbox" padding="0 0 0 10" trackResetOnLoad="true">
+                <ext-formpanel ref="edit" bind='{"hidden":"{!editStarted}"}' flex="1" layout="vbox" padding="0 0 0 10" trackResetOnLoad="true">
                     <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/>
 
-                    <ext-displayfield bind="{telegramBotLinkRecord.url}" :label="l10n(`Link`)"/>
+                    <ext-container layout="hbox">
+                        <ext-displayfield bind="{telegramBotLinkRecord.url}" flex="1" :label="l10n(`Link`)"/>
 
-                    <ext-textareafield flex="1" :label="l10n(`Description`)" labelAlign="top" name="description"/>
+                        <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy link`)"/>
+                    </ext-container>
+
+                    <ext-textareafield flex="1" :label="l10n(`Description`)" name="description"/>
                 </ext-formpanel>
 
                 <ext-toolbar docked="bottom">
