@@ -5,7 +5,7 @@ export default Ext.define( "", {
 
     "proxy": {
         "api": {
-            "read": "acl/read-acl-users",
+            "read": "acl/get-acl-users-list",
         },
     },
 
