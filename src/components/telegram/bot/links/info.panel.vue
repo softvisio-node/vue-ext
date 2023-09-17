@@ -11,7 +11,7 @@
                 <ext-formpanel ref="view" bind='{"hidden":"{editStarted}"}' flex="1" layout="vbox" padding="0 0 0 10">
                     <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)"/>
 
-                    <ext-container layout="hbox">
+                    <ext-container layout='{"align":"start","type":"hbox"}'>
                         <ext-displayfield bind="{telegramBotLinkRecord.url}" flex="1" :label="l10n(`Link`)"/>
 
                         <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy link`)" @tap="_copyLink"/>
@@ -24,7 +24,7 @@
                 <ext-formpanel ref="edit" bind='{"hidden":"{!editStarted}"}' flex="1" layout="vbox" padding="0 0 0 10" trackResetOnLoad="true">
                     <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/>
 
-                    <ext-container layout="hbox">
+                    <ext-container layout='{"align":"start","type":"hbox"}'>
                         <ext-displayfield bind="{telegramBotLinkRecord.url}" flex="1" :label="l10n(`Link`)"/>
 
                         <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy link`)" @tap="_copyLink"/>
