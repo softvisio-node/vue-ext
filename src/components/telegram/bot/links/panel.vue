@@ -27,7 +27,7 @@
 
             <!-- details panel -->
             <ext-panel ref="linkDetailsPanel" docked="right" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' width="400">
-                <DetailsPanel :telegramBotLinkRecord="selectedRecord" @linkDelete="_onLinkDelete"/>
+                <DetailsPanel :telegramBotLinkRecord="telegramBotLinkRecord" @linkDelete="_onLinkDelete"/>
             </ext-panel>
         </template>
     </CardsPanel>
@@ -52,7 +52,7 @@ export default {
 
     data () {
         return {
-            "selectedRecord": null,
+            "telegramBotLinkRecord": null,
         };
     },
 
@@ -91,7 +91,7 @@ export default {
         _gridReady ( e ) {
             const cmp = e.detail.cmp;
 
-            cmp.on( "select", ( grid, selection ) => ( this.selectedRecord = selection[0] ) );
+            cmp.on( "select", ( grid, selection ) => ( this.telegramBotLinkRecord = selection[0] ) );
 
             cmp.setStore( this.store );
         },
@@ -165,7 +165,7 @@ export default {
         },
 
         _onLinkDelete ( telegramBotLinkrecord ) {
-            this.selectedRecord = null;
+            this.telegramBotLinkRecord = null;
 
             this.refresh();
         },
