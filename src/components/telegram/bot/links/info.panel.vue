@@ -8,17 +8,21 @@
                 </ext-toolbar>
 
                 <!-- view -->
-                <ext-formpanel ref="view" bind='{"hidden":"{editStarted}"}' defaults='{"labelAlign":"top"}' flex="1" layout="vbox" padding="0 0 0 5">
+                <ext-formpanel ref="view" bind='{"hidden":"{editStarted}"}' defaults='{"labelAlign":"left","labelWidth":50}' flex="1" layout="vbox" padding="0 0 0 10">
                     <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)"/>
 
-                    <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" :label="l10n(`Description`)" readOnly="true"/>
+                    <ext-displayfield bind="{telegramBotLinkRecord.url}" :label="l10n(`Link`)"/>
+
+                    <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" :label="l10n(`Description`)" labelAlign="top" readOnly="true"/>
                 </ext-formpanel>
 
                 <!-- edit -->
-                <ext-formpanel ref="edit" bind='{"hidden":"{!editStarted}"}' defaults='{"labelAlign":"top"}' flex="1" layout="vbox" padding="0 0 0 5" trackResetOnLoad="true">
+                <ext-formpanel ref="edit" bind='{"hidden":"{!editStarted}"}' defaults='{"labelAlign":"left","labelWidth":50}' flex="1" layout="vbox" padding="0 0 0 10" trackResetOnLoad="true">
                     <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/>
 
-                    <ext-textareafield flex="1" :label="l10n(`Description`)" name="description"/>
+                    <ext-displayfield bind="{telegramBotLinkRecord.url}" :label="l10n(`Link`)"/>
+
+                    <ext-textareafield flex="1" :label="l10n(`Description`)" labelAlign="left" name="description"/>
                 </ext-formpanel>
 
                 <ext-toolbar docked="bottom">
