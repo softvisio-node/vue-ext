@@ -134,7 +134,7 @@ export default {
         async _copyLink ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            this.$utils.copyToClipboard( record.get( "url" ) );
+            this.$utils.copyToClipboard( record.get( "link" ) );
 
             this.$toast( this.l10n( "Link copied to the clipboard" ) );
         },

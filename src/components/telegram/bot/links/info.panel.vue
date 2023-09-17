@@ -12,7 +12,7 @@
                     <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)"/>
 
                     <ext-container layout='{"align":"start","type":"hbox"}'>
-                        <ext-displayfield bind="{telegramBotLinkRecord.url}" flex="1" :label="l10n(`Link`)"/>
+                        <ext-displayfield bind="{telegramBotLinkRecord.link}" flex="1" :label="l10n(`Link`)"/>
 
                         <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy link`)" @tap="_copyLink"/>
                     </ext-container>
@@ -25,7 +25,7 @@
                     <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/>
 
                     <ext-container layout='{"align":"start","type":"hbox"}'>
-                        <ext-displayfield bind="{telegramBotLinkRecord.url}" flex="1" :label="l10n(`Link`)"/>
+                        <ext-displayfield bind="{telegramBotLinkRecord.link}" flex="1" :label="l10n(`Link`)"/>
 
                         <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy link`)" @tap="_copyLink"/>
                     </ext-container>
@@ -215,7 +215,7 @@ export default {
         },
 
         async _copyLink ( button ) {
-            this.$utils.copyToClipboard( this.telegramBotLinkRecord.get( "url" ) );
+            this.$utils.copyToClipboard( this.telegramBotLinkRecord.get( "link" ) );
 
             this.$toast( this.l10n( "Link copied to the clipboard" ) );
         },

@@ -15,7 +15,7 @@ export default Ext.define( "", {
         // fields
         "name",
         "description",
-        "url",
+        "link",
         { "name": "created", "type": "date" },
         { "name": "last_user_created", "type": "date" },
 
