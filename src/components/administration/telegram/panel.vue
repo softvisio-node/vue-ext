@@ -48,7 +48,7 @@ export default {
             "pageSize": 50,
             "proxy": {
                 "api": {
-                    "read": "administration/telegram/bots/read",
+                    "read": "administration/telegram/bots/get-bots-list",
                 },
             },
         } );
