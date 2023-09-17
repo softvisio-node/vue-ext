@@ -49,7 +49,7 @@ export default {
         },
     },
 
-    "emits": ["delete"],
+    "emits": ["linkDelete"],
 
     "watch": {
         telegramBotLinkRecord ( newValue, oldValue ) {
@@ -182,7 +182,7 @@ export default {
 
                 this.$refs.cardsPanel.showNoDataPanel();
 
-                this.$emit( "delete", this.telegramBotLinkRecord );
+                this.$emit( "linkDelete", this.telegramBotLinkRecord );
             }
             else {
                 this.$toast( res );
