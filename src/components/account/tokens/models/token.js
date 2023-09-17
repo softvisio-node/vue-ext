@@ -4,7 +4,7 @@ export default Ext.define( "", {
     "proxy": {
         "api": {
             "create": "account/tokens/create",
-            "read": "account/tokens/read",
+            "read": "account/tokens/get-tokens-list",
             "update": "account/tokens/update",
             "destroy": "account/tokens/delete",
         },

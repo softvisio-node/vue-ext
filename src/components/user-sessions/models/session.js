@@ -4,7 +4,7 @@ export default Ext.define( "", {
     // "proxy": {
     //     "api": {
     //         "create": "administration/users/create",
-    //         "read": "administration/users/read",
+    //         "read": "administration/users/get-users-list",
     //         "update": "administration/users/update",
     //         "destroy": "administration/users/delete",
     //     },
