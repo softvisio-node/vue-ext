@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.8.36 (2023-09-17)
+
+Fixes:
+
+-   fix: formatRelativeTime
+-   fix: telegram
+
 ### 8.8.35 (2023-09-17)
 
 Fixes:
