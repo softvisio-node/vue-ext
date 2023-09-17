@@ -57,6 +57,17 @@ export default {
     },
 
     "methods": {
+        async refresh () {
+            const res = await this.$api.call( "telegram/bots/links/get-link", this.telegramBotLinkRecord.id );
+
+            if ( res.ok ) {
+                this.telegramBotLinkRecord.loadRawData( res.data );
+            }
+            else {
+                this.$toast( res );
+            }
+        },
+
         ready ( e ) {
             this.$refs.dataPanel.ext.getViewModel().setFormulas( {
                 "editButtonHidden": {
