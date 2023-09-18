@@ -1,6 +1,6 @@
 <template>
     <CardsPanel ref="cardsPanel" @refresh="refresh">
-        <template #data>
+        <template #dataPanel>
             <ext-lockedgrid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
                 <ext-toolbar docked="top">
                     <ext-searchfield :placeholder="l10n(`Search for methods by name`)" width="200" @change="_search"/>

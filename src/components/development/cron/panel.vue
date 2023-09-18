@@ -7,7 +7,7 @@
             </ext-toolbar>
         </template>
 
-        <template #data>
+        <template #dataPanel>
             <ext-grid layout="fit" multicolumnSort="true" @ready="_gridReady">
                 <ext-column dataIndex="module" :text="l10n(`Module`)" width="150"/>
 

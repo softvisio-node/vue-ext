@@ -10,7 +10,7 @@
             </ext-toolbar>
         </template>
 
-        <template #data>
+        <template #dataPanel>
             <ext-grid layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
                 <ext-column width="40" @ready="_avatarColReady"/>
 

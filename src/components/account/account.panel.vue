@@ -1,6 +1,6 @@
 <template>
     <CardsPanel ref="cards" @refresh="refresh">
-        <template #data>
+        <template #dataPanel>
             <ext-container ref="dataCard" layout="vbox" padding="0 10 0 10" scrollable="true" viewModel="true" @ready="_ready">
                 <!-- locale -->
                 <ext-fieldcontainer container='{"defaults":null}' :hidden="localeHidden" :label="l10n(`Locale`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>

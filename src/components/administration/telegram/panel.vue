@@ -8,7 +8,7 @@
             </ext-toolbar>
         </template>
 
-        <template #data>
+        <template #dataPanel>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
                 <ext-column dataIndex="telegram_username" :text="l10n(`Name`)" width="200"/>
 

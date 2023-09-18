@@ -10,7 +10,7 @@
             </ext-toolbar>
         </template>
 
-        <template #data>
+        <template #dataPanel>
             <ext-grid hideHeaders="true" itemConfig='{"viewModel":true}' layout="fit" plugins='["autopaging"]' variableHeights="true" @ready="_gridReady">
                 <!-- XXX margin is required to prevent horizontal scrolling -->
                 <ext-column flex="1" margin="0 7 0 0" @ready="_colReady"/>

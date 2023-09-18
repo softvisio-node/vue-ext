@@ -1,6 +1,6 @@
 <template>
     <CardsPanel ref="cardsPanel" @ready="ready">
-        <template #data>
+        <template #dataPanel>
             <ext-panel ref="dataPanel" layout="vbox" viewModel="true">
                 <ext-toolbar docked="top">
                     <ext-spacer/>
@@ -70,6 +70,9 @@ export default {
     },
 
     "methods": {
+
+        // XXX commit
+        // XXX update calc dates
         async refresh () {
             const res = await this.$api.call( "telegram/bots/links/get-link", this.telegramBotLinkRecord.id );
 

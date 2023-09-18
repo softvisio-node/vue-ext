@@ -1,6 +1,6 @@
 <template>
     <CardsPanel ref="cardsPanel" @refresh="refresh">
-        <template #data>
+        <template #dataPanel>
             <ext-panel ref="dataPanel" layout="fit" viewModel="true">
                 <ext-toolbar docked="top">
                     <ext-spacer/>

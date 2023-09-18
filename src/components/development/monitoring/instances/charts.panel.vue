@@ -8,7 +8,7 @@
             </ext-toolbar>
         </template>
 
-        <template #data>
+        <template #dataPanel>
             <ext-container defaults='{"height":300}' layput="vbox" scrollable="true">
                 <AmchartsPanel ref="cpuUsageChart" :createChart="_createCpuUsageChart"/>
 

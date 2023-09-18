@@ -16,7 +16,7 @@
 
         <!-- data card -->
         <ext-panel ref="dataCard" layout="fit">
-            <slot name="data"/>
+            <slot name="dataPanel"/>
         </ext-panel>
 
         <slot name="docked"/>

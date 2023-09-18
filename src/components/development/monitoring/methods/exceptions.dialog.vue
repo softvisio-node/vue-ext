@@ -9,7 +9,7 @@
                 </ext-toolbar>
             </template>
 
-            <template #data>
+            <template #dataPanel>
                 <ext-grid ref="grid" layout="fit" multicolumnSort="true" @ready="gridReady">
                     <ext-column dataIndex="date" formatter='date("dateStyle:short,timeStyle:short")' :text="l10n(`Started`)" width="150"/>
 

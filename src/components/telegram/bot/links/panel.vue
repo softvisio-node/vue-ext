@@ -1,6 +1,6 @@
 <template>
     <CardsPanel ref="cardsPanel" :store="store" viewModel="true" @refresh="refresh">
-        <template #data>
+        <template #dataPanel>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
                 <ext-toolbar docked="top">
                     <ext-searchfield :placeholder="l10n(`Search links`)" width="150" @change="_search"/>

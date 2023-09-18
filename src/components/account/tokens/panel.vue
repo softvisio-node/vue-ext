@@ -10,7 +10,7 @@
             </ext-toolbar>
         </template>
 
-        <template #data>
+        <template #dataPanel>
             <ext-grid layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
                 <ext-column dataIndex="name" flex="1" :text="l10n(`Token name`)"/>
 

@@ -37,7 +37,7 @@
 
         <!-- notification types -->
         <CardsPanel ref="cardsPanel" flex="1" :hidden="notificationTypesHidden" @refresh="refresh">
-            <template #data>
+            <template #dataPanel>
                 <ext-grid columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" selectable="false" sortable="false" @ready="_gridReady">
                     <!-- type -->
                     <ext-column cell='{"encodeHtml":false}' dataIndex="title" :text="l10n(`Notifications`)" width="220"/>

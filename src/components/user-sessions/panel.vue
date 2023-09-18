@@ -9,7 +9,7 @@
             </ext-toolbar>
         </template>
 
-        <template #data>
+        <template #dataPanel>
             <ext-grid layout="fit" multicolumnSort="true" plugins='{"gridviewoptions":true}' @ready="_gridReady">
                 <ext-column cell='{"encodeHtml":false}' dataIndex="device_text" flex="1" sorter='{"property":"device_vendor"}' :text="l10n(`Device`)"/>
 
