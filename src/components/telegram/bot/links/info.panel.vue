@@ -24,12 +24,6 @@
                 <ext-formpanel ref="form" bind='{"hidden":"{!editStarted}"}' flex="1" layout="vbox" trackResetOnLoad="true">
                     <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/>
 
-                    <ext-container layout='{"align":"start","type":"hbox"}'>
-                        <ext-displayfield bind="{telegramBotLinkRecord.link}" flex="1" :label="l10n(`Link`)"/>
-
-                        <ext-button iconCls="fa-regular fa-copy" :text="l10n(`Copy link`)" @tap="_copyLink"/>
-                    </ext-container>
-
                     <ext-textareafield flex="1" :label="l10n(`Description`)" name="description"/>
                 </ext-formpanel>
 
