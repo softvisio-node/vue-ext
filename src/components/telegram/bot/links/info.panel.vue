@@ -21,11 +21,11 @@
                 </ext-panel>
 
                 <!-- edit -->
-                <ext-formpanel ref="form" bind='{"hidden":"{!editStarted}"}' flex="1" layout="vbox" trackResetOnLoad="true">
+                <ext-fieldpanel ref="form" bind='{"hidden":"{!editStarted}"}' flex="1" layout="vbox" trackResetOnLoad="true">
                     <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/>
 
                     <ext-textareafield flex="1" :label="l10n(`Description`)" name="description"/>
-                </ext-formpanel>
+                </ext-fieldpanel>
 
                 <ext-toolbar docked="bottom">
                     <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" @tap="_deleteLink"/>
