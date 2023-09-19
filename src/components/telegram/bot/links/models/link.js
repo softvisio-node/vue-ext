@@ -28,7 +28,7 @@ export default Ext.define( "", {
         // calculated
         { "name": "created_text", "calculate": data => app.locale.formatDate( data.created, "dateStyle:short,timeStyle:short" ) },
         { "name": "created_relative", "calculate": data => app.locale.formatRelativeDate( data.created ) },
-        { "name": "created_html", "calculate": data => `${data.created_text}<br/>(${data.created_relative})` },
+        { "name": "created_html", "calculate": data => `${data.created_text} (${data.created_relative})` },
 
         { "name": "last_user_created_text", "calculate": data => ( data.last_user_created ? app.locale.formatDate( data.created, "dateStyle:short,timeStyle:short" ) : "--" ) },
         { "name": "last_user_created_relative", "calculate": data => ( data.last_user_created ? app.locale.formatRelativeDate( data.created ) : "--" ) },
@@ -36,7 +36,7 @@ export default Ext.define( "", {
             "name": "last_user_created_html",
             calculate ( data ) {
                 if ( data.last_user_created ) {
-                    return `${data.created_text}<br/>(${data.created_relative})`;
+                    return `${data.created_text} (${data.created_relative})`;
                 }
                 else {
                     return "--";
