@@ -26,13 +26,13 @@
 
                 <ext-column width="150" @ready="_actionColReady"/>
             </ext-grid>
-
-            <!-- details panel -->
-            <ext-panel ref="linkDetailsPanel" docked="right" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' width="400">
-                <DetailsPanel :telegramBotLinkRecord="telegramBotLinkRecord" @linkDelete="_onLinkDelete"/>
-            </ext-panel>
         </template>
     </CardsPanel>
+
+    <!-- details panel -->
+    <ext-panel ref="linkDetailsPanel" docked="right" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' width="400">
+        <DetailsPanel :telegramBotLinkRecord="telegramBotLinkRecord" @linkDelete="_onLinkDelete"/>
+    </ext-panel>
 </template>
 
 <script>
