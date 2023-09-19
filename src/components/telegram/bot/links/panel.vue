@@ -1,37 +1,39 @@
 <template>
-    <CardsPanel ref="cardsPanel" :store="store" viewModel="true" @refresh="refresh">
-        <template #docked>
-            <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="l10n(`Search links`)" width="150" @change="_search"/>
+    <ext-panel ref="panel" layout="fit" viewModel="true">
+        <CardsPanel ref="cardsPanel" :store="store" @refresh="refresh">
+            <template #docked>
+                <ext-toolbar docked="top">
+                    <ext-searchfield :placeholder="l10n(`Search links`)" width="150" @change="_search"/>
 
-                <ext-spacer/>
+                    <ext-spacer/>
 
-                <ext-button bind='{"hidden":"{!telegramBotRecord.can_create_link}"}' iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
+                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_create_link}"}' iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
 
-                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
+                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
 
-                <ext-button iconCls="fa-solid fa-table-columns" pressed="true" :tooltip="l10n(`Toggle link details panel`)" @tap="toggleLinkDetailsPanel"/>
-            </ext-toolbar>
-        </template>
+                    <ext-button iconCls="fa-solid fa-table-columns" pressed="true" :tooltip="l10n(`Toggle link details panel`)" @tap="toggleLinkDetailsPanel"/>
+                </ext-toolbar>
+            </template>
 
-        <template #dataPanel>
-            <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
-                <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
+            <template #dataPanel>
+                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
+                    <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
 
-                <ext-column dataIndex="created_text" sorter='{"property":"created"}' :text="l10n(`Creation date`)" width="120"/>
+                    <ext-column dataIndex="created_text" sorter='{"property":"created"}' :text="l10n(`Creation date`)" width="120"/>
 
-                <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="170"/>
+                    <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="170"/>
 
-                <ext-column dataIndex="last_user_created_text" sorter='{"property":"last_user_created"}' :text="l10n(`Last user created`)" width="120"/>
+                    <ext-column dataIndex="last_user_created_text" sorter='{"property":"last_user_created"}' :text="l10n(`Last user created`)" width="120"/>
 
-                <ext-column width="150" @ready="_actionColReady"/>
-            </ext-grid>
-        </template>
-    </CardsPanel>
+                    <ext-column width="150" @ready="_actionColReady"/>
+                </ext-grid>
+            </template>
+        </CardsPanel>
 
-    <!-- details panel -->
-    <ext-panel ref="linkDetailsPanel" docked="right" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' width="400">
-        <DetailsPanel :telegramBotLinkRecord="telegramBotLinkRecord" @linkDelete="_onLinkDelete"/>
+        <!-- details panel -->
+        <ext-panel ref="linkDetailsPanel" docked="right" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' width="400">
+            <DetailsPanel :telegramBotLinkRecord="telegramBotLinkRecord" @linkDelete="_onLinkDelete"/>
+        </ext-panel>
     </ext-panel>
 </template>
 
@@ -83,7 +85,7 @@ export default {
             else {
                 const telegramBotRecord = new TelegramBotModel( res.data );
 
-                this.$refs.cardsPanel.ext.getViewModel().set( "telegramBotRecord", telegramBotRecord );
+                this.$refs.panel.ext.getViewModel().set( "telegramBotRecord", telegramBotRecord );
 
                 this.store.loadPage( 1 );
             }
