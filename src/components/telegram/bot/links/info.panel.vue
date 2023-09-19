@@ -1,33 +1,33 @@
 <template>
     <CardsPanel ref="cardsPanel" @ready="ready">
         <template #dataPanel>
-            <ext-panel ref="dataPanel" layout="vbox" viewModel="true">
+            <ext-panel ref="dataPanel" layout="vbox" padding="0 0 0 10" viewModel="true">
                 <ext-toolbar docked="top">
                     <ext-spacer/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
+                <ext-container layout='{"align":"start","type":"hbox"}'>
+                    <ext-displayfield bind="{telegramBotLinkRecord.link}" flex="1" :label="l10n(`Link`)"/>
+
+                    <ext-button iconCls="fa-regular fa-copy" :text="l10n(`Copy link`)" @tap="_copyLink"/>
+                </ext-container>
+
                 <!-- view -->
-                <ext-panel bind='{"hidden":"{editStarted}"}' flex="1" layout="vbox" padding="0 0 0 10">
+                <ext-panel bind='{"hidden":"{editStarted}"}' flex="1" layout="vbox">
                     <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)"/>
-
-                    <ext-container layout='{"align":"start","type":"hbox"}'>
-                        <ext-displayfield bind="{telegramBotLinkRecord.link}" flex="1" :label="l10n(`Link`)"/>
-
-                        <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy link`)" @tap="_copyLink"/>
-                    </ext-container>
 
                     <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" :label="l10n(`Description`)" readOnly="true"/>
                 </ext-panel>
 
                 <!-- edit -->
-                <ext-formpanel ref="form" bind='{"hidden":"{!editStarted}"}' flex="1" layout="vbox" padding="0 0 0 10" trackResetOnLoad="true">
+                <ext-formpanel ref="form" bind='{"hidden":"{!editStarted}"}' flex="1" layout="vbox" trackResetOnLoad="true">
                     <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/>
 
                     <ext-container layout='{"align":"start","type":"hbox"}'>
                         <ext-displayfield bind="{telegramBotLinkRecord.link}" flex="1" :label="l10n(`Link`)"/>
 
-                        <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy link`)" @tap="_copyLink"/>
+                        <ext-button iconCls="fa-regular fa-copy" :text="l10n(`Copy link`)" @tap="_copyLink"/>
                     </ext-container>
 
                     <ext-textareafield flex="1" :label="l10n(`Description`)" name="description"/>
