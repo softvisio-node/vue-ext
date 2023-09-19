@@ -8,7 +8,7 @@
                 </ext-toolbar>
 
                 <!-- view -->
-                <ext-formpanel ref="view" bind='{"hidden":"{editStarted}"}' flex="1" layout="vbox" padding="0 0 0 10">
+                <ext-panel bind='{"hidden":"{editStarted}"}' flex="1" layout="vbox" padding="0 0 0 10">
                     <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)"/>
 
                     <ext-container layout='{"align":"start","type":"hbox"}'>
@@ -18,10 +18,10 @@
                     </ext-container>
 
                     <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" :label="l10n(`Description`)" readOnly="true"/>
-                </ext-formpanel>
+                </ext-panel>
 
                 <!-- edit -->
-                <ext-formpanel ref="edit" bind='{"hidden":"{!editStarted}"}' flex="1" layout="vbox" padding="0 0 0 10" trackResetOnLoad="true">
+                <ext-formpanel ref="form" bind='{"hidden":"{!editStarted}"}' flex="1" layout="vbox" padding="0 0 0 10" trackResetOnLoad="true">
                     <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/>
 
                     <ext-container layout='{"align":"start","type":"hbox"}'>
@@ -38,7 +38,7 @@
 
                     <ext-spacer/>
 
-                    <ext-button bind='{"hidden":"{editButtonHidden}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="startEdit"/>
+                    <ext-button bind='{"hidden":"{editButtonHidden}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="beginEdit"/>
 
                     <ext-button bind='{"disabled":"{saveButtonDisabled}","hidden":"{saveButtonHidden}"}' iconCls="fa-solid fa-check" :text="l10n(`Save`)" @tap="updateLink"/>
                     <ext-button bind='{"hidden":"{cancelButtonHidden}"}' iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" @tap="cancelEdit"/>
@@ -137,7 +137,7 @@ export default {
                 },
             } );
 
-            this.$refs.edit.ext.on( "dirtyChange", ( form, dirty ) => {
+            this.$refs.form.ext.on( "dirtyChange", ( form, dirty ) => {
                 this.$refs.dataPanel.ext.getViewModel().set( "dirty", dirty );
             } );
 
@@ -158,8 +158,8 @@ export default {
             }
         },
 
-        startEdit () {
-            this.$refs.edit.ext.setValues( this.telegramBotLinkRecord.getData() );
+        beginEdit () {
+            this.$refs.form.ext.setValues( this.telegramBotLinkRecord.getData() );
 
             this.$refs.dataPanel.ext.getViewModel().set( "editStarted", true );
         },
@@ -169,23 +169,20 @@ export default {
         },
 
         async updateLink () {
+            const form = this.$refs.form.ext;
 
             // form is not valid
-            if ( !this.$refs.edit.ext.validate() ) return;
+            if ( !form.validate() ) return;
 
             // data not changed
-            if ( !this.$refs.dataPanel.ext.getViewModel().get( "dirty" ) ) {
-                return this.cancelEdit();
-            }
+            if ( !form.dirty ) return this.cancelEdit();
 
-            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, this.$refs.edit.ext.getValues() );
+            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, form.getValues() );
 
             if ( res.ok ) {
-                this.$refs.edit.ext.fillRecord( this.telegramBotLinkRecord );
+                form.fillRecord( this.telegramBotLinkRecord );
 
-                this.telegramBotLinkRecord.commit();
-
-                this.$refs.dataPanel.ext.getViewModel().set( "editStarted", false );
+                this.cancelEdit();
 
                 this.$toast( this.l10n( `Link updated` ) );
             }
