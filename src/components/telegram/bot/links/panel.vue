@@ -1,19 +1,21 @@
 <template>
     <CardsPanel ref="cardsPanel" :store="store" viewModel="true" @refresh="refresh">
+        <template #docked>
+            <ext-toolbar docked="top">
+                <ext-searchfield :placeholder="l10n(`Search links`)" width="150" @change="_search"/>
+
+                <ext-spacer/>
+
+                <ext-button bind='{"hidden":"{!telegramBotRecord.can_create_link}"}' iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
+
+                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
+
+                <ext-button iconCls="fa-solid fa-table-columns" pressed="true" :tooltip="l10n(`Toggle link details panel`)" @tap="toggleLinkDetailsPanel"/>
+            </ext-toolbar>
+        </template>
+
         <template #dataPanel>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
-                <ext-toolbar docked="top">
-                    <ext-searchfield :placeholder="l10n(`Search links`)" width="150" @change="_search"/>
-
-                    <ext-spacer/>
-
-                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_create_link}"}' iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
-
-                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
-
-                    <ext-button iconCls="fa-solid fa-table-columns" pressed="true" :tooltip="l10n(`Toggle link details panel`)" @tap="toggleLinkDetailsPanel"/>
-                </ext-toolbar>
-
                 <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
 
                 <ext-column dataIndex="created_text" sorter='{"property":"created"}' :text="l10n(`Creation date`)" width="120"/>
