@@ -71,9 +71,6 @@ export default {
     },
 
     "methods": {
-
-        // XXX commit
-        // XXX update calc dates
         async refresh () {
             const res = await this.$api.call( "telegram/bots/links/get-link", this.telegramBotLinkRecord.id );
 
