@@ -7,8 +7,6 @@
 
                     <ext-spacer/>
 
-                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_create_link}"}' iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
-
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
 
                     <ext-button iconCls="fa-solid fa-table-columns" pressed="true" :tooltip="l10n(`Toggle link details panel`)" @tap="toggleLinkDetailsPanel"/>
@@ -39,8 +37,7 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import TelegramBotLinkModel from "./models/link";
-import CreateLinkDialog from "./create.dialog";
+import TelegramBotUserModel from "./models/user";
 import DetailsPanel from "./details.panel";
 import TelegramBotModel from "../models/bot.js";
 
@@ -62,7 +59,7 @@ export default {
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {
-            "model": TelegramBotLinkModel,
+            "model": TelegramBotUserModel,
             "autoLoad": false,
             "pageSize": 50,
             "filters": {
@@ -141,17 +138,6 @@ export default {
             this.$utils.copyToClipboard( record.get( "link" ) );
 
             this.$toast( this.l10n( "Link copied to the clipboard" ) );
-        },
-
-        async _showCreateLinkDialog () {
-            const cmp = await this.$mount( CreateLinkDialog, {
-                "props": {
-                    "telegramBotId": this.telegramBotId,
-                    "onCreate": this.refresh.bind( this ),
-                },
-            } );
-
-            cmp.ext.show();
         },
 
         toggleLinkDetailsPanel ( e ) {
