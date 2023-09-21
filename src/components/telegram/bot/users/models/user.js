@@ -30,6 +30,13 @@ export default Ext.define( "", {
 
         // calculated
         {
+            "name": "full_name",
+            calculate ( data ) {
+                return [data.first_name, data.last_name].join( " " );
+            },
+        },
+
+        {
             "name": "created_text",
             calculate ( data ) {
                 return `${app.locale.formatDate( data.created, "dateStyle:short" )} (${app.locale.formatRelativeDate( data.created )})`;

@@ -17,15 +17,13 @@
                 <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
                     <ext-column width="40" @ready="_avatarColReady"/>
 
-                    <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
+                    <ext-column dataIndex="username" flex="1" :text="l10n(`Username`)"/>
 
-                    <ext-column dataIndex="created_text" sorter='{"property":"created"}' :text="l10n(`Creation date`)" width="120"/>
+                    <ext-column dataIndex="full_name" flex="1" sorter='{"property":"first_name"}' :text="l10n(`Name`)"/>
 
-                    <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="170"/>
+                    <ext-column dataIndex="phone" flex="1" :text="l10n(`Phone`)"/>
 
-                    <ext-column dataIndex="last_user_created_text" sorter='{"property":"last_user_created"}' :text="l10n(`Last user created`)" width="120"/>
-
-                    <ext-column width="150" @ready="_actionColReady"/>
+                    <!-- <ext-column width="150" @ready="_actionColReady"/> -->
                 </ext-grid>
             </template>
         </CardsPanel>
