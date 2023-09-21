@@ -137,13 +137,13 @@ export default {
 
             if ( val !== "" ) {
                 this.store.addFilter( {
-                    "property": "name",
+                    "property": "search",
                     "operator": "like",
                     "value": val,
                 } );
             }
             else {
-                this.store.removeFilter( "name" );
+                this.store.removeFilter( "search" );
             }
         },
 

@@ -24,6 +24,9 @@ export default Ext.define( "", {
         { "name": "subscribed", "type": "bool" },
         { "name": "returned", "type": "bool" },
         { "name": "banned", "type": "bool" },
+        "api_user_id",
+        "api_user_email",
+        "api_user_avatar_url",
 
         // calculated
         {
