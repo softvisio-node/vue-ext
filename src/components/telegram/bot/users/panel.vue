@@ -15,6 +15,8 @@
 
             <template #dataPanel>
                 <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
+                    <ext-column width="40" @ready="_avatarColReady"/>
+
                     <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
 
                     <ext-column dataIndex="created_text" sorter='{"property":"created"}' :text="l10n(`Creation date`)" width="120"/>
@@ -38,6 +40,7 @@
 <script>
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotUserModel from "./models/user";
+import "#src/components/avatar/ext.avatar";
 import DetailsPanel from "./details.panel";
 import TelegramBotModel from "../models/bot.js";
 
@@ -95,6 +98,18 @@ export default {
             cmp.on( "select", ( grid, selection ) => ( this.telegramBotLinkRecord = selection[0] ) );
 
             cmp.setStore( this.store );
+        },
+
+        _avatarColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "avatar",
+                    "bind": "{record.avatar_url}",
+                },
+            } );
         },
 
         _actionColReady ( e ) {

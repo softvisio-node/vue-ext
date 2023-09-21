@@ -1,4 +1,4 @@
-// import app from "#app";
+import app from "#app";
 
 export default Ext.define( "", {
     "extend": "Ext.data.Model",
@@ -13,6 +13,7 @@ export default Ext.define( "", {
         { "name": "id", "type": "string" },
 
         // fields
+        "avatar_url",
         { "name": "is_bot", "type": "bool" },
         "username",
         "first_name",
@@ -23,5 +24,20 @@ export default Ext.define( "", {
         { "name": "subscribed", "type": "bool" },
         { "name": "returned", "type": "bool" },
         { "name": "banned", "type": "bool" },
+
+        // calculated
+        {
+            "name": "created_text",
+            calculate ( data ) {
+                return `${app.locale.formatDate( data.created, "dateStyle:short" )} (${app.locale.formatRelativeDate( data.created )})`;
+            },
+        },
+
+        {
+            "name": "last_activity_text",
+            calculate ( data ) {
+                return `${app.locale.formatDate( data.last_activity, "dateStyle:short" )} (${app.locale.formatRelativeDate( data.last_activity )})`;
+            },
+        },
     ],
 } );
