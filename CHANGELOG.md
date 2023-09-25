@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.40 (2023-09-25)
+
+Fixes:
+
+-   fix: telegram
+
 ### 8.8.39 (2023-09-19)
 
 Fixes:
