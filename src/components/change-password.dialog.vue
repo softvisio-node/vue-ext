@@ -20,7 +20,7 @@
 
 <script>
 import loadMask from "#src/load-mask";
-import passwords from "#core/utils/passwords";
+import passwords from "#core/passwords";
 
 export default {
     "props": {

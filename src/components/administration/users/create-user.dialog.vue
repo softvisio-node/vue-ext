@@ -25,7 +25,7 @@
 
 <script>
 import constants from "#core/app/constants";
-import passwords from "#core/utils/passwords";
+import passwords from "#core/passwords";
 import RolesPanel from "#src/components/acl/roles.panel";
 
 export default {

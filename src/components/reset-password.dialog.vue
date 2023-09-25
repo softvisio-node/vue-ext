@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import passwords from "#core/utils/passwords";
+import passwords from "#core/passwords";
 
 export default {
     "props": {

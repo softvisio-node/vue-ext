@@ -33,7 +33,7 @@
 
 <script>
 import OauthContainer from "#src/components/oauth.container";
-import passwords from "#core/utils/passwords";
+import passwords from "#core/passwords";
 
 export default {
     "components": { OauthContainer },
