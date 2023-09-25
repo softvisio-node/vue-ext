@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.8.41 (2023-09-25)
+
+Fixes:
+
+-   fix: passwords
+
 ### 8.8.40 (2023-09-25)
 
 Fixes:
