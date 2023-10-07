@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import "#src/components/avatar/ext.avatar";
 import AccountPanel from "./account.panel";
 import NotificationsSettingsPanel from "#src/components/notifications/settings.panel";
 import UserTokensPanel from "./tokens/panel";

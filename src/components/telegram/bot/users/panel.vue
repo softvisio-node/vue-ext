@@ -36,7 +36,6 @@
 <script>
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotUserModel from "./models/user";
-import "#src/components/avatar/ext.avatar";
 import DetailsPanel from "./details.panel";
 import TelegramBotModel from "../models/bot.js";
 

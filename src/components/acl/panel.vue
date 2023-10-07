@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import "#src/components/avatar/ext.avatar";
 import PermissionModel from "./models/permission";
 import UserModel from "./models/user";
 import AddUserDialog from "./add-user.dialog";
