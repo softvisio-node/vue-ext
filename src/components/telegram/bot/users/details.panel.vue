@@ -1,7 +1,7 @@
 <template>
     <CardsPanel ref="cardsPanel" viewModel="true" @render="ready">
         <ext-panel layput="fit">
-            <Avatar bind="{record.avatar_url}" height="40" width="40"/>
+            <Avatar bind='{"src":"{record.avatar_url}"}' height="100" width="100"/>
         </ext-panel>
     </CardsPanel>
 </template>
