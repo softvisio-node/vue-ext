@@ -11,6 +11,10 @@
                 <ext-displayfield bind="{record.is_bot}" :label="l10n(`Is bot`)" labelAlign="left" labelWidth="200"/>
 
                 <ext-displayfield bind="{record.phone}" :label="l10n(`Phone`)" labelAlign="left" labelWidth="200"/>
+
+                <ext-displayfield bind="{record.created}" :label="l10n(`Creation date`)" labelAlign="left" labelWidth="200"/>
+
+                <ext-displayfield bind="{record.last_activity}" :label="l10n(`Last activity date`)" labelAlign="left" labelWidth="200"/>
             </ext-panel>
         </template>
     </CardsPanel>
