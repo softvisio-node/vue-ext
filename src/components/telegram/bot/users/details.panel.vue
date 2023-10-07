@@ -2,7 +2,15 @@
     <CardsPanel ref="cardsPanel" viewModel="true" @render="ready">
         <template #dataPanel>
             <ext-panel layput="fit">
-                <ext-avatar bind="{record.avatar_url}" height="100" width="100"/>
+                <ext-avatar bind="{record.avatar_url}" height="60" width="60"/>
+
+                <ext-displayfield bind="{record.full_name}" :label="l10n(`Name`)" labelAlign="left" labelWidth="200"/>
+
+                <ext-displayfield bind="{record.username}" :label="l10n(`Telegram username`)" labelAlign="left" labelWidth="200"/>
+
+                <ext-displayfield bind="{record.is_bot}" :label="l10n(`Is bot`)" labelAlign="left" labelWidth="200"/>
+
+                <ext-displayfield bind="{record.phone}" :label="l10n(`Phone`)" labelAlign="left" labelWidth="200"/>
             </ext-panel>
         </template>
     </CardsPanel>
