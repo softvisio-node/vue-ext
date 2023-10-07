@@ -1,17 +1,18 @@
 <template>
     <CardsPanel ref="cardsPanel" viewModel="true" @render="ready">
-        <ext-panel layput="fit">
-            <Avatar bind='{"src":"{record.avatar_url}"}' height="100" width="100"/>
-        </ext-panel>
+        <template #dataPanel>
+            <ext-panel layput="fit">
+                <ext-avatar bind="{record.avatar_url}" height="100" width="100"/>
+            </ext-panel>
+        </template>
     </CardsPanel>
 </template>
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import Avatar from "#src/components/avatar/image";
 
 export default {
-    "components": { CardsPanel, Avatar },
+    "components": { CardsPanel },
 
     "props": {
         "telegramBotUserRecord": {
