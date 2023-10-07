@@ -4,7 +4,6 @@
             <ext-panel ref="dataPanel" layout="vbox" padding="0 0 0 10" viewModel="true">
                 <ext-toolbar docked="top">
                     <ext-spacer/>
-                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
                 <ext-container layout='{"align":"start","type":"hbox"}'>
@@ -54,21 +53,22 @@ export default {
 
     "watch": {
         telegramBotUserRecord ( newValue, oldValue ) {
-            this._onRecordChnge();
+            this._onRecordChange();
         },
     },
 
     "methods": {
+        ready () {
+            this._onRecordChange();
+        },
+
         _onRecordChange () {
-            this.cancelEdit();
-
-            this.$refs.dataPanel.ext.getViewModel().set( "telegramBotLinkRecord", this.telegramBotLinkRecord );
-
-            if ( this.telegramBotLinkRecord ) {
-                this.$refs.cardsPanel.showDataPanel();
+            if ( !this.telegramBotUserRecord ) {
+                alert( 111 );
+                this.$refs.cardsPanel.showNodataPanel();
             }
             else {
-                this.$refs.cardsPanel.showNoDataPanel();
+                this.$refs.cardsPanel.showDataPanel();
             }
         },
     },
