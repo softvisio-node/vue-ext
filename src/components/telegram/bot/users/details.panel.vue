@@ -1,13 +1,18 @@
 <template>
-    <CardsPanel ref="cardsPanel" @render="ready">
-        <template #dataPanel>
-            <ext-button text="dddddddddddddddddddddddddd"/>
-        </template>
+    <CardsPanel ref="cardsPanel" viewModel="true" @render="ready">
+        <ext-panel layput="fit">
+            <Avatar bind="{record.avatar_url}" height="40" width="40"/>
+        </ext-panel>
     </CardsPanel>
 </template>
 
 <script>
+import CardsPanel from "#src/components/cards.panel";
+import Avatar from "#src/components/avatar/image";
+
 export default {
+    "components": { CardsPanel, Avatar },
+
     "props": {
         "telegramBotUserRecord": {
             "type": Object,
@@ -27,11 +32,13 @@ export default {
         },
 
         _onRecordChange () {
-            if ( !this.telegramBotUserRecord ) {
-                this.$refs.cardsPanel.showNoDataPanel();
+            this.$refs.cardsPanel.ext.getViewModel().set( "record", this.telegramBotUserRecord );
+
+            if ( this.telegramBotUserRecord ) {
+                this.$refs.cardsPanel.showDataPanel();
             }
             else {
-                this.$refs.cardsPanel.showDataPanel();
+                this.$refs.cardsPanel.showNoDataPanel();
             }
         },
     },
