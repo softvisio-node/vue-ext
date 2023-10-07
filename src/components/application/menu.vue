@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import AvatarUser from "#src/components/avatar/user";
+import AvatarUser from "#src/components/avatar.user";
 import LocaleButton from "#src/components/locale.button";
 import ChangePasswordDialog from "#src/components/change-password.dialog";
 import DarkModeButton from "#src/components/dark-mode.button";

@@ -1,13 +1,9 @@
 <template>
-    <AvatarImage :height="height" :src="src" :width="width"/>
+    <ext-avatar :height="height" :src="src" :width="width"/>
 </template>
 
 <script>
-import AvatarImage from "./image";
-
 export default {
-    "components": { AvatarImage },
-
     "props": {
         "width": {
             "type": String,
