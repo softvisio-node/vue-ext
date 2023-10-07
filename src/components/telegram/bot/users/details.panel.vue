@@ -1,7 +1,7 @@
 <template>
     <CardsPanel ref="cardsPanel" viewModel="true" @render="ready">
         <template #dataPanel>
-            <ext-panel layput="fit">
+            <ext-panel layput="fit" padding="0 10 0 10">
                 <ext-avatar bind="{record.avatar_url}" height="60" width="60"/>
 
                 <ext-displayfield bind="{record.full_name}" :label="l10n(`Name`)" labelAlign="left" labelWidth="200"/>
