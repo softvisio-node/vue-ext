@@ -58,6 +58,20 @@ export default {
                 this.$refs.cardsPanel.showNoDataPanel();
             }
         },
+
+        async toggjeUserBanned () {
+            const record = this.telegramBotUserRecord,
+                banned = !record.get( "nanned" );
+
+            const res = await this.$api.call( "telegram/bots/users/set-user-banned", record.telegram_bot_id, record.id, banned );
+
+            if ( !res.ok ) {
+                this.$toast( res );
+            }
+            else {
+                record.set( "banned", banned );
+            }
+        },
     },
 };
 </script>

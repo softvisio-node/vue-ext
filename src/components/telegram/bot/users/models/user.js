@@ -13,6 +13,7 @@ export default Ext.define( "", {
         { "name": "id", "type": "string" },
 
         // fields
+        "telegram_bot_id",
         "avatar_url",
         { "name": "is_bot", "type": "bool" },
         "username",
