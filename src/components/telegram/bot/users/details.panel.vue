@@ -19,11 +19,13 @@
                 <ext-displayfield bind="{record.subscription_status}" :label="l10n(`Subscription status`)" labelAlign="left" labelWidth="200"/>
 
                 <ext-displayfield bind="{record.ban_status}" :label="l10n(`Ban status`)" labelAlign="left" labelWidth="200"/>
-                <ext-container layout="hbox">
+
+                <ext-container bind='{"hidden":"{banButtonHidden}"}' layout="hbox">
                     <ext-spacer width="200"/>
-                    <ext-button :text="l10n(`Ban user`)" @tap="toggjeUserBanned"/>
+                    <ext-button :text="l10n(`Ban user`)" ui="decline" @tap="toggjeUserBanned"/>
                 </ext-container>
-                <ext-container layout="hbox">
+
+                <ext-container bind='{"hidden":"{unbanButtonHidden}"}' layout="hbox">
                     <ext-spacer width="200"/>
                     <ext-button :text="l10n(`Unban user`)" @tap="toggjeUserBanned"/>
                 </ext-container>
@@ -53,6 +55,26 @@ export default {
 
     "methods": {
         ready () {
+            this.$refs.cardsPanel.ext.getViewModel().setFormulas( {
+                "banButtonHidden": {
+                    "bind": {
+                        "banned": "{record.banned}",
+                    },
+                    get ( data ) {
+                        return data.banned;
+                    },
+                },
+
+                "unbanButtonHidden": {
+                    "bind": {
+                        "banned": "{record.banned}",
+                    },
+                    get ( data ) {
+                        return !data.banned;
+                    },
+                },
+            } );
+
             this._onRecordChange();
         },
 
