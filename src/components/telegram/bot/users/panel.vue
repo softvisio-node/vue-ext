@@ -27,7 +27,7 @@
         </CardsPanel>
 
         <!-- details panel -->
-        <ext-panel ref="detailsPanel" docked="right" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' width="400">
+        <ext-panel ref="detailsPanel" docked="right" headerPosition="left" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`User details`)" width="400">
             <DetailsPanel :telegramBotUserRecord="telegramBotUserRecord"/>
         </ext-panel>
     </ext-panel>
