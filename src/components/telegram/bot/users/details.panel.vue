@@ -19,6 +19,14 @@
                 <ext-displayfield bind="{record.subscription_status}" :label="l10n(`Subscription status`)" labelAlign="left" labelWidth="200"/>
 
                 <ext-displayfield bind="{record.ban_status}" :label="l10n(`Ban status`)" labelAlign="left" labelWidth="200"/>
+                <ext-container layout="hbox">
+                    <ext-spacer width="200"/>
+                    <ext-button :text="l10n(`Ban user`)" @tap="toggjeUserBanned"/>
+                </ext-container>
+                <ext-container layout="hbox">
+                    <ext-spacer width="200"/>
+                    <ext-button :text="l10n(`Unban user`)" @tap="toggjeUserBanned"/>
+                </ext-container>
             </ext-panel>
         </template>
     </CardsPanel>
