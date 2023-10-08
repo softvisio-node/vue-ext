@@ -69,9 +69,9 @@ export default {
 
         async toggjeUserBanned () {
             const record = this.telegramBotUserRecord,
-                banned = !record.get( "nanned" );
+                banned = !record.get( "banned" );
 
-            const res = await this.$api.call( "telegram/bots/users/set-user-banned", record.telegram_bot_id, record.id, banned );
+            const res = await this.$api.call( "telegram/bots/users/set-user-banned", record.get( "telegram_bot_id" ), record.id, banned );
 
             if ( !res.ok ) {
                 this.$toast( res );
