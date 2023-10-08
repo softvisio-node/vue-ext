@@ -37,6 +37,37 @@ export default Ext.define( "", {
         },
 
         {
+            "name": "phone_text",
+            calculate ( data ) {
+                return data.phone || "--";
+            },
+        },
+
+        {
+            "name": "subscription_status",
+            calculate ( data ) {
+                if ( data.subscribed ) {
+                    return app.locale.l10n( `Subscribed` );
+                }
+                else {
+                    return app.locale.l10n( `Not subscribed` );
+                }
+            },
+        },
+
+        {
+            "name": "ban_status",
+            calculate ( data ) {
+                if ( data.banned ) {
+                    return app.locale.l10n( `Banned` );
+                }
+                else {
+                    return app.locale.l10n( `Not banned` );
+                }
+            },
+        },
+
+        {
             "name": "created_text",
             calculate ( data ) {
                 return `${app.locale.formatDate( data.created, "dateStyle:short" )} (${app.locale.formatRelativeDate( data.created )})`;
