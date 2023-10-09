@@ -68,18 +68,24 @@ export default {
             this.$refs.cardsPanel.ext.getViewModel().setFormulas( {
                 "banButtonHidden": {
                     "bind": {
+                        "permissions": "{telegramBotRecord.acl_user_permissions}",
                         "banned": "{record.banned}",
                     },
                     get ( data ) {
+                        if ( !data.permissions.has( "telegram/bot/users:update" ) ) return true;
+
                         return data.banned;
                     },
                 },
 
                 "unbanButtonHidden": {
                     "bind": {
+                        "permissions": "{telegramBotRecord.acl_user_permissions}",
                         "banned": "{record.banned}",
                     },
                     get ( data ) {
+                        if ( !data.permissions.has( "telegram/bot/users:update" ) ) return true;
+
                         return !data.banned;
                     },
                 },
