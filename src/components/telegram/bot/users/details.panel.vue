@@ -29,6 +29,16 @@
                     <ext-spacer width="200"/>
                     <ext-button :text="l10n(`Unban user`)" @tap="toggjeUserBanned"/>
                 </ext-container>
+
+                <ext-container bind='{"hidden":"{!record.api_user_id}"}' layout="hbox">
+                    <ext-displayfield :label="l10n(`Linked API user`)" labelAlign="left" labelWidth="200"/>
+
+                    <ext-avatar bind="{record.api_user_avatar_url}"/>
+
+                    <ext-spacer width="5"/>
+
+                    <ext-displayfield bind="{record.api_user_email}"/>
+                </ext-container>
             </ext-panel>
         </template>
     </CardsPanel>
