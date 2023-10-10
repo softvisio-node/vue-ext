@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.8.42 (2023-10-10)
+
+Fixes:
+
+-   fix: avatar
+-   fix: telegram
+
 ### 8.8.41 (2023-09-25)
 
 Fixes:
