@@ -57,7 +57,7 @@ export default {
     "methods": {
 
         // public
-        // XXX
+        // XXX do not refresh if tab is not active, refresh on activate
         async refresh () {
             if ( !this.$refs.cardsPanel.isRendered ) return;
 
