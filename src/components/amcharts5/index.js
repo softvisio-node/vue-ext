@@ -45,7 +45,7 @@ Ext.define( "Ext.amcharts5", {
         catch ( e ) {}
     },
 
-    setStpre ( newValue, oldValue ) {
+    updateStore ( newValue, oldValue ) {
         this.unlinkStore( oldValue );
 
         this.linkStore( newValue );
@@ -55,14 +55,14 @@ Ext.define( "Ext.amcharts5", {
         if ( this.getSetChartData() ) {
             data = this.getSetChartData()( this, data );
 
-            if ( data ) this.upxateChartData( data );
+            if ( data ) this.upxateData( data );
         }
         else {
-            this.upxateChartData( data );
+            this.upxateData( data );
         }
     },
 
-    upxateChartData ( data ) {
+    upxateData ( data ) {
         const chart = this.root.container.children.values[0];
 
         for ( const xAxis of chart.xAxes.values ) {
@@ -121,88 +121,90 @@ Ext.define( "Ext.amcharts5", {
         }
     },
 
-    // XXX pricate
-    createChart () {
-        if ( this.root ) {
-            var data = this.backupData();
+    // private
+    "privates": {
+        createChart () {
+            if ( this.root ) {
+                var data = this.backupData();
 
-            this.destroyChart();
-        }
+                this.destroyChart();
+            }
 
-        this._events ??= new Events().link( app.theme ).on( "darkModeChange", this.onThemeChange.bind( this ) );
+            this._events ??= new Events().link( app.theme ).on( "darkModeChange", this.onThemeChange.bind( this ) );
 
-        this.root = amcharts.am5.Root.new( this.innerElement.dom );
+            this.root = amcharts.am5.Root.new( this.innerElement.dom );
 
-        // set locale
-        this.root.locale = amcharts.locale;
-        this.root.dateFormatter.set( "intlLocales", app.locale.id );
-        this.root.numberFormatter.set( "intlLocales", app.locale.id );
+            // set locale
+            this.root.locale = amcharts.locale;
+            this.root.dateFormatter.set( "intlLocales", app.locale.id );
+            this.root.numberFormatter.set( "intlLocales", app.locale.id );
 
-        const themes = [];
+            const themes = [];
 
-        if ( this.getAnimated() ) themes.push( amcharts.ThemeAnimated.new( this.root ) );
-        if ( this.getResponsive() ) themes.push( amcharts.ThemeResponsive.new( this.root ) );
-        if ( this.getMicro() ) themes.push( amcharts.ThemeMicro.new( this.root ) );
+            if ( this.getAnimated() ) themes.push( amcharts.ThemeAnimated.new( this.root ) );
+            if ( this.getResponsive() ) themes.push( amcharts.ThemeResponsive.new( this.root ) );
+            if ( this.getMicro() ) themes.push( amcharts.ThemeMicro.new( this.root ) );
 
-        // color theme
-        if ( app.theme.darkMode ) {
-            themes.push( amcharts.DarkTheme.new( this.root ) );
-        }
-        else {
-            themes.push( amcharts.LightTheme.new( this.root ) );
-        }
+            // color theme
+            if ( app.theme.darkMode ) {
+                themes.push( amcharts.DarkTheme.new( this.root ) );
+            }
+            else {
+                themes.push( amcharts.LightTheme.new( this.root ) );
+            }
 
-        this.root.setThemes( themes );
+            this.root.setThemes( themes );
 
-        this.getCreateChart()( this );
+            this.getCreateChart()( this );
 
-        // restore data
-        this.restoreData( data );
-    },
+            // restore data
+            this.restoreData( data );
+        },
 
-    destroyChart () {
-        if ( !this.root ) return;
+        setDataFromStore () {
+            const store = this.getStore();
 
-        this.root.dispose();
+            if ( !store ) return;
 
-        this.root = null;
-    },
+            if ( !this.root ) return;
 
-    linkStore ( store ) {
-        if ( !store ) return;
+            const data = Ext.Array.pluck( store.data.items, "data" );
 
-        store.on( {
-            "scope": this,
-            "dataChanged": this.setDataFromStore,
-        } );
+            this.setData( data );
+        },
 
-        this.setDataFromStore();
-    },
+        onThemeChange () {
+            if ( !this.root ) return;
 
-    unlinkStore ( store ) {
-        if ( !store ) return;
+            this.createChart();
+        },
 
-        store.un( {
-            "scope": this,
-            "dataChanged": this.setDataFromStore,
-        } );
-    },
+        destroyChart () {
+            if ( !this.root ) return;
 
-    setDataFromStore () {
-        const store = this.getStore();
+            this.root.dispose();
 
-        if ( !store ) return;
+            this.root = null;
+        },
 
-        if ( !this.root ) return;
+        linkStore ( store ) {
+            if ( !store ) return;
 
-        const data = Ext.Array.pluck( store.data.items, "data" );
+            store.on( {
+                "scope": this,
+                "dataChanged": this.setDataFromStore,
+            } );
 
-        this.setData( data );
-    },
+            this.setDataFromStore();
+        },
 
-    onThemeChange () {
-        if ( !this.root ) return;
+        unlinkStore ( store ) {
+            if ( !store ) return;
 
-        this.createChart();
+            store.un( {
+                "scope": this,
+                "dataChanged": this.setDataFromStore,
+            } );
+        },
     },
 } );
