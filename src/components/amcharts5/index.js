@@ -27,7 +27,6 @@ Ext.define( "Ext.amcharts5", {
         this.createChart();
     },
 
-    // XXX
     doDestroy () {
 
         // unlink store
@@ -40,7 +39,10 @@ Ext.define( "Ext.amcharts5", {
         // destroy chart
         this.destroyChart();
 
-        this.callParent( arguments );
+        try {
+            this.callParent( arguments );
+        }
+        catch ( e ) {}
     },
 
     setStpre ( newValue, oldValue ) {
