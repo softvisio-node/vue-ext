@@ -8,18 +8,18 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <AmchartsPanel ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :setChartData="_setChartData"/>
+                <ext-amcharts5 ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :setChartData="_setChartData"/>
 
-                <AmchartsPanel ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300" :setChartData="_setChartData"/>
+                <ext-amcharts5 ref="subscriptionsChart" :createChart="_createSubscriptionsChart" height="300" :setChartData="_setChartData"/>
             </ext-panel>
         </template>
     </CardsPanel>
 </template>
 
 <script>
+import "#src/components/amcharts5/index";
 import app from "#app";
 import CardsPanel from "#src/components/cards.panel";
-import AmchartsPanel from "#vue/components/amcharts5/panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 const PERIODS = {
@@ -39,7 +39,7 @@ const PERIODS = {
 };
 
 export default {
-    "components": { CardsPanel, AmchartsPanel },
+    "components": { CardsPanel },
 
     "props": {
         "telegramBotLinkRecord": {
@@ -86,8 +86,8 @@ export default {
             else {
                 this.$refs.cardsPanel.setResult( res );
 
-                this.$refs.totalSubscribedUsersChart.setData( res.data );
-                this.$refs.subscriptionsChart.setData( res.data );
+                this.$refs.totalSubscribedUsersChart.ext.setData( res.data );
+                this.$refs.subscriptionsChart.ext.setData( res.data );
             }
         },
 

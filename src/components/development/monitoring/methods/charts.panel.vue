@@ -10,19 +10,19 @@
 
         <template #dataPanel>
             <ext-container defaults='{"height":300}' layput="vbox" scrollable="true">
-                <AmchartsPanel ref="callsChart" :createChart="_createCallsChart"/>
+                <ext-amcharts5 ref="callsChart" :createChart="_createCallsChart"/>
 
-                <AmchartsPanel ref="durationChart" :createChart="_createDurationChart"/>
+                <ext-amcharts5 ref="durationChart" :createChart="_createDurationChart"/>
 
-                <AmchartsPanel ref="exceptionsChart" :createChart="_createExceptionsChart"/>
+                <ext-amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart"/>
             </ext-container>
         </template>
     </CardsPanel>
 </template>
 
 <script>
+import "#src/components/amcharts5/index";
 import CardsPanel from "#src/components/cards.panel";
-import AmchartsPanel from "#vue/components/amcharts5/panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 const PERIODS = {
@@ -31,7 +31,7 @@ const PERIODS = {
 };
 
 export default {
-    "components": { CardsPanel, AmchartsPanel },
+    "components": { CardsPanel },
 
     "props": {
         "record": {
@@ -73,9 +73,9 @@ export default {
             else {
                 this.$refs.cardsPanel.setResult( res );
 
-                this.$refs.callsChart.setData( res.data );
-                this.$refs.durationChart.setData( res.data );
-                this.$refs.exceptionsChart.setData( res.data );
+                this.$refs.callsChart.ext.setData( res.data );
+                this.$refs.durationChart.ext.setData( res.data );
+                this.$refs.exceptionsChart.ext.setData( res.data );
             }
         },
 

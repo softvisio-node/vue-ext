@@ -10,21 +10,21 @@
 
         <template #dataPanel>
             <ext-container defaults='{"height":300}' layput="vbox" scrollable="true">
-                <AmchartsPanel ref="cpuUsageChart" :createChart="_createCpuUsageChart"/>
+                <ext-amcharts5 ref="cpuUsageChart" :createChart="_createCpuUsageChart"/>
 
-                <AmchartsPanel ref="memryUsedChart" :createChart="_createMemoryUsedChart"/>
+                <ext-amcharts5 ref="memryUsedChart" :createChart="_createMemoryUsedChart"/>
 
-                <AmchartsPanel ref="memryRssChart" :createChart="_createMemoryRssChart"/>
+                <ext-amcharts5 ref="memryRssChart" :createChart="_createMemoryRssChart"/>
 
-                <AmchartsPanel ref="fsUsedChart" :createChart="_createFsUsedChart"/>
+                <ext-amcharts5 ref="fsUsedChart" :createChart="_createFsUsedChart"/>
             </ext-container>
         </template>
     </CardsPanel>
 </template>
 
 <script>
+import "#src/components/amcharts5/index";
 import CardsPanel from "#src/components/cards.panel";
-import AmchartsPanel from "#vue/components/amcharts5/panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 const PERIODS = {
@@ -33,7 +33,7 @@ const PERIODS = {
 };
 
 export default {
-    "components": { CardsPanel, AmchartsPanel },
+    "components": { CardsPanel },
 
     "props": {
         "record": {
@@ -75,10 +75,10 @@ export default {
             else {
                 this.$refs.cardsPanel.setResult( res );
 
-                this.$refs.cpuUsageChart.setData( res.data );
-                this.$refs.memryUsedChart.setData( res.data );
-                this.$refs.memryRssChart.setData( res.data );
-                this.$refs.fsUsedChart.setData( res.data );
+                this.$refs.cpuUsageChart.ext.setData( res.data );
+                this.$refs.memryUsedChart.ext.setData( res.data );
+                this.$refs.memryRssChart.ext.setData( res.data );
+                this.$refs.fsUsedChart.ext.setData( res.data );
             }
         },
 
