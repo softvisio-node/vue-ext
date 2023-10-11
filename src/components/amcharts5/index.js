@@ -33,8 +33,8 @@ Ext.define( "Ext.amcharts5", {
         this.unlinkStore( this.getStore() );
 
         // unlink theme
-        this._events?.clear();
-        this._events = null;
+        this.themeEvents?.clear();
+        this.themeEvents = null;
 
         // destroy chart
         this.destroyChart();
@@ -123,6 +123,8 @@ Ext.define( "Ext.amcharts5", {
 
     // private
     "privates": {
+        "themeEvents": null,
+
         createChart () {
             if ( this.root ) {
                 var data = this.backupData();
@@ -130,7 +132,7 @@ Ext.define( "Ext.amcharts5", {
                 this.destroyChart();
             }
 
-            this._events ??= new Events().link( app.theme ).on( "darkModeChange", this.onThemeChange.bind( this ) );
+            this.themeEvents ??= new Events().link( app.theme ).on( "darkModeChange", this.onThemeChange.bind( this ) );
 
             this.root = amcharts.am5.Root.new( this.innerElement.dom );
 
