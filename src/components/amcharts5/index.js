@@ -24,42 +24,42 @@ Ext.define( "Ext.amcharts5", {
     },
 
     afterRender () {
-        this._createChart();
+        this.createChart();
     },
 
     doDestroy () {
 
         // unlink store
-        this._unlinkStore( this.getStore() );
+        this.unlinkStore( this.getStore() );
 
         // unlink theme
         this._events?.clear();
         this._events = null;
 
         // destroy chart
-        this._destroyChart();
+        this.destroyChart();
 
         this.callParent( arguments );
     },
 
     setStpre ( newValue, oldValue ) {
-        this._unlinkStore( oldValue );
+        this.unlinkStore( oldValue );
 
-        this._linkStore( newValue );
+        this.linkStore( newValue );
     },
 
     setData ( data ) {
         if ( this.getSetChartData() ) {
             data = this.getSetChartData()( this, data );
 
-            if ( data ) this._setData( data );
+            if ( data ) this.upxateChartData( data );
         }
         else {
-            this._setData( data );
+            this.upxateChartData( data );
         }
     },
 
-    _setData ( data ) {
+    upxateChartData ( data ) {
         const chart = this.root.container.children.values[0];
 
         for ( const xAxis of chart.xAxes.values ) {
@@ -71,7 +71,7 @@ Ext.define( "Ext.amcharts5", {
         }
     },
 
-    _backupData () {
+    backupData () {
         if ( this.getBackupChartData() ) {
             return this.getBackupChartData()( this );
         }
@@ -94,9 +94,9 @@ Ext.define( "Ext.amcharts5", {
         }
     },
 
-    _restoreData ( data ) {
+    restoreData ( data ) {
         if ( this.getStore() ) {
-            this._setDataFromStore();
+            this.setDataFromStore();
         }
         else if ( this.getRestoreChartData() ) {
             this.getRestoreChartData()( this, data );
@@ -118,15 +118,14 @@ Ext.define( "Ext.amcharts5", {
         }
     },
 
-    // XXX
-    _createChart () {
+    createChart () {
         if ( this.root ) {
-            var data = this._backupData();
+            var data = this.backupData();
 
-            this._destroyChart();
+            this.destroyChart();
         }
 
-        this._events ??= new Events().link( app.theme ).on( "darkModeChange", this._onThemeChange.bind( this ) );
+        this._events ??= new Events().link( app.theme ).on( "darkModeChange", this.onThemeChange.bind( this ) );
 
         this.root = amcharts.am5.Root.new( this.innerElement.dom );
 
@@ -154,10 +153,10 @@ Ext.define( "Ext.amcharts5", {
         this.getCreateChart()( this );
 
         // restore data
-        this._restoreData( data );
+        this.restoreData( data );
     },
 
-    _destroyChart () {
+    destroyChart () {
         if ( !this.root ) return;
 
         this.root.dispose();
@@ -165,27 +164,27 @@ Ext.define( "Ext.amcharts5", {
         this.root = null;
     },
 
-    _linkStore ( store ) {
+    linkStore ( store ) {
         if ( !store ) return;
 
         store.on( {
             "scope": this,
-            "dataChanged": this._setDataFromStore,
+            "dataChanged": this.setDataFromStore,
         } );
 
-        this._setDataFromStore();
+        this.setDataFromStore();
     },
 
-    _unlinkStore ( store ) {
+    unlinkStore ( store ) {
         if ( !store ) return;
 
         store.un( {
             "scope": this,
-            "dataChanged": this._setDataFromStore,
+            "dataChanged": this.setDataFromStore,
         } );
     },
 
-    _setDataFromStore () {
+    setDataFromStore () {
         const store = this.getStore();
 
         if ( !store ) return;
@@ -197,9 +196,9 @@ Ext.define( "Ext.amcharts5", {
         this.setData( data );
     },
 
-    _onThemeChange () {
+    onThemeChange () {
         if ( !this.root ) return;
 
-        this._createChart();
+        this.createChart();
     },
 } );
