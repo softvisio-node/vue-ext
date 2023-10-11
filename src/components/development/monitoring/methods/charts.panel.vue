@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import "#src/components/amcharts5/index";
+import "#src/components/amcharts5";
 import CardsPanel from "#src/components/cards.panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
 

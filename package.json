@@ -25,15 +25,16 @@
         "#src/*": [
             "./src/*.vue",
             "./src/*.js",
-            "./src/*.cjs"
+            "./src/*/index.vue",
+            "./src/*/index.js"
         ]
     },
     "exports": {
         "./*": [
-            "./src/*.js",
             "./src/*.vue",
-            "./src/*/index.js",
-            "./src/*/index.vue"
+            "./src/*.js",
+            "./src/*/index.vue",
+            "./src/*/index.js"
         ],
         "./resources/*": "./resources/*",
         "./webpack-components/*": "./resources/webpack-components/*/component.js"
