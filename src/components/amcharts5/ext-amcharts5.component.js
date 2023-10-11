@@ -46,6 +46,24 @@ export default class EwcAmchrarts5 extends ExtContainer {
         } );
         return attrs;
     }
+
+    // XXX
+    get createChart () {
+        return null;
+    }
+
+    // XXX
+    set createChart ( value ) {
+        this.attributeObjects1 ||= {};
+        this.attributeObjects1["createChart"] = value;
+    }
+
+    // XXX
+    newCreateProps ( properties ) {
+        super.newCreateProps( properties.filter( p => p !== "createChart" ) );
+
+        this.A.o["createChart"] = this.attributeObjects1["createChart"];
+    }
 }
 
 try {

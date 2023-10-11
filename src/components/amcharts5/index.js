@@ -11,30 +11,24 @@ Ext.define( "Ext.amcharts5", {
 
     "am5": amcharts.am5,
 
-    // "createChart": null,
-    "setChartData": null,
-    "backupChartData": null,
-    "restoreChartData": null,
-    "store": null,
-    "animated": true,
-    "responsive": true,
-    "micro": null,
-
     "config": {
         "createChart": null,
+        "setChartData": null,
+        "backupChartData": null,
+        "restoreChartData": null,
+        "store": null,
+        "animated": true,
+        "responsive": true,
+        "micro": null,
     },
 
     afterRender () {
-        this._createChart();
-    },
-
-    setCreateChart ( f ) {
-        console.log( "--- SET", typeof f );
+        this._createChart1();
     },
 
     // private
-    _createChart () {
-        if ( this.root ) {
+    _createChart1 () {
+        if ( this.root1 ) {
             var data = this._backupData();
 
             this._destroyChart();
@@ -42,43 +36,43 @@ Ext.define( "Ext.amcharts5", {
 
         this._events ??= new Events().link( app.theme ).on( "darkModeChange", this._onThemeChange.bind( this ) );
 
-        this.root = amcharts.am5.Root.new( this.innerElement.dom );
+        this.root1 = amcharts.am5.Root.new( this.innerElement.dom );
 
         // set locale
-        this.root.locale = amcharts.locale;
-        this.root.dateFormatter.set( "intlLocales", app.locale.id );
-        this.root.numberFormatter.set( "intlLocales", app.locale.id );
+        this.root1.locale = amcharts.locale;
+        this.root1.dateFormatter.set( "intlLocales", app.locale.id );
+        this.root1.numberFormatter.set( "intlLocales", app.locale.id );
 
         const themes = [];
 
-        if ( this.animated ) themes.push( amcharts.ThemeAnimated.new( this.root ) );
-        if ( this.responsive ) themes.push( amcharts.ThemeResponsive.new( this.root ) );
-        if ( this.micro ) themes.push( amcharts.ThemeMicro.new( this.root ) );
+        if ( this.getAnimated() ) themes.push( amcharts.ThemeAnimated.new( this.root1 ) );
+        if ( this.getResponsive() ) themes.push( amcharts.ThemeResponsive.new( this.root1 ) );
+        if ( this.getMicro() ) themes.push( amcharts.ThemeMicro.new( this.root1 ) );
 
         // color theme
         if ( app.theme.darkMode ) {
-            themes.push( amcharts.DarkTheme.new( this.root ) );
+            themes.push( amcharts.DarkTheme.new( this.root1 ) );
         }
         else {
-            themes.push( amcharts.LightTheme.new( this.root ) );
+            themes.push( amcharts.LightTheme.new( this.root1 ) );
         }
 
-        this.root.setThemes( themes );
+        this.root1.setThemes( themes );
 
-        this.createChart( this );
+        this.getCreateChart()( this );
 
         // restore data
         this._restoreData( data );
     },
 
     _onThemeChange () {
-        if ( !this.root ) return;
+        if ( !this.root1 ) return;
 
-        this._createChart();
+        this._createChart1();
     },
 
-    _setData ( data ) {
-        const chart = this.root.container.children.values[0];
+    setData ( data ) {
+        const chart = this.root1.container.children.values[0];
 
         for ( const xAxis of chart.xAxes.values ) {
             xAxis.data.setAll( data || [] );
@@ -90,11 +84,11 @@ Ext.define( "Ext.amcharts5", {
     },
 
     _backupData () {
-        if ( this.backupChartData ) {
-            return this.backupChartData( this );
+        if ( this.getBackupChartData() ) {
+            return this.getBackupChartData()( this );
         }
         else {
-            const chart = this.root.container.children.values[0],
+            const chart = this.root1.container.children.values[0],
                 data = {
                     "xAxes": [],
                     "series": [],
@@ -113,14 +107,14 @@ Ext.define( "Ext.amcharts5", {
     },
 
     _restoreData ( data ) {
-        if ( this.store ) {
+        if ( this.getStore() ) {
             this._setDataFromStore();
         }
-        else if ( this.restoreChartData ) {
-            this.restoreChartData( this, data );
+        else if ( this.getRestoreChartData() ) {
+            this.getRestoreChartData()( this, data );
         }
         else if ( data ) {
-            const chart = this.root.container.children.values[0];
+            const chart = this.root1.container.children.values[0];
 
             if ( data.xAxes?.length ) {
                 for ( const xAxis of chart.xAxes.values ) {
