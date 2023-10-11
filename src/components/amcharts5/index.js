@@ -27,6 +27,7 @@ Ext.define( "Ext.amcharts5", {
         this.createChart();
     },
 
+    // XXX
     doDestroy () {
 
         // unlink store
@@ -118,6 +119,7 @@ Ext.define( "Ext.amcharts5", {
         }
     },
 
+    // XXX pricate
     createChart () {
         if ( this.root ) {
             var data = this.backupData();
