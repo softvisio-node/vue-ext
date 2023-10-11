@@ -9,70 +9,58 @@ Ext.define( "Ext.amcharts5", {
 
     "defaultBindProperty": "data",
 
+    "root": null,
     "am5": amcharts.am5,
 
     "config": {
+        "store": null,
         "createChart": null,
         "setChartData": null,
         "backupChartData": null,
         "restoreChartData": null,
-        "store": null,
         "animated": true,
         "responsive": true,
         "micro": null,
     },
 
     afterRender () {
-        this._createChart1();
+        this._createChart();
     },
 
-    // private
-    _createChart1 () {
-        if ( this.root1 ) {
-            var data = this._backupData();
+    doDestroy () {
 
-            this._destroyChart();
-        }
+        // unlink store
+        this._unlinkStore( this.getStore() );
 
-        this._events ??= new Events().link( app.theme ).on( "darkModeChange", this._onThemeChange.bind( this ) );
+        // unlink theme
+        this._events?.clear();
+        this._events = null;
 
-        this.root1 = amcharts.am5.Root.new( this.innerElement.dom );
+        // destroy chart
+        this._destroyChart();
 
-        // set locale
-        this.root1.locale = amcharts.locale;
-        this.root1.dateFormatter.set( "intlLocales", app.locale.id );
-        this.root1.numberFormatter.set( "intlLocales", app.locale.id );
-
-        const themes = [];
-
-        if ( this.getAnimated() ) themes.push( amcharts.ThemeAnimated.new( this.root1 ) );
-        if ( this.getResponsive() ) themes.push( amcharts.ThemeResponsive.new( this.root1 ) );
-        if ( this.getMicro() ) themes.push( amcharts.ThemeMicro.new( this.root1 ) );
-
-        // color theme
-        if ( app.theme.darkMode ) {
-            themes.push( amcharts.DarkTheme.new( this.root1 ) );
-        }
-        else {
-            themes.push( amcharts.LightTheme.new( this.root1 ) );
-        }
-
-        this.root1.setThemes( themes );
-
-        this.getCreateChart()( this );
-
-        // restore data
-        this._restoreData( data );
+        this.callParent( arguments );
     },
 
-    _onThemeChange () {
-        if ( !this.root1 ) return;
+    setStpre ( newValue, oldValue ) {
+        this._unlinkStore( oldValue );
 
-        this._createChart1();
+        this._linkStore( newValue );
     },
 
     setData ( data ) {
-        const chart = this.root1.container.children.values[0];
+        if ( this.getSetChartData() ) {
+            data = this.getSetChartData()( this, data );
+
+            if ( data ) this._setData( data );
+        }
+        else {
+            this._setData( data );
+        }
+    },
+
+    _setData ( data ) {
+        const chart = this.root.container.children.values[0];
 
         for ( const xAxis of chart.xAxes.values ) {
             xAxis.data.setAll( data || [] );
@@ -88,7 +76,7 @@ Ext.define( "Ext.amcharts5", {
             return this.getBackupChartData()( this );
         }
         else {
-            const chart = this.root1.container.children.values[0],
+            const chart = this.root.container.children.values[0],
                 data = {
                     "xAxes": [],
                     "series": [],
@@ -114,7 +102,7 @@ Ext.define( "Ext.amcharts5", {
             this.getRestoreChartData()( this, data );
         }
         else if ( data ) {
-            const chart = this.root1.container.children.values[0];
+            const chart = this.root.container.children.values[0];
 
             if ( data.xAxes?.length ) {
                 for ( const xAxis of chart.xAxes.values ) {
@@ -128,5 +116,90 @@ Ext.define( "Ext.amcharts5", {
                 }
             }
         }
+    },
+
+    // XXX
+    _createChart () {
+        if ( this.root ) {
+            var data = this._backupData();
+
+            this._destroyChart();
+        }
+
+        this._events ??= new Events().link( app.theme ).on( "darkModeChange", this._onThemeChange.bind( this ) );
+
+        this.root = amcharts.am5.Root.new( this.innerElement.dom );
+
+        // set locale
+        this.root.locale = amcharts.locale;
+        this.root.dateFormatter.set( "intlLocales", app.locale.id );
+        this.root.numberFormatter.set( "intlLocales", app.locale.id );
+
+        const themes = [];
+
+        if ( this.getAnimated() ) themes.push( amcharts.ThemeAnimated.new( this.root ) );
+        if ( this.getResponsive() ) themes.push( amcharts.ThemeResponsive.new( this.root ) );
+        if ( this.getMicro() ) themes.push( amcharts.ThemeMicro.new( this.root ) );
+
+        // color theme
+        if ( app.theme.darkMode ) {
+            themes.push( amcharts.DarkTheme.new( this.root ) );
+        }
+        else {
+            themes.push( amcharts.LightTheme.new( this.root ) );
+        }
+
+        this.root.setThemes( themes );
+
+        this.getCreateChart()( this );
+
+        // restore data
+        this._restoreData( data );
+    },
+
+    _destroyChart () {
+        if ( !this.root ) return;
+
+        this.root.dispose();
+
+        this.root = null;
+    },
+
+    _linkStore ( store ) {
+        if ( !store ) return;
+
+        store.on( {
+            "scope": this,
+            "dataChanged": this._setDataFromStore,
+        } );
+
+        this._setDataFromStore();
+    },
+
+    _unlinkStore ( store ) {
+        if ( !store ) return;
+
+        store.un( {
+            "scope": this,
+            "dataChanged": this._setDataFromStore,
+        } );
+    },
+
+    _setDataFromStore () {
+        const store = this.getStore();
+
+        if ( !store ) return;
+
+        if ( !this.root ) return;
+
+        const data = Ext.Array.pluck( store.data.items, "data" );
+
+        this.setData( data );
+    },
+
+    _onThemeChange () {
+        if ( !this.root ) return;
+
+        this._createChart();
     },
 } );
