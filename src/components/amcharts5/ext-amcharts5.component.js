@@ -44,6 +44,7 @@ export default class EwcAmchrarts5 extends ExtContainer {
         EwcAmchrarts5.EVENTS().forEach( function ( eventparameter, index, array ) {
             attrs.push( "on" + eventparameter.name );
         } );
+
         return attrs;
     }
 }
