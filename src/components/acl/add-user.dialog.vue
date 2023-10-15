@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="90%" layout="vbox" :title="l10n(`Adding a user`)" width="600">
-        <ext-comboboxfield ref="addUserCombo" displayField="email" forceSelection="true" :label="l10n(`Select user`)" labelAlign="left" labelWidth="150" minChars="1" primaryFilter='{"operator":"like","property":"email"}' required="true" triggerAction="query" valueField="id" @ready="_addUserComboReady"/>
+        <ext-comboboxfield ref="addUserCombo" displayField="email" forceSelection="true" :label="l10n(`Select user`)" labelAlign="left" labelWidth="150" minChars="1" primaryFilter='{"operator":"like","property":"email"}' required="true" :store="store" triggerAction="query" valueField="id"/>
 
         <ext-togglefield ref="enabledField" :label="l10n(`Access enabled`)" labelAlign="left" labelWidth="150" value="true"/>
 
@@ -48,12 +48,6 @@ export default {
     "methods": {
 
         // protected
-        _addUserComboReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setStore( this.store );
-        },
-
         async _addUser () {
             if ( !this.$refs.addUserCombo.ext.validate() ) {
                 this.$toast( this.l10n( `Please, correctly fill all required fields` ) );

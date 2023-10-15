@@ -9,7 +9,7 @@
         </template>
 
         <template #dataPanel>
-            <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_onGridReady">
+            <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store">
                 <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
                 <ext-column dataIndex="telegram_username" flex="1" :text="l10n(`Telegram username`)"/>
 
@@ -65,12 +65,6 @@ export default {
         },
 
         // protected
-        _onGridReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setStore( this.store );
-        },
-
         _actionColReady ( e ) {
             const cmp = e.detail.cmp;
 

@@ -16,7 +16,7 @@
             </template>
 
             <template #dataPanel>
-                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
+                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store" @ready="_gridReady">
                     <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
 
                     <ext-column dataIndex="created_text" sorter='{"property":"created"}' :text="l10n(`Creation date`)" width="120"/>
@@ -96,8 +96,6 @@ export default {
             const cmp = e.detail.cmp;
 
             cmp.on( "select", ( grid, selection ) => ( this.telegramBotLinkRecord = selection[0] ) );
-
-            cmp.setStore( this.store );
         },
 
         _actionColReady ( e ) {

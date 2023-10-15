@@ -11,7 +11,7 @@
         </template>
 
         <template #dataPanel>
-            <ext-grid hideHeaders="true" itemConfig='{"viewModel":true}' layout="fit" plugins='["autopaging"]' variableHeights="true" @ready="_gridReady">
+            <ext-grid hideHeaders="true" itemConfig='{"viewModel":true}' layout="fit" plugins='["autopaging"]' :store="store" variableHeights="true">
                 <!-- XXX margin is required to prevent horizontal scrolling -->
                 <ext-column flex="1" margin="0 7 0 0" @ready="_colReady"/>
             </ext-grid>
@@ -38,12 +38,6 @@ export default {
     },
 
     "methods": {
-        _gridReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setStore( this.store );
-        },
-
         _colReady ( e ) {
             const cmp = e.detail.cmp;
 

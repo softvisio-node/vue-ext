@@ -8,7 +8,7 @@
         </template>
 
         <template #dataPanel>
-            <ext-grid layout="fit" multicolumnSort="true" @ready="_gridReady">
+            <ext-grid layout="fit" multicolumnSort="true" :store="store">
                 <ext-column dataIndex="module" :text="l10n(`Module`)" width="150"/>
 
                 <ext-column dataIndex="name" :text="l10n(`Name`)" width="150"/>
@@ -41,12 +41,6 @@ export default {
     },
 
     "methods": {
-        _gridReady ( e ) {
-            var grid = e.detail.cmp;
-
-            grid.setStore( this.store );
-        },
-
         async refresh () {
             this.$refs.cards.mask();
 

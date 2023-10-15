@@ -9,7 +9,7 @@
         </template>
 
         <template #dataPanel>
-            <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_gridReady">
+            <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" :store="store">
                 <ext-column cell='{"encodeHtml":false}' dataIndex="title_html" flex="1" sorter='{"property":"name"}' :text="l10n(`Role`)"/>
 
                 <ext-column align="center" sorter='{"property":"enabled"}' :text="l10n(`Role enabled`)" width="160" @ready="_enabledColReady"/>
@@ -85,12 +85,6 @@ export default {
         },
 
         // protected
-        _gridReady ( e ) {
-            const grid = e.detail.cmp;
-
-            grid.setStore( this.store );
-        },
-
         _enabledColReady ( e ) {
             const cmp = e.detail.cmp;
 

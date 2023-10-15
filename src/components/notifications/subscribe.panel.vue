@@ -1,7 +1,7 @@
 <template>
     <CardsPanel ref="cardsPanel" :store="store" @refresh="refresh">
         <template #dataPanel>
-            <ext-grid columnMenu="false" columnResize="false" hideHeaders="true" itemConfig='{"viewModel":true}' layout="fit" selectable="false" sortable="false" @ready="_gridReady">
+            <ext-grid columnMenu="false" columnResize="false" hideHeaders="true" itemConfig='{"viewModel":true}' layout="fit" selectable="false" sortable="false" :store="store">
                 <ext-column cell='{"encodeHtml":false}' dataIndex="title" flex="1"/>
 
                 <ext-column align="center" width="60" @ready="_subscribedColReady"/>
@@ -41,12 +41,6 @@ export default {
     },
 
     "methods": {
-        _gridReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setStore( this.store );
-        },
-
         _subscribedColReady ( e ) {
             const cmp = e.detail.cmp;
 

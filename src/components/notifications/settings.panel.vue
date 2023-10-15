@@ -38,7 +38,7 @@
         <!-- notification types -->
         <CardsPanel ref="cardsPanel" flex="1" :hidden="notificationTypesHidden" @refresh="refresh">
             <template #dataPanel>
-                <ext-grid columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" selectable="false" sortable="false" @ready="_gridReady">
+                <ext-grid columnMenu="false" columnResize="false" itemConfig='{"viewModel":true}' layout="fit" selectable="false" sortable="false" :store="store">
                     <!-- type -->
                     <ext-column cell='{"encodeHtml":false}' dataIndex="title" :text="l10n(`Notifications`)" width="220"/>
 
@@ -135,12 +135,6 @@ export default {
     },
 
     "methods": {
-        _gridReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setStore( this.store );
-        },
-
         _internalColReady ( e ) {
             this._toggleColReady( "internal", e );
         },

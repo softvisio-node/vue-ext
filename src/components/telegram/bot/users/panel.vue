@@ -14,7 +14,7 @@
             </template>
 
             <template #dataPanel>
-                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" padding="0 0 0 5" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
+                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" padding="0 0 0 5" plugins='["gridviewoptions", "autopaging"]' :store="store" @ready="_gridReady">
                     <ext-column width="40" @ready="_avatarColReady"/>
 
                     <ext-column dataIndex="username" flex="1" :text="l10n(`Username`)"/>
@@ -91,8 +91,6 @@ export default {
             const cmp = e.detail.cmp;
 
             cmp.on( "select", ( grid, selection ) => ( this.telegramBotUserRecord = selection[0] ) );
-
-            cmp.setStore( this.store );
         },
 
         _avatarColReady ( e ) {

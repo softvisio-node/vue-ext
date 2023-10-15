@@ -10,7 +10,7 @@
         </template>
 
         <template #dataPanel>
-            <ext-grid layout="fit" multicolumnSort="true" plugins='{"gridviewoptions":true}' @ready="_gridReady">
+            <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='{"gridviewoptions":true}' :store="store">
                 <ext-column cell='{"encodeHtml":false}' dataIndex="device_text" flex="1" sorter='{"property":"device_vendor"}' :text="l10n(`Device`)"/>
 
                 <ext-column cell='{"encodeHtml":false}' dataIndex="os_text" flex="1" sorter='{"property":"os_name"}' :text="l10n(`Platform`)"/>
@@ -53,14 +53,6 @@ export default {
     },
 
     "methods": {
-        _gridReady ( e ) {
-            var grid = e.detail.cmp;
-
-            grid.setItemConfig( { "viewModel": true } );
-
-            grid.setStore( this.store );
-        },
-
         _actionColReady ( e ) {
             var cmp = e.detail.cmp;
 
