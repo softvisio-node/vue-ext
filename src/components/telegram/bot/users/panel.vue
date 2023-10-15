@@ -8,8 +8,6 @@
                     <ext-spacer/>
 
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
-
-                    <ext-button iconCls="fa-solid fa-table-columns" pressed="true" :tooltip="l10n(`Toggle user details panel`)" @tap="toggleDetailsPanel"/>
                 </ext-toolbar>
             </template>
 
@@ -27,7 +25,7 @@
         </CardsPanel>
 
         <!-- details panel -->
-        <ext-panel ref="detailsPanel" docked="right" headerPosition="left" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`User details`)" width="400">
+        <ext-panel ref="detailsPanel" collapsible="right" docked="right" headerPosition="left" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`User details`)" width="400">
             <DetailsPanel :telegramBotUserRecord="telegramBotUserRecord"/>
         </ext-panel>
     </ext-panel>
@@ -117,20 +115,6 @@ export default {
             }
             else {
                 this.store.removeFilter( "search" );
-            }
-        },
-
-        toggleDetailsPanel ( e ) {
-            const button = e.detail.sender,
-                pressed = button.getPressed();
-
-            button.setPressed( !pressed );
-
-            if ( !pressed ) {
-                this.$refs.detailsPanel.ext.show();
-            }
-            else {
-                this.$refs.detailsPanel.ext.hide();
             }
         },
     },
