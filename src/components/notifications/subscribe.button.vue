@@ -1,8 +1,6 @@
 <template>
     <ext-container :hidden="hidden" @ready="_ready">
         <ext-button ref="button" iconCls="fa-regular fa-eye" :text="l10n(`Watch`)" :ui="ui" @tap="showNotificationsSubscribeDialog"/>
-
-        <NotificationsSubscribeDialog ref="dialog" :aclId="aclId"/>
     </ext-container>
 </template>
 
@@ -10,8 +8,6 @@
 import NotificationsSubscribeDialog from "#src/components/notifications/subscribe.dialog";
 
 export default {
-    "components": { NotificationsSubscribeDialog },
-
     "props": {
         "aclId": {
             "type": String,
@@ -32,19 +28,15 @@ export default {
             this.ext = e.detail.cmp;
         },
 
-        showNotificationsSubscribeDialog () {
-            const dialog = this.$refs.dialog.ext;
+        async showNotificationsSubscribeDialog () {
+            const dialog = await this.$mount( NotificationsSubscribeDialog, {
+                "props": {
+                    "centered": false,
+                    "aclId": this.aclId,
+                },
+            } );
 
-            // XXX fix for case, when .showBy() coordinates are incorrect on first show
-            if ( !this._initialized ) {
-                this._initialized = true;
-
-                dialog.showBy( this.ext, "tr-br" );
-                if ( dialog.activeAnimation ) dialog.activeAnimation.stop();
-                dialog.hide( false );
-            }
-
-            dialog.showBy( this.ext, "tr-br" );
+            dialog.ext.showBy( this.ext, "tr-br" );
         },
     },
 };
