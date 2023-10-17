@@ -152,7 +152,6 @@ export default {
 
         async _showAclDialog () {
             const cmp = await this.$mount( AclDialog, {
-                "cache": false,
                 "props": {
                     "aclId": this.record.get( "acl_id" ),
                 },

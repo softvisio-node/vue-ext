@@ -194,7 +194,6 @@ export default {
             const record = button.up( "gridrow" ).getRecord();
 
             const cmp = await this.$mount( AclDialog, {
-                "cache": false,
                 "props": {
                     "aclId": record.get( "acl_id" ),
                 },
