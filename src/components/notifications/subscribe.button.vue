@@ -45,8 +45,6 @@ export default {
             }
 
             dialog.showBy( this.ext, "tr-br" );
-
-            this.$app.notifications.refreshRelativeTime();
         },
     },
 };
