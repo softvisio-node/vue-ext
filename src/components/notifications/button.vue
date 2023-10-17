@@ -1,8 +1,6 @@
 <template>
     <ext-container :hidden="_hidden" @ready="_ready">
         <ext-button ref="button" iconCls="fa-regular fa-bell" margin="10 20 0 0" ui="action" width="55" @tap="showNotificationsDialog"/>
-
-        <NotificationsDialog ref="dialog"/>
     </ext-container>
 </template>
 
@@ -10,8 +8,6 @@
 import NotificationsDialog from "#src/components/notifications/dialog";
 
 export default {
-    "components": { NotificationsDialog },
-
     "props": {
         "hidden": {
             "type": Boolean,
@@ -40,19 +36,15 @@ export default {
             this._setNotificationsBadgeText();
         },
 
-        showNotificationsDialog () {
-            const dialog = this.$refs.dialog.ext;
+        async showNotificationsDialog () {
+            const dialog = await this.$mount( NotificationsDialog, {
+                "cache": true,
+                "props": {
+                    "centered": false,
+                },
+            } );
 
-            // XXX fix for case, when .showBy() coordinates are incorrect on first show
-            if ( !this._initialized ) {
-                this._initialized = true;
-
-                dialog.showBy( this.ext, "tr-br" );
-                if ( dialog.activeAnimation ) dialog.activeAnimation.stop();
-                dialog.hide( false );
-            }
-
-            dialog.showBy( this.ext, "tr-tl" );
+            dialog.ext.showBy( this.ext, "tr-br" );
 
             this.$app.notifications.refreshRelativeTime();
         },
