@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="300" layout="fit" padding="0 5 5 5" :title="l10n(`Notifications`)" width="300" @ready="_ready">
+    <ext-dialog height="300" layout="fit" padding="0 5 5 5" :title="l10n(`Notifications`)" width="300" @ready="_ready">
         <NotificationsSubscribePanel ref="panel" :aclId="aclId"/>
     </ext-dialog>
 </template>
@@ -31,8 +31,6 @@ export default {
                     "handler": this.showNotificationsSettingsDialog.bind( this ),
                 },
             ] );
-
-            this.ext.on( "beforeShow", () => this.$refs.panel.refresh() );
         },
 
         async showNotificationsSettingsDialog () {
