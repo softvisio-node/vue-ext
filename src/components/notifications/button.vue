@@ -38,7 +38,6 @@ export default {
 
         async showNotificationsDialog () {
             const dialog = await this.$mount( NotificationsDialog, {
-                "cache": true,
                 "props": {
                     "centered": false,
                 },
