@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog closeAction="hide" height="90%" layout="fit" padding="0 5 5 5" :title="l10n(`Notifications`)" width="600" @ready="_ready">
+    <ext-dialog height="90%" layout="fit" padding="0 5 5 5" :title="l10n(`Notifications`)" width="600" @ready="_ready">
         <NotificationsPanel ref="panel"/>
     </ext-dialog>
 </template>
