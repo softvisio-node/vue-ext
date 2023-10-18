@@ -1,5 +1,16 @@
 # Changelog
 
+### 8.9.1 (2023-10-18)
+
+Fixes:
+
+-   fix: collapsed panel
+-   fix: dialog
+-   fix: mount cache
+-   fix: set store
+-   fix: telegram
+-   fix: translations
+
 ### 8.9.0 (2023-10-11)
 
 Features:
