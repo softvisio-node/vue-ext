@@ -18,6 +18,7 @@ export default Ext.define( "", {
         "name",
         "short_description",
         "description",
+        "avatar_url",
 
         "telegram_id",
         "telegram_username",
