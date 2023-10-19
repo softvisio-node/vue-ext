@@ -10,7 +10,10 @@
 
         <template #dataPanel>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store">
+                <ext-column width="40" @ready="_avatarColReady"/>
+
                 <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
+
                 <ext-column dataIndex="telegram_username" flex="1" :text="l10n(`Telegram username`)"/>
 
                 <ext-column dataIndex="type_name" flex="1" sorter='{"property":"type"}' :text="l10n(`Bot type`)"/>
@@ -65,6 +68,18 @@ export default {
         },
 
         // protected
+        _avatarColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "avatar",
+                    "bind": "{record.avatar_url}",
+                },
+            } );
+        },
+
         _actionColReady ( e ) {
             const cmp = e.detail.cmp;
 
