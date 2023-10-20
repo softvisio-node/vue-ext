@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.9.3 (2023-10-20)
+
+Fixes:
+
+-   fix: package repo url
+
 ### 8.9.2 (2023-10-20)
 
 Fixes:
