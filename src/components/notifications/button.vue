@@ -40,7 +40,7 @@ export default {
             this._setNotificationsBadgeText();
         },
 
-        async showNotificationsDialog () {
+        showNotificationsDialog () {
             this.$refs.notificationsDialog.ext.showBy( this.ext, "tr-br" );
 
             this.$app.notifications.refreshRelativeTime();
