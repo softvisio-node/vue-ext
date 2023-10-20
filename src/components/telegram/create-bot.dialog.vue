@@ -3,7 +3,7 @@
         <ext-panel ref="cardsPanel" layout='{"animation":"slide","type":"card"}' @ready="_ready">
             <!-- api key panel -->
             <ext-fieldpanel ref="apiKeyPanel">
-                <ext-textfield :label="l10n(`Enter your Telegram bot API key`)" name="api_key" required="true"/>
+                <ext-textfield :label="l10n(`Enter your Telegram bot API token`)" name="api_key" required="true"/>
 
                 <ext-toolbar docked="bottom">
                     <ext-spacer/>
