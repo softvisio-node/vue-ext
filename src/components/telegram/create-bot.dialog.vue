@@ -15,6 +15,10 @@
 
 <script>
 export default {
-    "methods": {},
+    "methods": {
+        async _checkApiKey () {},
+
+        async _createBot () {},
+    },
 };
 </script>
