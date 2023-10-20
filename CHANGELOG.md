@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.9.2 (2023-10-20)
+
+Fixes:
+
+-   fix: telegram avatar
+
 ### 8.9.1 (2023-10-18)
 
 Fixes:
