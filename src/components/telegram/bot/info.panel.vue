@@ -63,8 +63,8 @@
                         <!-- stop -->
                         <ext-button bind='{"hidden":"{!record.can_stop}"}' iconCls="fa-regular fa-circle-stop" :text="l10n(`Stop bot`)" @tap="_stopBot"/>
 
-                        <!-- change api key -->
-                        <ext-button bind='{"hidden":"{!record.can_change_api_key}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Change bot API key`)" @tap="_deleteBot"/>
+                        <!-- change api token -->
+                        <ext-button bind='{"hidden":"{!record.can_change_api_token}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Change bot API token`)" @tap="_deleteBot"/>
 
                         <!-- delete bot -->
                         <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete bot`)" @tap="_deleteBot"/>
