@@ -1,6 +1,8 @@
 <template>
     <ext-container :hidden="_hidden" @ready="_ready">
         <ext-button ref="button" iconCls="fa-regular fa-bell" margin="10 20 0 0" ui="action" width="55" @tap="showNotificationsDialog"/>
+
+        <NotificationsDialog ref="notificationsDialog" centered="false" closeAction="hide"/>
     </ext-container>
 </template>
 
@@ -8,6 +10,8 @@
 import NotificationsDialog from "#src/components/notifications/dialog";
 
 export default {
+    "components": { NotificationsDialog },
+
     "props": {
         "hidden": {
             "type": Boolean,
@@ -37,15 +41,7 @@ export default {
         },
 
         async showNotificationsDialog () {
-            const dialog = await this.$mount( NotificationsDialog, {
-                "cache": "main-notifications-dialog",
-                "props": {
-                    "closeAction": "hide",
-                    "centered": false,
-                },
-            } );
-
-            dialog.ext.showBy( this.ext, "tr-br" );
+            this.$refs.notificationsDialog.ext.showBy( this.ext, "tr-br" );
 
             this.$app.notifications.refreshRelativeTime();
         },
