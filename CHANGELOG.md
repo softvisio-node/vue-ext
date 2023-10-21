@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.9.4 (2023-10-21)
+
+Fixes:
+
+-   fix: api gdh events
+-   fix: notifications dialog init
+-   fix: telegram
+
 ### 8.9.3 (2023-10-20)
 
 Fixes:
