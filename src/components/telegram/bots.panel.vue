@@ -9,6 +9,13 @@
             </ext-toolbar>
         </template>
 
+        <template #noDataPanel>
+            <ext-panel layout='{"align":"center","pack":"center","type":"vbox"}'>
+                <ext-container :html="l10n(`No Telegram bots found`)"/>
+                <CreateBotButton ui="action"/>
+            </ext-panel>
+        </template>
+
         <template #dataPanel>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store">
                 <ext-column width="40" @ready="_avatarColReady"/>

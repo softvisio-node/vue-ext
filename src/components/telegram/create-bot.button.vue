@@ -1,6 +1,6 @@
 <template>
     <ext-panel>
-        <ext-button :hidden="hidden" iconCls="fa-solid fa-plus" :text="l10n(`Createbot`)" @tap="_showCreateotDialog"/>
+        <ext-button :hidden="hidden" iconCls="fa-solid fa-plus" :text="l10n(`Createbot`)" :ui="ui" @tap="_showCreateotDialog"/>
     </ext-panel>
 </template>
 
@@ -8,6 +8,13 @@
 import CreateBotDialog from "./create-bot.dialog";
 
 export default {
+    "props": {
+        "ui": {
+            "type": String,
+            "default": null,
+        },
+    },
+
     data () {
         return {
             "hidden": !this.$app.user.hasPermissions( "telegram/bot:create" ),
