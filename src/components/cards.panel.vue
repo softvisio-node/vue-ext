@@ -1,21 +1,33 @@
 <template>
     <ext-panel :hidden="hidden" layout="card" @ready="_ready">
-        <!-- default card -->
-        <ext-panel ref="defaultCard" :html="defaultMessage" layout="center" style="text-align: center"/>
+        <!-- default panel -->
+        <ext-panel ref="defaultPanel" layout="fit">
+            <slot name="defaultPanel">
+                <ext-panel :html="defaultMessage" layout="center" style="text-align: center"/>
+            </slot>
+        </ext-panel>
 
-        <!-- no data card -->
-        <ext-panel ref="noDataCard" :html="noDataMessageText" layout="center" style="text-align: center"/>
+        <!-- no data panel -->
+        <ext-panel ref="noDataPanel" layout="fit">
+            <slot name="noDataPanel">
+                <ext-panel :html="noDataMessageText" layout="center" style="text-align: center"/>
+            </slot>
+        </ext-panel>
 
-        <!-- error card -->
-        <ext-container ref="errorCard" layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
-            <ext-container :html="l10n(`Unable to load data`)"/>
-            <ext-container ref="errorMessage"/>
-            <ext-container height="10"/>
-            <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" ui="action" @tap="refresh"/>
-        </ext-container>
+        <!-- error panel -->
+        <ext-panel ref="errorPanel" layout="fit">
+            <slot name="errorPanel">
+                <ext-container layout='{"align":"center","pack":"center","type":"vbox"}' style="text-align: center">
+                    <ext-container :html="l10n(`Unable to load data`)"/>
+                    <ext-container ref="errorMessage"/>
+                    <ext-container height="10"/>
+                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" ui="action" @tap="refresh"/>
+                </ext-container>
+            </slot>
+        </ext-panel>
 
-        <!-- data card -->
-        <ext-panel ref="dataCard" layout="fit">
+        <!-- data panel -->
+        <ext-panel ref="dataPanel" layout="fit">
             <slot name="dataPanel"/>
         </ext-panel>
 
@@ -142,7 +154,7 @@ export default {
         },
 
         showDefaultPanel () {
-            this.ext.setActiveItem( this.$refs.defaultCard.ext );
+            this.ext.setActiveItem( this.$refs.defaultPanel.ext );
 
             this.unmask();
         },
@@ -155,19 +167,19 @@ export default {
                 this.$refs.errorMessage.ext.setHtml( "" );
             }
 
-            this.ext.setActiveItem( this.$refs.errorCard.ext );
+            this.ext.setActiveItem( this.$refs.errorPanel.ext );
 
             this.unmask();
         },
 
         showNoDataPanel () {
-            this.ext.setActiveItem( this.$refs.noDataCard.ext );
+            this.ext.setActiveItem( this.$refs.noDataPanel.ext );
 
             this.unmask();
         },
 
         showDataPanel () {
-            this.ext.setActiveItem( this.$refs.dataCard.ext );
+            this.ext.setActiveItem( this.$refs.dataPanel.ext );
 
             this.unmask();
         },
