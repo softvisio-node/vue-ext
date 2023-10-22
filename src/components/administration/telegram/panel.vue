@@ -10,17 +10,15 @@
 
         <template #dataPanel>
             <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store">
-                <ext-column width="40" @ready="_avatarColReady"/>
+                <ext-column width="50" @ready="_avatarColReady"/>
 
                 <ext-column dataIndex="telegram_username" :text="l10n(`Name`)" width="200"/>
 
-                <ext-column dataIndex="type" :text="l10n(`Type`)" width="200"/>
+                <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="150"/>
 
-                <ext-column dataIndex="static" :text="l10n(`Static`)"/>
+                <ext-column align="right" dataIndex="total_unsubscribed_users_text" sorter='{"property":"total_unsubscribed_users"}' :text="l10n(`Unsubscribed users`)" width="150"/>
 
-                <ext-numbercolumn align="right" dataIndex="total_subscribed_users" :text="l10n(`Users`)"/>
-
-                <ext-column dataIndex="error_text" flex="1" :text="l10n(`Error`)"/>
+                <ext-column dataIndex="status_text" flex="1" sorter='{"property":"started"}' :text="l10n(`Status`)"/>
 
                 <ext-column width="160" @ready="_actionColReady"/>
             </ext-grid>
@@ -70,8 +68,17 @@ export default {
             cmp.setCell( {
                 "xtype": "widgetcell",
                 "widget": {
-                    "xtype": "avatar",
-                    "bind": "{record.avatar_url}",
+                    "xtype": "container",
+                    "layout": {
+                        "type": "hbox",
+                        "pack": "end",
+                    },
+                    "items": [
+                        {
+                            "xtype": "avatar",
+                            "bind": "{record.avatar_url}",
+                        },
+                    ],
                 },
             } );
         },
@@ -85,12 +92,6 @@ export default {
                     "xtype": "container",
                     "layout": { "type": "hbox", "pack": "end", "align": "center" },
                     "items": [
-                        {
-                            "xtype": "button",
-                            "iconCls": "fa-solid fa-users",
-                            "tooltip": this.l10n( "Edit users" ),
-                            "handler": this._showAclDialog.bind( this ),
-                        },
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-circle-play",
@@ -107,6 +108,12 @@ export default {
                             "handler": this._stopBot.bind( this ),
                             "bind": { "hidden": "{!record.started}" },
                             "disabled": !this.canUpdate,
+                        },
+                        {
+                            "xtype": "button",
+                            "iconCls": "fa-solid fa-unlock-alt",
+                            "tooltip": this.l10n( "Edit users" ),
+                            "handler": this._showAclDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
