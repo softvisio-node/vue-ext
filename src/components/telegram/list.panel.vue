@@ -22,13 +22,11 @@
 
                 <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
 
-                <ext-column dataIndex="telegram_username" flex="1" :text="l10n(`Telegram username`)"/>
+                <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="150"/>
 
-                <ext-column dataIndex="type_name" flex="1" sorter='{"property":"type"}' :text="l10n(`Bot type`)"/>
+                <ext-column align="right" dataIndex="total_unsubscribed_users_text" sorter='{"property":"total_unsubscribed_users"}' :text="l10n(`Unsubscribed users`)" width="150"/>
 
-                <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="200"/>
-
-                <ext-column dataIndex="status_text" sorter='{"property":"started"}' :text="l10n(`Status`)"/>
+                <ext-column dataIndex="status_text" flex="1" sorter='{"property":"started"}' :text="l10n(`Status`)"/>
 
                 <ext-column @ready="_actionColReady"/>
             </ext-grid>
@@ -45,13 +43,6 @@ export default {
     "components": { CardsPanel, CreateBotButton },
 
     "emits": ["openBot"],
-
-    data () {
-        return {
-            "canUpdate": this.$app.user.hasPermissions( "administration:update" ),
-            "canDelete": this.$app.user.hasPermissions( "administration:delete" ),
-        };
-    },
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {
@@ -101,6 +92,7 @@ export default {
                             // "iconCls": "fa-solid fa-users",
                             "text": this.l10n( "Open bot" ),
                             "handler": this._openBot.bind( this ),
+                            "ui": "action",
                         },
                     ],
                 },
