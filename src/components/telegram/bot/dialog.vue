@@ -3,12 +3,10 @@
 </template>
 
 <script>
+import TelegramBotComponent from "./component";
+
 export default {
     "props": {
-        "panel": {
-            "type": Object,
-            "required": true,
-        },
         "telegramBotRecord": {
             "type": Object,
             "required": true,
@@ -23,7 +21,9 @@ export default {
 
     "methods": {
         async _ready ( e ) {
-            await this.$mount( this.panel, {
+            const panel = TelegramBotComponent.get( this.telegramBotRecord.get( "type" ) ).panel;
+
+            await this.$mount( panel, {
                 "props": {
                     "telegramBotId": this.telegramBotRecord.id,
                 },

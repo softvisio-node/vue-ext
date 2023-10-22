@@ -64,11 +64,8 @@ export default {
         },
 
         async _showBotDialog ( record ) {
-            const panel = TelegramBotComponent.get( record.get( "type" ) ).panel;
-
             const cmp = await this.$mount( BotDialog, {
                 "props": {
-                    panel,
                     "telegramBotRecord": record,
                 },
             } );
