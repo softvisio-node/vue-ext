@@ -4,7 +4,7 @@
             <ext-panel ref="dataPanel" layout="fit" viewModel="true">
                 <ext-toolbar docked="top">
                     <ext-spacer/>
-                    <ext-button bind='{"hidden":"{!record.can_update_acl}"}' :text="l10n(`Edit permissions`)" @tap="_showAclDialog"/>
+                    <ext-button bind='{"hidden":"{!record.can_update_acl}"}' iconCls="fa-solid fa-unlock-alt" :text="l10n(`Edit permissions`)" @tap="_showAclDialog"/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
