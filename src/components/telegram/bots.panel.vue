@@ -6,7 +6,11 @@
 
         <ext-panel ref="botPanel" layout="fit">
             <ext-toolbar docked="top">
-                <ext-button text="Back" @tap="_showBotsList"/>
+                <ext-button iconCls="fa-solid fa-arrow-left" text="Back to the bots list" @tap="_showBotsList"/>
+                <ext-spacer width="10"/>
+                <ext-avatar :src="botAvatar"/>
+                <ext-spacer width="10"/>
+                <ext-container :html="botName"/>
             </ext-toolbar>
         </ext-panel>
     </ext-panel>
@@ -23,6 +27,13 @@ import "#src/components/telegram/telegram-notifications-bot/component";
 export default {
     "components": { BotsPanel },
 
+    data () {
+        return {
+            "botAvatar": null,
+            "botName": null,
+        };
+    },
+
     "methods": {
         _ready ( e ) {
             this._showBotsList();
@@ -31,13 +42,20 @@ export default {
         _showBotsList () {
             this.$refs.cardsPanel.ext.setActiveItem( 0 );
 
+            this.$refs.botListPanel.ext.unmask();
+
             this._closeBot();
         },
 
         async _openBot ( record ) {
+            this.$refs.botListPanel.ext.mask();
+
             const panel = TelegramBotComponent.get( record.get( "type" ) ).panel;
 
             this._closeBot();
+
+            this.botAvatar = record.get( "avatar_url" );
+            this.botName = record.get( "name" );
 
             const cmp = await this.$mount( panel, {
                 "el": this.$refs.botPanel,
