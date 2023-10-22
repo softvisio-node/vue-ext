@@ -15,6 +15,13 @@
                 </ext-toolbar>
             </template>
 
+            <template #noDataPanel>
+                <ext-panel layout='{"align":"center","pack":"center","type":"vbox"}'>
+                    <ext-container :html="l10n(`No links found`)"/>
+                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_create_link}"}' iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" ui="action" @tap="_showCreateLinkDialog"/>
+                </ext-panel>
+            </template>
+
             <template #dataPanel>
                 <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store" @ready="_gridReady">
                     <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
