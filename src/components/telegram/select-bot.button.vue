@@ -1,6 +1,6 @@
 <template>
     <ext-panel>
-        <ext-button :hidden="hidden" iconCls="fa-solid fa-plus" :text="l10n(`Createbot`)" @tap="_showCreateotDialog"/>
+        <ext-button :text="text"/>
     </ext-panel>
 </template>
 
@@ -8,10 +8,10 @@
 import CreateBotDialog from "./create-bot.dialog";
 
 export default {
-    data () {
-        return {
-            "hidden": !this.$app.user.hasPermissions( "telegram/bot:create" ),
-        };
+    "computed": {
+        text () {
+            return `<img src="/api/avatar/-1" width=32 height=32/>  ` + this.l10n( `Select Telegram bot` );
+        },
     },
 
     "methods": {

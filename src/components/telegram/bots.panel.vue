@@ -4,6 +4,7 @@
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="l10n(`Search bots`)" width="200" @change="_search"/>
                 <ext-spacer/>
+                <SelectBotButton/>
                 <CreateBotButton/>
                 <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
@@ -42,12 +43,13 @@ import TelegramBotModel from "#src/components/telegram/bot/models/bot";
 import TelegramBotComponent from "#src/components/telegram/bot/component";
 import BotDialog from "#src/components/telegram/bot/dialog";
 import CreateBotButton from "./create-bot.button";
+import SelectBotButton from "./select-bot.button";
 
 // XXX
 import "#src/components/telegram/telegram-notifications-bot/component";
 
 export default {
-    "components": { CardsPanel, CreateBotButton },
+    "components": { CardsPanel, CreateBotButton, SelectBotButton },
 
     data () {
         return {
