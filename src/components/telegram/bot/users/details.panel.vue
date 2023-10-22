@@ -6,11 +6,19 @@
 
                 <ext-displayfield bind="{record.full_name}" :label="l10n(`Name`)" labelAlign="left" labelWidth="200"/>
 
-                <ext-displayfield bind="{record.username}" :label="l10n(`Telegram username`)" labelAlign="left" labelWidth="200"/>
+                <ext-container layout="hbox">
+                    <ext-displayfield bind="{record.username}" :label="l10n(`Telegram username`)" labelAlign="left" labelWidth="200"/>
+                    <ext-spacer/>
+                    <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`)" @tap="_copyUssername"/>
+                </ext-container>
 
                 <ext-displayfield bind="{record.is_bot}" :label="l10n(`Is bot`)" labelAlign="left" labelWidth="200"/>
 
-                <ext-displayfield bind="{record.phone_text}" :label="l10n(`Phone`)" labelAlign="left" labelWidth="200"/>
+                <ext-container layout="hbox">
+                    <ext-displayfield bind="{record.phone_text}" :label="l10n(`Phone`)" labelAlign="left" labelWidth="200"/>
+                    <ext-spacer/>
+                    <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`)" @tap="_copyPhone"/>
+                </ext-container>
 
                 <ext-displayfield bind="{record.created_text}" :label="l10n(`Creation date`)" labelAlign="left" labelWidth="200"/>
 
@@ -117,6 +125,20 @@ export default {
             else {
                 record.set( "banned", banned );
             }
+        },
+
+        _copyUssername () {
+            this.$utils.copyToClipboard( this.telegramBotUserRecord.get( "username" ) );
+
+            this.$toast( this.l10n( "Username copied to the clipboard" ) );
+        },
+
+        _copyPhone () {
+            if ( !this.telegramBotUserRecord.get( "phone" ) ) return;
+
+            this.$utils.copyToClipboard( this.telegramBotUserRecord.get( "phone" ) );
+
+            this.$toast( this.l10n( "Username copied to the clipboard" ) );
         },
     },
 };
