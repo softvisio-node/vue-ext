@@ -81,7 +81,7 @@ export default {
 
             const panel = TelegramBotComponent.get( record.get( "type" ) ).panel;
 
-            this._closeBot();
+            this._closeBotPanel();
 
             this.botAvatar = record.get( "avatar_url" );
             this.botName = record.get( "name" );
