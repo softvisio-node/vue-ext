@@ -9,13 +9,15 @@ export default {
             "type": Object,
             "required": true,
         },
-        "telegramBotId": {
-            "type": String,
+        "telegramBotRecord": {
+            "type": Object,
             "required": true,
         },
-        "title": {
-            "type": String,
-            "required": true,
+    },
+
+    "computed": {
+        title () {
+            return this.telegramBotRecord.get( "name" );
         },
     },
 
@@ -23,7 +25,7 @@ export default {
         async _ready ( e ) {
             await this.$mount( this.panel, {
                 "props": {
-                    "telegramBotId": this.telegramBotId,
+                    "telegramBotId": this.telegramBotRecord.id,
                 },
             } );
         },

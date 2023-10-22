@@ -27,6 +27,13 @@ import "#src/components/telegram/telegram-notifications-bot/component";
 export default {
     "components": { BotsPanel },
 
+    "props": {
+        "openBotInDialog": {
+            "type": Boolean,
+            "default": true,
+        },
+    },
+
     data () {
         return {
             "botAvatar": null,
@@ -44,10 +51,32 @@ export default {
 
             this.$refs.botListPanel.ext.unmask();
 
-            this._closeBot();
+            this._closeBotPanel();
         },
 
         async _openBot ( record ) {
+            if ( this.openBotInDialog ) {
+                this._showBotDialog( record );
+            }
+            else {
+                this._showBotPanel( record );
+            }
+        },
+
+        async _showBotDialog ( record ) {
+            const panel = TelegramBotComponent.get( record.get( "type" ) ).panel;
+
+            const cmp = await this.$mount( BotDialog, {
+                "props": {
+                    panel,
+                    "telegramBotRecord": record,
+                },
+            } );
+
+            cmp.ext.show();
+        },
+
+        async _showBotPanel ( record ) {
             this.$refs.botListPanel.ext.mask();
 
             const panel = TelegramBotComponent.get( record.get( "type" ) ).panel;
@@ -69,27 +98,12 @@ export default {
             this.$refs.cardsPanel.ext.setActiveItem( 1 );
         },
 
-        _closeBot () {
+        _closeBotPanel () {
             if ( !this._openedBot ) return;
 
             this._openedBot.$unmount();
 
             this._openedBot = null;
-        },
-
-        async _showBotDialog ( button ) {
-            const record = button.up( "gridrow" ).getRecord(),
-                panel = TelegramBotComponent.get( record.get( "type" ) ).panel;
-
-            const cmp = await this.$mount( BotDialog, {
-                "props": {
-                    panel,
-                    "telegramBotId": record.id,
-                    "title": record.get( "name" ),
-                },
-            } );
-
-            cmp.ext.show();
         },
     },
 };
