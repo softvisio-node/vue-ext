@@ -5,6 +5,8 @@
             <ext-fieldpanel ref="apiTokenPanel">
                 <ext-textfield :label="l10n(`Enter your Telegram bot API token`)" name="api_token" required="true"/>
 
+                <ext-comboboxfield displayField="name" displayTpl="{name} <br/> {description}" forceSelection="true" :label="l10n(`Telegram bot type`)" :placeholder="l10n(`Select Telegram bot tyoe`)" :store="store" triggerAction="all" valueField="id"/>
+
                 <ext-toolbar docked="bottom">
                     <ext-spacer/>
                     <ext-button :text="l10n(`Next`)" ui="action" @tap="_checkApiToken"/>
@@ -27,7 +29,15 @@
 </template>
 
 <script>
+import TelegramBotComponents from "./bot/component";
+
 export default {
+    data () {
+        return {
+            "store": TelegramBotComponents.store,
+        };
+    },
+
     "methods": {
         _ready ( e ) {
             e.detail.cmp.setActiveItem( 0 );
