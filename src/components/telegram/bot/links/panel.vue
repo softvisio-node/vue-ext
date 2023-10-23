@@ -38,7 +38,7 @@
         </CardsPanel>
 
         <!-- details panel -->
-        <ext-panel ref="linkDetailsPanel" docked="right" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' width="400">
+        <ext-panel ref="detailsPanel" collapsible="right" docked="right" headerPosition="left" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`Link details`)" width="400">
             <DetailsPanel :telegramBotLinkRecord="telegramBotLinkRecord" @linkDelete="_onLinkDelete"/>
         </ext-panel>
     </ext-panel>
