@@ -9,14 +9,12 @@
                 </ext-toolbar>
 
                 <ext-container bind='{"hidden":"{editName}"}' layout='{"align":"start","type":"hbox"}'>
-                    <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
-                    <ext-spacer/>
+                    <ext-displayfield bind="{telegramBotLinkRecord.name}" flex="1" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
                     <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEditName"/>
                 </ext-container>
 
                 <ext-container bind='{"hidden":"{!editName}"}' layout='{"align":"start","type":"hbox"}'>
                     <ext-textfield ref="nameEditField" flex="1" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
-                    <ext-spacer/>
                     <ext-button iconCls="fa-solid fa-check" :tooltip="l10n(`Save`)" @tap="saveName"/>
 
                     <ext-button iconCls="fa-solid fa-xmark" :tooltip="l10n(`Cancel`)" ui="decline" @tap="cancelEditName"/>
@@ -37,13 +35,11 @@
 
                 <ext-container bind='{"hidden":"{editDescription}"}' layout='{"align":"start","type":"hbox"}'>
                     <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" height="150" :label="l10n(`Description`)" labelAlign="left" labelWidth="150" readOnly="true"/>
-                    <ext-spacer/>
                     <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEditDescription"/>
                 </ext-container>
 
                 <ext-container bind='{"hidden":"{!editDescription}"}' layout='{"align":"start","type":"hbox"}'>
-                    <ext-textareafield ref="descriptionEditField" height="150" :label="l10n(`Description`)" labelAlign="left" labelWidth="150"/>
-                    <ext-spacer/>
+                    <ext-textareafield ref="descriptionEditField" flex="1" height="150" :label="l10n(`Description`)" labelAlign="left" labelWidth="150"/>
                     <ext-button iconCls="fa-solid fa-check" :tooltip="l10n(`Save`)" @tap="saveDescription"/>
 
                     <ext-button iconCls="fa-solid fa-xmark" :tooltip="l10n(`Cancel`)" ui="decline" @tap="cancelEditDescription"/>
