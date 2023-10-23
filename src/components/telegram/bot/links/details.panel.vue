@@ -47,7 +47,9 @@
                     <ext-button iconCls="fa-solid fa-xmark" :tooltip="l10n(`Cancel`)" ui="decline" @tap="cancelEditDescription"/>
                 </ext-container>
 
-                <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" width="150" @tap="_deleteLink"/>
+                <ext-container layout='{"align":"center","type":"vbox"}'>
+                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" width="150" @tap="_deleteLink"/>
+                </ext-container>
             </ext-panel>
         </template>
     </CardsPanel>
