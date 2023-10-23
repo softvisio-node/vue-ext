@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.9.6 (2023-10-23)
+
+Fixes:
+
+-   fix: etag
+-   fix: telegram
+
 ### 8.9.5 (2023-10-21)
 
 Fixes:
