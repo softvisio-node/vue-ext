@@ -8,14 +8,14 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-container bind='{"hidden":"{editName}"}' layout="hbox">
+                <ext-container bind='{"hidden":"{editName}"}' layout='{"align":"start","type":"hbox"}'>
                     <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
                     <ext-spacer/>
 
                     <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEditName"/>
                 </ext-container>
 
-                <ext-container bind='{"hidden":"{!editName}"}' layout="hbox">
+                <ext-container bind='{"hidden":"{!editName}"}' layout='{"align":"start","type":"hbox"}'>
                     <ext-textfield ref="nameEditField" flex="1" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
 
                     <ext-spacer/>
@@ -38,15 +38,15 @@
                     <ext-displayfield bind="{record.total_banned_users_text}" :label="l10n(`Total banned users`)"/>
                 </ext-panel>
 
-                <ext-container bind='{"hidden":"{editDescription}"}' layout="hbox">
-                    <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" height="150" :label="l10n(`Description`)" readOnly="true"/>
+                <ext-container bind='{"hidden":"{editDescription}"}' layout='{"align":"start","type":"hbox"}'>
+                    <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" height="150" :label="l10n(`Description`)" labelAlign="left" labelWidth="150" readOnly="true"/>
                     <ext-spacer/>
 
                     <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEditDescription"/>
                 </ext-container>
 
-                <ext-container bind='{"hidden":"{!editDescription}"}' layout="hbox">
-                    <ext-textareafield ref="descriptionEditField" height="150" :label="l10n(`Description`)"/>
+                <ext-container bind='{"hidden":"{!editDescription}"}' layout='{"align":"start","type":"hbox"}'>
+                    <ext-textareafield ref="descriptionEditField" height="150" :label="l10n(`Description`)" labelAlign="left" labelWidth="150"/>
 
                     <ext-spacer/>
 
