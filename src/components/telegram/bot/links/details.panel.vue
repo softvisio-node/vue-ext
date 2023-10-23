@@ -48,7 +48,9 @@
                 </ext-container>
 
                 <ext-container layout='{"align":"center","type":"vbox"}'>
-                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" width="150" @tap="_deleteLink"/>
+                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Open charts`)" width="150" @tap="_showChartsDiakig"/>
+
+                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete link`)" ui="decline" width="150" @tap="_deleteLink"/>
                 </ext-container>
             </ext-panel>
         </template>
@@ -195,6 +197,8 @@ export default {
 
             this.$toast( this.l10n( "Link copied to the clipboard" ) );
         },
+
+        async _showChartsDiakig () {},
     },
 };
 </script>
