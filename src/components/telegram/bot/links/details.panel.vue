@@ -8,21 +8,30 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-displayfield bind="{telegramBotLinkRecord.link}" flex="1" :label="l10n(`Link`)"/>
+                <ext-container layout="hbox">
+                    <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
+                    <ext-spacer/>
+
+                    <ext-button bind='{"hidden":"{editButtonHidden}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEdit"/>
+
+                    <ext-button bind='{"disabled":"{saveButtonDisabled}","hidden":"{saveButtonHidden}"}' iconCls="fa-solid fa-check" :tooltip="l10n(`Save`)" @tap="updateLink"/>
+
+                    <ext-button bind='{"hidden":"{cancelButtonHidden}"}' iconCls="fa-solid fa-xmark" :tooltip="l10n(`Cancel`)" ui="decline" @tap="cancelEdit"/>
+                </ext-container>
 
                 <!-- view -->
-                <ext-panel bind='{"hidden":"{editStarted}"}' layout="vbox">
-                    <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)"/>
+                <!-- <ext-panel bind='{"hidden":"{editStarted}"}' layout="vbox"> -->
+                <!-- <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)"/> -->
 
-                    <ext-textareafield bind="{telegramBotLinkRecord.description}" height="150" :label="l10n(`Description`)" readOnly="true"/>
-                </ext-panel>
+                <!--     <ext-textareafield bind="{telegramBotLinkRecord.description}" height="150" :label="l10n(`Description`)" readOnly="true"/> -->
+                <!-- </ext-panel> -->
 
-                <!-- edit -->
-                <ext-fieldpanel ref="form" bind='{"hidden":"{!editStarted}"}' layout="vbox" trackResetOnLoad="true">
-                    <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/>
+                <!-- <!-&#45; edit &#45;-> -->
+                <!-- <ext-fieldpanel ref="form" bind='{"hidden":"{!editStarted}"}' layout="vbox" trackResetOnLoad="true"> -->
+                <!--     <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/> -->
 
-                    <ext-textareafield height="150" :label="l10n(`Description`)" name="description"/>
-                </ext-fieldpanel>
+                <!--     <ext-textareafield height="150" :label="l10n(`Description`)" name="description"/> -->
+                <!-- </ext-fieldpanel> -->
 
                 <ext-panel defaults='{"labelAlign":"left","labelWidth":150}' padding="0 0 0 10">
                     <ext-displayfield bind="{record.created_html}" :label="l10n(`Creation date`)"/>
@@ -37,17 +46,7 @@
                     <ext-displayfield bind="{record.total_banned_users_text}" :label="l10n(`Total banned users`)"/>
                 </ext-panel>
 
-                <ext-toolbar docked="bottom">
-                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" @tap="_deleteLink"/>
-
-                    <ext-spacer/>
-
-                    <ext-button bind='{"hidden":"{editButtonHidden}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="beginEdit"/>
-
-                    <ext-button bind='{"disabled":"{saveButtonDisabled}","hidden":"{saveButtonHidden}"}' iconCls="fa-solid fa-check" :text="l10n(`Save`)" @tap="updateLink"/>
-
-                    <ext-button bind='{"hidden":"{cancelButtonHidden}"}' iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" @tap="cancelEdit"/>
-                </ext-toolbar>
+                <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" @tap="_deleteLink"/>
             </ext-panel>
         </template>
     </CardsPanel>
@@ -161,7 +160,8 @@ export default {
         },
 
         beginEdit () {
-            this.$refs.form.ext.setValues( this.telegramBotLinkRecord.getData() );
+
+            // this.$refs.form.ext.setValues( this.telegramBotLinkRecord.getData() );
 
             this.$refs.dataPanel.ext.getViewModel().set( "editStarted", true );
         },
