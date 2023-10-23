@@ -98,6 +98,7 @@ export default {
         // protected
         _onRecordChange () {
             this.cancelEditName();
+            this.cancelEditDescription();
 
             this.$refs.dataPanel.ext.getViewModel().set( "telegramBotLinkRecord", this.telegramBotLinkRecord );
 
@@ -131,6 +132,36 @@ export default {
                 this.telegramBotLinkRecord.set( "name", name );
 
                 this.cancelEditName();
+
+                this.$toast( this.l10n( `Link updated` ) );
+            }
+            else {
+                this.$toast( res );
+            }
+        },
+
+        beginEditDescription () {
+            this.$refs.descriptionEditField.ext.setValue( this.telegramBotLinkRecord.get( "description" ) );
+
+            this.$refs.dataPanel.ext.getViewModel().set( "editDescription", true );
+        },
+
+        cancelEditDescription () {
+            this.$refs.dataPanel.ext.getViewModel().set( "editDescription", false );
+        },
+
+        async saveDescription () {
+            const description = this.$refs.descriptionEditField.ext.getValue();
+
+            // form is not valid
+            if ( !description ) return this.cancelEditDescription();
+
+            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, { description } );
+
+            if ( res.ok ) {
+                this.telegramBotLinkRecord.set( "description", description );
+
+                this.cancelEditDescription();
 
                 this.$toast( this.l10n( `Link updated` ) );
             }
