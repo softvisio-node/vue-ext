@@ -112,13 +112,12 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.l10n( "Edit users" ),
+                            "tooltip": this.l10n( "Users & permissions" ),
                             "handler": this._showAclDialog.bind( this ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-ellipsis-v",
-                            "tooltip": this.l10n( "Actions" ),
                             "arrow": false,
                             "menu": {
                                 "defaults": {
