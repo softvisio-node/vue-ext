@@ -119,20 +119,16 @@ export default {
             this.$refs.dataPanel.ext.getViewModel().set( "editName", false );
         },
 
-        // XXX
         async saveNames () {
-            const form = this.$refs.form.ext;
+            const name = this.$refs.nameEditField.ext.getValue();
 
             // form is not valid
-            if ( !form.validate() ) return;
+            if ( !name ) return this.cancelEditName();
 
-            // data not changed
-            if ( !form.dirty ) return this.cancelEdit();
-
-            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, form.getValues() );
+            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, { name } );
 
             if ( res.ok ) {
-                form.fillRecord( this.telegramBotLinkRecord );
+                this.telegramBotLinkRecord.set( "name", name );
 
                 this.cancelEditName();
 
