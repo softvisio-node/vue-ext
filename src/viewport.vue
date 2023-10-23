@@ -5,7 +5,6 @@
 <script>
 import "./assets/scrollbars.css";
 import Viewport from "@softvisio/vue/viewport";
-import defaultMask from "./load-mask";
 import ResetPasswordDialog from "./components/reset-password.dialog";
 
 export default {
@@ -13,20 +12,17 @@ export default {
 
     created () {
         this.resetPasswordDialog = ResetPasswordDialog;
-        this.defaultMask = defaultMask;
         this.privateView = null;
         this.publicView = null;
     },
 
     "methods": {
         async init () {
-            var viewport = Ext.Viewport;
-
-            viewport.mask( this.defaultMask );
+            Ext.Viewport.mask();
 
             await this.$app.initSession();
 
-            viewport.unmask();
+            Ext.Viewport.unmask();
 
             this.$router.init( this );
 

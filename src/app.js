@@ -29,9 +29,13 @@ export default class VueExtApp extends VueApp {
     async _onConnectionError ( res ) {
         if ( res ) this.utils.toast( res );
 
-        return this.utils.alert( window.l10n( `Unable to connect to the API server. Check, that you have internet connection.` ), {
+        Ext.Viewport.unmask();
+
+        await this.utils.alert( window.l10n( `Unable to connect to the API server. Check, that you have internet connection.` ), {
             "title": window.l10n( `Connection error` ),
         } );
+
+        Ext.Viewport.mask();
     }
 
     async _onSignout ( res ) {
