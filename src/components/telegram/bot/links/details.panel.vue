@@ -61,6 +61,7 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
+import ChartsDialog from "./charts.dialog";
 
 export default {
     "components": { CardsPanel },
@@ -202,7 +203,15 @@ export default {
             this.$toast( this.l10n( "Link copied to the clipboard" ) );
         },
 
-        async _showChartsDiakig () {},
+        async _showChartsDiakig () {
+            const cmp = await this.$mount( ChartsDialog, {
+                "props": {
+                    "telegramBotLinkRecord": this.telegramBotLinkRecord,
+                },
+            } );
+
+            cmp.ext.show();
+        },
     },
 };
 </script>
