@@ -8,15 +8,21 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-container layout="hbox">
+                <ext-container bind='{"hidden":"{editName}"}' layout="hbox">
                     <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
                     <ext-spacer/>
 
-                    <ext-button bind='{"hidden":"{editButtonHidden}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEdit"/>
+                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEditName"/>
+                </ext-container>
 
-                    <ext-button bind='{"disabled":"{saveButtonDisabled}","hidden":"{saveButtonHidden}"}' iconCls="fa-solid fa-check" :tooltip="l10n(`Save`)" @tap="updateLink"/>
+                <ext-container bind='{"hidden":"{!editName}"}' layout="hbox">
+                    <ext-textfield ref="nameEditField" flrx="1" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
 
-                    <ext-button bind='{"hidden":"{cancelButtonHidden}"}' iconCls="fa-solid fa-xmark" :tooltip="l10n(`Cancel`)" ui="decline" @tap="cancelEdit"/>
+                    <ext-spacer/>
+
+                    <ext-button iconCls="fa-solid fa-check" :tooltip="l10n(`Save`)" @tap="saveName"/>
+
+                    <ext-button iconCls="fa-solid fa-xmark" :tooltip="l10n(`Cancel`)" ui="decline" @tap="cancelEditName"/>
                 </ext-container>
 
                 <!-- view -->
@@ -28,7 +34,7 @@
 
                 <!-- <!-&#45; edit &#45;-> -->
                 <!-- <ext-fieldpanel ref="form" bind='{"hidden":"{!editStarted}"}' layout="vbox" trackResetOnLoad="true"> -->
-                <!--     <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/> -->
+                <!-- <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/> -->
 
                 <!--     <ext-textareafield height="150" :label="l10n(`Description`)" name="description"/> -->
                 <!-- </ext-fieldpanel> -->
@@ -86,68 +92,12 @@ export default {
         },
 
         ready ( e ) {
-            this.$refs.dataPanel.ext.getViewModel().setFormulas( {
-                "editButtonHidden": {
-                    "bind": {
-                        "canEdit": "{telegramBotRecord.can_update_link}",
-                        "editStarted": "{editStarted}",
-                    },
-                    get ( data ) {
-                        if ( !data.canEdit ) return true;
-
-                        if ( data.editStarted ) return true;
-
-                        return false;
-                    },
-                },
-                "cancelButtonHidden": {
-                    "bind": {
-                        "canEdit": "{telegramBotRecord.can_update_link}",
-                        "editStarted": "{editStarted}",
-                    },
-                    get ( data ) {
-                        if ( !data.canEdit ) return true;
-
-                        if ( !data.editStarted ) return true;
-
-                        return false;
-                    },
-                },
-
-                "saveButtonHidden": {
-                    "bind": {
-                        "canEdit": "{telegramBotRecord.can_update_link}",
-                        "editStarted": "{editStarted}",
-                    },
-                    get ( data ) {
-                        if ( !data.canEdit ) return true;
-
-                        if ( !data.editStarted ) return true;
-
-                        return false;
-                    },
-                },
-
-                "saveButtonDisabled": {
-                    "bind": {
-                        "dirty": "{dirty}",
-                    },
-                    get ( data ) {
-                        return !data.dirty;
-                    },
-                },
-            } );
-
-            this.$refs.form.ext.on( "dirtyChange", ( form, dirty ) => {
-                this.$refs.dataPanel.ext.getViewModel().set( "dirty", dirty );
-            } );
-
             this._onRecordChange();
         },
 
         // protected
         _onRecordChange () {
-            this.cancelEdit();
+            this.cancelEditName();
 
             this.$refs.dataPanel.ext.getViewModel().set( "telegramBotLinkRecord", this.telegramBotLinkRecord );
 
@@ -159,18 +109,18 @@ export default {
             }
         },
 
-        beginEdit () {
+        beginEditName () {
+            this.$refs.nameEditField.ext.setValue( this.telegramBotLinkRecord.get( "name" ) );
 
-            // this.$refs.form.ext.setValues( this.telegramBotLinkRecord.getData() );
-
-            this.$refs.dataPanel.ext.getViewModel().set( "editStarted", true );
+            this.$refs.dataPanel.ext.getViewModel().set( "editName", true );
         },
 
-        cancelEdit () {
-            this.$refs.dataPanel.ext.getViewModel().set( "editStarted", false );
+        cancelEditName () {
+            this.$refs.dataPanel.ext.getViewModel().set( "editName", false );
         },
 
-        async updateLink () {
+        // XXX
+        async saveNames () {
             const form = this.$refs.form.ext;
 
             // form is not valid
@@ -184,7 +134,7 @@ export default {
             if ( res.ok ) {
                 form.fillRecord( this.telegramBotLinkRecord );
 
-                this.cancelEdit();
+                this.cancelEditName();
 
                 this.$toast( this.l10n( `Link updated` ) );
             }
