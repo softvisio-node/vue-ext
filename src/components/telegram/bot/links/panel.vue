@@ -10,8 +10,6 @@
                     <ext-button bind='{"hidden":"{!telegramBotRecord.can_create_link}"}' iconCls="fa-solid fa-plus" :text="l10n(`Create link`)" @tap="_showCreateLinkDialog"/>
 
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
-
-                    <ext-button iconCls="fa-solid fa-table-columns" pressed="true" :tooltip="l10n(`Toggle link details panel`)" @tap="toggleLinkDetailsPanel"/>
                 </ext-toolbar>
             </template>
 
@@ -159,20 +157,6 @@ export default {
             } );
 
             cmp.ext.show();
-        },
-
-        toggleLinkDetailsPanel ( e ) {
-            const button = e.detail.sender,
-                pressed = button.getPressed();
-
-            button.setPressed( !pressed );
-
-            if ( !pressed ) {
-                this.$refs.linkDetailsPanel.ext.show();
-            }
-            else {
-                this.$refs.linkDetailsPanel.ext.hide();
-            }
         },
 
         _onLinkDelete ( telegramBotLinkrecord ) {
