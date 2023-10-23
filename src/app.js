@@ -49,4 +49,18 @@ export default class VueExtApp extends VueApp {
 
         return cmp.show();
     }
+
+    async _onInsufficientPermissions () {
+        const res = await this.utils.confirm( window.l10n( `Your access permissions were changed on API server. Please, reload application to apply updates.` ), {
+            "title": window.l10n( `Insufficient permissions` ),
+            "iconCls": "fa-solid fa-triangle-exclamation",
+            "okText": window.l10n( "Reload" ),
+        } );
+
+        if ( res ) {
+            Ext.Viewport.mask();
+
+            return this.reload();
+        }
+    }
 }

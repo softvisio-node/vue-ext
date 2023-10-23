@@ -48,9 +48,12 @@ export async function alert ( message, { title, width = 350, height = 200, iconC
     } );
 }
 
-export async function confirm ( message, { title, width = 350, height = 200, iconCls } = {} ) {
+export async function confirm ( message, { title, width = 350, height = 200, iconCls, okText } = {} ) {
     title ??= window.l10n( "Confirmation" );
+
     iconCls ??= "fa-solid fa-circle-question";
+
+    okText ||= window.l10n( "Ok" );
 
     return new Promise( resolve => {
         var res = false;
@@ -85,7 +88,7 @@ export async function confirm ( message, { title, width = 350, height = 200, ico
                         },
                         {
                             "id": "ok",
-                            "text": window.l10n( "Ok" ),
+                            "text": okText,
                             "ui": "action",
                             "handler": () => {
                                 res = true;
