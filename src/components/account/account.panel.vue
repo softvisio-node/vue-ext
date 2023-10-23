@@ -17,11 +17,13 @@
                     <ext-container layout='{"align":"start","type":"vbox"}'>
                         <ext-displayfield bind="{record.email}" width="200"/>
 
-                        <!-- change email -->
-                        <ext-button :text="l10n(`Change email`)" @tap="_changeEmail"/>
+                        <ext-container layout="hbox">
+                            <!-- change email -->
+                            <ext-button :text="l10n(`Change email`)" @tap="_changeEmail"/>
 
-                        <!-- confitm email -->
-                        <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="l10n(`Confirm email`)" ui="decline" @tap="_confirmEmail"/>
+                            <!-- confitm email -->
+                            <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="l10n(`Confirm email`)" ui="decline" @tap="_confirmEmail"/>
+                        </ext-container>
                     </ext-container>
                 </ext-fieldcontainer>
 

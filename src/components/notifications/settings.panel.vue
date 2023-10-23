@@ -127,11 +127,11 @@ export default {
             }
         };
 
-        this.$api.on( "notifications/telegram-linked", this._telegramLinkedListener );
+        this.$api.on( "notifications/telegram/link", this._telegramLinkedListener );
     },
 
     unmounted () {
-        this.$api.off( "notifications/telegram-linked", this._telegramLinkedListener );
+        this.$api.off( "notifications/telegram/link", this._telegramLinkedListener );
     },
 
     "methods": {

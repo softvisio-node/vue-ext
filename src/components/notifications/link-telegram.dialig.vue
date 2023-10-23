@@ -22,7 +22,7 @@ export default {
     },
 
     created () {
-        this._events = new Events().link( this.$api ).on( "notifications/telegram-linked", () => this.ext.close() );
+        this._events = new Events().link( this.$api ).on( "notifications/telegram/link", () => this.ext.close() );
     },
 
     unmounted () {
