@@ -17,10 +17,10 @@
                     <ext-displayfield bind="{record.email}" width="200"/>
 
                     <!-- change email -->
-                    <ext-button :text="l10n(`Change`)" @tap="_changeEmail"/>
+                    <ext-button :text="l10n(`Change email`)" @tap="_changeEmail"/>
 
                     <!-- confitm email -->
-                    <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="l10n(`Confirm`)" @tap="_confirmEmail"/>
+                    <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="l10n(`Confirm email`)" ui="decline" @tap="_confirmEmail"/>
                 </ext-fieldcontainer>
 
                 <!-- sessions -->
