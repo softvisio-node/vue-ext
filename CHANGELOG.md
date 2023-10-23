@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.9.8 (2023-10-23)
+
+Fixes:
+
+-   fix: acl selector
+
 ### 8.9.7 (2023-10-23)
 
 Fixes:
