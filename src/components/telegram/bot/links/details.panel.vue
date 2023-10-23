@@ -119,7 +119,7 @@ export default {
             this.$refs.dataPanel.ext.getViewModel().set( "editName", false );
         },
 
-        async saveNames () {
+        async saveName () {
             const name = this.$refs.nameEditField.ext.getValue();
 
             // form is not valid
