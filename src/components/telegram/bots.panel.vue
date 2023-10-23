@@ -30,7 +30,7 @@ export default {
     "props": {
         "openBotInDialog": {
             "type": Boolean,
-            "default": true,
+            "default": false,
         },
     },
 
