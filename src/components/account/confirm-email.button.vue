@@ -13,9 +13,11 @@ export default {
     },
 
     mounted () {
-        this._events = new Events().link( this.$api );
+        if ( !this._events ) {
+            this._events = new Events().link( this.$api );
 
-        this._events.on( "session/email/confirm", () => this.$app.user.setEmailConfirmed( true ) );
+            this._events.on( "session/email/confirm", () => this.$app.user.setEmailConfirmed( true ) );
+        }
     },
 
     unmounted () {

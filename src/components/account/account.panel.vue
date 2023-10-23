@@ -15,7 +15,7 @@
                 <!-- email  -->
                 <ext-fieldcontainer container='{"defaults":null}' :label="l10n(`Email address`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
                     <ext-container layout='{"align":"start","type":"vbox"}'>
-                        <ext-displayfield bind="{record.email}" width="200"/>
+                        <ext-displayfield :value="$app.user.email" width="200"/>
 
                         <ext-container layout="hbox">
                             <!-- change email -->
@@ -69,6 +69,8 @@ export default {
                 const record = new AccountModel( res.data );
 
                 this.ext.getViewModel().set( "record", record );
+
+                this.$app.user.setEmailConfirmed( record.get( "email_confirmed" ) );
             }
         },
 
