@@ -15,7 +15,7 @@
         </ext-panel>
 
         <!-- tokens -->
-        <ext-panel iconAlign="left" iconCls="fa-solid fa-key" layout="fit" :title="l10n(`Access tokens`)">
+        <ext-panel iconAlign="left" iconCls="fa-solid fa-key" layout="fit" :title="l10n(`API access tokens`)">
             <UserTokensPanel/>
         </ext-panel>
 

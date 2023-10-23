@@ -2,7 +2,7 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-container :hidden="hideTitle" :html="l10n(`Access tokens`)"/>
+                <ext-container :hidden="hideTitle" :html="l10n(`API access tokens`)"/>
                 <ext-searchfield :placeholder="l10n(`Search tokens by name`)" width="200" @change="search"/>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-plus" :text="l10n(`Create token`)" @tap="showCreateTokenDialog"/>
