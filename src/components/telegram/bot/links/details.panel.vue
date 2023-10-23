@@ -34,6 +34,10 @@
                     <ext-displayfield bind="{record.total_banned_users_text}" :label="l10n(`Total banned users`)"/>
                 </ext-panel>
 
+                <ext-container layout='{"align":"center","type":"vbox"}'>
+                    <ext-button iconCls="fa-solid fa-expand" :text="l10n(`Open charts`)" width="150" @tap="_showChartsDiakig"/>
+                </ext-container>
+
                 <ext-container bind='{"hidden":"{editDescription}"}' layout='{"align":"start","type":"hbox"}'>
                     <ext-displayfield bind="{telegramBotLinkRecord.description_html}" encodeHtml="false" flex="1" :label="l10n(`Description`)" labelAlign="top"/>
 
@@ -48,8 +52,6 @@
                 </ext-container>
 
                 <ext-container layout='{"align":"center","type":"vbox"}'>
-                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Open charts`)" width="150" @tap="_showChartsDiakig"/>
-
                     <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete link`)" ui="decline" width="150" @tap="_deleteLink"/>
                 </ext-container>
             </ext-panel>
