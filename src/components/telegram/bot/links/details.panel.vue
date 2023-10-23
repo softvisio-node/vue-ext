@@ -35,7 +35,7 @@
                 </ext-panel>
 
                 <ext-container layout='{"align":"center","type":"vbox"}'>
-                    <ext-button iconCls="fa-solid fa-expand" :text="l10n(`Open charts`)" width="150" @tap="_showChartsDiakig"/>
+                    <ext-button iconCls="fa-solid fa-chart-line" :text="l10n(`Open charts`)" width="150" @tap="_showChartsDiakig"/>
                 </ext-container>
 
                 <ext-container bind='{"hidden":"{editDescription}"}' layout="vbox">
