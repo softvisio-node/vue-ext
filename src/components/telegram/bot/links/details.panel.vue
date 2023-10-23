@@ -34,18 +34,18 @@
                 </ext-panel>
 
                 <ext-container bind='{"hidden":"{editDescription}"}' layout='{"align":"start","type":"hbox"}'>
-                    <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" height="150" :label="l10n(`Description`)" labelAlign="left" labelWidth="150" readOnly="true"/>
+                    <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" height="150" :label="l10n(`Description`)" labelAlign="top" readOnly="true"/>
                     <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEditDescription"/>
                 </ext-container>
 
                 <ext-container bind='{"hidden":"{!editDescription}"}' layout='{"align":"start","type":"hbox"}'>
-                    <ext-textareafield ref="descriptionEditField" flex="1" height="150" :label="l10n(`Description`)" labelAlign="left" labelWidth="150"/>
+                    <ext-textareafield ref="descriptionEditField" flex="1" height="150" :label="l10n(`Description`)" labelAlign="top"/>
                     <ext-button iconCls="fa-solid fa-check" :tooltip="l10n(`Save`)" @tap="saveDescription"/>
 
                     <ext-button iconCls="fa-solid fa-xmark" :tooltip="l10n(`Cancel`)" ui="decline" @tap="cancelEditDescription"/>
                 </ext-container>
 
-                <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" @tap="_deleteLink"/>
+                <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" width="150" @tap="_deleteLink"/>
             </ext-panel>
         </template>
     </CardsPanel>
