@@ -26,7 +26,7 @@
                 </ext-fieldcontainer>
 
                 <!-- sessions -->
-                <UserSessionsPanel margin="20 0 0 0" maxHeight="500" minHeight="300"/>
+                <UserSessionsPanel flex="1"/>
             </ext-container>
         </template>
     </CardsPanel>
