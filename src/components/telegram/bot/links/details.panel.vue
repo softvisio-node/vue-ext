@@ -127,6 +127,8 @@ export default {
             // form is not valid
             if ( !name ) return this.cancelEditName();
 
+            if ( name === this.telegramBotLinkRecord.get( "name" ) ) return this.cancelEditName();
+
             const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, { name } );
 
             if ( res.ok ) {
@@ -155,7 +157,7 @@ export default {
             const description = this.$refs.descriptionEditField.ext.getValue();
 
             // form is not valid
-            if ( !description ) return this.cancelEditDescription();
+            if ( description === this.telegramBotLinkRecord.get( "description" ) ) return this.cancelEditDescription();
 
             const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, { description } );
 
