@@ -22,7 +22,7 @@
                             <ext-button :text="l10n(`Change email`)" @tap="_changeEmail"/>
 
                             <!-- confitm email -->
-                            <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="l10n(`Confirm email`)" ui="decline" @tap="_confirmEmail"/>
+                            <ConfirmEmailButton/>
                         </ext-container>
                     </ext-container>
                 </ext-fieldcontainer>
@@ -41,9 +41,10 @@ import AccountModel from "./models/account";
 import ChangePasswordDialog from "#src/components/change-password.dialog";
 import ChangeEmailDialog from "#src/components/change-email.dialog";
 import LocaleButton from "#src/components/locale.button";
+import ConfirmEmailButton from "./confirm-email.button";
 
 export default {
-    "components": { CardsPanel, LocaleButton, UserSessionsPanel },
+    "components": { CardsPanel, LocaleButton, UserSessionsPanel, ConfirmEmailButton },
 
     "computed": {
         localeHidden () {
@@ -76,23 +77,6 @@ export default {
             const cmp = await this.$mount( ChangeEmailDialog );
 
             cmp.ext.show();
-        },
-
-        async _confirmEmail ( e ) {
-            const button = e.detail.sender;
-
-            button.disable();
-
-            const res = await this.$api.call( "session/send-confirmation-email" );
-
-            button.enable();
-
-            if ( res.ok ) {
-                this.$toast( this.l10n( `Confirmation email sent` ) );
-            }
-            else {
-                this.$toast( res );
-            }
         },
 
         // password
