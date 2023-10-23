@@ -14,13 +14,15 @@
 
                 <!-- email  -->
                 <ext-fieldcontainer container='{"defaults":null}' :label="l10n(`Email address`)" labelAlign="left" labelWidth="200" layout='{"align":"center","type":"hbox"}'>
-                    <ext-displayfield bind="{record.email}" width="200"/>
+                    <ext-container layout='{"align":"start","type":"vbox"}'>
+                        <ext-displayfield bind="{record.email}" width="200"/>
 
-                    <!-- change email -->
-                    <ext-button :text="l10n(`Change email`)" @tap="_changeEmail"/>
+                        <!-- change email -->
+                        <ext-button :text="l10n(`Change email`)" @tap="_changeEmail"/>
 
-                    <!-- confitm email -->
-                    <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="l10n(`Confirm email`)" ui="decline" @tap="_confirmEmail"/>
+                        <!-- confitm email -->
+                        <ext-button bind='{"hidden":"{record.email_confirmed}"}' :text="l10n(`Confirm email`)" ui="decline" @tap="_confirmEmail"/>
+                    </ext-container>
                 </ext-fieldcontainer>
 
                 <!-- sessions -->
