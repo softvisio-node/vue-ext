@@ -38,17 +38,26 @@
                     <ext-button iconCls="fa-solid fa-expand" :text="l10n(`Open charts`)" width="150" @tap="_showChartsDiakig"/>
                 </ext-container>
 
-                <ext-container bind='{"hidden":"{editDescription}"}' layout='{"align":"start","type":"hbox"}'>
-                    <ext-displayfield bind="{telegramBotLinkRecord.description_html}" encodeHtml="false" flex="1" :label="l10n(`Description`)" labelAlign="top"/>
+                <ext-container bind='{"hidden":"{editDescription}"}' layout="vbox">
+                    <ext-container layout='{"align":"start","type":"hbox"}'>
+                        <ext-displayfield flex="1" :label="l10n(`Description`)" labelAlign="top"/>
 
-                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEditDescription"/>
+                        <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEditDescription"/>
+                    </ext-container>
+
+                    <ext-displayfield bind="{telegramBotLinkRecord.description_html}" encodeHtml="false"/>
                 </ext-container>
 
-                <ext-container bind='{"hidden":"{!editDescription}"}' layout='{"align":"start","type":"hbox"}'>
-                    <ext-textareafield ref="descriptionEditField" flex="1" height="150" :label="l10n(`Description`)" labelAlign="top"/>
-                    <ext-button iconCls="fa-solid fa-check" :tooltip="l10n(`Save`)" @tap="saveDescription"/>
+                <ext-container bind='{"hidden":"{!editDescription}"}' layout="vbox">
+                    <ext-container layout='{"align":"start","type":"hbox"}'>
+                        <ext-displayfield flex="1" :label="l10n(`Description`)" labelAlign="top"/>
 
-                    <ext-button iconCls="fa-solid fa-xmark" :tooltip="l10n(`Cancel`)" ui="decline" @tap="cancelEditDescription"/>
+                        <ext-button iconCls="fa-solid fa-check" :tooltip="l10n(`Save`)" @tap="saveDescription"/>
+
+                        <ext-button iconCls="fa-solid fa-xmark" :tooltip="l10n(`Cancel`)" ui="decline" @tap="cancelEditDescription"/>
+                    </ext-container>
+
+                    <ext-textareafield ref="descriptionEditField" height="200"/>
                 </ext-container>
 
                 <ext-container layout='{"align":"center","type":"vbox"}'>
