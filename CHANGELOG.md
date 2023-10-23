@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.9.11 (2023-10-23)
+
+Fixes:
+
+-   fix: api events
+-   fix: email confirmation
+
 ### 8.9.10 (2023-10-23)
 
 Fixes:
