@@ -22,16 +22,16 @@
                 </ext-container>
 
                 <ext-panel defaults='{"labelAlign":"left","labelWidth":150}' padding="0 0 0 10">
-                    <ext-displayfield bind="{record.created_html}" :label="l10n(`Creation date`)"/>
+                    <ext-displayfield bind="{telegramBotLinkRecord.created_html}" :label="l10n(`Creation date`)"/>
 
-                    <ext-displayfield bind="{record.last_user_created_html}" :label="l10n(`Last user created`)" labelAlign="top"/>
+                    <ext-displayfield bind="{telegramBotLinkRecord.last_user_created_html}" :label="l10n(`Last user created`)" labelAlign="top"/>
 
-                    <ext-displayfield bind="{record.total_users}" :label="l10n(`Total users`)"/>
-                    <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10n(`Total subscribed users`)"/>
-                    <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10n(`Total unsubscribed users`)"/>
+                    <ext-displayfield bind="{telegramBotLinkRecord.total_users}" :label="l10n(`Total users`)"/>
+                    <ext-displayfield bind="{telegramBotLinkRecord.total_subscribed_users_text}" :label="l10n(`Total subscribed users`)"/>
+                    <ext-displayfield bind="{telegramBotLinkRecord.total_unsubscribed_users_text}" :label="l10n(`Total unsubscribed users`)"/>
 
-                    <ext-displayfield bind="{record.total_returned_users_text}" :label="l10n(`Total returned users`)"/>
-                    <ext-displayfield bind="{record.total_banned_users_text}" :label="l10n(`Total banned users`)"/>
+                    <ext-displayfield bind="{telegramBotLinkRecord.total_returned_users_text}" :label="l10n(`Total returned users`)"/>
+                    <ext-displayfield bind="{telegramBotLinkRecord.total_banned_users_text}" :label="l10n(`Total banned users`)"/>
                 </ext-panel>
 
                 <ext-container layout='{"align":"center","type":"vbox"}'>
