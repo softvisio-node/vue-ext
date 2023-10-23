@@ -1,5 +1,5 @@
 <template>
-    <ext-button ref="button" iconCls="fa-solid fa-language" :menuAlign="menuAlign" stretchMenu="true" :textAlign="textAlign" @ready="_ready"/>
+    <ext-button ref="button" iconCls="fa-solid fa-language" :menuAlign="menuAlign" padding="0 0 0 1" stretchMenu="true" :textAlign="textAlign" @ready="_ready"/>
 </template>
 
 <script>
