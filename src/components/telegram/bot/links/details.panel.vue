@@ -16,7 +16,7 @@
                 </ext-container>
 
                 <ext-container bind='{"hidden":"{!editName}"}' layout="hbox">
-                    <ext-textfield ref="nameEditField" flrx="1" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
+                    <ext-textfield ref="nameEditField" flex="1" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
 
                     <ext-spacer/>
 
