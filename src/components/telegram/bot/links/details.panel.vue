@@ -35,7 +35,7 @@
                 </ext-panel>
 
                 <ext-container bind='{"hidden":"{editDescription}"}' layout='{"align":"start","type":"hbox"}'>
-                    <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" height="150" :label="l10n(`Description`)" labelAlign="top" readOnly="true"/>
+                    <ext-displayfield bind="{telegramBotLinkRecord.description_html}" encodeHtml="false" flex="1" :label="l10n(`Description`)" labelAlign="top"/>
 
                     <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEditDescription"/>
                 </ext-container>

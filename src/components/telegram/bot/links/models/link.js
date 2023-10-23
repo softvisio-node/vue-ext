@@ -26,6 +26,8 @@ export default Ext.define( "", {
         "total_banned_users",
 
         // calculated
+        { "name": "description_html", "calculate": data => data.description?.replaceAll( "\n", "<br/>" ) },
+
         { "name": "created_text", "calculate": data => app.locale.formatDate( data.created, "dateStyle:short,timeStyle:short" ) },
         { "name": "created_relative", "calculate": data => app.locale.formatRelativeDate( data.created ) },
         { "name": "created_html", "calculate": data => `${data.created_text} (${data.created_relative})` },
