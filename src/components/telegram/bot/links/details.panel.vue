@@ -25,20 +25,6 @@
                     <ext-button iconCls="fa-solid fa-xmark" :tooltip="l10n(`Cancel`)" ui="decline" @tap="cancelEditName"/>
                 </ext-container>
 
-                <!-- view -->
-                <!-- <ext-panel bind='{"hidden":"{editStarted}"}' layout="vbox"> -->
-                <!-- <ext-displayfield bind="{telegramBotLinkRecord.name}" :label="l10n(`Name`)"/> -->
-
-                <!--     <ext-textareafield bind="{telegramBotLinkRecord.description}" height="150" :label="l10n(`Description`)" readOnly="true"/> -->
-                <!-- </ext-panel> -->
-
-                <!-- <!-&#45; edit &#45;-> -->
-                <!-- <ext-fieldpanel ref="form" bind='{"hidden":"{!editStarted}"}' layout="vbox" trackResetOnLoad="true"> -->
-                <!-- <ext-textfield :label="l10n(`Name`)" name="name" required="truw"/> -->
-
-                <!--     <ext-textareafield height="150" :label="l10n(`Description`)" name="description"/> -->
-                <!-- </ext-fieldpanel> -->
-
                 <ext-panel defaults='{"labelAlign":"left","labelWidth":150}' padding="0 0 0 10">
                     <ext-displayfield bind="{record.created_html}" :label="l10n(`Creation date`)"/>
 
@@ -51,6 +37,23 @@
                     <ext-displayfield bind="{record.total_returned_users_text}" :label="l10n(`Total returned users`)"/>
                     <ext-displayfield bind="{record.total_banned_users_text}" :label="l10n(`Total banned users`)"/>
                 </ext-panel>
+
+                <ext-container bind='{"hidden":"{editDescription}"}' layout="hbox">
+                    <ext-textareafield bind="{telegramBotLinkRecord.description}" flex="1" height="150" :label="l10n(`Description`)" readOnly="true"/>
+                    <ext-spacer/>
+
+                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEditDescription"/>
+                </ext-container>
+
+                <ext-container bind='{"hidden":"{!editDescription}"}' layout="hbox">
+                    <ext-textareafield ref="descriptionEditField" height="150" :label="l10n(`Description`)"/>
+
+                    <ext-spacer/>
+
+                    <ext-button iconCls="fa-solid fa-check" :tooltip="l10n(`Save`)" @tap="saveDescription"/>
+
+                    <ext-button iconCls="fa-solid fa-xmark" :tooltip="l10n(`Cancel`)" ui="decline" @tap="cancelEditDescription"/>
+                </ext-container>
 
                 <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete`)" ui="decline" @tap="_deleteLink"/>
             </ext-panel>
