@@ -4,4 +4,5 @@ export default {
     "transparent": false,
     "html": `<img src="${loader}" width="100"/>`,
     "indicator": false,
+    "message": "",
 };
