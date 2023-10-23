@@ -14,7 +14,7 @@
             <slot name="top"/>
 
             <!-- account buttin -->
-            <ext-button :hidden="!showAccountButton" iconCls="fa-solid fa-user-tie" :text="l10n(`Your account`)" textAlign="left" @tap="showAccountDialog"/>
+            <ext-button :hidden="!showAccountButton" iconCls="fa-regular fa-address-card" padding="0 0 0 1" :text="l10n(`Your account`)" textAlign="left" @tap="showAccountDialog"/>
 
             <!-- change password button -->
             <ext-button :hidden="!changePasswordButtonEnabled" iconCls="fa-solid fa-asterisk" :text="l10n(`Change password`)" textAlign="left" @tap="showChangePasswordDialog"/>
