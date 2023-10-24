@@ -28,7 +28,7 @@ export default {
             return this.l10n( `Use device dark mode` );
         },
 
-        darkMode () {
+        deviceDarkMode () {
             return this.$app.theme.deviceDarkMode;
         },
     },
@@ -41,7 +41,7 @@ export default {
 
     "methods": {
         _ready () {
-            this.$refs.button.ext.setValue( this.darkMode );
+            this.$refs.button.ext.setValue( this.deviceDarkMode );
         },
 
         _onChange ( e ) {
