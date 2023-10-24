@@ -72,10 +72,7 @@ export default {
             }
 
             if ( !res.ok ) {
-
-                // await this.$utils.sleep( 500 );
-
-                // button.setValue( !value );
+                this.$refs.button.ext.setValue( !value );
 
                 this.$toast( res );
             }
