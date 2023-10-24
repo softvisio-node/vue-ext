@@ -60,7 +60,7 @@ export default {
         async _onChange ( e ) {
             const value = e.detail.newValue;
 
-            if ( value === this.$app.notifications.pushNotificationsEnabled ) return;
+            if ( value === this.value ) return;
 
             var res;
 
