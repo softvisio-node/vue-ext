@@ -8,12 +8,8 @@
         </OptionContainer>
 
         <!-- telegram -->
-        <ext-container :hidden="!telegramSupported">
-            <ext-container layout='{"align":"start","type":"hbox"}'>
-                <ext-container layout="vbox" width="260">
-                    <ext-container html='<i class="fa-brands fa-telegram"></i> Telegram' style="font-size: 1.3em"/>
-                    <ext-container :html="l10n(`To use Telegram support bot you need to link your Telegram account`)"/>
-                </ext-container>
+        <OptionContainer :description="l10n(`To use Telegram support bot you need to link your Telegram account`)" :hidden="!telegramSupported" label='<i class="fa-brands fa-telegram"></i> Telegram' labelWidth="260">
+            <template #option>
                 <ext-container>
                     <!-- link -->
                     <ext-container :hidden="telegramLinked">
@@ -26,8 +22,8 @@
                         <ext-button iconCls="fa-solid fa-link-slash" padding="0 0 0 1" :text="l10n(`Unlink Telegram`)" @tap="_unlinkTelegramBot"/>
                     </ext-container>
                 </ext-container>
-            </ext-container>
-        </ext-container>
+            </template>
+        </OptionContainer>
 
         <!-- notification types -->
         <CardsPanel ref="cardsPanel" flex="1" :hidden="notificationTypesHidden" @refresh="refresh">
