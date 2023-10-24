@@ -146,7 +146,7 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "avatar",
-                    "bind": "{record.avatar}",
+                    "bind": "{record.avatar_url}",
                 },
             } );
         },

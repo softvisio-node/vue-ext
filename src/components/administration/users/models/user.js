@@ -19,7 +19,7 @@ export default Ext.define( null, {
         { "name": "enabled", "type": "bool" },
         "email",
         { "name": "email_confirmed", "type": "bool" },
-        "avatar",
+        "avatar_url",
         { "name": "roles", "type": "array", "allowNull": true },
 
         // calculated
