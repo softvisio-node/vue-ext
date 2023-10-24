@@ -1,17 +1,11 @@
 <template>
     <ext-panel defaults='{"padding":"0 0 30 0"}' layout="vbox">
         <!-- push notifications -->
-        <ext-container :hidden="pusHidden">
-            <ext-container layout='{"align":"start","type":"hbox"}'>
-                <ext-container layout="vbox" width="260">
-                    <ext-container :html="l10n(`Push notifications`)" style="font-size: 1.3em"/>
-                    <ext-container :html="l10n(`Receive push notifications on this device`)"/>
-                </ext-container>
-                <ext-container>
-                    <PushNotificationsButton :hideLabel="true"/>
-                </ext-container>
-            </ext-container>
-        </ext-container>
+        <OptionContainer :description="l10n(`Receive push notifications on this device`)" :hidden="pusHidden" :label="l10n(`Push notifications`)" labelWidth="260">
+            <template #option>
+                <PushNotificationsButton :hideLabel="true"/>
+            </template>
+        </OptionContainer>
 
         <!-- telegram -->
         <ext-container :hidden="!telegramSupported">
@@ -64,9 +58,10 @@ import PushNotificationsButton from "#src/components/push-notifications.button";
 import CardsPanel from "#src/components/cards.panel";
 import Model from "./models/notification-type";
 import LinkTelegramDialig from "./link-telegram.dialig";
+import OptionContainer from "#src/components/option.container";
 
 export default {
-    "components": { PushNotificationsButton, CardsPanel },
+    "components": { PushNotificationsButton, CardsPanel, OptionContainer },
 
     "props": {
         "aclId": {

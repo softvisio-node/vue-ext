@@ -1,6 +1,6 @@
 <template>
     <ext-container layout='{"align":"start","type":"hbox"}'>
-        <ext-container layout='{"type":"vbox"}' :width="lableWidth">
+        <ext-container layout='{"type":"vbox"}' :width="labelWidth">
             <ext-container :html="label" style="font-size: 1.3em"/>
             <ext-container :html="description"/>
         </ext-container>
