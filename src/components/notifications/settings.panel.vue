@@ -29,7 +29,7 @@
                     <!-- open -->
                     <ext-container :hidden="!telegramLinked" layout="vbox">
                         <ext-button :text="l10n(`Open Telegram bot`)" @tap="_openTelegramBot"/>
-                        <ext-button iconCls="fa-regular fa-trash-can" :text="l10n(`Unlink Telegram`)" @tap="_unlinkTelegramBot"/>
+                        <ext-button iconCls="fa-solid fa-link-slash" padding="0 0 0 1" :text="l10n(`Unlink Telegram`)" @tap="_unlinkTelegramBot"/>
                     </ext-container>
                 </ext-container>
             </ext-container>

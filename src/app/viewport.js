@@ -1,16 +1,10 @@
 import "#ext";
 import "#ewc";
 import VueViewport from "@softvisio/vue/app/viewport";
-import loadMask from "#src/load-mask";
 
 // XXX
 import( "@fortawesome/fontawesome-free/css/all.min.css" );
-
-const mask = new Ext.LoadMask( {
-    ...loadMask,
-    "floated": true,
-    "alwaysOnTop": true,
-} );
+import( "#src/Ext.override.viewport.Default" );
 
 export default class VueExtViewport extends VueViewport {
 
@@ -37,13 +31,6 @@ export default class VueExtViewport extends VueViewport {
     }
 
     mount ( selector ) {
-        Ext.Viewport.mask = function () {
-            mask.show();
-        };
-
-        Ext.Viewport.unmask = function () {
-            mask.hide();
-        };
 
         // mount to the Ext.Viewport
         super.mount( Ext.Viewport.el.dom );
