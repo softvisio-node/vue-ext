@@ -1,5 +1,17 @@
 # Changelog
 
+### 8.10.0 (2023-10-24)
+
+Features:
+
+-   feat: add counter start event
+
+Fixes:
+
+-   fix: avatar utl
+-   fix: components
+-   fix: telegram acc link
+
 ### 8.9.11 (2023-10-23)
 
 Fixes:
