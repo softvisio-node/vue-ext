@@ -8,18 +8,19 @@
         </OptionContainer>
 
         <!-- telegram -->
-        <OptionContainer :description="l10n(`To use Telegram support bot you need to link your Telegram account`)" :hidden="!telegramSupported" label='<i class="fa-brands fa-telegram"></i> Telegram' labelWidth="260">
+        <OptionContainer :description="l10n(`To use Telegram support bot you need to link your Telegram account`)" :hidden="!telegramSupported" label="Telegram" labelWidth="260">
             <template #option>
-                <ext-container width="200">
+                <ext-container>
                     <!-- link -->
                     <ext-container :hidden="telegramLinked">
                         <ext-button :text="l10n(`Link Telegram`)" @tap="_linkTelegramBot"/>
                     </ext-container>
 
                     <!-- open -->
-                    <ext-container :hidden="!telegramLinked" layout="vbox">
+                    <ext-container :hidden="!telegramLinked" layout='{"align":"start","type":"vbox"}'>
+                        <ext-displayfield :value="linkedTelegramUsername"/>
                         <ext-button :text="l10n(`Open Telegram bot`)" @tap="_openTelegramBot"/>
-                        <ext-button iconCls="fa-solid fa-link-slash" padding="0 0 0 1" :text="l10n(`Unlink Telegram`)" @tap="_unlinkTelegramBot"/>
+                        <ext-button iconCls="fa-solid fa-xmark" :text="l10n(`Unlink Telegram`)" @tap="_unlinkTelegramBot"/>
                     </ext-container>
                 </ext-container>
             </template>
