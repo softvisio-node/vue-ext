@@ -2,7 +2,7 @@ import "#ext";
 import "#ewc";
 import VueViewport from "@softvisio/vue/app/viewport";
 
-// XXX
+// must be impoerted after ExtJS
 import( "@fortawesome/fontawesome-free/css/all.min.css" );
 import( "#src/Ext.override.viewport.Default" );
 
