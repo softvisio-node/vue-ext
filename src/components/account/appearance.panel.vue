@@ -19,28 +19,20 @@
         <ext-spacer height="20"/>
 
         <!-- base color -->
-        <ext-container layout='{"align":"start","type":"hbox"}'>
-            <ext-container layout="vbox" width="260">
-                <ext-container :html="l10n(`Base color`)" style="font-size: 1.3em"/>
-                <ext-container :html="l10n(`Interface base color`)"/>
-            </ext-container>
-            <ext-container flex="1">
+        <OptionContainer :description="l10n(`Interface base color`)" :label="l10n(`Base color`)" labelWidth="260">
+            <template #option>
                 <ext-dataview inline="true" @childtap="themeBaseChanged" @ready="themesColorsViewReady"/>
-            </ext-container>
-        </ext-container>
+            </template>
+        </OptionContainer>
 
         <ext-spacer height="20"/>
 
         <!-- accent color -->
-        <ext-container layout='{"align":"start","type":"hbox"}'>
-            <ext-container layout="vbox" width="260">
-                <ext-container :html="l10n(`Accent color`)" style="font-size: 1.3em"/>
-                <ext-container :html="l10n(`Color for badges, etc.`)"/>
-            </ext-container>
-            <ext-container flex="1">
+        <OptionContainer :description="l10n(`Color for badges, etc.`)" :label="l10n(`Accent color`)" labelWidth="260">
+            <template #option>
                 <ext-componentdataview inline="true" @childtap="themeAccentChanged" @ready="themesColorsViewReady"/>
-            </ext-container>
-        </ext-container>
+            </template>
+        </OptionContainer>
     </ext-container>
 </template>
 
