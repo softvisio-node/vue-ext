@@ -1,6 +1,6 @@
 import app from "#app";
 
-export default Ext.define( "", {
+export default Ext.define( null, {
     "extend": "Ext.data.Model",
 
     "fields": [

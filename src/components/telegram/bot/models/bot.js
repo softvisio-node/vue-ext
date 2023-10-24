@@ -1,7 +1,7 @@
 import app from "#app";
 import TelegramBotComponent from "#src/components/telegram/bot/component";
 
-export default Ext.define( "", {
+export default Ext.define( null, {
     "extend": "Ext.data.Model",
 
     "fields": [
