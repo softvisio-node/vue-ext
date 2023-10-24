@@ -1,5 +1,5 @@
 <template>
-    <ext-togglefield :hidden="hidden" :label="label" :labelAlign="labelAlign" :labelTextAlign="labelTextAlign" :labelWidth="labelWidth" :value="value" @change="_toggle"/>
+    <ext-togglefield :disabled="disabled" :hidden="hidden" :label="label" :labelAlign="labelAlign" :labelTextAlign="labelTextAlign" :labelWidth="labelWidth" :value="value" @change="_toggle"/>
 </template>
 
 <script>
@@ -37,6 +37,10 @@ export default {
             }
         },
 
+        disabled () {
+            return this.$app.notifications.pushNotificationsUpdating;
+        },
+
         value () {
             return this.$app.notifications.pushNotificationsEnabled ? "true" : "";
         },
@@ -48,8 +52,6 @@ export default {
                 value = e.detail.newValue;
 
             if ( value === this.$app.notifications.pushNotificationsEnabled ) return;
-
-            button.disable();
 
             var res;
 
@@ -75,8 +77,6 @@ export default {
                     this.$toast( this.l10n( "Push notifications disabled" ) );
                 }
             }
-
-            button.enable();
         },
     },
 };

@@ -7,6 +7,12 @@
             </template>
         </OptionContainer>
 
+        <OptionContainer :description="l10n(`Receive push notifications on this device`)" :hidden="pusHidden" :label="l10n(`Push notifications`)" labelWidth="260">
+            <template #option>
+                <PushNotificationsButton :hideLabel="true"/>
+            </template>
+        </OptionContainer>
+
         <!-- telegram -->
         <OptionContainer :description="l10n(`To use Telegram support bot you need to link your Telegram account`)" :hidden="!telegramSupported" label="Telegram" labelWidth="260">
             <template #option>
