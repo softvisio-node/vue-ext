@@ -22,11 +22,14 @@ export default {
     },
 
     created () {
-        this._events = new Events().link( this.$api ).on( "notifications/telegram/link", () => this.ext.close() );
+        this._events = new Events().link( this.$api ).on( "notifications/telegram/update", telegramUsername => {
+            if ( telegramUsername ) this.ext.close();
+        } );
     },
 
     unmounted () {
         this._events.clear();
+        this._events = null;
     },
 
     "methods": {

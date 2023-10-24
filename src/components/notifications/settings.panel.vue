@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import Events from "#core/events";
 import PushNotificationsButton from "#src/components/push-notifications.button";
 import CardsPanel from "#src/components/cards.panel";
 import Model from "./models/notification-type";
@@ -110,7 +111,7 @@ export default {
             ],
         } );
 
-        this._telegramLinkedListener = linkedTelegramUsername => {
+        this._events ??= new Events().link( this.$api ).on( "notifications/telegram/update", linkedTelegramUsername => {
             this.linkedTelegramUsername = linkedTelegramUsername;
 
             if ( linkedTelegramUsername ) {
@@ -119,13 +120,12 @@ export default {
             else {
                 this.$toast( this.l10n( `Telegram unlinked` ) );
             }
-        };
-
-        this.$api.on( "notifications/telegram/link", this._telegramLinkedListener );
+        } );
     },
 
     unmounted () {
-        this.$api.off( "notifications/telegram/link", this._telegramLinkedListener );
+        this._events.clear();
+        this._events = null;
     },
 
     "methods": {
