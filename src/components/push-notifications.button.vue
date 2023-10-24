@@ -47,7 +47,7 @@ export default {
     },
 
     "watch": {
-        vajue ( value ) {
+        value ( value ) {
             this.$refs.button.ext.setValue( value );
         },
     },
