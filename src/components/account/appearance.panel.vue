@@ -1,15 +1,11 @@
 <template>
     <ext-container>
         <!-- device dart mode -->
-        <ext-container layout='{"align":"start","type":"hbox"}'>
-            <ext-container layout="vbox" width="260">
-                <ext-container :html="l10n(`Device dark mode`)" style="font-size: 1.3em"/>
-                <ext-container :html="l10n(`User your device dark mode settings`)"/>
-            </ext-container>
-            <ext-container>
+        <OptionContainer :description="l10n(`User your device dark mode settings`)" :label="l10n(`Device dark mode`)" labelWidth="260">
+            <template #option>
                 <DeviceDarkModeButton label=""/>
-            </ext-container>
-        </ext-container>
+            </template>
+        </OptionContainer>
 
         <ext-spacer height="20"/>
 
@@ -55,9 +51,10 @@
 <script>
 import DarkModeButton from "#src/components/dark-mode.button";
 import DeviceDarkModeButton from "#src/components/device-dark-mode.button";
+import OptionContainer from "#src/components/option.container";
 
 export default {
-    "components": { DarkModeButton, DeviceDarkModeButton },
+    "components": { DarkModeButton, DeviceDarkModeButton, OptionContainer },
 
     "computed": {
         deviceDarkMode () {
