@@ -19,8 +19,10 @@
                     <!-- open -->
                     <ext-container :hidden="!telegramLinked" layout='{"align":"start","type":"vbox"}'>
                         <ext-displayfield :value="linkedTelegramUsername"/>
-                        <ext-button :text="l10n(`Open Telegram bot`)" @tap="_openTelegramBot"/>
-                        <ext-button iconCls="fa-solid fa-xmark" :text="l10n(`Unlink Telegram`)" @tap="_unlinkTelegramBot"/>
+                        <ext-container layour="hbox">
+                            <ext-button :text="l10n(`Open Telegram bot`)" @tap="_openTelegramBot"/>
+                            <ext-button iconCls="fa-solid fa-xmark" :text="l10n(`Unlink Telegram`)" @tap="_unlinkTelegramBot"/>
+                        </ext-container>
                     </ext-container>
                 </ext-container>
             </template>
