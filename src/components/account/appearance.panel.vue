@@ -10,15 +10,11 @@
         <ext-spacer height="20"/>
 
         <!-- dart mode -->
-        <ext-container layout='{"align":"start","type":"hbox"}'>
-            <ext-container layout="vbox" width="260">
-                <ext-container :html="l10n(`Dark mode`)" style="font-size: 1.3em"/>
-                <ext-container :html="l10n(`Toggle dark mode`)"/>
-            </ext-container>
-            <ext-container>
+        <OptionContainer :description="l10n(`Toggle dark mode`)" :label="l10n(`Dark mode`)" labelWidth="260">
+            <template #option>
                 <DarkModeButton :disabled="deviceDarkMode" :hideLabel="true"/>
-            </ext-container>
-        </ext-container>
+            </template>
+        </OptionContainer>
 
         <ext-spacer height="20"/>
 
