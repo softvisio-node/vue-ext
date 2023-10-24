@@ -10,7 +10,7 @@
         <!-- telegram -->
         <OptionContainer :description="l10n(`To use Telegram support bot you need to link your Telegram account`)" :hidden="!telegramSupported" label='<i class="fa-brands fa-telegram"></i> Telegram' labelWidth="260">
             <template #option>
-                <ext-container>
+                <ext-container width="200">
                     <!-- link -->
                     <ext-container :hidden="telegramLinked">
                         <ext-button :text="l10n(`Link Telegram`)" @tap="_linkTelegramBot"/>
