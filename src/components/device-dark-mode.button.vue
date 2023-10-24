@@ -28,20 +28,20 @@ export default {
             return this.l10n( `Use device dark mode` );
         },
 
-        deviceDarkMode () {
+        value () {
             return this.$app.theme.deviceDarkMode;
         },
     },
 
     "watch": {
-        deviceDarkMode ( value ) {
+        value ( value ) {
             this.$refs.button.ext.setValue( value );
         },
     },
 
     "methods": {
         _ready () {
-            this.$refs.button.ext.setValue( this.deviceDarkMode );
+            this.$refs.button.ext.setValue( this.value );
         },
 
         _onChange ( e ) {

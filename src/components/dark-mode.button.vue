@@ -44,20 +44,20 @@ export default {
             }
         },
 
-        darkMode () {
+        value () {
             return this.$app.theme.darkMode;
         },
     },
 
     "watch": {
-        darkMode ( value ) {
+        value ( value ) {
             this.$refs.button.ext.setValue( value );
         },
     },
 
     "methods": {
         _ready () {
-            this.$refs.button.ext.setValue( this.darkMode );
+            this.$refs.button.ext.setValue( this.value );
         },
 
         _onChange ( e ) {

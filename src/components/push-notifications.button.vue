@@ -1,5 +1,5 @@
 <template>
-    <ext-togglefield :disabled="disabled" :hidden="hidden" :label="label" :labelAlign="labelAlign" :labelTextAlign="labelTextAlign" :labelWidth="labelWidth" :value="value" @change="_toggle"/>
+    <ext-togglefield ref="button" :disabled="disabled" :hidden="hidden" :label="label" :labelAlign="labelAlign" :labelTextAlign="labelTextAlign" :labelWidth="labelWidth" @change="_onChange" @ready="_ready"/>
 </template>
 
 <script>
@@ -42,14 +42,23 @@ export default {
         },
 
         value () {
-            return this.$app.notifications.pushNotificationsEnabled ? "true" : "";
+            return this.$app.notifications.pushNotificationsEnabled;
+        },
+    },
+
+    "watch": {
+        vajue ( value ) {
+            this.$refs.button.ext.setValue( value );
         },
     },
 
     "methods": {
-        async _toggle ( e ) {
-            const button = e.detail.sender,
-                value = e.detail.newValue;
+        _ready () {
+            this.$refs.button.ext.setValue( this.value );
+        },
+
+        async _onChange ( e ) {
+            const value = e.detail.newValue;
 
             if ( value === this.$app.notifications.pushNotificationsEnabled ) return;
 
@@ -63,9 +72,10 @@ export default {
             }
 
             if ( !res.ok ) {
-                await this.$utils.sleep( 500 );
 
-                button.setValue( !value );
+                // await this.$utils.sleep( 500 );
+
+                // button.setValue( !value );
 
                 this.$toast( res );
             }
