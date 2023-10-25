@@ -12,8 +12,8 @@
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-\ <ext-button :text="l10n(`Authorize`)" ui="action" @tap="_submit"/>
-</ext-toolbar>
+            <ext-button :text="l10n(`Authorize`)" ui="action" @tap="_submit"/>
+        </ext-toolbar>
     </ext-dialog>
 </template>
 

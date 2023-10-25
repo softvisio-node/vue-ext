@@ -13,8 +13,8 @@
         </ext-container>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-\ <ext-button :text="l10n(`Change password`)" ui="action" @tap="submit"/>
-</ext-toolbar>
+            <ext-button :text="l10n(`Change password`)" ui="action" @tap="submit"/>
+        </ext-toolbar>
     </ext-dialog>
 </template>
 
