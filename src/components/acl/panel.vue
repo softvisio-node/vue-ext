@@ -248,8 +248,6 @@ export default {
             const res = await this.$api.call( "acl/set-acl-user-enabled", this.aclId, record.id, enabled );
 
             if ( !res.ok ) {
-                await this.$utils.sleep( 500 );
-
                 record.set( "enabled", !enabled );
 
                 this.$toast( res );

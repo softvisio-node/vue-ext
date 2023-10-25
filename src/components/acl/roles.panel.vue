@@ -149,8 +149,6 @@ export default {
                 this.$emit( "update", this.getEnabledRoles() );
             }
             else {
-                await this.$utils.sleep( 500 );
-
                 record.set( "enabled", !enabled );
 
                 this.$toast( res );

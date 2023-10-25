@@ -261,8 +261,6 @@ export default {
             const res = await this.$api.call( "administration/users/set-enabled", record.get( "id" ), enabled );
 
             if ( !res.ok ) {
-                await this.$utils.sleep( 500 );
-
                 record.set( "enabled", !enabled );
 
                 this.$toast( res );
