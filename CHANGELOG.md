@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.10.1 (2023-10-25)
+
+Fixes:
+
+-   fix: acl combo
+-   fix: revert toggle field value
+-   fix: translations
+
 ### 8.10.0 (2023-10-24)
 
 Features:
