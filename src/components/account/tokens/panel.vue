@@ -140,8 +140,6 @@ export default {
             const res = await this.$api.call( "account/tokens/set-enabled", record.id, enabled );
 
             if ( !res.ok ) {
-                await this.$utils.sleep( 500 );
-
                 record.set( "enabled", !enabled );
 
                 this.$toast( res );
