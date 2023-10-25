@@ -34,24 +34,28 @@ msgstr[2] "${n} ролей вибрано"
 msgid "About the project"
 msgstr "Про проект"
 
-#: ../../src/components/account/appearance.panel.vue:45:38
+#: ../../src/components/account/appearance.panel.vue:31:79
 msgid "Accent color"
 msgstr "Колір акценту"
 
-#: ../../src/components/account/tokens/panel.vue:152:71
-#: ../../src/components/acl/panel.vue:260:71
-#: ../../src/components/administration/users/panel.vue:273:71
+#: ../../src/app.js:59:21
+msgid "Access denied"
+msgstr ""
+
+#: ../../src/components/account/tokens/panel.vue:150:71
+#: ../../src/components/acl/panel.vue:258:71
+#: ../../src/components/administration/users/panel.vue:271:71
 msgid "Access disabled"
 msgstr "Доступ вимкнено"
 
-#: ../../src/components/account/tokens/panel.vue:152:39
+#: ../../src/components/account/tokens/panel.vue:150:39
 #: ../../src/components/account/tokens/panel.vue:21:88
 #: ../../src/components/acl/add-user.dialog.vue:5:52
 #: ../../src/components/acl/panel.vue:21:67
-#: ../../src/components/acl/panel.vue:260:39
+#: ../../src/components/acl/panel.vue:258:39
 #: ../../src/components/administration/users/create-user.dialog.vue:14:37
 #: ../../src/components/administration/users/panel.vue:25:67
-#: ../../src/components/administration/users/panel.vue:273:39
+#: ../../src/components/administration/users/panel.vue:271:39
 msgid "Access enabled"
 msgstr "Доступ увімкнено"
 
@@ -64,7 +68,6 @@ msgstr "Токени доступу"
 msgid "Account"
 msgstr "Аккаунт"
 
-#: ../../src/components/administration/telegram/panel.vue:100:39
 #: ../../src/components/administration/users/panel.vue:214:39
 msgid "Actions"
 msgstr "Дії"
@@ -83,6 +86,12 @@ msgstr "Додавання користувача"
 msgid "Administration"
 msgstr "Адміністрування"
 
+#: ../../src/components/account/panel.vue:18:83
+#: ../../src/components/account/tokens/dialog.vue:2:68
+#: ../../src/components/account/tokens/panel.vue:5:58
+msgid "API access tokens"
+msgstr ""
+
 #: ../../src/components/account/tokens/dialog.vue:2:68
 msgid "API keys"
 msgstr "Ключі API"
@@ -92,21 +101,21 @@ msgstr "Ключі API"
 msgid "Appearance"
 msgstr "Зовнішній вигляд"
 
-#: ../../src/components/administration/telegram/panel.vue:175:47
-#: ../../src/components/telegram/bot/info.panel.vue:174:47
+#: ../../src/components/administration/telegram/panel.vue:195:47
+#: ../../src/components/telegram/bot/info.panel.vue:176:47
 msgid "Are you sure you want to delete this bot and all it's data? This operation is not revertable."
 msgstr ""
 
-#: ../../src/components/telegram/bot/links/info.panel.vue:187:47
+#: ../../src/components/telegram/bot/links/details.panel.vue:187:47
 msgid "Are you sure you want to delete this link and all it's data? This operation is not revertable."
 msgstr ""
 
-#: ../../src/components/account/tokens/panel.vue:162:47
+#: ../../src/components/account/tokens/panel.vue:160:47
 msgid "Are you sure you want to delete this token?"
 msgstr "Ви впевнені, що хочете видалити цей токен?"
 
-#: ../../src/components/acl/panel.vue:269:47
-#: ../../src/components/administration/users/panel.vue:283:47
+#: ../../src/components/acl/panel.vue:267:47
+#: ../../src/components/administration/users/panel.vue:281:47
 msgid "Are you sure you want to delete user?"
 msgstr "Ви впевнені, що хочете видалити користувача?"
 
@@ -118,7 +127,7 @@ msgstr "Авторизація"
 msgid "Authorization is required to perform this operation. Please, authorize and then repeat action again."
 msgstr "Для виконання цієї операції потрібна авторизація. Авторизуйтесь, а потім повторіть дію ще раз."
 
-#: ../../src/components/authorization.dialog.vue:15:21
+#: ../../src/components/authorization.dialog.vue:15:31
 msgid "Authorize"
 msgstr "Авторизуватися"
 
@@ -144,11 +153,11 @@ msgstr "Режим сервера"
 msgid "Backend version"
 msgstr "Версія сервера"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:21:69
+#: ../../src/components/telegram/bot/users/details.panel.vue:29:69
 msgid "Ban status"
 msgstr ""
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:25:39
+#: ../../src/components/telegram/bot/users/details.panel.vue:33:39
 msgid "Ban user"
 msgstr ""
 
@@ -156,7 +165,7 @@ msgstr ""
 msgid "Banned"
 msgstr ""
 
-#: ../../src/components/account/appearance.panel.vue:32:38
+#: ../../src/components/account/appearance.panel.vue:22:77
 msgid "Base color"
 msgstr "Базовий колір"
 
@@ -173,16 +182,12 @@ msgid "Bot links"
 msgstr ""
 
 #: ../../src/components/telegram/bot/details.dialog.vue:4:35
-#: ../../src/components/telegram/bot/info.panel.vue:22:71
+#: ../../src/components/telegram/bot/info.panel.vue:24:71
 msgid "Bot name"
 msgstr ""
 
 #: ../../src/components/telegram/bot/details.dialog.vue:6:78
 msgid "Bot short description is shown on the bot profile page and is sent together with the link when users share the bot."
-msgstr ""
-
-#: ../../src/components/telegram/bots.panel.vue:16:95
-msgid "Bot type"
 msgstr ""
 
 #: ../../src/components/telegram/telegram-notifications-bot/panel.vue:14:68
@@ -201,8 +206,9 @@ msgid "Calls"
 msgstr "Виклики"
 
 #: ../../src/components/reset-password.dialog.vue:16:31
-#: ../../src/components/telegram/bot/links/info.panel.vue:39:108
-#: ../../src/utils.js:136:36 ../../src/utils.js:83:36
+#: ../../src/components/telegram/bot/links/details.panel.vue:21:70
+#: ../../src/components/telegram/bot/links/details.panel.vue:57:74
+#: ../../src/utils.js:139:36 ../../src/utils.js:86:36
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -210,10 +216,11 @@ msgstr "Скасувати"
 msgid "Change"
 msgstr "Змінити"
 
-#: ../../src/components/telegram/bot/info.panel.vue:65:124
-msgid "Change bot API key"
+#: ../../src/components/telegram/bot/info.panel.vue:67:126
+msgid "Change bot API token"
 msgstr ""
 
+#: ../../src/components/account/account.panel.vue:22:47
 #: ../../src/components/change-email.dialog.vue:15:67
 msgid "Change email"
 msgstr "Змінити email"
@@ -225,7 +232,7 @@ msgstr "Токен зміни електронної пошти надіслан
 #: ../../src/components/account/account.panel.vue:12:39
 #: ../../src/components/administration/users/panel.vue:231:48
 #: ../../src/components/application/menu.vue:20:101
-#: ../../src/components/change-password.dialog.vue:16:21
+#: ../../src/components/change-password.dialog.vue:16:31
 #: ../../src/components/reset-password.dialog.vue:17:31
 msgid "Change password"
 msgstr "Змінити пароль"
@@ -233,10 +240,6 @@ msgstr "Змінити пароль"
 #: ../../src/components/administration/users/change-password.dialog.vue:20:19
 msgid "Change password for user"
 msgstr "Змінити пароль користувача"
-
-#: ../../src/components/telegram/bot/links/details.panel.vue:11:90
-msgid "Charts"
-msgstr ""
 
 #: ../../src/components/acl/roles.button.vue:94:32
 msgid "Clear filter"
@@ -250,13 +253,17 @@ msgstr "Очистити журнал"
 msgid "Close"
 msgstr "Закрити"
 
-#: ../../src/components/account/appearance.panel.vue:46:38
+#: ../../src/components/account/appearance.panel.vue:31:39
 msgid "Color for badges, etc."
 msgstr "Колір для значків тощо."
 
 #: ../../src/components/account/account.panel.vue:23:84
 msgid "Confirm"
 msgstr "Підтвердити"
+
+#: ../../src/components/account/confirm-email.button.vue:2:61
+msgid "Confirm email"
+msgstr ""
 
 #: ../../src/components/change-password.dialog.vue:8:135
 #: ../../src/components/change-password.dialog.vue:8:66
@@ -276,7 +283,7 @@ msgstr "Підтвердіть пароль"
 msgid "Confirmation"
 msgstr "Підтвердження"
 
-#: ../../src/components/account/account.panel.vue:87:29
+#: ../../src/components/account/confirm-email.button.vue:46:33
 msgid "Confirmation email sent"
 msgstr "Лист із підтвердженням надіслано"
 
@@ -284,7 +291,7 @@ msgstr "Лист із підтвердженням надіслано"
 msgid "Confirmation token"
 msgstr "Токен підтвердження"
 
-#: ../../src/app.js:33:21
+#: ../../src/app.js:35:21
 msgid "Connection error"
 msgstr "Помилка з'єднання"
 
@@ -293,8 +300,8 @@ msgid "Copy email"
 msgstr ""
 
 #: ../../src/components/notifications/link-telegram.dialig.vue:9:54
-#: ../../src/components/telegram/bot/links/info.panel.vue:13:68
-#: ../../src/components/telegram/bot/links/panel.vue:113:36
+#: ../../src/components/telegram/bot/links/details.panel.vue:7:68
+#: ../../src/components/telegram/bot/links/panel.vue:120:36
 msgid "Copy link"
 msgstr "Копіювати посилання"
 
@@ -302,7 +309,9 @@ msgstr "Копіювати посилання"
 msgid "Copy to clipboard"
 msgstr "Скопіювати у буфер обміну"
 
-#: ../../src/components/telegram/bot/info.panel.vue:17:75
+#: ../../src/components/telegram/bot/info.panel.vue:19:75
+#: ../../src/components/telegram/bot/users/details.panel.vue:12:71
+#: ../../src/components/telegram/bot/users/details.panel.vue:20:71
 msgid "Copy to the clipboard"
 msgstr ""
 
@@ -318,7 +327,12 @@ msgstr ""
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:11:62
 #: ../../src/components/telegram/bot/links/panel.vue:10:123
+#: ../../src/components/telegram/bot/links/panel.vue:19:123
 msgid "Create link"
+msgstr ""
+
+#: ../../src/components/telegram/create-bot.dialog.vue:2:50
+msgid "Create Telegram bot"
 msgstr ""
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:2:50
@@ -336,16 +350,20 @@ msgstr "Створити токен"
 msgid "Create user"
 msgstr "Створити користувача"
 
+#: ../../src/components/telegram/create-bot.button.vue:3:71
+msgid "Createbot"
+msgstr ""
+
 #: ../../src/components/account/tokens/panel.vue:19:107
 #: ../../src/components/administration/users/panel.vue:23:104
-#: ../../src/components/telegram/bot/links/panel.vue:22:96
-#: ../../src/components/telegram/bot/links/stats.panel.vue:11:75
-#: ../../src/components/telegram/bot/users/details.panel.vue:15:71
+#: ../../src/components/telegram/bot/links/details.panel.vue:25:90
+#: ../../src/components/telegram/bot/links/panel.vue:33:96
+#: ../../src/components/telegram/bot/users/details.panel.vue:23:71
 #: ../../src/components/user-sessions/panel.vue:24:74
 msgid "Creation date"
 msgstr "Дата створення"
 
-#: ../../src/components/account/appearance.panel.vue:19:38
+#: ../../src/components/account/appearance.panel.vue:13:73
 #: ../../src/components/dark-mode.button.vue:43:61
 msgid "Dark mode"
 msgstr "Темний режим"
@@ -356,7 +374,6 @@ msgstr "Розмір за замовчуванням"
 
 #: ../../src/components/notifications/done.panel.vue:78:47
 #: ../../src/components/notifications/inbox.panel.vue:78:47
-#: ../../src/components/telegram/bot/links/info.panel.vue:31:128
 msgid "Delete"
 msgstr "Видалити"
 
@@ -365,10 +382,14 @@ msgstr "Видалити"
 msgid "Delete all"
 msgstr "Видалити все"
 
-#: ../../src/components/administration/telegram/panel.vue:109:48
-#: ../../src/components/telegram/bot/info.panel.vue:68:116
+#: ../../src/components/administration/telegram/panel.vue:129:48
+#: ../../src/components/telegram/bot/info.panel.vue:70:116
 msgid "Delete bot"
 msgstr "Видалити бота"
+
+#: ../../src/components/telegram/bot/links/details.panel.vue:64:128
+msgid "Delete link"
+msgstr ""
 
 #: ../../src/components/acl/panel.vue:215:39
 #: ../../src/components/administration/users/panel.vue:238:48
@@ -376,8 +397,8 @@ msgid "Delete user"
 msgstr "Видалити користувача"
 
 #: ../../src/components/telegram/bot/details.dialog.vue:8:48
-#: ../../src/components/telegram/bot/links/info.panel.vue:20:99
-#: ../../src/components/telegram/bot/links/info.panel.vue:27:56
+#: ../../src/components/telegram/bot/links/details.panel.vue:43:59
+#: ../../src/components/telegram/bot/links/details.panel.vue:53:59
 msgid "Description"
 msgstr "Опис"
 
@@ -390,7 +411,7 @@ msgstr "Розробка"
 msgid "Device"
 msgstr "Пристрій"
 
-#: ../../src/components/account/appearance.panel.vue:6:38
+#: ../../src/components/account/appearance.panel.vue:4:92
 msgid "Device dark mode"
 msgstr "Темний режим пристрою"
 
@@ -423,8 +444,9 @@ msgstr "Тривалість / виклик (мс)"
 msgid "Duration per call (ms)"
 msgstr ""
 
-#: ../../src/components/telegram/bot/info.panel.vue:26:110
-#: ../../src/components/telegram/bot/links/info.panel.vue:35:104
+#: ../../src/components/telegram/bot/info.panel.vue:28:110
+#: ../../src/components/telegram/bot/links/details.panel.vue:13:125
+#: ../../src/components/telegram/bot/links/details.panel.vue:45:129
 msgid "Edit"
 msgstr ""
 
@@ -432,19 +454,11 @@ msgstr ""
 msgid "Edit bot details"
 msgstr ""
 
-#: ../../src/components/telegram/bot/info.panel.vue:7:84
-msgid "Edit permissions"
-msgstr ""
-
 #: ../../src/components/acl/panel.vue:205:39
 #: ../../src/components/acl/roles.dialog.vue:2:50
 #: ../../src/components/administration/users/panel.vue:207:39
 msgid "Edit user roles"
 msgstr "Редагувати ролі користувача"
-
-#: ../../src/components/administration/telegram/panel.vue:77:39
-msgid "Edit users"
-msgstr ""
 
 #: ../../src/components/acl/panel.vue:17:100
 #: ../../src/components/administration/users/create-user.dialog.vue:4:63
@@ -463,15 +477,19 @@ msgstr "Адреса email"
 msgid "Email address changed"
 msgstr "Адреса електронної пошти змінена"
 
+#: ../../src/components/account/confirm-email.button.vue:43:33
+msgid "Email address confirmed"
+msgstr ""
+
 #: ../../src/components/change-email.dialog.vue:26:19
 msgid "Email change"
 msgstr "Зміна email"
 
-#: ../../src/viewport.vue:72:29
+#: ../../src/viewport.vue:68:29
 msgid "Email confirmation token is invalid"
 msgstr "Токен підтвердження електронної пошти недійсний"
 
-#: ../../src/viewport.vue:82:33
+#: ../../src/viewport.vue:78:33
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
 
@@ -513,7 +531,10 @@ msgstr "Введіть пароль"
 msgid "Enter your email address"
 msgstr "Введіть адресу вашої електронної пошти"
 
-#: ../../src/components/administration/telegram/panel.vue:21:67
+#: ../../src/components/telegram/create-bot.dialog.vue:6:39
+msgid "Enter your Telegram bot API token"
+msgstr ""
+
 #: ../../src/components/development/cron/panel.vue:20:98
 msgid "Error"
 msgstr "Помилка"
@@ -579,10 +600,6 @@ msgstr "Якщо у вас встановлено Telegram на <b>ЦЬОМУ</b
 msgid "Inbox"
 msgstr "Вхідні"
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:3:40
-msgid "Info"
-msgstr ""
-
 #: ../../src/components/development/monitoring/instances/charts.dialog.vue:22:19
 msgid "Instance stats"
 msgstr ""
@@ -595,7 +612,7 @@ msgstr "Тип екземпляра"
 msgid "Instances monitoring"
 msgstr "Моніторинг екземплярів"
 
-#: ../../src/components/account/appearance.panel.vue:33:38
+#: ../../src/components/account/appearance.panel.vue:22:39
 msgid "Interface base color"
 msgstr "Базовий колір інтерфейсу"
 
@@ -603,7 +620,7 @@ msgstr "Базовий колір інтерфейсу"
 msgid "IP address"
 msgstr "IP адреса"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:11:65
+#: ../../src/components/telegram/bot/users/details.panel.vue:15:65
 msgid "Is bot"
 msgstr ""
 
@@ -613,7 +630,7 @@ msgstr ""
 msgid "Last activity"
 msgstr "Останній активность"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:17:77
+#: ../../src/components/telegram/bot/users/details.panel.vue:25:77
 msgid "Last activity date"
 msgstr ""
 
@@ -635,7 +652,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../../src/components/telegram/bot/info.panel.vue:42:85
+#: ../../src/components/telegram/bot/info.panel.vue:44:85
 msgid "Last new user subscribed"
 msgstr ""
 
@@ -643,8 +660,8 @@ msgstr ""
 msgid "Last start"
 msgstr "Останній старт"
 
-#: ../../src/components/telegram/bot/links/panel.vue:26:116
-#: ../../src/components/telegram/bot/links/stats.panel.vue:13:85
+#: ../../src/components/telegram/bot/links/details.panel.vue:27:100
+#: ../../src/components/telegram/bot/links/panel.vue:31:116
 msgid "Last user created"
 msgstr ""
 
@@ -662,13 +679,9 @@ msgstr[2] ""
 msgid "Latest charts"
 msgstr "Останні діаграми"
 
-#: ../../src/components/telegram/bot/links/info.panel.vue:11:91
-msgid "Link"
-msgstr ""
-
-#: ../../src/components/telegram/bot/info.panel.vue:196:25
-#: ../../src/components/telegram/bot/links/info.panel.vue:212:25
-#: ../../src/components/telegram/bot/links/panel.vue:141:25
+#: ../../src/components/telegram/bot/info.panel.vue:198:25
+#: ../../src/components/telegram/bot/links/details.panel.vue:212:25
+#: ../../src/components/telegram/bot/links/panel.vue:148:25
 msgid "Link copied to the clipboard"
 msgstr ""
 
@@ -676,12 +689,16 @@ msgstr ""
 msgid "Link created"
 msgstr ""
 
-#: ../../src/components/telegram/bot/links/info.panel.vue:198:29
+#: ../../src/components/telegram/bot/links/details.panel.vue:198:29
 msgid "Link deleted"
 msgstr ""
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:6:48
 msgid "Link description"
+msgstr ""
+
+#: ../../src/components/telegram/bot/links/panel.vue:41:184
+msgid "Link details"
 msgstr ""
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:4:35
@@ -690,15 +707,16 @@ msgstr ""
 
 #: ../../src/components/notifications/link-telegram.dialig.vue:2:94
 #: ../../src/components/notifications/link-telegram.dialig.vue:5:27
-#: ../../src/components/notifications/settings.panel.vue:26:43
+#: ../../src/components/notifications/settings.panel.vue:16:43
 msgid "Link Telegram"
 msgstr "Прив’яжіть Telegram"
 
-#: ../../src/components/telegram/bot/links/info.panel.vue:179:29
+#: ../../src/components/telegram/bot/links/details.panel.vue:149:29
+#: ../../src/components/telegram/bot/links/details.panel.vue:179:29
 msgid "Link updated"
 msgstr ""
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:34:46
+#: ../../src/components/telegram/bot/users/details.panel.vue:42:46
 msgid "Linked API user"
 msgstr ""
 
@@ -747,14 +765,14 @@ msgstr "Перемістити все до вхідних"
 msgid "Move to inbox"
 msgstr "Перемістити до вхідних"
 
-#: ../../src/components/administration/telegram/panel.vue:13:65
+#: ../../src/components/administration/telegram/panel.vue:15:65
 #: ../../src/components/development/cron/panel.vue:14:52
-#: ../../src/components/telegram/bot/links/info.panel.vue:18:82
-#: ../../src/components/telegram/bot/links/info.panel.vue:25:43
-#: ../../src/components/telegram/bot/links/panel.vue:20:65
+#: ../../src/components/telegram/bot/links/details.panel.vue:12:91
+#: ../../src/components/telegram/bot/links/details.panel.vue:17:72
+#: ../../src/components/telegram/bot/links/panel.vue:25:65
 #: ../../src/components/telegram/bot/users/details.panel.vue:7:68
 #: ../../src/components/telegram/bot/users/panel.vue:20:105
-#: ../../src/components/telegram/bots.panel.vue:13:61
+#: ../../src/components/telegram/list.panel.vue:23:61
 msgid "Name"
 msgstr "Ім'я"
 
@@ -767,13 +785,26 @@ msgstr "Нова електронна адреса"
 msgid "New password"
 msgstr "Новий пароль"
 
+#: ../../src/components/telegram/create-bot.dialog.vue:12:39
+#: ../../src/components/telegram/create-bot.dialog.vue:24:39
+msgid "Next"
+msgstr ""
+
 #: ../../src/components/development/cron/panel.vue:16:58
 msgid "Next start"
 msgstr "Наступний старт"
 
-#: ../../src/components/cards.panel.vue:71:41
+#: ../../src/components/cards.panel.vue:83:41
 msgid "No data match search criteria"
 msgstr "Жодні дані не відповідають критеріям пошуку"
+
+#: ../../src/components/telegram/bot/links/panel.vue:18:42
+msgid "No links found"
+msgstr ""
+
+#: ../../src/components/telegram/list.panel.vue:14:38
+msgid "No Telegram bots found"
+msgstr ""
 
 #: ../../src/components/telegram/bot/users/models/user.js:66:27
 msgid "Not banned"
@@ -785,7 +816,7 @@ msgstr ""
 
 #: ../../src/components/account/panel.vue:9:40
 #: ../../src/components/notifications/dialog.vue:2:68
-#: ../../src/components/notifications/settings.panel.vue:43:85
+#: ../../src/components/notifications/settings.panel.vue:36:85
 #: ../../src/components/notifications/subscribe.dialog.vue:2:68
 msgid "Notifications"
 msgstr "Сповіщення"
@@ -801,15 +832,15 @@ msgstr ""
 msgid "Notifications settings"
 msgstr "Налаштування сповіщень"
 
-#: ../../src/utils.js:141:36 ../../src/utils.js:36:36 ../../src/utils.js:88:36
+#: ../../src/utils.js:144:36 ../../src/utils.js:36:36 ../../src/utils.js:56:15
 msgid "Ok"
 msgstr "Ok"
 
-#: ../../src/components/telegram/bots.panel.vue:81:36
+#: ../../src/components/telegram/list.panel.vue:102:36
 msgid "Open bot"
 msgstr ""
 
-#: ../../src/components/telegram/bot/info.panel.vue:18:95
+#: ../../src/components/telegram/bot/info.panel.vue:20:95
 msgid "Open bot in Tekegram"
 msgstr ""
 
@@ -817,10 +848,11 @@ msgstr ""
 #: ../../src/components/development/monitoring/instances/panel.vue:31:72
 #: ../../src/components/development/monitoring/methods/panel.vue:235:39
 #: ../../src/components/development/monitoring/methods/panel.vue:32:72
+#: ../../src/components/telegram/bot/links/details.panel.vue:38:72
 msgid "Open charts"
 msgstr ""
 
-#: ../../src/components/notifications/settings.panel.vue:31:43
+#: ../../src/components/notifications/settings.panel.vue:23:47
 msgid "Open Telegram bot"
 msgstr "Відкрийте бот Telegram"
 
@@ -881,7 +913,7 @@ msgstr "Паролі не збігаються"
 msgid "Period"
 msgstr "Період"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:13:69
+#: ../../src/components/telegram/bot/users/details.panel.vue:18:73
 #: ../../src/components/telegram/bot/users/panel.vue:22:101
 msgid "Phone"
 msgstr ""
@@ -894,22 +926,22 @@ msgstr "Платформа"
 msgid "Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again."
 msgstr "Будь ласка, скопіюйте токен у буфер обміну та збережіть його в надійному місці. Після того, як це діалогове вікно буде закрито, ми не змогли знову показати вам цей токен."
 
-#: ../../src/components/acl/add-user.dialog.vue:53:29
+#: ../../src/components/acl/add-user.dialog.vue:63:29
 #: ../../src/components/authentication/password-recovery.panel.vue:56:29
 #: ../../src/components/authentication/signin.panel.vue:79:29
 #: ../../src/components/authentication/signup.panel.vue:94:29
 msgid "Please, correctly fill all required fields"
 msgstr "Будь ласка, правильно заповніть усі необхідні поля"
 
-#: ../../src/components/notifications/settings.panel.vue:7:42
+#: ../../src/components/notifications/settings.panel.vue:4:118
 msgid "Push notifications"
 msgstr "Push повідомлення"
 
-#: ../../src/components/push-notifications.button.vue:75:33
+#: ../../src/components/push-notifications.button.vue:84:33
 msgid "Push notifications disabled"
 msgstr "Push повідомлення вимкнено"
 
-#: ../../src/components/push-notifications.button.vue:72:33
+#: ../../src/components/push-notifications.button.vue:81:33
 msgid "Push notifications enabled"
 msgstr "Push повідомлення ввімкнено"
 
@@ -917,7 +949,7 @@ msgstr "Push повідомлення ввімкнено"
 msgid "Receive push notifications"
 msgstr "Отримувати push повідомлення"
 
-#: ../../src/components/notifications/settings.panel.vue:8:42
+#: ../../src/components/notifications/settings.panel.vue:4:39
 msgid "Receive push notifications on this device"
 msgstr "Отримувати push повідомлення на цьому пристрої"
 
@@ -931,7 +963,7 @@ msgstr "Відновити"
 #: ../../src/components/acl/roles.panel.vue:7:62
 #: ../../src/components/administration/telegram/panel.vue:7:62
 #: ../../src/components/administration/users/panel.vue:9:62
-#: ../../src/components/cards.panel.vue:14:58
+#: ../../src/components/cards.panel.vue:24:66
 #: ../../src/components/development/cron/panel.vue:6:62
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:7:62
 #: ../../src/components/development/monitoring/instances/panel.vue:10:86
@@ -940,15 +972,18 @@ msgstr "Відновити"
 #: ../../src/components/development/monitoring/methods/panel.vue:11:86
 #: ../../src/components/telegram/bot/info.panel.vue:8:66
 #: ../../src/components/telegram/bot/links/charts.panel.vue:8:66
-#: ../../src/components/telegram/bot/links/info.panel.vue:7:66
+#: ../../src/components/telegram/bot/links/details.panel.vue:8:66
 #: ../../src/components/telegram/bot/links/panel.vue:12:66
-#: ../../src/components/telegram/bot/links/stats.panel.vue:7:66
 #: ../../src/components/telegram/bot/stats.panel.vue:8:66
 #: ../../src/components/telegram/bot/users/panel.vue:10:66
-#: ../../src/components/telegram/bots.panel.vue:7:62
+#: ../../src/components/telegram/list.panel.vue:8:62
 #: ../../src/components/user-sessions/panel.vue:8:62
 msgid "Refresh"
 msgstr "Оновити"
+
+#: ../../src/app.js:61:22
+msgid "Reload"
+msgstr ""
 
 #: ../../src/components/acl/roles.panel.vue:13:124
 msgid "Role"
@@ -989,12 +1024,13 @@ msgid "RSS memory (MB)"
 msgstr ""
 
 #: ../../src/components/telegram/bot/details.dialog.vue:13:92
-#: ../../src/components/telegram/bot/links/info.panel.vue:37:140
+#: ../../src/components/telegram/bot/links/details.panel.vue:19:70
+#: ../../src/components/telegram/bot/links/details.panel.vue:55:74
 msgid "Save"
 msgstr "Зберегти"
 
 #: ../../src/components/administration/telegram/panel.vue:5:47
-#: ../../src/components/telegram/bots.panel.vue:5:47
+#: ../../src/components/telegram/list.panel.vue:5:47
 msgid "Search bots"
 msgstr "Пошук ботів"
 
@@ -1024,6 +1060,10 @@ msgstr "Пошук токенів за назвою"
 msgid "Search users"
 msgstr "Пошук користувачів"
 
+#: ../../src/components/telegram/create-bot.dialog.vue:8:166
+msgid "Select Telegram bot tyoe"
+msgstr ""
+
 #: ../../src/components/acl/add-user.dialog.vue:3:97
 msgid "Select user"
 msgstr "Виберіть користувача"
@@ -1032,7 +1072,7 @@ msgstr "Виберіть користувача"
 msgid "Send token"
 msgstr "Надіслати токен"
 
-#: ../../src/app.js:41:21
+#: ../../src/app.js:45:21
 msgid "Session closed"
 msgstr "Сесія закрита"
 
@@ -1050,7 +1090,7 @@ msgid "Settings"
 msgstr "Налаштування"
 
 #: ../../src/components/telegram/bot/details.dialog.vue:6:39
-#: ../../src/components/telegram/bot/info.panel.vue:29:80
+#: ../../src/components/telegram/bot/info.panel.vue:31:80
 msgid "Short description"
 msgstr ""
 
@@ -1079,16 +1119,16 @@ msgstr "Вийти з усіх сесій"
 msgid "Sign up"
 msgstr "Зареєструватися"
 
-#: ../../src/components/administration/telegram/panel.vue:83:36
+#: ../../src/components/administration/telegram/panel.vue:98:36
 msgid "Start"
 msgstr "Запустити"
 
-#: ../../src/components/telegram/bot/info.panel.vue:59:119
+#: ../../src/components/telegram/bot/info.panel.vue:61:119
 msgid "Start bot"
 msgstr ""
 
 #: ../../src/components/development/monitoring/methods/exceptions.dialog.vue:14:108
-#: ../../src/components/telegram/bot/models/bot.js:54:71
+#: ../../src/components/telegram/bot/models/bot.js:55:71
 msgid "Started"
 msgstr "Розпочато"
 
@@ -1096,13 +1136,10 @@ msgstr "Розпочато"
 msgid "Static"
 msgstr "Статичний"
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:7:40
-msgid "Stats"
-msgstr ""
-
+#: ../../src/components/administration/telegram/panel.vue:21:100
 #: ../../src/components/development/monitoring/methods/exceptions.dialog.vue:18:90
-#: ../../src/components/telegram/bot/info.panel.vue:38:74
-#: ../../src/components/telegram/bots.panel.vue:20:91
+#: ../../src/components/telegram/bot/info.panel.vue:40:74
+#: ../../src/components/telegram/list.panel.vue:29:100
 msgid "Status"
 msgstr "Статус"
 
@@ -1110,15 +1147,15 @@ msgstr "Статус"
 msgid "Status text"
 msgstr "Текст статусу"
 
-#: ../../src/components/administration/telegram/panel.vue:92:36
+#: ../../src/components/administration/telegram/panel.vue:107:36
 msgid "Stop"
 msgstr "Зупинити"
 
-#: ../../src/components/telegram/bot/info.panel.vue:62:118
+#: ../../src/components/telegram/bot/info.panel.vue:64:118
 msgid "Stop bot"
 msgstr ""
 
-#: ../../src/components/telegram/bot/models/bot.js:54:102
+#: ../../src/components/telegram/bot/models/bot.js:55:102
 msgid "Stopped"
 msgstr ""
 
@@ -1126,60 +1163,72 @@ msgstr ""
 msgid "Subscribed"
 msgstr ""
 
+#: ../../src/components/administration/telegram/panel.vue:17:136
 #: ../../src/components/telegram/bot/links/charts.panel.vue:188:33
 #: ../../src/components/telegram/bot/links/charts.panel.vue:268:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:301:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:307:33
-#: ../../src/components/telegram/bot/links/panel.vue:24:140
+#: ../../src/components/telegram/bot/links/panel.vue:27:140
 #: ../../src/components/telegram/bot/stats.panel.vue:174:33
 #: ../../src/components/telegram/bot/stats.panel.vue:254:24
 #: ../../src/components/telegram/bot/stats.panel.vue:287:24
 #: ../../src/components/telegram/bot/stats.panel.vue:293:33
-#: ../../src/components/telegram/bots.panel.vue:18:136
+#: ../../src/components/telegram/list.panel.vue:25:136
 msgid "Subscribed users"
 msgstr ""
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:19:78
+#: ../../src/components/telegram/bot/users/details.panel.vue:27:78
 msgid "Subscription status"
 msgstr ""
 
-#: ../../src/components/telegram/bot/info.panel.vue:15:70
+#: ../../src/components/telegram/bot/links/charts.dialog.vue:22:19
+msgid "Telegram bot link charts"
+msgstr ""
+
+#: ../../src/components/telegram/create-bot.dialog.vue:20:42
+msgid "Telegram bot name"
+msgstr ""
+
+#: ../../src/components/telegram/create-bot.dialog.vue:8:125
+msgid "Telegram bot type"
+msgstr ""
+
+#: ../../src/components/telegram/bot/info.panel.vue:17:70
 msgid "Telegram bot url"
+msgstr ""
+
+#: ../../src/components/telegram/create-bot.dialog.vue:18:42
+msgid "Telegram bot username"
 msgstr ""
 
 #: ../../src/components/administration/telegram/dialog.vue:34:33
 msgid "Telegram bots"
 msgstr "Telegram боти"
 
-#: ../../src/components/notifications/link-telegram.dialig.vue:40:25
+#: ../../src/components/notifications/link-telegram.dialig.vue:43:25
 msgid "Telegram link copied to the clipboard"
 msgstr "Посилання на Telegram скопійовано в буфер обміну"
 
-#: ../../src/components/notifications/settings.panel.vue:123:29
+#: ../../src/components/notifications/settings.panel.vue:118:29
 msgid "Telegram linked"
 msgstr "Telegram пов'язаний"
 
-#: ../../src/components/notifications/settings.panel.vue:126:29
+#: ../../src/components/notifications/settings.panel.vue:121:29
 msgid "Telegram unlinked"
 msgstr "Telegram відключено"
 
-#: ../../src/components/telegram/bot/info.panel.vue:12:80
-#: ../../src/components/telegram/bot/users/details.panel.vue:9:67
-#: ../../src/components/telegram/bots.panel.vue:14:74
+#: ../../src/components/telegram/bot/info.panel.vue:14:80
+#: ../../src/components/telegram/bot/users/details.panel.vue:10:71
 msgid "Telegram username"
 msgstr ""
 
-#: ../../src/components/notifications/settings.panel.vue:21:42
+#: ../../src/components/notifications/settings.panel.vue:11:39
 msgid "To use Telegram support bot you need to link your Telegram account"
 msgstr "Щоб використовувати бот підтримки Telegram, вам потрібно прив’язати свій обліковий запис Telegram"
 
-#: ../../src/components/account/appearance.panel.vue:20:38
+#: ../../src/components/account/appearance.panel.vue:13:39
 msgid "Toggle dark mode"
 msgstr "Перемкнути темний режим"
-
-#: ../../src/components/telegram/bot/links/panel.vue:14:93
-msgid "Toggle link details panel"
-msgstr ""
 
 #: ../../src/components/account/tokens/create/dialog.vue:83:25
 msgid "Token copied to the clipboard"
@@ -1189,7 +1238,7 @@ msgstr "Токен скопійовано в буфер обміну"
 msgid "Token created"
 msgstr "Токен створено"
 
-#: ../../src/components/account/tokens/panel.vue:167:29
+#: ../../src/components/account/tokens/panel.vue:165:29
 msgid "Token deleted"
 msgstr "Токен видалено"
 
@@ -1198,8 +1247,8 @@ msgstr "Токен видалено"
 msgid "Token name"
 msgstr "Ім'я токена"
 
-#: ../../src/components/telegram/bot/info.panel.vue:53:89
-#: ../../src/components/telegram/bot/links/stats.panel.vue:20:86
+#: ../../src/components/telegram/bot/info.panel.vue:55:89
+#: ../../src/components/telegram/bot/links/details.panel.vue:34:101
 msgid "Total banned users"
 msgstr ""
 
@@ -1207,29 +1256,29 @@ msgstr ""
 msgid "Total memory"
 msgstr "Загальна пам'ять"
 
-#: ../../src/components/telegram/bot/info.panel.vue:52:91
-#: ../../src/components/telegram/bot/links/stats.panel.vue:19:88
+#: ../../src/components/telegram/bot/info.panel.vue:54:91
+#: ../../src/components/telegram/bot/links/details.panel.vue:33:103
 msgid "Total returned users"
 msgstr ""
 
-#: ../../src/components/telegram/bot/info.panel.vue:47:98
+#: ../../src/components/telegram/bot/info.panel.vue:49:98
 #: ../../src/components/telegram/bot/links/charts.panel.vue:149:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:182:24
-#: ../../src/components/telegram/bot/links/stats.panel.vue:16:90
+#: ../../src/components/telegram/bot/links/details.panel.vue:30:105
 #: ../../src/components/telegram/bot/stats.panel.vue:135:24
 #: ../../src/components/telegram/bot/stats.panel.vue:168:24
 msgid "Total subscribed users"
 msgstr ""
 
-#: ../../src/components/telegram/bot/info.panel.vue:48:100
+#: ../../src/components/telegram/bot/info.panel.vue:50:100
 #: ../../src/components/telegram/bot/links/charts.panel.vue:206:24
-#: ../../src/components/telegram/bot/links/stats.panel.vue:17:92
+#: ../../src/components/telegram/bot/links/details.panel.vue:31:107
 #: ../../src/components/telegram/bot/stats.panel.vue:192:24
 msgid "Total unsubscribed users"
 msgstr ""
 
-#: ../../src/components/telegram/bot/info.panel.vue:46:82
-#: ../../src/components/telegram/bot/links/stats.panel.vue:15:74
+#: ../../src/components/telegram/bot/info.panel.vue:48:82
+#: ../../src/components/telegram/bot/links/details.panel.vue:29:89
 msgid "Total users"
 msgstr ""
 
@@ -1245,28 +1294,31 @@ msgstr "Режим UI"
 msgid "UI version"
 msgstr "Версія UI"
 
-#: ../../src/app.js:32:33
+#: ../../src/app.js:34:32
 msgid "Unable to connect to the API server. Check, that you have internet connection."
 msgstr "Не вдається підключитися до сервера API. Перевірте, чи є у вас підключення до Інтернету."
 
-#: ../../src/components/cards.panel.vue:11:34
+#: ../../src/components/cards.panel.vue:21:42
 msgid "Unable to load data"
 msgstr "Не вдалося завантажити дані"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:30:39
+#: ../../src/components/telegram/bot/users/details.panel.vue:38:39
 msgid "Unban user"
 msgstr ""
 
-#: ../../src/components/notifications/settings.panel.vue:32:77
+#: ../../src/components/notifications/settings.panel.vue:24:75
 msgid "Unlink Telegram"
 msgstr "Від’єднати Telegram"
 
+#: ../../src/components/administration/telegram/panel.vue:19:140
 #: ../../src/components/telegram/bot/links/charts.panel.vue:212:33
 #: ../../src/components/telegram/bot/links/charts.panel.vue:325:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:331:33
+#: ../../src/components/telegram/bot/links/panel.vue:29:144
 #: ../../src/components/telegram/bot/stats.panel.vue:198:33
 #: ../../src/components/telegram/bot/stats.panel.vue:311:24
 #: ../../src/components/telegram/bot/stats.panel.vue:317:33
+#: ../../src/components/telegram/list.panel.vue:27:140
 msgid "Unsubscribed users"
 msgstr ""
 
@@ -1293,7 +1345,7 @@ msgstr ""
 msgid "User"
 msgstr "Користувач"
 
-#: ../../src/components/acl/add-user.dialog.vue:64:29
+#: ../../src/components/acl/add-user.dialog.vue:74:29
 msgid "User added"
 msgstr "Користувача додано"
 
@@ -1305,8 +1357,8 @@ msgstr "Користувач створений"
 msgid "User creation"
 msgstr "Створення користувача"
 
-#: ../../src/components/acl/panel.vue:278:29
-#: ../../src/components/administration/users/panel.vue:292:29
+#: ../../src/components/acl/panel.vue:276:29
+#: ../../src/components/administration/users/panel.vue:290:29
 msgid "User deleted"
 msgstr "Користувача видалено"
 
@@ -1314,7 +1366,7 @@ msgstr "Користувача видалено"
 msgid "User details"
 msgstr ""
 
-#: ../../src/components/administration/users/panel.vue:371:25
+#: ../../src/components/administration/users/panel.vue:369:25
 msgid "User email copied"
 msgstr "Email користувача скопійовано"
 
@@ -1322,7 +1374,7 @@ msgstr "Email користувача скопійовано"
 msgid "User sessions"
 msgstr "Сесії користувача"
 
-#: ../../src/components/account/appearance.panel.vue:7:38
+#: ../../src/components/account/appearance.panel.vue:4:39
 msgid "User your device dark mode settings"
 msgstr "Використовуйте налаштування темного режиму свого пристрою"
 
@@ -1330,12 +1382,21 @@ msgstr "Використовуйте налаштування темного р�
 msgid "Username"
 msgstr "Ім'я користувача"
 
+#: ../../src/components/telegram/bot/users/details.panel.vue:133:25
+#: ../../src/components/telegram/bot/users/details.panel.vue:141:25
+msgid "Username copied to the clipboard"
+msgstr ""
+
 #: ../../src/components/acl/dialog.vue:26:33
 #: ../../src/components/administration/panel.vue:4:40
-#: ../../src/components/administration/telegram/panel.vue:19:90
 #: ../../src/components/administration/users/dialog.vue:34:33
 msgid "Users"
 msgstr "Користувачі"
+
+#: ../../src/components/administration/telegram/panel.vue:115:39
+#: ../../src/components/telegram/bot/info.panel.vue:7:117
+msgid "Users & permissions"
+msgstr ""
 
 #: ../../src/components/about.dialog.vue:40:25
 msgid "Version info copied"
@@ -1357,12 +1418,16 @@ msgstr "Слідкувати"
 msgid "We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above."
 msgstr "Ми щойно надіслали токен підтвердження зміни email на нову електронну адресу. Будь ласка, перевірте свою поштову скриньку та введіть токен у поле вище."
 
+#: ../../src/app.js:58:46
+msgid "Your access permissions were changed on API server. Please, reload application to apply updates."
+msgstr ""
+
 #: ../../src/components/account/dialog.vue:2:72
-#: ../../src/components/application/menu.vue:17:91
+#: ../../src/components/application/menu.vue:17:115
 msgid "Your account"
 msgstr "Ваш аккаунт"
 
-#: ../../src/app.js:40:32
+#: ../../src/app.js:44:32
 msgid "Your session was terminated on the API server."
 msgstr "Ваша сесія був припинений на сервері API."
 
