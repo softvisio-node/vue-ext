@@ -56,8 +56,6 @@ export default {
 &nbsp;&nbsp;&nbsp;
 {email}
 ` );
-
-            // cmp.setDisplayTpl( `<ext-avatar src="{avatar_url}" width="32" height="32"/> {email}` );
         },
 
         async _addUser () {
