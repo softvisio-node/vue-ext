@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import loadMask from "#vue/load-mask";
+import masks from "#src/masks";
 
 export default {
     "props": {
@@ -62,7 +62,7 @@ export default {
         },
         "loadMask": {
             "type": Object,
-            "default": loadMask,
+            "default": masks.loadMask,
         },
         "refreshOnRender": {
             "type": Boolean,

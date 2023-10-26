@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import loadMask from "#src/load-mask";
+import masks from "#src/masks";
 import passwords from "#core/passwords";
 
 export default {
@@ -65,7 +65,7 @@ export default {
                 return;
             }
 
-            this.ext.mask( loadMask );
+            this.ext.mask( masks.loadMask );
 
             const res = await this._changePassword( values.password );
 

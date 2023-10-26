@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import loadMask from "#src/load-mask";
+import masks from "#src/masks";
 import OauthContainer from "#src/components/oauth.container";
 
 export default {
@@ -62,7 +62,7 @@ export default {
         },
 
         async _authorize ( options ) {
-            this.ext.mask( loadMask );
+            this.ext.mask( masks.loadMask );
 
             const res = await this.$app.authorize( options );
 

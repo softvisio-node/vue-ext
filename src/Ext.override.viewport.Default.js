@@ -1,19 +1,13 @@
-import loadMask from "#src/load-mask";
-
-const mask = new Ext.LoadMask( {
-    ...loadMask,
-    "floated": true,
-    "alwaysOnTop": true,
-} );
+import masks from "#src/masks";
 
 Ext.define( null, {
     "override": "Ext.viewport.Default",
 
     mask () {
-        mask.show();
+        masks.globalLoadMask.show();
     },
 
     unmask () {
-        mask.hide();
+        masks.globalLoadMask.hide();
     },
 } );
