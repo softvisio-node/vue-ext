@@ -1,5 +1,5 @@
 <template>
-    <ext-button ref="button" :hidden="emailConfirmed" :text="l10n(`Confirm email`)" ui="decline" @tap="_confirmEmail"/>
+    <ext-button ref="button" :hidden="emailConfirmed" :text="l10n(`Confirm email`)" ui="action" @tap="_confirmEmail"/>
 </template>
 
 <script>

@@ -13,7 +13,7 @@
                 <ext-container>
                     <!-- link -->
                     <ext-container :hidden="telegramLinked">
-                        <ext-button :text="l10n(`Link Telegram`)" @tap="_linkTelegramBot"/>
+                        <ext-button :text="l10n(`Link Telegram`)" ui="action" @tap="_linkTelegramBot"/>
                     </ext-container>
 
                     <!-- open -->
