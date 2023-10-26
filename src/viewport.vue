@@ -22,8 +22,6 @@ export default {
 
             await this.$app.initSession();
 
-            // Ext.Viewport.unmask();
-
             this.$router.init( this );
 
             this.$router.reload();
