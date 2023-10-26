@@ -3,8 +3,8 @@ import "#ewc";
 import VueViewport from "@softvisio/vue/app/viewport";
 
 // must be impoerted after ExtJS
-import( "@fortawesome/fontawesome-free/css/all.min.css" );
-import( "#src/Ext.override.viewport.Default" );
+await import( "@fortawesome/fontawesome-free/css/all.min.css" );
+await import( "#src/Ext.override.viewport.Default" );
 
 export default class VueExtViewport extends VueViewport {
 
