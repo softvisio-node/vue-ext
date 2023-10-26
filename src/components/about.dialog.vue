@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="400" layout="vbox" :title="l10n(`About the project`)" width="350">
+    <ext-dialog height="350" layout="vbox" :title="l10n(`About the project`)" width="300">
         <ext-fieldpanel defaults='{"labelAlign":"left"}'>
             <ext-displayfield :label="l10n(`UI version`)" :value="'v' + frontend.currentVersion"/>
             <ext-displayfield :label="l10n(`UI mode`)" :value="frontend.mode"/>

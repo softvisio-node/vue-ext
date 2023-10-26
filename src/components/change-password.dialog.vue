@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="400" layout="vbox" :title="title" width="350" @ready="_ready">
+    <ext-dialog height="350" layout="vbox" :title="title" width="300" @ready="_ready">
         <ext-container :html="header" style="text-align: center"/>
 
         <ext-fieldpanel ref="form" @ready="formReady">

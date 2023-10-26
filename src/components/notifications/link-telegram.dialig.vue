@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="400" layout='{"align":"center","pack":"start","type":"vbox"}' :title="l10n(`Link Telegram`)" width="350">
+    <ext-dialog height="350" layout='{"align":"center","pack":"start","type":"vbox"}' :title="l10n(`Link Telegram`)" width="300">
         <ext-container :html='l10n(`If you have Telegram installed on <b>THIS</b> device, then press button below to open Telegram bot and then click "Start":`)' padding="0 0 10 0"/>
 
         <ext-button :text="l10n(`Link Telegram`)" ui="action" @tap="_openTelegramBot"/>

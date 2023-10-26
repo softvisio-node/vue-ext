@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog layout="vbox" minHeight="450" :title="l10n(`Password change`)" width="350" @destroy="_onDestroy" @ready="_ready">
+    <ext-dialog height="350" layout="vbox" :title="l10n(`Password change`)" width="300" @destroy="_onDestroy" @ready="_ready">
         <ext-fieldpanel ref="form">
             <ext-hiddenfield name="token" :value="token"/>
 

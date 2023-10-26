@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="400" :title="title" width="350" @ready="_ready">
+    <ext-dialog height="350" :title="title" width="300" @ready="_ready">
         <ext-fieldpanel ref="form" @ready="formReady">
             <ext-container :html="l10n(`Enter new email address which you want to use.`)" layout="center"/>
 
