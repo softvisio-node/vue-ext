@@ -8,19 +8,22 @@ const loadMaask = {
 };
 
 class Masks {
-    #loadMask = new Ext.LoadMask( loadMaask );
-
-    #globalLoadMask = new Ext.LoadMask( {
-        ...loadMaask,
-        "floated": true,
-        "alwaysOnTop": true,
-    } );
+    #loadMask;
+    #globalLoadMask;
 
     get loadMask () {
+        this.#loadMask ??= new Ext.LoadMask( loadMaask );
+
         return this.#loadMask;
     }
 
     get globalLoadMask () {
+        this.#globalLoadMask ??= new Ext.LoadMask( {
+            ...loadMaask,
+            "floated": true,
+            "alwaysOnTop": true,
+        } );
+
         return this.#globalLoadMask;
     }
 }
