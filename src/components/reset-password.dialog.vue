@@ -83,11 +83,11 @@ export default {
                 return;
             }
 
-            form.mask();
+            this.ext.mask();
 
             const res = await this.$api.call( "session/set-password-by-token", values.token, values.password );
 
-            form.unmask();
+            this.ext.unmask();
 
             if ( res.ok ) {
                 this.$toast( this.l10n( "Password changed" ) );
