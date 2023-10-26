@@ -22,7 +22,7 @@ export default {
 
             await this.$app.initSession();
 
-            Ext.Viewport.unmask();
+            // Ext.Viewport.unmask();
 
             this.$router.init( this );
 
@@ -32,22 +32,24 @@ export default {
         // router
         async onRoute ( route ) {
             if ( route.get() === "reset-password" ) {
-                this.routeResetPasword();
+                await this.routeResetPasword();
             }
             else if ( route.get() === "confirm-email" ) {
-                this.routeConfirmEmail();
+                await this.routeConfirmEmail();
             }
             else {
-                this._onRoute( route );
+                await this._onRoute( route );
             }
+
+            Ext.Viewport.unmask();
         },
 
         async _onRoute ( route ) {
             if ( this.$app.user.isAuthenticated ) {
-                this.routePrivate( route );
+                return this.routePrivate( route );
             }
             else {
-                this.routePublic( route );
+                return this.routePublic( route );
             }
         },
 
