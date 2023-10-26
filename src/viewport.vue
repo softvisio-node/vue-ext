@@ -29,6 +29,8 @@ export default {
 
         // router
         async onRoute ( route ) {
+            Ext.Viewport.mask();
+
             if ( route.get() === "reset-password" ) {
                 await this.routeResetPasword();
             }
@@ -68,11 +70,7 @@ export default {
                 this.$toast( this.l10n( "Email confirmation token is invalid" ) );
             }
             else {
-                Ext.Viewport.mask();
-
                 const res = await this.$api.call( "session/confirm-email-by-token", token );
-
-                Ext.Viewport.unmask();
 
                 if ( res.ok ) {
                     this.$toast( this.l10n( "Email confirmed successfully" ) );
