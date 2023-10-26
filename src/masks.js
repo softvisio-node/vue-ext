@@ -8,13 +8,10 @@ const loadMaask = {
 };
 
 class Masks {
-    #loadMask;
     #globalLoadMask;
 
     get loadMask () {
-        this.#loadMask ??= new Ext.LoadMask( loadMaask );
-
-        return this.#loadMask;
+        return loadMaask;
     }
 
     get globalLoadMask () {
