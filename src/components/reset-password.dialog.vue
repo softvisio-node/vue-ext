@@ -20,6 +20,7 @@
 
 <script>
 import passwords from "#core/passwords";
+import masks from "#src/masks";
 
 export default {
     "props": {
@@ -83,7 +84,7 @@ export default {
                 return;
             }
 
-            this.ext.mask();
+            this.ext.mask( masks.loadMask );
 
             const res = await this.$api.call( "session/set-password-by-token", values.token, values.password );
 
