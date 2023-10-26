@@ -13,7 +13,6 @@
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-            <ext-button :text="l10n(`Cancel`)" ui="decline" @tap="close"/>
             <ext-button :text="l10n(`Change password`)" ui="action" @tap="_submit"/>
         </ext-toolbar>
     </ext-dialog>
