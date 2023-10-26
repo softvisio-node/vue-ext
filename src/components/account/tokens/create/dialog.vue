@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="400" layout="vbox" :title="l10n(`Create token`)" width="400" @ready="ready">
+    <ext-dialog height="400" layout="vbox" :title="l10n(`Create token`)" width="350" @ready="ready">
         <ext-fieldpanel ref="form" defaults='{"labelAlign":"top"}' @ready="formReady">
             <ext-textfield ref="name" :label="l10n(`Token name`)" name="name" :placeholder="l10n(`Enter new token name`)" required="true"/>
         </ext-fieldpanel>
