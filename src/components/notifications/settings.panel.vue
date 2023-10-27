@@ -18,7 +18,11 @@
 
                     <!-- open -->
                     <ext-container :hidden="!telegramLinked" layout='{"align":"start","type":"vbox"}'>
-                        <ext-displayfield :value="linkedTelegramUsername"/>
+                        <ext-container layout='{"type":"hbox"}'>
+                            <ext-avatar :src="linkedTelegramAvatarUrl"/>
+                            <ext-spacer width="10"/>
+                            <ext-displayfield :value="linkedTelegramUsername"/>
+                        </ext-container>
                         <ext-container layour="hbox">
                             <ext-button :text="l10n(`Open Telegram bot`)" @tap="_openTelegramBot"/>
                             <ext-button iconCls="fa-solid fa-xmark" :text="l10n(`Unlink Telegram`)" ui="decline" @tap="_unlinkTelegramBot"/>
@@ -83,6 +87,7 @@ export default {
             "telegramSupported": false,
             "telegramBotUrl": null,
             "linkedTelegramUsername": null,
+            "linkedTelegramAvatarUrl": null,
         };
     },
 
@@ -111,10 +116,11 @@ export default {
             ],
         } );
 
-        this._events ??= new Events().link( this.$api ).on( "notifications/telegram/update", linkedTelegramUsername => {
-            this.linkedTelegramUsername = linkedTelegramUsername;
+        this._events ??= new Events().link( this.$api ).on( "notifications/telegram/update", linkedTelegramUser => {
+            this.linkedTelegramUsername = linkedTelegramUser?.username;
+            this.linkedTelegramAvatarUrl = linkedTelegramUser?.avatar_url;
 
-            if ( linkedTelegramUsername ) {
+            if ( linkedTelegramUser ) {
                 this.$toast( this.l10n( `Telegram linked` ) );
             }
             else {
@@ -180,7 +186,8 @@ export default {
             if ( res.ok ) {
                 this.telegramSupported = res.data.telegramSupported;
                 this.telegramBotUrl = res.data.telegramBotUrl;
-                this.linkedTelegramUsername = res.data.linkedTelegramUsername;
+                this.linkedTelegramUsername = res.data.linkedTelegramUser.username;
+                this.linkedTelegramAvatarUrl = res.data.linkedTelegramUser.avatar_url;
 
                 this.notificationTypesHidden = true;
 
@@ -256,8 +263,9 @@ export default {
                 this.$toast( res );
             }
             else {
-                if ( res.data.linkedTelegramUsername ) {
-                    this.linkedTelegramUsername = res.data.linkedTelegramUsername;
+                if ( res.data.linkedTelegramUser ) {
+                    this.linkedTelegramUsername = res.data.linkedTelegramUser.username;
+                    this.linkedTelegramAvatarUrl = res.data.linkedTelegramUser.avatar_url;
                 }
                 else {
                     const cmp = await this.$mount( LinkTelegramDialig, {
@@ -279,6 +287,7 @@ export default {
             }
             else {
                 this.linkedTelegramUsername = null;
+                this.linkedTelegramAvatarUrl = null;
             }
         },
     },
