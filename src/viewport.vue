@@ -86,7 +86,6 @@ export default {
             this.$router.redirectTo( "/", { "replace": true } );
         },
 
-        // XXX
         async routeChangeEmail () {
 
             // parse toke
