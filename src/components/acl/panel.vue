@@ -214,6 +214,7 @@ export default {
                             "iconCls": "fa-solid fa-trash-alt",
                             "tooltip": this.l10n( "Delete user" ),
                             "handler": this._deleteAclUser.bind( this ),
+                            "ui": "decline",
                             "bind": {
                                 "disabled": "{!canDelete}",
                             },

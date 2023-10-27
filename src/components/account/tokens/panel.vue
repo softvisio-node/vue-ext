@@ -20,7 +20,7 @@
 
                 <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="l10n(`Access enabled`)" width="160" @ready="enabledColReady"/>
 
-                <ext-column width="80" @ready="actionColReady"/>
+                <ext-column width="50" @ready="actionColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
@@ -88,7 +88,7 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "center", "align": "center" },
+                    "layout": { "type": "hbox", "pack": "end", "align": "center" },
                     "items": [
 
                         // {
@@ -100,6 +100,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
+                            "ui": "decline",
                             "handler": this.delete.bind( this ),
                         },
                     ],

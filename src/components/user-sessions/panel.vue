@@ -4,7 +4,7 @@
             <ext-toolbar docked="top">
                 <ext-container :html="title"/>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-sign-out-alt" :text="l10n(`Sign out of all sessions`)" @tap="_signOutAllSessions"/>
+                <ext-button iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete all sessions`)" ui="decline" @tap="_signOutAllSessions"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
@@ -64,10 +64,11 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
-                            "iconCls": "fa-solid fa-sign-out-alt",
-                            "tooltip": this.l10n( "Sign out" ),
+                            "iconCls": "fa-solid fa-trash-alt",
+                            "tooltip": this.l10n( "Delete session" ),
                             "handler": this._signOutSession.bind( this ),
                             "bind": { "hidden": "{record.current_session}" },
+                            "ui": "decline",
                         },
                     ],
                 },
