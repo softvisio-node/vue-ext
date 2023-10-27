@@ -52,9 +52,11 @@ export default {
             const cmp = e.detail.cmp;
 
             cmp.setItemTpl( `
-<img src="{avatar_url}" width="20" height="20" style="border: 1px solid white; border-radius: 50%"/>
-&nbsp;
-{email}
+<div style="display:flex;align-items:center">
+    <img src="{avatar_url}" width="32" height="32" style="border: 1px solid white; border-radius: 50%"/>
+    &nbsp;
+    {email}
+</div>
 ` );
         },
 
