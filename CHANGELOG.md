@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.10.5 (2023-10-27)
+
+Fixes:
+
+-   fix: telegram link
+
 ### 8.10.4 (2023-10-27)
 
 Fixes:
