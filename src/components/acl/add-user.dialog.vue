@@ -53,7 +53,7 @@ export default {
 
             cmp.setItemTpl( `
 <img src="{avatar_url}" width="20" height="20" style="border: 1px solid white; border-radius: 50%"/>
-&nbsp;&nbsp;&nbsp;
+&nbsp;
 {email}
 ` );
         },
