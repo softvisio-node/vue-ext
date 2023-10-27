@@ -60,7 +60,7 @@ export default {
                 "xtype": "widgetcell",
                 "widget": {
                     "xtype": "container",
-                    "layout": { "type": "hbox", "pack": "center", "align": "center" },
+                    "layout": { "type": "hbox", "pack": "start", "align": "center" },
                     "items": [
                         {
                             "xtype": "button",
