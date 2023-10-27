@@ -86,8 +86,7 @@ export default {
 
             "telegramSupported": false,
             "telegramBotUrl": null,
-            "linkedTelegramUsername": null,
-            "linkedTelegramAvatarUrl": null,
+            "linkedTelegramUser": null,
         };
     },
 
@@ -97,7 +96,15 @@ export default {
         },
 
         telegramLinked () {
-            return !!this.linkedTelegramUsername;
+            return !!this.linkedTelegramUser;
+        },
+
+        linkedTelegramUsername () {
+            return this.linkedTelegramUser?.username;
+        },
+
+        linkedTelegramAvatarUrl () {
+            return this.linkedTelegramUser?.avatar_url;
         },
     },
 
@@ -117,8 +124,7 @@ export default {
         } );
 
         this._events ??= new Events().link( this.$api ).on( "notifications/telegram/update", linkedTelegramUser => {
-            this.linkedTelegramUsername = linkedTelegramUser?.username;
-            this.linkedTelegramAvatarUrl = linkedTelegramUser?.avatar_url;
+            this.linkedTelegramUser = linkedTelegramUser;
 
             if ( linkedTelegramUser ) {
                 this.$toast( this.l10n( `Telegram linked` ) );
@@ -186,8 +192,7 @@ export default {
             if ( res.ok ) {
                 this.telegramSupported = res.data.telegramSupported;
                 this.telegramBotUrl = res.data.telegramBotUrl;
-                this.linkedTelegramUsername = res.data.linkedTelegramUser.username;
-                this.linkedTelegramAvatarUrl = res.data.linkedTelegramUser.avatar_url;
+                this.linkedTelegramUser = res.data.linkedTelegramUser;
 
                 this.notificationTypesHidden = true;
 
@@ -264,8 +269,7 @@ export default {
             }
             else {
                 if ( res.data.linkedTelegramUser ) {
-                    this.linkedTelegramUsername = res.data.linkedTelegramUser.username;
-                    this.linkedTelegramAvatarUrl = res.data.linkedTelegramUser.avatar_url;
+                    this.linkedTelegramUser = res.data.linkedTelegramUser;
                 }
                 else {
                     const cmp = await this.$mount( LinkTelegramDialig, {
@@ -286,8 +290,7 @@ export default {
                 this.$toast( res );
             }
             else {
-                this.linkedTelegramUsername = null;
-                this.linkedTelegramAvatarUrl = null;
+                this.linkedTelegramUser = null;
             }
         },
     },
