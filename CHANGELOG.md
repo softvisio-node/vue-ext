@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.10.3 (2023-10-27)
+
+Fixes:
+
+-   fix: create token dialog
+
 ### 8.10.2 (2023-10-27)
 
 Fixes:
