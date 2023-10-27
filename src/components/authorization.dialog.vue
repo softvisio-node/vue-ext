@@ -24,6 +24,13 @@ import OauthContainer from "#src/components/oauth.container";
 export default {
     "components": { OauthContainer },
 
+    "props": {
+        "authorize": {
+            "type": Function,
+            "default": null,
+        },
+    },
+
     "methods": {
         _ready ( e ) {
             this.ext = e.detail.cmp;
@@ -64,7 +71,14 @@ export default {
         async _authorize ( options ) {
             this.ext.mask( masks.loadMask );
 
-            const res = await this.$app.authorize( options );
+            var res;
+
+            if ( this.authorize ) {
+                res = await this.authorize( options );
+            }
+            else {
+                res = await this.$app.authorize( options );
+            }
 
             this.ext.unmask();
 

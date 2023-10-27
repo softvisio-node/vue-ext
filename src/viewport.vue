@@ -5,13 +5,13 @@
 <script>
 import "./assets/scrollbars.css";
 import Viewport from "@softvisio/vue/viewport";
-import ResetPasswordDialog from "./components/reset-password.dialog";
+import ResetPasswordDialog from "#src/components/reset-password.dialog";
+import AuthorizationDialog from "#src/components/authorization.dialog";
 
 export default {
     "extends": Viewport,
 
     created () {
-        this.resetPasswordDialog = ResetPasswordDialog;
         this.privateView = null;
         this.publicView = null;
     },
@@ -57,7 +57,7 @@ export default {
         },
 
         async routeResetPasword () {
-            const cmp = await this.$mount( this.resetPasswordDialog );
+            const cmp = await this.$mount( ResetPasswordDialog );
 
             cmp.ext.show();
         },
@@ -90,22 +90,24 @@ export default {
         async routeChangeEmail () {
 
             // parse toke
-            var token = window.location.hash.match( /^#[/]confirm-email[/]?(.*)/ );
+            var token = window.location.hash.match( /^#[/]change-email[/]?(.*)/ );
 
             if ( token ) token = token[1];
 
-            if ( !token ) {
-                this.$toast( this.l10n( "Email confirmation token is invalid" ) );
-            }
-            else {
-                const res = await this.$api.call( "session/confirm-email-by-token", token );
+            if ( token ) {
+                const cmp = await this.$mount( AuthorizationDialog, {
+                    "props": {
+                        "authorize": async options => {
+                            const res = await this.$api.call( "set-email-by-token", token, options );
 
-                if ( res.ok ) {
-                    this.$toast( this.l10n( "Email confirmed successfully" ) );
-                }
-                else {
-                    this.$toast( res );
-                }
+                            return res;
+                        },
+                    },
+                } );
+
+                const res = await cmp.ext.show();
+
+                if ( res ) this.$toast( this.l10n( "Email address changed" ) );
             }
 
             this.$router.redirectTo( "/", { "replace": true } );
