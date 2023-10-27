@@ -29,6 +29,10 @@ export default {
             "type": Function,
             "default": null,
         },
+        "emailHint": {
+            "type": Boolean,
+            "default": true,
+        },
     },
 
     "methods": {
@@ -77,7 +81,7 @@ export default {
                 res = await this.authorize( options );
             }
             else {
-                res = await this.$app.authorize( options );
+                res = await this.$app.authorize( options, { "emailHint": this.emailHint } );
             }
 
             this.ext.unmask();

@@ -96,6 +96,7 @@ export default {
             if ( token ) {
                 const cmp = await this.$mount( AuthorizationDialog, {
                     "props": {
+                        "emailHint": false,
                         "authorize": async options => {
                             const res = await this.$api.call( "account/set-email-by-token", token, options );
 
