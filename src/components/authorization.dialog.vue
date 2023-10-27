@@ -78,14 +78,19 @@ export default {
             var res;
 
             if ( this.authorize ) {
-                res = await this.$app.authorize( options, { "emailHint": this.emailHint, "doAuthorization": false } );
+                res = await this.$app.authorize( options, {
+                    "emailHint": this.emailHint,
+                    "doAuthorization": false,
+                } );
 
                 if ( res.ok ) {
                     res = await this.authorize( res.data );
                 }
             }
             else {
-                res = await this.$app.authorize( options, { "emailHint": this.emailHint } );
+                res = await this.$app.authorize( options, {
+                    "emailHint": this.emailHint,
+                } );
             }
 
             this.ext.unmask();
