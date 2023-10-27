@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.10.2 (2023-10-27)
+
+Fixes:
+
+-   fix: ,load masks
+-   fix: actopn token
+
 ### 8.10.1 (2023-10-25)
 
 Fixes:
