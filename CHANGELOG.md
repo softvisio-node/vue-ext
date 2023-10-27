@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.10.6 (2023-10-27)
+
+Fixes:
+
+-   fix: combo avatar
+
 ### 8.10.5 (2023-10-27)
 
 Fixes:
