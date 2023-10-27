@@ -37,6 +37,9 @@ export default {
             else if ( route.get() === "confirm-email" ) {
                 await this.routeConfirmEmail();
             }
+            else if ( route.get() === "change-email" ) {
+                await this.routeChangeEmail();
+            }
             else {
                 await this._onRoute( route );
             }
@@ -60,6 +63,31 @@ export default {
         },
 
         async routeConfirmEmail () {
+
+            // parse toke
+            var token = window.location.hash.match( /^#[/]confirm-email[/]?(.*)/ );
+
+            if ( token ) token = token[1];
+
+            if ( !token ) {
+                this.$toast( this.l10n( "Email confirmation token is invalid" ) );
+            }
+            else {
+                const res = await this.$api.call( "session/confirm-email-by-token", token );
+
+                if ( res.ok ) {
+                    this.$toast( this.l10n( "Email confirmed successfully" ) );
+                }
+                else {
+                    this.$toast( res );
+                }
+            }
+
+            this.$router.redirectTo( "/", { "replace": true } );
+        },
+
+        // XXX
+        async routeChangeEmail () {
 
             // parse toke
             var token = window.location.hash.match( /^#[/]confirm-email[/]?(.*)/ );
