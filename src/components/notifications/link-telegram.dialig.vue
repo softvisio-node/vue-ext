@@ -24,8 +24,8 @@ export default {
     },
 
     created () {
-        this._events = new Events().link( this.$api ).on( "notifications/telegram/update", linkedTelegramUsername => {
-            if ( linkedTelegramUsername ) this.ext.close();
+        this._events = new Events().link( this.$api ).on( "notifications/telegram/update", linkedTelegramUser => {
+            if ( linkedTelegramUser ) this.ext.close();
         } );
     },
 
