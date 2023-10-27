@@ -1,14 +1,23 @@
 import loader from "./assets/loader.gif";
 
-const loadMaask = {
-    "transparent": false,
-    "html": `<img src="${loader}" width="100"/>`,
-    "indicator": false,
-    "message": "",
-};
+const maask = {
+        "xtype": "mask",
+        "transparent": false,
+    },
+    loadMaask = {
+        "xtype": "loadmask",
+        "transparent": false,
+        "indicator": false,
+        "message": "",
+        "html": `<img src="${loader}" width="100"/>`,
+    };
 
 class Masks {
     #globalLoadMask;
+
+    get mask () {
+        return maask;
+    }
 
     get loadMask () {
         return loadMaask;

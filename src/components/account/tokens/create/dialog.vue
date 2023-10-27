@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import masks from "#src/masks";
+
 export default {
     "emits": ["created"],
 
@@ -50,10 +52,7 @@ export default {
 
             var vals = form.getValues();
 
-            this.ext.mask( {
-                "xtype": "loadmask",
-                "message": `<div style="color:white;">Generating<br/>please wait...</div>`,
-            } );
+            this.ext.mask( masks.loadMask );
 
             const res = await this.$api.call( "account/tokens/create", vals.name );
 
