@@ -100,6 +100,12 @@ export default {
                         "authorize": async options => {
                             const res = await this.$api.call( "account/set-email-by-token", token, options );
 
+                            if ( res.ok ) {
+                                this.$router.redirectTo( "/", { "replace": true } );
+
+                                this.$toast( this.l10n( "Email address changed" ) );
+                            }
+
                             return res;
                         },
                     },
@@ -107,9 +113,7 @@ export default {
 
                 Ext.Viewport.unmask();
 
-                const res = await cmp.show();
-
-                if ( res ) this.$toast( this.l10n( "Email address changed" ) );
+                await cmp.show();
             }
 
             this.$router.redirectTo( "/", { "replace": true } );
