@@ -98,14 +98,16 @@ export default {
                 const cmp = await this.$mount( AuthorizationDialog, {
                     "props": {
                         "authorize": async options => {
-                            const res = await this.$api.call( "set-email-by-token", token, options );
+                            const res = await this.$api.call( "account/set-email-by-token", token, options );
 
                             return res;
                         },
                     },
                 } );
 
-                const res = await cmp.ext.show();
+                Ext.Viewport.unmask();
+
+                const res = await cmp.show();
 
                 if ( res ) this.$toast( this.l10n( "Email address changed" ) );
             }
