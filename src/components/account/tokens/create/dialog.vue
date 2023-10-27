@@ -18,8 +18,8 @@
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button ref="submit" :text="l10n(`Create token`)" ui="action" @tap="submit"/>
-            <ext-button ref="close" hidden="true" :text="l10n(`Close`)" ui="action" @tap="close"/>
+            <ext-button ref="submitButton" :text="l10n(`Create token`)" ui="action" @tap="submit"/>
+            <ext-button ref="closeButton" hidden="true" :text="l10n(`Done`)" ui="action" @tap="close"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -64,8 +64,7 @@ export default {
                 this.$refs.name.ext.setReadOnly( true );
                 this.$refs.done.ext.setHidden( false );
 
-                this.$refs.submit.ext.setHidden( true );
-                this.$refs.close.ext.setHidden( false );
+                this.$refs.submitButton.ext.setHidden( true );
 
                 this.$toast( this.l10n( "Token created" ) );
 
@@ -78,6 +77,8 @@ export default {
 
         copyToClipboard () {
             this.$utils.copyToClipboard( this.$refs.token.ext.getValue() );
+
+            this.$refs.closeButton.ext.setHidden( false );
 
             this.$toast( this.l10n( "Token copied to the clipboard" ) );
         },
