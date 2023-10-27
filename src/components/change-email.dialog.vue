@@ -4,15 +4,10 @@
             <ext-container :html="l10n(`Enter new email address which you want to use.`)" layout="center"/>
 
             <ext-emailfield errorTarget="under" :label="l10n(`New email address`)" name="email" :placeholder="l10n(`Enter new email address`)" required="true" validators="email"/>
-
-            <ext-textfield errorTarget="under" :hidden="true" :label="l10n(`Confirmation token`)" name="token" :placeholder="l10n(`Enter confirmation token`)" required="true"/>
         </ext-fieldpanel>
 
-        <ext-container ref="tokenSentText" :hidden="true" :html="l10n(`We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above.`)" padding="20 0 0 0"/>
-
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-            <ext-button ref="sendTokenButton" :text="l10n(`Send token`)" ui="action" @tap="_sendToken"/>
-            <ext-button ref="setEmailButton" :hidden="true" :text="l10n(`Change email`)" ui="action" @tap="_setEmail"/>
+            <ext-button :text="l10n(`Send token`)" ui="action" @tap="_sendToken"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -38,12 +33,7 @@ export default {
             cmp.setKeyMap( {
                 "ENTER": {
                     "handler": () => {
-                        if ( this.$refs.sendTokenButton.ext.isVisible() ) {
-                            this._sendToken();
-                        }
-                        else if ( this.$refs.setEmailButton.ext.isVisible() ) {
-                            this._setEmail();
-                        }
+                        this._sendToken();
                     },
                 },
             } );
@@ -52,7 +42,7 @@ export default {
         async _sendToken () {
             const form = this.$refs.form.ext;
 
-            if ( !form.getFields( "email" ).validate() ) return;
+            if ( !form.validate() ) return;
 
             const values = form.getValues();
 
@@ -64,33 +54,6 @@ export default {
 
             if ( res.ok ) {
                 this.$toast( this.l10n( "Change email token was sent to the new email address" ) );
-
-                form.getFields( "email" ).setReadOnly( true );
-                form.getFields( "token" ).show();
-                this.$refs.tokenSentText.ext.show();
-                this.$refs.sendTokenButton.ext.hide();
-                this.$refs.setEmailButton.ext.show();
-            }
-            else {
-                this.$toast( res );
-            }
-        },
-
-        async _setEmail () {
-            const form = this.$refs.form.ext;
-
-            if ( !form.getFields( "token" ).validate() ) return;
-
-            const values = form.getValues();
-
-            this.ext.mask( masks.loadMask );
-
-            const res = await this.$api.call( "account/set-email-by-token", values.token );
-
-            this.ext.unmask();
-
-            if ( res.ok ) {
-                this.$toast( this.l10n( "Email address changed" ) );
 
                 this.ext.close();
             }
