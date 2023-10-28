@@ -18,7 +18,7 @@
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button ref="submitButton" :text="l10n(`Create token`)" ui="action" @tap="submit"/>
+            <ext-button ref="generateTokenButton" :text="l10n(`Create token`)" ui="action" @tap="generateToken"/>
             <ext-button ref="closeButton" hidden="true" :text="l10n(`Done`)" ui="action" @tap="close"/>
         </ext-toolbar>
     </ext-dialog>
@@ -38,14 +38,25 @@ export default {
         formReady ( e ) {
             const cmp = e.detail.cmp;
 
-            cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+            cmp.setKeyMap( {
+                "ENTER": {
+                    "handler": () => {
+                        if ( !this.$refs.generateTokenButton.ext.getHidden() ) {
+                            this.generateToken();
+                        }
+                        else {
+                            this.copyToClipboard();
+                        }
+                    },
+                },
+            } );
         },
 
         close () {
             this.ext.close();
         },
 
-        async submit () {
+        async generateToken () {
             var form = this.$refs.form.ext;
 
             if ( !form.validate() ) return;
@@ -64,7 +75,7 @@ export default {
                 this.$refs.name.ext.setReadOnly( true );
                 this.$refs.done.ext.setHidden( false );
 
-                this.$refs.submitButton.ext.setHidden( true );
+                this.$refs.generateTokenButton.ext.setHidden( true );
 
                 this.$toast( this.l10n( "Token created" ) );
 
