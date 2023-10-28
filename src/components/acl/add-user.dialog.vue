@@ -61,11 +61,7 @@ export default {
         },
 
         async _addUser () {
-            if ( !this.$refs.addUserCombo.ext.validate() ) {
-                this.$toast( this.l10n( `Please, correctly fill all required fields` ) );
-
-                return;
-            }
+            if ( !this.$refs.addUserCombo.ext.validate() ) return;
 
             const res = await this.$api.call( "acl/add-acl-user", this.aclId, this.$refs.addUserCombo.ext.getValue(), {
                 "enabled": this.$refs.enabledField.ext.getValue(),
