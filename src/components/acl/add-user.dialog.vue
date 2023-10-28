@@ -15,6 +15,7 @@
 
 <script>
 import RolesPanel from "#src/components/acl/roles.panel";
+import masks from "#src/masks";
 
 export default {
     "components": { RolesPanel },
@@ -63,10 +64,14 @@ export default {
         async _addUser () {
             if ( !this.$refs.addUserCombo.ext.validate() ) return;
 
+            this.ext.mask( masks.loadMask );
+
             const res = await this.$api.call( "acl/add-acl-user", this.aclId, this.$refs.addUserCombo.ext.getValue(), {
                 "enabled": this.$refs.enabledField.ext.getValue(),
                 "roles": this.$refs.rolesPanel.getEnabledRoles(),
             } );
+
+            this.ext.unmask();
 
             if ( res.ok ) {
                 this.$toast( this.l10n( `User added` ) );
