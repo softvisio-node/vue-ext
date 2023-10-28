@@ -18,7 +18,7 @@
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button :text="l10n(`Create user`)" ui="action" @tap="_submit"/>
+            <ext-button :text="l10n(`Create user`)" ui="action" @tap="_createUser"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -61,7 +61,11 @@ export default {
         _onFormReady ( e ) {
             var cmp = e.detail.cmp;
 
-            cmp.setKeyMap( { "ENTER": { "handler": "submit", "scope": this } } );
+            cmp.setKeyMap( {
+                "ENTER": {
+                    "handler": this._createUser.bind( this ),
+                },
+            } );
         },
 
         _generatePassword () {
@@ -75,7 +79,7 @@ export default {
             this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );
         },
 
-        async _submit () {
+        async _createUser () {
             const form = this.$refs.form.ext;
 
             if ( !form.validate() ) return;
