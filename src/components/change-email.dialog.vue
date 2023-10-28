@@ -3,7 +3,7 @@
         <ext-fieldpanel ref="form" @ready="formReady">
             <ext-container :html="l10n(`Enter new email address which you want to use.`)" layout="center"/>
 
-            <ext-emailfield errorTarget="under" :label="l10n(`New email address`)" name="email" :placeholder="l10n(`Enter new email address`)" required="true" validators="email"/>
+            <ext-emailfield :label="l10n(`New email address`)" name="email" :placeholder="l10n(`Enter new email address`)" required="true" validators="email"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>

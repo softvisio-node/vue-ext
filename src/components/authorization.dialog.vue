@@ -8,7 +8,7 @@
         </ext-container>
 
         <ext-fieldpanel ref="form" @ready="_formReady">
-            <ext-passwordfield errorTarget="under" :label="l10n(`Password`)" name="password" :placeholder="l10n(`Enter password`)" required="true" revealable="true"/>
+            <ext-passwordfield :label="l10n(`Password`)" name="password" :placeholder="l10n(`Enter password`)" required="true" revealable="true"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>

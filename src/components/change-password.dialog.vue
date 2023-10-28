@@ -3,9 +3,9 @@
         <ext-container :html="header" style="text-align: center"/>
 
         <ext-fieldpanel ref="form" @ready="formReady">
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`New password`)" name="password" :placeholder="l10n(`Enter new password`)" required="true" revealable="true"/>
+            <ext-passwordfield :label="l10n(`New password`)" name="password" :placeholder="l10n(`Enter new password`)" required="true" revealable="true"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Confirm new password`)" name="confirmedPassword" :placeholder="l10n(`Confirm new password`)" required="true" revealable="true"/>
+            <ext-passwordfield :label="l10n(`Confirm new password`)" name="confirmedPassword" :placeholder="l10n(`Confirm new password`)" required="true" revealable="true"/>
         </ext-fieldpanel>
 
         <ext-container layout="center">
@@ -23,13 +23,6 @@ import masks from "#src/masks";
 import passwords from "#core/passwords";
 
 export default {
-    "props": {
-        "errorTarget": {
-            "type": String,
-            "default": "under",
-        },
-    },
-
     "computed": {
         title () {
             return this.l10n( `Password change` );

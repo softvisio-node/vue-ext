@@ -12,11 +12,11 @@
         </ext-container>
 
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}'>
-            <ext-emailfield :errorTarget="errorTarget" :label="l10n(`Email address`)" name="email" :placeholder="l10n(`Enter your email address`)" required="true" validators="email"/>
+            <ext-emailfield :label="l10n(`Email address`)" name="email" :placeholder="l10n(`Enter your email address`)" required="true" validators="email"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Password`)" name="password" :placeholder="l10n(`Enter password`)" required="true" revealable="true"/>
+            <ext-passwordfield :label="l10n(`Password`)" name="password" :placeholder="l10n(`Enter password`)" required="true" revealable="true"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Confirm password`)" name="confirmedPassword" :placeholder="l10n(`Confirm password`)" required="true" revealable="true"/>
+            <ext-passwordfield :label="l10n(`Confirm password`)" name="confirmedPassword" :placeholder="l10n(`Confirm password`)" required="true" revealable="true"/>
 
             <ext-container layout="center">
                 <ext-button :text="l10n(`Generate random password`)" @tap="_generatePassword"/>
@@ -37,13 +37,6 @@ import passwords from "#core/passwords";
 
 export default {
     "components": { OauthContainer },
-
-    "props": {
-        "errorTarget": {
-            "type": String,
-            "default": "qtip",
-        },
-    },
 
     "emits": ["signin"],
 

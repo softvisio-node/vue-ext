@@ -3,9 +3,9 @@
         <ext-fieldpanel ref="form">
             <ext-hiddenfield name="token" :value="token"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`New password`)" name="password" :placeholder="l10n(`Enter new password`)" required="true" revealable="true"/>
+            <ext-passwordfield :label="l10n(`New password`)" name="password" :placeholder="l10n(`Enter new password`)" required="true" revealable="true"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Confirm new password`)" name="confirmedPassword" :placeholder="l10n(`Confirm new password`)" required="true" revealable="true"/>
+            <ext-passwordfield :label="l10n(`Confirm new password`)" name="confirmedPassword" :placeholder="l10n(`Confirm new password`)" required="true" revealable="true"/>
 
             <ext-container layout="center">
                 <ext-button :text="l10n(`Generate random password`)" @tap="_generatePassword"/>
@@ -23,13 +23,6 @@ import passwords from "#core/passwords";
 import masks from "#src/masks";
 
 export default {
-    "props": {
-        "errorTarget": {
-            "type": String,
-            "default": "under",
-        },
-    },
-
     "computed": {
         token () {
             const hash = window.location.hash;

@@ -7,7 +7,7 @@
         </ext-toolbar>
 
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}'>
-            <ext-emailfield :errorTarget="errorTarget" :label="l10n(`Email address`)" name="email" :placeholder="l10n(`Enter your email address`)" required="true" validators="email"/>
+            <ext-emailfield :label="l10n(`Email address`)" name="email" :placeholder="l10n(`Enter your email address`)" required="true" validators="email"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
@@ -20,12 +20,6 @@
 
 <script>
 export default {
-    "props": {
-        "errorTarget": {
-            "type": String,
-            "default": "qtip",
-        },
-    },
     "emits": ["signin"],
 
     "methods": {

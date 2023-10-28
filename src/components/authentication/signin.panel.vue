@@ -12,9 +12,9 @@
         </ext-container>
 
         <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}' @ready="_ready">
-            <ext-emailfield :errorTarget="errorTarget" :label="l10n(`Email address`)" name="email" :placeholder="l10n(`Enter your email address`)" required="true" validators="email"/>
+            <ext-emailfield :label="l10n(`Email address`)" name="email" :placeholder="l10n(`Enter your email address`)" required="true" validators="email"/>
 
-            <ext-passwordfield :errorTarget="errorTarget" :label="l10n(`Password`)" name="password" :placeholder="l10n(`Enter password`)" required="true" revealable="true"/>
+            <ext-passwordfield :label="l10n(`Password`)" name="password" :placeholder="l10n(`Enter password`)" required="true" revealable="true"/>
         </ext-fieldpanel>
 
         <!-- password recovery -->
@@ -41,10 +41,6 @@ export default {
     "components": { OauthContainer },
 
     "props": {
-        "errorTarget": {
-            "type": String,
-            "default": "qtip",
-        },
         "signupEnabled": {
             "type": Boolean,
             "default": false,

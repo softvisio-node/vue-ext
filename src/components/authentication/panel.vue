@@ -4,11 +4,11 @@
             <LocaleButton :absolute="true"/>
         </ext-titlebar>
 
-        <SigninPanel :errorTarget="errorTarget" :passwordRecoveryEnabled="passwordRecoveryEnabled" :signupEnabled="signupEnabled" @recover="showPasswordRecovery" @signup="showSignup"/>
+        <SigninPanel :passwordRecoveryEnabled="passwordRecoveryEnabled" :signupEnabled="signupEnabled" @recover="showPasswordRecovery" @signup="showSignup"/>
 
-        <PasswordRecoveryPanel :errorTarget="errorTarget" @signin="showSignin"/>
+        <PasswordRecoveryPanel @signin="showSignin"/>
 
-        <SignupPanel :errorTarget="errorTarget" @signin="showSignin"/>
+        <SignupPanel @signin="showSignin"/>
     </ext-panel>
 </template>
 
@@ -22,10 +22,6 @@ export default {
     "components": { LocaleButton, SigninPanel, PasswordRecoveryPanel, SignupPanel },
 
     "props": {
-        "errorTarget": {
-            "type": String,
-            "default": "under",
-        },
         "passwordRecoveryEnabled": {
             "type": Boolean,
             "default": true,
