@@ -57,6 +57,17 @@ export default {
 ` );
         },
 
+        _onBotTypeChange ( e ) {
+            const value = e.detail.newValue;
+
+            if ( value ) {
+                this.$refs.description.ext.setHtml( TelegramBotComponents.get( value ).description );
+            }
+            else {
+                this.$refs.description.ext.setHtml( "" );
+            }
+        },
+
         async _checkApiToken () {
             const form = this.$refs.apiTokenPanel.ext;
 
@@ -69,19 +80,6 @@ export default {
             }
             else {
                 this.$refs.cardsPanel.ext.setActiveItem( this.$refs.botTypePanel.ext );
-            }
-        },
-
-        async _createBot () {},
-
-        _onBotTypeChange ( e ) {
-            const value = e.detail.newValue;
-
-            if ( value ) {
-                this.$refs.description.ext.setHtml( TelegramBotComponents.get( value ).description );
-            }
-            else {
-                this.$refs.description.ext.setHtml( "" );
             }
         },
     },

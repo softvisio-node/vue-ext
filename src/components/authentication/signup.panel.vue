@@ -17,10 +17,6 @@
             <ext-passwordfield :label="l10n(`Password`)" name="password" :placeholder="l10n(`Enter password`)" required="true" revealable="true"/>
 
             <ext-passwordfield :label="l10n(`Confirm password`)" name="confirmedPassword" :placeholder="l10n(`Confirm password`)" required="true" revealable="true"/>
-
-            <ext-container layout="center">
-                <ext-button :text="l10n(`Generate random password`)" @tap="_generatePassword"/>
-            </ext-container>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"align":"center","type":"hbox"}'>
@@ -33,7 +29,6 @@
 
 <script>
 import OauthContainer from "#src/components/oauth.container";
-import passwords from "#core/passwords";
 
 export default {
     "components": { OauthContainer },
@@ -67,17 +62,6 @@ export default {
 
             this.$refs.form.ext.getFields( "password" ).setRevealed( false );
             this.$refs.form.ext.getFields( "confirmedPassword" ).setRevealed( false );
-        },
-
-        _generatePassword () {
-            const password = passwords.generatePassword().password;
-
-            this.$utils.copyToClipboard( password );
-
-            this.$toast( this.l10n( `Password copied to the clipboard` ) );
-
-            this.$refs.form.ext.getFields( "password" ).setValue( password );
-            this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );
         },
 
         _submit () {
