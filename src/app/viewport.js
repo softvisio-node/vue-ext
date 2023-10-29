@@ -4,7 +4,7 @@ import VueViewport from "@softvisio/vue/app/viewport";
 
 // must be impoerted after ExtJS
 await import( "@fortawesome/fontawesome-free/css/all.min.css" );
-await import( "#src/Ext.override.viewport.Default" );
+await import( "./viewport/ext.patch.masks.js" );
 
 export default class VueExtViewport extends VueViewport {
 
