@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cardsPanel" @ready="ready">
+    <CardsPanel ref="cardsPanel" @ready="ready" @refresh="refresh">
         <template #dataPanel>
             <ext-panel ref="dataPanel" layout="vbox" padding="0 0 0 10" scrollable="true" viewModel="true">
                 <ext-toolbar docked="top">
@@ -92,7 +92,13 @@ export default {
 
     "methods": {
         async refresh () {
+            if ( !this.telegramBotLinkRecord ) return;
+
+            this.$refs.cardsPanel.mask();
+
             const res = await this.$api.call( "telegram/bots/links/get-link", this.telegramBotLinkRecord.id );
+
+            this.$refs.cardsPanel.setResult( res );
 
             if ( res.ok ) {
                 this.telegramBotLinkRecord.set( res.data );

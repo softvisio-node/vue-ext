@@ -84,6 +84,8 @@ export default {
 
         // public
         async refresh () {
+            this.$refs.cardsPanel.mask();
+
             const res = await this.$api.call( "telegram/bots/get-bot", this.telegramBotId );
 
             if ( !res.ok ) {
