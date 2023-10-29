@@ -90,14 +90,13 @@ export default {
                     "xtype": "container",
                     "layout": { "type": "hbox", "pack": "end", "align": "center" },
                     "items": [
-                        {
-                            "xtype": "button",
-                            "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.l10n( "Edit token roles" ),
 
-                            // "handler": this.showTokenRolesDialog.bind( this ),
-                            "disabled": true,
-                        },
+                        // {
+                        //     "xtype": "button",
+                        //     "iconCls": "fa-solid fa-unlock-alt",
+                        //     "tooltip": this.l10n( "Edit token roles" ),
+                        //     "handler": this.showTokenRolesDialog.bind( this ),
+                        // },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
