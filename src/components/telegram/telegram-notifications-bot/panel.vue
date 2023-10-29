@@ -5,11 +5,6 @@
             <BotPanel :telegramBotId="telegramBotId"/>
         </ext-panel>
 
-        <!-- links -->
-        <ext-panel iconCls="fa-solid fa-link" layout="fit" :title="l10n(`Bot links`)">
-            <BotLinksPanel :telegramBotId="telegramBotId"/>
-        </ext-panel>
-
         <!-- users -->
         <ext-panel iconCls="fa-solid fa-users" layout="fit" :title="l10n(`Bot users`)">
             <BotUsersPanel :telegramBotId="telegramBotId"/>
@@ -19,11 +14,10 @@
 
 <script>
 import BotPanel from "#src/components/telegram/bot/panel";
-import BotLinksPanel from "#src/components/telegram/bot/links/panel";
 import BotUsersPanel from "#src/components/telegram/bot/users/panel";
 
 export default {
-    "components": { BotPanel, BotLinksPanel, BotUsersPanel },
+    "components": { BotPanel, BotUsersPanel },
 
     "props": {
         "telegramBotId": {
