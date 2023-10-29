@@ -11,7 +11,7 @@
         </template>
 
         <template #dataPanel>
-            <ext-grid layout="fit" multicolumnSort="true" plugins='{"gridsummaryrow":true}' @ready="gridReady">
+            <ext-grid multicolumnSort="true" @ready="gridReady">
                 <ext-column dataIndex="name" flex="1" :text="l10n(`Token name`)"/>
 
                 <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="l10n(`Last activity`)" width="150"/>
