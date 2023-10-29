@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.10.10 (2023-10-29)
+
+Fixes:
+
+-   fix: error target
+-   fix: forms
+
 ### 8.10.9 (2023-10-27)
 
 Fixes:
