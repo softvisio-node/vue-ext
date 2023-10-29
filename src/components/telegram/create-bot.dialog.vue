@@ -5,7 +5,9 @@
             <ext-fieldpanel ref="apiTokenPanel">
                 <ext-textfield :label="l10n(`Enter your Telegram bot API token`)" name="api_token" required="true"/>
 
-                <ext-comboboxfield displayField="name" displayTpl="{name} <br/> {description}" forceSelection="true" :label="l10n(`Telegram bot type`)" :placeholder="l10n(`Select Telegram bot tyoe`)" required="true" :store="store" triggerAction="all" valueField="id"/>
+                <ext-comboboxfield displayField="name" displayTpl="{name}" forceSelection="true" :label="l10n(`Telegram bot type`)" :placeholder="l10n(`Select Telegram bot tyoe`)" required="true" :store="store" triggerAction="all" valueField="id" @ready="_onBotTypeComboReady" @select1="_onBotTypeChange"/>
+
+                <ext-container ref="description"/>
 
                 <ext-toolbar docked="bottom">
                     <ext-spacer/>
@@ -43,6 +45,12 @@ export default {
             e.detail.cmp.setActiveItem( 0 );
         },
 
+        _onBotTypeComboReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setItemTpl( `{name} - {description}` );
+        },
+
         async _checkApiToken () {
             const form = this.$refs.apiTokenPanel.ext;
 
@@ -59,6 +67,10 @@ export default {
         },
 
         async _createBot () {},
+
+        _onBotTypeChange ( value ) {
+            alert( value );
+        },
     },
 };
 </script>
