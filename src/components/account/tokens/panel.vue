@@ -20,7 +20,7 @@
 
                 <ext-column sorter='{"property":"enabled"}' summaryDataIndex="-" :text="l10n(`Access enabled`)" width="160" @ready="enabledColReady"/>
 
-                <ext-column width="50" @ready="actionColReady"/>
+                <ext-column width="80" @ready="actionColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
@@ -90,13 +90,14 @@ export default {
                     "xtype": "container",
                     "layout": { "type": "hbox", "pack": "end", "align": "center" },
                     "items": [
+                        {
+                            "xtype": "button",
+                            "iconCls": "fa-solid fa-unlock-alt",
+                            "tooltip": this.l10n( "Edit token roles" ),
 
-                        // {
-                        //     "xtype": "button",
-                        //     "iconCls": "fa-solid fa-unlock-alt",
-                        //     "tooltip": this.l10n( "Edit token roles" ),
-                        //     "handler": this.showTokenRolesDialog.bind( this ),
-                        // },
+                            // "handler": this.showTokenRolesDialog.bind( this ),
+                            "disabled": true,
+                        },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
