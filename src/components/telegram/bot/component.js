@@ -6,31 +6,29 @@ export default class TelegramBotComponent {
     static #store;
 
     constructor () {
-        if ( REGISTRY[this.type] ) {
-            throw Error( `Telegram bot type ${this.type} already registered` );
+        if ( REGISTRY[this.id] ) {
+            throw Error( `Telegram bot id ${this.id} already registered` );
         }
 
-        REGISTRY[this.type] = this;
+        REGISTRY[this.id] = this;
     }
 
     // static
-    static get ( type ) {
-        return REGISTRY[type];
+    static get ( id ) {
+        return REGISTRY[id];
     }
 
     static get store () {
         if ( !this.#store ) {
             this.#store = Ext.create( "Ext.data.Store", {
-                "model": TelegramComponentModel,
                 "remoteSort": false,
                 "remoteFilter": false,
                 "data": Object.values( REGISTRY ).map( component => {
-                    return {
-                        "id": component.type,
-                        "type": component.type,
+                    return new TelegramComponentModel( {
+                        "id": component.id,
                         "name": component.name,
                         "description": component.description,
-                    };
+                    } );
                 } ),
             } );
         }
@@ -39,8 +37,8 @@ export default class TelegramBotComponent {
     }
 
     // propertirs
-    get type () {
-        throw `Bot type is reqiored`;
+    get id () {
+        throw `Bot id is reqiored`;
     }
 
     get name () {

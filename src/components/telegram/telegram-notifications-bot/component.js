@@ -4,7 +4,7 @@ import TelegramBotComponent from "#src/components/telegram/bot/component";
 class Component extends TelegramBotComponent {
 
     // propertirs
-    get type () {
+    get id () {
         return "telegramNotificationsBot";
     }
 

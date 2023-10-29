@@ -5,7 +5,6 @@ export default Ext.define( null, {
         "id",
 
         //
-        "type",
         "name",
         "description",
     ],
