@@ -5,7 +5,7 @@
             <ext-fieldpanel ref="apiTokenPanel">
                 <ext-textfield :label="l10n(`Enter your Telegram bot API token`)" name="api_token" required="true"/>
 
-                <ext-comboboxfield displayField="name" displayTpl="{name}" forceSelection="true" :label="l10n(`Telegram bot type`)" :placeholder="l10n(`Select Telegram bot tyoe`)" required="true" :store="store" triggerAction="all" valueField="id" @ready="_onBotTypeComboReady" @select1="_onBotTypeChange"/>
+                <ext-comboboxfield displayField="name" displayTpl="{name}" forceSelection="true" :label="l10n(`Telegram bot type`)" :placeholder="l10n(`Select Telegram bot tyoe`)" required="true" :store="store" triggerAction="all" valueField="id" @change="_onBotTypeChange" @ready="_onBotTypeComboReady"/>
 
                 <ext-container ref="description"/>
 
@@ -48,7 +48,13 @@ export default {
         _onBotTypeComboReady ( e ) {
             const cmp = e.detail.cmp;
 
-            cmp.setItemTpl( `{name} - {description}` );
+            cmp.setItemTpl( `
+<div style="font-size:1.3em">
+    {name}
+</div>
+<br/>
+{description}
+` );
         },
 
         async _checkApiToken () {
@@ -68,8 +74,15 @@ export default {
 
         async _createBot () {},
 
-        _onBotTypeChange ( value ) {
-            alert( value );
+        _onBotTypeChange ( e ) {
+            const value = e.detail.newValue;
+
+            if ( value ) {
+                this.$refs.description.ext.setHtml( TelegramBotComponents.get( value ).description );
+            }
+            else {
+                this.$refs.description.ext.setHtml( "" );
+            }
         },
     },
 };
