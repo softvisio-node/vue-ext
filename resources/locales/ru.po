@@ -42,17 +42,17 @@ msgstr "Цвет акцента"
 msgid "Access denied"
 msgstr ""
 
-#: ../../src/components/account/tokens/panel.vue:150:71
-#: ../../src/components/acl/panel.vue:258:71
+#: ../../src/components/account/tokens/panel.vue:151:71
+#: ../../src/components/acl/panel.vue:259:71
 #: ../../src/components/administration/users/panel.vue:271:71
 msgid "Access disabled"
 msgstr "Доступ запрещен"
 
-#: ../../src/components/account/tokens/panel.vue:150:39
+#: ../../src/components/account/tokens/panel.vue:151:39
 #: ../../src/components/account/tokens/panel.vue:21:88
 #: ../../src/components/acl/add-user.dialog.vue:5:52
 #: ../../src/components/acl/panel.vue:21:67
-#: ../../src/components/acl/panel.vue:258:39
+#: ../../src/components/acl/panel.vue:259:39
 #: ../../src/components/administration/users/create-user.dialog.vue:14:37
 #: ../../src/components/administration/users/panel.vue:25:67
 #: ../../src/components/administration/users/panel.vue:271:39
@@ -110,11 +110,11 @@ msgstr ""
 msgid "Are you sure you want to delete this link and all it's data? This operation is not revertable."
 msgstr ""
 
-#: ../../src/components/account/tokens/panel.vue:160:47
+#: ../../src/components/account/tokens/panel.vue:161:47
 msgid "Are you sure you want to delete this token?"
 msgstr "Вы действительно хотите удалить этот токен?"
 
-#: ../../src/components/acl/panel.vue:267:47
+#: ../../src/components/acl/panel.vue:268:47
 #: ../../src/components/administration/users/panel.vue:281:47
 msgid "Are you sure you want to delete user?"
 msgstr "Вы действительно хотите удалить пользователя?"
@@ -131,7 +131,7 @@ msgstr "Для выполнения этой операции требуется
 msgid "Authorize"
 msgstr "Авторизоваться"
 
-#: ../../src/components/authorization.dialog.vue:72:29
+#: ../../src/components/authorization.dialog.vue:99:29
 msgid "Authorized"
 msgstr "Авторизованно"
 
@@ -220,11 +220,10 @@ msgid "Change bot API token"
 msgstr ""
 
 #: ../../src/components/account/account.panel.vue:22:47
-#: ../../src/components/change-email.dialog.vue:15:67
 msgid "Change email"
 msgstr "Изменить email"
 
-#: ../../src/components/change-email.dialog.vue:66:29
+#: ../../src/components/change-email.dialog.vue:56:29
 msgid "Change email token was sent to the new email address"
 msgstr "Токен изменения электронной почты был отправлен на новый адрес электронной почты"
 
@@ -264,17 +263,17 @@ msgstr "Подтвердить"
 msgid "Confirm email"
 msgstr ""
 
-#: ../../src/components/change-password.dialog.vue:8:135
-#: ../../src/components/change-password.dialog.vue:8:66
-#: ../../src/components/reset-password.dialog.vue:8:135
-#: ../../src/components/reset-password.dialog.vue:8:66
+#: ../../src/components/change-password.dialog.vue:8:108
+#: ../../src/components/change-password.dialog.vue:8:39
+#: ../../src/components/reset-password.dialog.vue:8:108
+#: ../../src/components/reset-password.dialog.vue:8:39
 msgid "Confirm new password"
 msgstr "Подтвердите новый пароль"
 
-#: ../../src/components/administration/users/create-user.dialog.vue:8:166
-#: ../../src/components/administration/users/create-user.dialog.vue:8:66
-#: ../../src/components/authentication/signup.panel.vue:19:131
-#: ../../src/components/authentication/signup.panel.vue:19:66
+#: ../../src/components/administration/users/create-user.dialog.vue:8:139
+#: ../../src/components/administration/users/create-user.dialog.vue:8:39
+#: ../../src/components/authentication/signup.panel.vue:19:104
+#: ../../src/components/authentication/signup.panel.vue:19:39
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
@@ -298,7 +297,7 @@ msgstr "Ошибка подключения"
 msgid "Copy email"
 msgstr ""
 
-#: ../../src/components/notifications/link-telegram.dialig.vue:9:54
+#: ../../src/components/notifications/link-telegram.dialig.vue:11:54
 #: ../../src/components/telegram/bot/links/details.panel.vue:7:68
 #: ../../src/components/telegram/bot/links/panel.vue:120:36
 msgid "Copy link"
@@ -338,7 +337,7 @@ msgstr ""
 msgid "Create Telegram bot link"
 msgstr ""
 
-#: ../../src/components/account/tokens/create/dialog.vue:21:44
+#: ../../src/components/account/tokens/create/dialog.vue:21:57
 #: ../../src/components/account/tokens/create/dialog.vue:2:51
 #: ../../src/components/account/tokens/panel.vue:8:62
 msgid "Create token"
@@ -381,6 +380,10 @@ msgstr "Удалить"
 msgid "Delete all"
 msgstr "Удалить все"
 
+#: ../../src/components/user-sessions/panel.vue:7:67
+msgid "Delete all sessions"
+msgstr ""
+
 #: ../../src/components/administration/telegram/panel.vue:129:48
 #: ../../src/components/telegram/bot/info.panel.vue:70:116
 msgid "Delete bot"
@@ -388,6 +391,10 @@ msgstr "Удалить бота"
 
 #: ../../src/components/telegram/bot/links/details.panel.vue:64:128
 msgid "Delete link"
+msgstr ""
+
+#: ../../src/components/user-sessions/panel.vue:68:39
+msgid "Delete session"
 msgstr ""
 
 #: ../../src/components/acl/panel.vue:215:39
@@ -418,6 +425,7 @@ msgstr "Темный режим устройства"
 msgid "Do not have account? Sign up"
 msgstr "Нет аккаута? Зарегистрируйтесь"
 
+#: ../../src/components/account/tokens/create/dialog.vue:22:63
 #: ../../src/components/notifications/panel.vue:9:85
 msgid "Done"
 msgstr "Готово"
@@ -460,19 +468,19 @@ msgid "Edit user roles"
 msgstr "Редактировать роли пользователя"
 
 #: ../../src/components/acl/panel.vue:17:100
-#: ../../src/components/administration/users/create-user.dialog.vue:4:63
+#: ../../src/components/administration/users/create-user.dialog.vue:4:36
 #: ../../src/components/administration/users/panel.vue:17:62
 msgid "Email"
 msgstr "Email"
 
 #: ../../src/components/account/account.panel.vue:16:74
-#: ../../src/components/authentication/password-recovery.panel.vue:10:63
-#: ../../src/components/authentication/signin.panel.vue:15:63
-#: ../../src/components/authentication/signup.panel.vue:15:63
+#: ../../src/components/authentication/password-recovery.panel.vue:10:36
+#: ../../src/components/authentication/signin.panel.vue:15:36
+#: ../../src/components/authentication/signup.panel.vue:15:36
 msgid "Email address"
 msgstr "Адрес email"
 
-#: ../../src/components/change-email.dialog.vue:93:29
+#: ../../src/viewport.vue:106:45
 msgid "Email address changed"
 msgstr "Адрес email изменен"
 
@@ -480,15 +488,15 @@ msgstr "Адрес email изменен"
 msgid "Email address confirmed"
 msgstr ""
 
-#: ../../src/components/change-email.dialog.vue:26:19
+#: ../../src/components/change-email.dialog.vue:21:19
 msgid "Email change"
 msgstr "Изменение email"
 
-#: ../../src/viewport.vue:70:29
+#: ../../src/viewport.vue:73:29
 msgid "Email confirmation token is invalid"
 msgstr "Токен подтверждения email неверен"
 
-#: ../../src/viewport.vue:76:33
+#: ../../src/viewport.vue:79:33
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
 
@@ -496,11 +504,11 @@ msgstr "Email подтвержден успешно"
 msgid "Enter confirmation token"
 msgstr "Введите токен подтверждения"
 
-#: ../../src/components/administration/users/create-user.dialog.vue:4:140
+#: ../../src/components/administration/users/create-user.dialog.vue:4:113
 msgid "Enter email"
 msgstr "Введите email"
 
-#: ../../src/components/change-email.dialog.vue:6:110
+#: ../../src/components/change-email.dialog.vue:6:90
 msgid "Enter new email address"
 msgstr "Введите новый адрес email"
 
@@ -508,8 +516,8 @@ msgstr "Введите новый адрес email"
 msgid "Enter new email address which you want to use."
 msgstr "Введите новый адрес электронной почты, который вы хотите использовать."
 
-#: ../../src/components/change-password.dialog.vue:6:118
-#: ../../src/components/reset-password.dialog.vue:6:118
+#: ../../src/components/change-password.dialog.vue:6:91
+#: ../../src/components/reset-password.dialog.vue:6:91
 msgid "Enter new password"
 msgstr "Введите новый пароль"
 
@@ -517,16 +525,16 @@ msgstr "Введите новый пароль"
 msgid "Enter new token name"
 msgstr "Введите имя нового токена"
 
-#: ../../src/components/administration/users/create-user.dialog.vue:6:149
-#: ../../src/components/authentication/signin.panel.vue:17:114
-#: ../../src/components/authentication/signup.panel.vue:17:114
-#: ../../src/components/authorization.dialog.vue:11:107
+#: ../../src/components/administration/users/create-user.dialog.vue:6:122
+#: ../../src/components/authentication/signin.panel.vue:17:87
+#: ../../src/components/authentication/signup.panel.vue:17:87
+#: ../../src/components/authorization.dialog.vue:11:87
 msgid "Enter password"
 msgstr "Введите пароль"
 
-#: ../../src/components/authentication/password-recovery.panel.vue:10:113
-#: ../../src/components/authentication/signin.panel.vue:15:113
-#: ../../src/components/authentication/signup.panel.vue:15:113
+#: ../../src/components/authentication/password-recovery.panel.vue:10:86
+#: ../../src/components/authentication/signin.panel.vue:15:86
+#: ../../src/components/authentication/signup.panel.vue:15:86
 msgid "Enter your email address"
 msgstr "Введите ваш адрес email"
 
@@ -775,12 +783,12 @@ msgstr "Переместить во входящие"
 msgid "Name"
 msgstr "Имя"
 
-#: ../../src/components/change-email.dialog.vue:6:56
+#: ../../src/components/change-email.dialog.vue:6:36
 msgid "New email address"
 msgstr "Новый адрес email"
 
-#: ../../src/components/change-password.dialog.vue:6:66
-#: ../../src/components/reset-password.dialog.vue:6:66
+#: ../../src/components/change-password.dialog.vue:6:39
+#: ../../src/components/reset-password.dialog.vue:6:39
 msgid "New password"
 msgstr "Новый пароль"
 
@@ -815,7 +823,7 @@ msgstr ""
 
 #: ../../src/components/account/panel.vue:9:40
 #: ../../src/components/notifications/dialog.vue:2:68
-#: ../../src/components/notifications/settings.panel.vue:36:85
+#: ../../src/components/notifications/settings.panel.vue:40:85
 #: ../../src/components/notifications/subscribe.dialog.vue:2:68
 msgid "Notifications"
 msgstr "Уведомления"
@@ -851,40 +859,40 @@ msgstr ""
 msgid "Open charts"
 msgstr ""
 
-#: ../../src/components/notifications/settings.panel.vue:23:47
+#: ../../src/components/notifications/settings.panel.vue:27:47
 msgid "Open Telegram bot"
 msgstr "Открыть Telegram-бот"
 
-#: ../../src/components/notifications/link-telegram.dialig.vue:7:30
+#: ../../src/components/notifications/link-telegram.dialig.vue:9:30
 msgid "Or if you have Telegram installed on the <b>OTHER</b> device, then copy link url and open it on device there your Telegram is installed:"
 msgstr "Или, если у вас установлен Telegram на <b>ДРУГОМ</b> устройстве, скопируйте ссылку и откройте ее на устройстве, где установлен ваш Telegram:"
 
 #: ../../src/components/account/account.panel.vue:11:74
-#: ../../src/components/administration/users/create-user.dialog.vue:6:66
-#: ../../src/components/authentication/signin.panel.vue:17:66
-#: ../../src/components/authentication/signup.panel.vue:17:66
-#: ../../src/components/authorization.dialog.vue:11:59
+#: ../../src/components/administration/users/create-user.dialog.vue:6:39
+#: ../../src/components/authentication/signin.panel.vue:17:39
+#: ../../src/components/authentication/signup.panel.vue:17:39
+#: ../../src/components/authorization.dialog.vue:11:39
 msgid "Password"
 msgstr "Пароль"
 
-#: ../../src/components/change-password.dialog.vue:35:19
+#: ../../src/components/change-password.dialog.vue:28:19
 #: ../../src/components/reset-password.dialog.vue:2:51
 msgid "Password change"
 msgstr "Изменение пароля"
 
-#: ../../src/components/authentication/password-recovery.panel.vue:75:29
+#: ../../src/components/authentication/password-recovery.panel.vue:69:29
 msgid "Password change instructions were sent to the email address, associated with your account."
 msgstr "Инструкции по изменению пароль отправлены на ваш email."
 
-#: ../../src/components/change-password.dialog.vue:75:29
-#: ../../src/components/reset-password.dialog.vue:93:29
+#: ../../src/components/change-password.dialog.vue:68:29
+#: ../../src/components/reset-password.dialog.vue:87:29
 msgid "Password changed"
 msgstr "Пароль изменен"
 
 #: ../../src/components/administration/users/create-user.dialog.vue:72:25
-#: ../../src/components/authentication/signup.panel.vue:84:25
-#: ../../src/components/change-password.dialog.vue:93:25
-#: ../../src/components/reset-password.dialog.vue:107:25
+#: ../../src/components/authentication/signup.panel.vue:77:25
+#: ../../src/components/change-password.dialog.vue:86:25
+#: ../../src/components/reset-password.dialog.vue:101:25
 msgid "Password copied to the clipboard"
 msgstr "Пароль скопирован в буфер обмена"
 
@@ -892,14 +900,14 @@ msgstr "Пароль скопирован в буфер обмена"
 msgid "Password recovery"
 msgstr "Восстановление пароля"
 
-#: ../../src/components/reset-password.dialog.vue:52:29
+#: ../../src/components/reset-password.dialog.vue:46:29
 msgid "Password recovery token was not found"
 msgstr "Токен восстановления пароля не найден"
 
 #: ../../src/components/administration/users/create-user.dialog.vue:86:64
-#: ../../src/components/authentication/signup.panel.vue:102:64
-#: ../../src/components/change-password.dialog.vue:63:64
-#: ../../src/components/reset-password.dialog.vue:81:64
+#: ../../src/components/authentication/signup.panel.vue:95:64
+#: ../../src/components/change-password.dialog.vue:56:64
+#: ../../src/components/reset-password.dialog.vue:75:64
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
@@ -925,10 +933,9 @@ msgstr "Платформа"
 msgid "Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again."
 msgstr "Пожалуйста, скопируйте токен в буфер и сохраните в надежном месте. После того, как это окно будет закрыто, мы не сможем показать вам этот токен снова."
 
-#: ../../src/components/acl/add-user.dialog.vue:63:29
-#: ../../src/components/authentication/password-recovery.panel.vue:56:29
-#: ../../src/components/authentication/signin.panel.vue:79:29
-#: ../../src/components/authentication/signup.panel.vue:94:29
+#: ../../src/components/authentication/password-recovery.panel.vue:50:29
+#: ../../src/components/authentication/signin.panel.vue:75:29
+#: ../../src/components/authentication/signup.panel.vue:87:29
 msgid "Please, correctly fill all required fields"
 msgstr "Пожалуйста, правильно заполните все требуемые поля"
 
@@ -1067,7 +1074,7 @@ msgstr ""
 msgid "Select user"
 msgstr "Выбрать пользователя"
 
-#: ../../src/components/change-email.dialog.vue:14:53
+#: ../../src/components/change-email.dialog.vue:10:31
 msgid "Send token"
 msgstr "Отправить токен"
 
@@ -1075,11 +1082,11 @@ msgstr "Отправить токен"
 msgid "Session closed"
 msgstr "Сессия закрыта"
 
-#: ../../src/components/user-sessions/panel.vue:87:29
+#: ../../src/components/user-sessions/panel.vue:88:29
 msgid "Session was deleted"
 msgstr "Сессия была удалена"
 
-#: ../../src/components/user-sessions/panel.vue:109:29
+#: ../../src/components/user-sessions/panel.vue:110:29
 msgid "Sessions were deleted"
 msgstr "Сессии были удалены"
 
@@ -1105,7 +1112,6 @@ msgid "Sign in with"
 msgstr "Войти через"
 
 #: ../../src/components/application/menu.vue:46:66
-#: ../../src/components/user-sessions/panel.vue:68:39
 msgid "Sign out"
 msgstr "Выйти"
 
@@ -1204,15 +1210,15 @@ msgstr ""
 msgid "Telegram bots"
 msgstr "Telegram-боты"
 
-#: ../../src/components/notifications/link-telegram.dialig.vue:43:25
+#: ../../src/components/notifications/link-telegram.dialig.vue:45:25
 msgid "Telegram link copied to the clipboard"
 msgstr "Ссылка на Telegram скопирована в буфер обмена"
 
-#: ../../src/components/notifications/settings.panel.vue:118:29
+#: ../../src/components/notifications/settings.panel.vue:130:29
 msgid "Telegram linked"
 msgstr "Telegram привязвн"
 
-#: ../../src/components/notifications/settings.panel.vue:121:29
+#: ../../src/components/notifications/settings.panel.vue:133:29
 msgid "Telegram unlinked"
 msgstr "Telegram отвязан"
 
@@ -1229,15 +1235,15 @@ msgstr "Чтобы использовать бота поддержки Telegram
 msgid "Toggle dark mode"
 msgstr "Переключить темный режим"
 
-#: ../../src/components/account/tokens/create/dialog.vue:83:25
+#: ../../src/components/account/tokens/create/dialog.vue:94:25
 msgid "Token copied to the clipboard"
 msgstr "Токен скопирован"
 
-#: ../../src/components/account/tokens/create/dialog.vue:71:29
+#: ../../src/components/account/tokens/create/dialog.vue:80:29
 msgid "Token created"
 msgstr "Токен создан"
 
-#: ../../src/components/account/tokens/panel.vue:165:29
+#: ../../src/components/account/tokens/panel.vue:166:29
 msgid "Token deleted"
 msgstr "Токен удален"
 
@@ -1305,7 +1311,7 @@ msgstr "Не удалось загрузить данные"
 msgid "Unban user"
 msgstr ""
 
-#: ../../src/components/notifications/settings.panel.vue:24:75
+#: ../../src/components/notifications/settings.panel.vue:28:75
 msgid "Unlink Telegram"
 msgstr "Отвязать Telegram"
 
@@ -1344,11 +1350,11 @@ msgstr ""
 msgid "User"
 msgstr "Пользователь"
 
-#: ../../src/components/acl/add-user.dialog.vue:74:29
+#: ../../src/components/acl/add-user.dialog.vue:77:29
 msgid "User added"
 msgstr "Пользователь добавлен"
 
-#: ../../src/components/administration/users/create-user.dialog.vue:99:29
+#: ../../src/components/administration/users/create-user.dialog.vue:103:29
 msgid "User created"
 msgstr "Пользователь создан"
 
@@ -1356,7 +1362,7 @@ msgstr "Пользователь создан"
 msgid "User creation"
 msgstr "Создание пользователя"
 
-#: ../../src/components/acl/panel.vue:276:29
+#: ../../src/components/acl/panel.vue:277:29
 #: ../../src/components/administration/users/panel.vue:290:29
 msgid "User deleted"
 msgstr "Пользователь удален"
