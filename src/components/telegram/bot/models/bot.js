@@ -48,7 +48,7 @@ export default Ext.define( null, {
         { "name": "can_stop", "calculate": data => data.acl_user_permissions.has( "telegram/bot:update" ) && data.started },
 
         { "name": "can_create_link", "calculate": data => data.acl_user_permissions.has( "telegram/bot/links:create" ) },
-        { "name": "can_read_link", "calculate": data => data.acl_user_permissions.has( "telegram/bot/links:read" ) },
+        { "name": "can_read_links", "calculate": data => data.acl_user_permissions.has( "telegram/bot/links:read" ) },
         { "name": "can_update_link", "calculate": data => data.acl_user_permissions.has( "telegram/bot/links:update" ) },
         { "name": "can_delete_link", "calculate": data => data.acl_user_permissions.has( "telegram/bot/links:delete" ) },
 

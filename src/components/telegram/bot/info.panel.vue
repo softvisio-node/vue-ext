@@ -16,7 +16,7 @@
                     <ext-container layout="hbox">
                         <ext-displayfield bind="{record.url}" :label="l10n(`Telegram bot url`)" labelAlign="left" labelWidth="200"/>
                         <ext-spacer/>
-                        <ext-button :text="l10n(`Links`)" @tap="_showLinksDialog"/>
+                        <ext-button bind='{"hidden":"{!record.can_read_links}"}' iconCls="fa-solid fa-link" :text="l10n(`Links`)" @tap="_showLinksDialog"/>
                         <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`)" @tap="_copyBotUrl"/>
                         <ext-button iconCls="fa-solid fa-arrow-up-right-from-square" :tooltip="l10n(`Open bot in Tekegram`)" @tap="_openBotUrl"/>
                     </ext-container>
