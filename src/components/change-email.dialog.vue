@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import masks from "#src/masks";
-
 export default {
     "computed": {
         title () {
@@ -46,7 +44,7 @@ export default {
 
             const values = form.getValues();
 
-            this.ext.mask( masks.loadMask );
+            this.ext.mask();
 
             const res = await this.$api.call( "account/send-email-change-token", values.email );
 

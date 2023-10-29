@@ -27,7 +27,6 @@
 import constants from "#core/app/constants";
 import passwords from "#core/passwords";
 import RolesPanel from "#src/components/acl/roles.panel";
-import masks from "#src/masks";
 
 export default {
     "components": { RolesPanel },
@@ -93,7 +92,7 @@ export default {
 
             delete values.confirmedPassword;
 
-            this.ext.mask( masks.loadMask );
+            this.ext.mask();
 
             const res = await this.$api.call( "administration/users/create", email, values, this.$refs.rolesPanel.getEnabledRoles() );
 

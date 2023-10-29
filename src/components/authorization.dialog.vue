@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import masks from "#src/masks";
 import OauthContainer from "#src/components/oauth.container";
 
 export default {
@@ -73,7 +72,7 @@ export default {
         },
 
         async _authorize ( options ) {
-            this.ext.mask( masks.loadMask );
+            this.ext.mask();
 
             var res;
 

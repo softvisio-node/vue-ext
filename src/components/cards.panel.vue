@@ -36,8 +36,6 @@
 </template>
 
 <script>
-import masks from "#src/masks";
-
 export default {
     "props": {
         "hidden": {
@@ -62,7 +60,7 @@ export default {
         },
         "loadMask": {
             "type": Object,
-            "default": masks.loadMask,
+            "default": null,
         },
         "refreshOnRender": {
             "type": Boolean,
