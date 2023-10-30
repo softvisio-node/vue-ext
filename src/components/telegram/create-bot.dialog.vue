@@ -7,6 +7,8 @@
 
                 <ext-comboboxfield displayField="name" displayTpl="{name}" forceSelection="true" :label="l10n(`Telegram bot type`)" :placeholder="l10n(`Select Telegram bot tyoe`)" required="true" :store="store" triggerAction="all" valueField="id" @change="_onBotTypeChange" @ready="_onBotTypeComboReady"/>
 
+                <ext-spacer height="10"/>
+
                 <ext-container ref="description"/>
 
                 <ext-toolbar docked="bottom">
@@ -53,7 +55,9 @@ export default {
     {name}
 </div>
 <br/>
-{description}
+<div style="max-height:50px;text-overflow:ellipsis">
+    {description}
+</div>
 ` );
         },
 
