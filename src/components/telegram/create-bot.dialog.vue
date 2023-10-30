@@ -56,7 +56,7 @@ export default {
 </div>
 <br/>
 <div style="max-height:50px;text-overflow:ellipsis">
-    {description}
+    {short_description}
 </div>
 ` );
         },

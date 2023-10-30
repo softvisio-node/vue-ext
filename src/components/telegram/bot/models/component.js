@@ -6,6 +6,7 @@ export default Ext.define( null, {
 
         //
         "name",
+        "short_description",
         "description",
     ],
 } );

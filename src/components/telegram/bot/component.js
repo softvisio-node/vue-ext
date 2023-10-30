@@ -24,6 +24,7 @@ export default class TelegramBotComponent {
                 return new TelegramComponentModel( {
                     "id": component.id,
                     "name": component.name,
+                    "short_description": component.shortDescription,
                     "description": component.description,
                 } );
             } ),
@@ -39,8 +40,12 @@ export default class TelegramBotComponent {
         throw `Bot name is reqiored`;
     }
 
-    get description () {
+    get shortDescription () {
         return this.name;
+    }
+
+    get description () {
+        return this.shortDescription;
     }
 
     get panel () {
