@@ -46,11 +46,7 @@ export default {
         async _submit () {
             const form = this.$refs.form.ext;
 
-            if ( !form.validate() ) {
-                this.$toast( this.l10n( `Please, correctly fill all required fields` ) );
-
-                return;
-            }
+            if ( !form.validate() ) return;
 
             const values = form.getValues();
 
