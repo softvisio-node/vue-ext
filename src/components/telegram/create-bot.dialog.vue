@@ -11,19 +11,20 @@
 
                 <ext-toolbar docked="bottom">
                     <ext-spacer/>
-                    <ext-button :text="l10n(`Next`)" ui="action" @tap="_checkApiToken"/>
+                    <ext-button iconAlign="right" iconCls="fa-solid fa-arrow-right" :text="l10n(`Next`)" ui="action" @tap="_checkApiToken"/>
                 </ext-toolbar>
             </ext-fieldpanel>
 
-            <!-- bot type panel -->
+            <!-- create bot panel -->
             <ext-fieldpanel ref="botTypePanel">
                 <ext-displayfield :label="l10n(`Telegram bot username`)"/>
 
                 <ext-displayfield :label="l10n(`Telegram bot name`)"/>
 
                 <ext-toolbar docked="bottom">
+                    <ext-button iconCls="fa-solid fa-arrow-left" :text="l10n(`Back`)" @tap="_back"/>
                     <ext-spacer/>
-                    <ext-button :text="l10n(`Next`)" ui="action" @tap="_checkApiToken"/>
+                    <ext-button :text="l10n(`Create bpt`)" ui="action" @tap="_createBot"/>
                 </ext-toolbar>
             </ext-fieldpanel>
         </ext-panel>
@@ -71,12 +72,17 @@ export default {
             }
         },
 
+        // XXX
         async _checkApiToken () {
             const form = this.$refs.apiTokenPanel.ext;
 
             if ( !form.validate() ) return;
 
+            this.$refs.cardsPanel.ext.mask();
+
             const res = await this.$api.call( "telegram/bots/check-bot-api-token", form.getValues().api_token );
+
+            this.$refs.cardsPanel.ext.unmask();
 
             if ( !res.ok ) {
                 this.$toast( res );
@@ -84,6 +90,17 @@ export default {
             else {
                 this.$refs.cardsPanel.ext.setActiveItem( this.$refs.botTypePanel.ext );
             }
+        },
+
+        _back () {
+            this.$refs.cardsPanel.ext.setActiveItem( 0 );
+        },
+
+        // XXX
+        async _createBot () {
+            this.$refs.cardsPanel.ext.mask();
+
+            this.$refs.cardsPanel.ext.unmask();
         },
     },
 };
