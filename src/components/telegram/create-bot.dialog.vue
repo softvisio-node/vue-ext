@@ -2,14 +2,12 @@
     <ext-dialog height="500" layout="fit" :title="l10n(`Create Telegram bot`)" width="500">
         <ext-panel ref="cardsPanel" layout='{"animation":"slide","type":"card"}' @ready="_ready">
             <!-- api token panel -->
-            <ext-fieldpanel ref="apiTokenPanel">
+            <ext-fieldpanel ref="apiTokenPanel" layout="vbox">
                 <ext-textfield :label="l10n(`Enter your Telegram bot API token`)" name="api_token" required="true"/>
 
                 <ext-comboboxfield displayField="name" displayTpl="{name}" forceSelection="true" :label="l10n(`Telegram bot type`)" :placeholder="l10n(`Select Telegram bot tyoe`)" required="true" :store="store" triggerAction="all" valueField="id" @change="_onBotTypeChange" @ready="_onBotTypeComboReady"/>
 
-                <ext-spacer height="10"/>
-
-                <ext-container ref="description"/>
+                <ext-container ref="description" flex="1" margin="20 0 0 0" scrollable="true"/>
 
                 <ext-toolbar docked="bottom">
                     <ext-spacer/>
