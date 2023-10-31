@@ -1,14 +1,14 @@
 <template>
-    <ext-dialog height="500" layout="fit" :title="l10n(`Create Telegram bot link`)" viewModel="true" width="400" @ready="ready">
-        <ext-formpanel ref="form" layout="vbox">
+    <ext-dialog height="500" layout="fit" :title="l10n(`Create Telegram bot link`)" viewModel="true" width="400">
+        <ext-fieldpanel ref="form" layout="vbox">
             <ext-textfield :label="l10n(`Link name`)" name="name" required="tue"/>
 
             <ext-textareafield flex="1" :label="l10n(`Link description`)" name="description" wrap="off"/>
-        </ext-formpanel>
+        </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button bind='{"disabled":"{!dirty}"}' :text="l10n(`Create link`)" ui="action" @tap="_createLink"/>
+            <ext-button :text="l10n(`Create link`)" ui="action" @tap="_createLink"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -25,15 +25,6 @@ export default {
     "emits": ["create"],
 
     "methods": {
-        ready ( e ) {
-            const cmp = e.detail.cmp,
-                viewModel = cmp.getViewModel();
-
-            viewModel.set( "dirty", false );
-
-            this.$refs.form.ext.on( "dirtyChange", ( form, dirty ) => viewModel.set( "dirty", dirty ) );
-        },
-
         async _createLink () {
             const form = this.$refs.form.ext;
 
