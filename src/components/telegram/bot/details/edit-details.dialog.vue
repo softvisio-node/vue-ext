@@ -38,7 +38,11 @@ export default {
         },
 
         async _save () {
-            const values = this.$refs.formPanel.ext.getValues();
+            const form = this.$refs.formPanel.ext;
+
+            if ( !form.valudate() ) return;
+
+            const values = form.getValues();
 
             this.ext.mask();
             this._saving = true;
@@ -49,6 +53,8 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
+                this.$toast( `Bot updated` );
+
                 this.$refs.formPanel.ext.fillRecord( this.record );
 
                 this.ext.close();
