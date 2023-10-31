@@ -16,7 +16,7 @@ export default class TelegramBotComponent {
         return REGISTRY[id];
     }
 
-    static hasPublic () {
+    static hasPublicComponents () {
         for ( const component of Object.vajues( REGISTRY ) ) {
             if ( !component.isPrivate ) return true;
         }
