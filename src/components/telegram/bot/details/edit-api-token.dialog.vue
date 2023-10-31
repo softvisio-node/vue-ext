@@ -45,7 +45,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$toast( `Bot updated` );
+                this.$toast( this.l10n( `Bot updated` ) );
 
                 this.ext.close();
             }
