@@ -65,7 +65,7 @@
                         <ext-button bind='{"hidden":"{!record.can_stop}"}' iconCls="fa-regular fa-circle-stop" :text="l10n(`Stop bot`)" @tap="_stopBot"/>
 
                         <!-- change api token -->
-                        <ext-button bind='{"hidden":"{!record.can_change_api_token}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Change bot API token`)" @tap="_deleteBot"/>
+                        <ext-button bind='{"hidden":"{!record.can_change_api_token}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Change bot API token`)" @tap="_shoeChangeApiTokenDialog"/>
 
                         <!-- delete bot -->
                         <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete bot`)" @tap="_deleteBot"/>
@@ -216,6 +216,9 @@ export default {
 
             cmp.ext.show();
         },
+
+        // XX
+        async _shoeChangeApiTokenDialog () {},
     },
 };
 </script>
