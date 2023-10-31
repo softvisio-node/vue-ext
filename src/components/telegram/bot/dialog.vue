@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TelegramBotComponent from "./component";
+import TelegramComponents from "#src/components/telegram/components";
 
 export default {
     "props": {
@@ -32,7 +32,7 @@ export default {
                 },
             ] );
 
-            const panel = TelegramBotComponent.get( this.telegramBotRecord.get( "type" ) ).panel;
+            const panel = TelegramComponents.get( this.telegramBotRecord.get( "type" ) ).panel;
 
             await this.$mount( panel, {
                 "props": {

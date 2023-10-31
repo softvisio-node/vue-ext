@@ -38,13 +38,13 @@
 </template>
 
 <script>
-import TelegramBotComponents from "./bot/component";
+import TelegramComponents from "#src/components/telegram/components";
 
 export default {
     "emits": ["botCreate"],
     data () {
         return {
-            "store": TelegramBotComponents.store,
+            "store": TelegramComponents.store,
             "component": null,
             "botInfo": null,
         };
@@ -79,7 +79,7 @@ export default {
         _onBotTypeChange ( e ) {
             const value = e.detail.newValue;
 
-            this.component = TelegramBotComponents.get( value );
+            this.component = TelegramComponents.get( value );
         },
 
         async _checkApiToken () {

@@ -18,7 +18,7 @@
 
 <script>
 import BotsPanel from "./list.panel";
-import TelegramBotComponent from "./bot/component";
+import TelegramComponents from "#src/components/telegram/components";
 import BotDialog from "#src/components/telegram/bot/dialog";
 
 // XXX
@@ -77,7 +77,7 @@ export default {
         async _showBotPanel ( record ) {
             this.$refs.botListPanel.ext.mask();
 
-            const panel = TelegramBotComponent.get( record.get( "type" ) ).panel;
+            const panel = TelegramComponents.get( record.get( "type" ) ).panel;
 
             this._closeBotPanel();
 

@@ -1,44 +1,8 @@
-import TelegramComponentModel from "./models/component";
-
-const REGISTRY = {};
+import telegramComponents from "#src/components/telegram/components";
 
 export default class TelegramBotComponent {
     constructor () {
-        if ( REGISTRY[this.id] ) {
-            throw Error( `Telegram bot id ${this.id} already registered` );
-        }
-
-        REGISTRY[this.id] = this;
-    }
-
-    // static
-    static get ( id ) {
-        return REGISTRY[id];
-    }
-
-    static get hasPublicComponents () {
-        for ( const component of Object.values( REGISTRY ) ) {
-            if ( !component.isPrivate ) return true;
-        }
-
-        return false;
-    }
-
-    static get store () {
-        return Ext.create( "Ext.data.Store", {
-            "remoteSort": false,
-            "remoteFilter": false,
-            "data": Object.values( REGISTRY )
-                .filter( component => !component.isPrivate )
-                .map( component => {
-                    return new TelegramComponentModel( {
-                        "id": component.id,
-                        "name": component.name,
-                        "short_description": component.shortDescription,
-                        "description": component.description,
-                    } );
-                } ),
-        } );
+        telegramComponents.add( this );
     }
 
     // propertirs
