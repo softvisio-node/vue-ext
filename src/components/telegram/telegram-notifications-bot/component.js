@@ -28,6 +28,10 @@ class Component extends TelegramBotComponent {
     get panel () {
         return import( /* webpackChunkName: "telegram-notifications-bot" */ "./panel" );
     }
+
+    get isPrivate () {
+        return false;
+    }
 }
 
 export default new Component();
