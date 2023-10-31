@@ -1,7 +1,7 @@
 <template>
     <ext-panel ref="cardsPanel" layout='{"animation":"slide","type":"card"}' @ready="_ready">
         <ext-panel ref="botListPanel" layout="fit">
-            <BotsPanel @openBot="_openBot"/>
+            <BotsPanel ref="botsListPanel" @openBot="_openBot"/>
         </ext-panel>
 
         <ext-panel ref="botPanel" layout="fit">
@@ -67,6 +67,7 @@ export default {
             const cmp = await this.$mount( BotDialog, {
                 "props": {
                     "telegramBotRecord": record,
+                    "onBotDelete": () => this._onBotDelete(),
                 },
             } );
 
@@ -87,6 +88,7 @@ export default {
                 "el": this.$refs.botPanel,
                 "props": {
                     "telegramBotId": record.id,
+                    "onBotDelete": () => this._onBotDelete(),
                 },
             } );
 
@@ -101,6 +103,12 @@ export default {
             this._openedBot.$unmount();
 
             this._openedBot = null;
+        },
+
+        _onBotDelete () {
+            this.$refs.botsListPanel.refresh();
+
+            this._showBotsList();
         },
     },
 };

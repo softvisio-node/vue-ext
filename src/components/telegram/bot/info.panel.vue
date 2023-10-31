@@ -93,6 +93,8 @@ export default {
         },
     },
 
+    "emits": ["botDelete"],
+
     "methods": {
         async refresh () {
             this.$refs.cardsPanel.mask();
@@ -187,7 +189,9 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.refresh();
+                this.$toast( this.l10n( `Bot deleted` ) );
+
+                this.$emit( "botDelete" );
             }
             else {
                 this.$toast( res );
