@@ -26,7 +26,7 @@
 
                         <ext-spacer/>
 
-                        <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="_shoeEditDetailsDialog"/>
+                        <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="_showEditDetailsDialog"/>
                     </ext-container>
 
                     <ext-displayfield bind="{record.short_description}" :label="l10n(`Short description`)" labelAlign="left" labelWidth="200"/>
@@ -65,7 +65,7 @@
                         <ext-button bind='{"hidden":"{!record.can_stop}"}' iconCls="fa-regular fa-circle-stop" :text="l10n(`Stop bot`)" @tap="_stopBot"/>
 
                         <!-- change api token -->
-                        <ext-button bind='{"hidden":"{!record.can_change_api_token}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Change bot API token`)" @tap="_shoeChangeApiTokenDialog"/>
+                        <ext-button bind='{"hidden":"{!record.can_change_api_token}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Change bot API token`)" @tap="_showEditApiTokenDialog"/>
 
                         <!-- delete bot -->
                         <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete bot`)" @tap="_deleteBot"/>
@@ -81,6 +81,7 @@ import CardsPanel from "#src/components/cards.panel";
 import TelegramBotModel from "../models/bot";
 import AclDialog from "#vue/components/acl/dialog";
 import EditDetailsGialog from "./edit-details.dialog";
+import EditApiTokenGialog from "./edit-api-token.dialog";
 import LinksDialog from "../links/dialog";
 import telegramComponents from "#src/components/telegram/components";
 
@@ -165,7 +166,7 @@ export default {
             cmp.ext.show();
         },
 
-        async _shoeEditDetailsDialog () {
+        async _showEditDetailsDialog () {
             const cmp = await this.$mount( EditDetailsGialog, {
                 "props": {
                     "record": this.record,
@@ -217,8 +218,15 @@ export default {
             cmp.ext.show();
         },
 
-        // XX
-        async _shoeChangeApiTokenDialog () {},
+        async _showEditApiTokenDialog () {
+            const cmp = await this.$mount( EditApiTokenGialog, {
+                "props": {
+                    "telegramBotId": this.record.id,
+                },
+            } );
+
+            cmp.ext.show();
+        },
     },
 };
 </script>
