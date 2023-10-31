@@ -26,7 +26,7 @@
 
                         <ext-spacer/>
 
-                        <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="_shoeEditDialog"/>
+                        <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="_shoeEditDetailsDialog"/>
                     </ext-container>
 
                     <ext-displayfield bind="{record.short_description}" :label="l10n(`Short description`)" labelAlign="left" labelWidth="200"/>
@@ -80,7 +80,7 @@
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotModel from "../models/bot";
 import AclDialog from "#vue/components/acl/dialog";
-import DetailsGialog from "./details.dialog";
+import EditDetailsGialog from "./edit-details.dialog";
 import LinksDialog from "../links/dialog";
 import telegramComponents from "#src/components/telegram/components";
 
@@ -165,8 +165,8 @@ export default {
             cmp.ext.show();
         },
 
-        async _shoeEditDialog () {
-            const cmp = await this.$mount( DetailsGialog, {
+        async _shoeEditDetailsDialog () {
+            const cmp = await this.$mount( EditDetailsGialog, {
                 "props": {
                     "record": this.record,
                 },
