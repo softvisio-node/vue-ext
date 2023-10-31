@@ -1,8 +1,8 @@
 <template>
-    <ext-dialog height="350" layout="vbox" :title="l10n(`Change bot API token`)" width="300" @ready="_ready">
-        <ext-formpanel ref="formPanel" flex="1" layout="vbox" modelValidation="true" trackResetOnLoad="true">
+    <ext-dialog height="350" layout="fit" :title="l10n(`Change bot API token`)" width="300" @ready="_ready">
+        <ext-fieldpanel ref="formPanel">
             <ext-textfield :label="l10n(`New API token`)" name="api_token" :placeholder="l10n(`Enter new API token`)" required="true"/>
-        </ext-formpanel>
+        </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
