@@ -1,12 +1,12 @@
 <template>
-    <ext-dialog height="90%" layout="vbox" :title="l10n(`Change bot API token`)" width="700" @ready="_ready">
+    <ext-dialog height="350" layout="vbox" :title="l10n(`Change bot API token`)" width="300" @ready="_ready">
         <ext-formpanel ref="formPanel" flex="1" layout="vbox" modelValidation="true" trackResetOnLoad="true">
             <ext-textfield :label="l10n(`Bot API token`)" name="api_token" :placeholder="l10n(`Enter new API token`)" required="true"/>
         </ext-formpanel>
 
         <ext-toolbar docked="bottom">
             <ext-spacer/>
-            <ext-button ref="saveButton" disabled="true" iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="_save"/>
+            <ext-button iconCls="fa-solid fa-check" :text="l10n(`Save`)" ui="action" @tap="_save"/>
         </ext-toolbar>
     </ext-dialog>
 </template>
@@ -27,14 +27,12 @@ export default {
             cmp.on( "beforeClose", () => {
                 if ( this._saving ) return false;
             } );
-
-            this.$refs.formPanel.ext.on( "dirtychange", ( cmp, dirty ) => this.$refs.saveButton.ext.setDisabled( !dirty ) );
         },
 
         async _save () {
             const form = this.$refs.formPanel.ext;
 
-            if ( !form.valudate() ) return;
+            if ( !form.validate() ) return;
 
             const values = form.getValues();
 

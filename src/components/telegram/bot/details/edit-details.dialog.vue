@@ -1,7 +1,7 @@
 <template>
     <ext-dialog height="90%" layout="vbox" :title="l10n(`Edit bot details`)" width="700" @ready="_ready">
         <ext-formpanel ref="formPanel" flex="1" layout="vbox" modelValidation="true" trackResetOnLoad="true">
-            <ext-textfield :label="l10n(`Bot name`)" labelAlign="top" maxLength="64" name="name"/>
+            <ext-textfield :label="l10n(`Bot name`)" labelAlign="top" maxLength="64" name="name" required="true"/>
 
             <ext-textareafield :label="l10n(`Short description`) + `.<br/>` + l10n(`Bot short description is shown on the bot profile page and is sent together with the link when users share the bot.`)" labelAlign="top" maxLength="120" name="short_description" wrap="off"/>
 
@@ -40,7 +40,7 @@ export default {
         async _save () {
             const form = this.$refs.formPanel.ext;
 
-            if ( !form.valudate() ) return;
+            if ( !form.validate() ) return;
 
             const values = form.getValues();
 
