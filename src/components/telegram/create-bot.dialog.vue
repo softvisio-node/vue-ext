@@ -17,9 +17,9 @@
 
             <!-- create bot panel -->
             <ext-fieldpanel ref="botTypePanel">
-                <ext-displayfield :label="l10n(`Telegram bot username`)"/>
+                <ext-displayfield :label="l10n(`Telegram bot username`)" :value="botInfo?.username"/>
 
-                <ext-displayfield :label="l10n(`Telegram bot name`)"/>
+                <ext-displayfield :label="l10n(`Telegram bot name`)" :value="botInfo?.first_name"/>
 
                 <ext-toolbar docked="bottom">
                     <ext-button iconCls="fa-solid fa-arrow-left" :text="l10n(`Back`)" @tap="_back"/>
@@ -38,6 +38,7 @@ export default {
     data () {
         return {
             "store": TelegramBotComponents.store,
+            "botInfo": null,
         };
     },
 
@@ -72,7 +73,6 @@ export default {
             }
         },
 
-        // XXX
         async _checkApiToken () {
             const form = this.$refs.apiTokenPanel.ext;
 
@@ -89,6 +89,8 @@ export default {
             }
             else {
                 this.$refs.cardsPanel.ext.setActiveItem( this.$refs.botTypePanel.ext );
+
+                this.botInfo = res.data;
             }
         },
 
