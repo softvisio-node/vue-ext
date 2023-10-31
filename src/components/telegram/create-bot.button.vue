@@ -15,6 +15,8 @@ export default {
         },
     },
 
+    "emits": ["botCreate"],
+
     data () {
         return {
             "hidden": !this.$app.user.hasPermissions( "telegram/bot:create" ),
@@ -23,7 +25,11 @@ export default {
 
     "methods": {
         async _showCreateotDialog () {
-            const cmp = await this.$mount( CreateBotDialog );
+            const cmp = await this.$mount( CreateBotDialog, {
+                "props": {
+                    "onBotCreate": () => this.$emit( "botCreate" ),
+                },
+            } );
 
             cmp.ext.show();
         },

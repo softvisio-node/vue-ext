@@ -4,7 +4,7 @@
             <ext-toolbar docked="top">
                 <ext-searchfield :placeholder="l10n(`Search bots`)" width="200" @change="_search"/>
                 <ext-spacer/>
-                <CreateBotButton/>
+                <CreateBotButton @botCreate="_onBotCreate"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
@@ -127,6 +127,10 @@ export default {
             const record = button.up( "gridrow" ).getRecord();
 
             this.$emit( "openBot", record );
+        },
+
+        _onBotCreate () {
+            this.refresh();
         },
     },
 };

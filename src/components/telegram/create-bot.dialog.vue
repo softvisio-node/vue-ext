@@ -16,10 +16,16 @@
             </ext-fieldpanel>
 
             <!-- create bot panel -->
-            <ext-fieldpanel ref="botTypePanel">
+            <ext-fieldpanel ref="botTypePanel" layout="vbox">
                 <ext-displayfield :label="l10n(`Telegram bot username`)" :value="botInfo?.username"/>
 
                 <ext-displayfield :label="l10n(`Telegram bot name`)" :value="botInfo?.first_name"/>
+
+                <ext-displayfield :label="l10n(`Bot type`)" :value="component?.name"/>
+
+                <ext-displayfield :label="l10n(`Bot description`)"/>
+
+                <ext-container ref="description" flex="1" :html="component?.description" scrollable="true"/>
 
                 <ext-toolbar docked="bottom">
                     <ext-button iconCls="fa-solid fa-arrow-left" :text="l10n(`Back`)" @tap="_back"/>
@@ -35,11 +41,19 @@
 import TelegramBotComponents from "./bot/component";
 
 export default {
+    "emits": ["botCreate"],
     data () {
         return {
             "store": TelegramBotComponents.store,
+            "component": null,
             "botInfo": null,
         };
+    },
+
+    "watch": {
+        component ( component ) {
+            this.$refs.description.ext.setHtml( component?.description || "" );
+        },
     },
 
     "methods": {
@@ -65,12 +79,7 @@ export default {
         _onBotTypeChange ( e ) {
             const value = e.detail.newValue;
 
-            if ( value ) {
-                this.$refs.description.ext.setHtml( TelegramBotComponents.get( value ).description );
-            }
-            else {
-                this.$refs.description.ext.setHtml( "" );
-            }
+            this.component = TelegramBotComponents.get( value );
         },
 
         async _checkApiToken () {
@@ -98,11 +107,25 @@ export default {
             this.$refs.cardsPanel.ext.setActiveItem( 0 );
         },
 
-        // XXX
         async _createBot () {
+            const form = this.$refs.apiTokenPanel.ext;
+
             this.$refs.cardsPanel.ext.mask();
 
+            const res = await this.$api.call( "telegram/bots/create-bot", form.getValues().api_token, this.component.id );
+
             this.$refs.cardsPanel.ext.unmask();
+
+            if ( !res.ok ) {
+                this.$toast( res );
+            }
+            else {
+                this.$toast( this.l10n( `Telegram bot created` ) );
+
+                this.$emit( "botCreate" );
+
+                this.ext.close();
+            }
         },
     },
 };
