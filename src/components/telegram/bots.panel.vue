@@ -68,6 +68,8 @@ export default {
         },
 
         async _openBot ( record ) {
+            this._openedBotId = record.id;
+
             if ( this.openBotInDialog ) {
                 this._showBotDialog( record );
             }
@@ -110,7 +112,6 @@ export default {
             this.$refs.cardsPanel.ext.setActiveItem( 1 );
         },
 
-        // XXX compare bot id
         _closeBot () {
             if ( this._openedBotDialog ) {
                 this._openedBotDialog.ext.close();
@@ -122,12 +123,16 @@ export default {
 
                 this._openedBotPanel = null;
             }
+
+            this._openedBotId = null;
         },
 
-        _onBotDelete () {
+        _onBotDelete ( telegramBotId ) {
             this.$refs.botsListPanel.refresh();
 
-            this._showBotsList();
+            if ( this._openedBotId === telegramBotId ) {
+                this._showBotsList();
+            }
         },
     },
 };
