@@ -13,8 +13,6 @@ export default {
         },
     },
 
-    "emits": ["botDelete"],
-
     "methods": {
         async _ready ( e ) {
             const cmp = e.detail.cmp;
@@ -37,15 +35,8 @@ export default {
             await this.$mount( panel, {
                 "props": {
                     "telegramBotId": this.telegramBotRecord.id,
-                    "onBotDelete": this._onBotDelete.bind( this ),
                 },
             } );
-        },
-
-        _onBotDelete () {
-            this.$emit( "botDelete" );
-
-            this.ext.close();
         },
     },
 };

@@ -20,6 +20,7 @@
 import BotsPanel from "./list.panel";
 import telegramComponents from "#src/components/telegram/components";
 import BotDialog from "#src/components/telegram/bot/dialog";
+import Events from "#core/events";
 
 // XXX
 import "#src/components/telegram/telegram-notifications-bot/component";
@@ -41,6 +42,18 @@ export default {
         };
     },
 
+    created () {
+        this._events = new Events().link( telegramComponents );
+    },
+
+    mounted () {
+        this._events.on( "botDelete", this._onBotDelete.bind( this ) );
+    },
+
+    unlounted () {
+        this._events.offAll();
+    },
+
     "methods": {
         _ready ( e ) {
             this._showBotsList();
@@ -51,7 +64,7 @@ export default {
 
             this.$refs.botListPanel.ext.unmask();
 
-            this._closeBotPanel();
+            this._closeBot();
         },
 
         async _openBot ( record ) {
@@ -67,9 +80,10 @@ export default {
             const cmp = await this.$mount( BotDialog, {
                 "props": {
                     "telegramBotRecord": record,
-                    "onBotDelete": () => this._onBotDelete(),
                 },
             } );
+
+            this._openedBotDialog = cmp;
 
             cmp.ext.show();
         },
@@ -79,7 +93,7 @@ export default {
 
             const panel = telegramComponents.get( record.get( "type" ) ).panel;
 
-            this._closeBotPanel();
+            this._closeBot();
 
             this.botAvatar = record.get( "avatar_url" );
             this.botName = record.get( "name" );
@@ -88,21 +102,26 @@ export default {
                 "el": this.$refs.botPanel,
                 "props": {
                     "telegramBotId": record.id,
-                    "onBotDelete": () => this._onBotDelete(),
                 },
             } );
 
-            this._openedBot = cmp;
+            this._openedBotPanel = cmp;
 
             this.$refs.cardsPanel.ext.setActiveItem( 1 );
         },
 
-        _closeBotPanel () {
-            if ( !this._openedBot ) return;
+        // XXX compare bot id
+        _closeBot () {
+            if ( this._openedBotDialog ) {
+                this._openedBotDialog.ext.close();
 
-            this._openedBot.$unmount();
+                this._openedBotDialog = null;
+            }
+            else if ( this._openedBotPanel ) {
+                this._openedBotPanel.$unmount();
 
-            this._openedBot = null;
+                this._openedBotPanel = null;
+            }
         },
 
         _onBotDelete () {
