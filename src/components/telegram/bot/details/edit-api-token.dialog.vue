@@ -39,7 +39,6 @@ export default {
 
         async _save () {
             this._saving = true;
-            this.$refs.cancelButton.ext.disable();
             this.$refs.saveButton.ext.disable();
 
             const values = this.$refs.formPanel.ext.getValues();
@@ -51,7 +50,6 @@ export default {
             this.ext.unmask();
 
             this._saving = false;
-            this.$refs.cancelButton.ext.enable();
             this.$refs.saveButton.ext.enable();
 
             if ( res.ok ) {
