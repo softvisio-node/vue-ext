@@ -342,7 +342,7 @@ msgstr ""
 msgid "Create bpt"
 msgstr ""
 
-#: ../../src/components/telegram/bot/links/create.dialog.vue:11:62
+#: ../../src/components/telegram/bot/links/create.dialog.vue:11:31
 #: ../../src/components/telegram/bot/links/panel.vue:10:123
 #: ../../src/components/telegram/bot/links/panel.vue:19:123
 msgid "Create link"
@@ -714,7 +714,7 @@ msgstr "Останні діаграми"
 msgid "Link copied to the clipboard"
 msgstr ""
 
-#: ../../src/components/telegram/bot/links/create.dialog.vue:52:29
+#: ../../src/components/telegram/bot/links/create.dialog.vue:43:29
 msgid "Link created"
 msgstr ""
 
