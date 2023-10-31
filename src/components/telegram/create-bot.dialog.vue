@@ -25,7 +25,7 @@
 
                 <ext-displayfield :label="l10n(`Bot description`)"/>
 
-                <ext-container ref="description" flex="1" :html="component?.description" scrollable="true"/>
+                <ext-container flex="1" :html="component?.description" scrollable="true"/>
 
                 <ext-toolbar docked="bottom">
                     <ext-button iconCls="fa-solid fa-arrow-left" :text="l10n(`Back`)" @tap="_back"/>
