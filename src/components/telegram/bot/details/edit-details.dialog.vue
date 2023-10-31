@@ -38,17 +38,15 @@ export default {
         },
 
         async _save () {
-            this._saving = true;
-
             const values = this.$refs.formPanel.ext.getValues();
 
             this.ext.mask();
+            this._saving = true;
 
             const res = await this.$api.call( "telegram/bots/update-bot-details", this.record.id, values );
 
-            this.ext.unmask();
-
             this._saving = false;
+            this.ext.unmask();
 
             if ( res.ok ) {
                 this.$refs.formPanel.ext.fillRecord( this.record );
