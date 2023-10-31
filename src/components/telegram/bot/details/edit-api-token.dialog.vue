@@ -44,7 +44,11 @@ export default {
 
             const values = this.$refs.formPanel.ext.getValues();
 
+            this.ext.mask();
+
             const res = await this.$api.call( "telegram/bots/update-bot-details", this.record.id, values );
+
+            this.ext.unmask();
 
             this._saving = false;
             this.$refs.cancelButton.ext.enable();
