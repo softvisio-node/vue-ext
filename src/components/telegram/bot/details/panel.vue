@@ -2,16 +2,16 @@
     <ext-panel layout="hbox">
         <BotInfoPanel flex="1" :telegramBotId="telegramBotId"/>
 
-        <BotStatsPanel minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' scrollable="true" :telegramBotId="telegramBotId" width="400"/>
+        <BotChartsPanel minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' scrollable="true" :telegramBotId="telegramBotId" width="400"/>
     </ext-panel>
 </template>
 
 <script>
 import BotInfoPanel from "./info.panel";
-import BotStatsPanel from "./stats.panel";
+import BotChartsPanel from "./charts.panel";
 
 export default {
-    "components": { BotInfoPanel, BotStatsPanel },
+    "components": { BotInfoPanel, BotChartsPanel },
 
     "props": {
         "telegramBotId": {
