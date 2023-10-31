@@ -78,10 +78,10 @@
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
-import TelegramBotModel from "./models/bot";
+import TelegramBotModel from "../models/bot";
 import AclDialog from "#vue/components/acl/dialog";
 import DetailsGialog from "./details.dialog";
-import LinksDialog from "./links/dialog";
+import LinksDialog from "../links/dialog";
 import telegramComponents from "#src/components/telegram/components";
 
 export default {

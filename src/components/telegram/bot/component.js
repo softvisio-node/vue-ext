@@ -22,11 +22,11 @@ export default class TelegramBotComponent {
         return this.shortDescription;
     }
 
-    get panel () {
-        return import( "./panel" );
-    }
-
     get isPrivate () {
         return false;
+    }
+
+    get panel () {
+        return import( "./details/panel" );
     }
 }
