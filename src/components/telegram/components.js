@@ -1,7 +1,9 @@
+import Events from "#core/events";
 import TelegramComponentModel from "./bot/models/component";
 
 class TelegramComponent {
     #components = {};
+    #events = new Events();
 
     // properties
     get hasPublicComponents () {
@@ -40,6 +42,30 @@ class TelegramComponent {
         }
 
         this.#components[component.id] = component;
+    }
+
+    on ( name, listener ) {
+        this.#events.on( name, listener );
+
+        return this;
+    }
+
+    once ( name, listener ) {
+        this.#events.once( name, listener );
+
+        return this;
+    }
+
+    off ( name, listener ) {
+        this.#events.off( name, listener );
+
+        return this;
+    }
+
+    emit ( name, ...args ) {
+        this.#events.emit( name, ...args );
+
+        return this;
     }
 }
 

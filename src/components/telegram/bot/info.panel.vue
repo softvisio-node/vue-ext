@@ -82,6 +82,7 @@ import TelegramBotModel from "./models/bot";
 import AclDialog from "#vue/components/acl/dialog";
 import DetailsGialog from "./details.dialog";
 import LinksDialog from "./links/dialog";
+import telegramComponents from "#src/components/telegram/components";
 
 export default {
     "components": { CardsPanel },
@@ -92,8 +93,6 @@ export default {
             "required": true,
         },
     },
-
-    "emits": ["botDelete"],
 
     "methods": {
         async refresh () {
@@ -191,7 +190,7 @@ export default {
             if ( res.ok ) {
                 this.$toast( this.l10n( `Bot deleted` ) );
 
-                this.$emit( "botDelete" );
+                telegramComponents.emit( "botDelete" );
             }
             else {
                 this.$toast( res );

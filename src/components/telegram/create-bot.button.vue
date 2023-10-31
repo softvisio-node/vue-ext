@@ -6,7 +6,7 @@
 
 <script>
 import CreateBotDialog from "./create-bot.dialog";
-import TelegramComponents from "#src/components/telegram/components";
+import telegramComponents from "#src/components/telegram/components";
 
 export default {
     "props": {
@@ -20,7 +20,7 @@ export default {
 
     data () {
         return {
-            "hidden": !( TelegramComponents.hasPublicComponents && this.$app.user.hasPermissions( "telegram/bot:create" ) ),
+            "hidden": !( telegramComponents.hasPublicComponents && this.$app.user.hasPermissions( "telegram/bot:create" ) ),
         };
     },
 
