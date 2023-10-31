@@ -16,18 +16,28 @@ export default class TelegramBotComponent {
         return REGISTRY[id];
     }
 
+    static hasPublic () {
+        for ( const component of Object.vajues( REGISTRY ) ) {
+            if ( !component.isPrivate ) return true;
+        }
+
+        return false;
+    }
+
     static get store () {
         return Ext.create( "Ext.data.Store", {
             "remoteSort": false,
             "remoteFilter": false,
-            "data": Object.values( REGISTRY ).map( component => {
-                return new TelegramComponentModel( {
-                    "id": component.id,
-                    "name": component.name,
-                    "short_description": component.shortDescription,
-                    "description": component.description,
-                } );
-            } ),
+            "data": Object.values( REGISTRY )
+                .filter( component => !component.isPrivate )
+                .map( component => {
+                    return new TelegramComponentModel( {
+                        "id": component.id,
+                        "name": component.name,
+                        "short_description": component.shortDescription,
+                        "description": component.description,
+                    } );
+                } ),
         } );
     }
 
@@ -50,5 +60,9 @@ export default class TelegramBotComponent {
 
     get panel () {
         return import( "./panel" );
+    }
+
+    get isPrivate () {
+        return false;
     }
 }
