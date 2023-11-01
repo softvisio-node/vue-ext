@@ -1,46 +1,53 @@
 <template>
     <ext-dialog height="500" layout="fit" :title="l10n(`Create Telegram bot`)" width="500">
-        <ext-panel ref="cardsPanel" layout='{"animation":"slide","type":"card"}' @ready="_ready">
-            <!-- api token panel -->
-            <ext-fieldpanel ref="apiTokenPanel" layout="vbox">
-                <ext-textfield :label="l10n(`Enter your Telegram bot API token`)" name="api_token" required="true"/>
+        <CardsPanel ref="cardsPanel" @refresh="refresh">
+            <template #dataPanel>
+                <ext-panel ref="cardsPanel" layout='{"animation":"slide","type":"card"}' @ready="_ready">
+                    <!-- api token panel -->
+                    <ext-fieldpanel ref="apiTokenPanel" layout="vbox">
+                        <ext-textfield :label="l10n(`Enter your Telegram bot API token`)" name="api_token" required="true"/>
 
-                <ext-comboboxfield displayTpl="{name}" editable="false" forceSelection="true" :label="l10n(`Telegram bot type`)" :placeholder="l10n(`Select Telegram bot tyoe`)" required="true" :store="store" triggerAction="all" valueField="id" @change="_onBotTypeChange" @ready="_onBotTypeComboReady"/>
+                        <ext-comboboxfield displayTpl="{name}" editable="false" forceSelection="true" :label="l10n(`Telegram bot type`)" :placeholder="l10n(`Select Telegram bot tyoe`)" required="true" :store="store" triggerAction="all" valueField="id" @change="_onBotTypeChange" @ready="_onBotTypeComboReady"/>
 
-                <ext-container ref="description" flex="1" margin="20 0 0 0" scrollable="true"/>
+                        <ext-container ref="description" flex="1" margin="20 0 0 0" scrollable="true"/>
 
-                <ext-toolbar docked="bottom">
-                    <ext-spacer/>
-                    <ext-button iconAlign="right" iconCls="fa-solid fa-arrow-right" :text="l10n(`Next`)" ui="action" @tap="_checkApiToken"/>
-                </ext-toolbar>
-            </ext-fieldpanel>
+                        <ext-toolbar docked="bottom">
+                            <ext-spacer/>
+                            <ext-button iconAlign="right" iconCls="fa-solid fa-arrow-right" :text="l10n(`Next`)" ui="action" @tap="_checkApiToken"/>
+                        </ext-toolbar>
+                    </ext-fieldpanel>
 
-            <!-- create bot panel -->
-            <ext-fieldpanel ref="botTypePanel" layout="vbox">
-                <ext-displayfield :label="l10n(`Telegram bot username`)" :value="botInfo?.username"/>
+                    <!-- create bot panel -->
+                    <ext-fieldpanel ref="botTypePanel" layout="vbox">
+                        <ext-displayfield :label="l10n(`Telegram bot username`)" :value="botInfo?.username"/>
 
-                <ext-displayfield :label="l10n(`Telegram bot name`)" :value="botInfo?.first_name"/>
+                        <ext-displayfield :label="l10n(`Telegram bot name`)" :value="botInfo?.first_name"/>
 
-                <ext-displayfield :label="l10n(`Bot type`)" :value="component?.name"/>
+                        <ext-displayfield :label="l10n(`Bot type`)" :value="component?.name"/>
 
-                <ext-displayfield :label="l10n(`Bot description`)"/>
+                        <ext-displayfield :label="l10n(`Bot description`)"/>
 
-                <ext-container flex="1" :html="component?.description" scrollable="true"/>
+                        <ext-container flex="1" :html="component?.description" scrollable="true"/>
 
-                <ext-toolbar docked="bottom">
-                    <ext-button iconCls="fa-solid fa-arrow-left" :text="l10n(`Back`)" @tap="_back"/>
-                    <ext-spacer/>
-                    <ext-button :text="l10n(`Create bpt`)" ui="action" @tap="_createBot"/>
-                </ext-toolbar>
-            </ext-fieldpanel>
-        </ext-panel>
+                        <ext-toolbar docked="bottom">
+                            <ext-button iconCls="fa-solid fa-arrow-left" :text="l10n(`Back`)" @tap="_back"/>
+                            <ext-spacer/>
+                            <ext-button :text="l10n(`Create bpt`)" ui="action" @tap="_createBot"/>
+                        </ext-toolbar>
+                    </ext-fieldpanel>
+                </ext-panel>
+            </template>
+        </CardsPanel>
     </ext-dialog>
 </template>
 
 <script>
 import telegramComponents from "#src/components/telegram/components";
+import CardsPanel from "#src/components/cards.panel";
 
 export default {
+    "components": { CardsPanel },
+
     "emits": ["botCreate"],
     data () {
         return {
@@ -59,12 +66,18 @@ export default {
     "methods": {
         _ready ( e ) {
             e.detail.cmp.setActiveItem( 0 );
-
-            this.refresh();
         },
 
         async refresh ( e ) {
+            this.$refs.cardsPanel.mask();
+
             const res = await telegramComponents.getRegisteredComponents();
+
+            this.$refs.cardsPanel.unmask();
+
+            this.$refs.cardsPanel.setResult( res );
+
+            if ( !res.ok ) return;
 
             this.store = Ext.create( "Ext.data.Store", {
                 "remoteSort": false,
