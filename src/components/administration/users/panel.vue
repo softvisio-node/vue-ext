@@ -58,10 +58,10 @@ export default {
         return {
             "aclId": constants.mainAclId,
 
-            "canCreateUser": this.$app.user.hasPermissions( "administration:create" ),
-            "canUpdateUser": this.$app.user.hasPermissions( "administration:update" ),
-            "canDeleteUser": this.$app.user.hasPermissions( "administration:delete" ),
-            "canUpdateUserRoles": this.$app.user.hasPermissions( "administration:update" ) && this.$app.user.hasPermissions( "acl:update" ),
+            "canCreateUser": this.$app.user.permissions.has( "administration:create" ),
+            "canUpdateUser": this.$app.user.permissions.has( "administration:update" ),
+            "canDeleteUser": this.$app.user.permissions.has( "administration:delete" ),
+            "canUpdateUserRoles": this.$app.user.permissions.has( "administration:update" ) && this.$app.user.permissions.has( "acl:update" ),
         };
     },
 

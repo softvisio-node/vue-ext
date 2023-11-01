@@ -20,7 +20,7 @@ export default {
 
     data () {
         return {
-            "hidden": !( telegramComponents.hasPublicComponents && this.$app.user.hasPermissions( "telegram/bot:create" ) ),
+            "hidden": !( telegramComponents.hasPublicComponents && this.$app.user.permissions.has( "telegram/bot:create" ) ),
         };
     },
 

@@ -86,11 +86,11 @@ export default {
         },
 
         showAdministrationButton () {
-            return this.$app.user.hasPermissions( "administration:read" ) && Ext.os.deviceType !== "Phone";
+            return this.$app.user.permissions.has( "administration:read" ) && Ext.os.deviceType !== "Phone";
         },
 
         showDevelopmentButton () {
-            return this.$app.user.hasPermissions( "development:read" ) && Ext.os.deviceType !== "Phone";
+            return this.$app.user.permissions.has( "development:read" ) && Ext.os.deviceType !== "Phone";
         },
     },
 

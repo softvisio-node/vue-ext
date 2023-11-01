@@ -40,7 +40,7 @@ export default {
 
     data () {
         return {
-            "canDelete": this.$app.user.hasPermissions( "development:delete" ),
+            "canDelete": this.$app.user.permissions.has( "development:delete" ),
         };
     },
 
