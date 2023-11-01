@@ -1,5 +1,6 @@
 import app from "#app";
 import telegramComponents from "#src/components/telegram/components";
+import Permissions from "../permissions";
 
 export default Ext.define( null, {
     "extend": "Ext.data.Model",
@@ -9,7 +10,7 @@ export default Ext.define( null, {
 
         // fields
         "acl_id",
-        { "name": "acl_user_permissions", "convert": value => new Set( value ) },
+        { "name": "acl_user_permissions", "convert": value => new Permissions( value ) },
         "type",
         { "name": "static", "type": "bool" },
         "locales",
