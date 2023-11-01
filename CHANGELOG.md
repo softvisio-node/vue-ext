@@ -1,5 +1,16 @@
 # Changelog
 
+### 8.10.11 (2023-11-01)
+
+Fixes:
+
+-   fix: masks
+-   fix: permissions
+-   fix: telegram link
+-   fix: tg notifications subject
+-   fix: tokens grid
+-   fix: translations
+
 ### 8.10.10 (2023-10-29)
 
 Fixes:
