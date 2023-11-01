@@ -141,7 +141,7 @@ msgstr "Обновлять автоматически"
 
 #: ../../src/components/authentication/password-recovery.panel.vue:14:64
 #: ../../src/components/authentication/signup.panel.vue:23:64
-#: ../../src/components/telegram/create-bot.dialog.vue:31:72
+#: ../../src/components/telegram/create-bot.dialog.vue:33:80
 msgid "Back"
 msgstr "Назад"
 
@@ -173,7 +173,7 @@ msgstr "Базовый цвет"
 msgid "Bot deleted"
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:26:42
+#: ../../src/components/telegram/create-bot.dialog.vue:28:50
 msgid "Bot description"
 msgstr ""
 
@@ -194,7 +194,7 @@ msgstr ""
 msgid "Bot short description is shown on the bot profile page and is sent together with the link when users share the bot."
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:24:42
+#: ../../src/components/telegram/create-bot.dialog.vue:26:50
 msgid "Bot type"
 msgstr ""
 
@@ -337,7 +337,7 @@ msgstr "Копировать токен в буфер"
 msgid "CPU usage"
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:33:39
+#: ../../src/components/telegram/create-bot.dialog.vue:35:47
 msgid "Create bpt"
 msgstr ""
 
@@ -559,7 +559,7 @@ msgstr "Введите пароль"
 msgid "Enter your email address"
 msgstr "Введите ваш адрес email"
 
-#: ../../src/components/telegram/create-bot.dialog.vue:6:39
+#: ../../src/components/telegram/create-bot.dialog.vue:8:47
 msgid "Enter your Telegram bot API token"
 msgstr ""
 
@@ -820,7 +820,7 @@ msgstr "Новый адрес email"
 msgid "New password"
 msgstr "Новый пароль"
 
-#: ../../src/components/telegram/create-bot.dialog.vue:14:91
+#: ../../src/components/telegram/create-bot.dialog.vue:16:99
 msgid "Next"
 msgstr ""
 
@@ -855,7 +855,7 @@ msgstr ""
 msgid "Notifications"
 msgstr "Уведомления"
 
-#: ../../src/components/telegram/telegram-notifications-bot/component.js:33:15
+#: ../../src/components/telegram/telegram-notifications-bot/component.js:24:15
 msgid "Notifications bot"
 msgstr ""
 
@@ -1091,7 +1091,7 @@ msgstr "Искать токены по имени"
 msgid "Search users"
 msgstr "Искать пользователей"
 
-#: ../../src/components/telegram/create-bot.dialog.vue:8:143
+#: ../../src/components/telegram/create-bot.dialog.vue:10:151
 msgid "Select Telegram bot tyoe"
 msgstr ""
 
@@ -1209,7 +1209,7 @@ msgstr ""
 msgid "Subscription status"
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:123:29
+#: ../../src/components/telegram/create-bot.dialog.vue:148:29
 msgid "Telegram bot created"
 msgstr ""
 
@@ -1217,11 +1217,11 @@ msgstr ""
 msgid "Telegram bot link charts"
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:22:42
+#: ../../src/components/telegram/create-bot.dialog.vue:24:50
 msgid "Telegram bot name"
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:8:102
+#: ../../src/components/telegram/create-bot.dialog.vue:10:110
 msgid "Telegram bot type"
 msgstr ""
 
@@ -1229,7 +1229,7 @@ msgstr ""
 msgid "Telegram bot url"
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:20:42
+#: ../../src/components/telegram/create-bot.dialog.vue:22:50
 msgid "Telegram bot username"
 msgstr ""
 
