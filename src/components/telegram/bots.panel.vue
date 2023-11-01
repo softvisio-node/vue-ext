@@ -76,7 +76,6 @@ export default {
         };
     },
 
-    // XXX store
     created () {
         this._events = new Events().link( telegramComponents );
 
@@ -86,7 +85,7 @@ export default {
             "pageSize": 50,
             "proxy": {
                 "api": {
-                    "read": "telegram/bots/get-bots-list",
+                    "read": this._getStoreApiMethod(),
                 },
             },
         } );
@@ -101,9 +100,6 @@ export default {
     },
 
     "methods": {
-        _ready ( e ) {
-            this._showBotsList();
-        },
 
         // public
         async refresh () {
@@ -111,6 +107,14 @@ export default {
         },
 
         // protected
+        _getStoreApiMethod () {
+            return "telegram/bots/get-bots-list";
+        },
+
+        _ready ( e ) {
+            this._showBotsList();
+        },
+
         _avatarColReady ( e ) {
             const cmp = e.detail.cmp;
 
