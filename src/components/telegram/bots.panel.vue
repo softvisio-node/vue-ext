@@ -1,7 +1,39 @@
 <template>
     <ext-panel ref="cardsPanel" layout='{"animation":"slide","type":"card"}' @ready="_ready">
         <ext-panel ref="botListPanel" layout="fit">
-            <BotsPanel ref="botsListPanel" @openBot="_openBot"/>
+            <CardsPanel ref="cards" :store="store" @refresh="refresh">
+                <template #docked>
+                    <ext-toolbar docked="top">
+                        <ext-searchfield :placeholder="l10n(`Search bots`)" width="200" @change="_search"/>
+                        <ext-spacer/>
+                        <CreateBotButton @botCreate="_onBotCreate"/>
+                        <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
+                    </ext-toolbar>
+                </template>
+
+                <template #noDataPanel>
+                    <ext-panel layout='{"align":"center","pack":"center","type":"vbox"}'>
+                        <ext-container :html="l10n(`No Telegram bots found`)"/>
+                        <CreateBotButton ui="action"/>
+                    </ext-panel>
+                </template>
+
+                <template #dataPanel>
+                    <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store">
+                        <ext-column width="50" @ready="_avatarColReady"/>
+
+                        <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
+
+                        <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="150"/>
+
+                        <ext-column align="right" dataIndex="total_unsubscribed_users_text" sorter='{"property":"total_unsubscribed_users"}' :text="l10n(`Unsubscribed users`)" width="150"/>
+
+                        <ext-column dataIndex="status_text" flex="1" sorter='{"property":"started"}' :text="l10n(`Status`)"/>
+
+                        <ext-column @ready="_actionColReady"/>
+                    </ext-grid>
+                </template>
+            </CardsPanel>
         </ext-panel>
 
         <ext-panel ref="botPanel" layout="fit">
@@ -17,16 +49,18 @@
 </template>
 
 <script>
-import BotsPanel from "./list.panel";
 import telegramComponents from "#src/components/telegram/components";
 import BotDialog from "#src/components/telegram/bot/dialog";
 import Events from "#core/events";
+import CardsPanel from "#src/components/cards.panel";
+import TelegramBotModel from "#src/components/telegram/bot/models/bot";
+import CreateBotButton from "./create-bot.button";
 
 // XXX
 import "#src/components/telegram/telegram-notifications-bot/component";
 
 export default {
-    "components": { BotsPanel },
+    "components": { CardsPanel, CreateBotButton },
 
     "props": {
         "openBotInDialog": {
@@ -42,8 +76,20 @@ export default {
         };
     },
 
+    // XXX store
     created () {
         this._events = new Events().link( telegramComponents );
+
+        this.store = Ext.create( "Ext.data.Store", {
+            "model": TelegramBotModel,
+            "autoLoad": false,
+            "pageSize": 50,
+            "proxy": {
+                "api": {
+                    "read": "telegram/bots/get-bots-list",
+                },
+            },
+        } );
     },
 
     mounted () {
@@ -59,6 +105,74 @@ export default {
             this._showBotsList();
         },
 
+        // public
+        async refresh () {
+            this.store.loadPage( 1 );
+        },
+
+        // protected
+        _avatarColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "layout": {
+                        "type": "hbox",
+                        "pack": "end",
+                    },
+                    "items": [
+                        {
+                            "xtype": "avatar",
+                            "bind": "{record.avatar_url}",
+                        },
+                    ],
+                },
+            } );
+        },
+
+        _actionColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "layout": { "type": "hbox", "pack": "end", "align": "center" },
+                    "items": [
+                        {
+                            "xtype": "button",
+
+                            // "iconCls": "fa-solid fa-users",
+                            "text": this.l10n( "Open bot" ),
+                            "handler": this._openBot.bind( this ),
+                            "ui": "action",
+                        },
+                    ],
+                },
+            } );
+        },
+
+        _search ( e ) {
+            var val = e.detail.newValue.trim();
+
+            if ( val !== "" ) {
+                this.store.addFilter( {
+                    "property": "name",
+                    "operator": "like",
+                    "value": val,
+                } );
+            }
+            else {
+                this.store.removeFilter( "name" );
+            }
+        },
+
+        _onBotCreate () {
+            this.refresh();
+        },
+
         _showBotsList () {
             this.$refs.cardsPanel.ext.setActiveItem( 0 );
 
@@ -67,7 +181,9 @@ export default {
             this._closeBot();
         },
 
-        async _openBot ( record ) {
+        async _openBot ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
+
             this._openedBotId = record.id;
 
             if ( this.openBotInDialog ) {
@@ -128,7 +244,7 @@ export default {
         },
 
         _onBotDelete ( telegramBotId ) {
-            this.$refs.botsListPanel.refresh();
+            this.refresh();
 
             if ( this._openedBotId === telegramBotId ) {
                 this._showBotsList();
