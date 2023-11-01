@@ -1,5 +1,6 @@
+import result from "#core/result";
+import app from "#app";
 import Events from "#core/events";
-import TelegramComponentModel from "./bot/models/component";
 
 class TelegramComponent {
     #components = {};
@@ -12,23 +13,6 @@ class TelegramComponent {
         }
 
         return false;
-    }
-
-    get store () {
-        return Ext.create( "Ext.data.Store", {
-            "remoteSort": false,
-            "remoteFilter": false,
-            "data": Object.values( this.#components )
-                .filter( component => !component.isPrivate )
-                .map( component => {
-                    return new TelegramComponentModel( {
-                        "id": component.id,
-                        "name": component.name,
-                        "short_description": component.shortDescription,
-                        "description": component.description,
-                    } );
-                } ),
-        } );
     }
 
     // public
@@ -66,6 +50,22 @@ class TelegramComponent {
         this.#events.emit( name, ...args );
 
         return this;
+    }
+
+    async getRegisteredComponents () {
+        const res = await app.api.call( "telegram/bots/get-registered-components" );
+
+        if ( !res.ok ) return res;
+
+        const components = [];
+
+        for ( const id of res.data ) {
+            if ( this.#components[id] ) {
+                components.push( this.#components[id] );
+            }
+        }
+
+        return result( 200, components );
     }
 }
 

@@ -1,6 +1,9 @@
 import telegramComponents from "#src/components/telegram/components";
+import TelegramComponentModel from "./models/component";
 
 export default class TelegramBotComponent {
+    #model;
+
     constructor () {
         telegramComponents.add( this );
     }
@@ -22,8 +25,15 @@ export default class TelegramBotComponent {
         return this.shortDescription;
     }
 
-    get isPrivate () {
-        return false;
+    get model () {
+        this.#model ??= new TelegramComponentModel( {
+            "id": this.id,
+            "name": this.name,
+            "short_description": this.shortDescription,
+            "description": this.description,
+        } );
+
+        return this.#model;
     }
 
     get panel () {

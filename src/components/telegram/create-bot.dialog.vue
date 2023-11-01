@@ -44,7 +44,7 @@ export default {
     "emits": ["botCreate"],
     data () {
         return {
-            "store": telegramComponents.store,
+            "store": null,
             "component": null,
             "botInfo": null,
         };
@@ -59,6 +59,18 @@ export default {
     "methods": {
         _ready ( e ) {
             e.detail.cmp.setActiveItem( 0 );
+
+            this.refresh();
+        },
+
+        async refresh ( e ) {
+            const res = await telegramComponents.getRegisteredComponents();
+
+            this.store = Ext.create( "Ext.data.Store", {
+                "remoteSort": false,
+                "remoteFilter": false,
+                "data": Object.values( res.data ).map( component => component.model ),
+            } );
         },
 
         _onBotTypeComboReady ( e ) {
