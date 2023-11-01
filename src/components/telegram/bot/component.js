@@ -18,11 +18,11 @@ export default class TelegramBotComponent {
     }
 
     get shortDescription () {
-        return this.name;
+        return this.description;
     }
 
     get description () {
-        return this.shortDescription;
+        return this.name;
     }
 
     get model () {
