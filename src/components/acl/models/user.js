@@ -1,5 +1,3 @@
-import app from "#app";
-
 export default Ext.define( null, {
     "extend": "Ext.data.Model",
 
@@ -19,8 +17,6 @@ export default Ext.define( null, {
         { "name": "created", "type": "date" },
         { "name": "enabled", "type": "bool" },
         { "name": "roles", "type": "array", "allowNull": true },
-
-        // calculated
-        { "name": "editable", "calculate": data => data.id !== app.user.id },
+        { "name": "editable", "type": "bool" },
     ],
 } );
