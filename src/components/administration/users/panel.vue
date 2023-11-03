@@ -11,7 +11,7 @@
         </template>
 
         <template #dataPanel>
-            <ext-grid layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @ready="_gridReady">
+            <ext-grid layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @itemdoubletap="_onItemDoubleTap" @ready="_gridReady">
                 <ext-column width="40" @ready="_avatarColReady"/>
 
                 <ext-column dataIndex="email" flex="1" :text="l10n(`Email`)" @ready="_emailColReady"/>
@@ -326,14 +326,7 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            const cmp = await this.$mount( UserRolesDialog, {
-                "props": {
-                    "aclId": constants.mainAclId,
-                    "userRecord": record,
-                },
-            } );
-
-            cmp.ext.show();
+            return this._openUserRolesDialog( record );
         },
 
         async _showChangePasswordDialog ( button ) {
@@ -368,6 +361,21 @@ export default {
             this.$utils.copyToClipboard( record.get( "email" ) );
 
             this.$toast( this.l10n( `User email copied` ) );
+        },
+
+        _onItemDoubleTap ( e ) {
+            return this._openUserRolesDialog( e.detail.record );
+        },
+
+        async _openUserRolesDialog ( record ) {
+            const cmp = await this.$mount( UserRolesDialog, {
+                "props": {
+                    "aclId": constants.mainAclId,
+                    "userRecord": record,
+                },
+            } );
+
+            cmp.ext.show();
         },
 
         // roles filter
