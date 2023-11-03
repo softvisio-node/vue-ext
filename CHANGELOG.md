@@ -1,5 +1,9 @@
 # Changelog
 
+### 8.10.16 (2023-11-03)
+
+No notable changes since the previous release.
+
 ### 8.10.15 (2023-11-03)
 
 Fixes:
