@@ -105,7 +105,7 @@ msgstr "Внешний вид"
 msgid "Are you sure you want to delete this bot and all it's data? This operation is not revertable."
 msgstr ""
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:193:47
+#: ../../src/components/telegram/bot/links/details.panel.vue:187:47
 msgid "Are you sure you want to delete this link and all it's data? This operation is not revertable."
 msgstr ""
 
@@ -313,7 +313,7 @@ msgstr ""
 
 #: ../../src/components/notifications/link-telegram.dialig.vue:11:54
 #: ../../src/components/telegram/bot/links/details.panel.vue:7:68
-#: ../../src/components/telegram/bot/links/panel.vue:122:36
+#: ../../src/components/telegram/bot/links/panel.vue:105:36
 msgid "Copy link"
 msgstr "Копировать ссылку"
 
@@ -711,8 +711,8 @@ msgid "Latest charts"
 msgstr "Последние графики"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:204:25
-#: ../../src/components/telegram/bot/links/details.panel.vue:218:25
-#: ../../src/components/telegram/bot/links/panel.vue:150:25
+#: ../../src/components/telegram/bot/links/details.panel.vue:212:25
+#: ../../src/components/telegram/bot/links/panel.vue:139:25
 msgid "Link copied to the clipboard"
 msgstr ""
 
@@ -720,16 +720,12 @@ msgstr ""
 msgid "Link created"
 msgstr ""
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:204:29
+#: ../../src/components/telegram/bot/links/details.panel.vue:198:29
 msgid "Link deleted"
 msgstr ""
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:6:48
 msgid "Link description"
-msgstr ""
-
-#: ../../src/components/telegram/bot/links/panel.vue:41:184
-msgid "Link details"
 msgstr ""
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:4:35
@@ -742,8 +738,8 @@ msgstr ""
 msgid "Link Telegram"
 msgstr "Привязать Telegram"
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:155:29
-#: ../../src/components/telegram/bot/links/details.panel.vue:185:29
+#: ../../src/components/telegram/bot/links/details.panel.vue:149:29
+#: ../../src/components/telegram/bot/links/details.panel.vue:179:29
 msgid "Link updated"
 msgstr ""
 
@@ -1217,6 +1213,10 @@ msgstr ""
 msgid "Telegram bot created"
 msgstr ""
 
+#: ../../src/components/telegram/bot/links/details.dialog.vue:24:19
+msgid "Telegram bot link"
+msgstr ""
+
 #: ../../src/components/telegram/bot/links/charts.dialog.vue:22:19
 msgid "Telegram bot link charts"
 msgstr ""
@@ -1435,6 +1435,10 @@ msgstr ""
 #: ../../src/components/about.dialog.vue:40:25
 msgid "Version info copied"
 msgstr "Информация о версии скопирована в буфер"
+
+#: ../../src/components/telegram/bot/links/panel.vue:111:39
+msgid "View link"
+msgstr ""
 
 #: ../../src/components/administration/users/panel.vue:227:48
 msgid "View user sessions"
