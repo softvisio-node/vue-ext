@@ -12,6 +12,7 @@ export default Ext.define( null, {
         { "name": "acl_user_permissions", "convert": value => app.user.createPermissions( value ) },
         "type",
         { "name": "static", "type": "bool" },
+        { "name": "deleted", "type": "bool" },
         "locales",
         { "name": "created", "type": "date" },
 

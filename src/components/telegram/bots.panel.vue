@@ -83,6 +83,7 @@ export default {
             "model": TelegramBotModel,
             "autoLoad": false,
             "pageSize": 50,
+            "filters": { "property": "deleted", "operator": "=", "value": false },
             "proxy": {
                 "api": {
                     "read": this._getStoreApiMethod(),
