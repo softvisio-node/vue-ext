@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="90%" layout="fit" :title="l10n(`Edit user roles`)" width="600">
+    <ext-dialog height="90%" layout="fit" :title="title" width="600">
         <RolesPanel ref="rolesPanel" :aclId="aclId" :userId="userId" @update="_onRolesUpdate"/>
     </ext-dialog>
 </template>
@@ -24,6 +24,10 @@ export default {
     "computed": {
         userId () {
             return this.userRecord.id;
+        },
+
+        title () {
+            return this.l10n( `Edit user roles` ) + ": " + this.userRecord.get( "email" );
         },
     },
 
