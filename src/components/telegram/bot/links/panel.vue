@@ -21,7 +21,7 @@
             </template>
 
             <template #dataPanel>
-                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store">
+                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store" @itemdoubletap="_onChilddOubleTap">
                     <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
 
                     <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="150"/>
@@ -109,7 +109,7 @@ export default {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-eye",
                             "toolti[": this.l10n( "View link" ),
-                            "handler": this._showLinkDialog.bind( this ),
+                            "handler": this._viewLinkCluck.bind( this ),
                         },
                     ],
                 },
@@ -150,12 +150,20 @@ export default {
             cmp.ext.show();
         },
 
-        async _showLinkDialog ( button ) {
-            const telegramBotLinkRecord = button.up( "gridrow" ).getRecord();
+        async _viewLinkCluck ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
 
+            return this._showLinkDialog( record );
+        },
+
+        async _onChilddOubleTap ( e ) {
+            return this._showLinkDialog( e.detail.record );
+        },
+
+        async _showLinkDialog ( record ) {
             const cmp = await this.$mount( LinkDialog, {
                 "props": {
-                    telegramBotLinkRecord,
+                    "telegramBotLinkRecord": record,
                     "onLinkDelete": this.refresh.bind( this ),
                 },
             } );
