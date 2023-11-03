@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.10.12 (2023-11-03)
+
+Fixes:
+
+-   fix: permissions
+-   fix: toggle field
+
 ### 8.10.11 (2023-11-01)
 
 Fixes:
