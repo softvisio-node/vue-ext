@@ -41,6 +41,8 @@ export default class VueExtApp extends VueApp {
     async _onSignout ( res ) {
         if ( res ) this.utils.toast( res );
 
+        Ext.Viewport.unmask();
+
         await this.utils.alert( window.l10n( `Your session was terminated on the API server.` ), {
             "title": window.l10n( `Session closed` ),
         } );
