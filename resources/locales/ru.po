@@ -483,7 +483,7 @@ msgid "Edit bot details"
 msgstr ""
 
 #: ../../src/components/acl/panel.vue:205:39
-#: ../../src/components/acl/roles.dialog.vue:2:50
+#: ../../src/components/acl/roles.dialog.vue:30:19
 #: ../../src/components/administration/users/panel.vue:207:39
 msgid "Edit user roles"
 msgstr "Редактировать роли пользователя"
@@ -1401,7 +1401,7 @@ msgstr "Пользователь удален"
 msgid "User details"
 msgstr ""
 
-#: ../../src/components/administration/users/panel.vue:370:25
+#: ../../src/components/administration/users/panel.vue:363:25
 msgid "User email copied"
 msgstr "Email пользователя скопирована"
 
