@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.10.15 (2023-11-03)
+
+Fixes:
+
+-   fix: aignout
+-   fix: telegram link
+
 ### 8.10.14 (2023-11-03)
 
 Fixes:
