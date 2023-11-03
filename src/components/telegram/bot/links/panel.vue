@@ -43,7 +43,7 @@
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotLinkModel from "./models/link";
 import CreateLinkDialog from "./create.dialog";
-import LinkDialog from "./details.panel";
+import LinkDialog from "./details.dialog";
 import TelegramBotModel from "../models/bot.js";
 
 export default {

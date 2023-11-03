@@ -78,7 +78,7 @@ export default {
     "props": {
         "telegramBotLinkRecord": {
             "type": Object,
-            "default": null,
+            "required": true,
         },
     },
 
