@@ -379,6 +379,10 @@ msgstr ""
 msgid "Creation date"
 msgstr "Дата створення"
 
+#: ../../src/components/user-sessions/panel.vue:68:39
+msgid "Cuttent session"
+msgstr ""
+
 #: ../../src/components/account/appearance.panel.vue:13:73
 #: ../../src/components/dark-mode.button.vue:43:61
 msgid "Dark mode"
@@ -410,7 +414,7 @@ msgstr "Видалити бота"
 msgid "Delete link"
 msgstr ""
 
-#: ../../src/components/user-sessions/panel.vue:68:39
+#: ../../src/components/user-sessions/panel.vue:74:39
 msgid "Delete session"
 msgstr ""
 
@@ -1107,11 +1111,11 @@ msgstr "Надіслати токен"
 msgid "Session closed"
 msgstr "Сесія закрита"
 
-#: ../../src/components/user-sessions/panel.vue:88:29
+#: ../../src/components/user-sessions/panel.vue:94:29
 msgid "Session was deleted"
 msgstr "Сесію видалено"
 
-#: ../../src/components/user-sessions/panel.vue:110:29
+#: ../../src/components/user-sessions/panel.vue:116:29
 msgid "Sessions were deleted"
 msgstr "Сесії видалено"
 

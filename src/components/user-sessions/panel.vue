@@ -64,6 +64,12 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
+                            "iconCls": "fa-solid fa-check",
+                            "tooltip": this.l10n( "Cuttent session" ),
+                            "bind": { "hidden": "{!record.current_session}" },
+                        },
+                        {
+                            "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
                             "tooltip": this.l10n( "Delete session" ),
                             "handler": this._signOutSession.bind( this ),
