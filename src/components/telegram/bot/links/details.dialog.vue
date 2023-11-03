@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import LinkDetailsPanel from "./details.dialog";
+import LinkDetailsPanel from "./details.panel";
 
 export default {
     "components": { LinkDetailsPanel },
