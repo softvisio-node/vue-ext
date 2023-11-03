@@ -11,7 +11,7 @@
         </template>
 
         <template #dataPanel>
-            <ext-grid ref="grid" columnMenu="false" columnResize="false" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' viewModel="true" @ready="_ready">
+            <ext-grid ref="grid" columnMenu="false" columnResize="false" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' viewModel="true" @itemdoubletap="_onItemDoubleTap" @ready="_ready">
                 <ext-column width="40" @ready="_avatarColReady"/>
 
                 <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="l10n(`Email`)"/>
@@ -287,14 +287,7 @@ export default {
         async _showUserRolesDialog ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            const cmp = await this.$mount( RolesDialog, {
-                "props": {
-                    "aclId": this.aclId,
-                    "userRecord": record,
-                },
-            } );
-
-            cmp.ext.show();
+            return this._openUserRolesDialog( record );
         },
 
         async _showAddUserDialog () {
@@ -319,6 +312,23 @@ export default {
             else {
                 this.store.removeFilter( "roles" );
             }
+        },
+
+        _onItemDoubleTap ( e ) {
+            if ( !this.$refs.cards.ext.getViewModel().get( "permissions" ).get( "read" ) ) return;
+
+            return this._openUserRolesDialog( e.detail.record );
+        },
+
+        async _openUserRolesDialog ( record ) {
+            const cmp = await this.$mount( RolesDialog, {
+                "props": {
+                    "aclId": this.aclId,
+                    "userRecord": record,
+                },
+            } );
+
+            cmp.ext.show();
         },
     },
 };
