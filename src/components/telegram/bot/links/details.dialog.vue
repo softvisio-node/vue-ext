@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="90%" layout="fit" scrollable="true" :title="title" viewModel="true" width="600">
+    <ext-dialog height="90%" layout="fit" scrollable="true" :title="title" width="600">
         <LinkDetailsPanel :telegramBotLinkRecord="telegramBotLinkRecord" @linkDelete="_onLinkDelete"/>
     </ext-dialog>
 </template>
@@ -21,13 +21,15 @@ export default {
 
     "computed": {
         title () {
-            return this.l10n( `Telegram bot link charts` );
+            return this.l10n( `Telegram bot link` ) + ": " + this.telegramBotLinkRecord.get( "name" );
         },
     },
 
     "methods": {
         _onLinkDelete ( record ) {
             this.$emit( "linkDelete", record );
+
+            this.ext.close();
         },
     },
 };
