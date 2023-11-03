@@ -84,12 +84,6 @@ export default {
 
     "emits": ["linkDelete"],
 
-    "watch": {
-        telegramBotLinkRecord ( newValue, oldValue ) {
-            this._onRecordChange();
-        },
-    },
-
     "methods": {
         async refresh () {
             if ( !this.telegramBotLinkRecord ) return;

@@ -21,7 +21,7 @@
             </template>
 
             <template #dataPanel>
-                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store" @ready="_gridReady">
+                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store">
                     <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
 
                     <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="150"/>
@@ -36,11 +36,6 @@
                 </ext-grid>
             </template>
         </CardsPanel>
-
-        <!-- details panel -->
-        <ext-panel ref="detailsPanel" collapsible="right" docked="right" headerPosition="left" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`Link details`)" width="400">
-            <DetailsPanel :telegramBotLinkRecord="telegramBotLinkRecord" @linkDelete="_onLinkDelete"/>
-        </ext-panel>
     </ext-panel>
 </template>
 
@@ -48,23 +43,17 @@
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotLinkModel from "./models/link";
 import CreateLinkDialog from "./create.dialog";
-import DetailsPanel from "./details.panel";
+import LinkDialog from "./details.panel";
 import TelegramBotModel from "../models/bot.js";
 
 export default {
-    "components": { CardsPanel, DetailsPanel },
+    "components": { CardsPanel },
 
     "props": {
         "telegramBotId": {
             "type": String,
             "required": true,
         },
-    },
-
-    data () {
-        return {
-            "telegramBotLinkRecord": null,
-        };
     },
 
     created () {
@@ -101,12 +90,6 @@ export default {
         },
 
         // protected
-        _gridReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.on( "select", ( grid, selection ) => ( this.telegramBotLinkRecord = selection[0] ) );
-        },
-
         _actionColReady ( e ) {
             const cmp = e.detail.cmp;
 
@@ -121,6 +104,12 @@ export default {
                             "iconCls": "fa-regular fa-copy",
                             "text": this.l10n( "Copy link" ),
                             "handler": this._copyLink.bind( this ),
+                        },
+                        {
+                            "xtype": "button",
+                            "iconCls": "fa-regular fa-eye",
+                            "toolti[": this.l10n( "View link" ),
+                            "handler": this._showLinkDialog.bind( this ),
                         },
                     ],
                 },
@@ -142,7 +131,7 @@ export default {
             }
         },
 
-        async _copyLink ( button ) {
+        _copyLink ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
             this.$utils.copyToClipboard( record.get( "link" ) );
@@ -161,10 +150,17 @@ export default {
             cmp.ext.show();
         },
 
-        _onLinkDelete ( telegramBotLinkrecord ) {
-            this.telegramBotLinkRecord = null;
+        async _showLinkDialog ( button ) {
+            const telegramBotLinkRecord = button.up( "gridrow" ).getRecord();
 
-            this.refresh();
+            const cmp = await this.$mount( LinkDialog, {
+                "props": {
+                    telegramBotLinkRecord,
+                    "onLinkDelete": this.refresh.bind( this ),
+                },
+            } );
+
+            cmp.ext.show();
         },
     },
 };
