@@ -239,6 +239,7 @@ export default {
             } );
 
             if ( !res.ok ) {
+                typeChannel.subscribed = currentValue;
                 button.setValue( currentValue );
 
                 this.$toast( res );

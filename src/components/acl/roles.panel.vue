@@ -150,6 +150,7 @@ export default {
             }
             else {
                 record.set( "enabled", !enabled );
+                button.setValue( !enabled );
 
                 this.$toast( res );
             }

@@ -100,8 +100,7 @@ export default {
             } );
 
             if ( !res.ok ) {
-                await new Promise( resolve => setTimeout( resolve, 500 ) );
-
+                record.set( "subscribed", currentValue );
                 button.setValue( currentValue );
 
                 this.$toast( res );
