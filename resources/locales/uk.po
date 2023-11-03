@@ -38,7 +38,7 @@ msgstr "Про проект"
 msgid "Accent color"
 msgstr "Колір акценту"
 
-#: ../../src/app.js:59:21
+#: ../../src/app.js:61:21
 msgid "Access denied"
 msgstr ""
 
@@ -1012,7 +1012,7 @@ msgstr "Відновити"
 msgid "Refresh"
 msgstr "Оновити"
 
-#: ../../src/app.js:61:22
+#: ../../src/app.js:63:22
 msgid "Reload"
 msgstr ""
 
@@ -1103,7 +1103,7 @@ msgstr "Виберіть користувача"
 msgid "Send token"
 msgstr "Надіслати токен"
 
-#: ../../src/app.js:45:21
+#: ../../src/app.js:47:21
 msgid "Session closed"
 msgstr "Сесія закрита"
 
@@ -1456,7 +1456,7 @@ msgstr "Слідкувати"
 msgid "We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above."
 msgstr "Ми щойно надіслали токен підтвердження зміни email на нову електронну адресу. Будь ласка, перевірте свою поштову скриньку та введіть токен у поле вище."
 
-#: ../../src/app.js:58:46
+#: ../../src/app.js:60:46
 msgid "Your access permissions were changed on API server. Please, reload application to apply updates."
 msgstr ""
 
@@ -1465,7 +1465,7 @@ msgstr ""
 msgid "Your account"
 msgstr "Ваш аккаунт"
 
-#: ../../src/app.js:44:32
+#: ../../src/app.js:46:32
 msgid "Your session was terminated on the API server."
 msgstr "Ваша сесія був припинений на сервері API."
 
