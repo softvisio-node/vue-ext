@@ -19,7 +19,7 @@
                 </template>
 
                 <template #dataPanel>
-                    <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store">
+                    <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store" @itemdoubletap="_onItemDoubleTap">
                         <ext-column width="50" @ready="_avatarColReady"/>
 
                         <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
@@ -253,6 +253,15 @@ export default {
 
             if ( this._openedBotId === telegramBotId ) {
                 this._showBotsList();
+            }
+        },
+
+        _onItemDoubleTap ( e ) {
+            if ( this.openBotInDialog ) {
+                this._showBotDialog( e.detail.record );
+            }
+            else {
+                this._showBotPanel( e.detail.record );
             }
         },
     },
