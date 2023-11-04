@@ -1,7 +1,7 @@
 <template>
     <CardsPanel ref="cardsPanel" @ready="ready" @refresh="refresh">
         <template #dataPanel>
-            <ext-panel ref="dataPanel" layout="vbox" padding="0 0 0 10" scrollable="true" viewModel="true">
+            <ext-panel ref="dataPanel" layout="vbox" scrollable="true" viewModel="true">
                 <ext-toolbar docked="top">
                     <ext-spacer/>
                     <ext-button iconCls="fa-regular fa-copy" :text="l10n(`Copy link`)" @tap="_copyLink"/>
@@ -28,18 +28,25 @@
                 </ext-container>
 
                 <!-- stats -->
-                <ext-panel defaults='{"labelAlign":"left","labelWidth":150}' padding="0 0 0 10">
+                <ext-panel defaults='{"labelAlign":"left","labelWidth":150}'>
                     <ext-displayfield bind="{telegramBotLinkRecord.created_html}" :label="l10n(`Creation date`)"/>
 
                     <ext-displayfield bind="{telegramBotLinkRecord.last_user_created_html}" :label="l10n(`Last user created`)" labelAlign="top"/>
-
-                    <ext-displayfield bind="{telegramBotLinkRecord.total_users}" :label="l10n(`Total users`)"/>
-                    <ext-displayfield bind="{telegramBotLinkRecord.total_subscribed_users_text}" :label="l10n(`Total subscribed users`)"/>
-                    <ext-displayfield bind="{telegramBotLinkRecord.total_unsubscribed_users_text}" :label="l10n(`Total unsubscribed users`)"/>
-
-                    <ext-displayfield bind="{telegramBotLinkRecord.total_returned_users_text}" :label="l10n(`Total returned users`)"/>
-                    <ext-displayfield bind="{telegramBotLinkRecord.total_banned_users_text}" :label="l10n(`Total banned users`)"/>
                 </ext-panel>
+
+                <!-- users -->
+                <ext-container layout="hbox">
+                    <ext-container defaults='{"labelAlign":"left","labelWidth":150}' flex="1" layout="vbox">
+                        <ext-displayfield bind="{telegramBotLinkRecord.total_users}" :label="l10n(`Total users`)"/>
+                        <ext-displayfield bind="{telegramBotLinkRecord.total_subscribed_users_text}" :label="l10n(`Subscribed users`)"/>
+                        <ext-displayfield bind="{telegramBotLinkRecord.total_unsubscribed_users_text}" :label="l10n(`Unsubscribed users`)"/>
+                    </ext-container>
+
+                    <ext-container defaults='{"labelAlign":"left","labelWidth":150}' layout="vbox">
+                        <ext-displayfield bind="{telegramBotLinkRecord.total_returned_users}" :label="l10n(`Returned users`)"/>
+                        <ext-displayfield bind="{telegramBotLinkRecord.total_banned_users}" :label="l10n(`Banned users`)"/>
+                    </ext-container>
+                </ext-container>
 
                 <!-- description -->
                 <ext-container bind='{"hidden":"{editDescription}"}' layout="vbox">
