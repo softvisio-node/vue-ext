@@ -105,7 +105,7 @@ msgstr "Внешний вид"
 msgid "Are you sure you want to delete this bot and all it's data? This operation is not revertable."
 msgstr ""
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:197:47
+#: ../../src/components/telegram/bot/links/details.panel.vue:204:47
 msgid "Are you sure you want to delete this link and all it's data? This operation is not revertable."
 msgstr ""
 
@@ -165,6 +165,11 @@ msgstr ""
 msgid "Banned"
 msgstr ""
 
+#: ../../src/components/telegram/bot/details/info.panel.vue:56:89
+#: ../../src/components/telegram/bot/links/details.panel.vue:47:100
+msgid "Banned users"
+msgstr ""
+
 #: ../../src/components/account/appearance.panel.vue:22:77
 msgid "Base color"
 msgstr "Базовый цвет"
@@ -200,7 +205,7 @@ msgid "Bot type"
 msgstr ""
 
 #: ../../src/components/telegram/bot/details/edit-api-token.dialog.vue:48:29
-#: ../../src/components/telegram/bot/details/edit-details.dialog.vue:56:29
+#: ../../src/components/telegram/bot/details/edit-details.dialog.vue:59:29
 msgid "Bot updated"
 msgstr ""
 
@@ -220,7 +225,7 @@ msgid "Calls"
 msgstr "Вызовы"
 
 #: ../../src/components/telegram/bot/links/details.panel.vue:22:67
-#: ../../src/components/telegram/bot/links/details.panel.vue:61:71
+#: ../../src/components/telegram/bot/links/details.panel.vue:68:71
 #: ../../src/utils.js:139:36 ../../src/utils.js:86:36
 msgid "Cancel"
 msgstr "Отменить"
@@ -411,7 +416,7 @@ msgstr ""
 msgid "Delete bot"
 msgstr "Удалить бота"
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:68:128
+#: ../../src/components/telegram/bot/links/details.panel.vue:75:128
 msgid "Delete link"
 msgstr ""
 
@@ -425,8 +430,8 @@ msgid "Delete user"
 msgstr "Удалить пользователя"
 
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:8:48
-#: ../../src/components/telegram/bot/links/details.panel.vue:47:59
-#: ../../src/components/telegram/bot/links/details.panel.vue:57:59
+#: ../../src/components/telegram/bot/links/details.panel.vue:54:59
+#: ../../src/components/telegram/bot/links/details.panel.vue:64:59
 msgid "Description"
 msgstr "Описание"
 
@@ -475,7 +480,7 @@ msgstr ""
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:29:110
 #: ../../src/components/telegram/bot/links/details.panel.vue:14:122
-#: ../../src/components/telegram/bot/links/details.panel.vue:49:126
+#: ../../src/components/telegram/bot/links/details.panel.vue:56:126
 msgid "Edit"
 msgstr ""
 
@@ -712,7 +717,7 @@ msgid "Latest charts"
 msgstr "Последние графики"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:204:25
-#: ../../src/components/telegram/bot/links/details.panel.vue:222:25
+#: ../../src/components/telegram/bot/links/details.panel.vue:229:25
 #: ../../src/components/telegram/bot/links/panel.vue:139:25
 msgid "Link copied to the clipboard"
 msgstr ""
@@ -721,7 +726,7 @@ msgstr ""
 msgid "Link created"
 msgstr ""
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:208:29
+#: ../../src/components/telegram/bot/links/details.panel.vue:215:29
 msgid "Link deleted"
 msgstr ""
 
@@ -739,8 +744,8 @@ msgstr ""
 msgid "Link Telegram"
 msgstr "Привязать Telegram"
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:156:29
-#: ../../src/components/telegram/bot/links/details.panel.vue:189:29
+#: ../../src/components/telegram/bot/links/details.panel.vue:163:29
+#: ../../src/components/telegram/bot/links/details.panel.vue:196:29
 msgid "Link updated"
 msgstr ""
 
@@ -1017,6 +1022,11 @@ msgstr "Обновить"
 msgid "Reload"
 msgstr ""
 
+#: ../../src/components/telegram/bot/details/info.panel.vue:55:91
+#: ../../src/components/telegram/bot/links/details.panel.vue:46:102
+msgid "Returned users"
+msgstr ""
+
 #: ../../src/components/acl/roles.panel.vue:13:124
 msgid "Role"
 msgstr "Роль"
@@ -1058,7 +1068,7 @@ msgstr ""
 #: ../../src/components/telegram/bot/details/edit-api-token.dialog.vue:9:31
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:13:64
 #: ../../src/components/telegram/bot/links/details.panel.vue:20:67
-#: ../../src/components/telegram/bot/links/details.panel.vue:59:71
+#: ../../src/components/telegram/bot/links/details.panel.vue:66:71
 msgid "Save"
 msgstr "Сохранить"
 
@@ -1197,10 +1207,12 @@ msgstr ""
 #: ../../src/components/telegram/bot/details/charts.panel.vue:254:24
 #: ../../src/components/telegram/bot/details/charts.panel.vue:287:24
 #: ../../src/components/telegram/bot/details/charts.panel.vue:293:33
+#: ../../src/components/telegram/bot/details/info.panel.vue:50:98
 #: ../../src/components/telegram/bot/links/charts.panel.vue:188:33
 #: ../../src/components/telegram/bot/links/charts.panel.vue:268:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:301:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:307:33
+#: ../../src/components/telegram/bot/links/details.panel.vue:41:109
 #: ../../src/components/telegram/bot/links/panel.vue:27:140
 #: ../../src/components/telegram/bots.panel.vue:27:144
 msgid "Subscribed users"
@@ -1284,38 +1296,24 @@ msgstr "Токен удален"
 msgid "Token name"
 msgstr "Имя токена"
 
-#: ../../src/components/telegram/bot/details/info.panel.vue:56:89
-#: ../../src/components/telegram/bot/links/details.panel.vue:41:101
-msgid "Total banned users"
-msgstr ""
-
 #: ../../src/components/development/monitoring/instances/panel.vue:15:60
 msgid "Total memory"
 msgstr "Общая память"
 
-#: ../../src/components/telegram/bot/details/info.panel.vue:55:91
-#: ../../src/components/telegram/bot/links/details.panel.vue:40:103
-msgid "Total returned users"
-msgstr ""
-
 #: ../../src/components/telegram/bot/details/charts.panel.vue:135:24
 #: ../../src/components/telegram/bot/details/charts.panel.vue:168:24
-#: ../../src/components/telegram/bot/details/info.panel.vue:50:98
 #: ../../src/components/telegram/bot/links/charts.panel.vue:149:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:182:24
-#: ../../src/components/telegram/bot/links/details.panel.vue:37:105
 msgid "Total subscribed users"
 msgstr ""
 
 #: ../../src/components/telegram/bot/details/charts.panel.vue:192:24
-#: ../../src/components/telegram/bot/details/info.panel.vue:51:100
 #: ../../src/components/telegram/bot/links/charts.panel.vue:206:24
-#: ../../src/components/telegram/bot/links/details.panel.vue:38:107
 msgid "Total unsubscribed users"
 msgstr ""
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:49:82
-#: ../../src/components/telegram/bot/links/details.panel.vue:36:89
+#: ../../src/components/telegram/bot/links/details.panel.vue:40:93
 msgid "Total users"
 msgstr ""
 
@@ -1350,9 +1348,11 @@ msgstr "Отвязать Telegram"
 #: ../../src/components/telegram/bot/details/charts.panel.vue:198:33
 #: ../../src/components/telegram/bot/details/charts.panel.vue:311:24
 #: ../../src/components/telegram/bot/details/charts.panel.vue:317:33
+#: ../../src/components/telegram/bot/details/info.panel.vue:51:100
 #: ../../src/components/telegram/bot/links/charts.panel.vue:212:33
 #: ../../src/components/telegram/bot/links/charts.panel.vue:325:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:331:33
+#: ../../src/components/telegram/bot/links/details.panel.vue:42:111
 #: ../../src/components/telegram/bot/links/panel.vue:29:144
 #: ../../src/components/telegram/bots.panel.vue:29:148
 msgid "Unsubscribed users"
