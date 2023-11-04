@@ -1,78 +1,76 @@
 <template>
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #dataPanel>
-            <ext-panel ref="dataPanel" layout="fit" viewModel="true">
+            <ext-panel ref="dataPanel" layout="vbox" padding="10 10 0 10" scrollable="true" viewModel="true">
                 <ext-toolbar docked="top">
                     <ext-spacer/>
                     <ext-button bind='{"hidden":"{!record.can_update_acl}"}' iconCls="fa-solid fa-unlock-alt" :text="l10n(`Users & permissions`)" @tap="_showAclDialog"/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-panel layout="vbox" padding="10 10 0 10" scrollable="true">
-                    <ext-avatar bind="{record.avatar_url}" height="60" width="60"/>
+                <ext-avatar bind="{record.avatar_url}" height="60" width="60"/>
 
-                    <ext-displayfield bind="{record.telegram_username}" :label="l10n(`Telegram username`)" labelAlign="left" labelWidth="200"/>
+                <ext-displayfield bind="{record.telegram_username}" :label="l10n(`Telegram username`)" labelAlign="left" labelWidth="200"/>
 
-                    <ext-container layout="hbox">
-                        <ext-displayfield bind="{record.url}" :label="l10n(`Telegram bot url`)" labelAlign="left" labelWidth="200"/>
-                        <ext-spacer/>
-                        <ext-button bind='{"hidden":"{!record.can_read_links}"}' iconCls="fa-solid fa-link" :text="l10n(`Links`)" @tap="_showLinksDialog"/>
-                        <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`)" @tap="_copyBotUrl"/>
-                        <ext-button iconCls="fa-solid fa-arrow-up-right-from-square" :tooltip="l10n(`Open bot in Tekegram`)" @tap="_openBotUrl"/>
-                    </ext-container>
+                <ext-container layout="hbox">
+                    <ext-displayfield bind="{record.url}" :label="l10n(`Telegram bot url`)" labelAlign="left" labelWidth="200"/>
+                    <ext-spacer/>
+                    <ext-button bind='{"hidden":"{!record.can_read_links}"}' iconCls="fa-solid fa-link" :text="l10n(`Links`)" @tap="_showLinksDialog"/>
+                    <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`)" @tap="_copyBotUrl"/>
+                    <ext-button iconCls="fa-solid fa-arrow-up-right-from-square" :tooltip="l10n(`Open bot in Tekegram`)" @tap="_openBotUrl"/>
+                </ext-container>
 
-                    <ext-container layout="hbox">
-                        <ext-displayfield bind="{record.name}" :label="l10n(`Bot name`)" labelAlign="left" labelWidth="200"/>
-
-                        <ext-spacer/>
-
-                        <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="_showEditDetailsDialog"/>
-                    </ext-container>
-
-                    <ext-displayfield bind="{record.short_description}" :label="l10n(`Short description`)" labelAlign="left" labelWidth="200"/>
-
-                    <!-- <ext-displayfield bind="{record.type}" :label="l10n( `Type` )"/> -->
-
-                    <!-- <ext-displayfield bind="{record.static}" :label="l10n( `Static` )"/> -->
-
-                    <!-- <ext-displayfield bind="{record.created}" :label="l10n( `Creation date` )" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/> -->
-
-                    <!-- status -->
-                    <ext-displayfield bind="{record.status_text}" :label="l10n(`Status`)" labelAlign="left" labelWidth="200"/>
-                    <ext-displayfield bind='{"hidden":"{!record.error}","value":"{record.error_text}"}' labelAlign="left" labelWidth="200"/>
-
-                    <!-- users stats -->
-                    <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`Last new user subscribed`)" labelAlign="left" labelWidth="200"/>
-
-                    <ext-container layout="hbox">
-                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">
-                            <ext-displayfield bind="{record.total_users}" :label="l10n(`Total users`)"/>
-                            <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10n(`Subscribed users`)"/>
-                            <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10n(`Unsubscribed users`)"/>
-                        </ext-container>
-
-                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">
-                            <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`Returned users`)"/>
-                            <ext-displayfield bind="{record.total_banned_users_text}" :label="l10n(`Banned users`)"/>
-                        </ext-container>
-                    </ext-container>
+                <ext-container layout="hbox">
+                    <ext-displayfield bind="{record.name}" :label="l10n(`Bot name`)" labelAlign="left" labelWidth="200"/>
 
                     <ext-spacer/>
 
-                    <ext-container defaults='{"ui":"decline","width":200}' layout='{"align":"center","type":"vbox"}'>
-                        <!-- start -->
-                        <ext-button bind='{"hidden":"{!record.can_start}"}' iconCls="fa-regular fa-circle-play" :text="l10n(`Start bot`)" @tap="_startBot"/>
+                    <ext-button bind='{"hidden":"{!record.can_update}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="_showEditDetailsDialog"/>
+                </ext-container>
 
-                        <!-- stop -->
-                        <ext-button bind='{"hidden":"{!record.can_stop}"}' iconCls="fa-regular fa-circle-stop" :text="l10n(`Stop bot`)" @tap="_stopBot"/>
+                <ext-displayfield bind="{record.short_description}" :label="l10n(`Short description`)" labelAlign="left" labelWidth="200"/>
 
-                        <!-- change api token -->
-                        <ext-button bind='{"hidden":"{!record.can_change_api_token}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Change bot API token`)" @tap="_showEditApiTokenDialog"/>
+                <!-- <ext-displayfield bind="{record.type}" :label="l10n( `Type` )"/> -->
 
-                        <!-- delete bot -->
-                        <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete bot`)" @tap="_deleteBot"/>
+                <!-- <ext-displayfield bind="{record.static}" :label="l10n( `Static` )"/> -->
+
+                <!-- <ext-displayfield bind="{record.created}" :label="l10n( `Creation date` )" renderer="Ext.util.Format.dateRenderer('dateStyle:short,timeStyle:short')"/> -->
+
+                <!-- status -->
+                <ext-displayfield bind="{record.status_text}" :label="l10n(`Status`)" labelAlign="left" labelWidth="200"/>
+                <ext-displayfield bind='{"hidden":"{!record.error}","value":"{record.error_text}"}' labelAlign="left" labelWidth="200"/>
+
+                <!-- users stats -->
+                <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`Last new user subscribed`)" labelAlign="left" labelWidth="200"/>
+
+                <ext-container layout="hbox">
+                    <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">
+                        <ext-displayfield bind="{record.total_users}" :label="l10n(`Total users`)"/>
+                        <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10n(`Subscribed users`)"/>
+                        <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10n(`Unsubscribed users`)"/>
                     </ext-container>
-                </ext-panel>
+
+                    <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">
+                        <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`Returned users`)"/>
+                        <ext-displayfield bind="{record.total_banned_users_text}" :label="l10n(`Banned users`)"/>
+                    </ext-container>
+                </ext-container>
+
+                <ext-spacer/>
+
+                <ext-container defaults='{"ui":"decline","width":200}' layout='{"align":"center","type":"vbox"}'>
+                    <!-- start -->
+                    <ext-button bind='{"hidden":"{!record.can_start}"}' iconCls="fa-regular fa-circle-play" :text="l10n(`Start bot`)" @tap="_startBot"/>
+
+                    <!-- stop -->
+                    <ext-button bind='{"hidden":"{!record.can_stop}"}' iconCls="fa-regular fa-circle-stop" :text="l10n(`Stop bot`)" @tap="_stopBot"/>
+
+                    <!-- change api token -->
+                    <ext-button bind='{"hidden":"{!record.can_change_api_token}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Change bot API token`)" @tap="_showEditApiTokenDialog"/>
+
+                    <!-- delete bot -->
+                    <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete bot`)" @tap="_deleteBot"/>
+                </ext-container>
             </ext-panel>
         </template>
     </CardsPanel>
