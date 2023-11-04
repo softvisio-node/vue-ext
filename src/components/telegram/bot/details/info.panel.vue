@@ -57,6 +57,8 @@
                         </ext-container>
                     </ext-container>
 
+                    <ext-spacer/>
+
                     <ext-container defaults='{"ui":"decline","width":200}' layout='{"align":"center","type":"vbox"}'>
                         <!-- start -->
                         <ext-button bind='{"hidden":"{!record.can_start}"}' iconCls="fa-regular fa-circle-play" :text="l10n(`Start bot`)" @tap="_startBot"/>

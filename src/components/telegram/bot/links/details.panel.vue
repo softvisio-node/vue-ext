@@ -67,6 +67,8 @@
                     <ext-textareafield ref="descriptionEditField" height="200" maxLength="10000"/>
                 </ext-container>
 
+                <ext-spacer/>
+
                 <ext-container layout='{"align":"center","type":"vbox"}'>
                     <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete link`)" ui="decline" width="150" @tap="_deleteLink"/>
                 </ext-container>
