@@ -26,7 +26,7 @@ export default {
 
     "methods": {
         _ready ( e ) {
-            this.$refs.form.ext.setKeyMap( { "ENTER": this._createLink.bind( this ) } );
+            e.detail.cmp.setKeyMap( { "ENTER": this._createLink.bind( this ) } );
         },
 
         async _createLink () {
