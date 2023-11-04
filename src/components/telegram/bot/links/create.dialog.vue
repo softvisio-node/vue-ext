@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="500" layout="fit" :title="l10n(`Create Telegram bot link`)" viewModel="true" width="400">
+    <ext-dialog height="500" layout="fit" :title="l10n(`Create Telegram bot link`)" viewModel="true" width="400" @ready="_ready">
         <ext-fieldpanel ref="form" layout="vbox">
             <ext-textfield :label="l10n(`Link name`)" name="name" required="tue"/>
 
@@ -25,6 +25,10 @@ export default {
     "emits": ["create"],
 
     "methods": {
+        _ready ( e ) {
+            this.$refs.form.ext.setKeyMap( { "ENTER": this._createLink.bind( this ) } );
+        },
+
         async _createLink () {
             const form = this.$refs.form.ext;
 
