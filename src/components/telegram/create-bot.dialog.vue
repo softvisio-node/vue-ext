@@ -102,7 +102,6 @@ export default {
 
             cmp.setItemTpl( `
 <div style="font-size:1.3em">
-    <i class="fa-brands fa-telegram"></i>
     {name}
 </div>
 <br/>
