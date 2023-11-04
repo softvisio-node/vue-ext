@@ -55,7 +55,7 @@ export default {
             if ( res.ok ) {
                 this.$toast( this.l10n( `Bot updated` ) );
 
-                this.$refs.formPanel.ext.fillRecord( this.record );
+                form.fillRecord( this.record );
 
                 this.ext.close();
             }
