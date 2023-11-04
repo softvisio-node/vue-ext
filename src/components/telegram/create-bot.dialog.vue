@@ -67,9 +67,16 @@ export default {
         _ready ( e ) {
             e.detail.cmp.setActiveItem( 0 );
 
-            this.$refs.apiTokenPanel.ext.setKeyMap( { "ENTER": this._checkApiToken.bind( this ) } );
-
-            this.$refs.botTypePanel.ext.setKeyMap( { "ENTER": this._createBot.bind( this ) } );
+            this.ext.setKeyMap( {
+                "ENTER": () => {
+                    if ( this.$refs.dataPanel.ext.getActiveItemIndex() === 0 ) {
+                        this._checkApiToken();
+                    }
+                    else {
+                        this._createBot();
+                    }
+                },
+            } );
         },
 
         async refresh ( e ) {
