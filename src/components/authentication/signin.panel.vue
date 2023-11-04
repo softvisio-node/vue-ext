@@ -1,5 +1,5 @@
 <template>
-    <ext-panel layout="vbox" scrollable="true">
+    <ext-panel layout="vbox" scrollable="true" @ready="_ready">
         <ext-toolbar docked="top">
             <ext-spacer/>
             <ext-container :html="l10n(`Sign in`)"/>
@@ -11,7 +11,7 @@
             <OauthContainer margin="0 0 10 0" width="95%" @tap="_oauthTap"/>
         </ext-container>
 
-        <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}' @ready="_ready">
+        <ext-fieldpanel ref="form" defaults='{"margin":"0 0 0 0"}'>
             <ext-emailfield :label="l10n(`Email address`)" name="email" :placeholder="l10n(`Enter your email address`)" required="true" validators="email"/>
 
             <ext-passwordfield :label="l10n(`Password`)" name="password" :placeholder="l10n(`Enter password`)" required="true" revealable="true"/>
@@ -55,7 +55,7 @@ export default {
 
     "methods": {
         _ready ( e ) {
-            var cmp = e.detail.cmp;
+            const cmp = e.detail.cmp;
 
             cmp.setKeyMap( { "ENTER": this._submit.bind( this ) } );
         },

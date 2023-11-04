@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="90%" layout="vbox" scrollable="true" :title="l10n(`User creation`)" width="600" @ready="_ready">
-        <ext-fieldpanel ref="form" @ready="_onFormReady">
+        <ext-fieldpanel ref="form">
             <ext-emailfield :label="l10n(`Email`)" labelAlign="left" labelWidth="150" name="email" :placeholder="l10n(`Enter email`)" required="true" validators="email"/>
 
             <ext-passwordfield :label="l10n(`Password`)" labelAlign="left" labelWidth="150" name="password" :placeholder="l10n(`Enter password`)" required="true" revealable="true"/>
@@ -47,17 +47,13 @@ export default {
         async _ready ( e ) {
             this.ext = e.detail.cmp;
 
+            this.ext.setKeyMap( {
+                "ENTER": this._createUser.bind( this ),
+            } );
+
             this.$refs.form.ext.getFields( "password" ).setValidators( {
                 "type": "password-strength",
                 "strength": this.$app.settings.passwordsStrength,
-            } );
-        },
-
-        _onFormReady ( e ) {
-            var cmp = e.detail.cmp;
-
-            cmp.setKeyMap( {
-                "ENTER": this._createUser.bind( this ),
             } );
         },
 

@@ -26,7 +26,7 @@ export default {
         _ready ( e ) {
             const cmp = e.detail.cmp;
 
-            this.$refs.form.ext.setKeyMap( { "ENTER": this._submit.bind( this ) } );
+            cmp.setKeyMap( { "ENTER": this._submit.bind( this ) } );
 
             this._backListener = this.back.bind( this );
 

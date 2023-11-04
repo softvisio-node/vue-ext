@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="400" layout="vbox" :title="l10n(`Create token`)" width="350" @ready="ready">
-        <ext-fieldpanel ref="form" @ready="formReady">
+        <ext-fieldpanel ref="form">
             <ext-textfield ref="name" :label="l10n(`Token name`)" name="name" :placeholder="l10n(`Enter new token name`)" required="true"/>
         </ext-fieldpanel>
 
@@ -31,12 +31,8 @@ export default {
     "methods": {
         async ready ( e ) {
             this.ext = e.detail.cmp;
-        },
 
-        formReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setKeyMap( {
+            this.ext.setKeyMap( {
                 "ENTER": () => {
                     if ( !this.$refs.generateTokenButton.ext.getHidden() ) {
                         this.generateToken();
