@@ -3,6 +3,7 @@
         <template #dataPanel>
             <ext-panel ref="dataPanel" layout="vbox" padding="0 10 0 0" scrollable="true" viewModel="true">
                 <ext-toolbar docked="top">
+                    <ext-button iconCls="fa-solid fa-chart-line" :text="l10n(`Open charts`)" width="150" @tap="_showChartsDiakig"/>
                     <ext-spacer/>
                     <ext-button iconCls="fa-regular fa-copy" :text="l10n(`Copy link`)" @tap="_copyLink"/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
@@ -20,11 +21,6 @@
                     <ext-button iconCls="fa-solid fa-check" :text="l10n(`Save`)" @tap="saveName"/>
 
                     <ext-button iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" ui="decline" @tap="cancelEditName"/>
-                </ext-container>
-
-                <!-- charts -->
-                <ext-container layout='{"align":"end","type":"vbox"}'>
-                    <ext-button iconCls="fa-solid fa-chart-line" :text="l10n(`Open charts`)" width="150" @tap="_showChartsDiakig"/>
                 </ext-container>
 
                 <!-- stats -->
