@@ -38,11 +38,14 @@ export default {
         },
 
         async _save () {
-            const form = this.$refs.formPanel.ext;
+            const form = this.$refs.formPanel.ext,
+                values = form.getValues();
+
+            for ( const name in values ) values[name] = values[name].trim();
+
+            form.setValues( values );
 
             if ( !form.validate() ) return;
-
-            const values = form.getValues();
 
             this.ext.mask();
             this._saving = true;
