@@ -130,7 +130,7 @@ msgstr "Для виконання цієї операції потрібна а�
 msgid "Authorize"
 msgstr "Авторизуватися"
 
-#: ../../src/components/authorization.dialog.vue:98:29
+#: ../../src/components/authorization.dialog.vue:94:29
 msgid "Authorized"
 msgstr "Авторизовано"
 
@@ -141,7 +141,7 @@ msgstr "Автоматичне оновлення"
 
 #: ../../src/components/authentication/password-recovery.panel.vue:14:64
 #: ../../src/components/authentication/signup.panel.vue:23:64
-#: ../../src/components/telegram/create-bot.dialog.vue:33:80
+#: ../../src/components/telegram/create-bot.dialog.vue:35:80
 msgid "Back"
 msgstr "Назад"
 
@@ -173,7 +173,8 @@ msgstr "Базовий колір"
 msgid "Bot deleted"
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:28:50
+#: ../../src/components/telegram/create-bot.dialog.vue:12:50
+#: ../../src/components/telegram/create-bot.dialog.vue:30:50
 msgid "Bot description"
 msgstr ""
 
@@ -194,7 +195,7 @@ msgstr ""
 msgid "Bot short description is shown on the bot profile page and is sent together with the link when users share the bot."
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:26:50
+#: ../../src/components/telegram/create-bot.dialog.vue:28:50
 msgid "Bot type"
 msgstr ""
 
@@ -237,7 +238,7 @@ msgstr ""
 msgid "Change email"
 msgstr "Змінити email"
 
-#: ../../src/components/change-email.dialog.vue:48:29
+#: ../../src/components/change-email.dialog.vue:44:29
 msgid "Change email token was sent to the new email address"
 msgstr "Токен зміни електронної пошти надіслано на нову адресу електронної пошти"
 
@@ -337,7 +338,7 @@ msgstr "Скопіюйте токен у буфер обміну"
 msgid "CPU usage"
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:35:47
+#: ../../src/components/telegram/create-bot.dialog.vue:37:47
 msgid "Create bpt"
 msgstr ""
 
@@ -716,7 +717,7 @@ msgstr "Останні діаграми"
 msgid "Link copied to the clipboard"
 msgstr ""
 
-#: ../../src/components/telegram/bot/links/create.dialog.vue:47:29
+#: ../../src/components/telegram/bot/links/create.dialog.vue:49:29
 msgid "Link created"
 msgstr ""
 
@@ -724,7 +725,7 @@ msgstr ""
 msgid "Link deleted"
 msgstr ""
 
-#: ../../src/components/telegram/bot/links/create.dialog.vue:6:48
+#: ../../src/components/telegram/bot/links/create.dialog.vue:6:71
 msgid "Link description"
 msgstr ""
 
@@ -820,7 +821,7 @@ msgstr "Нова електронна адреса"
 msgid "New password"
 msgstr "Новий пароль"
 
-#: ../../src/components/telegram/create-bot.dialog.vue:16:99
+#: ../../src/components/telegram/create-bot.dialog.vue:18:99
 msgid "Next"
 msgstr ""
 
@@ -855,7 +856,7 @@ msgstr ""
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: ../../src/components/telegram/telegram-notifications-bot/component.js:24:15
+#: ../../src/components/telegram/telegram-notifications-bot/component.js:12:15
 msgid "Notifications bot"
 msgstr ""
 
@@ -911,13 +912,13 @@ msgstr "Зміна пароля"
 msgid "Password change instructions were sent to the email address, associated with your account."
 msgstr "Інструкції щодо зміни пароля були надіслані на адресу електронної пошти, пов’язану з вашим обліковим записом."
 
-#: ../../src/components/change-password.dialog.vue:67:29
+#: ../../src/components/change-password.dialog.vue:63:29
 #: ../../src/components/reset-password.dialog.vue:86:29
 msgid "Password changed"
 msgstr "Пароль змінено"
 
-#: ../../src/components/administration/users/create-user.dialog.vue:69:25
-#: ../../src/components/change-password.dialog.vue:85:25
+#: ../../src/components/administration/users/create-user.dialog.vue:65:25
+#: ../../src/components/change-password.dialog.vue:81:25
 #: ../../src/components/reset-password.dialog.vue:100:25
 msgid "Password copied to the clipboard"
 msgstr "Пароль скопійовано в буфер обміну"
@@ -930,9 +931,9 @@ msgstr "Відновлення паролю"
 msgid "Password recovery token was not found"
 msgstr "Токен відновлення пароля не знайдено"
 
-#: ../../src/components/administration/users/create-user.dialog.vue:83:64
+#: ../../src/components/administration/users/create-user.dialog.vue:79:64
 #: ../../src/components/authentication/signup.panel.vue:75:64
-#: ../../src/components/change-password.dialog.vue:55:64
+#: ../../src/components/change-password.dialog.vue:51:64
 #: ../../src/components/reset-password.dialog.vue:74:64
 msgid "Passwords do not match"
 msgstr "Паролі не збігаються"
@@ -1209,7 +1210,7 @@ msgstr ""
 msgid "Subscription status"
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:152:29
+#: ../../src/components/telegram/create-bot.dialog.vue:160:29
 msgid "Telegram bot created"
 msgstr ""
 
@@ -1221,7 +1222,7 @@ msgstr ""
 msgid "Telegram bot link charts"
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:24:50
+#: ../../src/components/telegram/create-bot.dialog.vue:26:50
 msgid "Telegram bot name"
 msgstr ""
 
@@ -1233,7 +1234,7 @@ msgstr ""
 msgid "Telegram bot url"
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:22:50
+#: ../../src/components/telegram/create-bot.dialog.vue:24:50
 msgid "Telegram bot username"
 msgstr ""
 
@@ -1266,11 +1267,11 @@ msgstr "Щоб використовувати бот підтримки Telegram
 msgid "Toggle dark mode"
 msgstr "Перемкнути темний режим"
 
-#: ../../src/components/account/tokens/create/dialog.vue:90:25
+#: ../../src/components/account/tokens/create/dialog.vue:86:25
 msgid "Token copied to the clipboard"
 msgstr "Токен скопійовано в буфер обміну"
 
-#: ../../src/components/account/tokens/create/dialog.vue:76:29
+#: ../../src/components/account/tokens/create/dialog.vue:72:29
 msgid "Token created"
 msgstr "Токен створено"
 
@@ -1380,11 +1381,11 @@ msgstr ""
 msgid "User"
 msgstr "Користувач"
 
-#: ../../src/components/acl/add-user.dialog.vue:80:29
+#: ../../src/components/acl/add-user.dialog.vue:84:29
 msgid "User added"
 msgstr "Користувача додано"
 
-#: ../../src/components/administration/users/create-user.dialog.vue:100:29
+#: ../../src/components/administration/users/create-user.dialog.vue:96:29
 msgid "User created"
 msgstr "Користувач створений"
 
