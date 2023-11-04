@@ -66,6 +66,10 @@ export default {
     "methods": {
         _ready ( e ) {
             e.detail.cmp.setActiveItem( 0 );
+
+            this.$refs.apiTokenPanel.ext.setKeyMap( { "ENTER": this._checkApiToken.bind( this ) } );
+
+            this.$refs.botTypePanel.ext.setKeyMap( { "ENTER": this._createBot.bind( this ) } );
         },
 
         async refresh ( e ) {
