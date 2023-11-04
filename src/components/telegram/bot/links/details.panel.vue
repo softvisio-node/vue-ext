@@ -8,17 +8,17 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-container bind='{"hidden":"{editName}"}' layout='{"align":"start","type":"hbox"}'>
+                <ext-container bind='{"hidden":"{editName}"}' layout='{"align":"center","type":"hbox"}'>
                     <ext-displayfield bind="{telegramBotLinkRecord.name}" flex="1" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
-                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEditName"/>
+                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="beginEditName"/>
                 </ext-container>
 
-                <ext-container bind='{"hidden":"{!editName}"}' layout='{"align":"start","type":"hbox"}'>
+                <ext-container bind='{"hidden":"{!editName}"}' layout='{"align":"center","type":"hbox"}'>
                     <ext-textfield ref="nameEditField" flex="1" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
 
-                    <ext-button iconCls="fa-solid fa-check" :tooltip="l10n(`Save`)" @tap="saveName"/>
+                    <ext-button iconCls="fa-solid fa-check" :text="l10n(`Save`)" @tap="saveName"/>
 
-                    <ext-button iconCls="fa-solid fa-xmark" :tooltip="l10n(`Cancel`)" ui="decline" @tap="cancelEditName"/>
+                    <ext-button iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" ui="decline" @tap="cancelEditName"/>
                 </ext-container>
 
                 <ext-panel defaults='{"labelAlign":"left","labelWidth":150}' padding="0 0 0 10">
@@ -39,22 +39,22 @@
                 </ext-container>
 
                 <ext-container bind='{"hidden":"{editDescription}"}' layout="vbox">
-                    <ext-container layout='{"align":"start","type":"hbox"}'>
+                    <ext-container layout='{"align":"center","type":"hbox"}'>
                         <ext-displayfield flex="1" :label="l10n(`Description`)" labelAlign="top"/>
 
-                        <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :tooltip="l10n(`Edit`)" @tap="beginEditDescription"/>
+                        <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="beginEditDescription"/>
                     </ext-container>
 
                     <ext-displayfield bind="{telegramBotLinkRecord.description_html}" encodeHtml="false"/>
                 </ext-container>
 
                 <ext-container bind='{"hidden":"{!editDescription}"}' layout="vbox">
-                    <ext-container layout='{"align":"start","type":"hbox"}'>
+                    <ext-container layout='{"align":"center","type":"hbox"}'>
                         <ext-displayfield flex="1" :label="l10n(`Description`)" labelAlign="top"/>
 
-                        <ext-button iconCls="fa-solid fa-check" :tooltip="l10n(`Save`)" @tap="saveDescription"/>
+                        <ext-button iconCls="fa-solid fa-check" :text="l10n(`Save`)" @tap="saveDescription"/>
 
-                        <ext-button iconCls="fa-solid fa-xmark" :tooltip="l10n(`Cancel`)" ui="decline" @tap="cancelEditDescription"/>
+                        <ext-button iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" ui="decline" @tap="cancelEditDescription"/>
                     </ext-container>
 
                     <ext-textareafield ref="descriptionEditField" height="200"/>
