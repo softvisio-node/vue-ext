@@ -51,7 +51,7 @@
                             <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10n(`Unsubscribed users`)"/>
                         </ext-container>
 
-                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox">
+                        <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">
                             <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`Returned users`)"/>
                             <ext-displayfield bind="{record.total_banned_users}" :label="l10n(`Banned users`)"/>
                         </ext-container>

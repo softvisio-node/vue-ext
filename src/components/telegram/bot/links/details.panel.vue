@@ -42,7 +42,7 @@
                         <ext-displayfield bind="{telegramBotLinkRecord.total_unsubscribed_users_text}" :label="l10n(`Unsubscribed users`)"/>
                     </ext-container>
 
-                    <ext-container defaults='{"labelAlign":"left","labelWidth":150}' layout="vbox">
+                    <ext-container defaults='{"labelAlign":"left","labelWidth":150}' flex="1" layout="vbox">
                         <ext-displayfield bind="{telegramBotLinkRecord.total_returned_users}" :label="l10n(`Returned users`)"/>
                         <ext-displayfield bind="{telegramBotLinkRecord.total_banned_users}" :label="l10n(`Banned users`)"/>
                     </ext-container>
