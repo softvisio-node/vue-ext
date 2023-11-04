@@ -1380,7 +1380,7 @@ msgstr ""
 msgid "User"
 msgstr "Пользователь"
 
-#: ../../src/components/acl/add-user.dialog.vue:76:29
+#: ../../src/components/acl/add-user.dialog.vue:80:29
 msgid "User added"
 msgstr "Пользователь добавлен"
 
