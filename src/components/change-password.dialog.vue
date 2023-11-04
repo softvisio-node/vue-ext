@@ -2,7 +2,7 @@
     <ext-dialog height="350" layout="vbox" :title="title" width="300" @ready="_ready">
         <ext-container :html="header" style="text-align: center"/>
 
-        <ext-fieldpanel ref="form" @ready="formReady">
+        <ext-fieldpanel ref="form">
             <ext-passwordfield :label="l10n(`New password`)" name="password" :placeholder="l10n(`Enter new password`)" required="true" revealable="true"/>
 
             <ext-passwordfield :label="l10n(`Confirm new password`)" name="confirmedPassword" :placeholder="l10n(`Confirm new password`)" required="true" revealable="true"/>
@@ -32,16 +32,12 @@ export default {
         _ready ( e ) {
             this.ext = e.detail.cmp;
 
+            this.ext.setKeyMap( { "ENTER": this.submit.bind( this ) } );
+
             this.$refs.form.ext.getFields( "password" ).setValidators( {
                 "type": "password-strength",
                 "strength": this.$app.settings.passwordsStrength,
             } );
-        },
-
-        formReady ( e ) {
-            var cmp = e.detail.cmp;
-
-            cmp.setKeyMap( { "ENTER": this.submit.bind( this ) } );
         },
 
         async submit () {

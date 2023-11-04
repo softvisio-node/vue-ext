@@ -7,7 +7,7 @@
             <OauthContainer margin="0 0 10 0" width="95%" @tap="_oauthTap"/>
         </ext-container>
 
-        <ext-fieldpanel ref="form" @ready="_formReady">
+        <ext-fieldpanel ref="form">
             <ext-passwordfield :label="l10n(`Password`)" name="password" :placeholder="l10n(`Enter password`)" required="true" revealable="true"/>
         </ext-fieldpanel>
 
@@ -38,15 +38,11 @@ export default {
         _ready ( e ) {
             this.ext = e.detail.cmp;
 
+            this.ext.setKeyMap( { "ENTER": this._submit.bind( this ) } );
+
             this.ext.on( "destroy", () => {
                 if ( this._resolve ) this._resolve( false );
             } );
-        },
-
-        _formReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setKeyMap( { "ENTER": this._submit.bind( this ) } );
         },
 
         async show () {

@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="350" :title="title" width="300" @ready="_ready">
-        <ext-fieldpanel ref="form" @ready="formReady">
+        <ext-fieldpanel ref="form">
             <ext-container :html="l10n(`Enter new email address which you want to use.`)" layout="center"/>
 
             <ext-emailfield :label="l10n(`New email address`)" name="email" :placeholder="l10n(`Enter new email address`)" required="true" validators="email"/>
@@ -23,12 +23,8 @@ export default {
     "methods": {
         _ready ( e ) {
             this.ext = e.detail.cmp;
-        },
 
-        formReady ( e ) {
-            var cmp = e.detail.cmp;
-
-            cmp.setKeyMap( { "ENTER": this._sendToken.bind( this ) } );
+            this.ext.setKeyMap( { "ENTER": this._sendToken.bind( this ) } );
         },
 
         async _sendToken () {
