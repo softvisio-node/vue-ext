@@ -8,7 +8,7 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
-                <ext-panel padding="10 10 10 10" scrollable="true">
+                <ext-panel padding="10 10 0 10" scrollable="true">
                     <ext-avatar bind="{record.avatar_url}" height="60" width="60"/>
 
                     <ext-displayfield bind="{record.telegram_username}" :label="l10n(`Telegram username`)" labelAlign="left" labelWidth="200"/>

@@ -1,7 +1,7 @@
 <template>
     <CardsPanel ref="cardsPanel" @ready="ready" @refresh="refresh">
         <template #dataPanel>
-            <ext-panel ref="dataPanel" layout="vbox" scrollable="true" viewModel="true">
+            <ext-panel ref="dataPanel" layout="vbox" padding="10 10 10 10" scrollable="true" viewModel="true">
                 <ext-toolbar docked="top">
                     <ext-spacer/>
                     <ext-button iconCls="fa-regular fa-copy" :text="l10n(`Copy link`)" @tap="_copyLink"/>
