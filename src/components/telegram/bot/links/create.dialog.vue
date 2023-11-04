@@ -3,7 +3,7 @@
         <ext-fieldpanel ref="form" layout="vbox">
             <ext-textfield :label="l10n(`Link name`)" name="name" required="tue"/>
 
-            <ext-textareafield flex="1" :label="l10n(`Link description`)" name="description" wrap="off"/>
+            <ext-textareafield ref="descriotionField" flex="1" :label="l10n(`Link description`)" name="description" wrap="off"/>
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom">
@@ -27,6 +27,8 @@ export default {
     "methods": {
         _ready ( e ) {
             e.detail.cmp.setKeyMap( { "ENTER": this._createLink.bind( this ) } );
+
+            this.$refs.descriotionField.ext.setKeyMap( { "ENTER": e => e.stopPropagation() } );
         },
 
         async _createLink () {
