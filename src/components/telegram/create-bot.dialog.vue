@@ -2,7 +2,7 @@
     <ext-dialog height="500" layout="fit" :title="l10n(`Create Telegram bot`)" width="500">
         <CardsPanel ref="cardsPanel" @refresh="refresh">
             <template #dataPanel>
-                <ext-panel ref="cardsPanel" layout='{"animation":"slide","type":"card"}' @ready="_ready">
+                <ext-panel ref="dataPanel" layout='{"animation":"slide","type":"card"}' @ready="_ready">
                     <!-- api token panel -->
                     <ext-fieldpanel ref="apiTokenPanel" layout="vbox">
                         <ext-textfield :label="l10n(`Enter your Telegram bot API token`)" name="api_token" required="true"/>
@@ -116,34 +116,34 @@ export default {
 
             if ( !form.validate() ) return;
 
-            this.$refs.cardsPanel.ext.mask();
+            this.$refs.cardsPanel.mask();
 
             const res = await this.$api.call( "telegram/bots/check-bot-api-token", form.getValues().api_token );
 
-            this.$refs.cardsPanel.ext.unmask();
+            this.$refs.cardsPanel.unmask();
 
             if ( !res.ok ) {
                 this.$toast( res );
             }
             else {
-                this.$refs.cardsPanel.ext.setActiveItem( this.$refs.botTypePanel.ext );
+                this.$refs.dataPanel.ext.setActiveItem( this.$refs.botTypePanel.ext );
 
                 this.botInfo = res.data;
             }
         },
 
         _back () {
-            this.$refs.cardsPanel.ext.setActiveItem( 0 );
+            this.$refs.dataPanel.ext.setActiveItem( 0 );
         },
 
         async _createBot () {
             const form = this.$refs.apiTokenPanel.ext;
 
-            this.$refs.cardsPanel.ext.mask();
+            this.$refs.cardsPanel.mask();
 
             const res = await this.$api.call( "telegram/bots/create-bot", form.getValues().api_token, this.component.id );
 
-            this.$refs.cardsPanel.ext.unmask();
+            this.$refs.cardsPanel.unmask();
 
             if ( !res.ok ) {
                 this.$toast( res );
