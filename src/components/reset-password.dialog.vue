@@ -52,7 +52,7 @@ export default {
                 "strength": this.$app.settings.passwordsStrength,
             } );
 
-            this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": "_submit", "scope": this } } );
+            this.$refs.form.ext.setKeyMap( { "ENTER": this._submit.bind( this ) } );
         },
 
         _onDestroy () {

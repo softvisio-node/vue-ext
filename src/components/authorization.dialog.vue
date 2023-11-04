@@ -46,7 +46,7 @@ export default {
         _formReady ( e ) {
             const cmp = e.detail.cmp;
 
-            cmp.setKeyMap( { "ENTER": { "handler": this._submit.bind( this ) } } );
+            cmp.setKeyMap( { "ENTER": this._submit.bind( this ) } );
         },
 
         async show () {

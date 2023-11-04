@@ -57,7 +57,7 @@ export default {
         _ready ( e ) {
             var cmp = e.detail.cmp;
 
-            cmp.setKeyMap( { "ENTER": { "handler": "_submit", "scope": this } } );
+            cmp.setKeyMap( { "ENTER": this._submit.bind( this ) } );
         },
 
         showPasswordRecovery () {

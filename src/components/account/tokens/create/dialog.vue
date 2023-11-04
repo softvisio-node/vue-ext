@@ -37,15 +37,13 @@ export default {
             const cmp = e.detail.cmp;
 
             cmp.setKeyMap( {
-                "ENTER": {
-                    "handler": () => {
-                        if ( !this.$refs.generateTokenButton.ext.getHidden() ) {
-                            this.generateToken();
-                        }
-                        else {
-                            this.copyToClipboard();
-                        }
-                    },
+                "ENTER": () => {
+                    if ( !this.$refs.generateTokenButton.ext.getHidden() ) {
+                        this.generateToken();
+                    }
+                    else {
+                        this.copyToClipboard();
+                    }
                 },
             } );
         },

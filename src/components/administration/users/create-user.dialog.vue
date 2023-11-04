@@ -57,9 +57,7 @@ export default {
             var cmp = e.detail.cmp;
 
             cmp.setKeyMap( {
-                "ENTER": {
-                    "handler": this._createUser.bind( this ),
-                },
+                "ENTER": this._createUser.bind( this ),
             } );
         },
 

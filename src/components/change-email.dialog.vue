@@ -28,13 +28,7 @@ export default {
         formReady ( e ) {
             var cmp = e.detail.cmp;
 
-            cmp.setKeyMap( {
-                "ENTER": {
-                    "handler": () => {
-                        this._sendToken();
-                    },
-                },
-            } );
+            cmp.setKeyMap( { "ENTER": this._sendToken.bind( this ) } );
         },
 
         async _sendToken () {

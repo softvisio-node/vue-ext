@@ -44,7 +44,7 @@ export default {
                 "strength": this.$app.settings.passwordsStrength,
             } );
 
-            this.$refs.form.ext.setKeyMap( { "ENTER": { "handler": this._submit.bind( this ) } } );
+            this.$refs.form.ext.setKeyMap( { "ENTER": this._submit.bind( this ) } );
 
             this._backListener = this.back.bind( this );
 
