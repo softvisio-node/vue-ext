@@ -219,8 +219,8 @@ msgstr "Браузер"
 msgid "Calls"
 msgstr "Вызовы"
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:21:70
-#: ../../src/components/telegram/bot/links/details.panel.vue:57:74
+#: ../../src/components/telegram/bot/links/details.panel.vue:21:67
+#: ../../src/components/telegram/bot/links/details.panel.vue:57:71
 #: ../../src/utils.js:139:36 ../../src/utils.js:86:36
 msgid "Cancel"
 msgstr "Отменить"
@@ -474,8 +474,8 @@ msgid "Duration per call (ms)"
 msgstr ""
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:29:110
-#: ../../src/components/telegram/bot/links/details.panel.vue:13:125
-#: ../../src/components/telegram/bot/links/details.panel.vue:45:129
+#: ../../src/components/telegram/bot/links/details.panel.vue:13:122
+#: ../../src/components/telegram/bot/links/details.panel.vue:45:126
 msgid "Edit"
 msgstr ""
 
@@ -1057,8 +1057,8 @@ msgstr ""
 
 #: ../../src/components/telegram/bot/details/edit-api-token.dialog.vue:9:31
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:13:64
-#: ../../src/components/telegram/bot/links/details.panel.vue:19:70
-#: ../../src/components/telegram/bot/links/details.panel.vue:55:74
+#: ../../src/components/telegram/bot/links/details.panel.vue:19:67
+#: ../../src/components/telegram/bot/links/details.panel.vue:55:71
 msgid "Save"
 msgstr "Сохранить"
 
