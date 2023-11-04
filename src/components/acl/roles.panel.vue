@@ -43,6 +43,7 @@ export default {
             "model": RoleModel,
             "remoteFilter": false,
             "remoteSort": false,
+            "sorters": { "property": "name", "direction": "asc" },
         } );
     },
 
