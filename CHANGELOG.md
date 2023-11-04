@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.10.17 (2023-11-04)
+
+Fixes:
+
+-   fix: forms
+
 ### 8.10.16 (2023-11-03)
 
 No notable changes since the previous release.
