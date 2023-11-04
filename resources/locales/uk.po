@@ -105,7 +105,7 @@ msgstr "Зовнішній вигляд"
 msgid "Are you sure you want to delete this bot and all it's data? This operation is not revertable."
 msgstr ""
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:191:47
+#: ../../src/components/telegram/bot/links/details.panel.vue:197:47
 msgid "Are you sure you want to delete this link and all it's data? This operation is not revertable."
 msgstr ""
 
@@ -712,7 +712,7 @@ msgid "Latest charts"
 msgstr "Останні діаграми"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:204:25
-#: ../../src/components/telegram/bot/links/details.panel.vue:216:25
+#: ../../src/components/telegram/bot/links/details.panel.vue:222:25
 #: ../../src/components/telegram/bot/links/panel.vue:139:25
 msgid "Link copied to the clipboard"
 msgstr ""
@@ -721,7 +721,7 @@ msgstr ""
 msgid "Link created"
 msgstr ""
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:202:29
+#: ../../src/components/telegram/bot/links/details.panel.vue:208:29
 msgid "Link deleted"
 msgstr ""
 
@@ -739,8 +739,8 @@ msgstr ""
 msgid "Link Telegram"
 msgstr "Прив’яжіть Telegram"
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:153:29
-#: ../../src/components/telegram/bot/links/details.panel.vue:183:29
+#: ../../src/components/telegram/bot/links/details.panel.vue:156:29
+#: ../../src/components/telegram/bot/links/details.panel.vue:189:29
 msgid "Link updated"
 msgstr ""
 

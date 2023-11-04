@@ -136,17 +136,20 @@ export default {
         },
 
         async saveName () {
-            const name = this.$refs.nameEditField.ext.getValue().trim();
+            const field = this.$refs.nameEditField.ext,
+                value = field.getValue().trim();
+
+            field.setValue( value );
 
             // form is not valid
-            if ( !name ) return this.cancelEditName();
+            if ( !field.validate() ) return;
 
-            if ( name === this.telegramBotLinkRecord.get( "name" ) ) return this.cancelEditName();
+            if ( value === this.telegramBotLinkRecord.get( "name" ) ) return this.cancelEditName();
 
-            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, { name } );
+            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, { "name": value } );
 
             if ( res.ok ) {
-                this.telegramBotLinkRecord.set( "name", name );
+                this.telegramBotLinkRecord.set( "name", value );
 
                 this.cancelEditName();
 
@@ -168,15 +171,18 @@ export default {
         },
 
         async saveDescription () {
-            const description = this.$refs.descriptionEditField.ext.getValue().trim();
+            const field = this.$refs.descriptionEditField.ext,
+                value = field.getValue().trim();
+
+            field.setValue( value );
 
             // form is not valid
-            if ( description === this.telegramBotLinkRecord.get( "description" ) ) return this.cancelEditDescription();
+            if ( value === this.telegramBotLinkRecord.get( "description" ) ) return this.cancelEditDescription();
 
-            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, { description } );
+            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, { "description": value } );
 
             if ( res.ok ) {
-                this.telegramBotLinkRecord.set( "description", description );
+                this.telegramBotLinkRecord.set( "description", value );
 
                 this.cancelEditDescription();
 
