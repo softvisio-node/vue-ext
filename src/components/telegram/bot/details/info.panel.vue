@@ -44,18 +44,18 @@
                     <!-- users stats -->
                     <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`Last new user subscribed`)" labelAlign="left" labelWidth="200"/>
 
-                    <ext-fieldset layout="hbox" title="Users statistics">
+                    <ext-container layout="hbox">
                         <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">
                             <ext-displayfield bind="{record.total_users}" :label="l10n(`Total users`)"/>
-                            <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10n(`Total subscribed users`)"/>
-                            <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10n(`Total unsubscribed users`)"/>
+                            <ext-displayfield bind="{record.total_subscribed_users_text}" :label="l10n(`Subscribed users`)"/>
+                            <ext-displayfield bind="{record.total_unsubscribed_users_text}" :label="l10n(`Unsubscribed users`)"/>
                         </ext-container>
 
                         <ext-container defaults='{"labelAlign":"left","labelWidth":200}' layout="vbox">
-                            <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`Total returned users`)"/>
-                            <ext-displayfield bind="{record.total_banned_users}" :label="l10n(`Total banned users`)"/>
+                            <ext-displayfield bind="{record.total_returned_users}" :label="l10n(`Returned users`)"/>
+                            <ext-displayfield bind="{record.total_banned_users}" :label="l10n(`Banned users`)"/>
                         </ext-container>
-                    </ext-fieldset>
+                    </ext-container>
 
                     <ext-container defaults='{"ui":"decline","width":200}' layout='{"align":"center","type":"vbox"}'>
                         <!-- start -->
