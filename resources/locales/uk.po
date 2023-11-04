@@ -165,8 +165,8 @@ msgstr ""
 msgid "Banned"
 msgstr ""
 
-#: ../../src/components/telegram/bot/details/info.panel.vue:56:89
-#: ../../src/components/telegram/bot/links/details.panel.vue:43:100
+#: ../../src/components/telegram/bot/details/info.panel.vue:56:94
+#: ../../src/components/telegram/bot/links/details.panel.vue:43:105
 msgid "Banned users"
 msgstr ""
 
