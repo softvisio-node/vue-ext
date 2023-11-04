@@ -8,6 +8,7 @@
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
+                <!-- name -->
                 <ext-container bind='{"hidden":"{editName}"}' layout='{"align":"center","type":"hbox"}'>
                     <ext-displayfield bind="{telegramBotLinkRecord.name}" flex="1" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
                     <ext-button bind='{"hidden":"{!telegramBotRecord.can_update_link}"}' iconCls="fa-solid fa-pen" :text="l10n(`Edit`)" @tap="beginEditName"/>
@@ -21,6 +22,12 @@
                     <ext-button iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" ui="decline" @tap="cancelEditName"/>
                 </ext-container>
 
+                <!-- charts -->
+                <ext-container layout='{"align":"end","type":"vbox"}'>
+                    <ext-button iconCls="fa-solid fa-chart-line" :text="l10n(`Open charts`)" width="150" @tap="_showChartsDiakig"/>
+                </ext-container>
+
+                <!-- stats -->
                 <ext-panel defaults='{"labelAlign":"left","labelWidth":150}' padding="0 0 0 10">
                     <ext-displayfield bind="{telegramBotLinkRecord.created_html}" :label="l10n(`Creation date`)"/>
 
@@ -34,10 +41,7 @@
                     <ext-displayfield bind="{telegramBotLinkRecord.total_banned_users_text}" :label="l10n(`Total banned users`)"/>
                 </ext-panel>
 
-                <ext-container layout='{"align":"center","type":"vbox"}'>
-                    <ext-button iconCls="fa-solid fa-chart-line" :text="l10n(`Open charts`)" width="150" @tap="_showChartsDiakig"/>
-                </ext-container>
-
+                <!-- description -->
                 <ext-container bind='{"hidden":"{editDescription}"}' layout="vbox">
                     <ext-container layout='{"align":"center","type":"hbox"}'>
                         <ext-displayfield flex="1" :label="l10n(`Description`)" labelAlign="top"/>
