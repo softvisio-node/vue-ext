@@ -237,7 +237,7 @@ msgstr ""
 msgid "Change email"
 msgstr "Змінити email"
 
-#: ../../src/components/change-email.dialog.vue:54:29
+#: ../../src/components/change-email.dialog.vue:48:29
 msgid "Change email token was sent to the new email address"
 msgstr "Токен зміни електронної пошти надіслано на нову адресу електронної пошти"
 
@@ -716,7 +716,7 @@ msgstr "Останні діаграми"
 msgid "Link copied to the clipboard"
 msgstr ""
 
-#: ../../src/components/telegram/bot/links/create.dialog.vue:43:29
+#: ../../src/components/telegram/bot/links/create.dialog.vue:47:29
 msgid "Link created"
 msgstr ""
 
@@ -916,7 +916,7 @@ msgstr "Інструкції щодо зміни пароля були наді�
 msgid "Password changed"
 msgstr "Пароль змінено"
 
-#: ../../src/components/administration/users/create-user.dialog.vue:71:25
+#: ../../src/components/administration/users/create-user.dialog.vue:69:25
 #: ../../src/components/change-password.dialog.vue:85:25
 #: ../../src/components/reset-password.dialog.vue:100:25
 msgid "Password copied to the clipboard"
@@ -930,7 +930,7 @@ msgstr "Відновлення паролю"
 msgid "Password recovery token was not found"
 msgstr "Токен відновлення пароля не знайдено"
 
-#: ../../src/components/administration/users/create-user.dialog.vue:85:64
+#: ../../src/components/administration/users/create-user.dialog.vue:83:64
 #: ../../src/components/authentication/signup.panel.vue:75:64
 #: ../../src/components/change-password.dialog.vue:55:64
 #: ../../src/components/reset-password.dialog.vue:74:64
@@ -1209,7 +1209,7 @@ msgstr ""
 msgid "Subscription status"
 msgstr ""
 
-#: ../../src/components/telegram/create-bot.dialog.vue:148:29
+#: ../../src/components/telegram/create-bot.dialog.vue:152:29
 msgid "Telegram bot created"
 msgstr ""
 
@@ -1266,11 +1266,11 @@ msgstr "Щоб використовувати бот підтримки Telegram
 msgid "Toggle dark mode"
 msgstr "Перемкнути темний режим"
 
-#: ../../src/components/account/tokens/create/dialog.vue:92:25
+#: ../../src/components/account/tokens/create/dialog.vue:90:25
 msgid "Token copied to the clipboard"
 msgstr "Токен скопійовано в буфер обміну"
 
-#: ../../src/components/account/tokens/create/dialog.vue:78:29
+#: ../../src/components/account/tokens/create/dialog.vue:76:29
 msgid "Token created"
 msgstr "Токен створено"
 
@@ -1384,7 +1384,7 @@ msgstr "Користувач"
 msgid "User added"
 msgstr "Користувача додано"
 
-#: ../../src/components/administration/users/create-user.dialog.vue:102:29
+#: ../../src/components/administration/users/create-user.dialog.vue:100:29
 msgid "User created"
 msgstr "Користувач створений"
 
