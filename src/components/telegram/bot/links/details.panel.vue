@@ -136,7 +136,7 @@ export default {
         },
 
         async saveName () {
-            const name = this.$refs.nameEditField.ext.getValue();
+            const name = this.$refs.nameEditField.ext.getValue().trim();
 
             // form is not valid
             if ( !name ) return this.cancelEditName();
@@ -168,7 +168,7 @@ export default {
         },
 
         async saveDescription () {
-            const description = this.$refs.descriptionEditField.ext.getValue();
+            const description = this.$refs.descriptionEditField.ext.getValue().trim();
 
             // form is not valid
             if ( description === this.telegramBotLinkRecord.get( "description" ) ) return this.cancelEditDescription();
