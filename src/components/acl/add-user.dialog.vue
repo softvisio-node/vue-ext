@@ -49,6 +49,10 @@ export default {
 
         // protected
         _comboReady ( e ) {
+            this.ext.setKeyMap( {
+                "ENTER": this._addUser.bind( this ),
+            } );
+
             const cmp = e.detail.cmp;
 
             cmp.setItemTpl( `
