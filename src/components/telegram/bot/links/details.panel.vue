@@ -15,7 +15,7 @@
                 </ext-container>
 
                 <ext-container bind='{"hidden":"{!editName}"}' layout='{"align":"center","type":"hbox"}'>
-                    <ext-textfield ref="nameEditField" flex="1" :label="l10n(`Name`)" labelAlign="left" labelWidth="150"/>
+                    <ext-textfield ref="nameEditField" flex="1" :label="l10n(`Name`)" labelAlign="left" labelWidth="150" maxLength="100" required="true"/>
 
                     <ext-button iconCls="fa-solid fa-check" :text="l10n(`Save`)" @tap="saveName"/>
 
@@ -61,7 +61,7 @@
                         <ext-button iconCls="fa-solid fa-xmark" :text="l10n(`Cancel`)" ui="decline" @tap="cancelEditDescription"/>
                     </ext-container>
 
-                    <ext-textareafield ref="descriptionEditField" height="200"/>
+                    <ext-textareafield ref="descriptionEditField" height="200" maxLength="10000"/>
                 </ext-container>
 
                 <ext-container layout='{"align":"center","type":"vbox"}'>
