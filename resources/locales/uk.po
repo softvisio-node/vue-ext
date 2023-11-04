@@ -1021,11 +1021,11 @@ msgstr ""
 msgid "Role"
 msgstr "Роль"
 
-#: ../../src/components/acl/roles.panel.vue:147:69
+#: ../../src/components/acl/roles.panel.vue:148:69
 msgid "Role disabled"
 msgstr "Роль вимкнено"
 
-#: ../../src/components/acl/roles.panel.vue:147:39
+#: ../../src/components/acl/roles.panel.vue:148:39
 #: ../../src/components/acl/roles.panel.vue:15:82
 msgid "Role enabled"
 msgstr "Роль увімкнено"
