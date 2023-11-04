@@ -8,6 +8,10 @@ class Component extends TelegramBotComponent {
         return "telegramNotificationsBot";
     }
 
+    get name () {
+        return app.locale.l10n( "Notifications bot" );
+    }
+
     get shortDescription () {
         return super.shortDescription;
     }
@@ -18,10 +22,6 @@ class Component extends TelegramBotComponent {
 
     get panel () {
         return import( /* webpackChunkName: "telegram-notifications-bot" */ "./panel" );
-    }
-
-    get name () {
-        return app.locale.l10n( "Notifications bot" );
     }
 }
 

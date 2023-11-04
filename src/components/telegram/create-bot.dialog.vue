@@ -9,7 +9,9 @@
 
                         <ext-comboboxfield displayTpl="{name}" editable="false" forceSelection="true" :label="l10n(`Telegram bot type`)" :placeholder="l10n(`Select Telegram bot tyoe`)" required="true" :store="store" triggerAction="all" valueField="id" @change="_onBotTypeChange" @ready="_onBotTypeComboReady"/>
 
-                        <ext-container ref="description" flex="1" margin="20 0 0 0" scrollable="true"/>
+                        <ext-displayfield :label="l10n(`Bot description`)"/>
+
+                        <ext-container ref="descriptionContainer" flex="1" scrollable="true"/>
 
                         <ext-toolbar docked="bottom">
                             <ext-spacer/>
@@ -59,7 +61,7 @@ export default {
 
     "watch": {
         component ( component ) {
-            this.$refs.description.ext.setHtml( component?.description || "" );
+            this.$refs.descriptionContainer.ext.setHtml( component?.description || "" );
         },
     },
 
