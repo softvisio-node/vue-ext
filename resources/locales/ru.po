@@ -998,7 +998,7 @@ msgstr "Восстановить"
 #: ../../src/components/account/tokens/panel.vue:9:62
 #: ../../src/components/acl/panel.vue:9:62
 #: ../../src/components/acl/roles.button.vue:72:28
-#: ../../src/components/acl/roles.panel.vue:7:62
+#: ../../src/components/acl/roles.panel.vue:15:70
 #: ../../src/components/administration/users/panel.vue:9:62
 #: ../../src/components/cards.panel.vue:24:66
 #: ../../src/components/development/cron/panel.vue:6:62
@@ -1027,16 +1027,16 @@ msgstr ""
 msgid "Returned users"
 msgstr ""
 
-#: ../../src/components/acl/roles.panel.vue:13:124
+#: ../../src/components/acl/roles.panel.vue:18:128
 msgid "Role"
 msgstr "Роль"
 
-#: ../../src/components/acl/roles.panel.vue:148:69
+#: ../../src/components/acl/roles.panel.vue:158:69
 msgid "Role disabled"
 msgstr "Роль отключена"
 
-#: ../../src/components/acl/roles.panel.vue:148:39
-#: ../../src/components/acl/roles.panel.vue:15:82
+#: ../../src/components/acl/roles.panel.vue:158:39
+#: ../../src/components/acl/roles.panel.vue:20:86
 msgid "Role enabled"
 msgstr "Роль включена"
 
@@ -1088,7 +1088,7 @@ msgstr "Искать методы по имени"
 msgid "Search links"
 msgstr ""
 
-#: ../../src/components/acl/roles.panel.vue:5:47
+#: ../../src/components/acl/roles.panel.vue:13:55
 msgid "Search roles"
 msgstr "Искать роли"
 
