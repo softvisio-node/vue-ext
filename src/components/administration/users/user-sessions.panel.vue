@@ -1,7 +1,20 @@
+<template>
+    <UserSessionsPanel>
+        <template #user>
+            <ext-container :hidden="!userRecord" layout='{"align":"center","pack":"center","type":"hbox"}'>
+                <ext-avatar :src="userRecord?.get(`avatar_url`)"/>
+                <ext-spacer width="10"/>
+                <ext-container :html="userRecord?.get(`email`)"/>
+            </ext-container>
+        </template>
+    </UserSessionsPanel>
+</template>
+
 <script>
 import UserSessionsPanel from "#src/components/user-sessions/panel";
 
 export default {
+    "components": { UserSessionsPanel },
     "extends": UserSessionsPanel,
 
     "props": {
@@ -9,15 +22,9 @@ export default {
             "type": String,
             "required": true,
         },
-        "userEmail": {
-            "type": String,
+        "userRecord": {
+            "type": Object,
             "required": true,
-        },
-    },
-
-    "computed": {
-        title () {
-            return this.l10n( "User" ) + ": " + this.userEmail;
         },
     },
 

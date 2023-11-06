@@ -213,7 +213,7 @@ msgstr ""
 msgid "Bot users"
 msgstr ""
 
-#: ../../src/components/user-sessions/panel.vue:18:134
+#: ../../src/components/user-sessions/panel.vue:20:134
 msgid "Browser"
 msgstr "Браузер"
 
@@ -381,11 +381,11 @@ msgstr ""
 #: ../../src/components/telegram/bot/links/details.panel.vue:28:90
 #: ../../src/components/telegram/bot/links/panel.vue:33:96
 #: ../../src/components/telegram/bot/users/details.panel.vue:23:71
-#: ../../src/components/user-sessions/panel.vue:24:74
+#: ../../src/components/user-sessions/panel.vue:26:74
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: ../../src/components/user-sessions/panel.vue:68:39
+#: ../../src/components/user-sessions/panel.vue:64:39
 msgid "Cuttent session"
 msgstr ""
 
@@ -408,7 +408,7 @@ msgstr "Удалить"
 msgid "Delete all"
 msgstr "Удалить все"
 
-#: ../../src/components/user-sessions/panel.vue:7:67
+#: ../../src/components/user-sessions/panel.vue:9:67
 msgid "Delete all sessions"
 msgstr ""
 
@@ -420,7 +420,7 @@ msgstr "Удалить бота"
 msgid "Delete link"
 msgstr ""
 
-#: ../../src/components/user-sessions/panel.vue:74:39
+#: ../../src/components/user-sessions/panel.vue:70:39
 msgid "Delete session"
 msgstr ""
 
@@ -440,7 +440,7 @@ msgstr "Описание"
 msgid "Development"
 msgstr "Разработка"
 
-#: ../../src/components/user-sessions/panel.vue:14:134
+#: ../../src/components/user-sessions/panel.vue:16:134
 msgid "Device"
 msgstr "Устройство"
 
@@ -653,7 +653,7 @@ msgstr "Мониторинг экземплярв"
 msgid "Interface base color"
 msgstr "Базовый цвет интерфейса"
 
-#: ../../src/components/user-sessions/panel.vue:20:62
+#: ../../src/components/user-sessions/panel.vue:22:62
 msgid "IP address"
 msgstr "IP адрес"
 
@@ -663,7 +663,7 @@ msgstr ""
 
 #: ../../src/components/account/tokens/panel.vue:17:132
 #: ../../src/components/administration/users/panel.vue:21:167
-#: ../../src/components/user-sessions/panel.vue:22:132
+#: ../../src/components/user-sessions/panel.vue:24:132
 msgid "Last activity"
 msgstr "Последняя активность"
 
@@ -957,7 +957,7 @@ msgstr "Период"
 msgid "Phone"
 msgstr ""
 
-#: ../../src/components/user-sessions/panel.vue:16:124
+#: ../../src/components/user-sessions/panel.vue:18:124
 msgid "Platform"
 msgstr "Платформа"
 
@@ -1014,7 +1014,7 @@ msgstr "Восстановить"
 #: ../../src/components/telegram/bot/links/panel.vue:12:66
 #: ../../src/components/telegram/bot/users/panel.vue:10:66
 #: ../../src/components/telegram/bots.panel.vue:10:70
-#: ../../src/components/user-sessions/panel.vue:8:62
+#: ../../src/components/user-sessions/panel.vue:10:62
 msgid "Refresh"
 msgstr "Обновить"
 
@@ -1118,11 +1118,11 @@ msgstr "Отправить токен"
 msgid "Session closed"
 msgstr "Сессия закрыта"
 
-#: ../../src/components/user-sessions/panel.vue:94:29
+#: ../../src/components/user-sessions/panel.vue:90:29
 msgid "Session was deleted"
 msgstr "Сессия была удалена"
 
-#: ../../src/components/user-sessions/panel.vue:116:29
+#: ../../src/components/user-sessions/panel.vue:112:29
 msgid "Sessions were deleted"
 msgstr "Сессии были удалены"
 
@@ -1470,7 +1470,7 @@ msgstr "Ваш аккаунт"
 msgid "Your session was terminated on the API server."
 msgstr "Ваша сессия былп прервана API серввером."
 
-#: ../../src/components/user-sessions/panel.vue:41:19
+#: ../../src/components/user-sessions/panel.vue:6:42
 msgid "Your sessions"
 msgstr "Ваши сессии"
 

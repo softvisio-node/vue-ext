@@ -2,7 +2,9 @@
     <CardsPanel ref="cards" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
-                <ext-container :html="title"/>
+                <slot name="user">
+                    <ext-container :html="l10n(`Your sessions`)"/>
+                </slot>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete all sessions`)" ui="decline" @tap="_signOutAllSessions"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
@@ -35,12 +37,6 @@ import CardsPanel from "#src/components/cards.panel";
 
 export default {
     "components": { CardsPanel },
-
-    "computed": {
-        title () {
-            return this.l10n( `Your sessions` );
-        },
-    },
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {

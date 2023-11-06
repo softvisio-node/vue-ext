@@ -1,6 +1,6 @@
 <template>
     <ext-dialog :height="height" layout="fit" scrollable="true" :title="l10n(`User sessions`)" :width="width">
-        <UserSessionsPanel :userEmail="userEmail" :userId="userId"/>
+        <UserSessionsPanel :userId="userId" :userRecord="userRecord"/>
     </ext-dialog>
 </template>
 
@@ -15,8 +15,8 @@ export default {
             "type": String,
             "required": true,
         },
-        "userEmail": {
-            "type": String,
+        "userRecord": {
+            "type": Object,
             "required": true,
         },
         "width": {
