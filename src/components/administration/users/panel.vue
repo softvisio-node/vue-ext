@@ -335,7 +335,7 @@ export default {
             const cmp = await this.$mount( ChangePasswordDialog, {
                 "props": {
                     "userId": record.id,
-                    "userEmail": record.get( "email" ),
+                    "userRecord": record,
                 },
             } );
 

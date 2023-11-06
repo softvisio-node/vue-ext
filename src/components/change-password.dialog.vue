@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="350" layout="vbox" :title="title" width="300" @ready="_ready">
-        <ext-container :html="header" style="text-align: center"/>
+        <slot name="header"/>
 
         <ext-fieldpanel ref="form">
             <ext-passwordfield :label="l10n(`New password`)" name="password" :placeholder="l10n(`Enter new password`)" required="true" revealable="true"/>
