@@ -56,7 +56,10 @@ export default {
             const locale = menuItem.getValue(),
                 menu = this.$refs.button.ext.getMenu();
 
-            menu.mask();
+            menu.mask( {
+                "xtype": "mask",
+                "transparent": true,
+            } );
 
             const res = await this.$app.locale.setLocale( locale );
 
