@@ -1,7 +1,7 @@
 <template>
     <UserSessionsPanel>
         <template #user>
-            <ext-container :hidden="!userRecord" layout='{"align":"center","pack":"center","type":"hbox"}'>
+            <ext-container layout='{"align":"center","pack":"center","type":"hbox"}'>
                 <ext-avatar :src="userRecord?.get(`avatar_url`)"/>
                 <ext-spacer width="10"/>
                 <ext-container :html="userRecord?.get(`email`)"/>
@@ -18,10 +18,6 @@ export default {
     "extends": UserSessionsPanel,
 
     "props": {
-        "userId": {
-            "type": String,
-            "required": true,
-        },
         "userRecord": {
             "type": Object,
             "required": true,
@@ -30,15 +26,15 @@ export default {
 
     "methods": {
         async _loadSessions () {
-            return this.$api.call( "administration/users/get-sessions", this.userId );
+            return this.$api.call( "administration/users/get-sessions", this.userRecord.id );
         },
 
         async _signOutSessionRequest ( sessionId ) {
-            return this.$api.call( "administration/users/sign-out-session", this.userId, sessionId );
+            return this.$api.call( "administration/users/sign-out-session", this.userRecord.id, sessionId );
         },
 
         async _signOutAllSessionsRequest ( e ) {
-            return this.$api.call( "administration/users/sign-out-all-sessions", this.userId );
+            return this.$api.call( "administration/users/sign-out-all-sessions", this.userRecord.id );
         },
     },
 };

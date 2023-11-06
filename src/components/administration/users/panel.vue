@@ -347,7 +347,6 @@ export default {
 
             const cmp = await this.$mount( UserSessionsDialog, {
                 "props": {
-                    "userId": record.id,
                     "userRecord": record,
                 },
             } );

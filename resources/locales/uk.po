@@ -1402,7 +1402,7 @@ msgstr "Користувача видалено"
 msgid "User details"
 msgstr ""
 
-#: ../../src/components/administration/users/panel.vue:363:25
+#: ../../src/components/administration/users/panel.vue:362:25
 msgid "User email copied"
 msgstr "Email користувача скопійовано"
 
