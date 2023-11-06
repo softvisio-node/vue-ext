@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.10.23 (2023-11-06)
+
+Fixes:
+
+-   fix: app reload
+
 ### 8.10.22 (2023-11-06)
 
 Fixes:
