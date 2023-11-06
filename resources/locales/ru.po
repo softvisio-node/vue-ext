@@ -38,7 +38,7 @@ msgstr "О проекте"
 msgid "Accent color"
 msgstr "Цвет акцента"
 
-#: ../../src/app.js:61:21
+#: ../../src/app.js:67:21
 msgid "Access denied"
 msgstr ""
 
@@ -309,7 +309,7 @@ msgstr "Письмо с подтверждением отправлено"
 msgid "Confirmation token"
 msgstr "Токен подтверждения"
 
-#: ../../src/app.js:35:21
+#: ../../src/app.js:41:21
 msgid "Connection error"
 msgstr "Ошибка подключения"
 
@@ -1018,7 +1018,7 @@ msgstr "Восстановить"
 msgid "Refresh"
 msgstr "Обновить"
 
-#: ../../src/app.js:63:22
+#: ../../src/app.js:69:22
 msgid "Reload"
 msgstr ""
 
@@ -1114,7 +1114,7 @@ msgstr "Выбрать пользователя"
 msgid "Send token"
 msgstr "Отправить токен"
 
-#: ../../src/app.js:47:21
+#: ../../src/app.js:53:21
 msgid "Session closed"
 msgstr "Сессия закрыта"
 
@@ -1329,7 +1329,7 @@ msgstr "Режим UI"
 msgid "UI version"
 msgstr "Версия UI"
 
-#: ../../src/app.js:34:32
+#: ../../src/app.js:40:32
 msgid "Unable to connect to the API server. Check, that you have internet connection."
 msgstr "Не удалось подключиться к серверу API. Проверьте, что у вас есть подключение к интернет."
 
@@ -1457,7 +1457,7 @@ msgstr "Следить"
 msgid "We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above."
 msgstr "Мы только что отправили токен подтверждения изменения email на новый адрес электронной почты. Пожалуйста, проверьте свой почтовый ящик и введите токен в поле выше."
 
-#: ../../src/app.js:60:46
+#: ../../src/app.js:66:46
 msgid "Your access permissions were changed on API server. Please, reload application to apply updates."
 msgstr ""
 
@@ -1466,7 +1466,7 @@ msgstr ""
 msgid "Your account"
 msgstr "Ваш аккаунт"
 
-#: ../../src/app.js:46:32
+#: ../../src/app.js:52:32
 msgid "Your session was terminated on the API server."
 msgstr "Ваша сессия былп прервана API серввером."
 
