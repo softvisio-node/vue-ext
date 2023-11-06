@@ -1,19 +1,25 @@
 <template>
-    <CardsPanel ref="cards" :store="store" @refresh="refresh">
-        <template #docked>
-            <ext-toolbar docked="top">
-                <ext-searchfield :placeholder="l10n(`Search roles`)" width="200" @change="_searchRoles"/>
-                <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
-            </ext-toolbar>
-        </template>
-
+    <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #dataPanel>
-            <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" :store="store">
-                <ext-column cell='{"encodeHtml":false}' dataIndex="title_html" flex="1" sorter='{"property":"name"}' :text="l10n(`Role`)"/>
+            <ext-panel layout="vbox">
+                <ext-container :hidden="!userRecord" layout='{"align":"center","pack":"center","type":"hbox"}'>
+                    <ext-avatar :src="userRecord?.get(`avatar_url`)"/>
+                    <ext-spacer width="10"/>
+                    <ext-container :html="userRecord?.get(`email`)"/>
+                </ext-container>
 
-                <ext-column align="center" sorter='{"property":"enabled"}' :text="l10n(`Role enabled`)" width="160" @ready="_enabledColReady"/>
-            </ext-grid>
+                <ext-grid ref="grid" columnMenu="false" columnResize="false" flex="1" itemConfig='{"viewModel":true}' multicolumnSort="true" :store="store">
+                    <ext-toolbar docked="top">
+                        <ext-searchfield :placeholder="l10n(`Search roles`)" width="200" @change="_searchRoles"/>
+                        <ext-spacer/>
+                        <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
+                    </ext-toolbar>
+
+                    <ext-column cell='{"encodeHtml":false}' dataIndex="title_html" flex="1" sorter='{"property":"name"}' :text="l10n(`Role`)"/>
+
+                    <ext-column align="center" sorter='{"property":"enabled"}' :text="l10n(`Role enabled`)" width="160" @ready="_enabledColReady"/>
+                </ext-grid>
+            </ext-panel>
         </template>
     </CardsPanel>
 </template>
@@ -34,6 +40,10 @@ export default {
             "type": String,
             "default": "",
         },
+        "userRecord": {
+            "type": Object,
+            "default": null,
+        },
     },
 
     "emits": ["update"],
@@ -53,17 +63,17 @@ export default {
         async refresh () {
             if ( !this.aclId ) return;
 
-            this.$refs.cards.mask();
+            this.$refs.cardsPanel.mask();
 
             this.store.loadRawData( [] );
 
             const res = await this.$api.call( "acl/get-acl-user-roles", this.aclId, this.userId );
 
-            this.$refs.cards.unmask();
+            this.$refs.cardsPanel.unmask();
+
+            this.$refs.cardsPanel.setResult( res );
 
             if ( !res.ok ) {
-                this.$refs.cards.setResult( res );
-
                 this.$toast( res );
             }
             else {

@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="90%" layout="fit" :title="title" width="600">
-        <RolesPanel ref="rolesPanel" :aclId="aclId" :userId="userId" @update="_onRolesUpdate"/>
+        <RolesPanel ref="rolesPanel" :aclId="aclId" :userId="userId" :userRecord="userRecord" @update="_onRolesUpdate"/>
     </ext-dialog>
 </template>
 
@@ -27,7 +27,7 @@ export default {
         },
 
         title () {
-            return this.l10n( `Edit user roles` ) + ": " + this.userRecord.get( "email" );
+            return this.l10n( `Edit user roles` );
         },
     },
 
