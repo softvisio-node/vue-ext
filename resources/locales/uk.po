@@ -187,7 +187,7 @@ msgstr ""
 msgid "Bot description is shown in the chat with the bot if the chat is empty."
 msgstr ""
 
-#: ../../src/components/telegram/telegram-notifications-bot/panel.vue:4:72
+#: ../../src/components/telegram/telegram-support-bot/panel.vue:4:72
 msgid "Bot info"
 msgstr ""
 
@@ -209,7 +209,7 @@ msgstr ""
 msgid "Bot updated"
 msgstr ""
 
-#: ../../src/components/telegram/telegram-notifications-bot/panel.vue:9:68
+#: ../../src/components/telegram/telegram-support-bot/panel.vue:9:68
 msgid "Bot users"
 msgstr ""
 
@@ -861,7 +861,7 @@ msgstr ""
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: ../../src/components/telegram/telegram-notifications-bot/component.js:12:15
+#: ../../src/components/telegram/telegram-support-bot/component.js:12:15
 msgid "Notifications bot"
 msgstr ""
 
