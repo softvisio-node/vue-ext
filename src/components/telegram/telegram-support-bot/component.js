@@ -5,7 +5,7 @@ class Component extends TelegramBotComponent {
 
     // propertirs
     get id () {
-        return "telegramNotificationsBot";
+        return "telegramSupportBot";
     }
 
     get name () {
@@ -21,7 +21,7 @@ class Component extends TelegramBotComponent {
     }
 
     get panel () {
-        return import( /* webpackChunkName: "telegram-notifications-bot" */ "./panel" );
+        return import( /* webpackChunkName: "telegram-support-bot" */ "./panel" );
     }
 }
 

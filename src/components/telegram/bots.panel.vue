@@ -57,7 +57,7 @@ import TelegramBotModel from "#src/components/telegram/bot/models/bot";
 import CreateBotButton from "./create-bot.button";
 
 // XXX
-import "#src/components/telegram/telegram-notifications-bot/component";
+import "#src/components/telegram/telegram-support-bot/component";
 
 export default {
     "components": { CardsPanel, CreateBotButton },
