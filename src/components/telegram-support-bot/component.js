@@ -9,7 +9,7 @@ class Component extends TelegramBotComponent {
     }
 
     get name () {
-        return app.locale.l10n( "Notifications bot" );
+        return app.locale.l10n( "Support bot" );
     }
 
     get shortDescription () {
@@ -17,7 +17,7 @@ class Component extends TelegramBotComponent {
     }
 
     get description () {
-        return `Application notifications bot. For internal use pnly.`;
+        return app.locale.l10n( `Project support bot. For internal use pnly.` );
     }
 
     get panel () {

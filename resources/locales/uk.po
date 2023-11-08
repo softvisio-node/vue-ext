@@ -187,7 +187,7 @@ msgstr ""
 msgid "Bot description is shown in the chat with the bot if the chat is empty."
 msgstr ""
 
-#: ../../src/components/telegram/telegram-support-bot/panel.vue:4:72
+#: ../../src/components/telegram-support-bot/panel.vue:4:72
 msgid "Bot info"
 msgstr ""
 
@@ -209,7 +209,7 @@ msgstr ""
 msgid "Bot updated"
 msgstr ""
 
-#: ../../src/components/telegram/telegram-support-bot/panel.vue:9:68
+#: ../../src/components/telegram-support-bot/panel.vue:9:68
 msgid "Bot users"
 msgstr ""
 
@@ -861,10 +861,6 @@ msgstr ""
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: ../../src/components/telegram/telegram-support-bot/component.js:12:15
-msgid "Notifications bot"
-msgstr ""
-
 #: ../../src/components/account/panel.vue:11:38
 #: ../../src/components/notifications/dialog.vue:23:31
 #: ../../src/components/notifications/settings.dialog.vue:2:50
@@ -970,6 +966,10 @@ msgstr "Будь ласка, скопіюйте токен у буфер обм�
 #: ../../src/components/authentication/signup.panel.vue:87:29
 msgid "Please, correctly fill all required fields"
 msgstr "Будь ласка, правильно заповніть усі необхідні поля"
+
+#: ../../src/components/telegram-support-bot/component.js:20:15
+msgid "Project support bot. For internal use pnly."
+msgstr ""
 
 #: ../../src/components/notifications/settings.panel.vue:4:118
 msgid "Push notifications"
@@ -1220,6 +1220,10 @@ msgstr ""
 
 #: ../../src/components/telegram/bot/users/details.panel.vue:27:78
 msgid "Subscription status"
+msgstr ""
+
+#: ../../src/components/telegram-support-bot/component.js:12:15
+msgid "Support bot"
 msgstr ""
 
 #: ../../src/components/telegram/create-bot.dialog.vue:160:29
