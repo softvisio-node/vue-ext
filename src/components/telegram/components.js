@@ -59,9 +59,13 @@ class TelegramComponent {
 
         const components = [];
 
-        for ( const id of res.data ) {
-            if ( this.#components[id] ) {
-                components.push( this.#components[id] );
+        for ( const row of res.data ) {
+            const component = this.#components[row.id];
+
+            if ( component ) {
+                component.model.set( "locales", row.locales );
+
+                components.push( component );
             }
         }
 
