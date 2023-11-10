@@ -671,7 +671,7 @@ msgstr "Останній активность"
 msgid "Last activity date"
 msgstr ""
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:27:16
+#: ../../src/components/telegram/bot/details/charts.panel.vue:28:16
 #: ../../src/components/telegram/bot/links/charts.panel.vue:27:16
 #, javascript-format
 msgid "Last day"
@@ -680,7 +680,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:31:16
+#: ../../src/components/telegram/bot/details/charts.panel.vue:32:16
 #: ../../src/components/telegram/bot/links/charts.panel.vue:32:16
 #, javascript-format
 msgid "Last month"
@@ -702,7 +702,7 @@ msgstr "Останній старт"
 msgid "Last user created"
 msgstr ""
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:35:16
+#: ../../src/components/telegram/bot/details/charts.panel.vue:36:16
 #: ../../src/components/telegram/bot/links/charts.panel.vue:36:16
 #, javascript-format
 msgid "Last year"
@@ -773,6 +773,10 @@ msgstr "Позначити як виконане"
 #: ../../src/components/pdf/_panel.vue:78:35
 msgid "Maximize"
 msgstr "Максимізувати"
+
+#: ../../src/components/telegram/bot/details/charts.panel.vue:9:101
+msgid "Maximize charts"
+msgstr ""
 
 #: ../../src/components/development/monitoring/methods/panel.vue:147:28
 msgid "Method name"
@@ -941,8 +945,8 @@ msgstr "Паролі не збігаються"
 
 #: ../../src/components/development/monitoring/methods/panel.vue:208:61
 #: ../../src/components/development/monitoring/methods/panel.vue:304:49
-#: ../../src/components/telegram/bot/details/charts.panel.vue:101:25
-#: ../../src/components/telegram/bot/details/charts.panel.vue:115:28
+#: ../../src/components/telegram/bot/details/charts.panel.vue:104:25
+#: ../../src/components/telegram/bot/details/charts.panel.vue:118:28
 #: ../../src/components/telegram/bot/links/charts.panel.vue:117:25
 #: ../../src/components/telegram/bot/links/charts.panel.vue:129:28
 msgid "Period"
@@ -1203,10 +1207,10 @@ msgstr ""
 msgid "Subscribed"
 msgstr ""
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:174:33
-#: ../../src/components/telegram/bot/details/charts.panel.vue:254:24
-#: ../../src/components/telegram/bot/details/charts.panel.vue:287:24
-#: ../../src/components/telegram/bot/details/charts.panel.vue:293:33
+#: ../../src/components/telegram/bot/details/charts.panel.vue:177:33
+#: ../../src/components/telegram/bot/details/charts.panel.vue:257:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:290:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:296:33
 #: ../../src/components/telegram/bot/details/info.panel.vue:49:94
 #: ../../src/components/telegram/bot/links/charts.panel.vue:188:33
 #: ../../src/components/telegram/bot/links/charts.panel.vue:268:24
@@ -1224,6 +1228,10 @@ msgstr ""
 
 #: ../../src/components/telegram-support-bot/component.js:12:15
 msgid "Support bot"
+msgstr ""
+
+#: ../../src/components/telegram/bot/details/charts.dialog.vue:26:19
+msgid "Telegram bot charts"
 msgstr ""
 
 #: ../../src/components/telegram/create-bot.dialog.vue:160:29
@@ -1308,14 +1316,14 @@ msgstr "Ім'я токена"
 msgid "Total memory"
 msgstr "Загальна пам'ять"
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:135:24
-#: ../../src/components/telegram/bot/details/charts.panel.vue:168:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:138:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:171:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:149:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:182:24
 msgid "Total subscribed users"
 msgstr ""
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:192:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:195:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:206:24
 msgid "Total unsubscribed users"
 msgstr ""
@@ -1353,9 +1361,9 @@ msgstr ""
 msgid "Unlink Telegram"
 msgstr "Від’єднати Telegram"
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:198:33
-#: ../../src/components/telegram/bot/details/charts.panel.vue:311:24
-#: ../../src/components/telegram/bot/details/charts.panel.vue:317:33
+#: ../../src/components/telegram/bot/details/charts.panel.vue:201:33
+#: ../../src/components/telegram/bot/details/charts.panel.vue:314:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:320:33
 #: ../../src/components/telegram/bot/details/info.panel.vue:50:96
 #: ../../src/components/telegram/bot/links/charts.panel.vue:212:33
 #: ../../src/components/telegram/bot/links/charts.panel.vue:325:24
