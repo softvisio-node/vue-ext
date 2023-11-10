@@ -1250,6 +1250,10 @@ msgstr ""
 msgid "Telegram bot url"
 msgstr ""
 
+#: ../../src/components/telegram/bot/users/details.dialog.vue:26:19
+msgid "Telegram bot user"
+msgstr ""
+
 #: ../../src/components/telegram/create-bot.dialog.vue:24:50
 msgid "Telegram bot username"
 msgstr ""
@@ -1402,10 +1406,6 @@ msgstr "Создание пользователя"
 msgid "User deleted"
 msgstr "Пользователь удален"
 
-#: ../../src/components/telegram/bot/users/panel.vue:28:184
-msgid "User details"
-msgstr ""
-
 #: ../../src/components/administration/users/panel.vue:362:25
 msgid "User email copied"
 msgstr "Email пользователя скопирована"
@@ -1443,6 +1443,10 @@ msgstr "Информация о версии скопирована в буфе�
 
 #: ../../src/components/telegram/bot/links/panel.vue:111:39
 msgid "View link"
+msgstr ""
+
+#: ../../src/components/telegram/bot/users/panel.vue:105:36
+msgid "View user"
 msgstr ""
 
 #: ../../src/components/administration/users/panel.vue:227:48

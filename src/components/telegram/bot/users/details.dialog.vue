@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="90%" layout="fit" scrollable="true" :title="title" width="600">
-        <DetailsPanel :telegramBotUserRecord="telegramBotUserRecord"/>
+        <DetailsPanel :telegramBotRecord="telegramBotRecord" :telegramBotUserRecord="telegramBotUserRecord"/>
     </ext-dialog>
 </template>
 
@@ -11,6 +11,10 @@ export default {
     "components": { DetailsPanel },
 
     "props": {
+        "telegramBotRecord": {
+            "type": Object,
+            "required": true,
+        },
         "telegramBotUserRecord": {
             "type": Object,
             "required": true,
