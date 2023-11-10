@@ -5,7 +5,7 @@
                 <ext-toolbar docked="top">
                     <ext-button ref="periodButton" stretchMenu="true" @ready="_periodButtonReady"/>
                     <ext-spacer/>
-                    <ext-button iconCls="fa-solid fa-expand" :tooltip="l10n(`Maximize charts`)" @tap="_showChartsDialog"/>
+                    <ext-button :hidden="!showMaximizeButton" iconCls="fa-solid fa-expand" :tooltip="l10n(`Maximize charts`)" @tap="_showChartsDialog"/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
@@ -49,6 +49,10 @@ export default {
         "period": {
             "type": String,
             "default": "7 days",
+        },
+        "showMaximizeButton": {
+            "type": Boolean,
+            "default": true,
         },
     },
 

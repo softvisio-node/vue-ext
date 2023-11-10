@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="90%" layout="fit" scrollable="true" :title="title" viewModel="true" width="90%">
-        <CharstPanel :period="period" :telegramBotId="telegramBotId"/>
+        <CharstPanel :period="period" :showMaximizeButton="false" :telegramBotId="telegramBotId"/>
     </ext-dialog>
 </template>
 
