@@ -5,6 +5,7 @@
                 <ext-toolbar docked="top">
                     <ext-button ref="periodButton" stretchMenu="true" @ready="_periodButtonReady"/>
                     <ext-spacer/>
+                    <ext-button iconCls="fa-solid fa-expand" :tooltip="l10n(`Maximize charts`)" @tap="_showChartsDialog"/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
@@ -44,6 +45,10 @@ export default {
         "telegramBotId": {
             "type": String,
             "required": true,
+        },
+        "period": {
+            "type": String,
+            "default": "7 days",
         },
     },
 
@@ -363,6 +368,16 @@ export default {
             }
 
             return data;
+        },
+
+        async _showChartsDialog () {
+            const cmp = await this.$mount( import( "./charts.dialog" ), {
+                "props": {
+                    "telegramBotId": this.telegramBotId,
+                },
+            } );
+
+            cmp.ext.show();
         },
     },
 };
