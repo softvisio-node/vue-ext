@@ -109,7 +109,7 @@ export default {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-eye",
                             "toolti[": this.l10n( "View link" ),
-                            "handler": this._viewLinkCluck.bind( this ),
+                            "handler": this._viewLinkClick.bind( this ),
                         },
                     ],
                 },
@@ -150,7 +150,7 @@ export default {
             cmp.ext.show();
         },
 
-        async _viewLinkCluck ( button ) {
+        async _viewLinkClick ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
             return this._showLinkDialog( record );

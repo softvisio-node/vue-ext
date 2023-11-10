@@ -12,7 +12,7 @@
             </template>
 
             <template #dataPanel>
-                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" padding="0 0 0 5" plugins='["gridviewoptions", "autopaging"]' :store="store" @ready="_gridReady">
+                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" padding="0 0 0 5" plugins='["gridviewoptions", "autopaging"]' :store="store" @itemdoubletap="_onItemDoubleTap" @ready="_gridReady">
                     <ext-column width="40" @ready="_avatarColReady"/>
 
                     <ext-column dataIndex="username" flex="1" :text="l10n(`Username`)"/>
@@ -20,25 +20,24 @@
                     <ext-column dataIndex="full_name" flex="1" sorter='{"property":"first_name"}' :text="l10n(`Name`)"/>
 
                     <ext-column dataIndex="phone_text" flex="1" sorter='{"property":"phone"}' :text="l10n(`Phone`)"/>
+
+                    <ext-column width="150" @ready="_actionColReady"/>
                 </ext-grid>
             </template>
         </CardsPanel>
 
         <!-- details panel -->
-        <ext-panel ref="detailsPanel" collapsible="right" docked="right" headerPosition="left" layout="fit" minWidth="400" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`User details`)" width="400">
-            <DetailsPanel :telegramBotUserRecord="telegramBotUserRecord"/>
-        </ext-panel>
     </ext-panel>
 </template>
 
 <script>
 import CardsPanel from "#src/components/cards.panel";
 import TelegramBotUserModel from "./models/user";
-import DetailsPanel from "./details.panel";
+import DetailsDialog from "./details.dialog";
 import TelegramBotModel from "../models/bot.js";
 
 export default {
-    "components": { CardsPanel, DetailsPanel },
+    "components": { CardsPanel },
 
     "props": {
         "telegramBotId": {
@@ -105,6 +104,26 @@ export default {
             } );
         },
 
+        _actionColReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "layout": { "type": "hbox", "pack": "end", "align": "center" },
+                    "items": [
+                        {
+                            "xtype": "button",
+                            "iconCls": "fa-regular fa-eye",
+                            "toolti[": this.l10n( "View link" ),
+                            "handler": this._viewUserClick.bind( this ),
+                        },
+                    ],
+                },
+            } );
+        },
+
         _search ( e ) {
             var val = e.detail.newValue.trim();
 
@@ -118,6 +137,26 @@ export default {
             else {
                 this.store.removeFilter( "search" );
             }
+        },
+
+        async _onItemDoubleTap ( e ) {
+            return this._showDetailsDialog( e.detail.record );
+        },
+
+        async _viewUserClick ( button ) {
+            const record = button.up( "gridrow" ).getRecord();
+
+            return this._showDetailsDialog( record );
+        },
+
+        async _showDetailsDialog ( record ) {
+            const cmp = await this.$mount( DetailsDialog, {
+                "props": {
+                    "telegramBotUserRecord": record,
+                },
+            } );
+
+            cmp.ext.show();
         },
     },
 };
