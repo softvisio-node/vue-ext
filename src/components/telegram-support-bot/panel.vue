@@ -1,5 +1,5 @@
 <template>
-    <ext-tabpanel flex="1" layout='{"animation":{"direction":"vertical","type":"slide"}}' margin="1 0 0  0" tabBar='{"defaults":{"flex":null,"style":"font-size:.7em","textAlign":"center","width":120},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none" viewModel="true" @ready="_ready">
+    <ext-tabpanel defaults='{"padding":"0 0 0 1"}' flex="1" layout='{"animation":{"direction":"vertical","type":"slide"}}' margin="1 0 0  0" tabBar='{"defaults":{"flex":null,"style":"font-size:.7em","textAlign":"center","width":120},"layout":{"align":"start","pack":"start","type":"vbox"}}' tabBarPosition="left" tabRotation="none" viewModel="true" @ready="_ready">
         <!-- info tab -->
         <ext-panel iconCls="fa-brands fa-telegram" layout="fit" :title="l10n(`Bot info`)">
             <BotDetailsPanel :telegramBotId="telegramBotId"/>

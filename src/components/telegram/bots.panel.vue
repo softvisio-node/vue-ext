@@ -20,7 +20,7 @@
 
                 <template #dataPanel>
                     <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store" @itemdoubletap="_onItemDoubleTap">
-                        <ext-column width="50" @ready="_avatarColReady"/>
+                        <ext-column width="40" @ready="_avatarColReady"/>
 
                         <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
 
