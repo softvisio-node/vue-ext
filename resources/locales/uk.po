@@ -43,8 +43,8 @@ msgid "Access denied"
 msgstr ""
 
 #: ../../src/components/account/tokens/panel.vue:152:71
-#: ../../src/components/acl/panel.vue:260:71
-#: ../../src/components/administration/users/panel.vue:272:71
+#: ../../src/components/acl/panel.vue:268:71
+#: ../../src/components/administration/users/panel.vue:281:71
 msgid "Access disabled"
 msgstr "Доступ вимкнено"
 
@@ -52,10 +52,10 @@ msgstr "Доступ вимкнено"
 #: ../../src/components/account/tokens/panel.vue:21:88
 #: ../../src/components/acl/add-user.dialog.vue:5:52
 #: ../../src/components/acl/panel.vue:21:67
-#: ../../src/components/acl/panel.vue:260:39
+#: ../../src/components/acl/panel.vue:268:39
 #: ../../src/components/administration/users/create-user.dialog.vue:14:37
 #: ../../src/components/administration/users/panel.vue:25:67
-#: ../../src/components/administration/users/panel.vue:272:39
+#: ../../src/components/administration/users/panel.vue:281:39
 msgid "Access enabled"
 msgstr "Доступ увімкнено"
 
@@ -68,7 +68,7 @@ msgstr "Токени доступу"
 msgid "Account"
 msgstr "Аккаунт"
 
-#: ../../src/components/administration/users/panel.vue:214:39
+#: ../../src/components/administration/users/panel.vue:223:39
 msgid "Actions"
 msgstr "Дії"
 
@@ -113,8 +113,8 @@ msgstr ""
 msgid "Are you sure you want to delete this token?"
 msgstr "Ви впевнені, що хочете видалити цей токен?"
 
-#: ../../src/components/acl/panel.vue:269:47
-#: ../../src/components/administration/users/panel.vue:282:47
+#: ../../src/components/acl/panel.vue:277:47
+#: ../../src/components/administration/users/panel.vue:291:47
 msgid "Are you sure you want to delete user?"
 msgstr "Ви впевнені, що хочете видалити користувача?"
 
@@ -248,7 +248,7 @@ msgid "Change email token was sent to the new email address"
 msgstr "Токен зміни електронної пошти надіслано на нову адресу електронної пошти"
 
 #: ../../src/components/account/account.panel.vue:12:39
-#: ../../src/components/administration/users/panel.vue:231:48
+#: ../../src/components/administration/users/panel.vue:240:48
 #: ../../src/components/application/menu.vue:20:101
 #: ../../src/components/change-password.dialog.vue:16:31
 #: ../../src/components/reset-password.dialog.vue:16:31
@@ -313,7 +313,7 @@ msgstr "Токен підтвердження"
 msgid "Connection error"
 msgstr "Помилка з'єднання"
 
-#: ../../src/components/administration/users/panel.vue:223:48
+#: ../../src/components/administration/users/panel.vue:232:48
 msgid "Copy email"
 msgstr ""
 
@@ -424,8 +424,8 @@ msgstr ""
 msgid "Delete session"
 msgstr ""
 
-#: ../../src/components/acl/panel.vue:215:39
-#: ../../src/components/administration/users/panel.vue:238:48
+#: ../../src/components/acl/panel.vue:223:39
+#: ../../src/components/administration/users/panel.vue:247:48
 msgid "Delete user"
 msgstr "Видалити користувача"
 
@@ -488,9 +488,9 @@ msgstr ""
 msgid "Edit bot details"
 msgstr ""
 
-#: ../../src/components/acl/panel.vue:205:39
+#: ../../src/components/acl/panel.vue:214:39
 #: ../../src/components/acl/roles.dialog.vue:30:19
-#: ../../src/components/administration/users/panel.vue:207:39
+#: ../../src/components/administration/users/panel.vue:216:39
 msgid "Edit user roles"
 msgstr "Редагувати ролі користувача"
 
@@ -1401,12 +1401,12 @@ msgstr "Користувач створений"
 msgid "User creation"
 msgstr "Створення користувача"
 
-#: ../../src/components/acl/panel.vue:278:29
-#: ../../src/components/administration/users/panel.vue:291:29
+#: ../../src/components/acl/panel.vue:286:29
+#: ../../src/components/administration/users/panel.vue:300:29
 msgid "User deleted"
 msgstr "Користувача видалено"
 
-#: ../../src/components/administration/users/panel.vue:362:25
+#: ../../src/components/administration/users/panel.vue:371:25
 msgid "User email copied"
 msgstr "Email користувача скопійовано"
 
@@ -1445,11 +1445,11 @@ msgstr "Інформацію про версію скопійовано"
 msgid "View link"
 msgstr ""
 
-#: ../../src/components/telegram/bot/users/panel.vue:105:36
+#: ../../src/components/telegram/bot/users/panel.vue:114:36
 msgid "View user"
 msgstr ""
 
-#: ../../src/components/administration/users/panel.vue:227:48
+#: ../../src/components/administration/users/panel.vue:236:48
 msgid "View user sessions"
 msgstr "Перегляд сесій користувача"
 
