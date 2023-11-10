@@ -1,5 +1,5 @@
 <template>
-    <ext-panel ref="panel" layout="fit" viewModel="true">
+    <ext-panel ref="panel" layout="fit">
         <CardsPanel ref="cardsPanel" :store="store" @refresh="refresh">
             <template #docked>
                 <ext-toolbar docked="top">
@@ -71,9 +71,7 @@ export default {
                 this.$refs.cardsPanel.setResult( res );
             }
             else {
-                const telegramBotRecord = new TelegramBotModel( res.data );
-
-                this.$refs.panel.ext.getViewModel().set( "telegramBotRecord", telegramBotRecord );
+                this._telegramBotRecord = new TelegramBotModel( res.data );
 
                 this.store.loadPage( 1 );
             }
@@ -140,6 +138,7 @@ export default {
         async _showDetailsDialog ( record ) {
             const cmp = await this.$mount( DetailsDialog, {
                 "props": {
+                    "telegramBotRecord": this._telegramBotRecord,
                     "telegramBotUserRecord": record,
                 },
             } );

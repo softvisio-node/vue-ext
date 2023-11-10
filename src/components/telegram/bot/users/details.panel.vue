@@ -59,14 +59,20 @@ export default {
     "components": { CardsPanel },
 
     "props": {
+        "telegramBotRecord": {
+            "type": Object,
+            "required": true,
+        },
         "telegramBotUserRecord": {
             "type": Object,
-            "default": null,
+            "required": true,
         },
     },
 
     "methods": {
         ready () {
+            this.$refs.cardsPanel.ext.getViewModel().set( "telegramBotRecord", this.telegramBotRecord );
+
             this.$refs.cardsPanel.ext.getViewModel().setFormulas( {
                 "banButtonHidden": {
                     "bind": {
