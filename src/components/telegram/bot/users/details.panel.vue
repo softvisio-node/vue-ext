@@ -18,7 +18,7 @@
                 <ext-container layout='{"align":"center","type":"hbox"}'>
                     <ext-displayfield bind="{record.phone_text}" :label="l10n(`Phone`)" labelAlign="left" labelWidth="200"/>
                     <ext-spacer/>
-                    <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`)" @tap="_copyPhone"/>
+                    <ext-button bind='{"hidden":"{!record.phone}"}' iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`)" @tap="_copyPhone"/>
                 </ext-container>
 
                 <ext-displayfield bind="{record.created_text}" :label="l10n(`Creation date`)" labelAlign="left" labelWidth="200"/>

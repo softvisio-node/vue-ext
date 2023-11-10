@@ -329,7 +329,7 @@ msgstr "Скопіювати у буфер обміну"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:19:71
 #: ../../src/components/telegram/bot/users/details.panel.vue:13:71
-#: ../../src/components/telegram/bot/users/details.panel.vue:21:71
+#: ../../src/components/telegram/bot/users/details.panel.vue:21:107
 msgid "Copy to the clipboard"
 msgstr ""
 
