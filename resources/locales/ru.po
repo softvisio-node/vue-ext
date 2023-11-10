@@ -838,7 +838,7 @@ msgstr ""
 msgid "Next start"
 msgstr "Следующий старт"
 
-#: ../../src/components/cards.panel.vue:81:41
+#: ../../src/components/cards.panel.vue:77:41
 msgid "No data match search criteria"
 msgstr "Нет данных, соответствующих критериям поиска"
 
