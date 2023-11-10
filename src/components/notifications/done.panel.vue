@@ -1,5 +1,5 @@
 <template>
-    <CardsPanel ref="cardsPanel" :refreshOnRender="false" :store="store" @refresh="refresh">
+    <CardsPanel ref="cardsPanel" :store="store" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
                 <!-- set all as done                         -->
@@ -94,6 +94,8 @@ export default {
         },
 
         refresh ( e ) {
+            if ( !this.$refs.cardsPanel.isRendered ) return;
+
             this.$refs.cardsPanel.mask();
 
             this.store.loadPage( 1 );

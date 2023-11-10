@@ -62,10 +62,6 @@ export default {
             "type": Object,
             "default": null,
         },
-        "refreshOnRender": {
-            "type": Boolean,
-            "default": true,
-        },
     },
 
     "emits": ["render", "refresh", "storeLoad"],
@@ -107,7 +103,7 @@ export default {
 
             this.$emit( "render" );
 
-            if ( this.refreshOnRender ) this.$emit( "refresh" );
+            this.$emit( "refresh" );
         },
 
         refresh () {
