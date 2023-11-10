@@ -153,11 +153,11 @@ msgstr "Режим сервера"
 msgid "Backend version"
 msgstr "Версія сервера"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:29:69
+#: ../../src/components/telegram/bot/users/details.panel.vue:30:73
 msgid "Ban status"
 msgstr ""
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:33:39
+#: ../../src/components/telegram/bot/users/details.panel.vue:34:77
 msgid "Ban user"
 msgstr ""
 
@@ -749,7 +749,7 @@ msgstr "Прив’яжіть Telegram"
 msgid "Link updated"
 msgstr ""
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:42:46
+#: ../../src/components/telegram/bot/users/details.panel.vue:40:46
 msgid "Linked API user"
 msgstr ""
 
@@ -1345,7 +1345,7 @@ msgstr "Не вдається підключитися до сервера API. 
 msgid "Unable to load data"
 msgstr "Не вдалося завантажити дані"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:38:39
+#: ../../src/components/telegram/bot/users/details.panel.vue:36:79
 msgid "Unban user"
 msgstr ""
 
@@ -1422,8 +1422,8 @@ msgstr "Використовуйте налаштування темного р�
 msgid "Username"
 msgstr "Ім'я користувача"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:133:25
-#: ../../src/components/telegram/bot/users/details.panel.vue:141:25
+#: ../../src/components/telegram/bot/users/details.panel.vue:131:25
+#: ../../src/components/telegram/bot/users/details.panel.vue:139:25
 msgid "Username copied to the clipboard"
 msgstr ""
 

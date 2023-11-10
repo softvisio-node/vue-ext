@@ -26,16 +26,14 @@
 
                 <ext-displayfield bind="{record.subscription_status}" :label="l10n(`Subscription status`)" labelAlign="left" labelWidth="200"/>
 
-                <ext-displayfield bind="{record.ban_status}" :label="l10n(`Ban status`)" labelAlign="left" labelWidth="200"/>
+                <ext-container layout="hbox">
+                    <ext-displayfield bind="{record.ban_status}" :label="l10n(`Ban status`)" labelAlign="left" labelWidth="200"/>
 
-                <ext-container bind='{"hidden":"{banButtonHidden}"}' layout="hbox">
-                    <ext-spacer width="200"/>
-                    <ext-button :text="l10n(`Ban user`)" ui="decline" @tap="toggjeUserBanned"/>
-                </ext-container>
+                    <ext-spacer/>
 
-                <ext-container bind='{"hidden":"{unbanButtonHidden}"}' layout="hbox">
-                    <ext-spacer width="200"/>
-                    <ext-button :text="l10n(`Unban user`)" @tap="toggjeUserBanned"/>
+                    <ext-button bind='{"hidden":"{banButtonHidden}"}' :text="l10n(`Ban user`)" ui="decline" @tap="toggjeUserBanned"/>
+
+                    <ext-button bind='{"hidden":"{unbanButtonHidden}"}' :text="l10n(`Unban user`)" @tap="toggjeUserBanned"/>
                 </ext-container>
 
                 <ext-container bind='{"hidden":"{!record.api_user_id}"}' layout="hbox">
