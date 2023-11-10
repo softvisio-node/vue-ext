@@ -19,7 +19,7 @@ export default {
 
     "computed": {
         title () {
-            return this.l10n( `Telegram bot user` ) + ": " + this.telegramBotUserRecord.get( "name" );
+            return this.l10n( `Telegram bot user` ) + ": " + this.telegramBotUserRecord.get( "full_name" );
         },
     },
 
