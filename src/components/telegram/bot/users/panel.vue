@@ -12,8 +12,8 @@
             </template>
 
             <template #dataPanel>
-                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" padding="0 0 0 5" plugins='["gridviewoptions", "autopaging"]' :store="store" @itemdoubletap="_onItemDoubleTap">
-                    <ext-column width="40" @ready="_avatarColReady"/>
+                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store" @itemdoubletap="_onItemDoubleTap">
+                    <ext-column width="50" @ready="_avatarColReady"/>
 
                     <ext-column dataIndex="username" flex="1" :text="l10n(`Username`)"/>
 
@@ -84,8 +84,17 @@ export default {
             cmp.setCell( {
                 "xtype": "widgetcell",
                 "widget": {
-                    "xtype": "avatar",
-                    "bind": "{record.avatar_url}",
+                    "xtype": "container",
+                    "layout": {
+                        "type": "hbox",
+                        "pack": "end",
+                    },
+                    "items": [
+                        {
+                            "xtype": "avatar",
+                            "bind": "{record.avatar_url}",
+                        },
+                    ],
                 },
             } );
         },
