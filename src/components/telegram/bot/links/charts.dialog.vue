@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="90%" layout="fit" scrollable="true" :title="title" viewModel="true" width="90%">
-        <CharstPanel period="30 days" :telegramBotLinkRecord="telegramBotLinkRecord"/>
+        <CharstPanel period="3 months" :telegramBotLinkRecord="telegramBotLinkRecord"/>
     </ext-dialog>
 </template>
 

@@ -26,7 +26,6 @@ const PERIODS = {
     "7 days": {
         "text": app.locale.l10n( "Last day", msgid`Last ${7} days` ),
         "timeUnit": "hour",
-        "checked": true,
     },
     "3 months": {
         "text": app.locale.l10n( "Last month", msgid`Last ${3} months` ),
@@ -46,32 +45,18 @@ export default {
             "type": Object,
             "default": null,
         },
-    },
-
-    "watch": {
-        telegramBotLinkRecord ( newValue, oldValue ) {
-            this.refresh();
+        "period": {
+            "type": String,
+            "default": "7 days",
         },
     },
 
     "methods": {
 
         // public
-        // XXX do not refresh if tab is not active, refresh on activate
         async refresh () {
+            if ( !this._period ) return;
             if ( !this.$refs.cardsPanel.isRendered ) return;
-
-            if ( !this.telegramBotLinkRecord ) {
-                this.$refs.cardsPanel.showNoDataPanel();
-
-                return;
-            }
-
-            // XXX
-            // if ( !this.$refs.cardsPanel.ext.isVisible( true ) ) return;
-
-            // XXX
-            // alert( "LOAD: " + this.$refs.cardsPanel.ext.isVisible( true ) );
 
             this.$refs.cardsPanel.mask();
 
@@ -95,26 +80,26 @@ export default {
         _periodButtonReady ( e ) {
             const cmp = e.detail.cmp;
 
+            this._period = this.period;
+
             const menu = [];
 
-            for ( const [value, { text, checked }] of Object.entries( PERIODS ) ) {
+            for ( const [value, { text }] of Object.entries( PERIODS ) ) {
                 menu.push( {
                     "xtype": "menuradioitem",
                     value,
                     text,
                     "group": "period",
-                    checked,
+                    "checked": value === this.period,
                     "handler": this._setPeriod.bind( this ),
                 } );
-
-                if ( checked ) {
-                    this._period = value;
-                }
             }
 
             cmp.setMenu( menu );
 
             cmp.setText( this.l10n( `Period` ) + ": " + PERIODS[this._period].text );
+
+            this.refresh();
         },
 
         _setPeriod ( menuItem ) {
