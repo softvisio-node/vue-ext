@@ -12,7 +12,7 @@
 
         <template #dataPanel>
             <ext-grid layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @itemdoubletap="_onItemDoubleTap" @ready="_gridReady">
-                <ext-column width="40" @ready="_avatarColReady"/>
+                <ext-column width="50" @ready="_avatarColReady"/>
 
                 <ext-column dataIndex="email" flex="1" :text="l10n(`Email`)" @ready="_emailColReady"/>
 
@@ -145,8 +145,17 @@ export default {
             cmp.setCell( {
                 "xtype": "widgetcell",
                 "widget": {
-                    "xtype": "avatar",
-                    "bind": "{record.avatar_url}",
+                    "xtype": "container",
+                    "layout": {
+                        "type": "hbox",
+                        "pack": "end",
+                    },
+                    "items": [
+                        {
+                            "xtype": "avatar",
+                            "bind": "{record.avatar_url}",
+                        },
+                    ],
                 },
             } );
         },
