@@ -12,7 +12,7 @@
             </template>
 
             <template #dataPanel>
-                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" padding="0 0 0 5" plugins='["gridviewoptions", "autopaging"]' :store="store" @itemdoubletap="_onItemDoubleTap" @ready="_gridReady">
+                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" padding="0 0 0 5" plugins='["gridviewoptions", "autopaging"]' :store="store" @itemdoubletap="_onItemDoubleTap">
                     <ext-column width="40" @ready="_avatarColReady"/>
 
                     <ext-column dataIndex="username" flex="1" :text="l10n(`Username`)"/>
@@ -44,12 +44,6 @@ export default {
             "type": String,
             "required": true,
         },
-    },
-
-    data () {
-        return {
-            "telegramBotUserRecord": null,
-        };
     },
 
     created () {
@@ -86,12 +80,6 @@ export default {
         },
 
         // protected
-        _gridReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.on( "select", ( grid, selection ) => ( this.telegramBotUserRecord = selection[0] ) );
-        },
-
         _avatarColReady ( e ) {
             const cmp = e.detail.cmp;
 
@@ -116,7 +104,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-eye",
-                            "toolti[": this.l10n( "View link" ),
+                            "text": this.l10n( "View user" ),
                             "handler": this._viewUserClick.bind( this ),
                         },
                     ],
