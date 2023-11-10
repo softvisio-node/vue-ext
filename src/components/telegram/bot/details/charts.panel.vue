@@ -61,6 +61,7 @@ export default {
         // public
         async refresh () {
             if ( !this._period ) return;
+            if ( !this.$refs.cardsPanel.isRendered ) return;
 
             this.$refs.cardsPanel.mask();
 
