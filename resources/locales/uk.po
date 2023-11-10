@@ -945,8 +945,8 @@ msgstr "Паролі не збігаються"
 
 #: ../../src/components/development/monitoring/methods/panel.vue:208:61
 #: ../../src/components/development/monitoring/methods/panel.vue:304:49
-#: ../../src/components/telegram/bot/details/charts.panel.vue:104:25
-#: ../../src/components/telegram/bot/details/charts.panel.vue:118:28
+#: ../../src/components/telegram/bot/details/charts.panel.vue:105:25
+#: ../../src/components/telegram/bot/details/charts.panel.vue:119:28
 #: ../../src/components/telegram/bot/links/charts.panel.vue:117:25
 #: ../../src/components/telegram/bot/links/charts.panel.vue:129:28
 msgid "Period"
@@ -1207,10 +1207,10 @@ msgstr ""
 msgid "Subscribed"
 msgstr ""
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:177:33
-#: ../../src/components/telegram/bot/details/charts.panel.vue:257:24
-#: ../../src/components/telegram/bot/details/charts.panel.vue:290:24
-#: ../../src/components/telegram/bot/details/charts.panel.vue:296:33
+#: ../../src/components/telegram/bot/details/charts.panel.vue:178:33
+#: ../../src/components/telegram/bot/details/charts.panel.vue:258:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:291:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:297:33
 #: ../../src/components/telegram/bot/details/info.panel.vue:49:94
 #: ../../src/components/telegram/bot/links/charts.panel.vue:188:33
 #: ../../src/components/telegram/bot/links/charts.panel.vue:268:24
@@ -1316,14 +1316,14 @@ msgstr "Ім'я токена"
 msgid "Total memory"
 msgstr "Загальна пам'ять"
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:138:24
-#: ../../src/components/telegram/bot/details/charts.panel.vue:171:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:139:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:172:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:149:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:182:24
 msgid "Total subscribed users"
 msgstr ""
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:195:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:196:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:206:24
 msgid "Total unsubscribed users"
 msgstr ""
@@ -1361,9 +1361,9 @@ msgstr ""
 msgid "Unlink Telegram"
 msgstr "Від’єднати Telegram"
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:201:33
-#: ../../src/components/telegram/bot/details/charts.panel.vue:314:24
-#: ../../src/components/telegram/bot/details/charts.panel.vue:320:33
+#: ../../src/components/telegram/bot/details/charts.panel.vue:202:33
+#: ../../src/components/telegram/bot/details/charts.panel.vue:315:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:321:33
 #: ../../src/components/telegram/bot/details/info.panel.vue:50:96
 #: ../../src/components/telegram/bot/links/charts.panel.vue:212:33
 #: ../../src/components/telegram/bot/links/charts.panel.vue:325:24
