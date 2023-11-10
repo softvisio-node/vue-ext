@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="90%" layout="fit" scrollable="true" :title="title" width="600">
-        <LinkDetailsPanel :telegramBotLinkRecord="telegramBotLinkRecord" @linkDelete="_onLinkDelete"/>
+        <LinkDetailsPanel :telegramBotLinkRecord="telegramBotLinkRecord" :telegramBotRecord="telegramBotRecord" @linkDelete="_onLinkDelete"/>
     </ext-dialog>
 </template>
 
@@ -11,6 +11,10 @@ export default {
     "components": { LinkDetailsPanel },
 
     "props": {
+        "telegramBotRecord": {
+            "type": Object,
+            "required": true,
+        },
         "telegramBotLinkRecord": {
             "type": Object,
             "required": true,

@@ -163,6 +163,7 @@ export default {
         async _showLinkDialog ( record ) {
             const cmp = await this.$mount( LinkDialog, {
                 "props": {
+                    "telegramBotRecord": this.$refs.panel.ext.getViewModel().get( "telegramBotRecord" ),
                     "telegramBotLinkRecord": record,
                     "onLinkDelete": this.refresh.bind( this ),
                 },

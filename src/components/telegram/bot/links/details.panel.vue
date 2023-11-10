@@ -85,6 +85,10 @@ export default {
     "components": { CardsPanel },
 
     "props": {
+        "telegramBotRecord": {
+            "type": Object,
+            "required": true,
+        },
         "telegramBotLinkRecord": {
             "type": Object,
             "required": true,
@@ -95,8 +99,6 @@ export default {
 
     "methods": {
         async refresh () {
-            if ( !this.telegramBotLinkRecord ) return;
-
             this.$refs.cardsPanel.mask();
 
             const res = await this.$api.call( "telegram/bots/links/get-link", this.telegramBotLinkRecord.id );
@@ -112,6 +114,8 @@ export default {
         },
 
         ready ( e ) {
+            this.$refs.dataPanel.ext.getViewModel().set( "telegramBotRecord", this.telegramBotRecord );
+
             this._onRecordChange();
         },
 
