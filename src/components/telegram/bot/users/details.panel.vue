@@ -65,12 +65,6 @@ export default {
         },
     },
 
-    "watch": {
-        telegramBotUserRecord ( newValue, oldValue ) {
-            this._onRecordChange();
-        },
-    },
-
     "methods": {
         ready () {
             this.$refs.cardsPanel.ext.getViewModel().setFormulas( {
