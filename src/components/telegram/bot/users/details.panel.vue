@@ -6,15 +6,16 @@
 
                 <ext-displayfield bind="{record.full_name}" :label="l10n(`Name`)" labelAlign="left" labelWidth="200"/>
 
-                <ext-container layout="hbox">
+                <ext-container layout='{"align":"center","type":"hbox"}'>
                     <ext-displayfield bind="{record.username}" :label="l10n(`Telegram username`)" labelAlign="left" labelWidth="200"/>
                     <ext-spacer/>
+
                     <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`)" @tap="_copyUssername"/>
                 </ext-container>
 
                 <ext-displayfield bind="{record.is_bot}" :label="l10n(`Is bot`)" labelAlign="left" labelWidth="200"/>
 
-                <ext-container layout="hbox">
+                <ext-container layout='{"align":"center","type":"hbox"}'>
                     <ext-displayfield bind="{record.phone_text}" :label="l10n(`Phone`)" labelAlign="left" labelWidth="200"/>
                     <ext-spacer/>
                     <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`)" @tap="_copyPhone"/>
@@ -26,7 +27,7 @@
 
                 <ext-displayfield bind="{record.subscription_status}" :label="l10n(`Subscription status`)" labelAlign="left" labelWidth="200"/>
 
-                <ext-container layout="hbox">
+                <ext-container layout='{"align":"center","type":"hbox"}'>
                     <ext-displayfield bind="{record.ban_status}" :label="l10n(`Ban status`)" labelAlign="left" labelWidth="200"/>
 
                     <ext-spacer/>
