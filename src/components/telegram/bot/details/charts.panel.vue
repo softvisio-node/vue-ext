@@ -5,8 +5,8 @@
                 <ext-toolbar docked="top">
                     <ext-button ref="periodButton" stretchMenu="true" @ready="_periodButtonReady"/>
                     <ext-spacer/>
-                    <ext-button :hidden="!showMaximizeButton" iconCls="fa-solid fa-expand" :tooltip="l10n(`Maximize charts`)" @tap="_showChartsDialog"/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
+                    <ext-button :hidden="!showMaximizeButton" iconCls="fa-solid fa-expand" :tooltip="l10n(`Maximize charts`)" @tap="_showChartsDialog"/>
                 </ext-toolbar>
 
                 <ext-amcharts5 ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :setChartData="_setChartData"/>
@@ -84,9 +84,9 @@ export default {
         _periodButtonReady ( e ) {
             const cmp = e.detail.cmp;
 
-            const menu = [];
+            this._period = this.period;
 
-            let checked = true;
+            const menu = [];
 
             for ( const [value, { text }] of Object.entries( PERIODS ) ) {
                 menu.push( {
@@ -94,15 +94,9 @@ export default {
                     value,
                     text,
                     "group": "period",
-                    checked,
+                    "checked": value === this.period,
                     "handler": this._setPeriod.bind( this ),
                 } );
-
-                if ( checked ) {
-                    this._period = value;
-
-                    checked = false;
-                }
             }
 
             cmp.setMenu( menu );
