@@ -149,8 +149,17 @@ export default {
             cmp.setCell( {
                 "xtype": "widgetcell",
                 "widget": {
-                    "xtype": "avatar",
-                    "bind": "{record.avatar_url}",
+                    "xtype": "container",
+                    "layout": {
+                        "type": "hbox",
+                        "pack": "end",
+                    },
+                    "items": [
+                        {
+                            "xtype": "avatar",
+                            "bind": "{record.avatar_url}",
+                        },
+                    ],
                 },
             } );
         },
@@ -203,7 +212,6 @@ export default {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
                             "tooltip": this.l10n( "Edit user roles" ),
-                            "padding": "0 0 0 3",
                             "handler": this._showUserRolesDialog.bind( this ),
                             "bind": {
                                 "disabled": "{!permissions.read}",
