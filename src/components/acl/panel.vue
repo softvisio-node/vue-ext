@@ -12,7 +12,7 @@
 
         <template #dataPanel>
             <ext-grid ref="grid" columnMenu="false" columnResize="false" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' viewModel="true" @itemdoubletap="_onItemDoubleTap" @ready="_ready">
-                <ext-column width="40" @ready="_avatarColReady"/>
+                <ext-avatarcolumn/>
 
                 <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="l10n(`Email`)"/>
 
@@ -141,27 +141,6 @@ export default {
             this.$refs.grid.ext.getViewModel().set( "permissions", permissions );
 
             cmp.setStore( this.store );
-        },
-
-        _avatarColReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setCell( {
-                "xtype": "widgetcell",
-                "widget": {
-                    "xtype": "container",
-                    "layout": {
-                        "type": "hbox",
-                        "pack": "end",
-                    },
-                    "items": [
-                        {
-                            "xtype": "avatar",
-                            "bind": "{record.avatar_url}",
-                        },
-                    ],
-                },
-            } );
         },
 
         _rolesColReady ( e ) {

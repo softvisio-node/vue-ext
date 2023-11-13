@@ -13,7 +13,7 @@
 
             <template #dataPanel>
                 <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store" @itemdoubletap="_onItemDoubleTap">
-                    <ext-column width="40" @ready="_avatarColReady"/>
+                    <ext-avatarcolumn/>
 
                     <ext-column dataIndex="username" flex="1" :text="l10n(`Username`)"/>
 
@@ -78,27 +78,6 @@ export default {
         },
 
         // protected
-        _avatarColReady ( e ) {
-            const cmp = e.detail.cmp;
-
-            cmp.setCell( {
-                "xtype": "widgetcell",
-                "widget": {
-                    "xtype": "container",
-                    "layout": {
-                        "type": "hbox",
-                        "pack": "end",
-                    },
-                    "items": [
-                        {
-                            "xtype": "avatar",
-                            "bind": "{record.avatar_url}",
-                        },
-                    ],
-                },
-            } );
-        },
-
         _actionColReady ( e ) {
             const cmp = e.detail.cmp;
 
