@@ -1,14 +1,16 @@
 <template>
-    <ext-panel height="100%" layout='{"animation":"slide","type":"card"}' maxHeight="500" :shadow="shadow" width="300" @ready="ready">
-        <ext-titlebar docked="top" :title="title" titleAlign="left">
-            <LocaleButton :absolute="true"/>
-        </ext-titlebar>
+    <ext-panel layout='{"align":"right","type":"vbox"}'>
+        <LocaleButton/>
 
-        <SigninPanel :passwordRecoveryEnabled="passwordRecoveryEnabled" :signupEnabled="signupEnabled" @recover="showPasswordRecovery" @signup="showSignup"/>
+        <ext-panel dlex="1" height="500" layout='{"animation":"slide","type":"card"}' :shadow="shadow" width="300" @ready="ready">
+            <ext-titlebar docked="top" :title="title" titleAlign="left"/>
 
-        <PasswordRecoveryPanel @signin="showSignin"/>
+            <SigninPanel :passwordRecoveryEnabled="passwordRecoveryEnabled" :signupEnabled="signupEnabled" @recover="showPasswordRecovery" @signup="showSignup"/>
 
-        <SignupPanel @signin="showSignin"/>
+            <PasswordRecoveryPanel @signin="showSignin"/>
+
+            <SignupPanel @signin="showSignin"/>
+        </ext-panel>
     </ext-panel>
 </template>
 

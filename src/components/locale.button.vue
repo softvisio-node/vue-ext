@@ -5,10 +5,6 @@
 <script>
 export default {
     "props": {
-        "absolute": {
-            "type": Boolean,
-            "default": false,
-        },
         "textAlign": {
             "type": String,
             "default": "left",
@@ -22,11 +18,6 @@ export default {
     "methods": {
         _ready ( e ) {
             const cmp = e.detail.cmp;
-
-            if ( this.absolute ) {
-                cmp.setFloated( true );
-                cmp.setStyle( "position: absolute; top: 20px; right: 20px;" );
-            }
 
             if ( !this.$app.locale.canChangeLocale ) {
                 cmp.setHidden( true );
