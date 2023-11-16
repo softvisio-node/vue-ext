@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.10.33 (2023-11-16)
+
+Fixes:
+
+-   fix: auhth panel
+
 ### 8.10.32 (2023-11-13)
 
 Fixes:
