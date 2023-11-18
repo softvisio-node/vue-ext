@@ -1401,7 +1401,7 @@ msgstr "Користувач"
 msgid "User added"
 msgstr "Користувача додано"
 
-#: ../../src/components/administration/users/create-user.dialog.vue:96:29
+#: ../../src/components/administration/users/create-user.dialog.vue:98:29
 msgid "User created"
 msgstr "Користувач створений"
 
