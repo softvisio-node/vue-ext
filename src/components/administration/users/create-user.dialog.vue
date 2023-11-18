@@ -86,9 +86,11 @@ export default {
 
             delete values.confirmedPassword;
 
+            values.roles = this.$refs.rolesPanel.getEnabledRoles();
+
             this.ext.mask();
 
-            const res = await this.$api.call( "administration/users/create", email, values, this.$refs.rolesPanel.getEnabledRoles() );
+            const res = await this.$api.call( "administration/users/create-user", email, values );
 
             this.ext.unmask();
 
