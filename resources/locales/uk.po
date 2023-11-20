@@ -317,7 +317,6 @@ msgstr "Помилка з'єднання"
 msgid "Copy email"
 msgstr ""
 
-#: ../../src/components/notifications/link-telegram.dialig.vue:11:54
 #: ../../src/components/telegram/bot/links/details.panel.vue:8:68
 #: ../../src/components/telegram/bot/links/panel.vue:105:36
 msgid "Copy link"
@@ -738,8 +737,6 @@ msgstr ""
 msgid "Link name"
 msgstr ""
 
-#: ../../src/components/notifications/link-telegram.dialig.vue:2:94
-#: ../../src/components/notifications/link-telegram.dialig.vue:5:27
 #: ../../src/components/notifications/settings.panel.vue:16:43
 msgid "Link Telegram"
 msgstr "Прив’яжіть Telegram"
@@ -860,7 +857,7 @@ msgstr ""
 
 #: ../../src/components/account/panel.vue:9:40
 #: ../../src/components/notifications/dialog.vue:2:68
-#: ../../src/components/notifications/settings.panel.vue:40:85
+#: ../../src/components/notifications/settings.panel.vue:39:85
 #: ../../src/components/notifications/subscribe.dialog.vue:2:68
 msgid "Notifications"
 msgstr "Сповіщення"
