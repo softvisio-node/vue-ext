@@ -61,7 +61,6 @@ import Events from "#core/events";
 import PushNotificationsButton from "#src/components/push-notifications.button";
 import CardsPanel from "#src/components/cards.panel";
 import Model from "./models/notification-type";
-import LinkTelegramDialig from "./link-telegram.dialig";
 import OptionContainer from "#src/components/option.container";
 
 export default {
@@ -258,30 +257,9 @@ export default {
             button.enable();
         },
 
+        // XXX
         _openTelegramBot () {
             this.$utils.clickUrl( this.telegramBotUrl );
-        },
-
-        async _linkTelegramBot () {
-            const res = await this.$api.call( "account/notifications/get-telegram-link-url" );
-
-            if ( !res.ok ) {
-                this.$toast( res );
-            }
-            else {
-                if ( res.data.linkedTelegramUser ) {
-                    this.linkedTelegramUser = res.data.linkedTelegramUser;
-                }
-                else {
-                    const cmp = await this.$mount( LinkTelegramDialig, {
-                        "props": {
-                            "linkTelegramBotUrl": res.data.linkTelegramBotUrl,
-                        },
-                    } );
-
-                    cmp.ext.show();
-                }
-            }
         },
     },
 };
