@@ -13,7 +13,7 @@
                 <ext-container>
                     <!-- link -->
                     <ext-container :hidden="telegramLinked">
-                        <ext-button :text="l10n(`Link Telegram`)" ui="action" @tap="_linkTelegramBot"/>
+                        <ext-button :text="l10n(`Link Telegram`)" ui="action" @tap="_openTelegramBot"/>
                     </ext-container>
 
                     <!-- open -->
@@ -25,7 +25,6 @@
                         </ext-container>
                         <ext-container layour="hbox">
                             <ext-button :text="l10n(`Open Telegram bot`)" @tap="_openTelegramBot"/>
-                            <ext-button iconCls="fa-solid fa-xmark" :text="l10n(`Unlink Telegram`)" ui="decline" @tap="_unlinkTelegramBot"/>
                         </ext-container>
                     </ext-container>
                 </ext-container>
@@ -124,13 +123,6 @@ export default {
 
         this._events ??= new Events().link( this.$api ).on( "notifications/telegram/update", linkedTelegramUser => {
             this.linkedTelegramUser = linkedTelegramUser;
-
-            if ( linkedTelegramUser ) {
-                this.$toast( this.l10n( `Telegram linked` ) );
-            }
-            else {
-                this.$toast( this.l10n( `Telegram unlinked` ) );
-            }
         } );
     },
 
@@ -257,7 +249,6 @@ export default {
             button.enable();
         },
 
-        // XXX
         _openTelegramBot () {
             this.$utils.clickUrl( this.telegramBotUrl );
         },
