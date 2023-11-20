@@ -283,17 +283,6 @@ export default {
                 }
             }
         },
-
-        async _unlinkTelegramBot () {
-            const res = await this.$api.call( "account/notifications/unlink-telegram" );
-
-            if ( !res.ok ) {
-                this.$toast( res );
-            }
-            else {
-                this.linkedTelegramUser = null;
-            }
-        },
     },
 };
 </script>
