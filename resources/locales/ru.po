@@ -161,7 +161,7 @@ msgstr ""
 msgid "Ban user"
 msgstr ""
 
-#: ../../src/components/telegram/bot/users/models/user.js:63:27
+#: ../../src/components/telegram/bot/users/models/user.js:64:27
 msgid "Banned"
 msgstr ""
 
@@ -847,11 +847,11 @@ msgstr ""
 msgid "No Telegram bots found"
 msgstr ""
 
-#: ../../src/components/telegram/bot/users/models/user.js:66:27
+#: ../../src/components/telegram/bot/users/models/user.js:67:27
 msgid "Not banned"
 msgstr ""
 
-#: ../../src/components/telegram/bot/users/models/user.js:54:27
+#: ../../src/components/telegram/bot/users/models/user.js:55:27
 msgid "Not subscribed"
 msgstr ""
 
@@ -1200,7 +1200,7 @@ msgstr ""
 msgid "Stopped"
 msgstr ""
 
-#: ../../src/components/telegram/bot/users/models/user.js:51:27
+#: ../../src/components/telegram/bot/users/models/user.js:52:27
 msgid "Subscribed"
 msgstr ""
 
