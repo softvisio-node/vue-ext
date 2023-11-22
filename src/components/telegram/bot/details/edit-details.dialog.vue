@@ -43,8 +43,6 @@ export default {
 
             for ( const name in values ) values[name] = values[name].trim();
 
-            form.setValues( values );
-
             if ( !form.validate() ) return;
 
             this.ext.mask();
@@ -56,6 +54,8 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
+                form.setValues( values );
+
                 this.$toast( this.l10n( `Bot updated` ) );
 
                 form.fillRecord( this.record );
