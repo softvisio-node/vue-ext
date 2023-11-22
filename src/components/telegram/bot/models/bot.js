@@ -22,7 +22,7 @@ export default Ext.define( null, {
         "avatar_url",
 
         "telegram_user_id",
-        "telegram_username",
+        "username",
         { "name": "telegram_can_join_groups", "type": "bool" },
         { "name": "telegram_can_read_all_group_messages", "type": "bool" },
         { "name": "telegram_supports_inline_queries", "type": "bool" },
@@ -87,6 +87,6 @@ export default Ext.define( null, {
 
         { "name": "total_banned_users_text", "calculate": data => `${data.total_banned_users} (${data.total_banned_users_percent_text})` },
 
-        { "name": "url", "calculate": data => `https://t.me/${data.telegram_username}` },
+        { "name": "url", "calculate": data => `https://t.me/${data.username}` },
     ],
 } );
