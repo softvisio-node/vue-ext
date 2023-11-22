@@ -1279,7 +1279,7 @@ msgstr "Telegram привязвн"
 msgid "Telegram unlinked"
 msgstr "Telegram отвязан"
 
-#: ../../src/components/telegram/bot/details/info.panel.vue:13:76
+#: ../../src/components/telegram/bot/details/info.panel.vue:13:67
 #: ../../src/components/telegram/bot/users/details.panel.vue:10:71
 msgid "Telegram username"
 msgstr ""
