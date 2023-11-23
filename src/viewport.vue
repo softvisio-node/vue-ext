@@ -31,7 +31,10 @@ export default {
         async onRoute ( route ) {
             Ext.Viewport.mask();
 
-            if ( route.get() === "reset-password" ) {
+            if ( route.get() === "telegram-webapp" ) {
+                await this.telegramWebApp();
+            }
+            else if ( route.get() === "reset-password" ) {
                 await this.routeResetPasword();
             }
             else if ( route.get() === "confirm-email" ) {
@@ -145,6 +148,31 @@ export default {
             }
 
             route.forward( this.view );
+        },
+
+        // XXX
+        async telegramWebApp () {
+            await ( await import( "@softvisio/vue/telegram-webapp" ) ).default();
+
+            try {
+                if ( !window.Telegram?.WebApp?.initData ) throw Error();
+
+                var data = JSON.parse( new URL( window.location.hash.substring( 1 ), "file:" ).searchParams.get( "data" ) );
+
+                if ( !data ) throw Error();
+            }
+            catch ( e ) {
+                return this.$router.redirectTo( "/", { "replace": true } );
+            }
+
+            if ( !this.$app.user.isAuthenticated ) {
+                const res = await this.$app.signIn( {
+                    "telegram_bot_id": data.botId,
+                    "telegram_init_data": window.Telegram?.WebApp?.initData,
+                } );
+
+                if ( !res.ok ) window.Telegram.WebApp.close();
+            }
         },
     },
 };
