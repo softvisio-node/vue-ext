@@ -177,11 +177,11 @@ export default {
 
             const components = ( await import( "#src/components/telegram/components" ) ).default;
 
-            const bot = components.get( data.botType );
+            const botComponent = components.get( data.botType );
 
-            if ( !bot ) window.Telegram.WebApp.close();
+            if ( !botComponent ) window.Telegram.WebApp.close();
 
-            await bot.webApp( this, data );
+            await botComponent.runWebApp( this, data );
         },
     },
 };

@@ -39,4 +39,9 @@ export default class TelegramBotComponent {
     get panel () {
         return import( "./details/panel" );
     }
+
+    // public
+    async runWebApp ( panel, data ) {
+        window.Telegram.WebApp.close();
+    }
 }
