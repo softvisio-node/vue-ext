@@ -150,7 +150,6 @@ export default {
             route.forward( this.view );
         },
 
-        // XXX
         async telegramWebApp () {
             await ( await import( "@softvisio/vue/telegram-webapp" ) ).default();
 
@@ -166,6 +165,8 @@ export default {
             }
 
             if ( !this.$app.user.isAuthenticated ) {
+
+                // sign in
                 const res = await this.$app.signIn( {
                     "telegram_bot_id": data.botId,
                     "telegram_init_data": window.Telegram?.WebApp?.initData,
@@ -173,6 +174,14 @@ export default {
 
                 if ( !res.ok ) window.Telegram.WebApp.close();
             }
+
+            const components = ( await import( "#src/components/telegram/components" ) ).default;
+
+            const bot = components.get( data.botType );
+
+            if ( !bot ) window.Telegram.WebApp.close();
+
+            await bot.webApp( this, data );
         },
     },
 };
