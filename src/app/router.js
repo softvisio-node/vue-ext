@@ -36,7 +36,7 @@ export default class Router {
     }
 
     // public
-    reload ( url, { replace, silent } = {} ) {
+    async reload ( url, { replace, silent } = {} ) {
         const baseUrl = new URL( "http://local/" );
 
         baseUrl.pathname = this.#path;
@@ -47,6 +47,8 @@ export default class Router {
         const hash = url.pathname + url.search;
 
         this.#setHash( hash, { replace, silent } );
+
+        return this.#app.reload();
     }
 
     // private
