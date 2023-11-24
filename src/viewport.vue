@@ -22,40 +22,38 @@ export default {
 
             await this.$app.initSession();
 
-            this.$router.init( this );
-
-            this.$router.reload();
+            this.route();
         },
 
         // router
-        async onRoute ( route ) {
+        async route () {
             Ext.Viewport.mask();
 
-            if ( route.get() === "telegram-webapp" ) {
+            if ( this.$router.path === "/telegram-webapp" ) {
                 await this.telegramWebApp();
             }
-            else if ( route.get() === "reset-password" ) {
+            else if ( this.$router.path === "/reset-password" ) {
                 await this.routeResetPasword();
             }
-            else if ( route.get() === "confirm-email" ) {
+            else if ( this.$router.path === "/confirm-email" ) {
                 await this.routeConfirmEmail();
             }
-            else if ( route.get() === "change-email" ) {
+            else if ( this.$router.path === "/change-email" ) {
                 await this.routeChangeEmail();
             }
             else {
-                await this._onRoute( route );
+                await this._route();
             }
 
             Ext.Viewport.unmask();
         },
 
-        async _onRoute ( route ) {
+        async _route () {
             if ( this.$app.user.isAuthenticated ) {
-                return this.routePrivate( route );
+                return this.routePrivate();
             }
             else {
-                return this.routePublic( route );
+                return this.routePublic();
             }
         },
 
@@ -68,9 +66,7 @@ export default {
         async routeConfirmEmail () {
 
             // parse toke
-            var token = window.location.hash.match( /^#[/]confirm-email[/]?(.*)/ );
-
-            if ( token ) token = token[1];
+            var token = this.$router.searchParams.get( "token" );
 
             if ( !token ) {
                 this.$toast( this.l10n( "Email confirmation token is invalid" ) );
@@ -86,13 +82,13 @@ export default {
                 }
             }
 
-            this.$router.redirectTo( "/", { "replace": true } );
+            this.$router.reload( "/", { "replace": true } );
         },
 
         async routeChangeEmail () {
 
             // parse toke
-            var token = window.location.hash.match( /^#[/]change-email[/]?(.*)/ );
+            var token = this.$router.searchParams.get( "token" );
 
             if ( token ) token = token[1];
 
@@ -104,7 +100,7 @@ export default {
                             const res = await this.$api.call( "account/set-email-by-token", token, options );
 
                             if ( res.ok ) {
-                                this.$router.redirectTo( "/", { "replace": true } );
+                                this.$router.reload( "/", { "replace": true } );
 
                                 this.$toast( this.l10n( "Email address changed" ) );
                             }
@@ -119,10 +115,10 @@ export default {
                 await cmp.show();
             }
 
-            this.$router.redirectTo( "/", { "replace": true } );
+            this.$router.reload( "/", { "replace": true } );
         },
 
-        async routePublic ( route ) {
+        async routePublic () {
             if ( !this.publicView ) return;
 
             if ( this.currentView !== "public" ) {
@@ -132,11 +128,9 @@ export default {
 
                 this.view = await this.$mount( this.publicView );
             }
-
-            route.forward( this.view );
         },
 
-        async routePrivate ( route ) {
+        async routePrivate () {
             if ( !this.privateView ) return;
 
             if ( this.currentView !== "private" ) {
@@ -146,8 +140,6 @@ export default {
 
                 this.view = await this.$mount( this.privateView );
             }
-
-            route.forward( this.view );
         },
 
         async telegramWebApp () {
@@ -156,12 +148,12 @@ export default {
             try {
                 if ( !window.Telegram?.WebApp?.initData ) throw Error();
 
-                var data = JSON.parse( new URL( window.location.hash.substring( 1 ), "file:" ).searchParams.get( "data" ) );
+                var data = JSON.parse( this.$router.searchParams.get( "data" ) );
 
                 if ( !data ) throw Error();
             }
             catch ( e ) {
-                return this.$router.redirectTo( "/", { "replace": true } );
+                return this.$router.reload( "/", { "replace": true } );
             }
 
             if ( !this.$app.user.isAuthenticated ) {

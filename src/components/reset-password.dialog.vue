@@ -56,7 +56,7 @@ export default {
         },
 
         _onDestroy () {
-            this.$router.redirectTo( "/", { "replace": true } );
+            this.$router.reload( "/", { "replace": true } );
         },
 
         close () {
