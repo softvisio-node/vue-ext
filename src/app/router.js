@@ -15,6 +15,9 @@ export default class Router {
             this.#searchParams = url.searchParams;
         }
         catch ( e ) {
+            this.#path = "/";
+            this.#searchParams = new URLSearchParams();
+
             this.reload( "/" );
         }
     }
