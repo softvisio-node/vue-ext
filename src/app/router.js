@@ -12,7 +12,7 @@ export default class Router {
             const url = new URL( window.location.hash.substring( 1 ), "http://local/" );
 
             this.#path = url.pathname;
-            this.#searchParams = url.#searchParams;
+            this.#searchParams = url.searchParams;
         }
         catch ( e ) {
             this.reload( "/" );
