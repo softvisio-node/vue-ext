@@ -6,7 +6,7 @@ export default class Router {
     constructor ( app ) {
         this.#app = app;
 
-        window.onhashchange = this.reload.bind( this );
+        // window.onhashchange = this.reload.bind( this );
 
         try {
             const url = new URL( window.location.hash.substring( 1 ), "http://local/" );
