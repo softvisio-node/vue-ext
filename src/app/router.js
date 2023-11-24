@@ -42,7 +42,7 @@ export default class Router {
         baseUrl.pathname = this.#path;
         baseUrl.search = this.#searchParams;
 
-        url = new URL( baseUrl, url );
+        url = new URL( url, baseUrl );
 
         const hash = url.pathname + url.search;
 
