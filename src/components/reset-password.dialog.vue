@@ -24,16 +24,7 @@ import passwords from "#core/passwords";
 export default {
     "computed": {
         token () {
-            const hash = window.location.hash;
-
-            const found = hash.match( /^#[/]reset-password[/]?(.*)/ );
-
-            if ( found ) {
-                return found[1];
-            }
-            else {
-                return null;
-            }
+            return this.$app.router.searchParams.get( "token" );
         },
     },
 
