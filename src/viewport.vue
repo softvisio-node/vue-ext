@@ -160,8 +160,8 @@ export default {
 
                 // sign in
                 const res = await this.$app.signIn( {
-                    "telegram_bot_id": data.botId,
-                    "telegram_init_data": window.Telegram?.WebApp?.initData,
+                    "telegram_bot_id": data.telegramBotId,
+                    "telegram_webapp_init_data": window.Telegram?.WebApp?.initData,
                 } );
 
                 if ( !res.ok ) window.Telegram.WebApp.close();
@@ -169,7 +169,7 @@ export default {
 
             const components = ( await import( "#src/components/telegram/components" ) ).default;
 
-            const botComponent = components.get( data.botType );
+            const botComponent = components.get( data.telegramBotType );
 
             if ( !botComponent ) window.Telegram.WebApp.close();
 
