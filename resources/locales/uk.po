@@ -506,7 +506,7 @@ msgstr "Email"
 msgid "Email address"
 msgstr "Адреса email"
 
-#: ../../src/viewport.vue:106:45
+#: ../../src/viewport.vue:105:45
 msgid "Email address changed"
 msgstr "Адреса електронної пошти змінена"
 
@@ -518,11 +518,11 @@ msgstr ""
 msgid "Email change"
 msgstr "Зміна email"
 
-#: ../../src/viewport.vue:73:29
+#: ../../src/viewport.vue:72:29
 msgid "Email confirmation token is invalid"
 msgstr "Токен підтвердження електронної пошти недійсний"
 
-#: ../../src/viewport.vue:79:33
+#: ../../src/viewport.vue:78:33
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
 
@@ -915,13 +915,13 @@ msgid "Password change instructions were sent to the email address, associated w
 msgstr "Інструкції щодо зміни пароля були надіслані на адресу електронної пошти, пов’язану з вашим обліковим записом."
 
 #: ../../src/components/change-password.dialog.vue:63:29
-#: ../../src/components/reset-password.dialog.vue:86:29
+#: ../../src/components/reset-password.dialog.vue:77:29
 msgid "Password changed"
 msgstr "Пароль змінено"
 
 #: ../../src/components/administration/users/create-user.dialog.vue:65:25
 #: ../../src/components/change-password.dialog.vue:81:25
-#: ../../src/components/reset-password.dialog.vue:100:25
+#: ../../src/components/reset-password.dialog.vue:91:25
 msgid "Password copied to the clipboard"
 msgstr "Пароль скопійовано в буфер обміну"
 
@@ -929,14 +929,14 @@ msgstr "Пароль скопійовано в буфер обміну"
 msgid "Password recovery"
 msgstr "Відновлення паролю"
 
-#: ../../src/components/reset-password.dialog.vue:45:29
+#: ../../src/components/reset-password.dialog.vue:36:29
 msgid "Password recovery token was not found"
 msgstr "Токен відновлення пароля не знайдено"
 
 #: ../../src/components/administration/users/create-user.dialog.vue:79:64
 #: ../../src/components/authentication/signup.panel.vue:75:64
 #: ../../src/components/change-password.dialog.vue:51:64
-#: ../../src/components/reset-password.dialog.vue:74:64
+#: ../../src/components/reset-password.dialog.vue:65:64
 msgid "Passwords do not match"
 msgstr "Паролі не збігаються"
 
