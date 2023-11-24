@@ -29,7 +29,7 @@ export default {
         async route () {
             Ext.Viewport.mask();
 
-            if ( this.$router.path === "/telegram-webapp" ) {
+            if ( this.$router.path.startsWith( "/telegram-webapp/" ) ) {
                 await this.telegramWebApp();
             }
             else if ( this.$router.path === "/reset-password" ) {
