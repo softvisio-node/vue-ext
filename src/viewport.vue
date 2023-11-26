@@ -145,6 +145,8 @@ export default {
         async telegramWebApp () {
             await ( await import( "@softvisio/vue/telegram-webapp" ) ).default();
 
+            await import( "@/telegram-components" );
+
             try {
                 if ( !window.Telegram?.WebApp?.initData ) throw Error();
 
