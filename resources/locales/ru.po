@@ -873,7 +873,7 @@ msgstr "Настройки уведомлений"
 msgid "Ok"
 msgstr "Ok"
 
-#: ../../src/components/telegram/bots.panel.vue:132:36
+#: ../../src/components/telegram/bots.panel.vue:130:36
 msgid "Open bot"
 msgstr ""
 
