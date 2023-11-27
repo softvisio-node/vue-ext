@@ -180,6 +180,7 @@ export default {
                     "telegram_webapp_init_data": window.Telegram?.WebApp?.initData,
                 } );
 
+                // sign in failed
                 if ( !res.ok ) window.Telegram.WebApp.close();
             }
 
