@@ -160,12 +160,19 @@ export default {
                 return window.Telegram?.WebApp?.close();
             }
 
+            // authenticated
             if ( this.$app.user.isAuthenticated ) {
+
+                // authenticated as other user
                 if ( data.userId !== this.$app.user.id ) {
+
+                    // sign out
                     return this.$app.signOut();
                 }
             }
-            else {
+
+            // not authenticated, auth is required
+            else if ( data.userId ) {
 
                 // sign in
                 const res = await this.$app.signIn( {
