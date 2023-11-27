@@ -30,7 +30,7 @@ export default {
             Ext.Viewport.mask();
 
             if ( this.$router.path === "/telegram-webapp" ) {
-                await this.telegramWebApp();
+                await this.routeTelegramWebApp();
             }
             else if ( this.$router.path === "/reset-password" ) {
                 await this.routeResetPasword();
@@ -142,7 +142,7 @@ export default {
             }
         },
 
-        async telegramWebApp () {
+        async routeTelegramWebApp () {
             await ( await import( "@softvisio/vue/telegram-webapp" ) ).default();
 
             await import( "@/telegram-components" );
