@@ -158,7 +158,12 @@ export default {
                 return this.$router.reload( "/", { "replace": true } );
             }
 
-            if ( !this.$app.user.isAuthenticated ) {
+            if ( this.$app.user.isAuthenticated ) {
+                if ( data.userId !== this.$app.user.id ) {
+                    return this.$app.signOut();
+                }
+            }
+            else {
 
                 // sign in
                 const res = await this.$app.signIn( {
