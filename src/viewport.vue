@@ -143,10 +143,12 @@ export default {
         },
 
         async routeTelegramWebApp () {
+
+            // load telegram
+
             await ( await import( "@softvisio/vue/telegram-webapp" ) ).default();
 
-            await import( "@/telegram-components" );
-
+            // decode init data
             try {
                 if ( !window.Telegram?.WebApp?.initData ) throw Error();
 
@@ -155,7 +157,7 @@ export default {
                 if ( !data ) throw Error();
             }
             catch ( e ) {
-                return this.$router.reload( "/", { "replace": true } );
+                return window.Telegram?.WebApp?.close();
             }
 
             if ( this.$app.user.isAuthenticated ) {
@@ -173,6 +175,9 @@ export default {
 
                 if ( !res.ok ) window.Telegram.WebApp.close();
             }
+
+            // load telegram components
+            await import( "@/telegram-components" );
 
             const components = ( await import( "#src/components/telegram/components" ) ).default;
 
