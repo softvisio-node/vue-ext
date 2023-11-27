@@ -150,10 +150,13 @@ export default {
 
             // decode init data
             try {
+
+                // not a Telegeam webapp
                 if ( !window.Telegram?.WebApp?.initData ) throw Error();
 
                 var data = JSON.parse( this.$router.searchParams.get( "data" ) );
 
+                // init data is not valid
                 if ( !data ) throw Error();
             }
             catch ( e ) {
