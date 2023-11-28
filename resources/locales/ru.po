@@ -506,7 +506,7 @@ msgstr "Email"
 msgid "Email address"
 msgstr "Адрес email"
 
-#: ../../src/viewport.vue:105:45
+#: ../../src/viewport.vue:106:45
 msgid "Email address changed"
 msgstr "Адрес email изменен"
 
@@ -518,11 +518,11 @@ msgstr ""
 msgid "Email change"
 msgstr "Изменение email"
 
-#: ../../src/viewport.vue:72:29
+#: ../../src/viewport.vue:73:29
 msgid "Email confirmation token is invalid"
 msgstr "Токен подтверждения email неверен"
 
-#: ../../src/viewport.vue:78:33
+#: ../../src/viewport.vue:79:33
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
 
