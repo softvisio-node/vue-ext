@@ -7,6 +7,7 @@ import "./assets/scrollbars.css";
 import Viewport from "@softvisio/vue/viewport";
 import ResetPasswordDialog from "#src/components/reset-password.dialog";
 import AuthorizationDialog from "#src/components/authorization.dialog";
+import loadTelegram from "@softvisio/vue/telegram-webapp";
 
 export default {
     "extends": Viewport,
@@ -145,8 +146,7 @@ export default {
         async routeTelegramWebApp () {
 
             // load telegram
-
-            await ( await import( "@softvisio/vue/telegram-webapp" ) ).default();
+            await loadTelegram();
 
             // decode init data
             try {
