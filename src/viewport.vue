@@ -150,10 +150,6 @@ export default {
 
             // decode init data
             try {
-
-                // not a Telegeam webapp
-                if ( !window.Telegram?.WebApp?.initData ) throw Error();
-
                 var data = JSON.parse( this.$router.searchParams.get( "data" ) );
 
                 // init data is not valid
@@ -176,6 +172,7 @@ export default {
 
             // not authenticated, auth is required
             else if ( data.userId ) {
+                if ( !window.Telegram?.WebApp?.initData ) return window.Telegram?.WebApp?.close();
 
                 // sign in
                 const res = await this.$app.signIn( {
@@ -184,7 +181,7 @@ export default {
                 } );
 
                 // sign in failed
-                if ( !res.ok ) window.Telegram.WebApp.close();
+                if ( !res.ok ) return window.Telegram?.WebApp?.close();
             }
 
             // load telegram components
@@ -194,7 +191,7 @@ export default {
 
             const botComponent = components.get( data.telegramBotType );
 
-            if ( !botComponent ) window.Telegram.WebApp.close();
+            if ( !botComponent ) return window.Telegram?.WebApp?.close();
 
             await botComponent.runWebApp( this, data );
         },
