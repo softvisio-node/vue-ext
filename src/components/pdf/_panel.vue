@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import * as pdfjs from "pdfjs-dist/build/pdf.js";
-import pdfjsWorker from "pdfjs-dist/build/pdf.worker.js";
+import * as pdfjs from "pdfjs-dist/build/pdf";
+import pdfjsWorker from "pdfjs-dist/build/pdf.worker";
 
-pdfjs.GlobalWorkerOptions.workerPort = new Worker( pdfjsWorker );
+pdfjs.GlobalWorkerOptions.workerPort = new Worker( pdfjsWorker, { "type": "module" } );
 
 const pixelRatio = window.devicePixelRatio || 1;
 
