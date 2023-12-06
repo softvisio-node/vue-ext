@@ -1,8 +1,8 @@
 <template>
-    <ext-panel layout='{"align":"right","type":"vbox"}'>
+    <ext-panel height="500" layout='{"align":"end","type":"vbox"}'>
         <LocaleButton/>
 
-        <ext-panel dlex="1" height="500" layout='{"animation":"slide","type":"card"}' :shadow="shadow" width="300" @ready="ready">
+        <ext-panel flex="1" layout='{"animation":"slide","type":"card"}' :shadow="shadow" width="300" @ready="ready">
             <ext-titlebar docked="top" :title="title" titleAlign="left"/>
 
             <SigninPanel :passwordRecoveryEnabled="passwordRecoveryEnabled" :signupEnabled="signupEnabled" @recover="showPasswordRecovery" @signup="showSignup"/>
