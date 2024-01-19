@@ -18,10 +18,6 @@ export default {
     "extends": ChangePasswordDialog,
 
     "props": {
-        "userId": {
-            "type": String,
-            "required": true,
-        },
         "userRecord": {
             "type": Object,
             "default": null,
@@ -30,7 +26,7 @@ export default {
 
     "methods": {
         async _changePassword ( password ) {
-            return this.$api.call( "administration/users/set-password", this.userId, password );
+            return this.$api.call( "administration/users/set-password", this.userRecord.id, password );
         },
     },
 };
