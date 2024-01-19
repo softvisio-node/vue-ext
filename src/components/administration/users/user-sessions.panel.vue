@@ -1,28 +1,8 @@
-<template>
-    <UserSessionsPanel>
-        <template #user>
-            <ext-container layout='{"align":"center","pack":"center","type":"hbox"}'>
-                <ext-avatar :src="userRecord?.get(`avatar_url`)"/>
-                <ext-spacer width="10"/>
-                <ext-container :html="userRecord?.get(`email`)"/>
-            </ext-container>
-        </template>
-    </UserSessionsPanel>
-</template>
-
 <script>
 import UserSessionsPanel from "#src/components/user-sessions/panel";
 
 export default {
-    "components": { UserSessionsPanel },
     "extends": UserSessionsPanel,
-
-    "props": {
-        "userRecord": {
-            "type": Object,
-            "required": true,
-        },
-    },
 
     "methods": {
         async _loadSessions () {

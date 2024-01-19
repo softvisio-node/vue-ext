@@ -3,7 +3,13 @@
         <template #docked>
             <ext-toolbar docked="top">
                 <slot name="user">
-                    <ext-container :html="l10n(`Your sessions`)"/>
+                    <ext-container :hidden="!!userRecord" :html="l10n(`Your sessions`)"/>
+
+                    <ext-container :hidden="!userRecord" layout='{"align":"center","pack":"center","type":"hbox"}'>
+                        <ext-avatar :src="userRecord?.get(`avatar_url`)"/>
+                        <ext-spacer width="10"/>
+                        <ext-container :html="userRecord?.get(`email`)"/>
+                    </ext-container>
                 </slot>
                 <ext-spacer/>
                 <ext-button iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete all sessions`)" ui="decline" @tap="_signOutAllSessions"/>
@@ -37,6 +43,13 @@ import CardsPanel from "#src/components/cards.panel";
 
 export default {
     "components": { CardsPanel },
+
+    "props": {
+        "userRecord": {
+            "type": Object,
+            "default": null,
+        },
+    },
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {
