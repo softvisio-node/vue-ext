@@ -213,7 +213,7 @@ msgstr ""
 msgid "Bot users"
 msgstr ""
 
-#: ../../src/components/user-sessions/panel.vue:20:134
+#: ../../src/components/user-sessions/panel.vue:26:134
 msgid "Browser"
 msgstr "Браузер"
 
@@ -250,7 +250,7 @@ msgstr "Токен зміни електронної пошти надіслан
 #: ../../src/components/account/account.panel.vue:12:39
 #: ../../src/components/administration/users/panel.vue:219:48
 #: ../../src/components/application/menu.vue:20:101
-#: ../../src/components/change-password.dialog.vue:16:31
+#: ../../src/components/change-password.dialog.vue:20:31
 #: ../../src/components/reset-password.dialog.vue:16:31
 msgid "Change password"
 msgstr "Змінити пароль"
@@ -283,8 +283,8 @@ msgstr "Підтвердити"
 msgid "Confirm email"
 msgstr ""
 
-#: ../../src/components/change-password.dialog.vue:8:108
-#: ../../src/components/change-password.dialog.vue:8:39
+#: ../../src/components/change-password.dialog.vue:12:108
+#: ../../src/components/change-password.dialog.vue:12:39
 #: ../../src/components/reset-password.dialog.vue:8:108
 #: ../../src/components/reset-password.dialog.vue:8:39
 msgid "Confirm new password"
@@ -380,11 +380,11 @@ msgstr ""
 #: ../../src/components/telegram/bot/links/details.panel.vue:28:90
 #: ../../src/components/telegram/bot/links/panel.vue:33:96
 #: ../../src/components/telegram/bot/users/details.panel.vue:24:71
-#: ../../src/components/user-sessions/panel.vue:26:74
+#: ../../src/components/user-sessions/panel.vue:32:74
 msgid "Creation date"
 msgstr "Дата створення"
 
-#: ../../src/components/user-sessions/panel.vue:64:39
+#: ../../src/components/user-sessions/panel.vue:77:39
 msgid "Cuttent session"
 msgstr ""
 
@@ -407,7 +407,7 @@ msgstr "Видалити"
 msgid "Delete all"
 msgstr "Видалити все"
 
-#: ../../src/components/user-sessions/panel.vue:9:67
+#: ../../src/components/user-sessions/panel.vue:15:67
 msgid "Delete all sessions"
 msgstr ""
 
@@ -419,7 +419,7 @@ msgstr "Видалити бота"
 msgid "Delete link"
 msgstr ""
 
-#: ../../src/components/user-sessions/panel.vue:70:39
+#: ../../src/components/user-sessions/panel.vue:83:39
 msgid "Delete session"
 msgstr ""
 
@@ -439,7 +439,7 @@ msgstr "Опис"
 msgid "Development"
 msgstr "Розробка"
 
-#: ../../src/components/user-sessions/panel.vue:16:134
+#: ../../src/components/user-sessions/panel.vue:22:134
 msgid "Device"
 msgstr "Пристрій"
 
@@ -546,7 +546,7 @@ msgstr "Введіть нову електронну адресу"
 msgid "Enter new email address which you want to use."
 msgstr "Введіть нову електронну адресу, яку ви хочете використовувати."
 
-#: ../../src/components/change-password.dialog.vue:6:91
+#: ../../src/components/change-password.dialog.vue:10:91
 #: ../../src/components/reset-password.dialog.vue:6:91
 msgid "Enter new password"
 msgstr "Введіть новий пароль"
@@ -623,7 +623,7 @@ msgid "FS used (MB)"
 msgstr ""
 
 #: ../../src/components/administration/users/create-user.dialog.vue:11:35
-#: ../../src/components/change-password.dialog.vue:12:31
+#: ../../src/components/change-password.dialog.vue:16:31
 #: ../../src/components/reset-password.dialog.vue:11:35
 msgid "Generate random password"
 msgstr "Згенерувати випадковий пароль"
@@ -652,7 +652,7 @@ msgstr "Моніторинг екземплярів"
 msgid "Interface base color"
 msgstr "Базовий колір інтерфейсу"
 
-#: ../../src/components/user-sessions/panel.vue:22:62
+#: ../../src/components/user-sessions/panel.vue:28:62
 msgid "IP address"
 msgstr "IP адреса"
 
@@ -662,7 +662,7 @@ msgstr ""
 
 #: ../../src/components/account/tokens/panel.vue:17:132
 #: ../../src/components/administration/users/panel.vue:21:167
-#: ../../src/components/user-sessions/panel.vue:24:132
+#: ../../src/components/user-sessions/panel.vue:30:132
 msgid "Last activity"
 msgstr "Останній активность"
 
@@ -822,7 +822,7 @@ msgstr ""
 msgid "New email address"
 msgstr "Нова електронна адреса"
 
-#: ../../src/components/change-password.dialog.vue:6:39
+#: ../../src/components/change-password.dialog.vue:10:39
 #: ../../src/components/reset-password.dialog.vue:6:39
 msgid "New password"
 msgstr "Новий пароль"
@@ -905,7 +905,7 @@ msgstr "Або якщо у вас встановлено Telegram на <b>ІНШ
 msgid "Password"
 msgstr "Пароль"
 
-#: ../../src/components/change-password.dialog.vue:27:19
+#: ../../src/components/change-password.dialog.vue:38:19
 #: ../../src/components/reset-password.dialog.vue:2:51
 msgid "Password change"
 msgstr "Зміна пароля"
@@ -914,13 +914,13 @@ msgstr "Зміна пароля"
 msgid "Password change instructions were sent to the email address, associated with your account."
 msgstr "Інструкції щодо зміни пароля були надіслані на адресу електронної пошти, пов’язану з вашим обліковим записом."
 
-#: ../../src/components/change-password.dialog.vue:63:29
+#: ../../src/components/change-password.dialog.vue:74:29
 #: ../../src/components/reset-password.dialog.vue:77:29
 msgid "Password changed"
 msgstr "Пароль змінено"
 
 #: ../../src/components/administration/users/create-user.dialog.vue:65:25
-#: ../../src/components/change-password.dialog.vue:81:25
+#: ../../src/components/change-password.dialog.vue:92:25
 #: ../../src/components/reset-password.dialog.vue:91:25
 msgid "Password copied to the clipboard"
 msgstr "Пароль скопійовано в буфер обміну"
@@ -935,7 +935,7 @@ msgstr "Токен відновлення пароля не знайдено"
 
 #: ../../src/components/administration/users/create-user.dialog.vue:79:64
 #: ../../src/components/authentication/signup.panel.vue:75:64
-#: ../../src/components/change-password.dialog.vue:51:64
+#: ../../src/components/change-password.dialog.vue:62:64
 #: ../../src/components/reset-password.dialog.vue:65:64
 msgid "Passwords do not match"
 msgstr "Паролі не збігаються"
@@ -954,7 +954,7 @@ msgstr "Період"
 msgid "Phone"
 msgstr ""
 
-#: ../../src/components/user-sessions/panel.vue:18:124
+#: ../../src/components/user-sessions/panel.vue:24:124
 msgid "Platform"
 msgstr "Платформа"
 
@@ -1015,7 +1015,7 @@ msgstr "Відновити"
 #: ../../src/components/telegram/bot/links/panel.vue:12:66
 #: ../../src/components/telegram/bot/users/panel.vue:10:66
 #: ../../src/components/telegram/bots.panel.vue:10:70
-#: ../../src/components/user-sessions/panel.vue:10:62
+#: ../../src/components/user-sessions/panel.vue:16:62
 msgid "Refresh"
 msgstr "Оновити"
 
@@ -1119,11 +1119,11 @@ msgstr "Надіслати токен"
 msgid "Session closed"
 msgstr "Сесія закрита"
 
-#: ../../src/components/user-sessions/panel.vue:90:29
+#: ../../src/components/user-sessions/panel.vue:103:29
 msgid "Session was deleted"
 msgstr "Сесію видалено"
 
-#: ../../src/components/user-sessions/panel.vue:112:29
+#: ../../src/components/user-sessions/panel.vue:125:29
 msgid "Sessions were deleted"
 msgstr "Сесії видалено"
 
@@ -1263,7 +1263,7 @@ msgstr ""
 msgid "Telegram bot username"
 msgstr ""
 
-#: ../../src/components/administration/telegram/dialog.vue:34:33
+#: ../../src/components/administration/telegram/bots.dialog.vue:34:33
 msgid "Telegram bots"
 msgstr "Telegram боти"
 
@@ -1411,7 +1411,7 @@ msgstr "Створення користувача"
 msgid "User deleted"
 msgstr "Користувача видалено"
 
-#: ../../src/components/administration/users/panel.vue:350:25
+#: ../../src/components/administration/users/panel.vue:349:25
 msgid "User email copied"
 msgstr "Email користувача скопійовано"
 
@@ -1483,7 +1483,7 @@ msgstr "Ваш аккаунт"
 msgid "Your session was terminated on the API server."
 msgstr "Ваша сесія був припинений на сервері API."
 
-#: ../../src/components/user-sessions/panel.vue:6:42
+#: ../../src/components/user-sessions/panel.vue:6:65
 msgid "Your sessions"
 msgstr "Ваші сесії"
 
