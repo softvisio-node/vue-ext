@@ -7,7 +7,7 @@
 
         <!-- telegram -->
         <ext-panel :hidden="!$app.settings.components.has('telegram')" iconAlign="left" iconCls="fa-brands fa-telegram" layout="fit" title="Telegram">
-            <TelegramPanel/>
+            <TelegramBotsPanel/>
         </ext-panel>
 
         <slot name="tabs"/>
@@ -16,9 +16,9 @@
 
 <script>
 import UsersPanel from "./users/panel";
-import TelegramPanel from "./telegram/panel";
+import TelegramBotsPanel from "./telegram/bots.panel";
 
 export default {
-    "components": { UsersPanel, TelegramPanel },
+    "components": { UsersPanel, TelegramBotsPanel },
 };
 </script>
