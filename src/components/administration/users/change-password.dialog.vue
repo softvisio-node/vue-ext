@@ -1,28 +1,9 @@
-<template>
-    <ChangePasswordDialog>
-        <template #header>
-            <ext-container :hidden="!userRecord" layout='{"align":"center","pack":"center","type":"hbox"}'>
-                <ext-avatar :src="userRecord?.get(`avatar_url`)"/>
-                <ext-spacer width="10"/>
-                <ext-container :html="userRecord?.get(`email`)"/>
-            </ext-container>
-        </template>
-    </ChangePasswordDialog>
-</template>
-
 <script>
 import ChangePasswordDialog from "#src/components/change-password.dialog";
 
 export default {
     "components": { ChangePasswordDialog },
     "extends": ChangePasswordDialog,
-
-    "props": {
-        "userRecord": {
-            "type": Object,
-            "default": null,
-        },
-    },
 
     "methods": {
         async _changePassword ( password ) {

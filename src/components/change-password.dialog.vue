@@ -1,6 +1,10 @@
 <template>
     <ext-dialog height="350" layout="vbox" :title="title" width="300" @ready="_ready">
-        <slot name="header"/>
+        <ext-container :hidden="!userRecord" layout='{"align":"center","pack":"center","type":"hbox"}'>
+            <ext-avatar :src="userRecord?.get(`avatar_url`)"/>
+            <ext-spacer width="10"/>
+            <ext-container :html="userRecord?.get(`email`)"/>
+        </ext-container>
 
         <ext-fieldpanel ref="form">
             <ext-passwordfield :label="l10n(`New password`)" name="password" :placeholder="l10n(`Enter new password`)" required="true" revealable="true"/>
@@ -22,6 +26,13 @@
 import passwords from "#core/passwords";
 
 export default {
+    "props": {
+        "userRecord": {
+            "type": Object,
+            "default": null,
+        },
+    },
+
     "computed": {
         title () {
             return this.l10n( `Password change` );
