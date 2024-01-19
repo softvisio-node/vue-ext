@@ -2,7 +2,6 @@
 import ChangePasswordDialog from "#src/components/change-password.dialog";
 
 export default {
-    "components": { ChangePasswordDialog },
     "extends": ChangePasswordDialog,
 
     "methods": {
