@@ -20,11 +20,12 @@ export default class VueExtViewport extends VueViewport {
 
         await super.init();
 
+        window[Symbol.for( "app" )] = this.app;
+
         return new Promise( resolve => {
             Ext.application( {
                 "name": "-",
                 "quickTips": true,
-                "app": this.app,
                 "launch": resolve,
             } );
         } );
