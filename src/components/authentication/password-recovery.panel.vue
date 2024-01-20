@@ -50,11 +50,11 @@ export default {
 
             const values = form.getValues();
 
-            Ext.Viewport.mask();
+            this.$app.mask();
 
             const res = await this.$api.call( "session/send-password-recovery-email", values.email );
 
-            Ext.Viewport.unmask();
+            this.$app.unmask();
 
             if ( !res.ok ) {
                 this.$toast( res );

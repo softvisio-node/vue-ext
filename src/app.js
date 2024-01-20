@@ -18,7 +18,7 @@ export default class VueExtApp extends VueApp {
     }
 
     async reload () {
-        Ext.Viewport.mask();
+        this.mask();
 
         return super.reload();
     }
@@ -26,7 +26,7 @@ export default class VueExtApp extends VueApp {
     async signOut () {
 
         // mask viewport immidiately, this is required, when api is not connected
-        Ext.Viewport.mask();
+        this.mask();
 
         return super.signOut();
     }
@@ -35,25 +35,25 @@ export default class VueExtApp extends VueApp {
     async _onConnectionError ( res ) {
         if ( res ) this.utils.toast( res );
 
-        Ext.Viewport.unmask();
+        this.unmask();
 
         await this.utils.alert( window.l10n( `Unable to connect to the API server. Check, that you have internet connection.` ), {
             "title": window.l10n( `Connection error` ),
         } );
 
-        Ext.Viewport.mask();
+        this.mask();
     }
 
     async _onSignout ( res ) {
         if ( res ) this.utils.toast( res );
 
-        Ext.Viewport.unmask();
+        this.unmask();
 
         await this.utils.alert( window.l10n( `Your session was terminated on the API server.` ), {
             "title": window.l10n( `Session closed` ),
         } );
 
-        Ext.Viewport.mask();
+        this.mask();
     }
 
     async _onAuthorization () {
@@ -70,7 +70,7 @@ export default class VueExtApp extends VueApp {
         } );
 
         if ( res ) {
-            Ext.Viewport.mask();
+            this.mask();
 
             return this.reload();
         }

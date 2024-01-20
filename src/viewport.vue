@@ -19,16 +19,24 @@ export default {
 
     "methods": {
         async init () {
-            Ext.Viewport.mask();
+            this.$app.mask();
 
             await this.$app.initSession();
 
             this.route();
         },
 
+        mask () {
+            Ext.Viewport.mask();
+        },
+
+        unmask () {
+            Ext.Viewport.unmask();
+        },
+
         // router
         async route () {
-            Ext.Viewport.mask();
+            this.$app.mask();
 
             if ( this.$router.path === "/telegram-webapp" ) {
                 await this.routeTelegramWebApp();
@@ -46,7 +54,7 @@ export default {
                 await this._route();
             }
 
-            Ext.Viewport.unmask();
+            this.$app.unmask();
         },
 
         async _route () {
@@ -111,7 +119,7 @@ export default {
                     },
                 } );
 
-                Ext.Viewport.unmask();
+                this.$app.unmask();
 
                 await cmp.show();
             }

@@ -90,7 +90,7 @@ export default {
         },
 
         async _signUp ( email, fields ) {
-            Ext.Viewport.mask();
+            this.$app.mask();
 
             const res = await this.$app.signUp( email, fields );
 
@@ -99,14 +99,14 @@ export default {
                 // sign in
                 if ( res.data?.token ) return;
 
-                Ext.Viewport.unmask();
+                this.$app.unmask();
 
                 this.$toast( res, 5000 );
 
                 this.back();
             }
             else {
-                Ext.Viewport.unmask();
+                this.$app.unmask();
 
                 this.$toast( res );
             }

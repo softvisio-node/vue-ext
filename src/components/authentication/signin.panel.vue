@@ -83,12 +83,12 @@ export default {
         },
 
         async _signIn ( options ) {
-            Ext.Viewport.mask();
+            this.$app.mask();
 
             const res = await this.$app.signIn( options );
 
             if ( !res.ok ) {
-                Ext.Viewport.unmask();
+                this.$app.unmask();
 
                 this.$toast( res );
             }
