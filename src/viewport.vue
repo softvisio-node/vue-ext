@@ -1,5 +1,5 @@
 <template>
-    <ext-panel fullscreen="true" layout='{"deferRender":false,"type":"card"}' scrollable="true"/>
+    <ext-panel fullscreen="true" layout='{"deferRender":false,"type":"card"}' scrollable="true" @ready="_ready"/>
 </template>
 
 <script>
@@ -18,7 +18,13 @@ export default {
     },
 
     "methods": {
-        async init () {
+        async _ready ( e ) {
+            const cmp = e?.detail?.cmp;
+
+            if ( !cmp ) return;
+
+            this.ext = cmp;
+
             this.$app.mask();
 
             await this.$app.initSession();
