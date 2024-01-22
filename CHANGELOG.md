@@ -1,5 +1,15 @@
 # Changelog
 
+### 8.10.47 (2024-01-22)
+
+Fixes:
+
+-   fix: app mask
+-   fix: app theme
+-   fix: exp app
+-   fix: extengs
+-   fix: telegram
+
 ### 8.10.46 (2024-01-18)
 
 Fixes:
