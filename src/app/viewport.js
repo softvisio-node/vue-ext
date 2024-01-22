@@ -54,6 +54,9 @@ export default class VueExtViewport extends VueViewport {
 
     // private
     #applyTheme () {
-        Ext.theme.Material.setColors( { ...this.app.theme.theme, "darkMode": this.app.theme.darkMode } );
+        Ext.theme.Material.setColors( {
+            ...this.app.theme.theme,
+            "darkMode": this.app.theme.darkMode,
+        } );
     }
 }
