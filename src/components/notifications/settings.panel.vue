@@ -72,7 +72,7 @@ export default {
         },
     },
 
-    "emits": ["update"],
+    "emits": [ "update" ],
 
     data () {
         return {

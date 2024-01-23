@@ -34,7 +34,7 @@ export default Ext.define( null, {
         {
             "name": "full_name",
             calculate ( data ) {
-                return [data.first_name, data.last_name].join( " " );
+                return [ data.first_name, data.last_name ].join( " " );
             },
         },
 

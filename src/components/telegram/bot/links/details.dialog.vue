@@ -21,7 +21,7 @@ export default {
         },
     },
 
-    "emits": ["linkDelete"],
+    "emits": [ "linkDelete" ],
 
     "computed": {
         title () {

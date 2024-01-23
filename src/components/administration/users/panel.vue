@@ -61,7 +61,7 @@ export default {
             "canCreateUser": this.$app.user.permissions.has( "administration:create" ),
             "canUpdateUser": this.$app.user.permissions.has( "administration:update" ),
             "canDeleteUser": this.$app.user.permissions.has( "administration:delete" ),
-            "canUpdateUserRoles": this.$app.user.permissions.hasAll( ["administration:update", "acl:update"] ),
+            "canUpdateUserRoles": this.$app.user.permissions.hasAll( [ "administration:update", "acl:update" ] ),
         };
     },
 

@@ -50,7 +50,7 @@ import CardsPanel from "#src/components/cards.panel";
 export default {
     "components": { CardsPanel },
 
-    "emits": ["botCreate"],
+    "emits": [ "botCreate" ],
     data () {
         return {
             "store": null,

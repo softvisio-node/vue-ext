@@ -51,7 +51,7 @@ export default {
         },
     },
 
-    "emits": ["recover", "signup"],
+    "emits": [ "recover", "signup" ],
 
     "methods": {
         _ready ( e ) {

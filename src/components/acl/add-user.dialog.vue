@@ -26,7 +26,7 @@ export default {
         },
     },
 
-    "emits": ["add"],
+    "emits": [ "add" ],
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {

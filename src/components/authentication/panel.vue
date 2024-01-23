@@ -38,7 +38,7 @@ export default {
         },
     },
 
-    "emits": ["close"],
+    "emits": [ "close" ],
 
     "computed": {
         title () {

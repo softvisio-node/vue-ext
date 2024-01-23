@@ -10,7 +10,7 @@
 
 <script>
 export default {
-    "emits": ["tap"],
+    "emits": [ "tap" ],
 
     "computed": {
         signinGoogleEnabled () {

@@ -11,7 +11,7 @@ export default {
         },
     },
 
-    "emits": ["ready", "change"],
+    "emits": [ "ready", "change" ],
 
     "watch": {
         aclId ( newValue, oldValue ) {

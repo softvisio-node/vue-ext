@@ -22,7 +22,7 @@ export default {
         },
     },
 
-    "emits": ["create"],
+    "emits": [ "create" ],
 
     "methods": {
         _ready ( e ) {

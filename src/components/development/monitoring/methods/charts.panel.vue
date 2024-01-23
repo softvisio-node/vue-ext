@@ -121,7 +121,7 @@ export default {
 
             // data processor
             const dateProcessor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
+                "dateFields": [ "date" ],
                 "dateFormat": "i",
             } );
 
@@ -216,7 +216,7 @@ export default {
 
             // data processor
             const dateProcessor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
+                "dateFields": [ "date" ],
                 "dateFormat": "i",
             } );
 
@@ -321,7 +321,7 @@ export default {
 
             // data processor
             const dateProcessor = am5.DataProcessor.new( root, {
-                "dateFields": ["date"],
+                "dateFields": [ "date" ],
                 "dateFormat": "i",
             } );
 

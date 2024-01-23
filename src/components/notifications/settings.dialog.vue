@@ -17,7 +17,7 @@ export default {
         },
     },
 
-    "emits": ["update"],
+    "emits": [ "update" ],
 
     "methods": {
         _onUpdate ( notification, channel, subscribed ) {

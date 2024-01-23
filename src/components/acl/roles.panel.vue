@@ -46,7 +46,7 @@ export default {
         },
     },
 
-    "emits": ["update"],
+    "emits": [ "update" ],
 
     created () {
         this.store = Ext.create( "Ext.data.Store", {
@@ -148,10 +148,10 @@ export default {
             var res;
 
             if ( enabled ) {
-                res = await this.$api.call( "acl/add-acl-user-roles", this.aclId, this.userId, [record.id] );
+                res = await this.$api.call( "acl/add-acl-user-roles", this.aclId, this.userId, [ record.id ] );
             }
             else {
-                res = await this.$api.call( "acl/delete-acl-user-roles", this.aclId, this.userId, [record.id] );
+                res = await this.$api.call( "acl/delete-acl-user-roles", this.aclId, this.userId, [ record.id ] );
             }
 
             if ( res.ok ) {

@@ -70,7 +70,7 @@ export default {
         },
     },
 
-    "emits": ["showAccountDialog"],
+    "emits": [ "showAccountDialog" ],
 
     data () {
         return {

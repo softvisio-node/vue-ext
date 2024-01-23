@@ -46,7 +46,7 @@ import CharstPanel from "./charts.panel";
 
 const DEFAULT_AUTOREFRESH_INTERVAL = 60_000;
 
-const periods = [1, 3, 7, 14, 30],
+const periods = [ 1, 3, 7, 14, 30 ],
     defaultPeriod = 3;
 
 export default {

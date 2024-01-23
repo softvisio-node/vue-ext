@@ -64,7 +64,7 @@ export default {
         },
     },
 
-    "emits": ["render", "refresh", "storeLoad"],
+    "emits": [ "render", "refresh", "storeLoad" ],
 
     data () {
         return {

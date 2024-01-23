@@ -95,7 +95,7 @@ export default {
         },
     },
 
-    "emits": ["linkDelete"],
+    "emits": [ "linkDelete" ],
 
     "methods": {
         async refresh () {

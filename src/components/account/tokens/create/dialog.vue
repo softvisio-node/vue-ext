@@ -26,7 +26,7 @@
 
 <script>
 export default {
-    "emits": ["created"],
+    "emits": [ "created" ],
 
     "methods": {
         async ready ( e ) {

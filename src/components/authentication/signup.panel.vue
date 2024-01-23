@@ -33,7 +33,7 @@ import OauthContainer from "#src/components/oauth.container";
 export default {
     "components": { OauthContainer },
 
-    "emits": ["signin"],
+    "emits": [ "signin" ],
 
     "methods": {
         _ready ( e ) {

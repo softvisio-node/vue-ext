@@ -16,7 +16,7 @@ export default {
         },
     },
 
-    "emits": ["botCreate"],
+    "emits": [ "botCreate" ],
 
     data () {
         return {

@@ -33,7 +33,7 @@ export default {
 
     "props": {},
 
-    "emits": ["created"],
+    "emits": [ "created" ],
 
     data () {
         return {

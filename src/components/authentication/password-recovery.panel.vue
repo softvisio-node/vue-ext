@@ -20,7 +20,7 @@
 
 <script>
 export default {
-    "emits": ["signin"],
+    "emits": [ "signin" ],
 
     "methods": {
         _ready ( e ) {

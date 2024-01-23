@@ -69,7 +69,7 @@ export default {
         gridReady ( e ) {
             var grid = ( this.grid = e.detail.cmp );
 
-            grid.setPlugins( ["autopaging", "gridviewoptions"] );
+            grid.setPlugins( [ "autopaging", "gridviewoptions" ] );
 
             // grid.setColumnMenu( null );
 
