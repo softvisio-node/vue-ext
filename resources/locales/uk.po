@@ -389,7 +389,7 @@ msgid "Cuttent session"
 msgstr ""
 
 #: ../../src/components/account/appearance.panel.vue:13:73
-#: ../../src/components/dark-mode.button.vue:43:61
+#: ../../src/components/dark-mode.button.vue:43:62
 msgid "Dark mode"
 msgstr "Темний режим"
 
