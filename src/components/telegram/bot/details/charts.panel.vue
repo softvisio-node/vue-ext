@@ -25,15 +25,15 @@ import * as am5xy from "@amcharts/amcharts5/xy";
 
 const PERIODS = {
     "7 days": {
-        "text": app.locale.l10n( "Last day", msgid`Last ${7} days` ),
+        "text": app.locale.l10n( "Last day", msgid`Last ${ 7 } days` ),
         "timeUnit": "hour",
     },
     "3 months": {
-        "text": app.locale.l10n( "Last month", msgid`Last ${3} months` ),
+        "text": app.locale.l10n( "Last month", msgid`Last ${ 3 } months` ),
         "timeUnit": "day",
     },
     "1 year": {
-        "text": app.locale.l10n( "Last year", msgid`Last ${1} year` ),
+        "text": app.locale.l10n( "Last year", msgid`Last ${ 1 } year` ),
         "timeUnit": "day",
     },
 };
@@ -102,7 +102,7 @@ export default {
 
             cmp.setMenu( menu );
 
-            cmp.setText( this.l10n( `Period` ) + ": " + PERIODS[this._period].text );
+            cmp.setText( this.l10n( `Period` ) + ": " + PERIODS[ this._period ].text );
 
             this.refresh();
         },
@@ -116,7 +116,7 @@ export default {
 
             this._period = menuItem.getValue();
 
-            button.setText( this.l10n( `Period` ) + ": " + PERIODS[this._period].text );
+            button.setText( this.l10n( `Period` ) + ": " + PERIODS[ this._period ].text );
 
             this.refresh();
         },
@@ -360,10 +360,10 @@ export default {
         },
 
         _setChartData ( chart, data ) {
-            const xAxis = chart.root.container.children.values[0].xAxes.values[0];
+            const xAxis = chart.root.container.children.values[ 0 ].xAxes.values[ 0 ];
 
-            if ( xAxis.get( "baseInterval" ).timeUnit !== PERIODS[this._period].timeUnit ) {
-                xAxis.get( "baseInterval" ).timeUnit = PERIODS[this._period].timeUnit;
+            if ( xAxis.get( "baseInterval" ).timeUnit !== PERIODS[ this._period ].timeUnit ) {
+                xAxis.get( "baseInterval" ).timeUnit = PERIODS[ this._period ].timeUnit;
             }
 
             return data;

@@ -203,7 +203,7 @@ export default {
             this.period = defaultPeriod;
 
             for ( const period of periods ) {
-                const text = this.l10n( msgid`${period} day`, msgid`${period} days`, period );
+                const text = this.l10n( msgid`${ period } day`, msgid`${ period } days`, period );
 
                 if ( period === defaultPeriod ) cmp.setText( this.l10n( `Period` ) + ": " + text );
 

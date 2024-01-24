@@ -308,7 +308,7 @@ export default {
             var pixelWidth = Math.ceil( actualSizeViewport.width / pixelRatio );
             var pixelHeight = Math.ceil( actualSizeViewport.height / pixelRatio );
 
-            var style = `width: ${pixelWidth}px; height: ${pixelHeight}px;`;
+            var style = `width: ${ pixelWidth }px; height: ${ pixelHeight }px;`;
 
             return style;
         },

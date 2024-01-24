@@ -59,7 +59,7 @@ export default Ext.define( null, {
             "name": "last_user_created_text",
             calculate ( data ) {
                 if ( data.last_user_created ) {
-                    return `${app.locale.formatDate( data.last_user_created )} (${app.locale.formatRelativeDate( data.last_user_created )})`;
+                    return `${ app.locale.formatDate( data.last_user_created ) } (${ app.locale.formatRelativeDate( data.last_user_created ) })`;
                 }
                 else {
                     return "--";
@@ -71,22 +71,22 @@ export default Ext.define( null, {
         { "name": "total_subscribed_users_percent", "calculate": data => app.locale.formatNumber( data.total_subscribed_users / data.total_users ) },
         { "name": "total_subscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_subscribed_users_percent ) },
 
-        { "name": "total_subscribed_users_text", "calculate": data => `${data.total_subscribed_users} (${data.total_subscribed_users_percent_text})` },
+        { "name": "total_subscribed_users_text", "calculate": data => `${ data.total_subscribed_users } (${ data.total_subscribed_users_percent_text })` },
 
         // unsubscribed
         { "name": "total_unsubscribed_users_percent", "calculate": data => app.locale.formatNumber( data.total_unsubscribed_users / data.total_users ) },
 
         { "name": "total_unsubscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_unsubscribed_users_percent ) },
 
-        { "name": "total_unsubscribed_users_text", "calculate": data => `${data.total_unsubscribed_users} (${data.total_unsubscribed_users_percent_text})` },
+        { "name": "total_unsubscribed_users_text", "calculate": data => `${ data.total_unsubscribed_users } (${ data.total_unsubscribed_users_percent_text })` },
 
         // banned
         { "name": "total_banned_users_percent", "calculate": data => app.locale.formatNumber( data.total_banned_users / data.total_users ) },
 
         { "name": "total_banned_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_banned_users_percent ) },
 
-        { "name": "total_banned_users_text", "calculate": data => `${data.total_banned_users} (${data.total_banned_users_percent_text})` },
+        { "name": "total_banned_users_text", "calculate": data => `${ data.total_banned_users } (${ data.total_banned_users_percent_text })` },
 
-        { "name": "url", "calculate": data => `https://t.me/${data.username}` },
+        { "name": "url", "calculate": data => `https://t.me/${ data.username }` },
     ],
 } );

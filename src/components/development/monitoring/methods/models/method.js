@@ -19,7 +19,7 @@ export default Ext.define( null, {
         // calculated
         {
             "name": "method_display_name",
-            "calculate": data => `${data.method}<br/>${data.package} / ${data.component}`,
+            "calculate": data => `${ data.method }<br/>${ data.package } / ${ data.component }`,
         },
 
         {

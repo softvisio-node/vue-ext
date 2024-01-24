@@ -18,7 +18,7 @@ export async function alert ( message, { title, width = 350, height = 200, iconC
                 {
                     "xtype": "container",
                     "padding": "0 30 0 `0",
-                    "html": `<i class="${iconCls}" style="font-size:${ICON_SIZE}"></i>`,
+                    "html": `<i class="${ iconCls }" style="font-size:${ ICON_SIZE }"></i>`,
                     "hidden": !iconCls,
                 },
                 {
@@ -69,7 +69,7 @@ export async function confirm ( message, { title, width = 350, height = 200, ico
                 {
                     "xtype": "container",
                     "padding": "0 30 0 `0",
-                    "html": `<i class="${iconCls}" style="font-size:${ICON_SIZE}"></i>`,
+                    "html": `<i class="${ iconCls }" style="font-size:${ ICON_SIZE }"></i>`,
                     "hidden": !iconCls,
                 },
                 {

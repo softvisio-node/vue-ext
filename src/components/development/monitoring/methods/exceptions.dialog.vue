@@ -46,7 +46,7 @@ export default {
 
     "computed": {
         title () {
-            return this.l10n( msgid`Exceptions log for the method: ${this.record.get( "method_name" )}` );
+            return this.l10n( msgid`Exceptions log for the method: ${ this.record.get( "method_name" ) }` );
         },
     },
 

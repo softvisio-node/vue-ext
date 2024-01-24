@@ -91,7 +91,7 @@ export default {
                     this.roles = {};
 
                     for ( const role of res.data ) {
-                        this.roles[role.id] = role.name;
+                        this.roles[ role.id ] = role.name;
                     }
                 }
             }
@@ -151,7 +151,7 @@ export default {
                     return "&mdash;";
                 }
                 else {
-                    return value.map( role => this.roles[role] ).join( ", " );
+                    return value.map( role => this.roles[ role ] ).join( ", " );
                 }
             } );
         },

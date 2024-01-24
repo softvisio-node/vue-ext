@@ -63,7 +63,7 @@ Ext.define( "Ext.amcharts5", {
     },
 
     upxateData ( data ) {
-        const chart = this.root.container.children.values[0];
+        const chart = this.root.container.children.values[ 0 ];
 
         for ( const xAxis of chart.xAxes.values ) {
             xAxis.data.setAll( data || [] );
@@ -79,7 +79,7 @@ Ext.define( "Ext.amcharts5", {
             return this.getBackupChartData()( this );
         }
         else {
-            const chart = this.root.container.children.values[0],
+            const chart = this.root.container.children.values[ 0 ],
                 data = {
                     "xAxes": [],
                     "series": [],
@@ -105,7 +105,7 @@ Ext.define( "Ext.amcharts5", {
             this.getRestoreChartData()( this, data );
         }
         else if ( data ) {
-            const chart = this.root.container.children.values[0];
+            const chart = this.root.container.children.values[ 0 ];
 
             if ( data.xAxes?.length ) {
                 for ( const xAxis of chart.xAxes.values ) {

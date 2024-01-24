@@ -160,9 +160,9 @@ export default {
                         {
                             "xtype": "togglefield",
                             "bind": {
-                                "hidden": `{!record.channels.${channel}.enabled}`,
-                                "disabled": `{!record.channels.${channel}.editable}`,
-                                "value": `{record.channels.${channel}.subscribed}`,
+                                "hidden": `{!record.channels.${ channel }.enabled}`,
+                                "disabled": `{!record.channels.${ channel }.editable}`,
+                                "value": `{record.channels.${ channel }.subscribed}`,
                             },
                             "listeners": { "change": this.toggleChannelSubscribed.bind( this, channel ) },
                         },
@@ -202,10 +202,10 @@ export default {
 
                         // enable channels
                         for ( const channel of Object.keys( channels ) ) {
-                            if ( channels[channel].editable ) {
+                            if ( channels[ channel ].editable ) {
                                 this.notificationTypesHidden = false;
 
-                                this[channel + "NotificationsEnabled"] = true;
+                                this[ channel + "NotificationsEnabled" ] = true;
                             }
                         }
                     } );
@@ -215,7 +215,7 @@ export default {
 
         async toggleChannelSubscribed ( channel, button, newValue, oldValue ) {
             const record = button.up( "gridrow" ).getRecord(),
-                typeChannel = record.get( "channels" )[channel],
+                typeChannel = record.get( "channels" )[ channel ],
                 currentValue = typeChannel.subscribed;
 
             if ( newValue === currentValue ) return;

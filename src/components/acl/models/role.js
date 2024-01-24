@@ -11,6 +11,6 @@ export default Ext.define( null, {
         { "name": "enabled", "type": "bool" },
 
         // calculated
-        { "name": "title_html", "calculate": data => `<b>${data.name}</b><br/>${data.description}` },
+        { "name": "title_html", "calculate": data => `<b>${ data.name }</b><br/>${ data.description }` },
     ],
 } );

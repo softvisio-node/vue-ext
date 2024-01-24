@@ -69,7 +69,7 @@ export default {
                         return {
                             "name": name,
                             "title": name.replaceAll( /(-.)/g, match => match.replace( "-", " " ).toUpperCase() ).replace( /^./, match => match.toUpperCase() ),
-                            "color": colors[name][500],
+                            "color": colors[ name ][ 500 ],
                         };
                     } ),
             } );

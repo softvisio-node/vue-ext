@@ -11,10 +11,10 @@ export default async function ( key, { language, libraries } = {} ) {
     else if ( !MAPS_LOADED ) {
         MAPS_LOADED = 1;
 
-        window[CALLBACK] = () => {
+        window[ CALLBACK ] = () => {
             MAPS_LOADED = 2;
 
-            delete window[CALLBACK];
+            delete window[ CALLBACK ];
 
             for ( const resolve of PROMISES ) {
                 try {
@@ -26,7 +26,7 @@ export default async function ( key, { language, libraries } = {} ) {
             PROMISES = null;
         };
 
-        var url = `https://maps.googleapis.com/maps/api/js?callback=${CALLBACK}&key=${key}&v=weekly`;
+        var url = `https://maps.googleapis.com/maps/api/js?callback=${ CALLBACK }&key=${ key }&v=weekly`;
 
         if ( language ) url += "&language=" + language;
 

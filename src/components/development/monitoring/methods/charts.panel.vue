@@ -104,7 +104,7 @@ export default {
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "maxDeviation": 0,
                 "baseInterval": {
-                    "timeUnit": PERIODS[this.period],
+                    "timeUnit": PERIODS[ this.period ],
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
@@ -199,7 +199,7 @@ export default {
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "maxDeviation": 0,
                 "baseInterval": {
-                    "timeUnit": PERIODS[this.period],
+                    "timeUnit": PERIODS[ this.period ],
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
@@ -302,7 +302,7 @@ export default {
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "maxDeviation": 0,
                 "baseInterval": {
-                    "timeUnit": PERIODS[this.period],
+                    "timeUnit": PERIODS[ this.period ],
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),

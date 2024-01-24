@@ -122,7 +122,7 @@ export default {
 
             if ( !record ) return;
 
-            record.get( "channels" )[channel].subscribed = subscribed;
+            record.get( "channels" )[ channel ].subscribed = subscribed;
 
             // re-calculate
             record.set( "subscribed", null );

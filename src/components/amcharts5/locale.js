@@ -3,7 +3,7 @@ import app from "#app";
 var locale;
 
 try {
-    locale = await import( `@amcharts/amcharts5/locales/${app.locale.id.replace( "-", "_" )}.js` );
+    locale = await import( `@amcharts/amcharts5/locales/${ app.locale.id.replace( "-", "_" ) }.js` );
 }
 catch ( e ) {
     locale = await import( `@amcharts/amcharts5/locales/en.js` );

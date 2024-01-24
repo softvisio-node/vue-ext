@@ -72,14 +72,14 @@ export default Ext.define( null, {
         {
             "name": "created_text",
             calculate ( data ) {
-                return `${app.locale.formatDate( data.created, "dateStyle:short" )} (${app.locale.formatRelativeDate( data.created )})`;
+                return `${ app.locale.formatDate( data.created, "dateStyle:short" ) } (${ app.locale.formatRelativeDate( data.created ) })`;
             },
         },
 
         {
             "name": "last_activity_text",
             calculate ( data ) {
-                return `${app.locale.formatDate( data.last_activity, "dateStyle:short" )} (${app.locale.formatRelativeDate( data.last_activity )})`;
+                return `${ app.locale.formatDate( data.last_activity, "dateStyle:short" ) } (${ app.locale.formatRelativeDate( data.last_activity ) })`;
             },
         },
     ],

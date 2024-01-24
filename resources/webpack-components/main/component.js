@@ -49,28 +49,28 @@ export default class extends WebpackComponent {
         //     "chunks": "initial",
         // };
 
-        config.optimization.splitChunks.cacheGroups["froala-editor"] = {
+        config.optimization.splitChunks.cacheGroups[ "froala-editor" ] = {
             "name": "froala-editor",
             "test": /froala-editor[\\/]/,
             "priority": -9,
             "chunks": "all",
         };
 
-        config.optimization.splitChunks.cacheGroups["amcharts5"] = {
+        config.optimization.splitChunks.cacheGroups[ "amcharts5" ] = {
             "name": "amcharts5",
             "test": /@amcharts[\\/]amcharts5[\\/]/,
             "priority": -9,
             "chunks": "all",
         };
 
-        config.optimization.splitChunks.cacheGroups["pdf"] = {
+        config.optimization.splitChunks.cacheGroups[ "pdf" ] = {
             "name": "pdf",
             "test": /pdfjs-dist[\\/]/,
             "priority": -9,
             "chunks": "all",
         };
 
-        config.optimization.splitChunks.cacheGroups["fontawesome"] = {
+        config.optimization.splitChunks.cacheGroups[ "fontawesome" ] = {
             "name": "fa",
             "test": /@fortawesome[\\/]/,
             "priority": -9,

@@ -41,7 +41,7 @@ export default {
             const form = this.$refs.formPanel.ext,
                 values = form.getValues();
 
-            for ( const name in values ) values[name] = values[name].trim();
+            for ( const name in values ) values[ name ] = values[ name ].trim();
 
             if ( !form.validate() ) return;
 

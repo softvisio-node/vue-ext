@@ -9,7 +9,7 @@ const maask = {
         "transparent": false,
         "indicator": false,
         "message": "",
-        "html": `<img src="${loader}" width="100"/>`,
+        "html": `<img src="${ loader }" width="100"/>`,
     };
 
 class Masks {

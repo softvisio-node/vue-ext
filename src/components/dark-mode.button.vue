@@ -40,7 +40,7 @@ export default {
                 return `<i class="fa-solid fa-adjust"></i>`;
             }
             else {
-                return `<i class="fa-solid fa-adjust"></i> ${this.l10n( `Dark mode` )}`;
+                return `<i class="fa-solid fa-adjust"></i> ${ this.l10n( `Dark mode` ) }`;
             }
         },
 

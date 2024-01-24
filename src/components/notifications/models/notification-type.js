@@ -10,7 +10,7 @@ export default Ext.define( null, {
         "channels",
 
         // calculated
-        { "name": "title", "calculate": data => `<div class="notification-type-name">${data.name}</div>${data.description}` },
+        { "name": "title", "calculate": data => `<div class="notification-type-name">${ data.name }</div>${ data.description }` },
 
         {
             "name": "enabled",

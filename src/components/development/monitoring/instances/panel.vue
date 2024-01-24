@@ -112,7 +112,7 @@ export default {
 
             cmp.setStore( this.store );
 
-            cmp.on( "select", ( grid, selection ) => ( this.selectedRecord = selection[0] ) );
+            cmp.on( "select", ( grid, selection ) => ( this.selectedRecord = selection[ 0 ] ) );
         },
 
         _colReady ( e ) {

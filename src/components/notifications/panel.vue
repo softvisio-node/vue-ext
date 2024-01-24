@@ -43,8 +43,8 @@ export default {
         _ready ( e ) {
             this.ext = e.detail.cmp;
 
-            this._inboxTab = this.ext.getTabBar().getTabs()[0];
-            this._doneTab = this.ext.getTabBar().getTabs()[1];
+            this._inboxTab = this.ext.getTabBar().getTabs()[ 0 ];
+            this._doneTab = this.ext.getTabBar().getTabs()[ 1 ];
 
             this._setInboxBadgeText();
             this._setDoneBadgeText();

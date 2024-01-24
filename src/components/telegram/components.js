@@ -17,15 +17,15 @@ class TelegramComponent {
 
     // public
     get ( id ) {
-        return this.#components[id];
+        return this.#components[ id ];
     }
 
     add ( component ) {
-        if ( this.#components[component.id] ) {
-            throw Error( `Telegram bot id ${component.id} already registered` );
+        if ( this.#components[ component.id ] ) {
+            throw Error( `Telegram bot id ${ component.id } already registered` );
         }
 
-        this.#components[component.id] = component;
+        this.#components[ component.id ] = component;
     }
 
     on ( name, listener ) {
@@ -60,7 +60,7 @@ class TelegramComponent {
         const components = [];
 
         for ( const row of res.data ) {
-            const component = this.#components[row.id];
+            const component = this.#components[ row.id ];
 
             if ( component ) {
                 component.model.set( "locales", row.locales );
