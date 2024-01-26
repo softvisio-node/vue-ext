@@ -30,7 +30,7 @@ msgstr[1] "${n} ролі вибрано"
 msgstr[2] "${n} ролей вибрано"
 
 #: ../../src/components/about.dialog.vue:2:51
-#: ../../src/components/application/menu.vue:43:31
+#: ../../src/components/application/menu.vue:42:31
 msgid "About the project"
 msgstr "Про проект"
 
@@ -82,7 +82,7 @@ msgid "Adding a user"
 msgstr "Додавання користувача"
 
 #: ../../src/components/administration/dialog.vue:2:72
-#: ../../src/components/application/menu.vue:23:67
+#: ../../src/components/application/menu.vue:22:67
 msgid "Administration"
 msgstr "Адміністрування"
 
@@ -249,7 +249,7 @@ msgstr "Токен зміни електронної пошти надіслан
 
 #: ../../src/components/account/account.panel.vue:12:39
 #: ../../src/components/administration/users/panel.vue:219:48
-#: ../../src/components/application/menu.vue:20:101
+#: ../../src/components/application/menu.vue:19:101
 #: ../../src/components/change-password.dialog.vue:20:31
 #: ../../src/components/reset-password.dialog.vue:16:31
 msgid "Change password"
@@ -434,7 +434,7 @@ msgstr "Видалити користувача"
 msgid "Description"
 msgstr "Опис"
 
-#: ../../src/components/application/menu.vue:26:64
+#: ../../src/components/application/menu.vue:25:64
 #: ../../src/components/development/dialog.vue:2:72
 msgid "Development"
 msgstr "Розробка"
@@ -1148,7 +1148,7 @@ msgstr "Увійти"
 msgid "Sign in with"
 msgstr "Увійдіть через"
 
-#: ../../src/components/application/menu.vue:46:66
+#: ../../src/components/application/menu.vue:45:66
 msgid "Sign out"
 msgstr "Вийти"
 
@@ -1475,7 +1475,7 @@ msgid "Your access permissions were changed on API server. Please, reload applic
 msgstr ""
 
 #: ../../src/components/account/dialog.vue:2:72
-#: ../../src/components/application/menu.vue:17:115
+#: ../../src/components/application/menu.vue:16:115
 msgid "Your account"
 msgstr "Ваш аккаунт"
 
