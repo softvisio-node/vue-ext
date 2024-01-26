@@ -1,13 +1,12 @@
 <template>
     <ext-sheet layout="vbox" modal="true" side="right" width="300" @ready="_ready">
-        <ext-panel height="110" innerCls="x-tabbar" layout="vbox" padding="10 10 10 30">
+        <ext-panel :height="isRoot ? 125 : 110" innerCls="x-tabbar" layout="vbox" padding="10 10 10 30">
             <ext-container layout='{"align":"start","type":"hbox"}'>
                 <AvatarUser height="60" width="60"/>
-                <ext-spacer/>
-                <ext-container :hidden="!isRoot" html="root" style="font-size: 1.3em; color: white"/>
             </ext-container>
 
             <ext-container :html="email" margin="5 0 0 0" style="font-size: 1.3em; color: white"/>
+            <ext-container :hidden="!isRoot" html="root" style="font-size: 1.3em; color: white"/>
         </ext-panel>
 
         <ext-panel flex="1" layout="vbox" padding="10 10 10 30">
