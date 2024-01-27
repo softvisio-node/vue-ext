@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.10.51 (2024-01-27)
+
+Fixes:
+
+-   fix: permissions
+-   fix: root label
+
 ### 8.10.50 (2024-01-24)
 
 Fixes:
