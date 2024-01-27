@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.10.52 (2024-01-27)
+
+Fixes:
+
+-   fix: permissions
+
 ### 8.10.51 (2024-01-27)
 
 Fixes:
