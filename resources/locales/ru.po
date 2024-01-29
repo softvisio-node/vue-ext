@@ -771,7 +771,7 @@ msgstr "Отметить как готово"
 msgid "Maximize"
 msgstr "Максимизировать"
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:9:101
+#: ../../src/components/telegram/bot/details/charts.panel.vue:8:101
 msgid "Maximize charts"
 msgstr ""
 
@@ -1008,7 +1008,7 @@ msgstr "Восстановить"
 #: ../../src/components/development/monitoring/methods/charts.panel.vue:7:62
 #: ../../src/components/development/monitoring/methods/exceptions.dialog.vue:8:66
 #: ../../src/components/development/monitoring/methods/panel.vue:11:86
-#: ../../src/components/telegram/bot/details/charts.panel.vue:8:66
+#: ../../src/components/telegram/bot/details/charts.panel.vue:9:66
 #: ../../src/components/telegram/bot/details/info.panel.vue:8:66
 #: ../../src/components/telegram/bot/links/charts.panel.vue:8:66
 #: ../../src/components/telegram/bot/links/details.panel.vue:9:66

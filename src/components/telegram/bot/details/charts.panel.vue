@@ -5,8 +5,8 @@
                 <ext-toolbar docked="top">
                     <ext-button ref="periodButton" stretchMenu="true" @ready="_periodButtonReady"/>
                     <ext-spacer/>
-                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                     <ext-button :hidden="!showMaximizeButton" iconCls="fa-solid fa-expand" :tooltip="l10n(`Maximize charts`)" @tap="_showChartsDialog"/>
+                    <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>
 
                 <ext-amcharts5 ref="totalSubscribedUsersChart" :createChart="_createTotalSubscribedUsersChart" height="300" :setChartData="_setChartData"/>
