@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.10.54 (2024-01-31)
+
+Fixes:
+
+-   fix: permissions
+-   fix: telegram
+
 ### 8.10.53 (2024-01-29)
 
 Fixes:
