@@ -72,10 +72,10 @@ export default {
                 if ( res.ok ) {
                     this._permissionsLoaded = true;
 
-                    this.$refs.cards.ext.getViewModel().get( "permissions" ).set( "permissions", res.data );
+                    this.$refs.cards.ext.getViewModel().get( "permissions" ).set( "permissions", this.$app.user.permissions.addPermissions( res.data ) );
                 }
                 else {
-                    this.$refs.cards.ext.getViewModel().get( "permissions" ).set( "permissions", [] );
+                    this.$refs.cards.ext.getViewModel().get( "permissions" ).set( "permissions", this.$app.user.permissions );
                 }
             }
 
@@ -115,7 +115,7 @@ export default {
         _ready ( e ) {
             const cmp = e.detail.cmp;
 
-            const permissions = new PermissionModel( { "permissions": [] } );
+            const permissions = new PermissionModel( { "permissions": this.$app.user.permissions } );
 
             cmp.setItemConfig( {
                 "viewModel": {
