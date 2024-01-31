@@ -64,19 +64,16 @@ export default {
             var res;
 
             // load permissions
-            if ( !this._permissionsLoaded ) {
-                this.$refs.cards.mask();
+            this.$refs.cards.mask();
 
-                res = await this.$api.call( "acl/get-acl-user-permissions", this.aclId );
+            // load permissions
+            res = await this.$api.call( "acl/get-acl-user-permissions", this.aclId );
 
-                if ( res.ok ) {
-                    this._permissionsLoaded = true;
-
-                    this.$refs.cards.ext.getViewModel().get( "permissions" ).set( "permissions", this.$app.user.permissions.addPermissions( res.data ) );
-                }
-                else {
-                    this.$refs.cards.ext.getViewModel().get( "permissions" ).set( "permissions", this.$app.user.permissions );
-                }
+            if ( res.ok ) {
+                this.$refs.cards.ext.getViewModel().get( "permissions" ).set( "permissions", this.$app.user.permissions.addPermissions( res.data ) );
+            }
+            else {
+                this.$refs.cards.ext.getViewModel().get( "permissions" ).set( "permissions", this.$app.user.permissions );
             }
 
             // load roles

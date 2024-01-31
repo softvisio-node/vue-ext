@@ -43,7 +43,7 @@ msgid "Access denied"
 msgstr ""
 
 #: ../../src/components/account/tokens/panel.vue:152:71
-#: ../../src/components/acl/panel.vue:247:71
+#: ../../src/components/acl/panel.vue:244:71
 #: ../../src/components/administration/users/panel.vue:260:71
 msgid "Access disabled"
 msgstr "Доступ вимкнено"
@@ -52,7 +52,7 @@ msgstr "Доступ вимкнено"
 #: ../../src/components/account/tokens/panel.vue:21:88
 #: ../../src/components/acl/add-user.dialog.vue:5:52
 #: ../../src/components/acl/panel.vue:21:67
-#: ../../src/components/acl/panel.vue:247:39
+#: ../../src/components/acl/panel.vue:244:39
 #: ../../src/components/administration/users/create-user.dialog.vue:14:37
 #: ../../src/components/administration/users/panel.vue:25:67
 #: ../../src/components/administration/users/panel.vue:260:39
@@ -113,7 +113,7 @@ msgstr ""
 msgid "Are you sure you want to delete this token?"
 msgstr "Ви впевнені, що хочете видалити цей токен?"
 
-#: ../../src/components/acl/panel.vue:256:47
+#: ../../src/components/acl/panel.vue:253:47
 #: ../../src/components/administration/users/panel.vue:270:47
 msgid "Are you sure you want to delete user?"
 msgstr "Ви впевнені, що хочете видалити користувача?"
@@ -423,7 +423,7 @@ msgstr ""
 msgid "Delete session"
 msgstr ""
 
-#: ../../src/components/acl/panel.vue:202:39
+#: ../../src/components/acl/panel.vue:199:39
 #: ../../src/components/administration/users/panel.vue:226:48
 msgid "Delete user"
 msgstr "Видалити користувача"
@@ -487,7 +487,7 @@ msgstr ""
 msgid "Edit bot details"
 msgstr ""
 
-#: ../../src/components/acl/panel.vue:193:39
+#: ../../src/components/acl/panel.vue:190:39
 #: ../../src/components/acl/roles.dialog.vue:30:19
 #: ../../src/components/administration/users/panel.vue:195:39
 msgid "Edit user roles"
@@ -1406,7 +1406,7 @@ msgstr "Користувач створений"
 msgid "User creation"
 msgstr "Створення користувача"
 
-#: ../../src/components/acl/panel.vue:265:29
+#: ../../src/components/acl/panel.vue:262:29
 #: ../../src/components/administration/users/panel.vue:279:29
 msgid "User deleted"
 msgstr "Користувача видалено"
