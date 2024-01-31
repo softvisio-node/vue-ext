@@ -6,7 +6,7 @@ export default Ext.define( null, {
     "fields": [
 
         // fields
-        { "name": "permissions", "convert": value => app.user.permissions.set( value ) },
+        { "name": "permissions", "convert": value => app.user.permissions.addPermissions( value ) },
 
         // calculatte
         { "name": "create", "calculate": data => data.permissions.has( "acl:create" ) },

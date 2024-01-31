@@ -9,7 +9,7 @@ export default Ext.define( null, {
 
         // fields
         "acl_id",
-        { "name": "acl_user_permissions", "convert": value => app.user.permissions.add( value ) },
+        { "name": "acl_user_permissions", "convert": value => app.user.permissions.addPermissions( value ) },
         "type",
         { "name": "static", "type": "bool" },
         { "name": "deleted", "type": "bool" },
