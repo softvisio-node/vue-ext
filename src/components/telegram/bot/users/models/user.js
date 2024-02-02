@@ -10,7 +10,7 @@ export default Ext.define( null, {
     },
 
     "fields": [
-        { "name": "id", "type": "string" },
+        "id",
 
         // fields
         "telegram_bot_id",

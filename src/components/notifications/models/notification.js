@@ -8,7 +8,8 @@ export default Ext.define( null, {
     },
 
     "fields": [
-        { "name": "id", "type": "string" },
+        "id",
+
         { "name": "created", "type": "date" },
         { "name": "expired", "type": "date" },
 

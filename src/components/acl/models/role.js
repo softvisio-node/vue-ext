@@ -2,7 +2,7 @@ export default Ext.define( null, {
     "extend": "Ext.data.Model",
 
     "fields": [
-        { "name": "id", "type": "string" },
+        "id",
 
         // fields
         { "name": "name", "type": "string" },
