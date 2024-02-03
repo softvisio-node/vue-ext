@@ -11,7 +11,7 @@ export default Ext.define( null, {
         "id",
 
         // fields
-        { "name": "acl_id", "type": "string" },
+        { "name": "acl_id", "type": "integer" },
         { "name": "email", "type": "string" },
         { "name": "avatar_url", "type": "string" },
         { "name": "created", "type": "date" },
