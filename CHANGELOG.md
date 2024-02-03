@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.10.55 (2024-02-03)
+
+Fixes:
+
+-   fix: sql types
+
 ### 8.10.54 (2024-01-31)
 
 Fixes:
