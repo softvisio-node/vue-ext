@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.11.0 (2024-02-13)
+
+Features:
+
+-   feat: cloud translation
+
 ### 8.10.55 (2024-02-03)
 
 Fixes:
