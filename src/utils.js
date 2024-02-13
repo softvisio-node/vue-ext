@@ -33,7 +33,7 @@ export async function alert ( message, { title, width = 350, height = 200, iconC
                     "items": [
                         {
                             "id": "ok",
-                            "text": window.l10n( "Ok" ),
+                            "text": "Ok",
                             "ui": "action",
                             "handler": () => dialog.close(),
                         },
@@ -53,7 +53,7 @@ export async function confirm ( message, { title, width = 350, height = 200, ico
 
     iconCls ??= "fa-solid fa-circle-question";
 
-    okText ||= window.l10n( "Ok" );
+    okText ||= "Ok";
 
     return new Promise( resolve => {
         var res = false;
@@ -141,7 +141,7 @@ export async function prompt ( message, { title, width = 450, height = 300 } = {
                         },
                         {
                             "id": "ok",
-                            "text": window.l10n( "Ok" ),
+                            "text": "Ok",
                             "ui": "action",
                             "handler": () => {
                                 res = dialog.down( "#input" ).getValue().trim();
