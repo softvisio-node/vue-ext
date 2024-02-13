@@ -60,11 +60,6 @@ msgstr "Доступ вимкнено"
 msgid "Access enabled"
 msgstr "Доступ увімкнено"
 
-#: ../../src/components/account/panel.vue:18:83
-#: ../../src/components/account/tokens/panel.vue:5:58
-msgid "Access tokens"
-msgstr "Токени доступу"
-
 #: ../../src/components/account/panel.vue:4:58
 msgid "Account"
 msgstr "Аккаунт"
@@ -93,10 +88,6 @@ msgstr "Адміністрування"
 #, fuzzy
 msgid "API access tokens"
 msgstr "Маркери доступу до API"
-
-#: ../../src/components/account/tokens/dialog.vue:2:68
-msgid "API keys"
-msgstr "Ключі API"
 
 #: ../../src/components/account/panel.vue:23:41
 #: ../../src/components/account/panel.vue:25:38
@@ -247,10 +238,6 @@ msgstr "Виклики"
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: ../../src/components/account/account.panel.vue:20:39
-msgid "Change"
-msgstr "Змінити"
-
 #: ../../src/components/telegram/bot/details/edit-api-token.dialog.vue:2:50
 #: ../../src/components/telegram/bot/details/info.panel.vue:69:122
 #, fuzzy
@@ -273,10 +260,6 @@ msgstr "Токен зміни електронної пошти надіслан
 msgid "Change password"
 msgstr "Змінити пароль"
 
-#: ../../src/components/administration/users/change-password.dialog.vue:20:19
-msgid "Change password for user"
-msgstr "Змінити пароль користувача"
-
 #: ../../src/components/acl/roles.button.vue:94:32
 msgid "Clear filter"
 msgstr "Очистити фільтр"
@@ -285,17 +268,9 @@ msgstr "Очистити фільтр"
 msgid "Clear log"
 msgstr "Очистити журнал"
 
-#: ../../src/components/account/tokens/create/dialog.vue:22:57
-msgid "Close"
-msgstr "Закрити"
-
 #: ../../src/components/account/appearance.panel.vue:31:39
 msgid "Color for badges, etc."
 msgstr "Колір для значків тощо."
-
-#: ../../src/components/account/account.panel.vue:23:84
-msgid "Confirm"
-msgstr "Підтвердити"
 
 #: ../../src/components/account/confirm-email.button.vue:2:61
 #, fuzzy
@@ -323,10 +298,6 @@ msgstr "Підтвердження"
 #: ../../src/components/account/confirm-email.button.vue:46:33
 msgid "Confirmation email sent"
 msgstr "Лист із підтвердженням надіслано"
-
-#: ../../src/components/change-email.dialog.vue:8:70
-msgid "Confirmation token"
-msgstr "Токен підтвердження"
 
 #: ../../src/app.js:41:21
 msgid "Connection error"
@@ -364,6 +335,11 @@ msgstr "Скопіюйте токен у буфер обміну"
 msgid "CPU usage"
 msgstr "використання ЦП"
 
+#: ../../src/components/telegram/create-bot.button.vue:3:71
+#, fuzzy
+msgid "Create bot"
+msgstr "Створити бота"
+
 #: ../../src/components/telegram/create-bot.dialog.vue:37:47
 #, fuzzy
 msgid "Create bpt"
@@ -396,11 +372,6 @@ msgstr "Створити токен"
 #: ../../src/components/administration/users/panel.vue:8:107
 msgid "Create user"
 msgstr "Створити користувача"
-
-#: ../../src/components/telegram/create-bot.button.vue:3:71
-#, fuzzy
-msgid "Createbot"
-msgstr "Createbot"
 
 #: ../../src/components/account/tokens/panel.vue:19:107
 #: ../../src/components/administration/users/panel.vue:23:104
@@ -530,8 +501,9 @@ msgstr "Редагувати ролі користувача"
 #: ../../src/components/acl/panel.vue:17:100
 #: ../../src/components/administration/users/create-user.dialog.vue:4:36
 #: ../../src/components/administration/users/panel.vue:17:62
+#, fuzzy
 msgid "Email"
-msgstr "Email"
+msgstr "Електронна пошта"
 
 #: ../../src/components/account/account.panel.vue:16:74
 #: ../../src/components/authentication/password-recovery.panel.vue:10:36
@@ -560,10 +532,6 @@ msgstr "Токен підтвердження електронної пошти 
 #: ../../src/viewport.vue:93:33
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
-
-#: ../../src/components/change-email.dialog.vue:8:125
-msgid "Enter confirmation token"
-msgstr "Введіть токен підтвердження"
 
 #: ../../src/components/administration/users/create-user.dialog.vue:4:113
 msgid "Enter email"
@@ -669,10 +637,6 @@ msgstr "FS використано (MB)"
 #: ../../src/components/reset-password.dialog.vue:11:35
 msgid "Generate random password"
 msgstr "Згенерувати випадковий пароль"
-
-#: ../../src/components/notifications/link-telegram.dialig.vue:3:30
-msgid "If you have Telegram installed on <b>THIS</b> device, then press button below to open Telegram bot and then click \"Start\":"
-msgstr "Якщо у вас встановлено Telegram на <b>ЦЬОМУ</b> пристрої, натисніть кнопку нижче, щоб відкрити бот Telegram, а потім натисніть «Почати»:"
 
 #: ../../src/components/notifications/panel.vue:4:40
 msgid "Inbox"
@@ -932,10 +896,6 @@ msgstr "Сповіщення"
 msgid "Notifications settings"
 msgstr "Налаштування сповіщень"
 
-#: ../../src/utils.js:144:36 ../../src/utils.js:36:36 ../../src/utils.js:56:15
-msgid "Ok"
-msgstr "Ok"
-
 #: ../../src/components/telegram/bots.panel.vue:130:36
 #, fuzzy
 msgid "Open bot"
@@ -958,10 +918,6 @@ msgstr "Відкриті діаграми"
 #: ../../src/components/notifications/settings.panel.vue:27:47
 msgid "Open Telegram bot"
 msgstr "Відкрийте бот Telegram"
-
-#: ../../src/components/notifications/link-telegram.dialig.vue:9:30
-msgid "Or if you have Telegram installed on the <b>OTHER</b> device, then copy link url and open it on device there your Telegram is installed:"
-msgstr "Або якщо у вас встановлено Telegram на <b>ІНШОМУ</b> пристрої, скопіюйте URL-адресу посилання та відкрийте його на пристрої, на якому встановлено ваш Telegram:"
 
 #: ../../src/components/account/account.panel.vue:11:74
 #: ../../src/components/administration/users/create-user.dialog.vue:6:39
@@ -1028,12 +984,6 @@ msgstr "Платформа"
 #: ../../src/components/account/tokens/create/dialog.vue:11:24
 msgid "Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again."
 msgstr "Будь ласка, скопіюйте токен у буфер обміну та збережіть його в надійному місці. Після того, як це діалогове вікно буде закрито, ми не змогли знову показати вам цей токен."
-
-#: ../../src/components/authentication/password-recovery.panel.vue:50:29
-#: ../../src/components/authentication/signin.panel.vue:75:29
-#: ../../src/components/authentication/signup.panel.vue:87:29
-msgid "Please, correctly fill all required fields"
-msgstr "Будь ласка, правильно заповніть усі необхідні поля"
 
 #: ../../src/components/telegram-support-bot/component.js:20:15
 #, fuzzy
@@ -1227,18 +1177,10 @@ msgstr "Увійдіть через"
 msgid "Sign out"
 msgstr "Вийти"
 
-#: ../../src/components/user-sessions/panel.vue:7:70
-msgid "Sign out of all sessions"
-msgstr "Вийти з усіх сесій"
-
 #: ../../src/components/authentication/signup.panel.vue:25:31
 #: ../../src/components/authentication/signup.panel.vue:5:34
 msgid "Sign up"
 msgstr "Зареєструватися"
-
-#: ../../src/components/administration/telegram/panel.vue:98:36
-msgid "Start"
-msgstr "Запустити"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:63:115
 #, fuzzy
@@ -1250,10 +1192,6 @@ msgstr "Запустити бота"
 msgid "Started"
 msgstr "Розпочато"
 
-#: ../../src/components/administration/telegram/panel.vue:17:54
-msgid "Static"
-msgstr "Статичний"
-
 #: ../../src/components/development/monitoring/methods/exceptions.dialog.vue:18:90
 #: ../../src/components/telegram/bot/details/info.panel.vue:40:70
 #: ../../src/components/telegram/bots.panel.vue:31:108
@@ -1263,10 +1201,6 @@ msgstr "Статус"
 #: ../../src/components/development/monitoring/methods/exceptions.dialog.vue:20:89
 msgid "Status text"
 msgstr "Текст статусу"
-
-#: ../../src/components/administration/telegram/panel.vue:107:36
-msgid "Stop"
-msgstr "Зупинити"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:66:114
 #, fuzzy
@@ -1358,18 +1292,6 @@ msgstr "Ім&#39;я користувача бота Telegram"
 msgid "Telegram bots"
 msgstr "Telegram боти"
 
-#: ../../src/components/notifications/link-telegram.dialig.vue:45:25
-msgid "Telegram link copied to the clipboard"
-msgstr "Посилання на Telegram скопійовано в буфер обміну"
-
-#: ../../src/components/notifications/settings.panel.vue:130:29
-msgid "Telegram linked"
-msgstr "Telegram пов'язаний"
-
-#: ../../src/components/notifications/settings.panel.vue:133:29
-msgid "Telegram unlinked"
-msgstr "Telegram відключено"
-
 #: ../../src/components/telegram/bot/details/info.panel.vue:13:67
 #: ../../src/components/telegram/bot/users/details.panel.vue:10:71
 #, fuzzy
@@ -1425,10 +1347,6 @@ msgstr "Загальна кількість користувачів, які н�
 msgid "Total users"
 msgstr "Всього користувачів"
 
-#: ../../src/components/administration/telegram/panel.vue:15:52
-msgid "Type"
-msgstr "Тип"
-
 #: ../../src/components/about.dialog.vue:5:38
 msgid "UI mode"
 msgstr "Режим UI"
@@ -1449,10 +1367,6 @@ msgstr "Не вдалося завантажити дані"
 #, fuzzy
 msgid "Unban user"
 msgstr "Розблокувати користувача"
-
-#: ../../src/components/notifications/settings.panel.vue:28:75
-msgid "Unlink Telegram"
-msgstr "Від’єднати Telegram"
 
 #: ../../src/components/telegram/bot/details/charts.panel.vue:202:33
 #: ../../src/components/telegram/bot/details/charts.panel.vue:315:24
@@ -1489,10 +1403,6 @@ msgstr "Використана пам&#39;ять (%)"
 #, fuzzy
 msgid "Used memory (MB)"
 msgstr "Використана пам&#39;ять (МБ)"
-
-#: ../../src/components/administration/users/user-sessions.panel.vue:20:19
-msgid "User"
-msgstr "Користувач"
 
 #: ../../src/components/acl/add-user.dialog.vue:84:29
 msgid "User added"
@@ -1570,10 +1480,6 @@ msgstr "Увага"
 msgid "Watch"
 msgstr "Слідкувати"
 
-#: ../../src/components/change-email.dialog.vue:11:65
-msgid "We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above."
-msgstr "Ми щойно надіслали токен підтвердження зміни email на нову електронну адресу. Будь ласка, перевірте свою поштову скриньку та введіть токен у поле вище."
-
 #: ../../src/app.js:66:46
 #, fuzzy
 msgid "Your access permissions were changed on API server. Please, reload application to apply updates."
@@ -1616,6 +1522,11 @@ msgstr "Зменшити"
 #~ msgid "Access token created"
 #~ msgstr "Доступ увімкнено"
 
+#: ../../src/components/account/panel.vue:18:83
+#: ../../src/components/account/tokens/panel.vue:5:58
+#~ msgid "Access tokens"
+#~ msgstr "Токени доступу"
+
 #~ msgid "Active calls"
 #~ msgstr "Активні виклики"
 
@@ -1633,6 +1544,10 @@ msgstr "Зменшити"
 
 #~ msgid "API key deleted"
 #~ msgstr "Ключ API видалено"
+
+#: ../../src/components/account/tokens/dialog.vue:2:68
+#~ msgid "API keys"
+#~ msgstr "Ключі API"
 
 #~ msgid "API status"
 #~ msgstr "Статус API"
@@ -1655,11 +1570,31 @@ msgstr "Зменшити"
 #~ msgid "Calls for the last 60 minutes"
 #~ msgstr "Виклики за останні 60 хвилин"
 
+#: ../../src/components/account/account.panel.vue:20:39
+#~ msgid "Change"
+#~ msgstr "Змінити"
+
+#: ../../src/components/administration/users/change-password.dialog.vue:20:19
+#~ msgid "Change password for user"
+#~ msgstr "Змінити пароль користувача"
+
 #~ msgid "Clear exceptions"
 #~ msgstr "Чіткі винятки"
 
+#: ../../src/components/account/tokens/create/dialog.vue:22:57
+#~ msgid "Close"
+#~ msgstr "Закрити"
+
+#: ../../src/components/account/account.panel.vue:23:84
+#~ msgid "Confirm"
+#~ msgstr "Підтвердити"
+
 #~ msgid "Confirm your password"
 #~ msgstr "Підтвердіть ваш пароль"
+
+#: ../../src/components/change-email.dialog.vue:8:70
+#~ msgid "Confirmation token"
+#~ msgstr "Токен підтвердження"
 
 #~ msgid "Connect bot"
 #~ msgstr "Підключити бота"
@@ -1714,6 +1649,11 @@ msgstr "Зменшити"
 #~ msgid "Create API key"
 #~ msgstr "Створіть ключ API"
 
+#: ../../src/components/telegram/create-bot.button.vue:3:71
+#, fuzzy
+#~ msgid "Createbot"
+#~ msgstr "Createbot"
+
 #~ msgid "Edit token permissions"
 #~ msgstr "Редагувати дозволи токена"
 
@@ -1732,6 +1672,10 @@ msgstr "Зменшити"
 
 #~ msgid "Enabled"
 #~ msgstr "Увімкнено"
+
+#: ../../src/components/change-email.dialog.vue:8:125
+#~ msgid "Enter confirmation token"
+#~ msgstr "Введіть токен підтвердження"
 
 #~ msgid "Enter token"
 #~ msgstr "Введіть токен"
@@ -1788,6 +1732,10 @@ msgstr "Зменшити"
 #~ msgid "Historical charts for the method: ${n}"
 #~ msgstr "Історичні діаграми для методу: ${n}"
 
+#: ../../src/components/notifications/link-telegram.dialig.vue:3:30
+#~ msgid "If you have Telegram installed on <b>THIS</b> device, then press button below to open Telegram bot and then click \"Start\":"
+#~ msgstr "Якщо у вас встановлено Telegram на <b>ЦЬОМУ</b> пристрої, натисніть кнопку нижче, щоб відкрити бот Telegram, а потім натисніть «Почати»:"
+
 #, javascript-format
 #~ msgid "In order to receive telegram notifications you need to set your telegram username. Then open chat with the <b>@${n}</b> and press <b>\"Start\"</b>."
 #~ msgstr "Щоб отримувати сповіщення Telegram, вам потрібно встановити своє ім’я користувача в Telegram. Потім відкрийте чат із <b>@${n}</b> і натисніть <b>\"Start\"</b>."
@@ -1818,12 +1766,26 @@ msgstr "Зменшити"
 #~ msgid "Notification types"
 #~ msgstr "Типи сповіщень"
 
+#: ../../src/utils.js:144:36 ../../src/utils.js:36:36 ../../src/utils.js:56:15
+#~ msgid "Ok"
+#~ msgstr "Ok"
+
 #, javascript-format
 #~ msgid "Open @${n}"
 #~ msgstr "Відкрити @${n}"
 
+#: ../../src/components/notifications/link-telegram.dialig.vue:9:30
+#~ msgid "Or if you have Telegram installed on the <b>OTHER</b> device, then copy link url and open it on device there your Telegram is installed:"
+#~ msgstr "Або якщо у вас встановлено Telegram на <b>ІНШОМУ</b> пристрої, скопіюйте URL-адресу посилання та відкрийте його на пристрої, на якому встановлено ваш Telegram:"
+
 #~ msgid "Passwords are not match"
 #~ msgstr "Паролі не збігаються"
+
+#: ../../src/components/authentication/password-recovery.panel.vue:50:29
+#: ../../src/components/authentication/signin.panel.vue:75:29
+#: ../../src/components/authentication/signup.panel.vue:87:29
+#~ msgid "Please, correctly fill all required fields"
+#~ msgstr "Будь ласка, правильно заповніть усі необхідні поля"
 
 #~ msgid "Please, fill all fields"
 #~ msgstr "Будь ласка, заповніть усі поля"
@@ -1892,6 +1854,10 @@ msgstr "Зменшити"
 #~ msgid "Sign out from all sessions, except this session"
 #~ msgstr "Вийти з усіх сесій, крім цього"
 
+#: ../../src/components/user-sessions/panel.vue:7:70
+#~ msgid "Sign out of all sessions"
+#~ msgstr "Вийти з усіх сесій"
+
 #~ msgid "SMTP host"
 #~ msgstr "Хост SMTP"
 
@@ -1901,6 +1867,18 @@ msgstr "Зменшити"
 #~ msgid "SMTP port"
 #~ msgstr "SMTP порт"
 
+#: ../../src/components/administration/telegram/panel.vue:98:36
+#~ msgid "Start"
+#~ msgstr "Запустити"
+
+#: ../../src/components/administration/telegram/panel.vue:17:54
+#~ msgid "Static"
+#~ msgstr "Статичний"
+
+#: ../../src/components/administration/telegram/panel.vue:107:36
+#~ msgid "Stop"
+#~ msgstr "Зупинити"
+
 #~ msgid "Submit"
 #~ msgstr "Подати"
 
@@ -1908,6 +1886,18 @@ msgstr "Зменшити"
 #~| msgid "Telegram username"
 #~ msgid "Telegram bpts"
 #~ msgstr "Ім'я користувача Telegram"
+
+#: ../../src/components/notifications/link-telegram.dialig.vue:45:25
+#~ msgid "Telegram link copied to the clipboard"
+#~ msgstr "Посилання на Telegram скопійовано в буфер обміну"
+
+#: ../../src/components/notifications/settings.panel.vue:130:29
+#~ msgid "Telegram linked"
+#~ msgstr "Telegram пов'язаний"
+
+#: ../../src/components/notifications/settings.panel.vue:133:29
+#~ msgid "Telegram unlinked"
+#~ msgstr "Telegram відключено"
 
 #, javascript-format
 #~ msgid "Telegram${n}notifications"
@@ -1925,14 +1915,26 @@ msgstr "Зменшити"
 #~ msgid "Try again"
 #~ msgstr "Повторити спробу"
 
+#: ../../src/components/administration/telegram/panel.vue:15:52
+#~ msgid "Type"
+#~ msgstr "Тип"
+
 #~ msgid "Unable to load records"
 #~ msgstr "Неможливо завантажити записи"
+
+#: ../../src/components/notifications/settings.panel.vue:28:75
+#~ msgid "Unlink Telegram"
+#~ msgstr "Від’єднати Telegram"
 
 #~ msgid "Update"
 #~ msgstr "Оновити"
 
 #~ msgid "Use OS theme"
 #~ msgstr "Використовувати тему ОС"
+
+#: ../../src/components/administration/users/user-sessions.panel.vue:20:19
+#~ msgid "User"
+#~ msgstr "Користувач"
 
 #~ msgid "User agent"
 #~ msgstr "Агент користувача"
@@ -1951,6 +1953,10 @@ msgstr "Зменшити"
 
 #~ msgid "Username or email"
 #~ msgstr "Ім'я користувача або email"
+
+#: ../../src/components/change-email.dialog.vue:11:65
+#~ msgid "We just sent email change confirmation token to the new email address. Please, check your inbox and enter token to the field above."
+#~ msgstr "Ми щойно надіслали токен підтвердження зміни email на нову електронну адресу. Будь ласка, перевірте свою поштову скриньку та введіть токен у поле вище."
 
 #~ msgid "Yes"
 #~ msgstr "Так"
