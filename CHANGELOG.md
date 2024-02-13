@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.11.1 (2024-02-13)
+
+Fixes:
+
+-   fix: tramslations
+
 ### 8.11.0 (2024-02-13)
 
 Features:
