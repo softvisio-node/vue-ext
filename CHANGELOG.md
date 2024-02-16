@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.11.3 (2024-02-16)
+
+Fixes:
+
+-   fix: translations
+
 ### 8.11.2 (2024-02-14)
 
 Fixes:
