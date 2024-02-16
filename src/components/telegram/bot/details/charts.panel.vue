@@ -25,15 +25,15 @@ import * as am5xy from "@amcharts/amcharts5/xy";
 
 const PERIODS = {
     "7 days": {
-        "text": app.locale.l10n( "Last day", msgid`Last ${ 7 } days` ),
+        "text": app.locale.l10n( `Last 7 days` ),
         "timeUnit": "hour",
     },
     "3 months": {
-        "text": app.locale.l10n( "Last month", msgid`Last ${ 3 } months` ),
+        "text": app.locale.l10n( `Last 3 months` ),
         "timeUnit": "day",
     },
     "1 year": {
-        "text": app.locale.l10n( "Last year", msgid`Last ${ 1 } year` ),
+        "text": app.locale.l10n( `Last year` ),
         "timeUnit": "day",
     },
 };

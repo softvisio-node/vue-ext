@@ -668,6 +668,18 @@ msgstr "IP адреса"
 msgid "Is bot"
 msgstr "Є бот"
 
+#: ../../src/components/telegram/bot/details/charts.panel.vue:32:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:31:16
+#, fuzzy
+msgid "Last 3 months"
+msgstr "Останні 3 місяці"
+
+#: ../../src/components/telegram/bot/details/charts.panel.vue:28:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:27:16
+#, fuzzy
+msgid "Last 7 days"
+msgstr "Останні 7 днів"
+
 #: ../../src/components/account/tokens/panel.vue:17:132
 #: ../../src/components/administration/users/panel.vue:21:167
 #: ../../src/components/user-sessions/panel.vue:30:132
@@ -678,24 +690,6 @@ msgstr "Останній активность"
 #, fuzzy
 msgid "Last activity date"
 msgstr "Дата останньої активності"
-
-#: ../../src/components/telegram/bot/details/charts.panel.vue:28:16
-#: ../../src/components/telegram/bot/links/charts.panel.vue:27:16
-#, fuzzy, javascript-format
-msgid "Last day"
-msgid_plural "Last ${n} days"
-msgstr[0] "Останній день"
-msgstr[1] ""
-msgstr[2] ""
-
-#: ../../src/components/telegram/bot/details/charts.panel.vue:32:16
-#: ../../src/components/telegram/bot/links/charts.panel.vue:31:16
-#, fuzzy, javascript-format
-msgid "Last month"
-msgid_plural "Last ${n} months"
-msgstr[0] "Минулого місяця"
-msgstr[1] ""
-msgstr[2] ""
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:44:81
 #, fuzzy
@@ -714,12 +708,9 @@ msgstr "Останній створений користувач"
 
 #: ../../src/components/telegram/bot/details/charts.panel.vue:36:16
 #: ../../src/components/telegram/bot/links/charts.panel.vue:35:16
-#, fuzzy, javascript-format
+#, fuzzy
 msgid "Last year"
-msgid_plural "Last ${n} year"
-msgstr[0] "Минулого року"
-msgstr[1] ""
-msgstr[2] ""
+msgstr "Минулого року"
 
 #: ../../src/components/development/monitoring/instances/panel.vue:28:186
 #: ../../src/components/development/monitoring/methods/panel.vue:29:186
@@ -1746,6 +1737,24 @@ msgstr "Зменшити"
 
 #~ msgid "Key roles updated"
 #~ msgstr "Ролі ключа оновлено"
+
+#: ../../src/components/telegram/bot/details/charts.panel.vue:28:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:27:16
+#, fuzzy, javascript-format
+#~ msgid "Last day"
+#~ msgid_plural "Last ${n} days"
+#~ msgstr[0] "Останній день"
+#~ msgstr[1] ""
+#~ msgstr[2] ""
+
+#: ../../src/components/telegram/bot/details/charts.panel.vue:32:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:31:16
+#, fuzzy, javascript-format
+#~ msgid "Last month"
+#~ msgid_plural "Last ${n} months"
+#~ msgstr[0] "Минулого місяця"
+#~ msgstr[1] ""
+#~ msgstr[2] ""
 
 #~ msgid "Mark as read"
 #~ msgstr "Позначити як прочитане"
