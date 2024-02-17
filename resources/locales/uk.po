@@ -16,26 +16,16 @@ msgstr ""
 #: ../../src/components/development/monitoring/methods/panel.vue:206:40
 #, fuzzy, javascript-format
 msgid "${n} day"
-msgstr "${n} день"
-
-#: ../../src/components/development/monitoring/methods/panel.vue:206:64
-#, fuzzy, javascript-format
-msgid "${n} days"
 msgid_plural "${n} days"
-msgstr[0] "${n} днів"
+msgstr[0] "${n} день"
 msgstr[1] ""
 msgstr[2] ""
 
 #: ../../src/components/acl/roles.button.vue:115:43
 #, fuzzy, javascript-format
 msgid "${n} role selected"
-msgstr "${n} роль вибрано"
-
-#: ../../src/components/acl/roles.button.vue:115:90
-#, fuzzy, javascript-format
-msgid "${n} roles selected"
 msgid_plural "${n} roles selected"
-msgstr[0] "Вибрано ${n} ролей"
+msgstr[0] "Вибрано роль ${n}"
 msgstr[1] ""
 msgstr[2] ""
 
@@ -1510,6 +1500,22 @@ msgstr "Збільшити"
 #: ../../src/components/pdf/_panel.vue:117:46
 msgid "Zoom out"
 msgstr "Зменшити"
+
+#: ../../src/components/development/monitoring/methods/panel.vue:206:64
+#, fuzzy, javascript-format
+#~ msgid "${n} days"
+#~ msgid_plural "${n} days"
+#~ msgstr[0] "${n} днів"
+#~ msgstr[1] ""
+#~ msgstr[2] ""
+
+#: ../../src/components/acl/roles.button.vue:115:90
+#, fuzzy, javascript-format
+#~ msgid "${n} roles selected"
+#~ msgid_plural "${n} roles selected"
+#~ msgstr[0] "Вибрано ${n} ролей"
+#~ msgstr[1] ""
+#~ msgstr[2] ""
 
 #, javascript-format
 #~ msgid "${n} scppe"
