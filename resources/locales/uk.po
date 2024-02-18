@@ -35,9 +35,9 @@ msgstr "Колір акценту"
 msgid "Access denied"
 msgstr "Доступ заборонено"
 
-#: ../../src/components/account/tokens/panel.vue:152:71
-#: ../../src/components/acl/panel.vue:244:71
-#: ../../src/components/administration/users/panel.vue:260:71
+#: ../../src/components/account/tokens/panel.vue:152:66
+#: ../../src/components/acl/panel.vue:244:66
+#: ../../src/components/administration/users/panel.vue:260:66
 msgid "Access disabled"
 msgstr "Доступ вимкнено"
 
@@ -660,14 +660,14 @@ msgstr "IP адреса"
 msgid "Is bot"
 msgstr "Є бот"
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:32:16
-#: ../../src/components/telegram/bot/links/charts.panel.vue:31:16
+#: ../../src/components/telegram/bot/details/charts.panel.vue:31:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:30:16
 #, fuzzy
 msgid "Last 3 months"
 msgstr "Останні 3 місяці"
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:28:16
-#: ../../src/components/telegram/bot/links/charts.panel.vue:27:16
+#: ../../src/components/telegram/bot/details/charts.panel.vue:27:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:26:16
 #, fuzzy
 msgid "Last 7 days"
 msgstr "Останні 7 днів"
@@ -698,8 +698,8 @@ msgstr "Останній старт"
 msgid "Last user created"
 msgstr "Останній створений користувач"
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:36:16
-#: ../../src/components/telegram/bot/links/charts.panel.vue:35:16
+#: ../../src/components/telegram/bot/details/charts.panel.vue:35:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:34:16
 #, fuzzy
 msgid "Last year"
 msgstr "Минулого року"
@@ -947,10 +947,10 @@ msgstr "Паролі не збігаються"
 
 #: ../../src/components/development/monitoring/methods/panel.vue:208:61
 #: ../../src/components/development/monitoring/methods/panel.vue:304:49
-#: ../../src/components/telegram/bot/details/charts.panel.vue:105:25
-#: ../../src/components/telegram/bot/details/charts.panel.vue:119:28
-#: ../../src/components/telegram/bot/links/charts.panel.vue:100:25
-#: ../../src/components/telegram/bot/links/charts.panel.vue:114:28
+#: ../../src/components/telegram/bot/details/charts.panel.vue:104:25
+#: ../../src/components/telegram/bot/details/charts.panel.vue:118:28
+#: ../../src/components/telegram/bot/links/charts.panel.vue:113:28
+#: ../../src/components/telegram/bot/links/charts.panel.vue:99:25
 msgid "Period"
 msgstr "Період"
 
@@ -968,7 +968,7 @@ msgstr "Платформа"
 msgid "Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again."
 msgstr "Будь ласка, скопіюйте токен у буфер обміну та збережіть його в надійному місці. Після того, як це діалогове вікно буде закрито, ми не змогли знову показати вам цей токен."
 
-#: ../../src/components/telegram-support-bot/component.js:20:15
+#: ../../src/components/telegram-support-bot/component.js:19:15
 #, fuzzy
 msgid "Project support bot. For internal use pnly."
 msgstr "Бот підтримки проекту. Для внутрішнього використання pnly."
@@ -1035,7 +1035,7 @@ msgstr "Користувачі, які повернулися"
 msgid "Role"
 msgstr "Роль"
 
-#: ../../src/components/acl/roles.panel.vue:158:69
+#: ../../src/components/acl/roles.panel.vue:158:64
 msgid "Role disabled"
 msgstr "Роль вимкнено"
 
@@ -1195,7 +1195,7 @@ msgstr "Текст статусу"
 msgid "Stop bot"
 msgstr "Зупинити бота"
 
-#: ../../src/components/telegram/bot/models/bot.js:56:102
+#: ../../src/components/telegram/bot/models/bot.js:56:91
 #, fuzzy
 msgid "Stopped"
 msgstr "Зупинився"
@@ -1205,15 +1205,15 @@ msgstr "Зупинився"
 msgid "Subscribed"
 msgstr "Підписався"
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:178:33
-#: ../../src/components/telegram/bot/details/charts.panel.vue:258:24
-#: ../../src/components/telegram/bot/details/charts.panel.vue:291:24
-#: ../../src/components/telegram/bot/details/charts.panel.vue:297:33
+#: ../../src/components/telegram/bot/details/charts.panel.vue:177:33
+#: ../../src/components/telegram/bot/details/charts.panel.vue:257:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:290:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:296:33
 #: ../../src/components/telegram/bot/details/info.panel.vue:49:94
-#: ../../src/components/telegram/bot/links/charts.panel.vue:173:33
-#: ../../src/components/telegram/bot/links/charts.panel.vue:253:24
-#: ../../src/components/telegram/bot/links/charts.panel.vue:286:24
-#: ../../src/components/telegram/bot/links/charts.panel.vue:292:33
+#: ../../src/components/telegram/bot/links/charts.panel.vue:172:33
+#: ../../src/components/telegram/bot/links/charts.panel.vue:252:24
+#: ../../src/components/telegram/bot/links/charts.panel.vue:285:24
+#: ../../src/components/telegram/bot/links/charts.panel.vue:291:33
 #: ../../src/components/telegram/bot/links/details.panel.vue:37:109
 #: ../../src/components/telegram/bot/links/panel.vue:27:140
 #: ../../src/components/telegram/bots.panel.vue:27:144
@@ -1226,7 +1226,7 @@ msgstr "Підписані користувачі"
 msgid "Subscription status"
 msgstr "Статус підписки"
 
-#: ../../src/components/telegram-support-bot/component.js:12:15
+#: ../../src/components/telegram-support-bot/component.js:11:15
 #, fuzzy
 msgid "Support bot"
 msgstr "Бот підтримки"
@@ -1315,16 +1315,16 @@ msgstr "Ім'я токена"
 msgid "Total memory"
 msgstr "Загальна пам'ять"
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:139:24
-#: ../../src/components/telegram/bot/details/charts.panel.vue:172:24
-#: ../../src/components/telegram/bot/links/charts.panel.vue:134:24
-#: ../../src/components/telegram/bot/links/charts.panel.vue:167:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:138:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:171:24
+#: ../../src/components/telegram/bot/links/charts.panel.vue:133:24
+#: ../../src/components/telegram/bot/links/charts.panel.vue:166:24
 #, fuzzy
 msgid "Total subscribed users"
 msgstr "Загальна кількість підписаних користувачів"
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:196:24
-#: ../../src/components/telegram/bot/links/charts.panel.vue:191:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:195:24
+#: ../../src/components/telegram/bot/links/charts.panel.vue:190:24
 #, fuzzy
 msgid "Total unsubscribed users"
 msgstr "Загальна кількість користувачів, які не підписалися"
@@ -1356,13 +1356,13 @@ msgstr "Не вдалося завантажити дані"
 msgid "Unban user"
 msgstr "Розблокувати користувача"
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:202:33
-#: ../../src/components/telegram/bot/details/charts.panel.vue:315:24
-#: ../../src/components/telegram/bot/details/charts.panel.vue:321:33
+#: ../../src/components/telegram/bot/details/charts.panel.vue:201:33
+#: ../../src/components/telegram/bot/details/charts.panel.vue:314:24
+#: ../../src/components/telegram/bot/details/charts.panel.vue:320:33
 #: ../../src/components/telegram/bot/details/info.panel.vue:50:96
-#: ../../src/components/telegram/bot/links/charts.panel.vue:197:33
-#: ../../src/components/telegram/bot/links/charts.panel.vue:310:24
-#: ../../src/components/telegram/bot/links/charts.panel.vue:316:33
+#: ../../src/components/telegram/bot/links/charts.panel.vue:196:33
+#: ../../src/components/telegram/bot/links/charts.panel.vue:309:24
+#: ../../src/components/telegram/bot/links/charts.panel.vue:315:33
 #: ../../src/components/telegram/bot/links/details.panel.vue:38:111
 #: ../../src/components/telegram/bot/links/panel.vue:29:144
 #: ../../src/components/telegram/bots.panel.vue:29:148
