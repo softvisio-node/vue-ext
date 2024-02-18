@@ -22,12 +22,12 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: ../../src/components/acl/roles.button.vue:115:32
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "${n} role selected"
 msgid_plural "${n} roles selected"
-msgstr[0] "Выбрана роль ${n}"
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Выбрана ${n} роль"
+msgstr[1] "Выбрано ${n} роли"
+msgstr[2] "Выбранр ${n} ролей"
 
 #: ../../src/components/about.dialog.vue:2:51
 #: ../../src/components/application/menu.vue:42:31
