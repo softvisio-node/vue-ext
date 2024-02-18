@@ -21,14 +21,6 @@ msgstr[0] "${n} день"
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../../src/components/acl/roles.button.vue:115:32
-#, fuzzy, javascript-format
-msgid "${n} role selected"
-msgid_plural "${n} roles selected"
-msgstr[0] "Вибрано роль ${n}"
-msgstr[1] ""
-msgstr[2] ""
-
 #: ../../src/components/about.dialog.vue:2:51
 #: ../../src/components/application/menu.vue:42:31
 msgid "About the project"
@@ -1062,6 +1054,11 @@ msgstr "Ролі"
 msgid "Roles filter"
 msgstr "Фільтр ролей"
 
+#: ../../src/components/acl/roles.button.vue:115:32
+#, fuzzy, javascript-format
+msgid "Roles selected: ${n}"
+msgstr "Вибрані ролі: ${n}"
+
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:401:33
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:433:33
 #: ../../src/components/development/monitoring/instances/panel.vue:19:98
@@ -1509,6 +1506,14 @@ msgstr "Зменшити"
 #~ msgstr[1] ""
 #~ msgstr[2] ""
 
+#: ../../src/components/acl/roles.button.vue:115:32
+#, fuzzy, javascript-format
+#~ msgid "${n} role selected"
+#~ msgid_plural "${n} roles selected"
+#~ msgstr[0] "Вибрано роль ${n}"
+#~ msgstr[1] ""
+#~ msgstr[2] ""
+
 #: ../../src/components/acl/roles.button.vue:115:90
 #, fuzzy, javascript-format
 #~ msgid "${n} roles selected"
@@ -1863,6 +1868,11 @@ msgstr "Зменшити"
 
 #~ msgid "Select roles"
 #~ msgstr "Виберіть ролі"
+
+#: ../../src/components/acl/roles.button.vue:115:32
+#, fuzzy, javascript-format
+#~ msgid "Selected roles: ${n}"
+#~ msgstr "Вибрані ролі: ${n}"
 
 #~ msgid "Sessions drop"
 #~ msgstr "Видалення сесій"

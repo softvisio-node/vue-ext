@@ -112,7 +112,7 @@ export default {
             } );
 
             if ( checkedItems.length ) {
-                button.setText( this.l10n( msgid`${ checkedItems.length } role selected`, msgid`${ checkedItems.length } roles selected`, checkedItems.length ) );
+                button.setText( this.l10n( msgid`Roles selected: ${ checkedItems.length }`, checkedItems.length ) );
 
                 this.$emit( "change", checkedItems );
             }
