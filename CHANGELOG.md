@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.11.9 (2024-02-18)
+
+Fixes:
+
+-   fix: app global locale
+
 ### 8.11.8 (2024-02-18)
 
 Fixes:
