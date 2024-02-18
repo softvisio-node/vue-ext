@@ -37,8 +37,8 @@ export default class VueExtApp extends VueApp {
 
         this.unmask();
 
-        await this.utils.alert( window.l10n( `Unable to connect to the API server. Check, that you have internet connection.` ), {
-            "title": window.l10n( `Connection error` ),
+        await this.utils.alert( l10n( `Unable to connect to the API server. Check, that you have internet connection.` ), {
+            "title": l10n( `Connection error` ),
         } );
 
         this.mask();
@@ -49,8 +49,8 @@ export default class VueExtApp extends VueApp {
 
         this.unmask();
 
-        await this.utils.alert( window.l10n( `Your session was terminated on the API server.` ), {
-            "title": window.l10n( `Session closed` ),
+        await this.utils.alert( l10n( `Your session was terminated on the API server.` ), {
+            "title": l10n( `Session closed` ),
         } );
 
         this.mask();
@@ -63,10 +63,10 @@ export default class VueExtApp extends VueApp {
     }
 
     async _onAccessDenied () {
-        const res = await this.utils.confirm( window.l10n( `Your access permissions were changed on API server. Please, reload application to apply updates.` ), {
-            "title": window.l10n( `Access denied` ),
+        const res = await this.utils.confirm( l10n( `Your access permissions were changed on API server. Please, reload application to apply updates.` ), {
+            "title": l10n( `Access denied` ),
             "iconCls": "fa-solid fa-triangle-exclamation",
-            "okText": window.l10n( "Reload" ),
+            "okText": l10n( "Reload" ),
         } );
 
         if ( res ) {

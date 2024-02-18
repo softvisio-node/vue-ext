@@ -1,4 +1,3 @@
-import app from "#app";
 import TelegramBotComponent from "#src/components/telegram/bot/component";
 
 class Component extends TelegramBotComponent {
@@ -9,7 +8,7 @@ class Component extends TelegramBotComponent {
     }
 
     get name () {
-        return app.locale.l10n( "Support bot" );
+        return l10n( "Support bot" );
     }
 
     get shortDescription () {
@@ -17,7 +16,7 @@ class Component extends TelegramBotComponent {
     }
 
     get description () {
-        return app.locale.l10n( `Project support bot. For internal use pnly.` );
+        return l10n( `Project support bot. For internal use pnly.` );
     }
 
     get panel () {

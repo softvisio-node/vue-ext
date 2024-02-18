@@ -19,7 +19,7 @@ export default {
 
     "computed": {
         title () {
-            return this.l10n( `Instance stats` );
+            return l10n( `Instance stats` );
         },
     },
 

@@ -40,10 +40,10 @@ export default {
                 if ( res.data.email_confirmed ) {
                     this.$app.user.setEmailConfirmed( true );
 
-                    this.$toast( this.l10n( `Email address confirmed` ) );
+                    this.$toast( l10n( `Email address confirmed` ) );
                 }
                 else {
-                    this.$toast( this.l10n( `Confirmation email sent` ) );
+                    this.$toast( l10n( `Confirmation email sent` ) );
                 }
             }
             else {

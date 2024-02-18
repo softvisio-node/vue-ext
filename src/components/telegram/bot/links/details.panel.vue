@@ -162,7 +162,7 @@ export default {
 
                 this.cancelEditName();
 
-                this.$toast( this.l10n( `Link updated` ) );
+                this.$toast( l10n( `Link updated` ) );
             }
             else {
                 this.$toast( res );
@@ -195,7 +195,7 @@ export default {
 
                 this.cancelEditDescription();
 
-                this.$toast( this.l10n( `Link updated` ) );
+                this.$toast( l10n( `Link updated` ) );
             }
             else {
                 this.$toast( res );
@@ -203,7 +203,7 @@ export default {
         },
 
         async _deleteLink ( e ) {
-            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this link and all it's data? This operation is not revertable." ) ) ) ) return;
+            if ( !( await this.$utils.confirm( l10n( "Are you sure you want to delete this link and all it's data? This operation is not revertable." ) ) ) ) return;
 
             const button = e.detail.sender;
 
@@ -214,7 +214,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$toast( this.l10n( `Link deleted` ) );
+                this.$toast( l10n( `Link deleted` ) );
 
                 this.$refs.cardsPanel.showNoDataPanel();
 
@@ -228,7 +228,7 @@ export default {
         async _copyLink ( button ) {
             this.$utils.copyToClipboard( this.telegramBotLinkRecord.get( "link" ) );
 
-            this.$toast( this.l10n( "Link copied to the clipboard" ) );
+            this.$toast( l10n( "Link copied to the clipboard" ) );
         },
 
         async _showChartsDiakig () {

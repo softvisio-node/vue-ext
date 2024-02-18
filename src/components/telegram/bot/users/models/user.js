@@ -49,10 +49,10 @@ export default Ext.define( null, {
             "name": "subscription_status",
             calculate ( data ) {
                 if ( data.subscribed ) {
-                    return app.locale.l10n( `Subscribed` );
+                    return l10n( `Subscribed` );
                 }
                 else {
-                    return app.locale.l10n( `Not subscribed` );
+                    return l10n( `Not subscribed` );
                 }
             },
         },
@@ -61,10 +61,10 @@ export default Ext.define( null, {
             "name": "ban_status",
             calculate ( data ) {
                 if ( data.banned ) {
-                    return app.locale.l10n( `Banned` );
+                    return l10n( `Banned` );
                 }
                 else {
-                    return app.locale.l10n( `Not banned` );
+                    return l10n( `Not banned` );
                 }
             },
         },

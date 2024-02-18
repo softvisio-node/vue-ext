@@ -23,7 +23,7 @@ export default {
 
     "computed": {
         title () {
-            return this.l10n( `Telegram bot charts` );
+            return l10n( `Telegram bot charts` );
         },
     },
 

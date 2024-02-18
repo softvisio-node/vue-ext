@@ -75,7 +75,7 @@ export default {
                         "iconCls": "fa-solid fa-expand",
                         "ui": "action",
                         "handler": this.maximize.bind( this, null ),
-                        "tooltip": this.l10n( "Maximize" ),
+                        "tooltip": l10n( "Maximize" ),
                     },
                     { "xtype": "container", "height": "10" },
                 ];
@@ -98,7 +98,7 @@ export default {
                         "iconCls": "fa-solid fa-search-plus",
                         "ui": "action",
                         "handler": this.zoomIn.bind( this, null ),
-                        "tooltip": this.l10n( "Zoom in" ),
+                        "tooltip": l10n( "Zoom in" ),
                     },
                     { "xtype": "container", "height": "10" },
                     {
@@ -106,7 +106,7 @@ export default {
                         "iconCls": "fa-solid fa-compress",
                         "ui": "action",
                         "handler": this.resetZoom.bind( this ),
-                        "tooltip": this.l10n( "Default size" ),
+                        "tooltip": l10n( "Default size" ),
                     },
                     { "xtype": "container", "height": "10" },
                     {
@@ -114,7 +114,7 @@ export default {
                         "iconCls": "fa-solid fa-search-minus",
                         "ui": "action",
                         "handler": this.zoomOut.bind( this, null ),
-                        "tooltip": this.l10n( "Zoom out" ),
+                        "tooltip": l10n( "Zoom out" ),
                     },
                 ],
             } );

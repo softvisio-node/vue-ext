@@ -84,13 +84,13 @@ export default {
             var token = this.$router.searchParams.get( "token" );
 
             if ( !token ) {
-                this.$toast( this.l10n( "Email confirmation token is invalid" ) );
+                this.$toast( l10n( "Email confirmation token is invalid" ) );
             }
             else {
                 const res = await this.$api.call( "session/confirm-email-by-token", token );
 
                 if ( res.ok ) {
-                    this.$toast( this.l10n( "Email confirmed successfully" ) );
+                    this.$toast( l10n( "Email confirmed successfully" ) );
                 }
                 else {
                     this.$toast( res );
@@ -117,7 +117,7 @@ export default {
                             if ( res.ok ) {
                                 this.$router.reload( "/", { "replace": true } );
 
-                                this.$toast( this.l10n( "Email address changed" ) );
+                                this.$toast( l10n( "Email address changed" ) );
                             }
 
                             return res;

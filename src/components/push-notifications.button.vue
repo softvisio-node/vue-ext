@@ -33,7 +33,7 @@ export default {
                 return "";
             }
             else {
-                return this.l10n( `Receive push notifications` );
+                return l10n( `Receive push notifications` );
             }
         },
 
@@ -78,10 +78,10 @@ export default {
             }
             else {
                 if ( value ) {
-                    this.$toast( this.l10n( "Push notifications enabled" ) );
+                    this.$toast( l10n( "Push notifications enabled" ) );
                 }
                 else {
-                    this.$toast( this.l10n( "Push notifications disabled" ) );
+                    this.$toast( l10n( "Push notifications disabled" ) );
                 }
             }
         },

@@ -90,7 +90,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-eye",
-                            "text": this.l10n( "View user" ),
+                            "text": l10n( "View user" ),
                             "handler": this._viewUserClick.bind( this ),
                         },
                     ],

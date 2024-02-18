@@ -129,7 +129,7 @@ export default {
         _copyUssername () {
             this.$utils.copyToClipboard( this.telegramBotUserRecord.get( "username" ) );
 
-            this.$toast( this.l10n( "Username copied to the clipboard" ) );
+            this.$toast( l10n( "Username copied to the clipboard" ) );
         },
 
         _copyPhone () {
@@ -137,7 +137,7 @@ export default {
 
             this.$utils.copyToClipboard( this.telegramBotUserRecord.get( "phone" ) );
 
-            this.$toast( this.l10n( "Username copied to the clipboard" ) );
+            this.$toast( l10n( "Username copied to the clipboard" ) );
         },
     },
 };

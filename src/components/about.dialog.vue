@@ -37,7 +37,7 @@ export default {
                 4
             ) );
 
-            this.$toast( this.l10n( "Version info copied" ) );
+            this.$toast( l10n( "Version info copied" ) );
         },
     },
 };

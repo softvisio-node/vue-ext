@@ -81,7 +81,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$toast( this.l10n( `User added` ) );
+                this.$toast( l10n( `User added` ) );
 
                 this.$emit( "add" );
 

@@ -192,14 +192,14 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.l10n( "Edit user roles" ),
+                            "tooltip": l10n( "Edit user roles" ),
                             "handler": this.showUserRolesDialog.bind( this ),
                             "disabled": !this.canUpdateUserRoles,
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-ellipsis-v",
-                            "tooltip": this.l10n( "Actions" ),
+                            "tooltip": l10n( "Actions" ),
                             "arrow": false,
                             "menu": {
                                 "defaults": {
@@ -208,22 +208,22 @@ export default {
                                 "items": [
                                     {
                                         "iconCls": "fa-solid fa-copy",
-                                        "text": this.l10n( "Copy email" ),
+                                        "text": l10n( "Copy email" ),
                                         "handler": this._copyEmail.bind( this ),
                                     },
                                     {
-                                        "text": this.l10n( "View user sessions" ),
+                                        "text": l10n( "View user sessions" ),
                                         "handler": this._showUserSessionsDialog.bind( this ),
                                     },
                                     {
-                                        "text": this.l10n( "Change password" ),
+                                        "text": l10n( "Change password" ),
                                         "handler": this._showChangePasswordDialog.bind( this ),
                                         "disabled": !this.canUpdateUser,
                                     },
                                     {
                                         "separator": true,
                                         "iconCls": "fa-solid fa-trash-alt",
-                                        "text": this.l10n( "Delete user" ),
+                                        "text": l10n( "Delete user" ),
                                         "handler": this.deleteUser.bind( this ),
                                         "bind": {
                                             "disabled": "{!canDeleteUser}",
@@ -257,7 +257,7 @@ export default {
             else {
                 record.commit();
 
-                this.$toast( enabled ? this.l10n( `Access enabled` ) : this.l10n( `Access disabled` ) );
+                this.$toast( enabled ? l10n( `Access enabled` ) : l10n( `Access disabled` ) );
             }
 
             button.enable();
@@ -267,7 +267,7 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete user?" ) ) ) ) return;
+            if ( !( await this.$utils.confirm( l10n( "Are you sure you want to delete user?" ) ) ) ) return;
 
             button.disable();
 
@@ -276,7 +276,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$toast( this.l10n( "User deleted" ) );
+                this.$toast( l10n( "User deleted" ) );
 
                 this.store.remove( record );
             }
@@ -346,7 +346,7 @@ export default {
 
             this.$utils.copyToClipboard( record.get( "email" ) );
 
-            this.$toast( this.l10n( `User email copied` ) );
+            this.$toast( l10n( `User email copied` ) );
         },
 
         _onItemDoubleTap ( e ) {

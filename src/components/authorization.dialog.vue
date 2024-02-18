@@ -91,7 +91,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$toast( this.l10n( "Authorized" ) );
+                this.$toast( l10n( "Authorized" ) );
 
                 this._resolve( true );
 

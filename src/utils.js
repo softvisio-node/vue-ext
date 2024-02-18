@@ -3,7 +3,7 @@ export * from "@softvisio/vue/utils";
 const ICON_SIZE = "2em";
 
 export async function alert ( message, { title, width = 350, height = 200, iconCls } = {} ) {
-    title ??= window.l10n( `Warning` );
+    title ??= l10n( `Warning` );
     iconCls ??= "fa-solid fa-triangle-exclamation";
 
     return new Promise( resolve => {
@@ -49,7 +49,7 @@ export async function alert ( message, { title, width = 350, height = 200, iconC
 }
 
 export async function confirm ( message, { title, width = 350, height = 200, iconCls, okText } = {} ) {
-    title ??= window.l10n( "Confirmation" );
+    title ??= l10n( "Confirmation" );
 
     iconCls ??= "fa-solid fa-circle-question";
 
@@ -83,7 +83,7 @@ export async function confirm ( message, { title, width = 350, height = 200, ico
                     "docked": "bottom",
                     "items": [
                         {
-                            "text": window.l10n( "Cancel" ),
+                            "text": l10n( "Cancel" ),
                             "handler": () => dialog.close(),
                         },
                         {
@@ -136,7 +136,7 @@ export async function prompt ( message, { title, width = 450, height = 300 } = {
                     "docked": "bottom",
                     "items": [
                         {
-                            "text": window.l10n( "Cancel" ),
+                            "text": l10n( "Cancel" ),
                             "handler": () => dialog.close(),
                         },
                         {

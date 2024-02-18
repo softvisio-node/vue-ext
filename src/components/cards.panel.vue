@@ -74,7 +74,7 @@ export default {
 
     "computed": {
         noDataMessageText () {
-            return this.noDataMessage || this.l10n( `No data match search criteria` );
+            return this.noDataMessage || l10n( `No data match search criteria` );
         },
     },
 

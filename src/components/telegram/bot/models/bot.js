@@ -53,7 +53,7 @@ export default Ext.define( null, {
         { "name": "can_update_link", "calculate": data => data.acl_user_permissions.has( "telegram/bot/links:update" ) },
         { "name": "can_delete_link", "calculate": data => data.acl_user_permissions.has( "telegram/bot/links:delete" ) },
 
-        { "name": "status_text", "calculate": data => ( data.started ? app.locale.l10n( `Started` ) : app.locale.l10n( `Stopped` ) ) },
+        { "name": "status_text", "calculate": data => ( data.started ? l10n( `Started` ) : l10n( `Stopped` ) ) },
 
         {
             "name": "last_user_created_text",

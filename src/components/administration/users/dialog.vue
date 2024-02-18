@@ -31,7 +31,7 @@ export default {
 
     "computed": {
         _title () {
-            return this.title || this.l10n( `Users` );
+            return this.title || l10n( `Users` );
         },
     },
 };

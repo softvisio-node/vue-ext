@@ -157,7 +157,7 @@ export default {
                 this.$toast( res );
             }
             else {
-                this.$toast( this.l10n( `Telegram bot created` ) );
+                this.$toast( l10n( `Telegram bot created` ) );
 
                 this.$emit( "botCreate" );
 

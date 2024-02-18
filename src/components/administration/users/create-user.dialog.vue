@@ -62,7 +62,7 @@ export default {
 
             this.$utils.copyToClipboard( password );
 
-            this.$toast( this.l10n( `Password copied to the clipboard` ) );
+            this.$toast( l10n( `Password copied to the clipboard` ) );
 
             this.$refs.form.ext.getFields( "password" ).setValue( password );
             this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );
@@ -76,7 +76,7 @@ export default {
             const values = form.getValues();
 
             if ( values.password !== values.confirmedPassword ) {
-                form.getFields( "confirmedPassword" ).setError( this.l10n( "Passwords do not match" ) );
+                form.getFields( "confirmedPassword" ).setError( l10n( "Passwords do not match" ) );
 
                 return;
             }
@@ -95,7 +95,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$toast( this.l10n( "User created" ) );
+                this.$toast( l10n( "User created" ) );
 
                 this.$emit( "created" );
 

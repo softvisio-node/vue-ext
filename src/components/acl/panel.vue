@@ -187,7 +187,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-unlock-alt",
-                            "tooltip": this.l10n( "Edit user roles" ),
+                            "tooltip": l10n( "Edit user roles" ),
                             "handler": this._showUserRolesDialog.bind( this ),
                             "bind": {
                                 "disabled": "{!permissions.read}",
@@ -196,7 +196,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
-                            "tooltip": this.l10n( "Delete user" ),
+                            "tooltip": l10n( "Delete user" ),
                             "handler": this._deleteAclUser.bind( this ),
                             "ui": "decline",
                             "bind": {
@@ -241,7 +241,7 @@ export default {
             else {
                 record.commit();
 
-                this.$toast( enabled ? this.l10n( `Access enabled` ) : this.l10n( `Access disabled` ) );
+                this.$toast( enabled ? l10n( `Access enabled` ) : l10n( `Access disabled` ) );
             }
 
             button.enable();
@@ -250,7 +250,7 @@ export default {
         async _deleteAclUser ( button ) {
             const record = button.up( "gridrow" ).getRecord();
 
-            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete user?" ) ) ) ) return;
+            if ( !( await this.$utils.confirm( l10n( "Are you sure you want to delete user?" ) ) ) ) return;
 
             button.disable();
 
@@ -259,7 +259,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$toast( this.l10n( "User deleted" ) );
+                this.$toast( l10n( "User deleted" ) );
 
                 this.store.remove( record );
             }

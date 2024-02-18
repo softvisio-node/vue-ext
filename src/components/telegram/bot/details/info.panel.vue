@@ -177,7 +177,7 @@ export default {
         },
 
         async _deleteBot ( e ) {
-            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this bot and all it's data? This operation is not revertable." ) ) ) ) return;
+            if ( !( await this.$utils.confirm( l10n( "Are you sure you want to delete this bot and all it's data? This operation is not revertable." ) ) ) ) return;
 
             const record = this.record,
                 button = e.detail.sender;
@@ -189,7 +189,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$toast( this.l10n( `Bot deleted` ) );
+                this.$toast( l10n( `Bot deleted` ) );
 
                 telegramComponents.emit( "botDelete", this.telegramBotId );
             }
@@ -201,7 +201,7 @@ export default {
         _copyBotUrl () {
             this.$utils.copyToClipboard( this.record.get( "url" ) );
 
-            this.$toast( this.l10n( "Link copied to the clipboard" ) );
+            this.$toast( l10n( "Link copied to the clipboard" ) );
         },
 
         _openBotUrl () {

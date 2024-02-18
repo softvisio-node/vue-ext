@@ -21,7 +21,7 @@ export default {
         async _ready ( e ) {
             const cmp = e.detail.cmp;
 
-            cmp.setTitle( this.telegramBotRecord.get( "name" ) + " / " + this.l10n( `Links` ) );
+            cmp.setTitle( this.telegramBotRecord.get( "name" ) + " / " + l10n( `Links` ) );
 
             cmp.getHeader().insert( 0, [
                 {

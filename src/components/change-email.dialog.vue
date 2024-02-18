@@ -16,7 +16,7 @@
 export default {
     "computed": {
         title () {
-            return this.l10n( `Email change` );
+            return l10n( `Email change` );
         },
     },
 
@@ -41,7 +41,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$toast( this.l10n( "Change email token was sent to the new email address" ) );
+                this.$toast( l10n( "Change email token was sent to the new email address" ) );
 
                 this.ext.close();
             }

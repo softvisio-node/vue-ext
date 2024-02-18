@@ -94,7 +94,7 @@ export default {
                         // {
                         //     "xtype": "button",
                         //     "iconCls": "fa-solid fa-unlock-alt",
-                        //     "tooltip": this.l10n( "Edit token roles" ),
+                        //     "tooltip": l10n( "Edit token roles" ),
                         //     "handler": this.showTokenRolesDialog.bind( this ),
                         // },
                         {
@@ -149,7 +149,7 @@ export default {
             else {
                 record.commit();
 
-                this.$toast( enabled ? this.l10n( `Access enabled` ) : this.l10n( `Access disabled` ) );
+                this.$toast( enabled ? l10n( `Access enabled` ) : l10n( `Access disabled` ) );
             }
 
             button.enable();
@@ -159,12 +159,12 @@ export default {
             const gridrow = button.up( "gridrow" ),
                 record = gridrow.getRecord();
 
-            if ( !( await this.$utils.confirm( this.l10n( "Are you sure you want to delete this token?" ) ) ) ) return;
+            if ( !( await this.$utils.confirm( l10n( "Are you sure you want to delete this token?" ) ) ) ) return;
 
             var res = await this.$api.call( "account/tokens/delete", record.getId() );
 
             if ( res.ok ) {
-                this.$toast( this.l10n( "Token deleted" ) );
+                this.$toast( l10n( "Token deleted" ) );
 
                 this.store.remove( record );
             }

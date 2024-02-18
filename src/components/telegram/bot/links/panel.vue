@@ -102,13 +102,13 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-copy",
-                            "text": this.l10n( "Copy link" ),
+                            "text": l10n( "Copy link" ),
                             "handler": this._copyLink.bind( this ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-eye",
-                            "toolti[": this.l10n( "View link" ),
+                            "toolti[": l10n( "View link" ),
                             "handler": this._viewLinkClick.bind( this ),
                         },
                     ],
@@ -136,7 +136,7 @@ export default {
 
             this.$utils.copyToClipboard( record.get( "link" ) );
 
-            this.$toast( this.l10n( "Link copied to the clipboard" ) );
+            this.$toast( l10n( "Link copied to the clipboard" ) );
         },
 
         async _showCreateLinkDialog () {

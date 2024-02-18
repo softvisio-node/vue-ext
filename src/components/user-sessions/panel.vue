@@ -74,13 +74,13 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-check",
-                            "tooltip": this.l10n( "Cuttent session" ),
+                            "tooltip": l10n( "Cuttent session" ),
                             "bind": { "hidden": "{!record.current_session}" },
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-trash-alt",
-                            "tooltip": this.l10n( "Delete session" ),
+                            "tooltip": l10n( "Delete session" ),
                             "handler": this._signOutSession.bind( this ),
                             "bind": { "hidden": "{record.current_session}" },
                             "ui": "decline",
@@ -100,7 +100,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$toast( this.l10n( "Session was deleted" ) );
+                this.$toast( l10n( "Session was deleted" ) );
 
                 this.store.remove( record );
             }
@@ -122,7 +122,7 @@ export default {
                 this.$toast( res );
             }
             else {
-                this.$toast( this.l10n( "Sessions were deleted" ) );
+                this.$toast( l10n( "Sessions were deleted" ) );
 
                 this.refresh();
             }

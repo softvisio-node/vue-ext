@@ -27,7 +27,7 @@ export default {
         },
 
         title () {
-            return this.l10n( `Edit user roles` );
+            return l10n( `Edit user roles` );
         },
     },
 

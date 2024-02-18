@@ -69,7 +69,7 @@ export default {
                     "xtype": "menuitem",
                     "separator": true,
                     "iconCls": "fa-solid fa-redo",
-                    "text": this.l10n( "Refresh" ),
+                    "text": l10n( "Refresh" ),
                     "handler": this._loadRoles.bind( this ),
                 } );
             }
@@ -91,7 +91,7 @@ export default {
                         "xtype": "menuitem",
                         "separator": true,
                         "iconCls": "fa-solid fa-xmark",
-                        "text": this.l10n( "Clear filter" ),
+                        "text": l10n( "Clear filter" ),
                         "handler": this.clear.bind( this, false ),
                     }
                 );
@@ -112,12 +112,12 @@ export default {
             } );
 
             if ( checkedItems.length ) {
-                button.setText( this.l10n( msgid`Roles selected: ${ checkedItems.length }`, checkedItems.length ) );
+                button.setText( l10n( msgid`Roles selected: ${ checkedItems.length }`, checkedItems.length ) );
 
                 this.$emit( "change", checkedItems );
             }
             else {
-                button.setText( this.l10n( "Roles filter" ) );
+                button.setText( l10n( "Roles filter" ) );
 
                 this.$emit( "change" );
             }

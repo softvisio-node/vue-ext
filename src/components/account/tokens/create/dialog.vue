@@ -69,7 +69,7 @@ export default {
 
                 this.$refs.generateTokenButton.ext.setHidden( true );
 
-                this.$toast( this.l10n( "Token created" ) );
+                this.$toast( l10n( "Token created" ) );
 
                 this.$emit( "created" );
             }
@@ -83,7 +83,7 @@ export default {
 
             this.$refs.closeButton.ext.setHidden( false );
 
-            this.$toast( this.l10n( "Token copied to the clipboard" ) );
+            this.$toast( l10n( "Token copied to the clipboard" ) );
         },
     },
 };

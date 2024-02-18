@@ -31,7 +31,7 @@ export default {
 
     "computed": {
         _title () {
-            return this.title || this.l10n( `Telegram bots` );
+            return this.title || l10n( `Telegram bots` );
         },
     },
 };
