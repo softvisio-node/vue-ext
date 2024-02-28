@@ -14,7 +14,7 @@ export default Ext.define( null, {
 
         // fields
         "telegram_bot_id",
-        "telegram_user_id",
+        "telegram_id",
         "avatar_url",
         { "name": "is_bot", "type": "bool" },
         "username",
