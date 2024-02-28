@@ -21,7 +21,6 @@ export default Ext.define( null, {
         "description",
         "avatar_url",
 
-        "telegram_id",
         "username",
         { "name": "telegram_can_join_groups", "type": "bool" },
         { "name": "telegram_can_read_all_group_messages", "type": "bool" },
