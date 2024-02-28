@@ -150,7 +150,7 @@ msgstr "Статус заборони"
 msgid "Ban user"
 msgstr "Забанити користувача"
 
-#: ../../src/components/telegram/bot/users/models/user.js:64:27
+#: ../../src/components/telegram/bot/users/models/user.js:63:27
 #, fuzzy
 msgid "Banned"
 msgstr "заборонено"
@@ -855,12 +855,12 @@ msgstr "Посилання не знайдено"
 msgid "No Telegram bots found"
 msgstr "Ботів Telegram не знайдено"
 
-#: ../../src/components/telegram/bot/users/models/user.js:67:27
+#: ../../src/components/telegram/bot/users/models/user.js:66:27
 #, fuzzy
 msgid "Not banned"
 msgstr "Не заборонено"
 
-#: ../../src/components/telegram/bot/users/models/user.js:55:27
+#: ../../src/components/telegram/bot/users/models/user.js:54:27
 #, fuzzy
 msgid "Not subscribed"
 msgstr "Не підписаний"
@@ -1176,7 +1176,7 @@ msgid "Start bot"
 msgstr "Запустити бота"
 
 #: ../../src/components/development/monitoring/methods/exceptions.dialog.vue:14:108
-#: ../../src/components/telegram/bot/models/bot.js:56:71
+#: ../../src/components/telegram/bot/models/bot.js:55:71
 msgid "Started"
 msgstr "Розпочато"
 
@@ -1195,12 +1195,12 @@ msgstr "Текст статусу"
 msgid "Stop bot"
 msgstr "Зупинити бота"
 
-#: ../../src/components/telegram/bot/models/bot.js:56:91
+#: ../../src/components/telegram/bot/models/bot.js:55:91
 #, fuzzy
 msgid "Stopped"
 msgstr "Зупинився"
 
-#: ../../src/components/telegram/bot/users/models/user.js:52:27
+#: ../../src/components/telegram/bot/users/models/user.js:51:27
 #, fuzzy
 msgid "Subscribed"
 msgstr "Підписався"
