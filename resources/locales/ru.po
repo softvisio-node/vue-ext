@@ -949,8 +949,8 @@ msgstr "Пароли не совпадают"
 #: ../../src/components/development/monitoring/methods/panel.vue:304:49
 #: ../../src/components/telegram/bot/details/charts.panel.vue:104:25
 #: ../../src/components/telegram/bot/details/charts.panel.vue:118:28
-#: ../../src/components/telegram/bot/links/charts.panel.vue:113:28
-#: ../../src/components/telegram/bot/links/charts.panel.vue:99:25
+#: ../../src/components/telegram/bot/links/charts.panel.vue:103:25
+#: ../../src/components/telegram/bot/links/charts.panel.vue:117:28
 msgid "Period"
 msgstr "Период"
 
@@ -1210,10 +1210,10 @@ msgstr "Подписан"
 #: ../../src/components/telegram/bot/details/charts.panel.vue:290:24
 #: ../../src/components/telegram/bot/details/charts.panel.vue:296:33
 #: ../../src/components/telegram/bot/details/info.panel.vue:49:94
-#: ../../src/components/telegram/bot/links/charts.panel.vue:172:33
-#: ../../src/components/telegram/bot/links/charts.panel.vue:252:24
-#: ../../src/components/telegram/bot/links/charts.panel.vue:285:24
-#: ../../src/components/telegram/bot/links/charts.panel.vue:291:33
+#: ../../src/components/telegram/bot/links/charts.panel.vue:176:33
+#: ../../src/components/telegram/bot/links/charts.panel.vue:256:24
+#: ../../src/components/telegram/bot/links/charts.panel.vue:289:24
+#: ../../src/components/telegram/bot/links/charts.panel.vue:295:33
 #: ../../src/components/telegram/bot/links/details.panel.vue:37:109
 #: ../../src/components/telegram/bot/links/panel.vue:27:140
 #: ../../src/components/telegram/bots.panel.vue:27:144
@@ -1246,7 +1246,7 @@ msgstr "Telegram-бот создан."
 msgid "Telegram bot link"
 msgstr "Ссылка на бота в Telegram"
 
-#: ../../src/components/telegram/bot/links/charts.dialog.vue:22:19
+#: ../../src/components/telegram/bot/links/charts.dialog.vue:26:19
 #, fuzzy
 msgid "Telegram bot link charts"
 msgstr "График ссылок ботов Telegram"
@@ -1317,14 +1317,14 @@ msgstr "Общая память"
 
 #: ../../src/components/telegram/bot/details/charts.panel.vue:138:24
 #: ../../src/components/telegram/bot/details/charts.panel.vue:171:24
-#: ../../src/components/telegram/bot/links/charts.panel.vue:133:24
-#: ../../src/components/telegram/bot/links/charts.panel.vue:166:24
+#: ../../src/components/telegram/bot/links/charts.panel.vue:137:24
+#: ../../src/components/telegram/bot/links/charts.panel.vue:170:24
 #, fuzzy
 msgid "Total subscribed users"
 msgstr "Всего подписанных пользователей"
 
 #: ../../src/components/telegram/bot/details/charts.panel.vue:195:24
-#: ../../src/components/telegram/bot/links/charts.panel.vue:190:24
+#: ../../src/components/telegram/bot/links/charts.panel.vue:194:24
 #, fuzzy
 msgid "Total unsubscribed users"
 msgstr "Всего отписавшихся пользователей"
@@ -1360,9 +1360,9 @@ msgstr "Разбанить пользователя"
 #: ../../src/components/telegram/bot/details/charts.panel.vue:314:24
 #: ../../src/components/telegram/bot/details/charts.panel.vue:320:33
 #: ../../src/components/telegram/bot/details/info.panel.vue:50:96
-#: ../../src/components/telegram/bot/links/charts.panel.vue:196:33
-#: ../../src/components/telegram/bot/links/charts.panel.vue:309:24
-#: ../../src/components/telegram/bot/links/charts.panel.vue:315:33
+#: ../../src/components/telegram/bot/links/charts.panel.vue:200:33
+#: ../../src/components/telegram/bot/links/charts.panel.vue:313:24
+#: ../../src/components/telegram/bot/links/charts.panel.vue:319:33
 #: ../../src/components/telegram/bot/links/details.panel.vue:38:111
 #: ../../src/components/telegram/bot/links/panel.vue:29:144
 #: ../../src/components/telegram/bots.panel.vue:29:148

@@ -3,7 +3,7 @@
         <template #dataPanel>
             <ext-panel ref="dataPanel" layout="vbox" padding="0 10 0 0" scrollable="true" viewModel="true">
                 <ext-toolbar docked="top">
-                    <ext-button iconCls="fa-solid fa-chart-line" :text="l10n(`Open charts`)" width="150" @tap="_showChartsDiakig"/>
+                    <ext-button iconCls="fa-solid fa-chart-line" :text="l10n(`Open charts`)" width="150" @tap="_showChartsDialog"/>
                     <ext-spacer/>
                     <ext-button iconCls="fa-regular fa-copy" :text="l10n(`Copy link`)" @tap="_copyLink"/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
@@ -155,7 +155,7 @@ export default {
 
             if ( value === this.telegramBotLinkRecord.get( "name" ) ) return this.cancelEditName();
 
-            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, { "name": value } );
+            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotRecord.id, this.telegramBotLinkRecord.id, { "name": value } );
 
             if ( res.ok ) {
                 this.telegramBotLinkRecord.set( "name", value );
@@ -188,7 +188,7 @@ export default {
             // form is not valid
             if ( value === this.telegramBotLinkRecord.get( "description" ) ) return this.cancelEditDescription();
 
-            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotLinkRecord.id, { "description": value } );
+            const res = await this.$api.call( "telegram/bots/links/update-link", this.telegramBotRecord.id, this.telegramBotLinkRecord.id, { "description": value } );
 
             if ( res.ok ) {
                 this.telegramBotLinkRecord.set( "description", value );
@@ -209,7 +209,7 @@ export default {
 
             button.disable();
 
-            const res = await this.$api.call( "telegram/bots/links/delete-link", this.telegramBotLinkRecord.id );
+            const res = await this.$api.call( "telegram/bots/links/delete-link", this.telegramBotRecord.id, this.telegramBotLinkRecord.id );
 
             button.enable();
 
@@ -231,9 +231,10 @@ export default {
             this.$toast( l10n( "Link copied to the clipboard" ) );
         },
 
-        async _showChartsDiakig () {
+        async _showChartsDialog () {
             const cmp = await this.$mount( ChartsDialog, {
                 "props": {
+                    "telegramBotRecord": this.telegramBotRecord,
                     "telegramBotLinkRecord": this.telegramBotLinkRecord,
                 },
             } );

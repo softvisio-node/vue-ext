@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="90%" layout="fit" scrollable="true" :title="title" viewModel="true" width="90%">
-        <CharstPanel period="3 months" :telegramBotLinkRecord="telegramBotLinkRecord"/>
+        <CharstPanel period="3 months" :telegramBotLinkRecord="telegramBotLinkRecord" :telegramBotRecord="telegramBotRecord"/>
     </ext-dialog>
 </template>
 
@@ -11,6 +11,10 @@ export default {
     "components": { CharstPanel },
 
     "props": {
+        "telegramBotRecord": {
+            "type": Object,
+            "default": null,
+        },
         "telegramBotLinkRecord": {
             "type": Object,
             "required": true,

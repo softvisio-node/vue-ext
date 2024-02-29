@@ -40,6 +40,10 @@ export default {
     "components": { CardsPanel },
 
     "props": {
+        "telegramBotRecord": {
+            "type": Object,
+            "default": null,
+        },
         "telegramBotLinkRecord": {
             "type": Object,
             "default": null,
@@ -59,7 +63,7 @@ export default {
 
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "telegram/bots/links/get-link-stats", this.telegramBotLinkRecord.id, this._period );
+            const res = await this.$api.call( "telegram/bots/links/get-link-stats", this.telegramBotRecord.id, this.telegramBotLinkRecord.id, this._period );
 
             if ( !res.ok ) {
                 this.$refs.cardsPanel.setResult( res );
