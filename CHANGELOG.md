@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.11.11 (2024-02-29)
+
+Fixes:
+
+-   fix: telegram
+
 ### 8.11.10 (2024-02-28)
 
 Fixes:
