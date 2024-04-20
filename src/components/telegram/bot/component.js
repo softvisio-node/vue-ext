@@ -68,6 +68,7 @@ export default class TelegramBotComponent {
         } );
     }
 
+    // XXX
     async #runWalletPayWebApp ( panel, data ) {
         if ( !data.data.return ) {
 
