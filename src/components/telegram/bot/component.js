@@ -42,15 +42,15 @@ export default class TelegramBotComponent {
 
     // public
     async runWebApp ( panel, data ) {
-        if ( data.data.type === "bot-statistics" ) {
-            await panel.$mount( import( "#vue/components/telegram/bot/details/charts.panel" ), {
+        if ( data.webAppType === "bot-statistics" ) {
+            return panel.$mount( import( "#vue/components/telegram/bot/details/charts.panel" ), {
                 "props": {
                     "telegramBotId": data.telegramBotId,
                     "showMaximizeButton": false,
                 },
             } );
         }
-        else if ( data.data.type === "wallet-pay" ) {
+        else if ( data.webAppType === "wallet-pay" ) {
 
             // XXX check order
 
