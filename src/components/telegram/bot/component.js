@@ -43,21 +43,10 @@ export default class TelegramBotComponent {
     // public
     async runWebApp ( panel, data ) {
         if ( data.webAppType === "bot-statistics" ) {
-            return panel.$mount( import( "#vue/components/telegram/bot/details/charts.panel" ), {
-                "props": {
-                    "telegramBotId": data.telegramBotId,
-                    "showMaximizeButton": false,
-                },
-            } );
+            return this.#runBotStatisticsWebApp( panel, data );
         }
         else if ( data.webAppType === "wallet-pay" ) {
-
-            // XXX check order
-
-            // XXX create wallet pay order, specify returnUrl, failedReturnUrl
-
-            // XXX open wallet pay url
-            window.Telegram.WebApp.openTelegramLink( "https://t.me/wallet/start?startapp=wpay_order-orderId__10774459298049&startApp=wpay_order-orderId__10774459298049" );
+            return this.#runWalletPayWebApp( panel, data );
         }
         else {
             return this._runWebApp( panel, data );
@@ -67,5 +56,31 @@ export default class TelegramBotComponent {
     // protected
     async _runWebApp ( panel, data ) {
         return window.Telegram.WebApp.close();
+    }
+
+    // private
+    async #runBotStatisticsWebApp ( panel, data ) {
+        return panel.$mount( import( "#vue/components/telegram/bot/details/charts.panel" ), {
+            "props": {
+                "telegramBotId": data.telegramBotId,
+                "showMaximizeButton": false,
+            },
+        } );
+    }
+
+    async #runWalletPayWebApp ( panel, data ) {
+        if ( !data.data.return ) {
+
+            // XXX check order
+
+            // XXX create wallet pay order, specify returnUrl, failedReturnUrl
+
+            // XXX open wallet pay url
+            window.Telegram.WebApp.openTelegramLink( "https://t.me/wallet/start?startapp=wpay_order-orderId__10774459298049&startApp=wpay_order-orderId__10774459298049" );
+        }
+        else {
+
+            // XXX checj order status
+        }
     }
 }
