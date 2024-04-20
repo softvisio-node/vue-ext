@@ -42,6 +42,30 @@ export default class TelegramBotComponent {
 
     // public
     async runWebApp ( panel, data ) {
-        window.Telegram.WebApp.close();
+        if ( data.data.type === "bot-statistics" ) {
+            await panel.$mount( import( "#vue/components/telegram/bot/details/charts.panel" ), {
+                "props": {
+                    "telegramBotId": data.telegramBotId,
+                    "showMaximizeButton": false,
+                },
+            } );
+        }
+        else if ( data.data.type === "wallet-pay" ) {
+
+            // XXX check order
+
+            // XXX create wallet pay order, specify returnUrl, failedReturnUrl
+
+            // XXX open wallet pay url
+            window.Telegram.WebApp.openTelegramLink( "https://t.me/wallet/start?startapp=wpay_order-orderId__10774459298049&startApp=wpay_order-orderId__10774459298049" );
+        }
+        else {
+            return this._runWebApp( panel, data );
+        }
+    }
+
+    // protected
+    async _runWebApp ( panel, data ) {
+        return window.Telegram.WebApp.close();
     }
 }
