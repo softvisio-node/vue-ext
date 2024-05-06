@@ -31,7 +31,7 @@ export default {
                 menu.push( {
                     "xtype": "menuradioitem",
                     "value": locale.id,
-                    "text": locale.uniqueName,
+                    "text": locale.displayName,
                     "group": "locale",
                     "checked": locale.id === this.$app.locale.id,
                     "handler": this._setLocale.bind( this ),
@@ -40,7 +40,7 @@ export default {
 
             cmp.setMenu( menu );
 
-            cmp.setText( this.$app.locale.locales.get( this.$app.locale.id )?.uniqueName || this.$app.locale.name );
+            cmp.setText( this.$app.locale.locales.get( this.$app.locale.id )?.displayName || this.$app.locale.name );
         },
 
         async _setLocale ( menuItem ) {
