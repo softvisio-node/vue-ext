@@ -40,7 +40,7 @@ export default {
 
             cmp.setMenu( menu );
 
-            cmp.setText( this.$app.locale.locales.get( this.$app.locale.id )?.displayName || this.$app.locale.name );
+            cmp.setText( this.$app.locale.displayName );
         },
 
         async _setLocale ( menuItem ) {
