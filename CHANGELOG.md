@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.12.1 (2024-05-08)
+
+Fixes:
+
+-   fix: sign in reload
+
 ### 8.12.0 (2024-05-08)
 
 Features:
