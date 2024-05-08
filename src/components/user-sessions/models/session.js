@@ -18,6 +18,7 @@ export default Ext.define( null, {
         { "name": "last_activity", "type": "date" },
         { "name": "current_session", "type": "bool" },
         "remote_address",
+        "geoip_name",
         "user_agent",
         "browser_name",
         "browser_version",
