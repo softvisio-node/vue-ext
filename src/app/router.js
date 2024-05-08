@@ -48,7 +48,7 @@ export default class Router {
 
         this.#setHash( hash, { replace, silent } );
 
-        return this.#app.reload();
+        await this.#app.reload();
     }
 
     // private

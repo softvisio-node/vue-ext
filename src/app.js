@@ -72,7 +72,7 @@ export default class VueExtApp extends VueApp {
         if ( res ) {
             this.mask();
 
-            return this.reload();
+            await this.reload();
         }
     }
 }
