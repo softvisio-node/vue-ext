@@ -33,7 +33,7 @@
 
                 <ext-column dataIndex="created" formatter="date()" :text="l10n(`Creation date`)" width="150"/>
 
-                <ext-column width="50" @ready="_actionColReady"/>
+                <ext-column width="80" @ready="_actionColReady"/>
             </ext-grid>
         </template>
     </CardsPanel>
