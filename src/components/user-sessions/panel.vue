@@ -27,7 +27,7 @@
 
                 <ext-column dataIndex="remote_address" :text="l10n(`IP address`)" width="130"/>
 
-                <ext-column dataIndex="geoip_name_text" sorter='{"property":"geoip_name"}' :text="l10n(`Location`)" width="130"/>
+                <ext-column cell='{"encodeHtml":false}' dataIndex="geoip_name_text" sorter='{"property":"geoip_name"}' :text="l10n(`Location`)" width="130"/>
 
                 <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="l10n(`Last activity`)" width="150"/>
 

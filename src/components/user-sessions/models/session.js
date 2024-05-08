@@ -81,5 +81,7 @@ export default Ext.define( null, {
                 return data.browser_name || "&mdash;";
             },
         },
+
+        { "name": "geoip_name_text", "calculate": data => data.geoip_name || "&mdash;" },
     ],
 } );
