@@ -370,11 +370,11 @@ msgstr "Создать пользователя"
 #: ../../src/components/telegram/bot/links/details.panel.vue:28:90
 #: ../../src/components/telegram/bot/links/panel.vue:33:96
 #: ../../src/components/telegram/bot/users/details.panel.vue:24:71
-#: ../../src/components/user-sessions/panel.vue:32:74
+#: ../../src/components/user-sessions/panel.vue:34:74
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: ../../src/components/user-sessions/panel.vue:77:39
+#: ../../src/components/user-sessions/panel.vue:79:39
 #, fuzzy
 msgid "Cuttent session"
 msgstr "Каттентская сессия"
@@ -412,7 +412,7 @@ msgstr "Удалить бота"
 msgid "Delete link"
 msgstr "Удалить ссылку"
 
-#: ../../src/components/user-sessions/panel.vue:83:39
+#: ../../src/components/user-sessions/panel.vue:85:39
 #, fuzzy
 msgid "Delete session"
 msgstr "Удалить сеанс"
@@ -674,7 +674,7 @@ msgstr "Последние 7 дней"
 
 #: ../../src/components/account/tokens/panel.vue:17:132
 #: ../../src/components/administration/users/panel.vue:21:167
-#: ../../src/components/user-sessions/panel.vue:30:132
+#: ../../src/components/user-sessions/panel.vue:32:132
 msgid "Last activity"
 msgstr "Последняя активность"
 
@@ -760,6 +760,11 @@ msgstr "Ссылки"
 #: ../../src/components/account/account.panel.vue:6:97
 msgid "Locale"
 msgstr "Локаль"
+
+#: ../../src/components/user-sessions/panel.vue:30:98
+#, fuzzy
+msgid "Location"
+msgstr "Расположение"
 
 #: ../../src/components/notifications/inbox.panel.vue:6:107
 msgid "Mark all as done"
@@ -1131,11 +1136,11 @@ msgstr "Отправить токен"
 msgid "Session closed"
 msgstr "Сессия закрыта"
 
-#: ../../src/components/user-sessions/panel.vue:103:29
+#: ../../src/components/user-sessions/panel.vue:105:29
 msgid "Session was deleted"
 msgstr "Сессия была удалена"
 
-#: ../../src/components/user-sessions/panel.vue:125:29
+#: ../../src/components/user-sessions/panel.vue:127:29
 msgid "Sessions were deleted"
 msgstr "Сессии были удалены"
 
