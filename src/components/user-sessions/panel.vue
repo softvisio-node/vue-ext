@@ -25,9 +25,11 @@
 
                 <ext-column cell='{"encodeHtml":false}' dataIndex="browser_text" flex="1" sorter='{"property":"browser_name"}' :text="l10n(`Browser`)"/>
 
-                <ext-column dataIndex="remote_address" :text="l10n(`IP address`)" width="130"/>
+                <!-- <ext-column dataIndex="remote_address" :text="l10n(`IP address`)" width="130"/> -->
 
-                <ext-column cell='{"encodeHtml":false}' dataIndex="geoip_name_text" sorter='{"property":"geoip_name"}' :text="l10n(`Location`)" width="130"/>
+                <!-- <ext-column cell='{"encodeHtml":false}' dataIndex="geoip_name_text" sorter='{"property":"geoip_name"}' :text="l10n(`Location`)" width="130"/> -->
+
+                <ext-column flex="1" sorter='{"property":"remote_address"}' :text="l10n(`IP address`)" @ready="_remoteAddressColReady"/>
 
                 <ext-column cell='{"encodeHtml":false}' dataIndex="last_activity_text" sorter='{"property":"last_activity"}' :text="l10n(`Last activity`)" width="150"/>
 
@@ -64,6 +66,36 @@ export default {
     },
 
     "methods": {
+
+        // XXX
+        _remoteAddressColReady ( e ) {
+            var cmp = e.detail.cmp;
+
+            cmp.setCell( {
+                "xtype": "widgetcell",
+                "widget": {
+                    "xtype": "container",
+                    "layout": { "type": "hbox", "pack": "end", "align": "center" },
+                    "items": [
+                        {
+                            "xtype": "button",
+                            "iconCls": "fa-solid fa-check",
+                            "tooltip": l10n( "Cuttent session" ),
+                            "bind": { "hidden": "{!record.current_session}" },
+                        },
+                        {
+                            "xtype": "button",
+                            "iconCls": "fa-solid fa-trash-alt",
+                            "tooltip": l10n( "Delete session" ),
+                            "handler": this._signOutSession.bind( this ),
+                            "bind": { "hidden": "{record.current_session}" },
+                            "ui": "decline",
+                        },
+                    ],
+                },
+            } );
+        },
+
         _actionColReady ( e ) {
             var cmp = e.detail.cmp;
 
