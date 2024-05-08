@@ -75,6 +75,12 @@ export default {
                     "items": [
                         {
                             "xtype": "button",
+                            "iconCls": "fa-regular fa-copy",
+                            "tooltip": l10n( "Copy IP address" ),
+                            "handler": this._copyRemoteAddress.bind( this ),
+                        },
+                        {
+                            "xtype": "button",
                             "iconCls": "fa-solid fa-check",
                             "tooltip": l10n( "Cuttent session" ),
                             "bind": { "hidden": "{!record.current_session}" },
@@ -157,6 +163,14 @@ export default {
 
         async _signOutAllSessionsRequest () {
             return this.$api.call( "account/sign-out-all-sessions" );
+        },
+
+        _copyRemoteAddress ( button ) {
+            const record = button.lookupViewModel().get( "record" );
+
+            this.$utils.copyToClipboard( record.get( "remote_address" ) );
+
+            this.$toast( l10n( "IP address copied" ) );
         },
     },
 };

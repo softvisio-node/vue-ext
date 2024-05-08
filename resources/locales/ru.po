@@ -300,6 +300,11 @@ msgstr "Ошибка подключения"
 msgid "Copy email"
 msgstr "Копировать письмо"
 
+#: ../../src/components/user-sessions/panel.vue:79:39
+#, fuzzy
+msgid "Copy IP address"
+msgstr "Скопировать IP-адрес"
+
 #: ../../src/components/telegram/bot/links/details.panel.vue:8:68
 #: ../../src/components/telegram/bot/links/panel.vue:105:36
 msgid "Copy link"
@@ -374,7 +379,7 @@ msgstr "Создать пользователя"
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: ../../src/components/user-sessions/panel.vue:79:39
+#: ../../src/components/user-sessions/panel.vue:85:39
 #, fuzzy
 msgid "Cuttent session"
 msgstr "Каттентская сессия"
@@ -412,7 +417,7 @@ msgstr "Удалить бота"
 msgid "Delete link"
 msgstr "Удалить ссылку"
 
-#: ../../src/components/user-sessions/panel.vue:85:39
+#: ../../src/components/user-sessions/panel.vue:91:39
 #, fuzzy
 msgid "Delete session"
 msgstr "Удалить сеанс"
@@ -655,6 +660,11 @@ msgstr "Базовый цвет интерфейса"
 msgid "IP address"
 msgstr "IP адрес"
 
+#: ../../src/components/user-sessions/panel.vue:173:25
+#, fuzzy
+msgid "IP address copied"
+msgstr "IP-адрес скопирован"
+
 #: ../../src/components/telegram/bot/users/details.panel.vue:16:65
 #, fuzzy
 msgid "Is bot"
@@ -761,7 +771,7 @@ msgstr "Ссылки"
 msgid "Locale"
 msgstr "Локаль"
 
-#: ../../src/components/user-sessions/panel.vue:30:98
+#: ../../src/components/user-sessions/panel.vue:30:126
 #, fuzzy
 msgid "Location"
 msgstr "Расположение"
@@ -1136,11 +1146,11 @@ msgstr "Отправить токен"
 msgid "Session closed"
 msgstr "Сессия закрыта"
 
-#: ../../src/components/user-sessions/panel.vue:105:29
+#: ../../src/components/user-sessions/panel.vue:111:29
 msgid "Session was deleted"
 msgstr "Сессия была удалена"
 
-#: ../../src/components/user-sessions/panel.vue:127:29
+#: ../../src/components/user-sessions/panel.vue:133:29
 msgid "Sessions were deleted"
 msgstr "Сессии были удалены"
 
