@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.12.0 (2024-05-08)
+
+Features:
+
+-   feat: sessions gepip
+
 ### 8.11.15 (2024-05-06)
 
 Fixes:
