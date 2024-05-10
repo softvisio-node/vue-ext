@@ -82,7 +82,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-check",
-                            "tooltip": l10n( "Cuttent session" ),
+                            "tooltip": l10n( "Current session" ),
                             "bind": { "hidden": "{!record.current_session}" },
                         },
                         {

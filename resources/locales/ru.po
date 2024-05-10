@@ -381,8 +381,8 @@ msgstr "Дата создания"
 
 #: ../../src/components/user-sessions/panel.vue:85:39
 #, fuzzy
-msgid "Cuttent session"
-msgstr "Каттентская сессия"
+msgid "Current session"
+msgstr "Текущая сессия"
 
 #: ../../src/components/account/appearance.panel.vue:13:73
 #: ../../src/components/dark-mode.button.vue:43:62
@@ -1696,6 +1696,11 @@ msgstr "Уменьшить"
 
 #~ msgid "Created"
 #~ msgstr "Создан"
+
+#: ../../src/components/user-sessions/panel.vue:85:39
+#, fuzzy
+#~ msgid "Cuttent session"
+#~ msgstr "Каттентская сессия"
 
 #~ msgid "Edit token permissions"
 #~ msgstr "Редактировать права токена"

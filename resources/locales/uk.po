@@ -381,8 +381,8 @@ msgstr "Дата створення"
 
 #: ../../src/components/user-sessions/panel.vue:85:39
 #, fuzzy
-msgid "Cuttent session"
-msgstr "Сесія Cuttent"
+msgid "Current session"
+msgstr "Поточна сесія"
 
 #: ../../src/components/account/appearance.panel.vue:13:73
 #: ../../src/components/dark-mode.button.vue:43:62
@@ -1680,6 +1680,11 @@ msgstr "Зменшити"
 #, fuzzy
 #~ msgid "Createbot"
 #~ msgstr "Createbot"
+
+#: ../../src/components/user-sessions/panel.vue:85:39
+#, fuzzy
+#~ msgid "Cuttent session"
+#~ msgstr "Сесія Cuttent"
 
 #~ msgid "Edit token permissions"
 #~ msgstr "Редагувати дозволи токена"
