@@ -231,7 +231,7 @@ msgid "Cancel"
 msgstr "Отменить"
 
 #: ../../src/components/telegram/bot/details/edit-api-token.dialog.vue:2:50
-#: ../../src/components/telegram/bot/details/info.panel.vue:69:122
+#: ../../src/components/telegram/bot/details/info.panel.vue:69:124
 #, fuzzy
 msgid "Change bot API token"
 msgstr "Изменить токен API бота"
@@ -256,7 +256,7 @@ msgstr "Изменить пароль"
 msgid "Clear filter"
 msgstr "Очистить фильтр"
 
-#: ../../src/components/development/monitoring/methods/exceptions.dialog.vue:6:94
+#: ../../src/components/development/monitoring/methods/exceptions.dialog.vue:6:96
 msgid "Clear log"
 msgstr "Очистить журнал"
 
@@ -398,21 +398,21 @@ msgstr "Размер по умолчанию"
 msgid "Delete"
 msgstr "Удалить"
 
-#: ../../src/components/notifications/done.panel.vue:9:111
-#: ../../src/components/notifications/inbox.panel.vue:9:111
+#: ../../src/components/notifications/done.panel.vue:9:113
+#: ../../src/components/notifications/inbox.panel.vue:9:113
 msgid "Delete all"
 msgstr "Удалить все"
 
-#: ../../src/components/user-sessions/panel.vue:15:67
+#: ../../src/components/user-sessions/panel.vue:15:69
 #, fuzzy
 msgid "Delete all sessions"
 msgstr "Удалить все сеансы"
 
-#: ../../src/components/telegram/bot/details/info.panel.vue:72:112
+#: ../../src/components/telegram/bot/details/info.panel.vue:72:114
 msgid "Delete bot"
 msgstr "Удалить бота"
 
-#: ../../src/components/telegram/bot/links/details.panel.vue:73:128
+#: ../../src/components/telegram/bot/links/details.panel.vue:73:130
 #, fuzzy
 msgid "Delete link"
 msgstr "Удалить ссылку"
