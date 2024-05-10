@@ -99,7 +99,7 @@ export default {
                         // },
                         {
                             "xtype": "button",
-                            "iconCls": "fa-solid fa-trash-alt",
+                            "iconCls": "fa-regular fa-trash-can",
                             "ui": "decline",
                             "handler": this.delete.bind( this ),
                         },

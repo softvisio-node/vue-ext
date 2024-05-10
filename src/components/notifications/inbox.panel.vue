@@ -6,7 +6,7 @@
                 <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-check" :text="l10n(`Mark all as done`)" @tap="setDoneAll"/>
 
                 <!-- delete all -->
-                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete all`)" @tap="deleteAll"/>
+                <ext-button align="right" :disabled="!hasNotifications" iconCls="fa-regular fa-trash-can" :text="l10n(`Delete all`)" @tap="deleteAll"/>
             </ext-toolbar>
         </template>
 
@@ -74,7 +74,7 @@ export default {
                                 },
                                 {
                                     "xtype": "button",
-                                    "iconCls": "fa-solid fa-trash-alt",
+                                    "iconCls": "fa-regular fa-trash-can",
                                     "tooltip": l10n( "Delete" ),
                                     "handler": this._delete.bind( this ),
                                 },

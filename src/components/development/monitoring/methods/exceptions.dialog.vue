@@ -3,7 +3,7 @@
         <CardsPanel ref="cardsPanel" :store="store" @refresh="refresh">
             <template #docked>
                 <ext-toolbar docked="top">
-                    <ext-button :disabled="!canDelete" iconCls="fa-solid fa-trash-alt" :text="l10n(`Clear log`)" @tap="_clearLog"/>
+                    <ext-button :disabled="!canDelete" iconCls="fa-regular fa-trash-can" :text="l10n(`Clear log`)" @tap="_clearLog"/>
                     <ext-spacer/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
                 </ext-toolbar>

@@ -66,10 +66,10 @@
                     <ext-button bind='{"hidden":"{!record.can_stop}"}' iconCls="fa-regular fa-circle-stop" :text="l10n(`Stop bot`)" @tap="_stopBot"/>
 
                     <!-- change api token -->
-                    <ext-button bind='{"hidden":"{!record.can_change_api_token}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Change bot API token`)" @tap="_showEditApiTokenDialog"/>
+                    <ext-button bind='{"hidden":"{!record.can_change_api_token}"}' iconCls="fa-regular fa-trash-can" :text="l10n(`Change bot API token`)" @tap="_showEditApiTokenDialog"/>
 
                     <!-- delete bot -->
-                    <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete bot`)" @tap="_deleteBot"/>
+                    <ext-button bind='{"hidden":"{!record.can_delete}"}' iconCls="fa-regular fa-trash-can" :text="l10n(`Delete bot`)" @tap="_deleteBot"/>
                 </ext-container>
             </ext-panel>
         </template>

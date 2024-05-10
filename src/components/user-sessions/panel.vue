@@ -12,7 +12,7 @@
                     </ext-container>
                 </slot>
                 <ext-spacer/>
-                <ext-button iconCls="fa-solid fa-trash-alt" :text="l10n(`Delete all sessions`)" ui="decline" @tap="_signOutAllSessions"/>
+                <ext-button iconCls="fa-regular fa-trash-can" :text="l10n(`Delete all sessions`)" ui="decline" @tap="_signOutAllSessions"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
@@ -87,7 +87,7 @@ export default {
                         },
                         {
                             "xtype": "button",
-                            "iconCls": "fa-solid fa-trash-alt",
+                            "iconCls": "fa-regular fa-trash-can",
                             "tooltip": l10n( "Delete session" ),
                             "handler": this._signOutSession.bind( this ),
                             "bind": { "hidden": "{record.current_session}" },

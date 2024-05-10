@@ -222,7 +222,7 @@ export default {
                                     },
                                     {
                                         "separator": true,
-                                        "iconCls": "fa-solid fa-trash-alt",
+                                        "iconCls": "fa-regular fa-trash-can",
                                         "text": l10n( "Delete user" ),
                                         "handler": this.deleteUser.bind( this ),
                                         "bind": {

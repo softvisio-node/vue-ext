@@ -195,7 +195,7 @@ export default {
                         },
                         {
                             "xtype": "button",
-                            "iconCls": "fa-solid fa-trash-alt",
+                            "iconCls": "fa-regular fa-trash-can",
                             "tooltip": l10n( "Delete user" ),
                             "handler": this._deleteAclUser.bind( this ),
                             "ui": "decline",
