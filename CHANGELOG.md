@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.12.4 (2024-05-10)
+
+Fixes:
+
+-   fix: trash icon
+
 ### 8.12.3 (2024-05-10)
 
 Fixes:
