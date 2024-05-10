@@ -12,7 +12,7 @@
             </ext-container>
             <ext-spacer height="5"/>
             <ext-container layout="center">
-                <ext-button iconCls="fa-solid fa-copy" :text="l10n(`Copy token to the clipboard`)" ui="action" @tap="copyToClipboard"/>
+                <ext-button iconCls="fa-regular fa-copy" :text="l10n(`Copy token to the clipboard`)" ui="action" @tap="copyToClipboard"/>
             </ext-container>
         </ext-container>
 

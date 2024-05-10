@@ -207,7 +207,7 @@ export default {
                                 },
                                 "items": [
                                     {
-                                        "iconCls": "fa-solid fa-copy",
+                                        "iconCls": "fa-regular fa-copy",
                                         "text": l10n( "Copy email" ),
                                         "handler": this._copyEmail.bind( this ),
                                     },

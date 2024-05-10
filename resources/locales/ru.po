@@ -321,7 +321,7 @@ msgstr "Копировать в буфер"
 msgid "Copy to the clipboard"
 msgstr "Скопировать в буфер обмена"
 
-#: ../../src/components/account/tokens/create/dialog.vue:15:62
+#: ../../src/components/account/tokens/create/dialog.vue:15:64
 msgid "Copy token to the clipboard"
 msgstr "Копировать токен в буфер"
 
