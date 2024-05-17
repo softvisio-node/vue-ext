@@ -50,7 +50,7 @@ export default Ext.define( null, {
             "name": "total_subscribed_users_percent",
             calculate ( data ) {
                 if ( data.total_users ) {
-                    return app.locale.formatNumber( data.total_subscribed_users / data.total_users );
+                    return data.total_subscribed_users / data.total_users;
                 }
                 else {
                     return 0;
@@ -66,7 +66,7 @@ export default Ext.define( null, {
             "name": "total_unsubscribed_users_percent",
             calculate ( data ) {
                 if ( data.total_users ) {
-                    return app.locale.formatNumber( data.total_unsubscribed_users / data.total_users );
+                    return data.total_unsubscribed_users / data.total_users;
                 }
                 else {
                     return 0;
@@ -82,7 +82,7 @@ export default Ext.define( null, {
             "name": "total_returned_users_percent",
             calculate ( data ) {
                 if ( data.total_users ) {
-                    return app.locale.formatNumber( data.total_returned_users / data.total_users );
+                    return data.total_returned_users / data.total_users;
                 }
                 else {
                     return 0;
@@ -98,7 +98,7 @@ export default Ext.define( null, {
             "name": "total_banned_users_percent",
             calculate ( data ) {
                 if ( data.total_users ) {
-                    return app.locale.formatNumber( data.total_banned_users / data.total_users );
+                    return data.total_banned_users / data.total_users;
                 }
                 else {
                     return 0;
