@@ -66,20 +66,30 @@ export default Ext.define( null, {
             },
         },
 
-        // subscribed
+        // subscribed users
         { "name": "total_subscribed_users_percent", "calculate": data => ( data.total_users ? data.total_subscribed_users / data.total_users : 0 ) },
         { "name": "total_subscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_subscribed_users_percent ) },
 
         { "name": "total_subscribed_users_text", "calculate": data => `${ data.total_subscribed_users } (${ data.total_subscribed_users_percent_text })` },
 
-        // unsubscribed
+        // unsubscribed users
         { "name": "total_unsubscribed_users_percent", "calculate": data => ( data.total_users ? data.total_unsubscribed_users / data.total_users : 0 ) },
 
         { "name": "total_unsubscribed_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_unsubscribed_users_percent ) },
 
         { "name": "total_unsubscribed_users_text", "calculate": data => `${ data.total_unsubscribed_users } (${ data.total_unsubscribed_users_percent_text })` },
 
-        // banned
+        // returned users
+        {
+            "name": "total_returned_users_percent",
+            "calculate": data => ( data.total_users ? data.total_returned_users / data.total_users : 0 ),
+        },
+
+        { "name": "total_returned_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_returned_users_percent ) },
+
+        { "name": "total_returned_users_text", "calculate": data => `${ data.total_returned_users } (${ data.total_returned_users_percent_text })` },
+
+        // banned users
         { "name": "total_banned_users_percent", "calculate": data => ( data.total_users ? data.total_banned_users / data.total_users : 0 ) },
 
         { "name": "total_banned_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_banned_users_percent ) },
