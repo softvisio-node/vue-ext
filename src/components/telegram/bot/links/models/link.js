@@ -46,6 +46,7 @@ export default Ext.define( null, {
             },
         },
 
+        // subscribed users
         {
             "name": "total_subscribed_users_percent",
             calculate ( data ) {
@@ -62,6 +63,7 @@ export default Ext.define( null, {
 
         { "name": "total_subscribed_users_text", "calculate": data => `${ data.total_subscribed_users } (${ data.total_subscribed_users_percent_text })` },
 
+        // unsubscribed users
         {
             "name": "total_unsubscribed_users_percent",
             calculate ( data ) {
@@ -78,6 +80,7 @@ export default Ext.define( null, {
 
         { "name": "total_unsubscribed_users_text", "calculate": data => `${ data.total_unsubscribed_users } (${ data.total_unsubscribed_users_percent_text })` },
 
+        // returned users
         {
             "name": "total_returned_users_percent",
             calculate ( data ) {
@@ -94,6 +97,7 @@ export default Ext.define( null, {
 
         { "name": "total_returned_users_text", "calculate": data => `${ data.total_returned_users } (${ data.total_returned_users_percent_text })` },
 
+        // banned users
         {
             "name": "total_banned_users_percent",
             calculate ( data ) {
