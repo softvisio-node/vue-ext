@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.12.6 (2024-05-18)
+
+Fixes:
+
+-   fix: telegram bot stats percent
+
 ### 8.12.5 (2024-05-17)
 
 Fixes:
