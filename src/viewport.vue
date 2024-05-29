@@ -105,8 +105,6 @@ export default {
             // parse toke
             var token = this.$router.searchParams.get( "token" );
 
-            if ( token ) token = token[ 1 ];
-
             if ( token ) {
                 const cmp = await this.$mount( AuthorizationDialog, {
                     "props": {
