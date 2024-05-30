@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.12.8 (2024-05-30)
+
+Fixes:
+
+-   fix: email token parser
+-   fix: google oauth
+
 ### 8.12.7 (2024-05-29)
 
 Fixes:
