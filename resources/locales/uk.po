@@ -509,7 +509,7 @@ msgstr "Електронна пошта"
 msgid "Email address"
 msgstr "Адреса email"
 
-#: ../../src/viewport.vue:120:45
+#: ../../src/viewport.vue:118:45
 msgid "Email address changed"
 msgstr "Адреса електронної пошти змінена"
 
@@ -1040,8 +1040,8 @@ msgstr "Оновити"
 msgid "Reload"
 msgstr "Перезавантажити"
 
-#: ../../src/components/telegram/bot/details/info.panel.vue:54:87
-#: ../../src/components/telegram/bot/links/details.panel.vue:42:102
+#: ../../src/components/telegram/bot/details/info.panel.vue:54:92
+#: ../../src/components/telegram/bot/links/details.panel.vue:42:107
 #, fuzzy
 msgid "Returned users"
 msgstr "Користувачі, які повернулися"
