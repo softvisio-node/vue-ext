@@ -24,15 +24,15 @@ import * as am5xy from "@amcharts/amcharts5/xy";
 
 const PERIODS = {
     "7 days": {
-        "text": l10n( `Last 7 days` ),
+        "text": l10n( `Past 7 days` ),
         "timeUnit": "hour",
     },
     "3 months": {
-        "text": l10n( `Last 3 months` ),
+        "text": l10n( `Past 3 months` ),
         "timeUnit": "day",
     },
     "1 year": {
-        "text": l10n( `Last year` ),
+        "text": l10n( `Past 12 months` ),
         "timeUnit": "day",
     },
 };

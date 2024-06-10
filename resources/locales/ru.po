@@ -670,18 +670,6 @@ msgstr "IP-адрес скопирован"
 msgid "Is bot"
 msgstr "Это бот"
 
-#: ../../src/components/telegram/bot/details/charts.panel.vue:31:16
-#: ../../src/components/telegram/bot/links/charts.panel.vue:30:16
-#, fuzzy
-msgid "Last 3 months"
-msgstr "Последние 3 месяца"
-
-#: ../../src/components/telegram/bot/details/charts.panel.vue:27:16
-#: ../../src/components/telegram/bot/links/charts.panel.vue:26:16
-#, fuzzy
-msgid "Last 7 days"
-msgstr "Последние 7 дней"
-
 #: ../../src/components/account/tokens/panel.vue:17:132
 #: ../../src/components/administration/users/panel.vue:21:167
 #: ../../src/components/user-sessions/panel.vue:32:132
@@ -707,12 +695,6 @@ msgstr "Последний старт"
 #, fuzzy
 msgid "Last user created"
 msgstr "Последний созданный пользователь"
-
-#: ../../src/components/telegram/bot/details/charts.panel.vue:35:16
-#: ../../src/components/telegram/bot/links/charts.panel.vue:34:16
-#, fuzzy
-msgid "Last year"
-msgstr "В прошлом году"
 
 #: ../../src/components/development/monitoring/instances/panel.vue:28:186
 #: ../../src/components/development/monitoring/methods/panel.vue:29:186
@@ -959,6 +941,24 @@ msgstr "Токен восстановления пароля не найден"
 #: ../../src/components/reset-password.dialog.vue:65:64
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
+
+#: ../../src/components/telegram/bot/details/charts.panel.vue:35:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:34:16
+#, fuzzy
+msgid "Past 12 months"
+msgstr "Прошлые 12 месяцев"
+
+#: ../../src/components/telegram/bot/details/charts.panel.vue:31:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:30:16
+#, fuzzy
+msgid "Past 3 months"
+msgstr "Последние 3 месяца"
+
+#: ../../src/components/telegram/bot/details/charts.panel.vue:27:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:26:16
+#, fuzzy
+msgid "Past 7 days"
+msgstr "Прошлые 7 дней"
 
 #: ../../src/components/development/monitoring/methods/panel.vue:208:61
 #: ../../src/components/development/monitoring/methods/panel.vue:304:49
@@ -1800,6 +1800,18 @@ msgstr "Уменьшить"
 #~ msgid "Key roles updated"
 #~ msgstr "Роли ключа обновлены"
 
+#: ../../src/components/telegram/bot/details/charts.panel.vue:31:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:30:16
+#, fuzzy
+#~ msgid "Last 3 months"
+#~ msgstr "Последние 3 месяца"
+
+#: ../../src/components/telegram/bot/details/charts.panel.vue:27:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:26:16
+#, fuzzy
+#~ msgid "Last 7 days"
+#~ msgstr "Последние 7 дней"
+
 #: ../../src/components/telegram/bot/details/charts.panel.vue:28:16
 #: ../../src/components/telegram/bot/links/charts.panel.vue:27:16
 #, fuzzy, javascript-format
@@ -1817,6 +1829,12 @@ msgstr "Уменьшить"
 #~ msgstr[0] "Прошлый месяц"
 #~ msgstr[1] ""
 #~ msgstr[2] ""
+
+#: ../../src/components/telegram/bot/details/charts.panel.vue:35:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:34:16
+#, fuzzy
+#~ msgid "Last year"
+#~ msgstr "В прошлом году"
 
 #~ msgid "Mark as read"
 #~ msgstr "Отметить как прочитанное"
@@ -1851,6 +1869,12 @@ msgstr "Уменьшить"
 
 #~ msgid "Passwords are not match"
 #~ msgstr "Пароли не совпадают"
+
+#: ../../src/components/telegram/bot/details/charts.panel.vue:35:16
+#: ../../src/components/telegram/bot/links/charts.panel.vue:34:16
+#, fuzzy
+#~ msgid "Past year"
+#~ msgstr "Прошлый год"
 
 #: ../../src/components/authentication/password-recovery.panel.vue:50:29
 #: ../../src/components/authentication/signin.panel.vue:75:29
