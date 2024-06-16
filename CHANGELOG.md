@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.12.10 (2024-06-16)
+
+Fixes:
+
+-   fix: translations
+
 ### 8.12.9 (2024-06-10)
 
 Fixes:
