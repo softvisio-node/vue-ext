@@ -34,7 +34,7 @@
                         <ext-toolbar docked="bottom">
                             <ext-button iconCls="fa-solid fa-arrow-left" :text="l10n(`Back`)" @tap="_back"/>
                             <ext-spacer/>
-                            <ext-button :text="l10n(`Create bpt`)" ui="action" @tap="_createBot"/>
+                            <ext-button :text="l10n(`Create bot`)" ui="action" @tap="_createBot"/>
                         </ext-toolbar>
                     </ext-fieldpanel>
                 </ext-panel>
