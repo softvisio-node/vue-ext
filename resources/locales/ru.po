@@ -333,14 +333,10 @@ msgid "CPU usage"
 msgstr "использование процессора"
 
 #: ../../src/components/telegram/create-bot.button.vue:3:71
+#: ../../src/components/telegram/create-bot.dialog.vue:37:47
 #, fuzzy
 msgid "Create bot"
 msgstr "Создать бота"
-
-#: ../../src/components/telegram/create-bot.dialog.vue:37:47
-#, fuzzy
-msgid "Create bpt"
-msgstr "Создать БПТ"
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:11:31
 #: ../../src/components/telegram/bot/links/panel.vue:10:123
@@ -1688,6 +1684,11 @@ msgstr "Уменьшить"
 
 #~ msgid "Create API key"
 #~ msgstr "Создать ключ API"
+
+#: ../../src/components/telegram/create-bot.dialog.vue:37:47
+#, fuzzy
+#~ msgid "Create bpt"
+#~ msgstr "Создать БПТ"
 
 #: ../../src/components/telegram/create-bot.button.vue:3:71
 #, fuzzy
