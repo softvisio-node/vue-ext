@@ -194,12 +194,10 @@ msgid "Bot short description is shown on the bot profile page and is sent togeth
 msgstr "Краткое описание бота отображается на странице профиля бота и отправляется вместе со ссылкой, когда пользователи делятся ботом."
 
 #: ../../src/components/telegram/bot/models/bot.js:55:71
-#, fuzzy
 msgid "Bot started"
 msgstr "Бот запущен"
 
 #: ../../src/components/telegram/bot/models/bot.js:55:95
-#, fuzzy
 msgid "Bot stopped"
 msgstr "Бот остановлен"
 
@@ -793,14 +791,13 @@ msgstr "Новый адрес email"
 msgid "New password"
 msgstr "Новый пароль"
 
-#: ../../src/components/telegram/create-bot.dialog.vue:18:99
-#, fuzzy
-msgid "Next"
-msgstr "Следующий"
-
 #: ../../src/components/development/cron/panel.vue:16:58
 msgid "Next start"
 msgstr "Следующий старт"
+
+#: ../../src/components/telegram/create-bot.dialog.vue:18:99
+msgid "Next step"
+msgstr "Следующий шаг"
 
 #: ../../src/components/telegram/bots.panel.vue:16:46
 msgid "No bots found"
@@ -1296,12 +1293,10 @@ msgid "User sessions"
 msgstr "Сессии пользователя"
 
 #: ../../src/components/telegram/bot/users/models/user.js:51:27
-#, fuzzy
 msgid "User subscribed"
 msgstr "Пользователь подписался"
 
 #: ../../src/components/telegram/bot/users/models/user.js:54:27
-#, fuzzy
 msgid "User unsubscribed"
 msgstr "Пользователь отписался"
 
@@ -1756,6 +1751,16 @@ msgstr "Уменьшить"
 #, javascript-format
 #~ msgid "Method: ${n}"
 #~ msgstr "Метод: ${n}"
+
+#: ../../src/components/telegram/create-bot.dialog.vue:18:99
+#, fuzzy
+#~ msgid "Next"
+#~ msgstr "Следующий"
+
+#: ../../src/components/telegram/create-bot.dialog.vue:18:99
+#, fuzzy
+#~ msgid "Next step "
+#~ msgstr "Следующий шаг "
 
 #~ msgid "No"
 #~ msgstr "Нет"

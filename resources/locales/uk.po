@@ -194,14 +194,12 @@ msgid "Bot short description is shown on the bot profile page and is sent togeth
 msgstr "Короткий опис бота відображається на сторінці профілю бота та надсилається разом із посиланням, коли користувачі діляться ботом."
 
 #: ../../src/components/telegram/bot/models/bot.js:55:71
-#, fuzzy
 msgid "Bot started"
 msgstr "Бот запущений"
 
 #: ../../src/components/telegram/bot/models/bot.js:55:95
-#, fuzzy
 msgid "Bot stopped"
-msgstr "Бот зупинився"
+msgstr "Бот зупинений"
 
 #: ../../src/components/telegram/create-bot.dialog.vue:10:110
 #: ../../src/components/telegram/create-bot.dialog.vue:28:50
@@ -409,9 +407,8 @@ msgid "Delete link"
 msgstr "Видалити посилання"
 
 #: ../../src/components/user-sessions/panel.vue:91:39
-#, fuzzy
 msgid "Delete session"
-msgstr "Видалити сеанс"
+msgstr "Видалити сесію"
 
 #: ../../src/components/acl/panel.vue:199:39
 #: ../../src/components/administration/users/panel.vue:226:48
@@ -794,13 +791,13 @@ msgstr "Нова електронна адреса"
 msgid "New password"
 msgstr "Новий пароль"
 
-#: ../../src/components/telegram/create-bot.dialog.vue:18:99
-msgid "Next"
-msgstr "Далі"
-
 #: ../../src/components/development/cron/panel.vue:16:58
 msgid "Next start"
 msgstr "Наступний старт"
+
+#: ../../src/components/telegram/create-bot.dialog.vue:18:99
+msgid "Next step"
+msgstr "Наступний крок"
 
 #: ../../src/components/telegram/bots.panel.vue:16:46
 msgid "No bots found"
@@ -1296,12 +1293,10 @@ msgid "User sessions"
 msgstr "Сесії користувача"
 
 #: ../../src/components/telegram/bot/users/models/user.js:51:27
-#, fuzzy
 msgid "User subscribed"
 msgstr "Користувач підписаний"
 
 #: ../../src/components/telegram/bot/users/models/user.js:54:27
-#, fuzzy
 msgid "User unsubscribed"
 msgstr "Користувач скасував підписку"
 
@@ -1734,6 +1729,15 @@ msgstr "Зменшити"
 #, javascript-format
 #~ msgid "Method: ${n}"
 #~ msgstr "Метод: ${n}"
+
+#: ../../src/components/telegram/create-bot.dialog.vue:18:99
+#~ msgid "Next"
+#~ msgstr "Далі"
+
+#: ../../src/components/telegram/create-bot.dialog.vue:18:99
+#, fuzzy
+#~ msgid "Next step "
+#~ msgstr "Наступний крок "
 
 #~ msgid "No"
 #~ msgstr "Ні"

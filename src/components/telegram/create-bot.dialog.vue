@@ -15,7 +15,7 @@
 
                         <ext-toolbar docked="bottom">
                             <ext-spacer/>
-                            <ext-button iconAlign="right" iconCls="fa-solid fa-arrow-right" :text="l10n(`Next`)" ui="action" @tap="_checkApiToken"/>
+                            <ext-button iconAlign="right" iconCls="fa-solid fa-arrow-right" :text="l10n(`Next step`)" ui="action" @tap="_checkApiToken"/>
                         </ext-toolbar>
                     </ext-fieldpanel>
 
