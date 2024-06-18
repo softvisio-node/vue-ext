@@ -651,8 +651,9 @@ msgid "Last activity date"
 msgstr "Дата останньої активності"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:44:81
+#, fuzzy
 msgid "Last new user subscription date"
-msgstr ""
+msgstr "Дата останньої підписки нового користувача"
 
 #: ../../src/components/development/cron/panel.vue:18:58
 msgid "Last start"
@@ -660,8 +661,9 @@ msgstr "Останній старт"
 
 #: ../../src/components/telegram/bot/links/details.panel.vue:30:100
 #: ../../src/components/telegram/bot/links/panel.vue:31:116
+#, fuzzy
 msgid "Last user creation date"
-msgstr ""
+msgstr "Дата останнього створення користувача"
 
 #: ../../src/components/development/monitoring/instances/panel.vue:28:186
 #: ../../src/components/development/monitoring/methods/panel.vue:29:186
@@ -828,8 +830,9 @@ msgid "Open bot"
 msgstr "Відкритий бота"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:20:91
+#, fuzzy
 msgid "Open bot in Telegram"
-msgstr ""
+msgstr "Відкритий бот в Telegram"
 
 #: ../../src/components/development/monitoring/instances/panel.vue:136:39
 #: ../../src/components/development/monitoring/instances/panel.vue:31:72
@@ -920,8 +923,9 @@ msgid "Please, copy token to the clipboard and store it to the safe place. After
 msgstr "Будь ласка, скопіюйте токен у буфер обміну та збережіть його в надійному місці. Після того, як це діалогове вікно буде закрито, ми не змогли знову показати вам цей токен."
 
 #: ../../src/components/telegram-support-bot/component.js:11:15
+#, fuzzy
 msgid "Project support bot"
-msgstr ""
+msgstr "Бот підтримки проекту"
 
 #: ../../src/components/telegram-support-bot/component.js:19:15
 msgid "Project support bot. For internal use only."

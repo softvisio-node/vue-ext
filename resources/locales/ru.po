@@ -650,8 +650,9 @@ msgid "Last activity date"
 msgstr "Дата последней активности"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:44:81
+#, fuzzy
 msgid "Last new user subscription date"
-msgstr ""
+msgstr "Дата последней подписки нового пользователя"
 
 #: ../../src/components/development/cron/panel.vue:18:58
 msgid "Last start"
@@ -659,8 +660,9 @@ msgstr "Последний старт"
 
 #: ../../src/components/telegram/bot/links/details.panel.vue:30:100
 #: ../../src/components/telegram/bot/links/panel.vue:31:116
+#, fuzzy
 msgid "Last user creation date"
-msgstr ""
+msgstr "Дата последнего создания пользователя"
 
 #: ../../src/components/development/monitoring/instances/panel.vue:28:186
 #: ../../src/components/development/monitoring/methods/panel.vue:29:186
@@ -828,8 +830,9 @@ msgid "Open bot"
 msgstr "Открыть бот"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:20:91
+#, fuzzy
 msgid "Open bot in Telegram"
-msgstr ""
+msgstr "Открыть бота в Telegram"
 
 #: ../../src/components/development/monitoring/instances/panel.vue:136:39
 #: ../../src/components/development/monitoring/instances/panel.vue:31:72
@@ -920,8 +923,9 @@ msgid "Please, copy token to the clipboard and store it to the safe place. After
 msgstr "Пожалуйста, скопируйте токен в буфер и сохраните в надежном месте. После того, как это окно будет закрыто, мы не сможем показать вам этот токен снова."
 
 #: ../../src/components/telegram-support-bot/component.js:11:15
+#, fuzzy
 msgid "Project support bot"
-msgstr ""
+msgstr "Бот поддержки проекта"
 
 #: ../../src/components/telegram-support-bot/component.js:19:15
 msgid "Project support bot. For internal use only."
