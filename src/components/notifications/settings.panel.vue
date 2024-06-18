@@ -24,7 +24,7 @@
                             <ext-displayfield :value="linkedTelegramUsername"/>
                         </ext-container>
                         <ext-container layour="hbox">
-                            <ext-button :text="l10n(`Open Telegram bot`)" @tap="_openTelegramBot"/>
+                            <ext-button :text="l10n(`Open bot`)" @tap="_openTelegramBot"/>
                         </ext-container>
                     </ext-container>
                 </ext-container>

@@ -153,6 +153,11 @@ msgstr "Забанені користувачі"
 msgid "Base color"
 msgstr "Базовий колір"
 
+#: ../../src/components/telegram/bot/details/charts.dialog.vue:26:19
+#, fuzzy
+msgid "Bot charts"
+msgstr "Графіки ботів"
+
 #: ../../src/components/telegram/bot/details/info.panel.vue:192:29
 msgid "Bot deleted"
 msgstr "Бот видалено"
@@ -165,6 +170,16 @@ msgstr "Опис бота"
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:8:81
 msgid "Bot description is shown in the chat with the bot if the chat is empty."
 msgstr "Опис бота відображається в чаті з ботом, якщо чат порожній."
+
+#: ../../src/components/telegram/bot/links/details.dialog.vue:28:19
+#, fuzzy
+msgid "Bot link"
+msgstr "Посилання на бота"
+
+#: ../../src/components/telegram/bot/links/charts.dialog.vue:26:19
+#, fuzzy
+msgid "Bot link charts"
+msgstr "Графіки посилань на боти"
 
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:4:35
 #: ../../src/components/telegram/bot/details/info.panel.vue:24:67
@@ -294,6 +309,11 @@ msgstr "Скопіюйте токен у буфер обміну"
 msgid "CPU usage"
 msgstr "використання ЦП"
 
+#: ../../src/components/telegram/bot/links/create.dialog.vue:2:50
+#, fuzzy
+msgid "Create bot link"
+msgstr "Створити посилання на бота"
+
 #: ../../src/components/telegram/bot/links/create.dialog.vue:11:31
 #: ../../src/components/telegram/bot/links/panel.vue:10:123
 #: ../../src/components/telegram/bot/links/panel.vue:19:123
@@ -305,10 +325,6 @@ msgstr "Створити посилання"
 #: ../../src/components/telegram/create-bot.dialog.vue:37:47
 msgid "Create Telegram bot"
 msgstr "Створити Telegram бота"
-
-#: ../../src/components/telegram/bot/links/create.dialog.vue:2:50
-msgid "Create Telegram bot link"
-msgstr "Створити посилання для Telegram-бота"
 
 #: ../../src/components/account/tokens/create/dialog.vue:21:57
 #: ../../src/components/account/tokens/create/dialog.vue:2:51
@@ -762,6 +778,11 @@ msgstr "Далі"
 msgid "Next start"
 msgstr "Наступний старт"
 
+#: ../../src/components/telegram/bots.panel.vue:16:46
+#, fuzzy
+msgid "No bots found"
+msgstr "Ботів не знайдено"
+
 #: ../../src/components/cards.panel.vue:77:41
 msgid "No data match search criteria"
 msgstr "Жодні дані не відповідають критеріям пошуку"
@@ -769,10 +790,6 @@ msgstr "Жодні дані не відповідають критеріям п�
 #: ../../src/components/telegram/bot/links/panel.vue:18:42
 msgid "No links found"
 msgstr "Посилання не знайдено"
-
-#: ../../src/components/telegram/bots.panel.vue:16:46
-msgid "No Telegram bots found"
-msgstr "Ботів Telegram не знайдено"
 
 #: ../../src/components/telegram/bot/users/models/user.js:54:27
 msgid "Not subscribed"
@@ -792,6 +809,7 @@ msgstr "Сповіщення"
 msgid "Notifications settings"
 msgstr "Налаштування сповіщень"
 
+#: ../../src/components/notifications/settings.panel.vue:27:47
 #: ../../src/components/telegram/bots.panel.vue:130:36
 msgid "Open bot"
 msgstr "Відкритий бота"
@@ -807,10 +825,6 @@ msgstr "Відкрити бота в Tekegram"
 #: ../../src/components/telegram/bot/links/details.panel.vue:6:72
 msgid "Open charts"
 msgstr "Відкриті діаграми"
-
-#: ../../src/components/notifications/settings.panel.vue:27:47
-msgid "Open Telegram bot"
-msgstr "Відкрийте бот Telegram"
 
 #: ../../src/components/account/account.panel.vue:11:74
 #: ../../src/components/administration/users/create-user.dialog.vue:6:39
@@ -1039,8 +1053,9 @@ msgid "Search users"
 msgstr "Пошук користувачів"
 
 #: ../../src/components/telegram/create-bot.dialog.vue:10:151
-msgid "Select Telegram bot type"
-msgstr "Виберіть тип бота Telegram"
+#, fuzzy
+msgid "Select bot type"
+msgstr "Виберіть тип бота"
 
 #: ../../src/components/acl/add-user.dialog.vue:3:97
 msgid "Select user"
@@ -1148,23 +1163,10 @@ msgstr "Статус підписки"
 msgid "Support bot"
 msgstr "Бот підтримки"
 
-#: ../../src/components/telegram/bot/details/charts.dialog.vue:26:19
-#, fuzzy
-msgid "Telegram bot charts"
-msgstr "Графіки ботів Telegram"
-
 #: ../../src/components/telegram/create-bot.dialog.vue:160:29
 #, fuzzy
 msgid "Telegram bot created"
 msgstr "Телеграм-бот створено"
-
-#: ../../src/components/telegram/bot/links/details.dialog.vue:28:19
-msgid "Telegram bot link"
-msgstr "Посилання на телеграм-бот"
-
-#: ../../src/components/telegram/bot/links/charts.dialog.vue:26:19
-msgid "Telegram bot link charts"
-msgstr "Діаграми посилань бота Telegram"
 
 #: ../../src/components/telegram/create-bot.dialog.vue:26:50
 msgid "Telegram bot name"
@@ -1595,6 +1597,10 @@ msgstr "Зменшити"
 #~ msgid "Create bpt"
 #~ msgstr "Створити bpt"
 
+#: ../../src/components/telegram/bot/links/create.dialog.vue:2:50
+#~ msgid "Create Telegram bot link"
+#~ msgstr "Створити посилання для Telegram-бота"
+
 #: ../../src/components/telegram/create-bot.button.vue:3:71
 #, fuzzy
 #~ msgid "Createbot"
@@ -1750,6 +1756,10 @@ msgstr "Зменшити"
 #~ msgid "No scopes assigned"
 #~ msgstr "Дозволи не призначено"
 
+#: ../../src/components/telegram/bots.panel.vue:16:46
+#~ msgid "No Telegram bots found"
+#~ msgstr "Ботів Telegram не знайдено"
+
 #: ../../src/components/telegram/bot/users/models/user.js:66:27
 #, fuzzy
 #~ msgid "Not banned"
@@ -1765,6 +1775,10 @@ msgstr "Зменшити"
 #, javascript-format
 #~ msgid "Open @${n}"
 #~ msgstr "Відкрити @${n}"
+
+#: ../../src/components/notifications/settings.panel.vue:27:47
+#~ msgid "Open Telegram bot"
+#~ msgstr "Відкрийте бот Telegram"
 
 #: ../../src/components/notifications/link-telegram.dialig.vue:9:30
 #~ msgid "Or if you have Telegram installed on the <b>OTHER</b> device, then copy link url and open it on device there your Telegram is installed:"
@@ -1847,6 +1861,10 @@ msgstr "Зменшити"
 #~ msgid "Select Telegram bot tyoe"
 #~ msgstr "Виберіть бот Telegram"
 
+#: ../../src/components/telegram/create-bot.dialog.vue:10:151
+#~ msgid "Select Telegram bot type"
+#~ msgstr "Виберіть тип бота Telegram"
+
 #: ../../src/components/acl/roles.button.vue:115:32
 #, fuzzy, javascript-format
 #~ msgid "Selected roles: ${n}"
@@ -1894,6 +1912,19 @@ msgstr "Зменшити"
 
 #~ msgid "Submit"
 #~ msgstr "Подати"
+
+#: ../../src/components/telegram/bot/details/charts.dialog.vue:26:19
+#, fuzzy
+#~ msgid "Telegram bot charts"
+#~ msgstr "Графіки ботів Telegram"
+
+#: ../../src/components/telegram/bot/links/details.dialog.vue:28:19
+#~ msgid "Telegram bot link"
+#~ msgstr "Посилання на телеграм-бот"
+
+#: ../../src/components/telegram/bot/links/charts.dialog.vue:26:19
+#~ msgid "Telegram bot link charts"
+#~ msgstr "Діаграми посилань бота Telegram"
 
 #, fuzzy
 #~| msgid "Telegram username"

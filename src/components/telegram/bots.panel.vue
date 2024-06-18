@@ -13,7 +13,7 @@
 
                 <template #noDataPanel>
                     <ext-panel layout='{"align":"center","pack":"center","type":"vbox"}'>
-                        <ext-container :html="l10n(`No Telegram bots found`)"/>
+                        <ext-container :html="l10n(`No bots found`)"/>
                         <CreateBotButton ui="action"/>
                     </ext-panel>
                 </template>

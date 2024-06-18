@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="500" layout="fit" :title="l10n(`Create Telegram bot link`)" viewModel="true" width="400" @ready="_ready">
+    <ext-dialog height="500" layout="fit" :title="l10n(`Create bot link`)" viewModel="true" width="400" @ready="_ready">
         <ext-fieldpanel ref="form" layout="vbox">
             <ext-textfield :label="l10n(`Link name`)" maxLength="100" name="name" required="tue"/>
 
