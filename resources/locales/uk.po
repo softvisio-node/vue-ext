@@ -76,9 +76,8 @@ msgstr "Адміністрування"
 #: ../../src/components/account/panel.vue:18:83
 #: ../../src/components/account/tokens/dialog.vue:2:68
 #: ../../src/components/account/tokens/panel.vue:5:58
-#, fuzzy
 msgid "API access tokens"
-msgstr "Маркери доступу до API"
+msgstr "Токени доступу до API"
 
 #: ../../src/components/account/panel.vue:23:41
 #: ../../src/components/account/panel.vue:25:38
@@ -204,9 +203,8 @@ msgstr "Скасувати"
 
 #: ../../src/components/telegram/bot/details/edit-api-token.dialog.vue:2:50
 #: ../../src/components/telegram/bot/details/info.panel.vue:69:124
-#, fuzzy
 msgid "Change bot API token"
-msgstr "Змінити маркер API бота"
+msgstr "Змінити API токен бота"
 
 #: ../../src/components/account/account.panel.vue:22:47
 msgid "Change email"
@@ -486,9 +484,8 @@ msgid "Enter email"
 msgstr "Введіть email"
 
 #: ../../src/components/telegram/bot/details/edit-api-token.dialog.vue:4:89
-#, fuzzy
 msgid "Enter new API token"
-msgstr "Введіть новий маркер API"
+msgstr "Введіть новий API токен"
 
 #: ../../src/components/change-email.dialog.vue:6:90
 msgid "Enter new email address"
@@ -903,7 +900,6 @@ msgid "Please, copy token to the clipboard and store it to the safe place. After
 msgstr "Будь ласка, скопіюйте токен у буфер обміну та збережіть його в надійному місці. Після того, як це діалогове вікно буде закрито, ми не змогли знову показати вам цей токен."
 
 #: ../../src/components/telegram-support-bot/component.js:19:15
-#, fuzzy
 msgid "Project support bot. For internal use only."
 msgstr "Бот підтримки проекту. Тільки для внутрішнього використання."
 
@@ -1049,9 +1045,8 @@ msgid "Search users"
 msgstr "Пошук користувачів"
 
 #: ../../src/components/telegram/create-bot.dialog.vue:10:151
-#, fuzzy
-msgid "Select Telegram bot tyoe"
-msgstr "Виберіть бот Telegram"
+msgid "Select Telegram bot type"
+msgstr "Виберіть тип бота Telegram"
 
 #: ../../src/components/acl/add-user.dialog.vue:3:97
 msgid "Select user"
@@ -1080,7 +1075,6 @@ msgstr "Налаштування"
 
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:6:39
 #: ../../src/components/telegram/bot/details/info.panel.vue:31:76
-#, fuzzy
 msgid "Short description"
 msgstr "Короткий опис"
 
@@ -1175,7 +1169,6 @@ msgid "Telegram bot link"
 msgstr "Посилання на телеграм-бот"
 
 #: ../../src/components/telegram/bot/links/charts.dialog.vue:26:19
-#, fuzzy
 msgid "Telegram bot link charts"
 msgstr "Діаграми посилань бота Telegram"
 
@@ -1845,6 +1838,11 @@ msgstr "Зменшити"
 
 #~ msgid "Select roles"
 #~ msgstr "Виберіть ролі"
+
+#: ../../src/components/telegram/create-bot.dialog.vue:10:151
+#, fuzzy
+#~ msgid "Select Telegram bot tyoe"
+#~ msgstr "Виберіть бот Telegram"
 
 #: ../../src/components/acl/roles.button.vue:115:32
 #, fuzzy, javascript-format

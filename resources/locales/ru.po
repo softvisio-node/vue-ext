@@ -1111,8 +1111,8 @@ msgstr "Искать пользователей"
 
 #: ../../src/components/telegram/create-bot.dialog.vue:10:151
 #, fuzzy
-msgid "Select Telegram bot tyoe"
-msgstr "Выберите бот Telegram"
+msgid "Select Telegram bot type"
+msgstr "Выберите тип бота Telegram"
 
 #: ../../src/components/acl/add-user.dialog.vue:3:97
 msgid "Select user"
@@ -1967,6 +1967,11 @@ msgstr "Уменьшить"
 
 #~ msgid "Select roles"
 #~ msgstr "Выбрать роли"
+
+#: ../../src/components/telegram/create-bot.dialog.vue:10:151
+#, fuzzy
+#~ msgid "Select Telegram bot tyoe"
+#~ msgstr "Выберите бот Telegram"
 
 #: ../../src/components/acl/roles.button.vue:115:32
 #, fuzzy, javascript-format

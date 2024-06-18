@@ -7,7 +7,7 @@
                     <ext-fieldpanel ref="apiTokenPanel" layout="vbox">
                         <ext-textfield :label="l10n(`Enter your Telegram bot API token`)" name="api_token" required="true"/>
 
-                        <ext-comboboxfield displayTpl="{name}" editable="false" forceSelection="true" :label="l10n(`Telegram bot type`)" :placeholder="l10n(`Select Telegram bot tyoe`)" required="true" :store="store" triggerAction="all" valueField="id" @change="_onBotTypeChange" @ready="_onBotTypeComboReady"/>
+                        <ext-comboboxfield displayTpl="{name}" editable="false" forceSelection="true" :label="l10n(`Telegram bot type`)" :placeholder="l10n(`Select Telegram bot type`)" required="true" :store="store" triggerAction="all" valueField="id" @change="_onBotTypeChange" @ready="_onBotTypeComboReady"/>
 
                         <ext-displayfield :label="l10n(`Bot description`)"/>
 
