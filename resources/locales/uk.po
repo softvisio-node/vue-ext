@@ -334,6 +334,12 @@ msgstr "Скопіюйте токен у буфер обміну"
 msgid "CPU usage"
 msgstr "використання ЦП"
 
+#: ../../src/components/telegram/create-bot.button.vue:3:71
+#: ../../src/components/telegram/create-bot.dialog.vue:2:50
+#: ../../src/components/telegram/create-bot.dialog.vue:37:47
+msgid "Create bot"
+msgstr "Створити бота"
+
 #: ../../src/components/telegram/bot/links/create.dialog.vue:2:50
 #, fuzzy
 msgid "Create bot link"
@@ -344,12 +350,6 @@ msgstr "Створити посилання на бота"
 #: ../../src/components/telegram/bot/links/panel.vue:19:123
 msgid "Create link"
 msgstr "Створити посилання"
-
-#: ../../src/components/telegram/create-bot.button.vue:3:71
-#: ../../src/components/telegram/create-bot.dialog.vue:2:50
-#: ../../src/components/telegram/create-bot.dialog.vue:37:47
-msgid "Create Telegram bot"
-msgstr "Створити Telegram бота"
 
 #: ../../src/components/account/tokens/create/dialog.vue:21:57
 #: ../../src/components/account/tokens/create/dialog.vue:2:51
@@ -660,8 +660,8 @@ msgid "Last activity date"
 msgstr "Дата останньої активності"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:44:81
-msgid "Last new user subscribed"
-msgstr "Останній новий користувач підписався"
+msgid "Last new user subscription date"
+msgstr ""
 
 #: ../../src/components/development/cron/panel.vue:18:58
 msgid "Last start"
@@ -669,9 +669,8 @@ msgstr "Останній старт"
 
 #: ../../src/components/telegram/bot/links/details.panel.vue:30:100
 #: ../../src/components/telegram/bot/links/panel.vue:31:116
-#, fuzzy
-msgid "Last user created"
-msgstr "Останній створений користувач"
+msgid "Last user creation date"
+msgstr ""
 
 #: ../../src/components/development/monitoring/instances/panel.vue:28:186
 #: ../../src/components/development/monitoring/methods/panel.vue:29:186
@@ -840,8 +839,8 @@ msgid "Open bot"
 msgstr "Відкритий бота"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:20:91
-msgid "Open bot in Tekegram"
-msgstr "Відкрити бота в Tekegram"
+msgid "Open bot in Telegram"
+msgstr ""
 
 #: ../../src/components/development/monitoring/instances/panel.vue:136:39
 #: ../../src/components/development/monitoring/instances/panel.vue:31:72
@@ -931,6 +930,10 @@ msgstr "Платформа"
 #: ../../src/components/account/tokens/create/dialog.vue:11:24
 msgid "Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again."
 msgstr "Будь ласка, скопіюйте токен у буфер обміну та збережіть його в надійному місці. Після того, як це діалогове вікно буде закрито, ми не змогли знову показати вам цей токен."
+
+#: ../../src/components/telegram-support-bot/component.js:11:15
+msgid "Project support bot"
+msgstr ""
 
 #: ../../src/components/telegram-support-bot/component.js:19:15
 msgid "Project support bot. For internal use only."
@@ -1183,10 +1186,6 @@ msgstr "Підписані користувачі"
 #: ../../src/components/telegram/bot/users/details.panel.vue:28:78
 msgid "Subscription status"
 msgstr "Статус підписки"
-
-#: ../../src/components/telegram-support-bot/component.js:11:15
-msgid "Support bot"
-msgstr "Бот підтримки"
 
 #: ../../src/components/notifications/settings.panel.vue:11:39
 #, fuzzy
@@ -1579,15 +1578,16 @@ msgstr "Зменшити"
 #~ msgid "Create API key"
 #~ msgstr "Створіть ключ API"
 
-#: ../../src/components/telegram/create-bot.button.vue:3:71
-#: ../../src/components/telegram/create-bot.dialog.vue:37:47
-#~ msgid "Create bot"
-#~ msgstr "Створити бота"
-
 #: ../../src/components/telegram/create-bot.dialog.vue:37:47
 #, fuzzy
 #~ msgid "Create bpt"
 #~ msgstr "Створити bpt"
+
+#: ../../src/components/telegram/create-bot.button.vue:3:71
+#: ../../src/components/telegram/create-bot.dialog.vue:2:50
+#: ../../src/components/telegram/create-bot.dialog.vue:37:47
+#~ msgid "Create Telegram bot"
+#~ msgstr "Створити Telegram бота"
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:2:50
 #~ msgid "Create Telegram bot link"
@@ -1726,6 +1726,16 @@ msgstr "Зменшити"
 #~ msgstr[1] ""
 #~ msgstr[2] ""
 
+#: ../../src/components/telegram/bot/details/info.panel.vue:44:81
+#~ msgid "Last new user subscribed"
+#~ msgstr "Останній новий користувач підписався"
+
+#: ../../src/components/telegram/bot/links/details.panel.vue:30:100
+#: ../../src/components/telegram/bot/links/panel.vue:31:116
+#, fuzzy
+#~ msgid "Last user created"
+#~ msgstr "Останній створений користувач"
+
 #: ../../src/components/telegram/bot/details/charts.panel.vue:35:16
 #: ../../src/components/telegram/bot/links/charts.panel.vue:34:16
 #, fuzzy
@@ -1767,6 +1777,10 @@ msgstr "Зменшити"
 #, javascript-format
 #~ msgid "Open @${n}"
 #~ msgstr "Відкрити @${n}"
+
+#: ../../src/components/telegram/bot/details/info.panel.vue:20:91
+#~ msgid "Open bot in Tekegram"
+#~ msgstr "Відкрити бота в Tekegram"
 
 #: ../../src/components/notifications/settings.panel.vue:27:47
 #~ msgid "Open Telegram bot"
@@ -1904,6 +1918,10 @@ msgstr "Зменшити"
 
 #~ msgid "Submit"
 #~ msgstr "Подати"
+
+#: ../../src/components/telegram-support-bot/component.js:11:15
+#~ msgid "Support bot"
+#~ msgstr "Бот підтримки"
 
 #: ../../src/components/telegram/bot/details/charts.dialog.vue:26:19
 #, fuzzy
