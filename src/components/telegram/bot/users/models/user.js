@@ -60,10 +60,10 @@ export default Ext.define( null, {
             "name": "ban_status",
             calculate ( data ) {
                 if ( data.banned ) {
-                    return l10n( `Banned` );
+                    return l10n( `User banned` );
                 }
                 else {
-                    return l10n( `Not banned` );
+                    return l10n( `User not banned` );
                 }
             },
         },
