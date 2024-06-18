@@ -904,8 +904,8 @@ msgstr "Будь ласка, скопіюйте токен у буфер обм�
 
 #: ../../src/components/telegram-support-bot/component.js:19:15
 #, fuzzy
-msgid "Project support bot. For internal use pnly."
-msgstr "Бот підтримки проекту. Для внутрішнього використання pnly."
+msgid "Project support bot. For internal use only."
+msgstr "Бот підтримки проекту. Тільки для внутрішнього використання."
 
 #: ../../src/components/notifications/settings.panel.vue:4:118
 msgid "Push notifications"
@@ -1794,6 +1794,11 @@ msgstr "Зменшити"
 
 #~ msgid "Please, fill all required fields"
 #~ msgstr "Будь ласка, заповніть усі обов'язкові поля"
+
+#: ../../src/components/telegram-support-bot/component.js:19:15
+#, fuzzy
+#~ msgid "Project support bot. For internal use pnly."
+#~ msgstr "Бот підтримки проекту. Для внутрішнього використання pnly."
 
 #, javascript-format
 #~ msgid "Push${n}notifications"

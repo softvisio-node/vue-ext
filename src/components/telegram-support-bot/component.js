@@ -16,7 +16,7 @@ class Component extends TelegramBotComponent {
     }
 
     get description () {
-        return l10n( `Project support bot. For internal use pnly.` );
+        return l10n( `Project support bot. For internal use only.` );
     }
 
     get panel () {

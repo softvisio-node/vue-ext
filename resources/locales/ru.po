@@ -965,7 +965,7 @@ msgstr "Пожалуйста, скопируйте токен в буфер и �
 
 #: ../../src/components/telegram-support-bot/component.js:19:15
 #, fuzzy
-msgid "Project support bot. For internal use pnly."
+msgid "Project support bot. For internal use only."
 msgstr "Бот поддержки проекта. Только для внутреннего использования."
 
 #: ../../src/components/notifications/settings.panel.vue:4:118
@@ -1910,6 +1910,11 @@ msgstr "Уменьшить"
 #~| msgid "Username <email@address>"
 #~ msgid "Primary email address"
 #~ msgstr "Имя пользователя <email@address>"
+
+#: ../../src/components/telegram-support-bot/component.js:19:15
+#, fuzzy
+#~ msgid "Project support bot. For internal use pnly."
+#~ msgstr "Бот поддержки проекта. Только для внутреннего использования."
 
 #~ msgid "Published"
 #~ msgstr "Опубликовано"
