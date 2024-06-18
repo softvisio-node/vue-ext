@@ -181,11 +181,6 @@ msgstr "Опис бота"
 msgid "Bot description is shown in the chat with the bot if the chat is empty."
 msgstr "Опис бота відображається в чаті з ботом, якщо чат порожній."
 
-#: ../../src/components/telegram-support-bot/panel.vue:4:72
-#, fuzzy
-msgid "Bot info"
-msgstr "Але інформація"
-
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:4:35
 #: ../../src/components/telegram/bot/details/info.panel.vue:24:67
 #, fuzzy
@@ -207,11 +202,6 @@ msgstr "Тип бота"
 #, fuzzy
 msgid "Bot updated"
 msgstr "Бот оновлений"
-
-#: ../../src/components/telegram-support-bot/panel.vue:9:68
-#, fuzzy
-msgid "Bot users"
-msgstr "Користувачі ботів"
 
 #: ../../src/components/user-sessions/panel.vue:26:134
 msgid "Browser"
@@ -635,8 +625,11 @@ msgstr "Згенерувати випадковий пароль"
 msgid "Inbox"
 msgstr "Вхідні"
 
+#: ../../src/components/telegram-support-bot/panel.vue:4:72
+msgid "Info"
+msgstr "Інфо"
+
 #: ../../src/components/development/monitoring/instances/charts.dialog.vue:22:19
-#, fuzzy
 msgid "Instance stats"
 msgstr "Статистика екземпляра"
 
@@ -700,27 +693,22 @@ msgstr "Останні діаграми"
 #: ../../src/components/telegram/bot/details/info.panel.vue:204:25
 #: ../../src/components/telegram/bot/links/details.panel.vue:231:25
 #: ../../src/components/telegram/bot/links/panel.vue:139:25
-#, fuzzy
 msgid "Link copied to the clipboard"
 msgstr "Посилання скопійовано в буфер обміну"
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:49:29
-#, fuzzy
 msgid "Link created"
 msgstr "Посилання створено"
 
 #: ../../src/components/telegram/bot/links/details.panel.vue:217:29
-#, fuzzy
 msgid "Link deleted"
 msgstr "Посилання видалено"
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:6:71
-#, fuzzy
 msgid "Link description"
 msgstr "Опис посилання"
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:4:35
-#, fuzzy
 msgid "Link name"
 msgstr "Назва посилання"
 
@@ -730,18 +718,15 @@ msgstr "Прив’яжіть Telegram"
 
 #: ../../src/components/telegram/bot/links/details.panel.vue:165:29
 #: ../../src/components/telegram/bot/links/details.panel.vue:198:29
-#, fuzzy
 msgid "Link updated"
 msgstr "Посилання оновлено"
 
 #: ../../src/components/telegram/bot/users/details.panel.vue:41:46
-#, fuzzy
 msgid "Linked API user"
 msgstr "Пов’язаний користувач API"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:18:111
 #: ../../src/components/telegram/bot/links/dialog.vue:24:73
-#, fuzzy
 msgid "Links"
 msgstr "Посилання"
 
@@ -750,7 +735,6 @@ msgid "Locale"
 msgstr "Локаль"
 
 #: ../../src/components/user-sessions/panel.vue:30:126
-#, fuzzy
 msgid "Location"
 msgstr "Місцезнаходження"
 
@@ -767,7 +751,6 @@ msgid "Maximize"
 msgstr "Максимізувати"
 
 #: ../../src/components/telegram/bot/details/charts.panel.vue:8:101
-#, fuzzy
 msgid "Maximize charts"
 msgstr "Розгорнути діаграми"
 
@@ -776,7 +759,6 @@ msgid "Method name"
 msgstr "Назва методу"
 
 #: ../../src/components/development/monitoring/methods/charts.dialog.vue:22:19
-#, fuzzy
 msgid "Method stats"
 msgstr "Статистика методу"
 
@@ -844,7 +826,6 @@ msgid "No links found"
 msgstr "Посилання не знайдено"
 
 #: ../../src/components/telegram/bots.panel.vue:16:46
-#, fuzzy
 msgid "No Telegram bots found"
 msgstr "Ботів Telegram не знайдено"
 
@@ -1445,6 +1426,7 @@ msgstr "Ім’я користувача скопійовано в буфер о
 #: ../../src/components/acl/dialog.vue:26:33
 #: ../../src/components/administration/panel.vue:4:40
 #: ../../src/components/administration/users/dialog.vue:34:33
+#: ../../src/components/telegram-support-bot/panel.vue:9:68
 msgid "Users"
 msgstr "Користувачі"
 
@@ -1586,6 +1568,16 @@ msgstr "Зменшити"
 
 #~ msgid "Average duration per call for the last 60 minutes (ms)"
 #~ msgstr "Середня тривалість виклику за останні 60 хвилин (мс)"
+
+#: ../../src/components/telegram-support-bot/panel.vue:4:72
+#, fuzzy
+#~ msgid "Bot info"
+#~ msgstr "Але інформація"
+
+#: ../../src/components/telegram-support-bot/panel.vue:9:68
+#, fuzzy
+#~ msgid "Bot users"
+#~ msgstr "Користувачі ботів"
 
 #~ msgid "Calls for the last 30 days"
 #~ msgstr "Виклики за останні 30 днів"
