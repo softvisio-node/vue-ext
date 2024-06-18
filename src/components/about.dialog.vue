@@ -9,7 +9,7 @@
         </ext-fieldpanel>
 
         <ext-toolbar docked="bottom" layout='{"pack":"end","type":"hbox"}'>
-            <ext-button iconCls="fa-regular fa-copy" :text="l10n(`Copy to clipboard`)" ui="action" @tap="_copy"/>
+            <ext-button iconCls="fa-regular fa-copy" :text="l10n(`Copy to the clipboard`)" ui="action" @tap="_copy"/>
         </ext-toolbar>
     </ext-dialog>
 </template>

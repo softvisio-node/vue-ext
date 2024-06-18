@@ -278,9 +278,6 @@ msgid "Copy link"
 msgstr "Копіювати посилання"
 
 #: ../../src/components/about.dialog.vue:12:60
-msgid "Copy to clipboard"
-msgstr "Скопіювати у буфер обміну"
-
 #: ../../src/components/telegram/bot/details/info.panel.vue:19:71
 #: ../../src/components/telegram/bot/users/details.panel.vue:13:71
 #: ../../src/components/telegram/bot/users/details.panel.vue:21:107
@@ -1542,6 +1539,10 @@ msgstr "Зменшити"
 
 #~ msgid "Copy email to the clipboard"
 #~ msgstr "Копіювати email в буфер обміну"
+
+#: ../../src/components/about.dialog.vue:12:60
+#~ msgid "Copy to clipboard"
+#~ msgstr "Скопіювати у буфер обміну"
 
 #~ msgid "Copy version info to clipboard"
 #~ msgstr "Копіювати інформацію про версію в буфер обміну"
