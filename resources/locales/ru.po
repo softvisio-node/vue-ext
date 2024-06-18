@@ -307,7 +307,6 @@ msgid "Create Telegram bot"
 msgstr "Создать Telegram-бот"
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:2:50
-#, fuzzy
 msgid "Create Telegram bot link"
 msgstr "Создать ссылку на бота в Telegram"
 
@@ -332,7 +331,6 @@ msgid "Creation date"
 msgstr "Дата создания"
 
 #: ../../src/components/user-sessions/panel.vue:85:39
-#, fuzzy
 msgid "Current session"
 msgstr "Текущая сессия"
 
@@ -356,23 +354,20 @@ msgid "Delete all"
 msgstr "Удалить все"
 
 #: ../../src/components/user-sessions/panel.vue:15:69
-#, fuzzy
 msgid "Delete all sessions"
-msgstr "Удалить все сеансы"
+msgstr "Удалить все сессии"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:72:114
 msgid "Delete bot"
 msgstr "Удалить бота"
 
 #: ../../src/components/telegram/bot/links/details.panel.vue:73:130
-#, fuzzy
 msgid "Delete link"
 msgstr "Удалить ссылку"
 
 #: ../../src/components/user-sessions/panel.vue:91:39
-#, fuzzy
 msgid "Delete session"
-msgstr "Удалить сеанс"
+msgstr "Удалить сессию"
 
 #: ../../src/components/acl/panel.vue:199:39
 #: ../../src/components/administration/users/panel.vue:226:48
@@ -425,19 +420,16 @@ msgid "Duration / call (ms)"
 msgstr "Длительность вызова (мс)"
 
 #: ../../src/components/development/monitoring/methods/charts.panel.vue:192:24
-#, fuzzy
 msgid "Duration per call (ms)"
-msgstr "Длительность звонка (мс)"
+msgstr "Длительность вызова (мс)"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:28:106
 #: ../../src/components/telegram/bot/links/details.panel.vue:15:122
 #: ../../src/components/telegram/bot/links/details.panel.vue:52:126
-#, fuzzy
 msgid "Edit"
 msgstr "Редактировать"
 
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:2:50
-#, fuzzy
 msgid "Edit bot details"
 msgstr "Изменить данные бота"
 
@@ -450,7 +442,6 @@ msgstr "Редактировать роли пользователя"
 #: ../../src/components/acl/panel.vue:17:100
 #: ../../src/components/administration/users/create-user.dialog.vue:4:36
 #: ../../src/components/administration/users/panel.vue:17:62
-#, fuzzy
 msgid "Email"
 msgstr "Электронная почта"
 
@@ -466,7 +457,6 @@ msgid "Email address changed"
 msgstr "Адрес email изменен"
 
 #: ../../src/components/account/confirm-email.button.vue:43:33
-#, fuzzy
 msgid "Email address confirmed"
 msgstr "Адрес электронной почты подтвержден"
 
@@ -487,7 +477,6 @@ msgid "Enter email"
 msgstr "Введите email"
 
 #: ../../src/components/telegram/bot/details/edit-api-token.dialog.vue:4:89
-#, fuzzy
 msgid "Enter new API token"
 msgstr "Введите новый токен API"
 
@@ -522,9 +511,8 @@ msgid "Enter your email address"
 msgstr "Введите ваш адрес email"
 
 #: ../../src/components/telegram/create-bot.dialog.vue:8:47
-#, fuzzy
 msgid "Enter your Telegram bot API token"
-msgstr "Введите свой токен API бота Telegram"
+msgstr "Введите API токен вашего Telegram бота"
 
 #: ../../src/components/development/cron/panel.vue:20:98
 msgid "Error"
@@ -537,7 +525,6 @@ msgstr "Исключения"
 
 #: ../../src/components/development/monitoring/methods/charts.panel.vue:295:24
 #: ../../src/components/development/monitoring/methods/charts.panel.vue:330:24
-#, fuzzy
 msgid "Exceptions (%)"
 msgstr "Исключения (%)"
 
@@ -596,7 +583,6 @@ msgid "Info"
 msgstr "Инфо"
 
 #: ../../src/components/development/monitoring/instances/charts.dialog.vue:22:19
-#, fuzzy
 msgid "Instance stats"
 msgstr "Статистика экземпляра"
 
@@ -617,12 +603,10 @@ msgid "IP address"
 msgstr "IP адрес"
 
 #: ../../src/components/user-sessions/panel.vue:173:25
-#, fuzzy
 msgid "IP address copied"
 msgstr "IP-адрес скопирован"
 
 #: ../../src/components/telegram/bot/users/details.panel.vue:16:65
-#, fuzzy
 msgid "Is bot"
 msgstr "Это бот"
 
@@ -633,7 +617,6 @@ msgid "Last activity"
 msgstr "Последняя активность"
 
 #: ../../src/components/telegram/bot/users/details.panel.vue:26:77
-#, fuzzy
 msgid "Last activity date"
 msgstr "Дата последней активности"
 
@@ -665,17 +648,14 @@ msgid "Link copied to the clipboard"
 msgstr "Ссылка скопирована в буфер обмена"
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:49:29
-#, fuzzy
 msgid "Link created"
 msgstr "Ссылка создана"
 
 #: ../../src/components/telegram/bot/links/details.panel.vue:217:29
-#, fuzzy
 msgid "Link deleted"
 msgstr "Ссылка удалена"
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:6:71
-#, fuzzy
 msgid "Link description"
 msgstr "Ссылка Описание"
 
