@@ -154,12 +154,10 @@ msgid "Base color"
 msgstr "Базовый цвет"
 
 #: ../../src/components/telegram/bot/details/charts.dialog.vue:26:19
-#, fuzzy
 msgid "Bot charts"
-msgstr "Диаграммы ботов"
+msgstr "Диаграммы бота"
 
 #: ../../src/components/telegram/create-bot.dialog.vue:160:29
-#, fuzzy
 msgid "Bot created"
 msgstr "Бот создан"
 
@@ -178,14 +176,12 @@ msgstr "Описание бота отображается в чате с бот
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:16:66
 #: ../../src/components/telegram/bot/links/details.dialog.vue:28:19
-#, fuzzy
 msgid "Bot link"
 msgstr "Ссылка на бота"
 
 #: ../../src/components/telegram/bot/links/charts.dialog.vue:26:19
-#, fuzzy
 msgid "Bot link charts"
-msgstr "Диаграммы ссылок ботов"
+msgstr "Диаграммы ссылки бота"
 
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:4:35
 #: ../../src/components/telegram/bot/details/info.panel.vue:24:67
@@ -208,19 +204,16 @@ msgid "Bot updated"
 msgstr "Бот обновлен"
 
 #: ../../src/components/telegram/bot/users/details.dialog.vue:26:19
-#, fuzzy
 msgid "Bot user"
 msgstr "Пользователь бота"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:13:67
 #: ../../src/components/telegram/bot/users/details.panel.vue:10:71
 #: ../../src/components/telegram/create-bot.dialog.vue:24:50
-#, fuzzy
 msgid "Bot username"
 msgstr "Имя пользователя бота"
 
 #: ../../src/components/administration/telegram/bots.dialog.vue:34:33
-#, fuzzy
 msgid "Bots"
 msgstr "Боты"
 
@@ -335,7 +328,6 @@ msgid "CPU usage"
 msgstr "использование CPU"
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:2:50
-#, fuzzy
 msgid "Create bot link"
 msgstr "Создать ссылку на бота"
 
@@ -587,27 +579,23 @@ msgid "Forgot password?"
 msgstr "Забыли пароль?"
 
 #: ../../src/components/development/monitoring/instances/panel.vue:21:56
-#, fuzzy
 msgid "FS total"
-msgstr "всего ФС"
+msgstr "FS Всего"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:546:33
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:578:33
 #: ../../src/components/development/monitoring/instances/panel.vue:23:93
-#, fuzzy
 msgid "FS used"
-msgstr "ФС используется"
+msgstr "FS используется"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:572:24
-#, fuzzy
 msgid "FS used (%)"
-msgstr "Использованная ФС (%)"
+msgstr "FS используется (%)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:495:24
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:540:24
-#, fuzzy
 msgid "FS used (MB)"
-msgstr "Использовано ФС (МБ)"
+msgstr "FS используется (МБ)"
 
 #: ../../src/components/administration/users/create-user.dialog.vue:11:35
 #: ../../src/components/change-password.dialog.vue:16:31
@@ -815,12 +803,10 @@ msgid "No data match search criteria"
 msgstr "Нет данных, соответствующих критериям поиска"
 
 #: ../../src/components/telegram/bot/links/panel.vue:18:42
-#, fuzzy
 msgid "No links found"
 msgstr "Ссылки не найдены"
 
 #: ../../src/components/telegram/bot/users/models/user.js:54:27
-#, fuzzy
 msgid "Not subscribed"
 msgstr "Не подписан"
 
@@ -840,7 +826,6 @@ msgstr "Настройки уведомлений"
 
 #: ../../src/components/notifications/settings.panel.vue:27:47
 #: ../../src/components/telegram/bots.panel.vue:130:36
-#, fuzzy
 msgid "Open bot"
 msgstr "Открыть бот"
 
@@ -854,7 +839,6 @@ msgstr "Открыть бот в Текеграме"
 #: ../../src/components/development/monitoring/methods/panel.vue:235:39
 #: ../../src/components/development/monitoring/methods/panel.vue:32:72
 #: ../../src/components/telegram/bot/links/details.panel.vue:6:72
-#, fuzzy
 msgid "Open charts"
 msgstr "Открыть графики"
 
@@ -903,21 +887,18 @@ msgstr "Пароли не совпадают"
 
 #: ../../src/components/telegram/bot/details/charts.panel.vue:35:16
 #: ../../src/components/telegram/bot/links/charts.panel.vue:34:16
-#, fuzzy
 msgid "Past 12 months"
-msgstr "Прошлые 12 месяцев"
+msgstr "Последние 12 месяцев"
 
 #: ../../src/components/telegram/bot/details/charts.panel.vue:31:16
 #: ../../src/components/telegram/bot/links/charts.panel.vue:30:16
-#, fuzzy
 msgid "Past 3 months"
 msgstr "Последние 3 месяца"
 
 #: ../../src/components/telegram/bot/details/charts.panel.vue:27:16
 #: ../../src/components/telegram/bot/links/charts.panel.vue:26:16
-#, fuzzy
 msgid "Past 7 days"
-msgstr "Прошлые 7 дней"
+msgstr "Последние 7 дней"
 
 #: ../../src/components/development/monitoring/methods/panel.vue:208:61
 #: ../../src/components/development/monitoring/methods/panel.vue:304:49
@@ -930,7 +911,6 @@ msgstr "Период"
 
 #: ../../src/components/telegram/bot/users/details.panel.vue:19:73
 #: ../../src/components/telegram/bot/users/panel.vue:22:101
-#, fuzzy
 msgid "Phone"
 msgstr "Телефон"
 
@@ -943,7 +923,6 @@ msgid "Please, copy token to the clipboard and store it to the safe place. After
 msgstr "Пожалуйста, скопируйте токен в буфер и сохраните в надежном месте. После того, как это окно будет закрыто, мы не сможем показать вам этот токен снова."
 
 #: ../../src/components/telegram-support-bot/component.js:19:15
-#, fuzzy
 msgid "Project support bot. For internal use only."
 msgstr "Бот поддержки проекта. Только для внутреннего использования."
 
@@ -995,13 +974,11 @@ msgid "Refresh"
 msgstr "Обновить"
 
 #: ../../src/app.js:69:22
-#, fuzzy
 msgid "Reload"
 msgstr "Перезагрузить"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:54:92
 #: ../../src/components/telegram/bot/links/details.panel.vue:42:107
-#, fuzzy
 msgid "Returned users"
 msgstr "Вернувшиеся пользователи"
 
@@ -1040,15 +1017,13 @@ msgid "RSS memory"
 msgstr "RSS-память"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:427:24
-#, fuzzy
 msgid "RSS memory (%)"
 msgstr "RSS-память (%)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:350:24
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:395:24
-#, fuzzy
 msgid "RSS memory (MB)"
-msgstr "Память RSS (МБ)"
+msgstr "RSS-память (МБ)"
 
 #: ../../src/components/telegram/bot/details/edit-api-token.dialog.vue:9:31
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:13:64
@@ -1070,7 +1045,6 @@ msgid "Search for methods by name"
 msgstr "Искать методы по имени"
 
 #: ../../src/components/telegram/bot/links/panel.vue:6:51
-#, fuzzy
 msgid "Search links"
 msgstr "Поиск ссылок"
 
@@ -1089,7 +1063,6 @@ msgid "Search users"
 msgstr "Искать пользователей"
 
 #: ../../src/components/telegram/create-bot.dialog.vue:10:142
-#, fuzzy
 msgid "Select bot type"
 msgstr "Выберите тип бота"
 
@@ -1120,7 +1093,6 @@ msgstr "Настройки"
 
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:6:39
 #: ../../src/components/telegram/bot/details/info.panel.vue:31:76
-#, fuzzy
 msgid "Short description"
 msgstr "Краткое описание"
 
@@ -1145,7 +1117,6 @@ msgid "Sign up"
 msgstr "Зарегистрироваться"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:63:115
-#, fuzzy
 msgid "Start bot"
 msgstr "Запустить бота"
 
@@ -1165,17 +1136,14 @@ msgid "Status text"
 msgstr "Текст статуса"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:66:114
-#, fuzzy
 msgid "Stop bot"
 msgstr "Остановить бота"
 
 #: ../../src/components/telegram/bot/models/bot.js:55:91
-#, fuzzy
 msgid "Stopped"
 msgstr "Остановлено"
 
 #: ../../src/components/telegram/bot/users/models/user.js:51:27
-#, fuzzy
 msgid "Subscribed"
 msgstr "Подписан"
 
@@ -1191,7 +1159,6 @@ msgstr "Подписан"
 #: ../../src/components/telegram/bot/links/details.panel.vue:37:109
 #: ../../src/components/telegram/bot/links/panel.vue:27:140
 #: ../../src/components/telegram/bots.panel.vue:27:144
-#, fuzzy
 msgid "Subscribed users"
 msgstr "Подписавшиеся пользователи"
 

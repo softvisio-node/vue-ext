@@ -17,7 +17,7 @@
                     <ext-spacer/>
                     <ext-button bind='{"hidden":"{!record.can_read_links}"}' iconCls="fa-solid fa-link" :text="l10n(`Links`)" @tap="_showLinksDialog"/>
                     <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`)" @tap="_copyBotUrl"/>
-                    <ext-button iconCls="fa-solid fa-arrow-up-right-from-square" :tooltip="l10n(`Open bot in Tekegram`)" @tap="_openBotUrl"/>
+                    <ext-button iconCls="fa-solid fa-arrow-up-right-from-square" :tooltip="l10n(`Open bot in Telegram`)" @tap="_openBotUrl"/>
                 </ext-container>
 
                 <ext-container layout="hbox">
@@ -41,7 +41,7 @@
                 <ext-displayfield bind='{"hidden":"{!record.error}","value":"{record.error_text}"}' labelAlign="left" labelWidth="200"/>
 
                 <!-- users stats -->
-                <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`Last new user subscribed`)" labelAlign="left" labelWidth="200"/>
+                <ext-displayfield bind="{record.last_user_created_text}" :label="l10n(`Last new user subscription date`)" labelAlign="left" labelWidth="200"/>
 
                 <ext-container layout="hbox">
                     <ext-container defaults='{"labelAlign":"left","labelWidth":200}' flex="1" layout="vbox">

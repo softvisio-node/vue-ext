@@ -1,5 +1,5 @@
 <template>
-    <ext-dialog height="500" layout="fit" :title="l10n(`Create Telegram bot`)" width="500">
+    <ext-dialog height="500" layout="fit" :title="l10n(`Create bot`)" width="500">
         <CardsPanel ref="cardsPanel" @refresh="refresh">
             <template #dataPanel>
                 <ext-panel ref="dataPanel" layout='{"animation":"slide","type":"card"}' @ready="_ready">
@@ -34,7 +34,7 @@
                         <ext-toolbar docked="bottom">
                             <ext-button iconCls="fa-solid fa-arrow-left" :text="l10n(`Back`)" @tap="_back"/>
                             <ext-spacer/>
-                            <ext-button :text="l10n(`Create Telegram bot`)" ui="action" @tap="_createBot"/>
+                            <ext-button :text="l10n(`Create bot`)" ui="action" @tap="_createBot"/>
                         </ext-toolbar>
                     </ext-fieldpanel>
                 </ext-panel>

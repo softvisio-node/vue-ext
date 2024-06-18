@@ -1,6 +1,6 @@
 <template>
     <ext-panel>
-        <ext-button :hidden="hidden" iconCls="fa-solid fa-plus" :text="l10n(`Create Telegram bot`)" :ui="ui" @tap="_showCreateotDialog"/>
+        <ext-button :hidden="hidden" iconCls="fa-solid fa-plus" :text="l10n(`Create bot`)" :ui="ui" @tap="_showCreateotDialog"/>
     </ext-panel>
 </template>
 

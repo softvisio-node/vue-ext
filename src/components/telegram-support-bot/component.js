@@ -8,7 +8,7 @@ class Component extends TelegramBotComponent {
     }
 
     get name () {
-        return l10n( "Support bot" );
+        return l10n( "Project support bot" );
     }
 
     get shortDescription () {

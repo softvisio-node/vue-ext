@@ -27,7 +27,7 @@
                 <ext-panel defaults='{"labelAlign":"left","labelWidth":150}'>
                     <ext-displayfield bind="{telegramBotLinkRecord.created_html}" :label="l10n(`Creation date`)"/>
 
-                    <ext-displayfield bind="{telegramBotLinkRecord.last_user_created_html}" :label="l10n(`Last user created`)" labelAlign="top"/>
+                    <ext-displayfield bind="{telegramBotLinkRecord.last_user_created_html}" :label="l10n(`Last user creation date`)" labelAlign="top"/>
                 </ext-panel>
 
                 <!-- users -->

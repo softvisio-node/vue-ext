@@ -28,7 +28,7 @@
 
                     <ext-column align="right" dataIndex="total_unsubscribed_users_text" sorter='{"property":"total_unsubscribed_users"}' :text="l10n(`Unsubscribed users`)" width="150"/>
 
-                    <ext-column dataIndex="last_user_created_text" sorter='{"property":"last_user_created"}' :text="l10n(`Last user created`)" width="150"/>
+                    <ext-column dataIndex="last_user_created_text" sorter='{"property":"last_user_created"}' :text="l10n(`Last user creation date`)" width="150"/>
 
                     <ext-column dataIndex="created_text" sorter='{"property":"created"}' :text="l10n(`Creation date`)" width="150"/>
 
