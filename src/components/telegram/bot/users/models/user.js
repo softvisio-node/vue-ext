@@ -48,10 +48,10 @@ export default Ext.define( null, {
             "name": "subscription_status",
             calculate ( data ) {
                 if ( data.subscribed ) {
-                    return l10n( `Subscribed` );
+                    return l10n( `User subscribed` );
                 }
                 else {
-                    return l10n( `Not subscribed` );
+                    return l10n( `User unsubscribed` );
                 }
             },
         },

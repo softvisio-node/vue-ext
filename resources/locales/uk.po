@@ -193,6 +193,16 @@ msgstr "Назва бота"
 msgid "Bot short description is shown on the bot profile page and is sent together with the link when users share the bot."
 msgstr "Короткий опис бота відображається на сторінці профілю бота та надсилається разом із посиланням, коли користувачі діляться ботом."
 
+#: ../../src/components/telegram/bot/models/bot.js:55:71
+#, fuzzy
+msgid "Bot started"
+msgstr "Бот запущений"
+
+#: ../../src/components/telegram/bot/models/bot.js:55:95
+#, fuzzy
+msgid "Bot stopped"
+msgstr "Бот зупинився"
+
 #: ../../src/components/telegram/create-bot.dialog.vue:10:110
 #: ../../src/components/telegram/create-bot.dialog.vue:28:50
 msgid "Bot type"
@@ -651,7 +661,6 @@ msgid "Last activity date"
 msgstr "Дата останньої активності"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:44:81
-#, fuzzy
 msgid "Last new user subscription date"
 msgstr "Дата останньої підписки нового користувача"
 
@@ -661,7 +670,6 @@ msgstr "Останній старт"
 
 #: ../../src/components/telegram/bot/links/details.panel.vue:30:100
 #: ../../src/components/telegram/bot/links/panel.vue:31:116
-#, fuzzy
 msgid "Last user creation date"
 msgstr "Дата останнього створення користувача"
 
@@ -806,10 +814,6 @@ msgstr "Жодні дані не відповідають критеріям п�
 msgid "No links found"
 msgstr "Посилання не знайдено"
 
-#: ../../src/components/telegram/bot/users/models/user.js:54:27
-msgid "Not subscribed"
-msgstr "Не підписаний"
-
 #: ../../src/components/account/panel.vue:9:40
 #: ../../src/components/notifications/dialog.vue:2:68
 #: ../../src/components/notifications/settings.panel.vue:39:85
@@ -830,9 +834,8 @@ msgid "Open bot"
 msgstr "Відкритий бота"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:20:91
-#, fuzzy
 msgid "Open bot in Telegram"
-msgstr "Відкритий бот в Telegram"
+msgstr "Відкрити бот в Telegram"
 
 #: ../../src/components/development/monitoring/instances/panel.vue:136:39
 #: ../../src/components/development/monitoring/instances/panel.vue:31:72
@@ -923,7 +926,6 @@ msgid "Please, copy token to the clipboard and store it to the safe place. After
 msgstr "Будь ласка, скопіюйте токен у буфер обміну та збережіть його в надійному місці. Після того, як це діалогове вікно буде закрито, ми не змогли знову показати вам цей токен."
 
 #: ../../src/components/telegram-support-bot/component.js:11:15
-#, fuzzy
 msgid "Project support bot"
 msgstr "Бот підтримки проекту"
 
@@ -1126,7 +1128,6 @@ msgid "Start bot"
 msgstr "Запустити бота"
 
 #: ../../src/components/development/monitoring/methods/exceptions.dialog.vue:14:108
-#: ../../src/components/telegram/bot/models/bot.js:55:71
 msgid "Started"
 msgstr "Розпочато"
 
@@ -1143,16 +1144,6 @@ msgstr "Текст статусу"
 #: ../../src/components/telegram/bot/details/info.panel.vue:66:114
 msgid "Stop bot"
 msgstr "Зупинити бота"
-
-#: ../../src/components/telegram/bot/models/bot.js:55:91
-#, fuzzy
-msgid "Stopped"
-msgstr "Зупинився"
-
-#: ../../src/components/telegram/bot/users/models/user.js:51:27
-#, fuzzy
-msgid "Subscribed"
-msgstr "Підписався"
 
 #: ../../src/components/telegram/bot/details/charts.panel.vue:177:33
 #: ../../src/components/telegram/bot/details/charts.panel.vue:257:24
@@ -1303,6 +1294,16 @@ msgstr "Користувач не забанений"
 #: ../../src/components/administration/users/user-sessions.dialog.vue:2:72
 msgid "User sessions"
 msgstr "Сесії користувача"
+
+#: ../../src/components/telegram/bot/users/models/user.js:51:27
+#, fuzzy
+msgid "User subscribed"
+msgstr "Користувач підписаний"
+
+#: ../../src/components/telegram/bot/users/models/user.js:54:27
+#, fuzzy
+msgid "User unsubscribed"
+msgstr "Користувач скасував підписку"
 
 #: ../../src/components/account/appearance.panel.vue:4:39
 msgid "User your device dark mode settings"
@@ -1752,6 +1753,10 @@ msgstr "Зменшити"
 #~ msgid "Not banned"
 #~ msgstr "Не заборонено"
 
+#: ../../src/components/telegram/bot/users/models/user.js:54:27
+#~ msgid "Not subscribed"
+#~ msgstr "Не підписаний"
+
 #~ msgid "Notification types"
 #~ msgstr "Типи сповіщень"
 
@@ -1901,8 +1906,18 @@ msgstr "Зменшити"
 #~ msgid "Stop"
 #~ msgstr "Зупинити"
 
+#: ../../src/components/telegram/bot/models/bot.js:55:91
+#, fuzzy
+#~ msgid "Stopped"
+#~ msgstr "Зупинився"
+
 #~ msgid "Submit"
 #~ msgstr "Подати"
+
+#: ../../src/components/telegram/bot/users/models/user.js:51:27
+#, fuzzy
+#~ msgid "Subscribed"
+#~ msgstr "Підписався"
 
 #: ../../src/components/telegram-support-bot/component.js:11:15
 #~ msgid "Support bot"

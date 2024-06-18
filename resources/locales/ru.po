@@ -193,6 +193,16 @@ msgstr "Имя бота"
 msgid "Bot short description is shown on the bot profile page and is sent together with the link when users share the bot."
 msgstr "Краткое описание бота отображается на странице профиля бота и отправляется вместе со ссылкой, когда пользователи делятся ботом."
 
+#: ../../src/components/telegram/bot/models/bot.js:55:71
+#, fuzzy
+msgid "Bot started"
+msgstr "Бот запущен"
+
+#: ../../src/components/telegram/bot/models/bot.js:55:95
+#, fuzzy
+msgid "Bot stopped"
+msgstr "Бот остановлен"
+
 #: ../../src/components/telegram/create-bot.dialog.vue:10:110
 #: ../../src/components/telegram/create-bot.dialog.vue:28:50
 msgid "Bot type"
@@ -650,7 +660,6 @@ msgid "Last activity date"
 msgstr "Дата последней активности"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:44:81
-#, fuzzy
 msgid "Last new user subscription date"
 msgstr "Дата последней подписки нового пользователя"
 
@@ -660,7 +669,6 @@ msgstr "Последний старт"
 
 #: ../../src/components/telegram/bot/links/details.panel.vue:30:100
 #: ../../src/components/telegram/bot/links/panel.vue:31:116
-#, fuzzy
 msgid "Last user creation date"
 msgstr "Дата последнего создания пользователя"
 
@@ -806,10 +814,6 @@ msgstr "Нет данных, соответствующих критериям �
 msgid "No links found"
 msgstr "Ссылки не найдены"
 
-#: ../../src/components/telegram/bot/users/models/user.js:54:27
-msgid "Not subscribed"
-msgstr "Не подписан"
-
 #: ../../src/components/account/panel.vue:9:40
 #: ../../src/components/notifications/dialog.vue:2:68
 #: ../../src/components/notifications/settings.panel.vue:39:85
@@ -830,7 +834,6 @@ msgid "Open bot"
 msgstr "Открыть бот"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:20:91
-#, fuzzy
 msgid "Open bot in Telegram"
 msgstr "Открыть бота в Telegram"
 
@@ -923,7 +926,6 @@ msgid "Please, copy token to the clipboard and store it to the safe place. After
 msgstr "Пожалуйста, скопируйте токен в буфер и сохраните в надежном месте. После того, как это окно будет закрыто, мы не сможем показать вам этот токен снова."
 
 #: ../../src/components/telegram-support-bot/component.js:11:15
-#, fuzzy
 msgid "Project support bot"
 msgstr "Бот поддержки проекта"
 
@@ -1126,7 +1128,6 @@ msgid "Start bot"
 msgstr "Запустить бота"
 
 #: ../../src/components/development/monitoring/methods/exceptions.dialog.vue:14:108
-#: ../../src/components/telegram/bot/models/bot.js:55:71
 msgid "Started"
 msgstr "Запущен"
 
@@ -1143,14 +1144,6 @@ msgstr "Текст статуса"
 #: ../../src/components/telegram/bot/details/info.panel.vue:66:114
 msgid "Stop bot"
 msgstr "Остановить бота"
-
-#: ../../src/components/telegram/bot/models/bot.js:55:91
-msgid "Stopped"
-msgstr "Остановлено"
-
-#: ../../src/components/telegram/bot/users/models/user.js:51:27
-msgid "Subscribed"
-msgstr "Подписан"
 
 #: ../../src/components/telegram/bot/details/charts.panel.vue:177:33
 #: ../../src/components/telegram/bot/details/charts.panel.vue:257:24
@@ -1301,6 +1294,16 @@ msgstr "Пользователь не забанен"
 #: ../../src/components/administration/users/user-sessions.dialog.vue:2:72
 msgid "User sessions"
 msgstr "Сессии пользователя"
+
+#: ../../src/components/telegram/bot/users/models/user.js:51:27
+#, fuzzy
+msgid "User subscribed"
+msgstr "Пользователь подписался"
+
+#: ../../src/components/telegram/bot/users/models/user.js:54:27
+#, fuzzy
+msgid "User unsubscribed"
+msgstr "Пользователь отписался"
 
 #: ../../src/components/account/appearance.panel.vue:4:39
 msgid "User your device dark mode settings"
@@ -1773,6 +1776,10 @@ msgstr "Уменьшить"
 #~ msgid "Not banned"
 #~ msgstr "Не запрещен"
 
+#: ../../src/components/telegram/bot/users/models/user.js:54:27
+#~ msgid "Not subscribed"
+#~ msgstr "Не подписан"
+
 #~ msgid "Notification types"
 #~ msgstr "Типы уведомлений"
 
@@ -1945,8 +1952,16 @@ msgstr "Уменьшить"
 #~ msgid "Stop"
 #~ msgstr "Остановить"
 
+#: ../../src/components/telegram/bot/models/bot.js:55:91
+#~ msgid "Stopped"
+#~ msgstr "Остановлено"
+
 #~ msgid "Submit"
 #~ msgstr "Отправить"
+
+#: ../../src/components/telegram/bot/users/models/user.js:51:27
+#~ msgid "Subscribed"
+#~ msgstr "Подписан"
 
 #: ../../src/components/telegram-support-bot/component.js:11:15
 #, fuzzy
