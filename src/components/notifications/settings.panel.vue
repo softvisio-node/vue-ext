@@ -8,7 +8,7 @@
         </OptionContainer>
 
         <!-- telegram -->
-        <OptionContainer :description="l10n(`To use Telegram support bot you need to link your Telegram account`)" :hidden="!telegramSupported" label="Telegram" labelWidth="260">
+        <OptionContainer :description="l10n(`To use Support bot you need to link your Telegram account`)" :hidden="!telegramSupported" label="Telegram" labelWidth="260">
             <template #option>
                 <ext-container>
                     <!-- link -->

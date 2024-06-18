@@ -207,11 +207,22 @@ msgstr "Тип бота"
 msgid "Bot updated"
 msgstr "Бот оновлений"
 
+#: ../../src/components/telegram/bot/users/details.dialog.vue:26:19
+#, fuzzy
+msgid "Bot user"
+msgstr "Користувач бота"
+
 #: ../../src/components/telegram/bot/details/info.panel.vue:13:67
+#: ../../src/components/telegram/bot/users/details.panel.vue:10:71
 #: ../../src/components/telegram/create-bot.dialog.vue:24:50
 #, fuzzy
 msgid "Bot username"
 msgstr "Ім&#39;я користувача бота"
+
+#: ../../src/components/administration/telegram/bots.dialog.vue:34:33
+#, fuzzy
+msgid "Bots"
+msgstr "Боти"
 
 #: ../../src/components/user-sessions/panel.vue:26:134
 msgid "Browser"
@@ -1177,21 +1188,10 @@ msgstr "Статус підписки"
 msgid "Support bot"
 msgstr "Бот підтримки"
 
-#: ../../src/components/telegram/bot/users/details.dialog.vue:26:19
-msgid "Telegram bot user"
-msgstr "Користувач телеграм-бота"
-
-#: ../../src/components/administration/telegram/bots.dialog.vue:34:33
-msgid "Telegram bots"
-msgstr "Telegram боти"
-
-#: ../../src/components/telegram/bot/users/details.panel.vue:10:71
-msgid "Telegram username"
-msgstr "Ім&#39;я користувача Telegram"
-
 #: ../../src/components/notifications/settings.panel.vue:11:39
-msgid "To use Telegram support bot you need to link your Telegram account"
-msgstr "Щоб використовувати бот підтримки Telegram, вам потрібно прив’язати свій обліковий запис Telegram"
+#, fuzzy
+msgid "To use Support bot you need to link your Telegram account"
+msgstr "Щоб користуватися ботом підтримки, потрібно прив’язати свій обліковий запис Telegram"
 
 #: ../../src/components/account/appearance.panel.vue:13:39
 msgid "Toggle dark mode"
@@ -1935,9 +1935,17 @@ msgstr "Зменшити"
 #~ msgid "Telegram bot url"
 #~ msgstr "URL-адреса бота Telegram"
 
+#: ../../src/components/telegram/bot/users/details.dialog.vue:26:19
+#~ msgid "Telegram bot user"
+#~ msgstr "Користувач телеграм-бота"
+
 #: ../../src/components/telegram/create-bot.dialog.vue:24:50
 #~ msgid "Telegram bot username"
 #~ msgstr "Ім&#39;я користувача бота Telegram"
+
+#: ../../src/components/administration/telegram/bots.dialog.vue:34:33
+#~ msgid "Telegram bots"
+#~ msgstr "Telegram боти"
 
 #, fuzzy
 #~| msgid "Telegram username"
@@ -1956,12 +1964,20 @@ msgstr "Зменшити"
 #~ msgid "Telegram unlinked"
 #~ msgstr "Telegram відключено"
 
+#: ../../src/components/telegram/bot/users/details.panel.vue:10:71
+#~ msgid "Telegram username"
+#~ msgstr "Ім&#39;я користувача Telegram"
+
 #, javascript-format
 #~ msgid "Telegram${n}notifications"
 #~ msgstr "Telegram${n}сповіщення"
 
 #~ msgid "Test SMTP"
 #~ msgstr "Перевірка SMTP"
+
+#: ../../src/components/notifications/settings.panel.vue:11:39
+#~ msgid "To use Telegram support bot you need to link your Telegram account"
+#~ msgstr "Щоб використовувати бот підтримки Telegram, вам потрібно прив’язати свій обліковий запис Telegram"
 
 #~ msgid "Token"
 #~ msgstr "Токен"

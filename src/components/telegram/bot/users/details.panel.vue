@@ -7,7 +7,7 @@
                 <ext-displayfield bind="{record.full_name}" :label="l10n(`Name`)" labelAlign="left" labelWidth="200"/>
 
                 <ext-container layout='{"align":"center","type":"hbox"}'>
-                    <ext-displayfield bind="{record.username}" :label="l10n(`Telegram username`)" labelAlign="left" labelWidth="200"/>
+                    <ext-displayfield bind="{record.username}" :label="l10n(`Bot username`)" labelAlign="left" labelWidth="200"/>
                     <ext-spacer/>
 
                     <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`)" @tap="_copyUssername"/>
