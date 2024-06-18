@@ -154,14 +154,12 @@ msgid "Base color"
 msgstr "Базовий колір"
 
 #: ../../src/components/telegram/bot/details/charts.dialog.vue:26:19
-#, fuzzy
 msgid "Bot charts"
-msgstr "Графіки ботів"
+msgstr "Графіки бота"
 
 #: ../../src/components/telegram/create-bot.dialog.vue:160:29
-#, fuzzy
 msgid "Bot created"
-msgstr "Бот створено"
+msgstr "Бота створено"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:192:29
 msgid "Bot deleted"
@@ -178,14 +176,12 @@ msgstr "Опис бота відображається в чаті з ботом
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:16:66
 #: ../../src/components/telegram/bot/links/details.dialog.vue:28:19
-#, fuzzy
 msgid "Bot link"
 msgstr "Посилання на бота"
 
 #: ../../src/components/telegram/bot/links/charts.dialog.vue:26:19
-#, fuzzy
 msgid "Bot link charts"
-msgstr "Графіки посилань на боти"
+msgstr "Графіки посилання на бота"
 
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:4:35
 #: ../../src/components/telegram/bot/details/info.panel.vue:24:67
@@ -208,19 +204,16 @@ msgid "Bot updated"
 msgstr "Бот оновлений"
 
 #: ../../src/components/telegram/bot/users/details.dialog.vue:26:19
-#, fuzzy
 msgid "Bot user"
 msgstr "Користувач бота"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:13:67
 #: ../../src/components/telegram/bot/users/details.panel.vue:10:71
 #: ../../src/components/telegram/create-bot.dialog.vue:24:50
-#, fuzzy
 msgid "Bot username"
 msgstr "Ім&#39;я користувача бота"
 
 #: ../../src/components/administration/telegram/bots.dialog.vue:34:33
-#, fuzzy
 msgid "Bots"
 msgstr "Боти"
 
@@ -341,7 +334,6 @@ msgid "Create bot"
 msgstr "Створити бота"
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:2:50
-#, fuzzy
 msgid "Create bot link"
 msgstr "Створити посилання на бота"
 
@@ -567,7 +559,6 @@ msgstr "Винятки"
 
 #: ../../src/components/development/monitoring/methods/charts.panel.vue:295:24
 #: ../../src/components/development/monitoring/methods/charts.panel.vue:330:24
-#, fuzzy
 msgid "Exceptions (%)"
 msgstr "Винятки (%)"
 
@@ -781,9 +772,8 @@ msgid "Name"
 msgstr "Ім'я"
 
 #: ../../src/components/telegram/bot/details/edit-api-token.dialog.vue:4:35
-#, fuzzy
 msgid "New API token"
-msgstr "Новий маркер API"
+msgstr "Новий токен API"
 
 #: ../../src/components/change-email.dialog.vue:6:36
 msgid "New email address"
@@ -803,7 +793,6 @@ msgid "Next start"
 msgstr "Наступний старт"
 
 #: ../../src/components/telegram/bots.panel.vue:16:46
-#, fuzzy
 msgid "No bots found"
 msgstr "Ботів не знайдено"
 
@@ -919,7 +908,6 @@ msgstr "Період"
 
 #: ../../src/components/telegram/bot/users/details.panel.vue:19:73
 #: ../../src/components/telegram/bot/users/panel.vue:22:101
-#, fuzzy
 msgid "Phone"
 msgstr "Телефон"
 
@@ -987,13 +975,11 @@ msgid "Refresh"
 msgstr "Оновити"
 
 #: ../../src/app.js:69:22
-#, fuzzy
 msgid "Reload"
 msgstr "Перезавантажити"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:54:92
 #: ../../src/components/telegram/bot/links/details.panel.vue:42:107
-#, fuzzy
 msgid "Returned users"
 msgstr "Користувачі, які повернулися"
 
@@ -1021,7 +1007,7 @@ msgid "Roles filter"
 msgstr "Фільтр ролей"
 
 #: ../../src/components/acl/roles.button.vue:115:32
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Roles selected: ${n}"
 msgstr "Вибрані ролі: ${n}"
 
@@ -1032,13 +1018,11 @@ msgid "RSS memory"
 msgstr "Пам'ять RSS"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:427:24
-#, fuzzy
 msgid "RSS memory (%)"
 msgstr "Пам&#39;ять RSS (%)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:350:24
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:395:24
-#, fuzzy
 msgid "RSS memory (MB)"
 msgstr "Пам&#39;ять RSS (МБ)"
 
@@ -1062,9 +1046,8 @@ msgid "Search for methods by name"
 msgstr "Пошук методів за назвою"
 
 #: ../../src/components/telegram/bot/links/panel.vue:6:51
-#, fuzzy
 msgid "Search links"
-msgstr "Пошук за посиланнями"
+msgstr "Пошук посилань"
 
 #: ../../src/components/acl/roles.panel.vue:13:55
 msgid "Search roles"
@@ -1081,7 +1064,6 @@ msgid "Search users"
 msgstr "Пошук користувачів"
 
 #: ../../src/components/telegram/create-bot.dialog.vue:10:142
-#, fuzzy
 msgid "Select bot type"
 msgstr "Виберіть тип бота"
 
@@ -1188,7 +1170,6 @@ msgid "Subscription status"
 msgstr "Статус підписки"
 
 #: ../../src/components/notifications/settings.panel.vue:11:39
-#, fuzzy
 msgid "To use Support bot you need to link your Telegram account"
 msgstr "Щоб користуватися ботом підтримки, потрібно прив’язати свій обліковий запис Telegram"
 
