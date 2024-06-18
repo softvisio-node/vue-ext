@@ -7,7 +7,7 @@
                     <ext-fieldpanel ref="apiTokenPanel" layout="vbox">
                         <ext-textfield :label="l10n(`Enter your Telegram bot API token`)" name="api_token" required="true"/>
 
-                        <ext-comboboxfield displayTpl="{name}" editable="false" forceSelection="true" :label="l10n(`Telegram bot type`)" :placeholder="l10n(`Select bot type`)" required="true" :store="store" triggerAction="all" valueField="id" @change="_onBotTypeChange" @ready="_onBotTypeComboReady"/>
+                        <ext-comboboxfield displayTpl="{name}" editable="false" forceSelection="true" :label="l10n(`Bot type`)" :placeholder="l10n(`Select bot type`)" required="true" :store="store" triggerAction="all" valueField="id" @change="_onBotTypeChange" @ready="_onBotTypeComboReady"/>
 
                         <ext-displayfield :label="l10n(`Bot description`)"/>
 
@@ -21,9 +21,9 @@
 
                     <!-- create bot panel -->
                     <ext-fieldpanel ref="botTypePanel" layout="vbox">
-                        <ext-displayfield :label="l10n(`Telegram bot username`)" :value="botInfo?.username"/>
+                        <ext-displayfield :label="l10n(`Bot username`)" :value="botInfo?.username"/>
 
-                        <ext-displayfield :label="l10n(`Telegram bot name`)" :value="botInfo?.first_name"/>
+                        <ext-displayfield :label="l10n(`Bot name`)" :value="botInfo?.first_name"/>
 
                         <ext-displayfield :label="l10n(`Bot type`)" :value="component?.name"/>
 
@@ -157,7 +157,7 @@ export default {
                 this.$toast( res );
             }
             else {
-                this.$toast( l10n( `Telegram bot created` ) );
+                this.$toast( l10n( `Bot created` ) );
 
                 this.$emit( "botCreate" );
 

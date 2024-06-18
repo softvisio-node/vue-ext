@@ -158,6 +158,11 @@ msgstr "Базовий колір"
 msgid "Bot charts"
 msgstr "Графіки ботів"
 
+#: ../../src/components/telegram/create-bot.dialog.vue:160:29
+#, fuzzy
+msgid "Bot created"
+msgstr "Бот створено"
+
 #: ../../src/components/telegram/bot/details/info.panel.vue:192:29
 msgid "Bot deleted"
 msgstr "Бот видалено"
@@ -171,6 +176,7 @@ msgstr "Опис бота"
 msgid "Bot description is shown in the chat with the bot if the chat is empty."
 msgstr "Опис бота відображається в чаті з ботом, якщо чат порожній."
 
+#: ../../src/components/telegram/bot/details/info.panel.vue:16:66
 #: ../../src/components/telegram/bot/links/details.dialog.vue:28:19
 #, fuzzy
 msgid "Bot link"
@@ -183,6 +189,7 @@ msgstr "Графіки посилань на боти"
 
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:4:35
 #: ../../src/components/telegram/bot/details/info.panel.vue:24:67
+#: ../../src/components/telegram/create-bot.dialog.vue:26:50
 msgid "Bot name"
 msgstr "Назва бота"
 
@@ -190,6 +197,7 @@ msgstr "Назва бота"
 msgid "Bot short description is shown on the bot profile page and is sent together with the link when users share the bot."
 msgstr "Короткий опис бота відображається на сторінці профілю бота та надсилається разом із посиланням, коли користувачі діляться ботом."
 
+#: ../../src/components/telegram/create-bot.dialog.vue:10:110
 #: ../../src/components/telegram/create-bot.dialog.vue:28:50
 msgid "Bot type"
 msgstr "Тип бота"
@@ -198,6 +206,12 @@ msgstr "Тип бота"
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:59:29
 msgid "Bot updated"
 msgstr "Бот оновлений"
+
+#: ../../src/components/telegram/bot/details/info.panel.vue:13:67
+#: ../../src/components/telegram/create-bot.dialog.vue:24:50
+#, fuzzy
+msgid "Bot username"
+msgstr "Ім&#39;я користувача бота"
 
 #: ../../src/components/user-sessions/panel.vue:26:134
 msgid "Browser"
@@ -1052,7 +1066,7 @@ msgstr "Пошук токенів за назвою"
 msgid "Search users"
 msgstr "Пошук користувачів"
 
-#: ../../src/components/telegram/create-bot.dialog.vue:10:151
+#: ../../src/components/telegram/create-bot.dialog.vue:10:142
 #, fuzzy
 msgid "Select bot type"
 msgstr "Виберіть тип бота"
@@ -1163,36 +1177,14 @@ msgstr "Статус підписки"
 msgid "Support bot"
 msgstr "Бот підтримки"
 
-#: ../../src/components/telegram/create-bot.dialog.vue:160:29
-#, fuzzy
-msgid "Telegram bot created"
-msgstr "Телеграм-бот створено"
-
-#: ../../src/components/telegram/create-bot.dialog.vue:26:50
-msgid "Telegram bot name"
-msgstr "Ім&#39;я телеграм-бота"
-
-#: ../../src/components/telegram/create-bot.dialog.vue:10:110
-msgid "Telegram bot type"
-msgstr "Тип телеграм-бота"
-
-#: ../../src/components/telegram/bot/details/info.panel.vue:16:66
-msgid "Telegram bot url"
-msgstr "URL-адреса бота Telegram"
-
 #: ../../src/components/telegram/bot/users/details.dialog.vue:26:19
 msgid "Telegram bot user"
 msgstr "Користувач телеграм-бота"
-
-#: ../../src/components/telegram/create-bot.dialog.vue:24:50
-msgid "Telegram bot username"
-msgstr "Ім&#39;я користувача бота Telegram"
 
 #: ../../src/components/administration/telegram/bots.dialog.vue:34:33
 msgid "Telegram bots"
 msgstr "Telegram боти"
 
-#: ../../src/components/telegram/bot/details/info.panel.vue:13:67
 #: ../../src/components/telegram/bot/users/details.panel.vue:10:71
 msgid "Telegram username"
 msgstr "Ім&#39;я користувача Telegram"
@@ -1918,6 +1910,11 @@ msgstr "Зменшити"
 #~ msgid "Telegram bot charts"
 #~ msgstr "Графіки ботів Telegram"
 
+#: ../../src/components/telegram/create-bot.dialog.vue:160:29
+#, fuzzy
+#~ msgid "Telegram bot created"
+#~ msgstr "Телеграм-бот створено"
+
 #: ../../src/components/telegram/bot/links/details.dialog.vue:28:19
 #~ msgid "Telegram bot link"
 #~ msgstr "Посилання на телеграм-бот"
@@ -1925,6 +1922,22 @@ msgstr "Зменшити"
 #: ../../src/components/telegram/bot/links/charts.dialog.vue:26:19
 #~ msgid "Telegram bot link charts"
 #~ msgstr "Діаграми посилань бота Telegram"
+
+#: ../../src/components/telegram/create-bot.dialog.vue:26:50
+#~ msgid "Telegram bot name"
+#~ msgstr "Ім&#39;я телеграм-бота"
+
+#: ../../src/components/telegram/create-bot.dialog.vue:10:110
+#~ msgid "Telegram bot type"
+#~ msgstr "Тип телеграм-бота"
+
+#: ../../src/components/telegram/bot/details/info.panel.vue:16:66
+#~ msgid "Telegram bot url"
+#~ msgstr "URL-адреса бота Telegram"
+
+#: ../../src/components/telegram/create-bot.dialog.vue:24:50
+#~ msgid "Telegram bot username"
+#~ msgstr "Ім&#39;я користувача бота Telegram"
 
 #, fuzzy
 #~| msgid "Telegram username"
