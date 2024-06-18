@@ -294,18 +294,15 @@ msgstr "Скопіюйте токен у буфер обміну"
 msgid "CPU usage"
 msgstr "використання ЦП"
 
-#: ../../src/components/telegram/create-bot.button.vue:3:71
-#: ../../src/components/telegram/create-bot.dialog.vue:37:47
-msgid "Create bot"
-msgstr "Створити бота"
-
 #: ../../src/components/telegram/bot/links/create.dialog.vue:11:31
 #: ../../src/components/telegram/bot/links/panel.vue:10:123
 #: ../../src/components/telegram/bot/links/panel.vue:19:123
 msgid "Create link"
 msgstr "Створити посилання"
 
+#: ../../src/components/telegram/create-bot.button.vue:3:71
 #: ../../src/components/telegram/create-bot.dialog.vue:2:50
+#: ../../src/components/telegram/create-bot.dialog.vue:37:47
 msgid "Create Telegram bot"
 msgstr "Створити Telegram бота"
 
@@ -1587,6 +1584,11 @@ msgstr "Зменшити"
 
 #~ msgid "Create API key"
 #~ msgstr "Створіть ключ API"
+
+#: ../../src/components/telegram/create-bot.button.vue:3:71
+#: ../../src/components/telegram/create-bot.dialog.vue:37:47
+#~ msgid "Create bot"
+#~ msgstr "Створити бота"
 
 #: ../../src/components/telegram/create-bot.dialog.vue:37:47
 #, fuzzy
