@@ -21,7 +21,7 @@
 
                     <ext-column dataIndex="phone_text" flex="1" sorter='{"property":"phone"}' :text="l10n(`Phone`)"/>
 
-                    <ext-column width="150" @ready="_actionColReady"/>
+                    <ext-column width="250" @ready="_actionColReady"/>
                 </ext-grid>
             </template>
         </CardsPanel>
