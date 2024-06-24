@@ -10,7 +10,7 @@
                     <ext-displayfield bind="{record.username}" :label="l10n(`Bot username`)" labelAlign="left" labelWidth="200"/>
                     <ext-spacer/>
 
-                    <ext-button iconCls="fa-regular fa-copy" :tooltip="l10n(`Copy to the clipboard`)" @tap="_copyUssername"/>
+                    <ext-button iconCls="fa-regular fa-copy" :text="l10n(`Copy`)" @tap="_copyUssername"/>
                 </ext-container>
 
                 <ext-displayfield bind="{record.is_bot}" :label="l10n(`Is bot`)" labelAlign="left" labelWidth="200"/>
@@ -27,15 +27,13 @@
 
                 <ext-displayfield bind="{record.subscription_status}" :label="l10n(`Subscription status`)" labelAlign="left" labelWidth="200"/>
 
+                <ext-displayfield bind="{record.ban_status}" :label="l10n(`Ban status`)" labelAlign="left" labelWidth="200"/>
                 <ext-container layout='{"align":"center","type":"hbox"}'>
-                    <ext-displayfield bind="{record.ban_status}" :label="l10n(`Ban status`)" labelAlign="left" labelWidth="200"/>
-
-                    <ext-spacer/>
-
+                    <ext-spacer width="200"/>
                     <ext-button bind='{"hidden":"{banButtonHidden}"}' :text="l10n(`Ban user`)" ui="decline" @tap="toggjeUserBanned"/>
-
                     <ext-button bind='{"hidden":"{unbanButtonHidden}"}' :text="l10n(`Unban user`)" @tap="toggjeUserBanned"/>
                 </ext-container>
+                <ext-spacer height="10"/>
 
                 <ext-container bind='{"hidden":"{!record.api_user_id}"}' layout="hbox">
                     <ext-displayfield :label="l10n(`Linked API user`)" labelAlign="left" labelWidth="200"/>

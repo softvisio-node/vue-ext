@@ -136,11 +136,11 @@ msgstr "Режим сервера"
 msgid "Backend version"
 msgstr "Версия сервеа"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:31:73
+#: ../../src/components/telegram/bot/users/details.panel.vue:30:69
 msgid "Ban status"
 msgstr "Статус бана"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:35:77
+#: ../../src/components/telegram/bot/users/details.panel.vue:33:77
 msgid "Ban user"
 msgstr "Заблокировать пользователя"
 
@@ -305,6 +305,10 @@ msgstr "Письмо с подтверждением отправлено"
 msgid "Connection error"
 msgstr "Ошибка подключения"
 
+#: ../../src/components/telegram/bot/users/details.panel.vue:13:68
+msgid "Copy"
+msgstr "Копировать"
+
 #: ../../src/components/administration/users/panel.vue:211:48
 msgid "Copy email"
 msgstr "Копировать email"
@@ -320,7 +324,6 @@ msgstr "Копировать ссылку"
 
 #: ../../src/components/about.dialog.vue:12:60
 #: ../../src/components/telegram/bot/details/info.panel.vue:19:71
-#: ../../src/components/telegram/bot/users/details.panel.vue:13:71
 #: ../../src/components/telegram/bot/users/details.panel.vue:21:107
 msgid "Copy to the clipboard"
 msgstr "Скопировать в буфер обмена"
@@ -706,7 +709,7 @@ msgstr "Привязать Telegram"
 msgid "Link updated"
 msgstr "Ссылка обновлена"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:41:46
+#: ../../src/components/telegram/bot/users/details.panel.vue:39:46
 msgid "Linked API user"
 msgstr "Связанный пользователь API"
 
@@ -1223,7 +1226,7 @@ msgstr "Не удалось подключиться к серверу API. Пр
 msgid "Unable to load data"
 msgstr "Не удалось загрузить данные"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:37:79
+#: ../../src/components/telegram/bot/users/details.panel.vue:34:79
 msgid "Unban user"
 msgstr "Разбанить пользователя"
 
@@ -1308,8 +1311,8 @@ msgstr "Используйте настройки темного режима в
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:132:25
-#: ../../src/components/telegram/bot/users/details.panel.vue:140:25
+#: ../../src/components/telegram/bot/users/details.panel.vue:130:25
+#: ../../src/components/telegram/bot/users/details.panel.vue:138:25
 msgid "Username copied to the clipboard"
 msgstr "Имя пользователя скопировано в буфер обмена"
 
