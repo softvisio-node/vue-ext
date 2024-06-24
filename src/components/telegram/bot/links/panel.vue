@@ -32,7 +32,7 @@
 
                     <ext-column dataIndex="created_text" sorter='{"property":"created"}' :text="l10n(`Creation date`)" width="150"/>
 
-                    <ext-column width="150" @ready="_actionColReady"/>
+                    <ext-column width="200" @ready="_actionColReady"/>
                 </ext-grid>
             </template>
         </CardsPanel>

@@ -3,7 +3,7 @@
         <template #dataPanel>
             <ext-panel ref="dataPanel" layout="vbox" padding="0 10 0 0" scrollable="true" viewModel="true">
                 <ext-toolbar docked="top">
-                    <ext-button iconCls="fa-solid fa-chart-line" :text="l10n(`Open charts`)" width="150" @tap="_showChartsDialog"/>
+                    <ext-button iconCls="fa-solid fa-chart-line" :text="l10n(`Open charts`)" width="200" @tap="_showChartsDialog"/>
                     <ext-spacer/>
                     <ext-button iconCls="fa-regular fa-copy" :text="l10n(`Copy link`)" @tap="_copyLink"/>
                     <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
@@ -70,7 +70,7 @@
                 <ext-spacer/>
 
                 <ext-container layout='{"align":"center","type":"vbox"}'>
-                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-regular fa-trash-can" :text="l10n(`Delete link`)" ui="decline" width="150" @tap="_deleteLink"/>
+                    <ext-button bind='{"hidden":"{!telegramBotRecord.can_delete_link}"}' iconCls="fa-regular fa-trash-can" :text="l10n(`Delete link`)" ui="decline" width="250" @tap="_deleteLink"/>
                 </ext-container>
             </ext-panel>
         </template>
