@@ -828,7 +828,7 @@ msgstr "Налаштування сповіщень"
 #: ../../src/components/notifications/settings.panel.vue:27:47
 #: ../../src/components/telegram/bots.panel.vue:130:36
 msgid "Open bot"
-msgstr "Відкритий бота"
+msgstr "Відкрити бота"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:20:91
 msgid "Open bot in Telegram"
