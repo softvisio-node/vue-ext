@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.12.13 (2024-06-24)
+
+Fixes:
+
+-   fix: bots panel
+-   fix: translations
+
 ### 8.12.12 (2024-06-18)
 
 Fixes:
