@@ -691,7 +691,7 @@ msgstr "Ссылка удалена"
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:6:71
 msgid "Link description"
-msgstr "Описание Ссылки"
+msgstr "Описание ссылки"
 
 #: ../../src/components/telegram/bot/links/create.dialog.vue:4:35
 msgid "Link name"
