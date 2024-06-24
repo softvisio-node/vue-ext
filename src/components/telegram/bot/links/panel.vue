@@ -32,7 +32,7 @@
 
                     <ext-column dataIndex="created_text" sorter='{"property":"created"}' :text="l10n(`Creation date`)" width="150"/>
 
-                    <ext-column width="200" @ready="_actionColReady"/>
+                    <ext-column width="250" @ready="_actionColReady"/>
                 </ext-grid>
             </template>
         </CardsPanel>
@@ -108,7 +108,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-regular fa-eye",
-                            "toolti[": l10n( "View link" ),
+                            "tooltip": l10n( "View link" ),
                             "handler": this._viewLinkClick.bind( this ),
                         },
                     ],
