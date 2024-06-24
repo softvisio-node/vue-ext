@@ -24,13 +24,13 @@
 
                         <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
 
-                        <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="150"/>
+                        <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="200"/>
 
-                        <ext-column align="right" dataIndex="total_unsubscribed_users_text" sorter='{"property":"total_unsubscribed_users"}' :text="l10n(`Unsubscribed users`)" width="150"/>
+                        <ext-column align="right" dataIndex="total_unsubscribed_users_text" sorter='{"property":"total_unsubscribed_users"}' :text="l10n(`Unsubscribed users`)" width="200"/>
 
                         <ext-column dataIndex="status_text" flex="1" sorter='{"property":"started"}' :text="l10n(`Status`)"/>
 
-                        <ext-column @ready="_actionColReady"/>
+                        <ext-column width="150" @ready="_actionColReady"/>
                     </ext-grid>
                 </template>
             </CardsPanel>
