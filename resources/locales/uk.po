@@ -619,6 +619,7 @@ msgid "Inbox"
 msgstr "Вхідні"
 
 #: ../../src/components/telegram-support-bot/panel.vue:4:72
+#: ../../src/components/telegram/bot/panel.vue:4:72
 msgid "Info"
 msgstr "Інфо"
 
@@ -1312,6 +1313,7 @@ msgstr "Ім’я користувача скопійовано в буфер о
 #: ../../src/components/administration/panel.vue:4:40
 #: ../../src/components/administration/users/dialog.vue:34:33
 #: ../../src/components/telegram-support-bot/panel.vue:9:68
+#: ../../src/components/telegram/bot/panel.vue:9:68
 msgid "Users"
 msgstr "Користувачі"
 

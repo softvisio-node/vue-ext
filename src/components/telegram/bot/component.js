@@ -30,7 +30,7 @@ export default class TelegramBotComponent {
     }
 
     get panel () {
-        return import( "./details/panel" );
+        return import( "./panel" );
     }
 
     // public
