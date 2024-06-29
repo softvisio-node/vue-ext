@@ -14,23 +14,20 @@ export default class TelegramBotComponent {
     }
 
     get name () {
-        throw `Bot name is reqiored`;
-    }
-
-    get shortDescription () {
-        return this.description;
+        return this.model.get( "name" );
     }
 
     get description () {
-        return this.name;
+        return this.model.get( "description" );
+    }
+
+    get shortDescription () {
+        return this.model.get( "short_description" );
     }
 
     get model () {
         this.#model ??= new TelegramComponentModel( {
             "id": this.id,
-            "name": this.name,
-            "short_description": this.shortDescription,
-            "description": this.description,
         } );
 
         return this.#model;

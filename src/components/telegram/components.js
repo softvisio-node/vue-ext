@@ -63,6 +63,10 @@ class TelegramComponent {
             const component = this.#components[ row.id ];
 
             if ( component ) {
+                component.model.set( "name", row.name );
+                component.model.set( "description", row.description || row.name );
+                component.model.set( "short_description", row.short_description || row.description || row.name );
+
                 component.model.set( "locales", row.locales );
 
                 components.push( component );
