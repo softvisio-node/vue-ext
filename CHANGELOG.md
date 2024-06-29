@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.12.15 (2024-06-29)
+
+Fixes:
+
+-   fix: telegram bot component
+
 ### 8.12.14 (2024-06-24)
 
 Fixes:
