@@ -7,18 +7,6 @@ class Component extends TelegramBotComponent {
         return "telegramSupportBot";
     }
 
-    get name () {
-        return l10n( "Project support bot" );
-    }
-
-    get shortDescription () {
-        return super.shortDescription;
-    }
-
-    get description () {
-        return l10n( `Project support bot. For internal use only.` );
-    }
-
     get panel () {
         return import( /* webpackChunkName: "telegram-support-bot" */ "./panel" );
     }

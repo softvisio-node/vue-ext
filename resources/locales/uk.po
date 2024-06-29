@@ -925,14 +925,6 @@ msgstr "Платформа"
 msgid "Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again."
 msgstr "Будь ласка, скопіюйте токен у буфер обміну та збережіть його в надійному місці. Після того, як це діалогове вікно буде закрито, ми не змогли знову показати вам цей токен."
 
-#: ../../src/components/telegram-support-bot/component.js:11:15
-msgid "Project support bot"
-msgstr "Бот підтримки проекту"
-
-#: ../../src/components/telegram-support-bot/component.js:19:15
-msgid "Project support bot. For internal use only."
-msgstr "Бот підтримки проекту. Тільки для внутрішнього використання."
-
 #: ../../src/components/notifications/settings.panel.vue:4:118
 msgid "Push notifications"
 msgstr "Push повідомлення"
@@ -1756,6 +1748,14 @@ msgstr "Зменшити"
 
 #~ msgid "Please, fill all required fields"
 #~ msgstr "Будь ласка, заповніть усі обов'язкові поля"
+
+#: ../../src/components/telegram-support-bot/component.js:11:15
+#~ msgid "Project support bot"
+#~ msgstr "Бот підтримки проекту"
+
+#: ../../src/components/telegram-support-bot/component.js:19:15
+#~ msgid "Project support bot. For internal use only."
+#~ msgstr "Бот підтримки проекту. Тільки для внутрішнього використання."
 
 #, fuzzy
 #~ msgid "Project support bot. For internal use pnly."

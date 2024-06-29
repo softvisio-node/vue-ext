@@ -925,14 +925,6 @@ msgstr "Платформа"
 msgid "Please, copy token to the clipboard and store it to the safe place. After this dialog window will be closed we were unable to show you this token again."
 msgstr "Пожалуйста, скопируйте токен в буфер и сохраните в надежном месте. После того, как это окно будет закрыто, мы не сможем показать вам этот токен снова."
 
-#: ../../src/components/telegram-support-bot/component.js:11:15
-msgid "Project support bot"
-msgstr "Бот поддержки проекта"
-
-#: ../../src/components/telegram-support-bot/component.js:19:15
-msgid "Project support bot. For internal use only."
-msgstr "Бот поддержки проекта. Только для внутреннего использования."
-
 #: ../../src/components/notifications/settings.panel.vue:4:118
 msgid "Push notifications"
 msgstr "Push уведомления"
@@ -1788,6 +1780,14 @@ msgstr "Уменьшить"
 #~| msgid "Username <email@address>"
 #~ msgid "Primary email address"
 #~ msgstr "Имя пользователя <email@address>"
+
+#: ../../src/components/telegram-support-bot/component.js:11:15
+#~ msgid "Project support bot"
+#~ msgstr "Бот поддержки проекта"
+
+#: ../../src/components/telegram-support-bot/component.js:19:15
+#~ msgid "Project support bot. For internal use only."
+#~ msgstr "Бот поддержки проекта. Только для внутреннего использования."
 
 #, fuzzy
 #~ msgid "Project support bot. For internal use pnly."
