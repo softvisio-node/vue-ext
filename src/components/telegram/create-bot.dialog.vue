@@ -51,6 +51,7 @@ export default {
     "components": { CardsPanel },
 
     "emits": [ "botCreate" ],
+
     data () {
         return {
             "store": null,
