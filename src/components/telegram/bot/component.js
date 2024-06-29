@@ -2,9 +2,13 @@ import telegramComponents from "#src/components/telegram/components";
 import TelegramComponentModel from "./models/component";
 
 export default class TelegramBotComponent {
-    #model;
+    model;
 
     constructor () {
+        this.model = new TelegramComponentModel( {
+            "id": this.id,
+        } );
+
         telegramComponents.add( this );
     }
 
@@ -23,14 +27,6 @@ export default class TelegramBotComponent {
 
     get shortDescription () {
         return this.model.get( "short_description" );
-    }
-
-    get model () {
-        this.#model ??= new TelegramComponentModel( {
-            "id": this.id,
-        } );
-
-        return this.#model;
     }
 
     get panel () {
