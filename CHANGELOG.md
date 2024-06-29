@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.12.16 (2024-06-29)
+
+Fixes:
+
+-   fix: telegram default panel
+
 ### 8.12.15 (2024-06-29)
 
 Fixes:
