@@ -157,7 +157,7 @@ msgstr "Базовий колір"
 msgid "Bot charts"
 msgstr "Графіки бота"
 
-#: ../../src/components/telegram/create-bot.dialog.vue:160:29
+#: ../../src/components/telegram/create-bot.dialog.vue:161:29
 msgid "Bot created"
 msgstr "Бота створено"
 
