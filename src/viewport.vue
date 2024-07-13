@@ -158,16 +158,16 @@ export default {
         async routeTelegramWebApp () {
 
             // XXX
-            if ( !this.app.telegram ) return;
+            if ( !this.$app.telegram ) return;
 
             // load telegram components
             await import( "@/telegram-components" );
 
             const components = ( await import( "#src/components/telegram/components" ) ).default;
 
-            const botComponent = components.get( this.app.telegram.telegramBotType );
+            const botComponent = components.get( this.$app.telegram.telegramBotType );
 
-            if ( !botComponent ) return this.app.telegram.close();
+            if ( !botComponent ) return this.$app.telegram.close();
 
             await botComponent.runWebApp( this );
         },
