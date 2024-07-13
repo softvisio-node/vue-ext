@@ -1,3 +1,4 @@
+import app from "#app";
 import telegramComponents from "#src/components/telegram/components";
 import TelegramComponentModel from "./models/component";
 
@@ -34,24 +35,24 @@ export default class TelegramBotComponent {
     }
 
     // public
-    async runWebApp ( panel, data ) {
-        if ( data.webAppType === "bot-statistics" ) {
-            return this._runBotStatisticsWebApp( panel, data );
+    async runWebApp ( panel ) {
+        if ( app.telegram.webAppType === "bot-statistics" ) {
+            return this._runBotStatisticsWebApp( panel );
         }
         else {
-            return this._runWebApp( panel, data );
+            return this._runWebApp( panel );
         }
     }
 
     // protected
-    async _runWebApp ( panel, data ) {
-        return window.Telegram.WebApp.close();
+    async _runWebApp ( panel ) {
+        return app.telegram.close();
     }
 
-    async _runBotStatisticsWebApp ( panel, data ) {
+    async _runBotStatisticsWebApp ( panel ) {
         return panel.$mount( import( "#vue/components/telegram/bot/details/charts.panel" ), {
             "props": {
-                "telegramBotId": data.telegramBotId,
+                "telegramBotId": app.telegram.telegramBotId,
                 "showMaximizeButton": false,
             },
         } );
