@@ -30,7 +30,7 @@ msgstr "О проекте"
 msgid "Accent color"
 msgstr "Цвет акцента"
 
-#: ../../src/app.js:67:21
+#: ../../src/app.js:54:21
 msgid "Access denied"
 msgstr "Доступ запрещен"
 
@@ -301,7 +301,7 @@ msgstr "Подтверждение"
 msgid "Confirmation email sent"
 msgstr "Письмо с подтверждением отправлено"
 
-#: ../../src/app.js:41:21
+#: ../../src/app.js:28:21
 msgid "Connection error"
 msgstr "Ошибка подключения"
 
@@ -496,7 +496,7 @@ msgstr "Электронная почта"
 msgid "Email address"
 msgstr "Адрес email"
 
-#: ../../src/viewport.vue:118:45
+#: ../../src/viewport.vue:117:45
 msgid "Email address changed"
 msgstr "Адрес email изменен"
 
@@ -508,11 +508,11 @@ msgstr "Адрес электронной почты подтвержден"
 msgid "Email change"
 msgstr "Изменение email"
 
-#: ../../src/viewport.vue:87:29
+#: ../../src/viewport.vue:86:29
 msgid "Email confirmation token is invalid"
 msgstr "Токен подтверждения email неверен"
 
-#: ../../src/viewport.vue:93:33
+#: ../../src/viewport.vue:92:33
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
 
@@ -973,7 +973,7 @@ msgstr "Восстановить"
 msgid "Refresh"
 msgstr "Обновить"
 
-#: ../../src/app.js:69:22
+#: ../../src/app.js:56:22
 msgid "Reload"
 msgstr "Перезагрузить"
 
@@ -1074,7 +1074,7 @@ msgstr "Выбрать пользователя"
 msgid "Send token"
 msgstr "Отправить токен"
 
-#: ../../src/app.js:53:21
+#: ../../src/app.js:40:21
 msgid "Session closed"
 msgstr "Сессия закрыта"
 
@@ -1211,7 +1211,7 @@ msgstr "Режим UI"
 msgid "UI version"
 msgstr "Версия UI"
 
-#: ../../src/app.js:40:32
+#: ../../src/app.js:27:32
 msgid "Unable to connect to the API server. Check, that you have internet connection."
 msgstr "Не удалось подключиться к серверу API. Проверьте, что у вас есть подключение к интернет."
 
@@ -1345,7 +1345,7 @@ msgstr "Внимание"
 msgid "Watch"
 msgstr "Следить"
 
-#: ../../src/app.js:66:46
+#: ../../src/app.js:53:46
 msgid "Your access permissions were changed on API server. Please, reload application to apply updates."
 msgstr "Ваши права доступа были изменены на сервере API. Пожалуйста, перезагрузите приложение, чтобы применить обновления."
 
@@ -1354,7 +1354,7 @@ msgstr "Ваши права доступа были изменены на сер
 msgid "Your account"
 msgstr "Ваш аккаунт"
 
-#: ../../src/app.js:52:32
+#: ../../src/app.js:39:32
 msgid "Your session was terminated on the API server."
 msgstr "Ваша сессия былп прервана API серввером."
 
