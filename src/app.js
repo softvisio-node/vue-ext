@@ -1,22 +1,9 @@
 import VueApp from "@softvisio/vue/app";
-import Router from "#src/app/router";
 import AuthorizationDialog from "#src/components/authorization.dialog";
 
 export default class VueExtApp extends VueApp {
-    #router;
-
-    // properties
-    get router () {
-        return this.#router;
-    }
 
     // public
-    async init () {
-        this.#router = new Router( this );
-
-        return super.init();
-    }
-
     async reload () {
         this.mask();
 

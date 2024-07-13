@@ -41,8 +41,6 @@ export default class VueExtViewport extends VueViewport {
     _createVauApp () {
         const vue = super._createVauApp();
 
-        vue.config.globalProperties.$router = this.app.router;
-
         // components requires .toString() method,
         // because ext is trying to convert component to string when component is passed as scope to .on() call
         vue.config.globalProperties.toString = function () {
