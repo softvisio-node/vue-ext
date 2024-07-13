@@ -7,7 +7,6 @@ import "./assets/scrollbars.css";
 import Viewport from "@softvisio/vue/viewport";
 import ResetPasswordDialog from "#src/components/reset-password.dialog";
 import AuthorizationDialog from "#src/components/authorization.dialog";
-import loadTelegram from "@softvisio/vue/telegram-webapp";
 
 export default {
     "extends": Viewport,
@@ -155,57 +154,22 @@ export default {
             }
         },
 
+        // XXX show message if telegram not available
         async routeTelegramWebApp () {
 
-            // load telegram
-            await loadTelegram();
-
-            // decode init data
-            try {
-                var data = JSON.parse( this.$router.searchParams.get( "data" ) );
-
-                // init data is not valid
-                if ( !data ) throw Error();
-            }
-            catch ( e ) {
-                return window.Telegram?.WebApp?.close();
-            }
-
-            // authenticated
-            if ( this.$app.user.isAuthenticated ) {
-
-                // authenticated as other user
-                if ( data.userId !== this.$app.user.id ) {
-
-                    // sign out
-                    return this.$app.signOut();
-                }
-            }
-
-            // not authenticated, auth is required
-            else if ( data.userId ) {
-                if ( !window.Telegram?.WebApp?.initData ) return window.Telegram?.WebApp?.close();
-
-                // sign in
-                const res = await this.$app.signIn( {
-                    "telegram_bot_id": data.telegramBotId,
-                    "telegram_webapp_init_data": window.Telegram?.WebApp?.initData,
-                } );
-
-                // sign in failed
-                if ( !res.ok ) return window.Telegram?.WebApp?.close();
-            }
+            // XXX
+            if ( !this.app.telegram ) return;
 
             // load telegram components
             await import( "@/telegram-components" );
 
             const components = ( await import( "#src/components/telegram/components" ) ).default;
 
-            const botComponent = components.get( data.telegramBotType );
+            const botComponent = components.get( this.app.telegram.telegramBotType );
 
-            if ( !botComponent ) return window.Telegram?.WebApp?.close();
+            if ( !botComponent ) return this.app.telegram.close();
 
-            await botComponent.runWebApp( this, data );
+            await botComponent.runWebApp( this );
         },
     },
 };
