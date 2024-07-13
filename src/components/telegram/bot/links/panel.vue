@@ -51,7 +51,7 @@ export default {
 
     "props": {
         "telegramBotId": {
-            "type": String,
+            "type": Number,
             "required": true,
         },
     },
