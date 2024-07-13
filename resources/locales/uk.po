@@ -1158,7 +1158,6 @@ msgid "Subscription status"
 msgstr "Статус підписки"
 
 #: ../../src/viewport.vue:159:35
-#, fuzzy
 msgid "Telegram web application initialized incorrectly"
 msgstr "Веб-програма Telegram ініціалізована неправильно"
 
