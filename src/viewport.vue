@@ -154,11 +154,12 @@ export default {
             }
         },
 
-        // XXX show message if telegram not available
         async routeTelegramWebApp () {
+            if ( !this.$app.telegram ) {
+                this.$utils.alert( l10n( `Telegram web application initialized incorrectly` ) );
 
-            // XXX
-            if ( !this.$app.telegram ) return;
+                return;
+            }
 
             // load telegram components
             await import( "@/telegram-components" );

@@ -1157,6 +1157,11 @@ msgstr "Подписавшиеся пользователи"
 msgid "Subscription status"
 msgstr "Статус подписки"
 
+#: ../../src/viewport.vue:159:35
+#, fuzzy
+msgid "Telegram web application initialized incorrectly"
+msgstr "Веб-приложение Telegram инициализировано неправильно"
+
 #: ../../src/components/notifications/settings.panel.vue:11:39
 msgid "To use Support bot you need to link your Telegram account"
 msgstr "Чтобы использовать бота поддержки, вам необходимо привязать свою учетную запись Telegram"
