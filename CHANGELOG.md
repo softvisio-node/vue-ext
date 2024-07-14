@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.12.17 (2024-07-14)
+
+Fixes:
+
+-   fix: router moved
+-   fix: telegram app
+-   fix: telegramBotId type
+
 ### 8.12.16 (2024-06-29)
 
 Fixes:
