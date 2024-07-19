@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.12.18 (2024-07-19)
+
+Fixes:
+
+-   fix: telegram app
+
 ### 8.12.17 (2024-07-14)
 
 Fixes:
