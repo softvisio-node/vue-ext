@@ -52,7 +52,7 @@ export default class TelegramBotComponent {
     async _runBotStatisticsWebApp ( panel ) {
         return panel.$mount( import( "#vue/components/telegram/bot/details/charts.panel" ), {
             "props": {
-                "telegramBotId": app.telegram.telegramBotId,
+                "telegramBotId": app.telegram.bot.id,
                 "showMaximizeButton": false,
             },
         } );

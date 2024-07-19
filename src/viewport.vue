@@ -166,7 +166,7 @@ export default {
 
             const components = ( await import( "#src/components/telegram/components" ) ).default;
 
-            const botComponent = components.get( this.$app.telegram.telegramBotType );
+            const botComponent = components.get( this.$app.telegram.bot.type );
 
             if ( !botComponent ) return this.$app.telegram.close();
 
