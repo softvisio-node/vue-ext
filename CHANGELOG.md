@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.12.19 (2024-07-22)
+
+Fixes:
+
+-   fix: user isAuthenticated
+
 ### 8.12.18 (2024-07-19)
 
 Fixes:
