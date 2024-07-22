@@ -63,7 +63,7 @@ export default {
         },
 
         async _route () {
-            if ( this.$app.user.isAuthenticated ) {
+            if ( this.$app.user ) {
                 return this.routePrivate();
             }
             else {
