@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.12.20 (2024-07-25)
+
+Fixes:
+
+-   fix: exports
+-   fix: import
+
 ### 8.12.19 (2024-07-22)
 
 Fixes:
