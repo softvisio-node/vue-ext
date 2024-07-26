@@ -430,7 +430,6 @@ msgid "Device dark mode"
 msgstr "Темний режим пристрою"
 
 #: ../../src/components/telegram/bot/users/details.panel.vue:33:81
-#, fuzzy
 msgid "Disable user"
 msgstr "Вимкнути користувача"
 
@@ -514,7 +513,6 @@ msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
 
 #: ../../src/components/telegram/bot/users/details.panel.vue:34:80
-#, fuzzy
 msgid "Enable user"
 msgstr "Увімкнути користувача"
 
@@ -1287,7 +1285,6 @@ msgid "User email copied"
 msgstr "Email користувача скопійовано"
 
 #: ../../src/components/telegram/bot/users/models/user.js:63:27
-#, fuzzy
 msgid "User enabled"
 msgstr "Користувач увімкнено"
 
