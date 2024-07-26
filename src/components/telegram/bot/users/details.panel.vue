@@ -27,7 +27,7 @@
 
                 <ext-displayfield bind="{record.subscription_status}" :label="l10n(`Subscription status`)" labelAlign="left" labelWidth="200"/>
 
-                <ext-displayfield bind="{record.enabled_status}" :label="l10n(`Enabled`)" labelAlign="left" labelWidth="200"/>
+                <ext-displayfield bind="{record.enable_status}" :label="l10n(`Enabled`)" labelAlign="left" labelWidth="200"/>
                 <ext-container layout='{"align":"center","type":"hbox"}'>
                     <ext-spacer width="200"/>
                     <ext-button bind='{"hidden":"{disableButtonHidden}"}' :text="l10n(`Disable user`)" ui="decline" @tap="toggleUserEnabled"/>
