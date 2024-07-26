@@ -136,11 +136,6 @@ msgstr "Режим сервера"
 msgid "Backend version"
 msgstr "Версія сервера"
 
-#: ../../src/components/telegram/bot/details/info.panel.vue:55:90
-#: ../../src/components/telegram/bot/links/details.panel.vue:43:105
-msgid "Banned users"
-msgstr "Забанені користувачі"
-
 #: ../../src/components/account/appearance.panel.vue:22:77
 msgid "Base color"
 msgstr "Базовий колір"
@@ -432,6 +427,11 @@ msgstr "Темний режим пристрою"
 #: ../../src/components/telegram/bot/users/details.panel.vue:33:81
 msgid "Disable user"
 msgstr "Вимкнути користувача"
+
+#: ../../src/components/telegram/bot/details/info.panel.vue:55:92
+#: ../../src/components/telegram/bot/links/details.panel.vue:43:107
+msgid "Disabled users"
+msgstr "Вимкнуті користувачі"
 
 #: ../../src/components/authentication/signin.panel.vue:27:31
 msgid "Do not have account? Sign up"
@@ -1461,6 +1461,11 @@ msgstr "Зменшити"
 #, fuzzy
 #~ msgid "Banned"
 #~ msgstr "заборонено"
+
+#: ../../src/components/telegram/bot/details/info.panel.vue:55:90
+#: ../../src/components/telegram/bot/links/details.panel.vue:43:105
+#~ msgid "Banned users"
+#~ msgstr "Забанені користувачі"
 
 #, fuzzy
 #~ msgid "Bot info"
