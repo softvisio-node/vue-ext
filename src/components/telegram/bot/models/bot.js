@@ -31,7 +31,7 @@ export default Ext.define( null, {
         "total_subscribed_users",
         "total_unsubscribed_users",
         "total_returned_users",
-        "total_banned_users",
+        "total_disabled_users",
 
         { "name": "started", "type": "bool" },
         { "name": "error", "type": "bool" },
@@ -89,12 +89,12 @@ export default Ext.define( null, {
 
         { "name": "total_returned_users_text", "calculate": data => `${ data.total_returned_users } (${ data.total_returned_users_percent_text })` },
 
-        // banned users
-        { "name": "total_banned_users_percent", "calculate": data => ( data.total_users ? data.total_banned_users / data.total_users : 0 ) },
+        // disabled users
+        { "name": "total_disabled_users_percent", "calculate": data => ( data.total_users ? data.total_disabled_users / data.total_users : 0 ) },
 
-        { "name": "total_banned_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_banned_users_percent ) },
+        { "name": "total_disabled_users_percent_text", "calculate": data => app.locale.formatPercent( data.total_disabled_users_percent ) },
 
-        { "name": "total_banned_users_text", "calculate": data => `${ data.total_banned_users } (${ data.total_banned_users_percent_text })` },
+        { "name": "total_disabled_users_text", "calculate": data => `${ data.total_disabled_users } (${ data.total_disabled_users_percent_text })` },
 
         { "name": "url", "calculate": data => `https://t.me/${ data.username }` },
     ],
