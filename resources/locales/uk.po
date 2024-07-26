@@ -136,14 +136,6 @@ msgstr "Режим сервера"
 msgid "Backend version"
 msgstr "Версія сервера"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:30:69
-msgid "Ban status"
-msgstr "Статус заборони"
-
-#: ../../src/components/telegram/bot/users/details.panel.vue:33:77
-msgid "Ban user"
-msgstr "Забанити користувача"
-
 #: ../../src/components/telegram/bot/details/info.panel.vue:55:90
 #: ../../src/components/telegram/bot/links/details.panel.vue:43:105
 msgid "Banned users"
@@ -437,6 +429,11 @@ msgstr "Пристрій"
 msgid "Device dark mode"
 msgstr "Темний режим пристрою"
 
+#: ../../src/components/telegram/bot/users/details.panel.vue:33:81
+#, fuzzy
+msgid "Disable user"
+msgstr "Вимкнути користувача"
+
 #: ../../src/components/authentication/signin.panel.vue:27:31
 msgid "Do not have account? Sign up"
 msgstr "Немає облікового запису? зареєструватися"
@@ -515,6 +512,15 @@ msgstr "Токен підтвердження електронної пошти 
 #: ../../src/viewport.vue:92:33
 msgid "Email confirmed successfully"
 msgstr "Електронна пошта успішно підтверджена"
+
+#: ../../src/components/telegram/bot/users/details.panel.vue:34:80
+#, fuzzy
+msgid "Enable user"
+msgstr "Увімкнути користувача"
+
+#: ../../src/components/telegram/bot/users/details.panel.vue:30:73
+msgid "Enabled"
+msgstr "Увімкнено"
 
 #: ../../src/components/administration/users/create-user.dialog.vue:4:113
 msgid "Enter email"
@@ -1223,10 +1229,6 @@ msgstr "Не вдається підключитися до сервера API. 
 msgid "Unable to load data"
 msgstr "Не вдалося завантажити дані"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:34:79
-msgid "Unban user"
-msgstr "Розблокувати користувача"
-
 #: ../../src/components/telegram/bot/details/charts.panel.vue:201:33
 #: ../../src/components/telegram/bot/details/charts.panel.vue:314:24
 #: ../../src/components/telegram/bot/details/charts.panel.vue:320:33
@@ -1263,10 +1265,6 @@ msgstr "Використана пам&#39;ять (МБ)"
 msgid "User added"
 msgstr "Користувача додано"
 
-#: ../../src/components/telegram/bot/users/models/user.js:63:27
-msgid "User banned"
-msgstr "Користувача забанено"
-
 #: ../../src/components/administration/users/create-user.dialog.vue:98:29
 msgid "User created"
 msgstr "Користувач створений"
@@ -1280,13 +1278,18 @@ msgstr "Створення користувача"
 msgid "User deleted"
 msgstr "Користувача видалено"
 
+#: ../../src/components/telegram/bot/users/models/user.js:66:27
+msgid "User disabled"
+msgstr "Користувача вимкнено"
+
 #: ../../src/components/administration/users/panel.vue:349:25
 msgid "User email copied"
 msgstr "Email користувача скопійовано"
 
-#: ../../src/components/telegram/bot/users/models/user.js:66:27
-msgid "User not banned"
-msgstr "Користувач не забанений"
+#: ../../src/components/telegram/bot/users/models/user.js:63:27
+#, fuzzy
+msgid "User enabled"
+msgstr "Користувач увімкнено"
 
 #: ../../src/components/administration/users/user-sessions.dialog.vue:2:72
 msgid "User sessions"
@@ -1450,6 +1453,14 @@ msgstr "Зменшити"
 #~ msgid "Average duration per call for the last 60 minutes (ms)"
 #~ msgstr "Середня тривалість виклику за останні 60 хвилин (мс)"
 
+#: ../../src/components/telegram/bot/users/details.panel.vue:30:69
+#~ msgid "Ban status"
+#~ msgstr "Статус заборони"
+
+#: ../../src/components/telegram/bot/users/details.panel.vue:33:77
+#~ msgid "Ban user"
+#~ msgstr "Забанити користувача"
+
 #, fuzzy
 #~ msgid "Banned"
 #~ msgstr "заборонено"
@@ -1578,9 +1589,6 @@ msgstr "Зменшити"
 
 #~ msgid "Enable push notifications"
 #~ msgstr "Увімкнути push повідомлення"
-
-#~ msgid "Enabled"
-#~ msgstr "Увімкнено"
 
 #~ msgid "Enter confirmation token"
 #~ msgstr "Введіть токен підтвердження"
@@ -1948,6 +1956,10 @@ msgstr "Зменшити"
 #~ msgid "Unable to load records"
 #~ msgstr "Неможливо завантажити записи"
 
+#: ../../src/components/telegram/bot/users/details.panel.vue:34:79
+#~ msgid "Unban user"
+#~ msgstr "Розблокувати користувача"
+
 #~ msgid "Unlink Telegram"
 #~ msgstr "Від’єднати Telegram"
 
@@ -1963,8 +1975,13 @@ msgstr "Зменшити"
 #~ msgid "User agent"
 #~ msgstr "Агент користувача"
 
-#~ msgid "User disabled"
-#~ msgstr "Користувача вимкнено"
+#: ../../src/components/telegram/bot/users/models/user.js:63:27
+#~ msgid "User banned"
+#~ msgstr "Користувача забанено"
+
+#: ../../src/components/telegram/bot/users/models/user.js:66:27
+#~ msgid "User not banned"
+#~ msgstr "Користувач не забанений"
 
 #~ msgid "User permissions updated"
 #~ msgstr "Дозволи користувача оновлено"

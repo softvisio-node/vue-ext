@@ -27,11 +27,11 @@
 
                 <ext-displayfield bind="{record.subscription_status}" :label="l10n(`Subscription status`)" labelAlign="left" labelWidth="200"/>
 
-                <ext-displayfield bind="{record.ban_status}" :label="l10n(`Ban status`)" labelAlign="left" labelWidth="200"/>
+                <ext-displayfield bind="{record.enabled_status}" :label="l10n(`Enabled`)" labelAlign="left" labelWidth="200"/>
                 <ext-container layout='{"align":"center","type":"hbox"}'>
                     <ext-spacer width="200"/>
-                    <ext-button bind='{"hidden":"{banButtonHidden}"}' :text="l10n(`Ban user`)" ui="decline" @tap="toggjeUserBanned"/>
-                    <ext-button bind='{"hidden":"{unbanButtonHidden}"}' :text="l10n(`Unban user`)" @tap="toggjeUserBanned"/>
+                    <ext-button bind='{"hidden":"{disableButtonHidden}"}' :text="l10n(`Disable user`)" ui="decline" @tap="toggleUserEnabled"/>
+                    <ext-button bind='{"hidden":"{enableButtonHidden}"}' :text="l10n(`Enable user`)" @tap="toggleUserEnabled"/>
                 </ext-container>
                 <ext-spacer height="10"/>
 
@@ -71,27 +71,27 @@ export default {
             this.$refs.cardsPanel.ext.getViewModel().set( "telegramBotRecord", this.telegramBotRecord );
 
             this.$refs.cardsPanel.ext.getViewModel().setFormulas( {
-                "banButtonHidden": {
+                "disableButtonHidden": {
                     "bind": {
                         "permissions": "{telegramBotRecord.acl_user_permissions}",
-                        "banned": "{record.banned}",
+                        "enabled": "{record.enabled}",
                     },
                     get ( data ) {
                         if ( !data.permissions.has( "telegram/bot/users:update" ) ) return true;
 
-                        return data.banned;
+                        return !data.enabled;
                     },
                 },
 
-                "unbanButtonHidden": {
+                "enableButtonHidden": {
                     "bind": {
                         "permissions": "{telegramBotRecord.acl_user_permissions}",
-                        "banned": "{record.banned}",
+                        "enabled": "{record.enabled}",
                     },
                     get ( data ) {
                         if ( !data.permissions.has( "telegram/bot/users:update" ) ) return true;
 
-                        return !data.banned;
+                        return data.enabled;
                     },
                 },
             } );
@@ -110,17 +110,17 @@ export default {
             }
         },
 
-        async toggjeUserBanned () {
+        async toggleUserEnabled () {
             const record = this.telegramBotUserRecord,
-                banned = !record.get( "banned" );
+                enabled = !record.get( "enabled" );
 
-            const res = await this.$api.call( "telegram/bots/users/set-user-banned", record.get( "telegram_bot_id" ), record.id, banned );
+            const res = await this.$api.call( "telegram/bots/users/set-user-enabled", record.get( "telegram_bot_id" ), record.id, enabled );
 
             if ( !res.ok ) {
                 this.$toast( res );
             }
             else {
-                record.set( "banned", banned );
+                record.set( "enabled", enabled );
             }
         },
 

@@ -24,7 +24,7 @@ export default Ext.define( null, {
         { "name": "last_activity", "type": "date" },
         { "name": "subscribed", "type": "bool" },
         { "name": "returned", "type": "bool" },
-        { "name": "banned", "type": "bool" },
+        { "name": "enabled", "type": "bool" },
         "api_user_id",
         "api_user_email",
         "api_user_avatar_url",
@@ -57,13 +57,13 @@ export default Ext.define( null, {
         },
 
         {
-            "name": "ban_status",
+            "name": "enable_status",
             calculate ( data ) {
-                if ( data.banned ) {
-                    return l10n( `User banned` );
+                if ( data.enabled ) {
+                    return l10n( `User enabled` );
                 }
                 else {
-                    return l10n( `User not banned` );
+                    return l10n( `User disabled` );
                 }
             },
         },
