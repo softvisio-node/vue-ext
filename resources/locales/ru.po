@@ -516,7 +516,7 @@ msgstr "Email подтвержден успешно"
 msgid "Enable user"
 msgstr "Включить пользователя"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:30:73
+#: ../../src/components/telegram/bot/users/details.panel.vue:30:72
 msgid "Enabled"
 msgstr "Включен"
 
