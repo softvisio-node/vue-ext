@@ -27,12 +27,11 @@
 
                 <ext-displayfield bind="{record.subscription_status}" :label="l10n(`Subscription status`)" labelAlign="left" labelWidth="200"/>
 
-                <ext-displayfield bind="{record.enable_status}" :label="l10n(`Enabled`)" labelAlign="left" labelWidth="200"/>
                 <ext-container layout='{"align":"center","type":"hbox"}'>
-                    <ext-spacer width="200"/>
-                    <ext-button bind='{"hidden":"{disableButtonHidden}"}' :text="l10n(`Disable user`)" ui="decline" @tap="toggleUserEnabled"/>
-                    <ext-button bind='{"hidden":"{enableButtonHidden}"}' :text="l10n(`Enable user`)" @tap="toggleUserEnabled"/>
+                    <ext-displayfield :label="l10n(`Enabled`)" labelAlign="left" labelWidth="200"/>
+                    <ext-togglefield bind='{"disabled":"{enableButtonDisabled}","value":"{record.enabled}"}' @change="_toggleUserEnabled"/>
                 </ext-container>
+
                 <ext-spacer height="10"/>
 
                 <ext-container bind='{"hidden":"{!record.api_user_id}"}' layout="hbox">
@@ -71,27 +70,14 @@ export default {
             this.$refs.cardsPanel.ext.getViewModel().set( "telegramBotRecord", this.telegramBotRecord );
 
             this.$refs.cardsPanel.ext.getViewModel().setFormulas( {
-                "disableButtonHidden": {
+                "enableButtonDisabled": {
                     "bind": {
                         "permissions": "{telegramBotRecord.acl_user_permissions}",
-                        "enabled": "{record.enabled}",
                     },
                     get ( data ) {
                         if ( !data.permissions.has( "telegram/bot/users:update" ) ) return true;
 
-                        return !data.enabled;
-                    },
-                },
-
-                "enableButtonHidden": {
-                    "bind": {
-                        "permissions": "{telegramBotRecord.acl_user_permissions}",
-                        "enabled": "{record.enabled}",
-                    },
-                    get ( data ) {
-                        if ( !data.permissions.has( "telegram/bot/users:update" ) ) return true;
-
-                        return data.enabled;
+                        return false;
                     },
                 },
             } );

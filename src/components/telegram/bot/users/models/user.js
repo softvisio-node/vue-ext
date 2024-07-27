@@ -57,18 +57,6 @@ export default Ext.define( null, {
         },
 
         {
-            "name": "enable_status",
-            calculate ( data ) {
-                if ( data.enabled ) {
-                    return l10n( `User enabled` );
-                }
-                else {
-                    return l10n( `User disabled` );
-                }
-            },
-        },
-
-        {
             "name": "created_text",
             calculate ( data ) {
                 return `${ app.locale.formatDate( data.created, "dateStyle:short" ) } (${ app.locale.formatRelativeDate( data.created ) })`;
