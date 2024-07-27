@@ -424,10 +424,6 @@ msgstr "Устройство"
 msgid "Device dark mode"
 msgstr "Темный режим устройства"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:33:81
-msgid "Disable user"
-msgstr "Отключить пользователя"
-
 #: ../../src/components/telegram/bot/details/info.panel.vue:55:92
 #: ../../src/components/telegram/bot/links/details.panel.vue:43:107
 msgid "Disabled users"
@@ -512,11 +508,7 @@ msgstr "Токен подтверждения email неверен"
 msgid "Email confirmed successfully"
 msgstr "Email подтвержден успешно"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:34:80
-msgid "Enable user"
-msgstr "Включить пользователя"
-
-#: ../../src/components/telegram/bot/users/details.panel.vue:30:72
+#: ../../src/components/telegram/bot/users/details.panel.vue:31:46
 msgid "Enabled"
 msgstr "Включен"
 
@@ -714,7 +706,7 @@ msgstr "Привязать Telegram"
 msgid "Link updated"
 msgstr "Ссылка обновлена"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:39:46
+#: ../../src/components/telegram/bot/users/details.panel.vue:38:46
 msgid "Linked API user"
 msgstr "Связанный пользователь API"
 
@@ -1276,17 +1268,9 @@ msgstr "Создание пользователя"
 msgid "User deleted"
 msgstr "Пользователь удален"
 
-#: ../../src/components/telegram/bot/users/models/user.js:66:27
-msgid "User disabled"
-msgstr "Пользователь выключен"
-
 #: ../../src/components/administration/users/panel.vue:349:25
 msgid "User email copied"
 msgstr "Email пользователя скопирована"
-
-#: ../../src/components/telegram/bot/users/models/user.js:63:27
-msgid "User enabled"
-msgstr "Пользователь включен"
 
 #: ../../src/components/administration/users/user-sessions.dialog.vue:2:72
 msgid "User sessions"
@@ -1308,8 +1292,8 @@ msgstr "Используйте настройки темного режима в
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: ../../src/components/telegram/bot/users/details.panel.vue:130:25
-#: ../../src/components/telegram/bot/users/details.panel.vue:138:25
+#: ../../src/components/telegram/bot/users/details.panel.vue:127:25
+#: ../../src/components/telegram/bot/users/details.panel.vue:135:25
 msgid "Username copied to the clipboard"
 msgstr "Имя пользователя скопировано в буфер обмена"
 
@@ -1592,6 +1576,10 @@ msgstr "Уменьшить"
 #~ msgid "Cuttent session"
 #~ msgstr "Каттентская сессия"
 
+#: ../../src/components/telegram/bot/users/details.panel.vue:33:81
+#~ msgid "Disable user"
+#~ msgstr "Отключить пользователя"
+
 #~ msgid "Edit token permissions"
 #~ msgstr "Редактировать права токена"
 
@@ -1607,6 +1595,10 @@ msgstr "Уменьшить"
 
 #~ msgid "Enable push notifications"
 #~ msgstr "Включить push уведомления"
+
+#: ../../src/components/telegram/bot/users/details.panel.vue:34:80
+#~ msgid "Enable user"
+#~ msgstr "Включить пользователя"
 
 #~ msgid "Enter confirmation token"
 #~ msgstr "Введите токен подтверждения"
@@ -2050,6 +2042,14 @@ msgstr "Уменьшить"
 #: ../../src/components/telegram/bot/users/models/user.js:63:27
 #~ msgid "User banned"
 #~ msgstr "Пользователь заблокирован"
+
+#: ../../src/components/telegram/bot/users/models/user.js:66:27
+#~ msgid "User disabled"
+#~ msgstr "Пользователь выключен"
+
+#: ../../src/components/telegram/bot/users/models/user.js:63:27
+#~ msgid "User enabled"
+#~ msgstr "Пользователь включен"
 
 #: ../../src/components/telegram/bot/users/models/user.js:66:27
 #~ msgid "User not banned"
