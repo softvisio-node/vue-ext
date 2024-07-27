@@ -96,18 +96,29 @@ export default {
             }
         },
 
-        async toggleUserEnabled () {
-            const record = this.telegramBotUserRecord,
-                enabled = !record.get( "enabled" );
+        async _toggleUserEnabled ( e ) {
+            const button = e.detail.sender,
+                enabled = e.detail.newValue,
+                record = this.telegramBotUserRecord,
+                curVal = record.get( "enabled" );
+
+            if ( enabled === curVal ) return;
+
+            button.disable();
 
             const res = await this.$api.call( "telegram/bots/users/set-user-enabled", record.get( "telegram_bot_id" ), record.id, enabled );
 
             if ( !res.ok ) {
+                record.set( "enabled", !enabled );
+                button.setValue( !enabled );
+
                 this.$toast( res );
             }
             else {
-                record.set( "enabled", enabled );
+                record.commit();
             }
+
+            button.enable();
         },
 
         _copyUssername () {
