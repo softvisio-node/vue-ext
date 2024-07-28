@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.12.21 (2024-07-28)
+
+Fixes:
+
+-   fix: telegram user enabled
+-   fix: telegram user enabled button
+-   fix: translations
+
 ### 8.12.20 (2024-07-25)
 
 Fixes:
