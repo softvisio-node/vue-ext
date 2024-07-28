@@ -203,7 +203,6 @@ msgid "Bot user"
 msgstr "Пользователь бота"
 
 #: ../../src/components/telegram/bot/details/info.panel.vue:13:67
-#: ../../src/components/telegram/bot/users/details.panel.vue:10:71
 #: ../../src/components/telegram/create-bot.dialog.vue:24:50
 msgid "Bot username"
 msgstr "Имя пользователя бота"
@@ -1288,6 +1287,7 @@ msgstr "Пользователь отписался"
 msgid "User your device dark mode settings"
 msgstr "Используйте настройки темного режима вашего устройства"
 
+#: ../../src/components/telegram/bot/users/details.panel.vue:10:71
 #: ../../src/components/telegram/bot/users/panel.vue:18:69
 msgid "Username"
 msgstr "Имя пользователя"
