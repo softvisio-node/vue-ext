@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.12.22 (2024-08-04)
+
+Fixes:
+
+-   fix: peer deps
+
 ### 8.12.21 (2024-07-28)
 
 Fixes:
