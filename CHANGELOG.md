@@ -1,5 +1,9 @@
 # Changelog
 
+### 8.12.24 (2024-08-14)
+
+No notable changes since the previous release.
+
 ### 8.12.23 (2024-08-10)
 
 Fixes:
