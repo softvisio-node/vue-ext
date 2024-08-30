@@ -36,7 +36,7 @@ export default {
     "props": {
         "record": {
             "type": Object,
-            "required": true,
+            "default": null,
         },
         "period": {
             "type": String,
