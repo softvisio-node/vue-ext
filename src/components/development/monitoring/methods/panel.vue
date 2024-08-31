@@ -132,7 +132,7 @@ export default {
             cmp.getRegion( "left" )
                 .getGrid()
                 .on( "select", ( grid, selection ) => ( this.selectedRecord = selection ) )
-                .on( "childdoubletap", ( grid, location ) => this._onItemDoubleTap( location ) );
+                .on( "childdoubletap", ( grid, location ) => this._onChildDoubleTap( location ) );
 
             cmp.setStore( this.store );
 
@@ -303,7 +303,7 @@ export default {
             this.refresh();
         },
 
-        _onItemDoubleTap ( location ) {
+        _onChildDoubleTap ( location ) {
             this.showChartsDialog( location.record );
         },
     },
