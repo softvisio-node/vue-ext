@@ -23,7 +23,7 @@ export default Ext.define( null, {
 
         { "name": "ram_used_text", "calculate": data => `${ app.locale.formatNumber( data.ram_used / 1024 ** 3, "style:unit,unit:gigabyte" ) } ( ${ app.locale.formatPercent( data.ram_used / data.ram_total ) } )` },
 
-        { "name": "rss_usage_text", "calculate": data => `${ app.locale.formatNumber( data.rss_usage / 1024 ** 3, "style:unit,unit:gigabyte" ) } ( ${ app.locale.formatPercent( data.rss_usage / data.ram_total ) } )` },
+        { "name": "rss_used_text", "calculate": data => `${ app.locale.formatNumber( data.rss_used / 1024 ** 3, "style:unit,unit:gigabyte" ) } ( ${ app.locale.formatPercent( data.rss_used / data.ram_total ) } )` },
 
         { "name": "hdd_used_text", "calculate": data => `${ app.locale.formatNumber( data.hdd_used / 1024 ** 3, "style:unit,unit:gigabyte" ) } ( ${ app.locale.formatPercent( data.hdd_used / data.hdd_total ) } )` },
     ],

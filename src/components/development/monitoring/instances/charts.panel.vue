@@ -396,7 +396,7 @@ export default {
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
-                "valueYField": "rss_usage",
+                "valueYField": "rss_used",
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": l10n( `RSS used` ) + ": {valueY.formatNumber()}",
                 } ),
@@ -428,7 +428,7 @@ export default {
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
-                "valueYField": "rss_usage_percent",
+                "valueYField": "rss_used_percent",
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": l10n( `RSS used` ) + ": {valueY.formatNumber()}",
                 } ),
