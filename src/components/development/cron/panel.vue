@@ -13,11 +13,11 @@
 
                 <ext-column dataIndex="name" :text="l10n(`Name`)" width="150"/>
 
-                <ext-column dataIndex="next_start" :text="l10n(`Next start`)" width="150" @ready="_dateColReady"/>
-
                 <ext-column dataIndex="last_start" :text="l10n(`Last start`)" width="150" @ready="_dateColReady"/>
 
-                <ext-column dataIndex="status_text" flex="1" sorter='{"property":"error"}' :text="l10n(`Error`)"/>
+                <ext-column dataIndex="next_start" :text="l10n(`Next start`)" width="150" @ready="_dateColReady"/>
+
+                <ext-column dataIndex="status_text" flex="1" sorter='{"property":"error"}' :text="l10n(`Status`)"/>
             </ext-grid>
         </template>
     </CardsPanel>

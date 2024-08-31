@@ -553,10 +553,6 @@ msgstr "Введіть адресу вашої електронної пошти
 msgid "Enter your Telegram bot API token"
 msgstr "Введіть свій токен API бота Telegram"
 
-#: ../../src/components/development/cron/panel.vue:20:98
-msgid "Error"
-msgstr "Помилка"
-
 #: ../../src/components/development/monitoring/methods/charts.panel.vue:336:33
 #: ../../src/components/development/monitoring/methods/panel.vue:178:28
 msgid "Exceptions"
@@ -660,7 +656,7 @@ msgstr "Дата останньої активності"
 msgid "Last new user subscription date"
 msgstr "Дата останньої підписки нового користувача"
 
-#: ../../src/components/development/cron/panel.vue:18:58
+#: ../../src/components/development/cron/panel.vue:16:58
 msgid "Last start"
 msgstr "Останній старт"
 
@@ -790,7 +786,7 @@ msgstr "Нова електронна адреса"
 msgid "New password"
 msgstr "Новий пароль"
 
-#: ../../src/components/development/cron/panel.vue:16:58
+#: ../../src/components/development/cron/panel.vue:18:58
 msgid "Next start"
 msgstr "Наступний старт"
 
@@ -1119,6 +1115,7 @@ msgstr "Запустити бота"
 msgid "Started"
 msgstr "Розпочато"
 
+#: ../../src/components/development/cron/panel.vue:20:98
 #: ../../src/components/development/monitoring/methods/exceptions.dialog.vue:18:90
 #: ../../src/components/telegram/bot/details/info.panel.vue:40:70
 #: ../../src/components/telegram/bots.panel.vue:31:108
@@ -1595,6 +1592,10 @@ msgstr "Зменшити"
 
 #~ msgid "Enter your username or email"
 #~ msgstr "Введіть ваше ім'я користувача або email"
+
+#: ../../src/components/development/cron/panel.vue:20:98
+#~ msgid "Error"
+#~ msgstr "Помилка"
 
 #~ msgid "Exceptions percent for the last 30 days (%)"
 #~ msgstr "Відсоток винятків за останні 30 днів (%)"
