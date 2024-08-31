@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.12.25 (2024-08-31)
+
+Fixes:
+
+-   fix: prop defaults
+
 ### 8.12.24 (2024-08-14)
 
 No notable changes since the previous release.
