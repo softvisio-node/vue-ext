@@ -1032,6 +1032,10 @@ msgstr "Фільтр ролей"
 msgid "Roles selected: ${n}"
 msgstr "Вибрані ролі: ${n}"
 
+#: ../../src/components/development/monitoring/instances/panel.vue:19:94
+msgid "RSS (used)"
+msgstr "RSS (використовується)"
+
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:350:24
 msgid "RSS usage"
 msgstr "Використання RSS"

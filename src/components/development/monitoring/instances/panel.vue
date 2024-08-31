@@ -16,7 +16,7 @@
 
                 <ext-column dataIndex="ram_used_text" sorter='{"property":"ram_used"}' :text="l10n(`RAM (used)`)" width="150"/>
 
-                <ext-column dataIndex="rss_used_text" sorter='{"property":"rss_used"}' text="RSS (used)" width="150"/>
+                <ext-column dataIndex="rss_used_text" sorter='{"property":"rss_used"}' :text="l10n(`RSS (used)`)" width="150"/>
 
                 <ext-column dataIndex="hdd_total" :text="l10n(`HDD (total)`)" width="120" @ready="_colReady"/>
 
