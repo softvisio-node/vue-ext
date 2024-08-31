@@ -39,7 +39,7 @@ export default {
 
     "props": {
         "aclId": {
-            "type": String,
+            "type": Number,
             "required": true,
         },
     },

@@ -33,11 +33,11 @@ export default {
 
     "props": {
         "aclId": {
-            "type": String,
+            "type": Number,
             "required": true,
         },
         "userId": {
-            "type": String,
+            "type": Number,
             "default": "",
         },
         "userRecord": {
