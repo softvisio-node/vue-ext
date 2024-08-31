@@ -580,20 +580,6 @@ msgstr "Журнал винятків для методу: ${n}"
 msgid "Forgot password?"
 msgstr "Забули пароль?"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:546:33
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:578:33
-msgid "FS used"
-msgstr "FS використовується"
-
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:572:24
-msgid "FS used (%)"
-msgstr "FS використано (%)"
-
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:495:24
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:540:24
-msgid "FS used (MB)"
-msgstr "FS використано (MB)"
-
 #: ../../src/components/administration/users/create-user.dialog.vue:11:35
 #: ../../src/components/change-password.dialog.vue:16:31
 #: ../../src/components/reset-password.dialog.vue:11:35
@@ -607,6 +593,27 @@ msgstr "HDD (всього)"
 #: ../../src/components/development/monitoring/instances/panel.vue:23:93
 msgid "HDD (used)"
 msgstr "HDD (використаний)"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:495:24
+#, fuzzy
+msgid "HDD usage"
+msgstr "Використання HDD"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:546:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:578:33
+#, fuzzy
+msgid "HDD used"
+msgstr "HDD використаний"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:572:24
+#, fuzzy
+msgid "HDD used (%)"
+msgstr "Використовується HDD (%)"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:540:24
+#, fuzzy
+msgid "HDD used (MB)"
+msgstr "Використовується жорсткий диск (МБ)"
 
 #: ../../src/components/notifications/panel.vue:4:40
 msgid "Inbox"
@@ -940,6 +947,27 @@ msgstr "RAM (загальна)"
 msgid "RAM (used)"
 msgstr "RAM (використовується)"
 
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:205:24
+#, fuzzy
+msgid "RAM usage"
+msgstr "використання оперативної пам&#39;яті"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:256:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:288:33
+#, fuzzy
+msgid "RAM used"
+msgstr "Використовується оперативна пам&#39;ять"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:282:24
+#, fuzzy
+msgid "RAM used (%)"
+msgstr "Використана оперативна пам&#39;ять (%)"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:250:24
+#, fuzzy
+msgid "RAM used (MB)"
+msgstr "Використана оперативна пам&#39;ять (МБ)"
+
 #: ../../src/components/push-notifications.button.vue:36:23
 msgid "Receive push notifications"
 msgstr "Отримувати push повідомлення"
@@ -1012,19 +1040,26 @@ msgstr "Фільтр ролей"
 msgid "Roles selected: ${n}"
 msgstr "Вибрані ролі: ${n}"
 
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:350:24
+#, fuzzy
+msgid "RSS usage"
+msgstr "Використання RSS"
+
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:401:33
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:433:33
-msgid "RSS memory"
-msgstr "Пам'ять RSS"
+#, fuzzy
+msgid "RSS used"
+msgstr "Використовується RSS"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:427:24
-msgid "RSS memory (%)"
-msgstr "Пам&#39;ять RSS (%)"
+#, fuzzy
+msgid "RSS used (%)"
+msgstr "Використовується RSS (%)"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:350:24
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:395:24
-msgid "RSS memory (MB)"
-msgstr "Пам&#39;ять RSS (МБ)"
+#, fuzzy
+msgid "RSS used (MB)"
+msgstr "Використано RSS (Мб)"
 
 #: ../../src/components/telegram/bot/details/edit-api-token.dialog.vue:9:31
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:13:64
@@ -1237,20 +1272,6 @@ msgstr "Користувачі, які скасували підписку"
 #: ../../src/components/device-dark-mode.button.vue:28:19
 msgid "Use device dark mode"
 msgstr "Використовуйте темний режим пристрою"
-
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:256:33
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:288:33
-msgid "Used memory"
-msgstr "Використана пам&#39;ять"
-
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:282:24
-msgid "Used memory (%)"
-msgstr "Використана пам&#39;ять (%)"
-
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:205:24
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:250:24
-msgid "Used memory (MB)"
-msgstr "Використана пам&#39;ять (МБ)"
 
 #: ../../src/components/acl/add-user.dialog.vue:84:29
 msgid "User added"
@@ -1639,6 +1660,20 @@ msgstr "Зменшити"
 #~ msgid "FS total"
 #~ msgstr "FS всього"
 
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:546:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:578:33
+#~ msgid "FS used"
+#~ msgstr "FS використовується"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:572:24
+#~ msgid "FS used (%)"
+#~ msgstr "FS використано (%)"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:495:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:540:24
+#~ msgid "FS used (MB)"
+#~ msgstr "FS використано (MB)"
+
 #~ msgid "HDD free"
 #~ msgstr "HDD вільно"
 
@@ -1794,6 +1829,20 @@ msgstr "Зменшити"
 
 #~ msgid "root user"
 #~ msgstr "root користувач"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:401:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:433:33
+#~ msgid "RSS memory"
+#~ msgstr "Пам'ять RSS"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:427:24
+#~ msgid "RSS memory (%)"
+#~ msgstr "Пам&#39;ять RSS (%)"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:350:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:395:24
+#~ msgid "RSS memory (MB)"
+#~ msgstr "Пам&#39;ять RSS (МБ)"
 
 #~ msgid "RSS memory (MB) for the last 30 days"
 #~ msgstr "Пам'ять RSS (МБ) за останні 30 днів"
@@ -1976,6 +2025,20 @@ msgstr "Зменшити"
 
 #~ msgid "Use OS theme"
 #~ msgstr "Використовувати тему ОС"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:256:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:288:33
+#~ msgid "Used memory"
+#~ msgstr "Використана пам&#39;ять"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:282:24
+#~ msgid "Used memory (%)"
+#~ msgstr "Використана пам&#39;ять (%)"
+
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:205:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:250:24
+#~ msgid "Used memory (MB)"
+#~ msgstr "Використана пам&#39;ять (МБ)"
 
 #~ msgid "User"
 #~ msgstr "Користувач"
