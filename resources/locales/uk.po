@@ -13,7 +13,7 @@ msgstr ""
 "X-Search-Path: /src/**\n"
 "X-Generator: Poedit 3.4.4\n"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:206:29
+#: ../../src/components/development/monitoring/methods/panel.vue:202:29
 #, javascript-format
 msgid "${n} day"
 msgid_plural "${n} days"
@@ -215,10 +215,10 @@ msgstr "Боти"
 msgid "Browser"
 msgstr "Браузер"
 
-#: ../../src/components/development/monitoring/methods/charts.panel.vue:153:24
-#: ../../src/components/development/monitoring/methods/charts.panel.vue:186:24
-#: ../../src/components/development/monitoring/methods/charts.panel.vue:192:33
-#: ../../src/components/development/monitoring/methods/panel.vue:156:28
+#: ../../src/components/development/monitoring/methods/charts.panel.vue:157:24
+#: ../../src/components/development/monitoring/methods/charts.panel.vue:190:24
+#: ../../src/components/development/monitoring/methods/charts.panel.vue:196:33
+#: ../../src/components/development/monitoring/methods/panel.vue:152:28
 msgid "Calls"
 msgstr "Виклики"
 
@@ -318,9 +318,9 @@ msgstr "Копіювати в буфер обміну"
 msgid "Copy token to the clipboard"
 msgstr "Скопіюйте токен у буфер обміну"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:156:24
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:191:24
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:197:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:160:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:195:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:201:33
 msgid "CPU usage"
 msgstr "використання ЦП"
 
@@ -437,24 +437,24 @@ msgstr "Немає облікового запису? зареєструвати
 msgid "Done"
 msgstr "Готово"
 
-#: ../../src/components/development/monitoring/methods/charts.panel.vue:287:33
+#: ../../src/components/development/monitoring/methods/charts.panel.vue:291:33
 msgid "Duration"
 msgstr "Тривалість"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:171:28
+#: ../../src/components/development/monitoring/methods/panel.vue:167:28
 msgid "Duration (%)"
 msgstr "Тривалість (%)"
 
-#: ../../src/components/development/monitoring/methods/charts.panel.vue:281:24
+#: ../../src/components/development/monitoring/methods/charts.panel.vue:285:24
 #: ../../src/components/development/monitoring/methods/exceptions.dialog.vue:16:91
 msgid "Duration (ms)"
 msgstr "Тривалість (мс)"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:164:28
+#: ../../src/components/development/monitoring/methods/panel.vue:160:28
 msgid "Duration / call (ms)"
 msgstr "Тривалість / виклик (мс)"
 
-#: ../../src/components/development/monitoring/methods/charts.panel.vue:248:24
+#: ../../src/components/development/monitoring/methods/charts.panel.vue:252:24
 msgid "Duration per call (ms)"
 msgstr "Тривалість виклику (мс)"
 
@@ -553,21 +553,21 @@ msgstr "Введіть адресу вашої електронної пошти
 msgid "Enter your Telegram bot API token"
 msgstr "Введіть свій токен API бота Telegram"
 
-#: ../../src/components/development/monitoring/methods/charts.panel.vue:392:33
-#: ../../src/components/development/monitoring/methods/panel.vue:178:28
+#: ../../src/components/development/monitoring/methods/charts.panel.vue:396:33
+#: ../../src/components/development/monitoring/methods/panel.vue:174:28
 msgid "Exceptions"
 msgstr "Винятки"
 
-#: ../../src/components/development/monitoring/methods/charts.panel.vue:351:24
-#: ../../src/components/development/monitoring/methods/charts.panel.vue:386:24
+#: ../../src/components/development/monitoring/methods/charts.panel.vue:355:24
+#: ../../src/components/development/monitoring/methods/charts.panel.vue:390:24
 msgid "Exceptions (%)"
 msgstr "Винятки (%)"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:185:28
+#: ../../src/components/development/monitoring/methods/panel.vue:181:28
 msgid "Exceptions / call (%)"
 msgstr "Винятки / виклик (%)"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:241:39
+#: ../../src/components/development/monitoring/methods/panel.vue:237:39
 msgid "Exceptions log"
 msgstr "Журнал винятків"
 
@@ -594,20 +594,20 @@ msgstr "HDD (всього)"
 msgid "HDD (used)"
 msgstr "HDD (використаний)"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:551:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:555:24
 msgid "HDD usage"
 msgstr "Використання HDD"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:602:33
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:634:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:606:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:638:33
 msgid "HDD used"
 msgstr "HDD використаний"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:628:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:632:24
 msgid "HDD used (%)"
 msgstr "Використовується HDD (%)"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:596:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:600:24
 msgid "HDD used (MB)"
 msgstr "Використовується HDD (МБ)"
 
@@ -736,11 +736,13 @@ msgstr "Позначити як виконане"
 msgid "Maximize"
 msgstr "Максимізувати"
 
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:7:97
+#: ../../src/components/development/monitoring/methods/charts.panel.vue:7:97
 #: ../../src/components/telegram/bot/details/charts.panel.vue:8:101
 msgid "Maximize charts"
 msgstr "Розгорнути діаграми"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:147:28
+#: ../../src/components/development/monitoring/methods/panel.vue:143:28
 msgid "Method name"
 msgstr "Назва методу"
 
@@ -835,10 +837,8 @@ msgstr "Відкрити бота"
 msgid "Open bot in Telegram"
 msgstr "Відкрити бот в Telegram"
 
-#: ../../src/components/development/monitoring/instances/panel.vue:136:39
-#: ../../src/components/development/monitoring/instances/panel.vue:31:72
-#: ../../src/components/development/monitoring/methods/panel.vue:235:39
-#: ../../src/components/development/monitoring/methods/panel.vue:32:72
+#: ../../src/components/development/monitoring/instances/panel.vue:132:39
+#: ../../src/components/development/monitoring/methods/panel.vue:231:39
 #: ../../src/components/telegram/bot/links/details.panel.vue:6:72
 msgid "Open charts"
 msgstr "Відкриті діаграми"
@@ -913,12 +913,12 @@ msgstr "Останні 7 днів"
 msgid "Past hour"
 msgstr "Минула година"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:122:25
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:136:28
-#: ../../src/components/development/monitoring/methods/charts.panel.vue:119:25
-#: ../../src/components/development/monitoring/methods/charts.panel.vue:133:28
-#: ../../src/components/development/monitoring/methods/panel.vue:208:61
-#: ../../src/components/development/monitoring/methods/panel.vue:304:49
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:126:25
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:140:28
+#: ../../src/components/development/monitoring/methods/charts.panel.vue:123:25
+#: ../../src/components/development/monitoring/methods/charts.panel.vue:137:28
+#: ../../src/components/development/monitoring/methods/panel.vue:204:61
+#: ../../src/components/development/monitoring/methods/panel.vue:300:49
 #: ../../src/components/telegram/bot/details/charts.panel.vue:104:25
 #: ../../src/components/telegram/bot/details/charts.panel.vue:118:28
 #: ../../src/components/telegram/bot/links/charts.panel.vue:103:25
@@ -959,20 +959,20 @@ msgstr "RAM (загальна)"
 msgid "RAM (used)"
 msgstr "RAM (використовується)"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:261:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:265:24
 msgid "RAM usage"
 msgstr "використання RAM"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:312:33
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:344:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:316:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:348:33
 msgid "RAM used"
 msgstr "Використана RAM"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:338:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:342:24
 msgid "RAM used (%)"
 msgstr "Використана RAM (%)"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:306:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:310:24
 msgid "RAM used (MB)"
 msgstr "Використана RAM (МБ)"
 
@@ -1052,20 +1052,20 @@ msgstr "Вибрані ролі: ${n}"
 msgid "RSS (used)"
 msgstr "RSS (використовується)"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:406:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:410:24
 msgid "RSS usage"
 msgstr "Використання RSS"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:457:33
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:489:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:461:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:493:33
 msgid "RSS used"
 msgstr "Використовується RSS"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:483:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:487:24
 msgid "RSS used (%)"
 msgstr "Використано RSS (%)"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:451:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:455:24
 msgid "RSS used (MB)"
 msgstr "Використано RSS (Мб)"
 

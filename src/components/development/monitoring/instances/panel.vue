@@ -26,11 +26,7 @@
             </ext-grid>
 
             <ext-panel collapsed="true" collapsible="right" docked="right" headerPosition="left" layout="fit" minWidth="600" resizable='{"edges":"west","snap":200,"split":true}' :title="l10n(`Latest charts`)">
-                <CharstPanel ref="chartsPanel" period="1 hour" :record="selectedRecord">
-                    <template #toolbar>
-                        <ext-button iconCls="fa-solid fa-expand" :text="l10n(`Open charts`)" @tap="showChartsDialog"/>
-                    </template>
-                </CharstPanel>
+                <CharstPanel ref="chartsPanel" period="1 hour" :record="selectedRecord"/>
             </ext-panel>
         </template>
     </CardsPanel>

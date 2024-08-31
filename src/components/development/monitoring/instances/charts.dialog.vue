@@ -1,6 +1,6 @@
 <template>
     <ext-dialog height="90%" layout="fit" scrollable="true" :title="title" viewModel="true" width="90%">
-        <CharstPanel period="30 days" :record="record"/>
+        <CharstPanel period="30 days" :record="record" :showMaximizeButton="false"/>
     </ext-dialog>
 </template>
 

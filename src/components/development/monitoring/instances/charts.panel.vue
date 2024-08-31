@@ -4,7 +4,7 @@
             <ext-toolbar docked="top">
                 <ext-button ref="periodButton" stretchMenu="true" @ready="_periodButtonReady"/>
                 <ext-spacer/>
-                <slot name="toolbar"/>
+                <ext-button :hidden="!showMaximizeButton" iconCls="fa-solid fa-expand" :tooltip="l10n(`Maximize charts`)" @tap="_showChartsDialog"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
             </ext-toolbar>
         </template>
@@ -54,6 +54,10 @@ export default {
         "period": {
             "type": String,
             "required": true,
+        },
+        "showMaximizeButton": {
+            "type": Boolean,
+            "default": true,
         },
     },
 
@@ -686,6 +690,18 @@ export default {
             }
 
             return data;
+        },
+
+        async _showChartsDialog () {
+            if ( !this.record ) return;
+
+            const cmp = await this.$mount( import( "./charts.dialog" ), {
+                "props": {
+                    "record": this.record,
+                },
+            } );
+
+            cmp.ext.show();
         },
     },
 };
