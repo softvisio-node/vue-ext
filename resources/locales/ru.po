@@ -324,9 +324,8 @@ msgstr "Использование CPU"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:195:24
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:201:33
-#, fuzzy
 msgid "CPU used"
-msgstr "ЦП используется"
+msgstr "Использовано CPU"
 
 #: ../../src/components/telegram/create-bot.button.vue:3:71
 #: ../../src/components/telegram/create-bot.dialog.vue:2:50
@@ -596,7 +595,7 @@ msgstr "HDD (всего)"
 
 #: ../../src/components/development/monitoring/instances/panel.vue:23:94
 msgid "HDD (used)"
-msgstr "HDD (используется)"
+msgstr "HDD (использовано)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:555:24
 msgid "HDD usage"
@@ -605,15 +604,15 @@ msgstr "Использование HDD"
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:606:33
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:638:33
 msgid "HDD used"
-msgstr "HDD используется"
+msgstr "Использовано HDD"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:632:24
 msgid "HDD used (%)"
-msgstr "Использованный HDD (%)"
+msgstr "Использовано HDD (%)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:600:24
 msgid "HDD used (MB)"
-msgstr "Использованный HDD (МБ)"
+msgstr "Использовано HDD (МБ)"
 
 #: ../../src/components/notifications/panel.vue:4:40
 msgid "Inbox"
@@ -961,7 +960,7 @@ msgstr "RAM (всего)"
 
 #: ../../src/components/development/monitoring/instances/panel.vue:17:94
 msgid "RAM (used)"
-msgstr "RAM (используется)"
+msgstr "RAM (использовано)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:265:24
 msgid "RAM usage"
@@ -970,7 +969,7 @@ msgstr "Использование RAM"
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:316:33
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:348:33
 msgid "RAM used"
-msgstr "Используемая RAM"
+msgstr "Использовано RAM"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:342:24
 msgid "RAM used (%)"
@@ -1054,7 +1053,7 @@ msgstr "Выбрано ролей: ${n}"
 
 #: ../../src/components/development/monitoring/instances/panel.vue:19:94
 msgid "RSS (used)"
-msgstr "RSS (используется)"
+msgstr "RSS (использовано)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:410:24
 msgid "RSS usage"
@@ -1063,15 +1062,15 @@ msgstr "Использование RSS"
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:461:33
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:493:33
 msgid "RSS used"
-msgstr "RSS используется"
+msgstr "Использовано RSS"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:487:24
 msgid "RSS used (%)"
-msgstr "RSS используется (%)"
+msgstr "Использовано RSS (%)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:455:24
 msgid "RSS used (MB)"
-msgstr "RSS используется (МБ)"
+msgstr "Использовано RSS (МБ)"
 
 #: ../../src/components/telegram/bot/details/edit-api-token.dialog.vue:9:31
 #: ../../src/components/telegram/bot/details/edit-details.dialog.vue:13:64
