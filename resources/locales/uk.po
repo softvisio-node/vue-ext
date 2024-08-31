@@ -318,9 +318,9 @@ msgstr "Копіювати в буфер обміну"
 msgid "Copy token to the clipboard"
 msgstr "Скопіюйте токен у буфер обміну"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:158:24
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:193:24
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:199:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:156:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:191:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:197:33
 msgid "CPU usage"
 msgstr "використання ЦП"
 
@@ -594,20 +594,20 @@ msgstr "HDD (всього)"
 msgid "HDD (used)"
 msgstr "HDD (використаний)"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:553:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:551:24
 msgid "HDD usage"
 msgstr "Використання HDD"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:604:33
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:636:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:602:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:634:33
 msgid "HDD used"
 msgstr "HDD використаний"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:630:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:628:24
 msgid "HDD used (%)"
 msgstr "Використовується HDD (%)"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:598:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:596:24
 msgid "HDD used (MB)"
 msgstr "Використовується HDD (МБ)"
 
@@ -910,8 +910,8 @@ msgstr "Останні 7 днів"
 msgid "Past hour"
 msgstr "Минула година"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:123:25
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:138:28
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:122:25
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:136:28
 #: ../../src/components/development/monitoring/methods/panel.vue:208:61
 #: ../../src/components/development/monitoring/methods/panel.vue:304:49
 #: ../../src/components/telegram/bot/details/charts.panel.vue:104:25
@@ -954,20 +954,20 @@ msgstr "RAM (загальна)"
 msgid "RAM (used)"
 msgstr "RAM (використовується)"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:263:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:261:24
 msgid "RAM usage"
 msgstr "використання RAM"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:314:33
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:346:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:312:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:344:33
 msgid "RAM used"
 msgstr "Використана RAM"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:340:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:338:24
 msgid "RAM used (%)"
 msgstr "Використана RAM (%)"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:308:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:306:24
 msgid "RAM used (MB)"
 msgstr "Використана RAM (МБ)"
 
@@ -1047,20 +1047,20 @@ msgstr "Вибрані ролі: ${n}"
 msgid "RSS (used)"
 msgstr "RSS (використовується)"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:408:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:406:24
 msgid "RSS usage"
 msgstr "Використання RSS"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:459:33
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:491:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:457:33
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:489:33
 msgid "RSS used"
 msgstr "Використовується RSS"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:485:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:483:24
 msgid "RSS used (%)"
 msgstr "Використано RSS (%)"
 
-#: ../../src/components/development/monitoring/instances/charts.panel.vue:453:24
+#: ../../src/components/development/monitoring/instances/charts.panel.vue:451:24
 msgid "RSS used (MB)"
 msgstr "Використано RSS (Мб)"
 

@@ -99,7 +99,6 @@ export default {
         },
 
         // protected
-        // XXX
         _periodButtonReady ( e ) {
             const cmp = e.detail.cmp;
 
@@ -125,7 +124,6 @@ export default {
             this.refresh();
         },
 
-        // XXX
         _setPeriod ( menuItem ) {
             const button = this.$refs.periodButton.ext;
 
@@ -680,7 +678,6 @@ export default {
             legend.data.setAll( chart.series.values );
         },
 
-        // XXX
         _setChartData ( chart, data ) {
             const xAxis = chart.root.container.children.values[ 0 ].xAxes.values[ 0 ];
 
