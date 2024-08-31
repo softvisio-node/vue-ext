@@ -11,7 +11,7 @@
         </template>
 
         <template #dataPanel>
-            <ext-grid layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @itemdoubletap="_onItemDoubleTap" @ready="_gridReady">
+            <ext-grid layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' @childdoubletap="_onChildDoubleTap" @ready="_gridReady">
                 <ext-avatarcolumn/>
 
                 <ext-column dataIndex="email" flex="1" :text="l10n(`Email`)" @ready="_emailColReady"/>
@@ -349,8 +349,8 @@ export default {
             this.$toast( l10n( `User email copied` ) );
         },
 
-        _onItemDoubleTap ( e ) {
-            return this._openUserRolesDialog( e.detail.record );
+        _onChildDoubleTap ( e ) {
+            return this._openUserRolesDialog( e.detail.location.record );
         },
 
         async _openUserRolesDialog ( record ) {

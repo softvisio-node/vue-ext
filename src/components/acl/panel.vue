@@ -11,7 +11,7 @@
         </template>
 
         <template #dataPanel>
-            <ext-grid ref="grid" columnMenu="false" columnResize="false" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' viewModel="true" @itemdoubletap="_onItemDoubleTap" @ready="_ready">
+            <ext-grid ref="grid" columnMenu="false" columnResize="false" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' viewModel="true" @childdoubletap="_onChildDoubleTap" @ready="_ready">
                 <ext-avatarcolumn/>
 
                 <ext-column cell='{"style":"vertical-align:top"}' dataIndex="email" flex="1" :text="l10n(`Email`)"/>
@@ -298,10 +298,10 @@ export default {
             }
         },
 
-        _onItemDoubleTap ( e ) {
+        _onChildDoubleTap ( e ) {
             if ( !this.$refs.cards.ext.getViewModel().get( "permissions" ).get( "read" ) ) return;
 
-            return this._openUserRolesDialog( e.detail.record );
+            return this._openUserRolesDialog( e.detail.location.record );
         },
 
         async _openUserRolesDialog ( record ) {
