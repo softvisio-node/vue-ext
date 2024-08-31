@@ -251,7 +251,7 @@ export default {
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
-                "valueYField": "memory_used",
+                "valueYField": "ram_used",
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": l10n( `RAM used` ) + ": {valueY.formatNumber()}",
                 } ),
@@ -283,7 +283,7 @@ export default {
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
-                "valueYField": "memory_used_percent",
+                "valueYField": "ram_used_percent",
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": l10n( `RAM used` ) + ": {valueY.formatNumber()}",
                 } ),
@@ -396,7 +396,7 @@ export default {
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
-                "valueYField": "memory_rss",
+                "valueYField": "rss_usage",
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": l10n( `RSS used` ) + ": {valueY.formatNumber()}",
                 } ),
@@ -428,7 +428,7 @@ export default {
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
-                "valueYField": "memory_rss_percent",
+                "valueYField": "rss_usage_percent",
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": l10n( `RSS used` ) + ": {valueY.formatNumber()}",
                 } ),
@@ -541,7 +541,7 @@ export default {
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
-                "valueYField": "fs_used",
+                "valueYField": "hdd_used",
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": l10n( `HDD used` ) + ": {valueY.formatNumber()}",
                 } ),
@@ -573,7 +573,7 @@ export default {
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
-                "valueYField": "fs_used_percent",
+                "valueYField": "hdd_used_percent",
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": l10n( `HDD used` ) + ": {valueY.formatNumber()}",
                 } ),

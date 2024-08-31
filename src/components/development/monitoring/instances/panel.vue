@@ -12,15 +12,15 @@
 
                 <ext-column dataIndex="instance_type" flex="1" :text="l10n(`Instance type`)"/>
 
-                <ext-column dataIndex="memory_total" :text="l10n(`RAM (total)`)" width="120" @ready="_colReady"/>
+                <ext-column dataIndex="ram_total" :text="l10n(`RAM (total)`)" width="120" @ready="_colReady"/>
 
-                <ext-column dataIndex="memory_used_text" sorter='{"property":"memory_used"}' :text="l10n(`RAM (used)`)" width="150"/>
+                <ext-column dataIndex="ram_used_text" sorter='{"property":"ram_used"}' :text="l10n(`RAM (used)`)" width="150"/>
 
-                <ext-column dataIndex="memory_rss_text" sorter='{"property":"memory_rss"}' text="RSS" width="150"/>
+                <ext-column dataIndex="rss_usage_text" sorter='{"property":"rss_usage"}' text="RSS" width="150"/>
 
-                <ext-column dataIndex="fs_total" :text="l10n(`HDD (total)`)" width="120" @ready="_colReady"/>
+                <ext-column dataIndex="hdd_total" :text="l10n(`HDD (total)`)" width="120" @ready="_colReady"/>
 
-                <ext-column dataIndex="fs_used_text" sorter='{"property":"fsy_used"}' :text="l10n(`HDD (used)`)" width="150"/>
+                <ext-column dataIndex="hdd_used_text" sorter='{"property":"fsy_used"}' :text="l10n(`HDD (used)`)" width="150"/>
 
                 <ext-column width="40" @ready="_actionColReady"/>
             </ext-grid>
