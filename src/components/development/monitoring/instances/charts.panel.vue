@@ -136,7 +136,7 @@ export default {
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
-                "valueYField": "cpu_usage",
+                "valueYField": "cpu_used",
                 "tooltip": am5.Tooltip.new( root, {
                     "labelText": l10n( `CPU usage` ) + ": {valueY.formatNumber()}",
                 } ),
