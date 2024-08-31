@@ -586,11 +586,11 @@ msgstr "Забули пароль?"
 msgid "Generate random password"
 msgstr "Згенерувати випадковий пароль"
 
-#: ../../src/components/development/monitoring/instances/panel.vue:21:56
+#: ../../src/components/development/monitoring/instances/panel.vue:21:57
 msgid "HDD (total)"
 msgstr "HDD (всього)"
 
-#: ../../src/components/development/monitoring/instances/panel.vue:23:93
+#: ../../src/components/development/monitoring/instances/panel.vue:23:94
 msgid "HDD (used)"
 msgstr "HDD (використаний)"
 
@@ -935,11 +935,11 @@ msgstr "Push повідомлення вимкнено"
 msgid "Push notifications enabled"
 msgstr "Push повідомлення ввімкнено"
 
-#: ../../src/components/development/monitoring/instances/panel.vue:15:60
+#: ../../src/components/development/monitoring/instances/panel.vue:15:57
 msgid "RAM (total)"
 msgstr "RAM (загальна)"
 
-#: ../../src/components/development/monitoring/instances/panel.vue:17:100
+#: ../../src/components/development/monitoring/instances/panel.vue:17:94
 msgid "RAM (used)"
 msgstr "RAM (використовується)"
 
