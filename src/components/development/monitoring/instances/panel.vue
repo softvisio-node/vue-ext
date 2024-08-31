@@ -1,7 +1,7 @@
 <template>
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #dataPanel>
-            <ext-grid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @itemdoubletap="_onItemDoubleTap" @ready="_ready">
+            <ext-grid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @childdoubletap="_onItemDoubleTap" @ready="_ready">
                 <ext-toolbar docked="top">
                     <ext-searchfield :placeholder="l10n(`Search for instances`)" width="200" @change="_search"/>
                     <ext-spacer width="20"/>
@@ -186,7 +186,7 @@ export default {
         },
 
         _onItemDoubleTap ( e ) {
-            this.showChartsDialog( e.detail.record );
+            this.showChartsDialog( e.detail.location.record );
         },
     },
 };
