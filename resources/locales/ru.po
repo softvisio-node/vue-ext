@@ -322,7 +322,7 @@ msgstr "Копировать токен в буфер"
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:195:24
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:201:33
 msgid "CPU usage"
-msgstr "использование CPU"
+msgstr "Использование CPU"
 
 #: ../../src/components/telegram/create-bot.button.vue:3:71
 #: ../../src/components/telegram/create-bot.dialog.vue:2:50
@@ -1054,7 +1054,7 @@ msgstr "RSS (используется)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:410:24
 msgid "RSS usage"
-msgstr "использование RSS"
+msgstr "Использование RSS"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:461:33
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:493:33
