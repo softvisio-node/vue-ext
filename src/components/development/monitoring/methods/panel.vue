@@ -1,7 +1,7 @@
 <template>
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #dataPanel>
-            <ext-lockedgrid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
+            <ext-lockedgrid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @itemdoubletap="_onItemDoubleTap" @ready="_ready">
                 <ext-toolbar docked="top">
                     <ext-searchfield :placeholder="l10n(`Search for methods by name`)" width="200" @change="_search"/>
                     <ext-spacer width="20"/>
@@ -93,8 +93,8 @@ export default {
             if ( res.ok ) this.store.loadRawData( res.data );
         },
 
-        async showChartsDialog ( row, button ) {
-            const record = row === "row" ? button.up( "gridrow" )?.getRecord() : this.selectedRecord;
+        async showChartsDialog ( record, button ) {
+            record ??= button.up( "gridrow" )?.getRecord();
 
             if ( !record ) return;
 
@@ -229,7 +229,7 @@ export default {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
                             "tooltip": l10n( `Open charts` ),
-                            "handler": this.showChartsDialog.bind( this, "row" ),
+                            "handler": this.showChartsDialog.bind( this, null ),
                         },
                         {
                             "xtype": "button",
@@ -300,6 +300,10 @@ export default {
             this.$refs.periodButton.ext.setText( l10n( `Period` ) + ": " + menuItem.getText() );
 
             this.refresh();
+        },
+
+        _onItemDoubleTap ( e ) {
+            this.showChartsDialog( e.detail.record );
         },
     },
 };

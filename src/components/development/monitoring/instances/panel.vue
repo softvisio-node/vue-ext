@@ -1,7 +1,7 @@
 <template>
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #dataPanel>
-            <ext-grid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
+            <ext-grid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @itemdoubletap="_onItemDoubleTap" @ready="_ready">
                 <ext-toolbar docked="top">
                     <ext-searchfield :placeholder="l10n(`Search for instances`)" width="200" @change="_search"/>
                     <ext-spacer width="20"/>
@@ -88,8 +88,8 @@ export default {
             if ( res.ok ) this.store.loadRawData( res.data );
         },
 
-        async showChartsDialog ( row, button ) {
-            const record = row === "row" ? button.up( "gridrow" )?.getRecord() : this.selectedRecord;
+        async showChartsDialog ( record, button ) {
+            record ??= button.up( "gridrow" )?.getRecord();
 
             if ( !record ) return;
 
@@ -130,7 +130,7 @@ export default {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
                             "tooltip": l10n( `Open charts` ),
-                            "handler": this.showChartsDialog.bind( this, "row" ),
+                            "handler": this.showChartsDialog.bind( this, null ),
                         },
                     ],
                 },
@@ -183,6 +183,10 @@ export default {
             clearInterval( this.autoRefreshInterval );
 
             this.autoRefreshInterval = null;
+        },
+
+        _onItemDoubleTap ( e ) {
+            this.showChartsDialog( e.detail.record );
         },
     },
 };
