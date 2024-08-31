@@ -13,7 +13,7 @@ msgstr ""
 "X-Search-Path: /src/**\n"
 "X-Generator: Poedit 3.4.4\n"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:202:29
+#: ../../src/components/development/monitoring/methods/panel.vue:203:29
 #, javascript-format
 msgid "${n} day"
 msgid_plural "${n} days"
@@ -218,7 +218,7 @@ msgstr "Браузер"
 #: ../../src/components/development/monitoring/methods/charts.panel.vue:157:24
 #: ../../src/components/development/monitoring/methods/charts.panel.vue:190:24
 #: ../../src/components/development/monitoring/methods/charts.panel.vue:196:33
-#: ../../src/components/development/monitoring/methods/panel.vue:152:28
+#: ../../src/components/development/monitoring/methods/panel.vue:153:28
 msgid "Calls"
 msgstr "Виклики"
 
@@ -441,7 +441,7 @@ msgstr "Готово"
 msgid "Duration"
 msgstr "Тривалість"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:167:28
+#: ../../src/components/development/monitoring/methods/panel.vue:168:28
 msgid "Duration (%)"
 msgstr "Тривалість (%)"
 
@@ -450,7 +450,7 @@ msgstr "Тривалість (%)"
 msgid "Duration (ms)"
 msgstr "Тривалість (мс)"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:160:28
+#: ../../src/components/development/monitoring/methods/panel.vue:161:28
 msgid "Duration / call (ms)"
 msgstr "Тривалість / виклик (мс)"
 
@@ -554,7 +554,7 @@ msgid "Enter your Telegram bot API token"
 msgstr "Введіть свій токен API бота Telegram"
 
 #: ../../src/components/development/monitoring/methods/charts.panel.vue:396:33
-#: ../../src/components/development/monitoring/methods/panel.vue:174:28
+#: ../../src/components/development/monitoring/methods/panel.vue:175:28
 msgid "Exceptions"
 msgstr "Винятки"
 
@@ -563,11 +563,11 @@ msgstr "Винятки"
 msgid "Exceptions (%)"
 msgstr "Винятки (%)"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:181:28
+#: ../../src/components/development/monitoring/methods/panel.vue:182:28
 msgid "Exceptions / call (%)"
 msgstr "Винятки / виклик (%)"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:237:39
+#: ../../src/components/development/monitoring/methods/panel.vue:238:39
 msgid "Exceptions log"
 msgstr "Журнал винятків"
 
@@ -742,7 +742,7 @@ msgstr "Максимізувати"
 msgid "Maximize charts"
 msgstr "Розгорнути діаграми"
 
-#: ../../src/components/development/monitoring/methods/panel.vue:143:28
+#: ../../src/components/development/monitoring/methods/panel.vue:144:28
 msgid "Method name"
 msgstr "Назва методу"
 
@@ -838,7 +838,7 @@ msgid "Open bot in Telegram"
 msgstr "Відкрити бот в Telegram"
 
 #: ../../src/components/development/monitoring/instances/panel.vue:132:39
-#: ../../src/components/development/monitoring/methods/panel.vue:231:39
+#: ../../src/components/development/monitoring/methods/panel.vue:232:39
 #: ../../src/components/telegram/bot/links/details.panel.vue:6:72
 msgid "Open charts"
 msgstr "Відкриті діаграми"
@@ -917,8 +917,8 @@ msgstr "Минула година"
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:140:28
 #: ../../src/components/development/monitoring/methods/charts.panel.vue:123:25
 #: ../../src/components/development/monitoring/methods/charts.panel.vue:137:28
-#: ../../src/components/development/monitoring/methods/panel.vue:204:61
-#: ../../src/components/development/monitoring/methods/panel.vue:300:49
+#: ../../src/components/development/monitoring/methods/panel.vue:205:61
+#: ../../src/components/development/monitoring/methods/panel.vue:301:49
 #: ../../src/components/telegram/bot/details/charts.panel.vue:104:25
 #: ../../src/components/telegram/bot/details/charts.panel.vue:118:28
 #: ../../src/components/telegram/bot/links/charts.panel.vue:103:25
