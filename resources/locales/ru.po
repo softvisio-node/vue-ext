@@ -595,25 +595,21 @@ msgid "HDD (used)"
 msgstr "HDD (используется)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:495:24
-#, fuzzy
 msgid "HDD usage"
-msgstr "Использование жесткого диска"
+msgstr "Использование HDD"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:546:33
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:578:33
-#, fuzzy
 msgid "HDD used"
-msgstr "Жесткий диск используется"
+msgstr "HDD используется"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:572:24
-#, fuzzy
 msgid "HDD used (%)"
-msgstr "Использованный жесткий диск (%)"
+msgstr "Использованный HDD (%)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:540:24
-#, fuzzy
 msgid "HDD used (MB)"
-msgstr "Использованный жесткий диск (МБ)"
+msgstr "Использованный HDD (МБ)"
 
 #: ../../src/components/notifications/panel.vue:4:40
 msgid "Inbox"
@@ -948,25 +944,21 @@ msgid "RAM (used)"
 msgstr "RAM (используется)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:205:24
-#, fuzzy
 msgid "RAM usage"
-msgstr "Использование оперативной памяти"
+msgstr "Использование RAM"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:256:33
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:288:33
-#, fuzzy
 msgid "RAM used"
-msgstr "Используемая оперативная память"
+msgstr "Используемая RAM"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:282:24
-#, fuzzy
 msgid "RAM used (%)"
-msgstr "Использовано ОЗУ (%)"
+msgstr "Использовано RAM (%)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:250:24
-#, fuzzy
 msgid "RAM used (MB)"
-msgstr "Используемая оперативная память (МБ)"
+msgstr "Использовано RAM (МБ)"
 
 #: ../../src/components/push-notifications.button.vue:36:23
 msgid "Receive push notifications"
@@ -1041,23 +1033,19 @@ msgid "Roles selected: ${n}"
 msgstr "Выбрано ролей: ${n}"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:350:24
-#, fuzzy
 msgid "RSS usage"
 msgstr "использование RSS"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:401:33
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:433:33
-#, fuzzy
 msgid "RSS used"
 msgstr "RSS используется"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:427:24
-#, fuzzy
 msgid "RSS used (%)"
 msgstr "RSS используется (%)"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:395:24
-#, fuzzy
 msgid "RSS used (MB)"
 msgstr "RSS используется (МБ)"
 
