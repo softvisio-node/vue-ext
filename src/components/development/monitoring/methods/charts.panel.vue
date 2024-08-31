@@ -2,6 +2,7 @@
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #docked>
             <ext-toolbar docked="top">
+                <ext-button ref="periodButton" stretchMenu="true" @ready="_periodButtonReady"/>
                 <ext-spacer/>
                 <slot name="toolbar"/>
                 <ext-button iconCls="fa-solid fa-redo" :text="l10n(`Refresh`)" @tap="refresh"/>
@@ -10,11 +11,11 @@
 
         <template #dataPanel>
             <ext-container defaults='{"height":300}' layput="vbox" scrollable="true">
-                <ext-amcharts5 ref="callsChart" :createChart="_createCallsChart"/>
+                <ext-amcharts5 ref="callsChart" :createChart="_createCallsChart" :setChartData="_setChartData"/>
 
-                <ext-amcharts5 ref="durationChart" :createChart="_createDurationChart"/>
+                <ext-amcharts5 ref="durationChart" :createChart="_createDurationChart" :setChartData="_setChartData"/>
 
-                <ext-amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart"/>
+                <ext-amcharts5 ref="exceptionsChart" :createChart="_createExceptionsChart" :setChartData="_setChartData"/>
             </ext-container>
         </template>
     </CardsPanel>
@@ -26,8 +27,18 @@ import CardsPanel from "#src/components/cards.panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
 
 const PERIODS = {
-    "1 hour": "minute",
-    "30 days": "hour",
+    "1 hour": {
+        "text": l10n( `Past hour` ),
+        "timeUnit": "minute",
+    },
+    "7 days": {
+        "text": l10n( `Past 7 days` ),
+        "timeUnit": "hour",
+    },
+    "30 days": {
+        "text": l10n( `Past 30 days` ),
+        "timeUnit": "hour",
+    },
 };
 
 export default {
@@ -51,6 +62,8 @@ export default {
     },
 
     "methods": {
+
+        // public
         async refresh () {
             if ( !this.record ) {
                 this.$refs.cardsPanel.showNoDataPanel();
@@ -58,9 +71,12 @@ export default {
                 return;
             }
 
+            if ( !this._period ) return;
+            if ( !this.$refs.cardsPanel.isRendered ) return;
+
             this.$refs.cardsPanel.mask();
 
-            const res = await this.$api.call( "development/monitoring/methods/get-monitoring-method-stats", this.record.id, this.period );
+            const res = await this.$api.call( "development/monitoring/methods/get-monitoring-method-stats", this.record.id, this._period );
 
             this.$refs.cardsPanel.unmask();
 
@@ -77,6 +93,46 @@ export default {
                 this.$refs.durationChart.ext.setData( res.data );
                 this.$refs.exceptionsChart.ext.setData( res.data );
             }
+        },
+
+        // protected
+        _periodButtonReady ( e ) {
+            const cmp = e.detail.cmp;
+
+            this._period = this.period;
+
+            const menu = [];
+
+            for ( const [ value, { text } ] of Object.entries( PERIODS ) ) {
+                menu.push( {
+                    "xtype": "menuradioitem",
+                    value,
+                    text,
+                    "group": "period",
+                    "checked": value === this._period,
+                    "handler": this._setPeriod.bind( this ),
+                } );
+            }
+
+            cmp.setMenu( menu );
+
+            cmp.setText( l10n( `Period` ) + ": " + PERIODS[ this._period ].text );
+
+            this.refresh();
+        },
+
+        _setPeriod ( menuItem ) {
+            const button = this.$refs.periodButton.ext;
+
+            button.getMenu().hide();
+
+            if ( this._period === menuItem.getValue() ) return;
+
+            this._period = menuItem.getValue();
+
+            button.setText( l10n( `Period` ) + ": " + PERIODS[ this._period ].text );
+
+            this.refresh();
         },
 
         _createCallsChart ( cmp ) {
@@ -104,7 +160,7 @@ export default {
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "maxDeviation": 0,
                 "baseInterval": {
-                    "timeUnit": PERIODS[ this.period ],
+                    "timeUnit": PERIODS[ this._period ].timeUnit,
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
@@ -199,7 +255,7 @@ export default {
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "maxDeviation": 0,
                 "baseInterval": {
-                    "timeUnit": PERIODS[ this.period ],
+                    "timeUnit": PERIODS[ this._period ].timeUnit,
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
@@ -302,7 +358,7 @@ export default {
             const xAxis = chart.xAxes.push( am5xy.DateAxis.new( root, {
                 "maxDeviation": 0,
                 "baseInterval": {
-                    "timeUnit": PERIODS[ this.period ],
+                    "timeUnit": PERIODS[ this._period ].timeUnit,
                     "count": 1,
                 },
                 "renderer": am5xy.AxisRendererX.new( root, {} ),
@@ -380,6 +436,16 @@ export default {
             } ) );
 
             legend.data.setAll( chart.series.values );
+        },
+
+        _setChartData ( chart, data ) {
+            const xAxis = chart.root.container.children.values[ 0 ].xAxes.values[ 0 ];
+
+            if ( xAxis.get( "baseInterval" ).timeUnit !== PERIODS[ this._period ].timeUnit ) {
+                xAxis.get( "baseInterval" ).timeUnit = PERIODS[ this._period ].timeUnit;
+            }
+
+            return data;
         },
     },
 };
