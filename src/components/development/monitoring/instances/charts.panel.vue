@@ -10,13 +10,13 @@
 
         <template #dataPanel>
             <ext-container defaults='{"height":300}' layput="vbox" scrollable="true">
-                <ext-amcharts5 ref="cpuUsageChart" :createChart="_createCpuUsageChart"/>
+                <ext-amcharts5 ref="cpuUsageChart" :createChart="_createCpuUsedChart"/>
 
-                <ext-amcharts5 ref="memryUsedChart" :createChart="_createMemoryUsedChart"/>
+                <ext-amcharts5 ref="memryUsedChart" :createChart="_createRamUsedChart"/>
 
-                <ext-amcharts5 ref="memryRssChart" :createChart="_createMemoryRssChart"/>
+                <ext-amcharts5 ref="memryRssChart" :createChart="_createRssUsedChart"/>
 
-                <ext-amcharts5 ref="fsUsedChart" :createChart="_createFsUsedChart"/>
+                <ext-amcharts5 ref="hddUsedChart" :createChart="_createHddUsedChart"/>
             </ext-container>
         </template>
     </CardsPanel>
@@ -78,11 +78,11 @@ export default {
                 this.$refs.cpuUsageChart.ext.setData( res.data );
                 this.$refs.memryUsedChart.ext.setData( res.data );
                 this.$refs.memryRssChart.ext.setData( res.data );
-                this.$refs.fsUsedChart.ext.setData( res.data );
+                this.$refs.hddUsedChart.ext.setData( res.data );
             }
         },
 
-        _createCpuUsageChart ( cmp ) {
+        _createCpuUsedChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -187,7 +187,7 @@ export default {
             legend.data.setAll( chart.series.values );
         },
 
-        _createMemoryUsedChart ( cmp ) {
+        _createRamUsedChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -332,7 +332,7 @@ export default {
             legend.data.setAll( chart.series.values );
         },
 
-        _createMemoryRssChart ( cmp ) {
+        _createRssUsedChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
@@ -477,7 +477,7 @@ export default {
             legend.data.setAll( chart.series.values );
         },
 
-        _createFsUsedChart ( cmp ) {
+        _createHddUsedChart ( cmp ) {
             const root = cmp.root,
                 am5 = cmp.am5;
 
