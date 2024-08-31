@@ -580,13 +580,8 @@ msgstr "Журнал исключений для метода: ${n}"
 msgid "Forgot password?"
 msgstr "Забыли пароль?"
 
-#: ../../src/components/development/monitoring/instances/panel.vue:21:56
-msgid "FS total"
-msgstr "FS Всего"
-
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:546:33
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:578:33
-#: ../../src/components/development/monitoring/instances/panel.vue:23:93
 msgid "FS used"
 msgstr "FS используется"
 
@@ -604,6 +599,14 @@ msgstr "FS используется (МБ)"
 #: ../../src/components/reset-password.dialog.vue:11:35
 msgid "Generate random password"
 msgstr "Сгенерировать случайный пароль"
+
+#: ../../src/components/development/monitoring/instances/panel.vue:21:56
+msgid "HDD (total)"
+msgstr "HDD (всего)"
+
+#: ../../src/components/development/monitoring/instances/panel.vue:23:93
+msgid "HDD (used)"
+msgstr "HDD (используется)"
 
 #: ../../src/components/notifications/panel.vue:4:40
 msgid "Inbox"
@@ -929,6 +932,14 @@ msgstr "Push уведомления выключены"
 msgid "Push notifications enabled"
 msgstr "Push уведомления включены"
 
+#: ../../src/components/development/monitoring/instances/panel.vue:15:60
+msgid "RAM (total)"
+msgstr "RAM (всего)"
+
+#: ../../src/components/development/monitoring/instances/panel.vue:17:100
+msgid "RAM (used)"
+msgstr "RAM (используется)"
+
 #: ../../src/components/push-notifications.button.vue:36:23
 msgid "Receive push notifications"
 msgstr "Получать push уведомления"
@@ -1003,7 +1014,6 @@ msgstr "Выбрано ролей: ${n}"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:401:33
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:433:33
-#: ../../src/components/development/monitoring/instances/panel.vue:19:98
 msgid "RSS memory"
 msgstr "RSS-память"
 
@@ -1178,10 +1188,6 @@ msgstr "Токен удален"
 msgid "Token name"
 msgstr "Имя токена"
 
-#: ../../src/components/development/monitoring/instances/panel.vue:15:60
-msgid "Total memory"
-msgstr "Общая память"
-
 #: ../../src/components/telegram/bot/details/charts.panel.vue:138:24
 #: ../../src/components/telegram/bot/details/charts.panel.vue:171:24
 #: ../../src/components/telegram/bot/links/charts.panel.vue:137:24
@@ -1234,7 +1240,6 @@ msgstr "Использовать темный режим устройства"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:256:33
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:288:33
-#: ../../src/components/development/monitoring/instances/panel.vue:17:100
 msgid "Used memory"
 msgstr "Используемая память"
 
@@ -1651,6 +1656,10 @@ msgstr "Уменьшить"
 #~ msgid "From"
 #~ msgstr "От"
 
+#: ../../src/components/development/monitoring/instances/panel.vue:21:56
+#~ msgid "FS total"
+#~ msgstr "FS Всего"
+
 #~ msgid "HDD free"
 #~ msgstr "HDD свободно"
 
@@ -1995,6 +2004,10 @@ msgstr "Уменьшить"
 
 #~ msgid "Token roles updated"
 #~ msgstr "Роли токена обновлены"
+
+#: ../../src/components/development/monitoring/instances/panel.vue:15:60
+#~ msgid "Total memory"
+#~ msgstr "Общая память"
 
 #~ msgid "Try again"
 #~ msgstr "Пробовать еще раз"
