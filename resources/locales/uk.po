@@ -324,9 +324,8 @@ msgstr "Використання CPU"
 
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:195:24
 #: ../../src/components/development/monitoring/instances/charts.panel.vue:201:33
-#, fuzzy
 msgid "CPU used"
-msgstr "ЦП використовується"
+msgstr "Використано CPU"
 
 #: ../../src/components/telegram/create-bot.button.vue:3:71
 #: ../../src/components/telegram/create-bot.dialog.vue:2:50
