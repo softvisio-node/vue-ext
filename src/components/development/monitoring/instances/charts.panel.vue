@@ -192,13 +192,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": l10n( `CPU usage` ),
+                "name": l10n( `CPU used` ),
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
                 "valueYField": "cpu_used",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `CPU usage` ) + ": {valueY.formatNumber()}",
+                    "labelText": l10n( `CPU used` ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
