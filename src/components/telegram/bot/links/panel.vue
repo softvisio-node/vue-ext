@@ -21,7 +21,7 @@
             </template>
 
             <template #dataPanel>
-                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store" @itemdoubletap="_onItemDoubleTap">
+                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store" @childdoubletap="_onChildDoubleTap">
                     <ext-column dataIndex="name" flex="1" :text="l10n(`Name`)"/>
 
                     <ext-column align="right" dataIndex="total_subscribed_users_text" sorter='{"property":"total_subscribed_users"}' :text="l10n(`Subscribed users`)" width="150"/>
@@ -156,8 +156,8 @@ export default {
             return this._showLinkDialog( record );
         },
 
-        async _onItemDoubleTap ( e ) {
-            return this._showLinkDialog( e.detail.record );
+        async _onChildDoubleTap ( e ) {
+            return this._showLinkDialog( e.detail.location.record );
         },
 
         async _showLinkDialog ( record ) {

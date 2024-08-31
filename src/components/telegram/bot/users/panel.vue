@@ -12,7 +12,7 @@
             </template>
 
             <template #dataPanel>
-                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store" @itemdoubletap="_onItemDoubleTap">
+                <ext-grid itemConfig='{"viewModel":true}' layout="fit" multicolumnSort="true" plugins='["gridviewoptions", "autopaging"]' :store="store" @childdoubletap="_onChildDoubleTap">
                     <ext-avatarcolumn/>
 
                     <ext-column dataIndex="username" flex="1" :text="l10n(`Username`)"/>
@@ -113,8 +113,8 @@ export default {
             }
         },
 
-        async _onItemDoubleTap ( e ) {
-            return this._showDetailsDialog( e.detail.record );
+        async _onChildDoubleTap ( e ) {
+            return this._showDetailsDialog( e.detail.location.record );
         },
 
         async _viewUserClick ( button ) {
