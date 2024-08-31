@@ -1,7 +1,7 @@
 <template>
     <CardsPanel ref="cardsPanel" @refresh="refresh">
         <template #dataPanel>
-            <ext-lockedgrid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @itemdoubletap="_onItemDoubleTap" @ready="_ready">
+            <ext-lockedgrid ref="grid" itemConfig='{"viewModel":true}' multicolumnSort="true" @ready="_ready">
                 <ext-toolbar docked="top">
                     <ext-searchfield :placeholder="l10n(`Search for methods by name`)" width="200" @change="_search"/>
                     <ext-spacer width="20"/>
@@ -131,7 +131,8 @@ export default {
 
             cmp.getRegion( "left" )
                 .getGrid()
-                .on( "select", ( grid, selection ) => ( this.selectedRecord = selection ) );
+                .on( "select", ( grid, selection ) => ( this.selectedRecord = selection ) )
+                .on( "childdoubletap", ( grid, location ) => this._onItemDoubleTap( location ) );
 
             cmp.setStore( this.store );
 
@@ -302,8 +303,8 @@ export default {
             this.refresh();
         },
 
-        _onItemDoubleTap ( e ) {
-            this.showChartsDialog( e.detail.record );
+        _onItemDoubleTap ( location ) {
+            this.showChartsDialog( location.record );
         },
     },
 };
