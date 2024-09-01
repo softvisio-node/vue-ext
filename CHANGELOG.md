@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.12.26 (2024-09-01)
+
+Fixes:
+
+-   fix: cron panel
+-   fix: monitoring panel
+
 ### 8.12.25 (2024-08-31)
 
 Fixes:
