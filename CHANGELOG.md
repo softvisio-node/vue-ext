@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.12.27 (2024-09-02)
+
+Fixes:
+
+-   fix: docs config
+
 ### 8.12.26 (2024-09-01)
 
 Fixes:
