@@ -272,7 +272,7 @@ export default {
             }
 
             var placeholder = document.createElement( "div" );
-            container.appendChild( placeholder );
+            container.append( placeholder );
 
             // create canvas
             var canvas = document.createElement( "canvas" );
@@ -292,7 +292,7 @@ export default {
             var renderTask = page.render( renderContext );
 
             renderTask.promise.then( function () {
-                placeholder.appendChild( canvas );
+                placeholder.append( canvas );
             } );
 
             this.pdfPages.push( {

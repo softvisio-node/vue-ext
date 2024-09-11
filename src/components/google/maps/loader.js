@@ -36,7 +36,7 @@ export default async function ( key, { language, libraries } = {} ) {
         googleMapScript.setAttribute( "src", url );
         googleMapScript.setAttribute( "async", "" );
         googleMapScript.setAttribute( "defer", "" );
-        document.body.appendChild( googleMapScript );
+        document.body.append( googleMapScript );
     }
 
     const promise = new Promise( resolve => PROMISES.push( resolve ) );
