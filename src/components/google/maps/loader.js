@@ -20,7 +20,7 @@ export default async function ( key, { language, libraries } = {} ) {
                 try {
                     resolve();
                 }
-                catch ( e ) {}
+                catch {}
             }
 
             PROMISES = null;

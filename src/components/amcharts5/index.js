@@ -42,7 +42,7 @@ Ext.define( "Ext.amcharts5", {
         try {
             this.callParent( arguments );
         }
-        catch ( e ) {}
+        catch {}
     },
 
     updateStore ( newValue, oldValue ) {

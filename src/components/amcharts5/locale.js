@@ -5,7 +5,7 @@ var locale;
 try {
     locale = await import( `@amcharts/amcharts5/locales/${ app.locale.id.replace( "-", "_" ) }.js` );
 }
-catch ( e ) {
+catch {
     locale = await import( `@amcharts/amcharts5/locales/en.js` );
 }
 

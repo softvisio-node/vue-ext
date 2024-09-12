@@ -54,7 +54,7 @@ try {
         window.customElements.define( "ext-amcharts5", ElementParser.withParsedCallback( EwcAmchrarts5 ) );
     }
 }
-catch ( e ) {
+catch {
     if ( window.customElements.get( "ext-amcharts5" ) === undefined ) {
         window.customElements.define( "ext-amcharts5", EwcAmchrarts5 );
     }
