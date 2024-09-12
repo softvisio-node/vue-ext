@@ -22,7 +22,7 @@ class TelegramComponent {
 
     add ( component ) {
         if ( this.#components[ component.id ] ) {
-            throw Error( `Telegram bot id ${ component.id } already registered` );
+            throw new Error( `Telegram bot id ${ component.id } already registered` );
         }
 
         this.#components[ component.id ] = component;
