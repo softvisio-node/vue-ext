@@ -5,7 +5,9 @@ const CALLBACK = "_softvisioGoogleMapsInit";
 export default async function ( key, { language, libraries } = {} ) {
 
     // maps loaded
-    if ( MAPS_LOADED === 2 ) return;
+    if ( MAPS_LOADED === 2 ) {
+        return;
+    }
 
     // load maps
     else if ( !MAPS_LOADED ) {
