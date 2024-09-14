@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.13.0 (2024-09-14)
+
+Features:
+
+-   feat: app
+
 ### 8.12.30 (2024-09-13)
 
 No notable changes since the previous release.
