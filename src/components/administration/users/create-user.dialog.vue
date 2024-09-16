@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import constants from "@softvisio/app/constants";
+import constants from "#core/app/constants";
 import passwords from "#core/passwords";
 import RolesPanel from "#src/components/acl/roles.panel";
 

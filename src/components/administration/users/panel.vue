@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import constants from "@softvisio/app/constants";
+import constants from "#core/app/constants";
 import CreateUserDialog from "./create-user.dialog";
 import UserRolesDialog from "#src/components/acl/roles.dialog";
 import UserModel from "./models/user";
