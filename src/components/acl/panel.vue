@@ -27,12 +27,12 @@
 </template>
 
 <script>
+import AddUserDialog from "./add-user.dialog";
 import PermissionModel from "./models/permission";
 import UserModel from "./models/user";
-import AddUserDialog from "./add-user.dialog";
-import CardsPanel from "#src/components/cards.panel";
 import RolesButton from "#src/components/acl/roles.button";
 import RolesDialog from "#src/components/acl/roles.dialog";
+import CardsPanel from "#src/components/cards.panel";
 
 export default {
     "components": { CardsPanel, RolesButton },

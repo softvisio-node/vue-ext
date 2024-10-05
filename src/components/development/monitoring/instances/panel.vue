@@ -33,10 +33,10 @@
 </template>
 
 <script>
-import CardsPanel from "#src/components/cards.panel";
-import InstanceModel from "./models/instance";
 import ChartsDialog from "./charts.dialog";
 import CharstPanel from "./charts.panel";
+import InstanceModel from "./models/instance";
+import CardsPanel from "#src/components/cards.panel";
 
 const DEFAULT_AUTOREFRESH_INTERVAL = 60_000;
 

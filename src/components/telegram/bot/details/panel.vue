@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import BotInfoPanel from "./info.panel";
 import BotChartsPanel from "./charts.panel";
+import BotInfoPanel from "./info.panel";
 
 export default {
     "components": { BotInfoPanel, BotChartsPanel },

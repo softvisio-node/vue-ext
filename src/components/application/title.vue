@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import AvatarUser from "#src/components/avatar.user";
 import AppMenu from "./menu";
+import AvatarUser from "#src/components/avatar.user";
 import NotificationsButton from "#src/components/notifications/button";
 import AccountDialog from "#vue/components/account/dialog";
 

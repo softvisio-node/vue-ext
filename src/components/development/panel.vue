@@ -20,9 +20,9 @@
 </template>
 
 <script>
+import CronPanel from "./cron/panel";
 import InstancesMonitoringPanel from "./monitoring/instances/panel";
 import MethodsMonitoringPanel from "./monitoring/methods/panel";
-import CronPanel from "./cron/panel";
 
 export default {
     "components": { InstancesMonitoringPanel, MethodsMonitoringPanel, CronPanel },

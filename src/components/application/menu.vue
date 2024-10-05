@@ -48,12 +48,12 @@
 </template>
 
 <script>
+import AboutDialog from "#src/components/about.dialog";
 import AvatarUser from "#src/components/avatar.user";
-import LocaleButton from "#src/components/locale.button";
 import ChangePasswordDialog from "#src/components/change-password.dialog";
 import DarkModeButton from "#src/components/dark-mode.button";
+import LocaleButton from "#src/components/locale.button";
 import PushNotificationsButton from "#src/components/push-notifications.button";
-import AboutDialog from "#src/components/about.dialog";
 
 export default {
     "components": { AvatarUser, LocaleButton, PushNotificationsButton, DarkModeButton },

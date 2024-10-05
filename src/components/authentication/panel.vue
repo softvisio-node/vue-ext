@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import LocaleButton from "#src/components/locale.button";
-import SigninPanel from "./signin.panel";
 import PasswordRecoveryPanel from "./password-recovery.panel";
+import SigninPanel from "./signin.panel";
 import SignupPanel from "./signup.panel";
+import LocaleButton from "#src/components/locale.button";
 
 export default {
     "components": { LocaleButton, SigninPanel, PasswordRecoveryPanel, SignupPanel },

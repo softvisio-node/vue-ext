@@ -1,5 +1,5 @@
-import BaseTheme from "@amcharts/amcharts5/themes/Dark";
 import { Color } from "@amcharts/amcharts5/.internal/core//util/Color";
+import BaseTheme from "@amcharts/amcharts5/themes/Dark";
 
 class Theme extends BaseTheme {
     setupDefaultRules () {

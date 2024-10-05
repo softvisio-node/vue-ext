@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import telegramComponents from "#src/components/telegram/components";
 import CardsPanel from "#src/components/cards.panel";
+import telegramComponents from "#src/components/telegram/components";
 
 export default {
     "components": { CardsPanel },

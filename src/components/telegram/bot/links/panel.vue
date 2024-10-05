@@ -40,11 +40,11 @@
 </template>
 
 <script>
-import CardsPanel from "#src/components/cards.panel";
-import TelegramBotLinkModel from "./models/link";
+import TelegramBotModel from "../models/bot.js";
 import CreateLinkDialog from "./create.dialog";
 import LinkDialog from "./details.dialog";
-import TelegramBotModel from "../models/bot.js";
+import TelegramBotLinkModel from "./models/link";
+import CardsPanel from "#src/components/cards.panel";
 
 export default {
     "components": { CardsPanel },

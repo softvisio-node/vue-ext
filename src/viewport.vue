@@ -5,8 +5,8 @@
 <script>
 import "./assets/scrollbars.css";
 import Viewport from "@softvisio/vue/viewport";
-import ResetPasswordDialog from "#src/components/reset-password.dialog";
 import AuthorizationDialog from "#src/components/authorization.dialog";
+import ResetPasswordDialog from "#src/components/reset-password.dialog";
 
 export default {
     "extends": Viewport,

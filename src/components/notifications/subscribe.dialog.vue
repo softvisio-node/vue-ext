@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import NotificationsSubscribePanel from "#src/components/notifications/subscribe.panel";
 import NotificationsSettingsDialog from "#src/components/notifications/settings.dialog";
+import NotificationsSubscribePanel from "#src/components/notifications/subscribe.panel";
 
 export default {
     "components": { NotificationsSubscribePanel },

@@ -34,9 +34,9 @@
 
 <script>
 import AccountPanel from "./account.panel";
-import NotificationsSettingsPanel from "#src/components/notifications/settings.panel";
-import UserTokensPanel from "./tokens/panel";
 import AppearancePanel from "./appearance.panel";
+import UserTokensPanel from "./tokens/panel";
+import NotificationsSettingsPanel from "#src/components/notifications/settings.panel";
 
 export default {
     "components": { AccountPanel, NotificationsSettingsPanel, UserTokensPanel, AppearancePanel },

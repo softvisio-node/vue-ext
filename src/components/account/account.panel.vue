@@ -35,13 +35,13 @@
 </template>
 
 <script>
-import CardsPanel from "#src/components/cards.panel";
-import UserSessionsPanel from "#src/components/user-sessions/panel";
-import AccountModel from "./models/account";
-import ChangePasswordDialog from "#src/components/change-password.dialog";
-import ChangeEmailDialog from "#src/components/change-email.dialog";
-import LocaleButton from "#src/components/locale.button";
 import ConfirmEmailButton from "./confirm-email.button";
+import AccountModel from "./models/account";
+import CardsPanel from "#src/components/cards.panel";
+import ChangeEmailDialog from "#src/components/change-email.dialog";
+import ChangePasswordDialog from "#src/components/change-password.dialog";
+import LocaleButton from "#src/components/locale.button";
+import UserSessionsPanel from "#src/components/user-sessions/panel";
 
 export default {
     "components": { CardsPanel, LocaleButton, UserSessionsPanel, ConfirmEmailButton },

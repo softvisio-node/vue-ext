@@ -31,10 +31,10 @@
 </template>
 
 <script>
-import CardsPanel from "#src/components/cards.panel";
-import TelegramBotUserModel from "./models/user";
-import DetailsDialog from "./details.dialog";
 import TelegramBotModel from "../models/bot.js";
+import DetailsDialog from "./details.dialog";
+import TelegramBotUserModel from "./models/user";
+import CardsPanel from "#src/components/cards.panel";
 
 export default {
     "components": { CardsPanel },

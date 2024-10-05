@@ -1,6 +1,6 @@
-import result from "#core/result";
 import app from "#app";
 import Events from "#core/events";
+import result from "#core/result";
 
 class TelegramComponent {
     #components = {};

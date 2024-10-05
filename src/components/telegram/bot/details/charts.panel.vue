@@ -19,8 +19,8 @@
 
 <script>
 import "#src/components/amcharts5";
-import CardsPanel from "#src/components/cards.panel";
 import * as am5xy from "@amcharts/amcharts5/xy";
+import CardsPanel from "#src/components/cards.panel";
 
 const PERIODS = {
     "7 days": {

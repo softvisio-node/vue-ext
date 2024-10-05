@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import InboxPanel from "#src/components/notifications/inbox.panel";
 import DonePanel from "#src/components/notifications/done.panel";
+import InboxPanel from "#src/components/notifications/inbox.panel";
 
 export default {
     "components": { InboxPanel, DonePanel },

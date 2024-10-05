@@ -1,6 +1,6 @@
+import TelegramComponentModel from "./models/component";
 import app from "#app";
 import telegramComponents from "#src/components/telegram/components";
-import TelegramComponentModel from "./models/component";
 
 export default class TelegramBotComponent {
     model;

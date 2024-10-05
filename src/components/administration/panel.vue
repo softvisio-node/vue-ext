@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import UsersPanel from "./users/panel";
 import TelegramBotsPanel from "./telegram/bots.panel";
+import UsersPanel from "./users/panel";
 
 export default {
     "components": { UsersPanel, TelegramBotsPanel },
