@@ -49,13 +49,13 @@
 </template>
 
 <script>
-import CreateBotButton from "./create-bot.button";
+import "@/telegram-components";
 import Events from "#core/events";
 import CardsPanel from "#src/components/cards.panel";
 import BotDialog from "#src/components/telegram/bot/dialog";
 import TelegramBotModel from "#src/components/telegram/bot/models/bot";
 import telegramComponents from "#src/components/telegram/components";
-import "@/telegram-components";
+import CreateBotButton from "./create-bot.button";
 
 export default {
     "components": { CardsPanel, CreateBotButton },

@@ -34,11 +34,11 @@
 </template>
 
 <script>
+import CardsPanel from "#src/components/cards.panel";
 import ChartsDialog from "./charts.dialog";
 import CharstPanel from "./charts.panel";
 import ExceptionsDialog from "./exceptions.dialog";
 import MethodModel from "./models/method";
-import CardsPanel from "#src/components/cards.panel";
 
 const DEFAULT_AUTOREFRESH_INTERVAL = 60_000;
 

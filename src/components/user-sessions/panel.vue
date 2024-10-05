@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import SessionModel from "./models/session";
 import CardsPanel from "#src/components/cards.panel";
+import SessionModel from "./models/session";
 
 export default {
     "components": { CardsPanel },

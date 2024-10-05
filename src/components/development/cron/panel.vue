@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import TaskModel from "./models/task";
 import CardsPanel from "#src/components/cards.panel";
+import TaskModel from "./models/task";
 
 export default {
     "components": { CardsPanel },

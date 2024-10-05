@@ -29,10 +29,10 @@
 </template>
 
 <script>
-import AppMenu from "./menu";
 import AvatarUser from "#src/components/avatar.user";
 import NotificationsButton from "#src/components/notifications/button";
 import AccountDialog from "#vue/components/account/dialog";
+import AppMenu from "./menu";
 
 export default {
     "components": { AvatarUser, AppMenu, NotificationsButton },

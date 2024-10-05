@@ -78,8 +78,8 @@
 </template>
 
 <script>
-import ChartsDialog from "./charts.dialog";
 import CardsPanel from "#src/components/cards.panel";
+import ChartsDialog from "./charts.dialog";
 
 export default {
     "components": { CardsPanel },

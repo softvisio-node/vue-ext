@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import RoleModel from "./models/role";
 import CardsPanel from "#src/components/cards.panel";
+import RoleModel from "./models/role";
 
 export default {
     "components": { CardsPanel },

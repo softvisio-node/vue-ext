@@ -31,14 +31,14 @@
 </template>
 
 <script>
-import ChangePasswordDialog from "./change-password.dialog";
-import CreateUserDialog from "./create-user.dialog";
-import UserModel from "./models/user";
-import UserSessionsDialog from "./user-sessions.dialog";
 import constants from "#core/app/constants";
 import RolesButton from "#src/components/acl/roles.button";
 import UserRolesDialog from "#src/components/acl/roles.dialog";
 import CardsPanel from "#src/components/cards.panel";
+import ChangePasswordDialog from "./change-password.dialog";
+import CreateUserDialog from "./create-user.dialog";
+import UserModel from "./models/user";
+import UserSessionsDialog from "./user-sessions.dialog";
 
 export default {
     "components": { CardsPanel, RolesButton },

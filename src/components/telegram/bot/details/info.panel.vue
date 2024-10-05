@@ -77,13 +77,13 @@
 </template>
 
 <script>
+import CardsPanel from "#src/components/cards.panel";
+import telegramComponents from "#src/components/telegram/components";
+import AclDialog from "#vue/components/acl/dialog";
 import LinksDialog from "../links/dialog";
 import TelegramBotModel from "../models/bot";
 import EditApiTokenGialog from "./edit-api-token.dialog";
 import EditDetailsGialog from "./edit-details.dialog";
-import CardsPanel from "#src/components/cards.panel";
-import telegramComponents from "#src/components/telegram/components";
-import AclDialog from "#vue/components/acl/dialog";
 
 export default {
     "components": { CardsPanel },

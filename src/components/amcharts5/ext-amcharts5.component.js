@@ -1,5 +1,5 @@
-import ExtContainer from "#ewc/Ext/Container";
 import ElementParser from "#ewc/common/ElementParser";
+import ExtContainer from "#ewc/Ext/Container";
 
 export default class EwcAmchrarts5 extends ExtContainer {
     constructor () {

@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import CardsPanel from "#src/components/cards.panel";
 import "./assets/style.css";
+import CardsPanel from "#src/components/cards.panel";
 import NotificationModel from "#src/components/notifications/models/notification";
 
 export default {

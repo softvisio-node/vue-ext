@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import ExceptionModel from "./models/exception";
 import CardsPanel from "#src/components/cards.panel";
+import ExceptionModel from "./models/exception";
 
 export default {
     "components": { CardsPanel },

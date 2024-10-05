@@ -56,11 +56,11 @@
 </template>
 
 <script>
-import Model from "./models/notification-type";
 import Events from "#core/events";
 import CardsPanel from "#src/components/cards.panel";
 import OptionContainer from "#src/components/option.container";
 import PushNotificationsButton from "#src/components/push-notifications.button";
+import Model from "./models/notification-type";
 
 export default {
     "components": { PushNotificationsButton, CardsPanel, OptionContainer },

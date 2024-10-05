@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import CreateBotDialog from "./create-bot.dialog";
 import telegramComponents from "#src/components/telegram/components";
+import CreateBotDialog from "./create-bot.dialog";
 
 export default {
     "props": {

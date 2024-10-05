@@ -27,9 +27,9 @@
 </template>
 
 <script>
+import CardsPanel from "#src/components/cards.panel";
 import CreateDialog from "./create/dialog";
 import TokenModel from "./models/token";
-import CardsPanel from "#src/components/cards.panel";
 
 export default {
     "components": { CardsPanel },

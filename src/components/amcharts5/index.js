@@ -1,7 +1,7 @@
 import "./ext-amcharts5.component.js";
-import * as amcharts from "./loader.js";
 import app from "#app";
 import Events from "#core/events";
+import * as amcharts from "./loader.js";
 
 Ext.define( "Ext.amcharts5", {
     "extend": "Ext.Container",
