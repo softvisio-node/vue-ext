@@ -5,7 +5,7 @@
 ## Install
 
 ```shell
-npm i @softvisio/vue-ext
+npm install @softvisio/vue-ext
 ```
 
 ## Usage

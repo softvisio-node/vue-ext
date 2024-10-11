@@ -1,6 +1,6 @@
 <!-- !!! DO NOT EDIT, THIS FILE IS GENERATED AUTOMATICALLY !!!  -->
 
-> :information_source: Please, see the full project documentation here: [https://softvisio-node.github.io/vue-ext/](https://softvisio-node.github.io/vue-ext/).
+> :information_source: Please, see the full project documentation here:<br>[https://softvisio-node.github.io/vue-ext/](https://softvisio-node.github.io/vue-ext/)
 
 # Introduction
 
@@ -9,7 +9,7 @@
 ## Install
 
 ```shell
-npm i @softvisio/vue-ext
+npm install @softvisio/vue-ext
 ```
 
 ## Usage
