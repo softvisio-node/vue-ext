@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.13.5 (2024-10-16)
+
+No notable changes since the previous release.
+
+[Full list of the changes](https://github.com/softvisio-node/vue-ext/compare/v8.13.4...v8.13.5)
+
 ### 8.13.4 (2024-10-11)
 
 No notable changes since the previous release.
