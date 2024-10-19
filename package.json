@@ -41,9 +41,6 @@
         "/resources",
         "/src"
     ],
-    "scripts": {
-        "release": "softvisio-cli package release"
-    },
     "dependencies": {
         "@amcharts/amcharts5": "^5.1.10",
         "@fortawesome/fontawesome-free": "^6.0.0",
