@@ -25,7 +25,7 @@ export default Ext.define( null, {
         "browser_major",
         "os_family",
         "os_version",
-        "device_brand",
+        "device_vendor",
         "device_model",
 
         // calculated
@@ -44,15 +44,7 @@ export default Ext.define( null, {
         {
             "name": "device_text",
             calculate ( data ) {
-                var device;
-
-                if ( data.device_brand ) {
-                    device = data.device_brand;
-
-                    if ( data.device_model ) device += " " + data.device_model;
-                }
-
-                return device || "&mdash;";
+                return [ data.device_vendor, data.device_model ].filter( tag => tag ).join( " " ) || "&mdash;";
             },
         },
 
