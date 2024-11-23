@@ -20,17 +20,13 @@ export default Ext.define( null, {
         "remote_address",
         "geoip_name",
         "user_agent",
-        "browser_name",
+        "browser_family",
         "browser_version",
         "browser_major",
-        "engine_name",
-        "engine_version",
-        "os_name",
+        "os_family",
         "os_version",
-        "device_vendor",
+        "device_brand",
         "device_model",
-        "device_type",
-        "cpu_architecture",
 
         // calculated
         {
@@ -50,8 +46,8 @@ export default Ext.define( null, {
             calculate ( data ) {
                 var device;
 
-                if ( data.device_vendor ) {
-                    device = data.device_vendor;
+                if ( data.device_brand ) {
+                    device = data.device_brand;
 
                     if ( data.device_model ) device += " " + data.device_model;
                 }
@@ -65,8 +61,8 @@ export default Ext.define( null, {
             calculate ( data ) {
                 var os;
 
-                if ( data.os_name ) {
-                    os = data.os_name;
+                if ( data.os_family ) {
+                    os = data.os_family;
 
                     if ( data.os_version ) os += " " + data.os_version;
                 }
@@ -78,7 +74,7 @@ export default Ext.define( null, {
         {
             "name": "browser_text",
             calculate ( data ) {
-                return data.browser_name || "&mdash;";
+                return data.browser_family || "&mdash;";
             },
         },
 
