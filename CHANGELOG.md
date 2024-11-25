@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.14.0 (2024-11-25)
+
+Features:
+
+-   feat: refactor user-agent
+
+[Compare with the previous release: v8.13.8 ... v8.14.0](https://github.com/softvisio-node/vue-ext/compare/v8.13.8...v8.14.0)
+
 ### 8.13.8 (2024-11-07)
 
 Other changes:
