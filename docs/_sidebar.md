@@ -1,6 +1,6 @@
--   [Introduction](/)
--   [Attributes](/attributes.md)
+- [Introduction](/)
+- [Attributes](/attributes.md)
 
 **Links**
 
--   [Changelog](/changelog)
+- [Changelog](/changelog)
