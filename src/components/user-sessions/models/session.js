@@ -22,7 +22,6 @@ export default Ext.define( null, {
         "user_agent",
         "browser_family",
         "browser_version",
-        "browser_major",
         "os_family",
         "os_version",
         "device_vendor",
