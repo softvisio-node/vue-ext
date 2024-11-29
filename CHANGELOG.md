@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.14.3 (2024-11-29)
+
+Other changes:
+
+- chore: remove browser_major
+
+[Compare with the previous release: v8.14.2 ... v8.14.3](https://github.com/softvisio-node/vue-ext/compare/v8.14.2...v8.14.3)
+
 ### 8.14.2 (2024-11-27)
 
 Other changes:
