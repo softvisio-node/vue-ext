@@ -1,13 +1,13 @@
 env:
 
 build:
-  extVersion: ~
-  ewcVersion: ~
+    extVersion: ~
+    ewcVersion: ~
 
 config:
-  amcharts5LicenseKey: ~
+    amcharts5LicenseKey: ~
 
-  theme:
-    darkMode: auto
-    baseColor: green
-    accentColor: red
+    theme:
+        darkMode: auto
+        baseColor: green
+        accentColor: red

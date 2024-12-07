@@ -6,28 +6,28 @@
 - $id: build
   type: object
   properties:
-    extVersion: { type: string, pattern1: ^\d+\.\d+\.\d+$ }
-    ewcVersion: { type: string, pattern1: ^\d+\.\d+\.\d+$ }
+      extVersion: { type: string, pattern1: ^\d+\.\d+\.\d+$ }
+      ewcVersion: { type: string, pattern1: ^\d+\.\d+\.\d+$ }
 
   required: [extVersion, ewcVersion]
 
 - $id: config
   type: object
   properties:
-    amcharts5LicenseKey: { type: ["null", string] }
+      amcharts5LicenseKey: { type: ["null", string] }
 
-    theme:
-      type: object
-      properties:
-        darkMode:
-          anyOf:
-            - const: auto
-            - type: boolean
-        baseColor: { $ref: colors }
-        accentColor: { $ref: colors }
+      theme:
+          type: object
+          properties:
+              darkMode:
+                  anyOf:
+                      - const: auto
+                      - type: boolean
+              baseColor: { $ref: colors }
+              accentColor: { $ref: colors }
 
-      additionalProperties: false
-      requied: [darkMode, baseColor, accentColor]
+          additionalProperties: false
+          requied: [darkMode, baseColor, accentColor]
 
   required: [theme]
 
