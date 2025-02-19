@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.14.6 (2025-02-19)
+
+Other changes:
+
+- chore: update cli config
+
+Compare with the previous release: [`v8.14.5...v8.14.6`](https://github.com/softvisio-node/vue-ext/compare/v8.14.5...v8.14.6)
+
 ### 8.14.5 (2025-01-08)
 
 Other changes:
