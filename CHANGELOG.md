@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.14.7 (2025-02-26)
+
+Other changes:
+
+- chore: update editorconfig
+
+Compare with the previous release: [`v8.14.6...v8.14.7`](https://github.com/softvisio-node/vue-ext/compare/v8.14.6...v8.14.7)
+
 ### 8.14.6 (2025-02-19)
 
 Other changes:
