@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.14.8 (2025-02-27)
+
+Other changes:
+
+- chore: add editorconfig yaml
+
+Compare with the previous release: [`v8.14.7...v8.14.8`](https://github.com/softvisio-node/vue-ext/compare/v8.14.7...v8.14.8)
+
 ### 8.14.7 (2025-02-26)
 
 Other changes:
