@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.14.10 (2025-03-04)
+
+Other changes:
+
+- chore: update package metadata
+
+Compare with the previous release: [`v8.14.9...v8.14.10`](https://github.com/softvisio-node/vue-ext/compare/v8.14.9...v8.14.10)
+
 ### 8.14.9 (2025-03-04)
 
 Other changes:
