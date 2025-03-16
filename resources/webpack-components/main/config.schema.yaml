@@ -6,8 +6,8 @@
 - $id: build
   type: object
   properties:
-    extVersion: { type: string, pattern1: ^\d+\.\d+\.\d+$ }
-    ewcVersion: { type: string, pattern1: ^\d+\.\d+\.\d+$ }
+    extVersion: { type: string, pattern: ^\d+\.\d+\.\d+$ }
+    ewcVersion: { type: string, pattern: ^\d+\.\d+\.\d+$ }
 
   required: [extVersion, ewcVersion]
 
@@ -27,7 +27,7 @@
         accentColor: { $ref: colors }
 
       additionalProperties: false
-      requied: [darkMode, baseColor, accentColor]
+      required: [darkMode, baseColor, accentColor]
 
   required: [theme]
 
