@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.14.11 (2025-03-16)
+
+Other changes:
+
+- chore: enabled ajv strict mode
+
+Compare with the previous release: [`v8.14.10...v8.14.11`](https://github.com/softvisio-node/vue-ext/compare/v8.14.10...v8.14.11)
+
 ### 8.14.10 (2025-03-04)
 
 Other changes:
