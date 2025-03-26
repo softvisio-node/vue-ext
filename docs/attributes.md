@@ -2,7 +2,7 @@
 
 Boolean attributes, recognized by `VueJS` (@vue/shared/isBooleanAttr):
 
-```text
+```
 allowfullscreen, async, autofocus, autoplay, checked, controls, default, defer, disabled, formnovalidate, hidden, ismap, itemscope, loop, multiple, muted, nomodule, novalidate, open, readonly, required, reversed, scoped, seamless, selected
 ```
 
