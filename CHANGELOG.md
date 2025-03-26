@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.14.13 (2025-03-26)
+
+Other changes:
+
+- chore: update markdown code tags
+
+Compare with the previous release: [`v8.14.12...v8.14.13`](https://github.com/softvisio-node/vue-ext/compare/v8.14.12...v8.14.13)
+
 ### 8.14.12 (2025-03-16)
 
 Other changes:
