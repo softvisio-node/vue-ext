@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.14.15 (2025-03-31)
+
+Other changes:
+
+- chore: fix default value
+
+Compare with the previous release: [`v8.14.14...v8.14.15`](https://github.com/softvisio-node/vue-ext/compare/v8.14.14...v8.14.15)
+
 ### 8.14.14 (2025-03-26)
 
 Other changes:
