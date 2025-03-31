@@ -10,8 +10,8 @@ import NotificationsSubscribeDialog from "#src/components/notifications/subscrib
 export default {
     "props": {
         "aclId": {
-            "type": String,
-            "default": "",
+            "type": Number,
+            "default": null,
         },
         "hidden": {
             "type": Boolean,

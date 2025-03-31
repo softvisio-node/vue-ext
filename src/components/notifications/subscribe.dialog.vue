@@ -13,8 +13,8 @@ export default {
 
     "props": {
         "aclId": {
-            "type": String,
-            "default": "",
+            "type": Number,
+            "default": null,
         },
     },
 
