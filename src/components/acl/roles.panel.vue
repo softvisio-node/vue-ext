@@ -38,7 +38,7 @@ export default {
         },
         "userId": {
             "type": Number,
-            "default": "",
+            "default": null,
         },
         "userRecord": {
             "type": Object,
