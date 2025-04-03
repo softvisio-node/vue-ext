@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.14.16 (2025-04-03)
+
+Other changes:
+
+- chore: fix api call
+
+Compare with the previous release: [`v8.14.15...v8.14.16`](https://github.com/softvisio-node/vue-ext/compare/v8.14.15...v8.14.16)
+
 ### 8.14.15 (2025-03-31)
 
 Other changes:
