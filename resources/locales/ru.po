@@ -1027,11 +1027,11 @@ msgstr "Вернувшиеся пользователи"
 msgid "Role"
 msgstr "Роль"
 
-#: ../../src/components/acl/roles.panel.vue:160:22
+#: ../../src/components/acl/roles.panel.vue:162:22
 msgid "Role disabled"
 msgstr "Роль отключена"
 
-#: ../../src/components/acl/roles.panel.vue:159:22
+#: ../../src/components/acl/roles.panel.vue:161:22
 #: ../../src/components/acl/roles.panel.vue:20:86
 msgid "Role enabled"
 msgstr "Роль включена"
