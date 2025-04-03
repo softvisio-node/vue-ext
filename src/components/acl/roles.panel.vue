@@ -67,7 +67,9 @@ export default {
 
             this.store.loadRawData( [] );
 
-            const res = await this.$api.call( "acl/get-acl-user-roles", this.aclId, this.userId );
+            const res = await this.$api.call( "acl/get-acl-user-roles", ...( this.userId
+                ? [ this.aclId, this.userId ]
+                : [ this.aclId ] ) );
 
             this.$refs.cardsPanel.unmask();
 
