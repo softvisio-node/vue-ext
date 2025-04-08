@@ -18,8 +18,8 @@
                         <ext-displayfield :value="$app.user.email" width="200"/>
 
                         <ext-container layout="hbox">
-                            <!-- change email -->
-                            <ext-button :text="l10n(`Change email`)" @tap="_changeEmail"/>
+                            <!-- change email address -->
+                            <ext-button :text="l10n(`Change email address`)" @tap="_changeEmail"/>
 
                             <!-- confitm email -->
                             <ConfirmEmailButton/>

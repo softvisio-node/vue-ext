@@ -41,7 +41,7 @@ export default {
             this.ext.unmask();
 
             if ( res.ok ) {
-                this.$toast( l10n( "Change email token was sent to the new email address" ) );
+                this.$toast( l10n( "Change email address token was sent to the new email address" ) );
 
                 this.ext.close();
             }
