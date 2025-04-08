@@ -234,12 +234,12 @@ msgid "Change bot API token"
 msgstr "Изменить API токен бота"
 
 #: ../../src/components/account/account.panel.vue:22:47
-msgid "Change email"
-msgstr "Изменить email"
+msgid "Change email address"
+msgstr "Изменить адрес электронной почты"
 
 #: ../../src/components/change-email.dialog.vue:44:29
-msgid "Change email token was sent to the new email address"
-msgstr "Токен изменения электронной почты был отправлен на новый адрес электронной почты"
+msgid "Change email address token was sent to the new email address"
+msgstr "Токен изменения адреса электронной почты был отправлен на новый адрес электронной почты."
 
 #: ../../src/components/account/account.panel.vue:12:39
 #: ../../src/components/administration/users/panel.vue:219:48
@@ -1507,6 +1507,14 @@ msgstr "Уменьшить"
 
 #~ msgid "Change"
 #~ msgstr "Изменить"
+
+#: ../../src/components/account/account.panel.vue:22:47
+#~ msgid "Change email"
+#~ msgstr "Изменить email"
+
+#: ../../src/components/change-email.dialog.vue:44:29
+#~ msgid "Change email token was sent to the new email address"
+#~ msgstr "Токен изменения электронной почты был отправлен на новый адрес электронной почты"
 
 #~ msgid "Change password for user"
 #~ msgstr "Изменить пароль для пользователя"
