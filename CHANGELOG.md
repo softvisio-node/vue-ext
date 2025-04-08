@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.14.17 (2025-04-08)
+
+Other changes:
+
+- chore: update translations
+
+Compare with the previous release: [`v8.14.16...v8.14.17`](https://github.com/softvisio-node/vue-ext/compare/v8.14.16...v8.14.17)
+
 ### 8.14.16 (2025-04-03)
 
 Other changes:
