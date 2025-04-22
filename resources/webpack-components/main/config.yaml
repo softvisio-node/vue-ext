@@ -1,8 +1,8 @@
 env:
 
 build:
-  extVersion: ~
-  ewcVersion: ~
+  extVersion: 7.9.0
+  ewcVersion: 7.5.0
 
 config:
   amcharts5LicenseKey: ~
