@@ -1,5 +1,13 @@
 # Changelog
 
+### 8.14.18 (2025-04-22)
+
+Other changes:
+
+- chore: set default ext version
+
+Compare with the previous release: [`v8.14.17...v8.14.18`](https://github.com/softvisio-node/vue-ext/compare/v8.14.17...v8.14.18)
+
 ### 8.14.17 (2025-04-08)
 
 Other changes:
