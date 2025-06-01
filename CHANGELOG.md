@@ -1,5 +1,13 @@
 # Changelog
 
+### v8.14.19 (2025-06-01)
+
+**Other changes:**
+
+- \[PATCH] chore: update docs (👬 zdm)
+
+Compare with the previous release: [v8.14.18](https://github.com/softvisio-node/vue-ext/compare/v8.14.18...v8.14.19)
+
 ### 8.14.18 (2025-04-22)
 
 Other changes:
