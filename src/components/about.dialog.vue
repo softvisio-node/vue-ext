@@ -1,10 +1,10 @@
 <template>
     <ext-dialog height="350" layout="vbox" :title="l10n(`About the project`)" width="300">
         <ext-fieldpanel defaults='{"labelAlign":"left"}'>
-            <ext-displayfield :label="l10n(`UI version`)" :value="'v' + frontend.currentVersion"/>
+            <ext-displayfield :label="l10n(`UI version`)" :value="frontend.buildVersion"/>
             <ext-displayfield :label="l10n(`UI mode`)" :value="frontend.mode"/>
 
-            <ext-displayfield :label="l10n(`Backend version`)" :value="'v' + backend.currentVersion"/>
+            <ext-displayfield :label="l10n(`Backend version`)" :value="backend.buildVersion"/>
             <ext-displayfield :label="l10n(`Backend mode`)" :value="backend.mode"/>
         </ext-fieldpanel>
 
@@ -18,11 +18,11 @@
 export default {
     "computed": {
         backend () {
-            return this.$app.settings.backendGitId || {};
+            return this.$app.settings.backendId || {};
         },
 
         frontend () {
-            return this.$app.settings.frontendGitId || {};
+            return this.$app.settings.frontendId || {};
         },
     },
 
@@ -30,8 +30,8 @@ export default {
         _copy () {
             this.$utils.copyToClipboard( JSON.stringify(
                 {
-                    "backend": this.$app.settings.backendGitId,
-                    "frontend": this.$app.settings.frontendGitId,
+                    "backend": this.$app.settings.backendId,
+                    "frontend": this.$app.settings.frontendId,
                 },
                 null,
                 4
