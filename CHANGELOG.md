@@ -1,5 +1,13 @@
 # Changelog
 
+### v8.14.21 (2025-06-09)
+
+**Other changes:**
+
+- \[PATCH] chore: update about dialog (👬 zdm)
+
+Compare with the previous release: [v8.14.20](https://github.com/softvisio-node/vue-ext/compare/v8.14.20...v8.14.21)
+
 ### v8.14.20 (2025-06-07)
 
 **Other changes:**
