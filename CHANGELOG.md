@@ -1,5 +1,13 @@
 # Changelog
 
+### v8.14.22 (2025-07-16)
+
+**Other changes:**
+
+- docs: update (● [49661c9](https://github.com/softvisio-node/vue-ext/commit/49661c9f); 👬 zdm)
+
+Compare with the previous release: [v8.14.21](https://github.com/softvisio-node/vue-ext/compare/v8.14.21...v8.14.22)
+
 ### v8.14.21 (2025-06-09)
 
 **Other changes:**
