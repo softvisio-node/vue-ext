@@ -53,9 +53,9 @@ export default {
                         {
                             "xtype": "togglefield",
                             "bind": {
-                                "hidden": `{!record.enabled}`,
-                                "disabled": `{!record.editable}`,
-                                "value": `{record.subscribed}`,
+                                "hidden": "{!record.enabled}",
+                                "disabled": "{!record.editable}",
+                                "value": "{record.subscribed}",
                             },
                             "listeners": { "change": this.toggleSubscribed.bind( this ) },
                         },

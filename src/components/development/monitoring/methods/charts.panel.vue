@@ -28,15 +28,15 @@ import CardsPanel from "#src/components/cards.panel";
 
 const PERIODS = {
     "1 hour": {
-        "text": l10n( `Past hour` ),
+        "text": l10n( "Past hour" ),
         "timeUnit": "minute",
     },
     "7 days": {
-        "text": l10n( `Past 7 days` ),
+        "text": l10n( "Past 7 days" ),
         "timeUnit": "hour",
     },
     "30 days": {
-        "text": l10n( `Past 30 days` ),
+        "text": l10n( "Past 30 days" ),
         "timeUnit": "hour",
     },
 };
@@ -120,7 +120,7 @@ export default {
 
             cmp.setMenu( menu );
 
-            cmp.setText( l10n( `Period` ) + ": " + PERIODS[ this._period ].text );
+            cmp.setText( l10n( "Period" ) + ": " + PERIODS[ this._period ].text );
 
             this.refresh();
         },
@@ -134,7 +134,7 @@ export default {
 
             this._period = menuItem.getValue();
 
-            button.setText( l10n( `Period` ) + ": " + PERIODS[ this._period ].text );
+            button.setText( l10n( "Period" ) + ": " + PERIODS[ this._period ].text );
 
             this.refresh();
         },
@@ -154,7 +154,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": l10n( `Calls` ),
+                "text": l10n( "Calls" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -187,13 +187,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": l10n( `Calls` ),
+                "name": l10n( "Calls" ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "calls",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `Calls` ) + ": {valueY}",
+                    "labelText": l10n( "Calls" ) + ": {valueY}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -249,7 +249,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": l10n( `Duration per call (ms)` ),
+                "text": l10n( "Duration per call (ms)" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -282,13 +282,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": l10n( `Duration (ms)` ),
+                "name": l10n( "Duration (ms)" ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "duration_per_call",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `Duration` ) + ": {valueY.formatNumber()}",
+                    "labelText": l10n( "Duration" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -352,7 +352,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": l10n( `Exceptions (%)` ),
+                "text": l10n( "Exceptions (%)" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -387,13 +387,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": l10n( `Exceptions (%)` ),
+                "name": l10n( "Exceptions (%)" ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "exceptions_percent",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `Exceptions` ) + ": {valueY}",
+                    "labelText": l10n( "Exceptions" ) + ": {valueY}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "fill": am5.color( "#ff0000" ),

@@ -158,8 +158,8 @@ export default {
 
             if ( res.ok ) {
                 this.$toast( enabled
-                    ? l10n( `Role enabled` )
-                    : l10n( `Role disabled` ) );
+                    ? l10n( "Role enabled" )
+                    : l10n( "Role disabled" ) );
 
                 this.$emit( "update", this.getEnabledRoles() );
             }

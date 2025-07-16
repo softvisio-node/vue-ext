@@ -150,8 +150,8 @@ export default {
                 record.commit();
 
                 this.$toast( enabled
-                    ? l10n( `Access enabled` )
-                    : l10n( `Access disabled` ) );
+                    ? l10n( "Access enabled" )
+                    : l10n( "Access disabled" ) );
             }
 
             button.enable();

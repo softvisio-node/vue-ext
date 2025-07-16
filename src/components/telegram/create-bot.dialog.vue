@@ -158,7 +158,7 @@ export default {
                 this.$toast( res );
             }
             else {
-                this.$toast( l10n( `Bot created` ) );
+                this.$toast( l10n( "Bot created" ) );
 
                 this.$emit( "botCreate" );
 

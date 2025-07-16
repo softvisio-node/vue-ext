@@ -30,15 +30,15 @@ import CardsPanel from "#src/components/cards.panel";
 
 const PERIODS = {
     "1 hour": {
-        "text": l10n( `Past hour` ),
+        "text": l10n( "Past hour" ),
         "timeUnit": "minute",
     },
     "7 days": {
-        "text": l10n( `Past 7 days` ),
+        "text": l10n( "Past 7 days" ),
         "timeUnit": "hour",
     },
     "30 days": {
-        "text": l10n( `Past 30 days` ),
+        "text": l10n( "Past 30 days" ),
         "timeUnit": "hour",
     },
 };
@@ -123,7 +123,7 @@ export default {
 
             cmp.setMenu( menu );
 
-            cmp.setText( l10n( `Period` ) + ": " + PERIODS[ this._period ].text );
+            cmp.setText( l10n( "Period" ) + ": " + PERIODS[ this._period ].text );
 
             this.refresh();
         },
@@ -137,7 +137,7 @@ export default {
 
             this._period = menuItem.getValue();
 
-            button.setText( l10n( `Period` ) + ": " + PERIODS[ this._period ].text );
+            button.setText( l10n( "Period" ) + ": " + PERIODS[ this._period ].text );
 
             this.refresh();
         },
@@ -157,7 +157,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": l10n( `CPU usage` ),
+                "text": l10n( "CPU usage" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -192,13 +192,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": l10n( `CPU used` ),
+                "name": l10n( "CPU used" ),
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
                 "valueYField": "cpu_used",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `CPU used` ) + ": {valueY.formatNumber()}",
+                    "labelText": l10n( "CPU used" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -262,7 +262,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": l10n( `RAM usage` ),
+                "text": l10n( "RAM usage" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -307,13 +307,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": l10n( `RAM used (MB)` ),
+                "name": l10n( "RAM used (MB)" ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "ram_used",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `RAM used` ) + ": {valueY.formatNumber()}",
+                    "labelText": l10n( "RAM used" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -339,13 +339,13 @@ export default {
 
             // serie 2
             const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": l10n( `RAM used (%)` ),
+                "name": l10n( "RAM used (%)" ),
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
                 "valueYField": "ram_used_percent",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `RAM used` ) + ": {valueY.formatNumber()}",
+                    "labelText": l10n( "RAM used" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "connect": true,
@@ -407,7 +407,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": l10n( `RSS usage` ),
+                "text": l10n( "RSS usage" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -452,13 +452,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": l10n( `RSS used (MB)` ),
+                "name": l10n( "RSS used (MB)" ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "rss_used",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `RSS used` ) + ": {valueY.formatNumber()}",
+                    "labelText": l10n( "RSS used" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -484,13 +484,13 @@ export default {
 
             // serie 2
             const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": l10n( `RSS used (%)` ),
+                "name": l10n( "RSS used (%)" ),
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
                 "valueYField": "rss_used_percent",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `RSS used` ) + ": {valueY.formatNumber()}",
+                    "labelText": l10n( "RSS used" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "connect": true,
@@ -552,7 +552,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": l10n( `HDD usage` ),
+                "text": l10n( "HDD usage" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -597,13 +597,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.SmoothedXLineSeries.new( root, {
-                "name": l10n( `HDD used (MB)` ),
+                "name": l10n( "HDD used (MB)" ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "hdd_used",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `HDD used` ) + ": {valueY.formatNumber()}",
+                    "labelText": l10n( "HDD used" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -629,13 +629,13 @@ export default {
 
             // serie 2
             const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": l10n( `HDD used (%)` ),
+                "name": l10n( "HDD used (%)" ),
                 xAxis,
                 "yAxis": yAxis2,
                 "valueXField": "date",
                 "valueYField": "hdd_used_percent",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `HDD used` ) + ": {valueY.formatNumber()}",
+                    "labelText": l10n( "HDD used" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "connect": true,

@@ -31,7 +31,7 @@ export default {
 
     "computed": {
         _title () {
-            return this.title || l10n( `Bots` );
+            return this.title || l10n( "Bots" );
         },
     },
 };

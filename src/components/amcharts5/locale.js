@@ -6,7 +6,7 @@ try {
     locale = await import( `@amcharts/amcharts5/locales/${ app.locale.id.replace( "-", "_" ) }.js` );
 }
 catch {
-    locale = await import( `@amcharts/amcharts5/locales/en.js` );
+    locale = await import( "@amcharts/amcharts5/locales/en.js" );
 }
 
 const patch = {

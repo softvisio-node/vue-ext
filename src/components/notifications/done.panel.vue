@@ -57,7 +57,7 @@ export default {
                                 {
                                     "xtype": "container",
                                     "cls": "notification-subject",
-                                    "bind": `{record.subject}`,
+                                    "bind": "{record.subject}",
                                 },
 
                                 { "xtype": "spacer" },
@@ -86,7 +86,7 @@ export default {
                             "xtype": "container",
                             "cls": "notification-body",
                             "padding": "0 0 0 5",
-                            "bind": `{record.body}`,
+                            "bind": "{record.body}",
                         },
                     ],
                 },

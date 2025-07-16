@@ -19,7 +19,7 @@ export default {
 
     "computed": {
         title () {
-            return l10n( `Method stats` );
+            return l10n( "Method stats" );
         },
     },
 

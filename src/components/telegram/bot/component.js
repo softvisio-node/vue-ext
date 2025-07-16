@@ -15,7 +15,7 @@ export default class TelegramBotComponent {
 
     // propertirs
     get id () {
-        throw `Bot id is reqiored`;
+        throw "Bot id is reqiored";
     }
 
     get name () {

@@ -23,11 +23,11 @@ import CardsPanel from "#src/components/cards.panel";
 
 const PERIODS = {
     "7 days": {
-        "text": l10n( `Past 7 days` ),
+        "text": l10n( "Past 7 days" ),
         "timeUnit": "hour",
     },
     "3 months": {
-        "text": l10n( `Past 3 months` ),
+        "text": l10n( "Past 3 months" ),
         "timeUnit": "day",
     },
     "1 year": {
@@ -100,7 +100,7 @@ export default {
 
             cmp.setMenu( menu );
 
-            cmp.setText( l10n( `Period` ) + ": " + PERIODS[ this._period ].text );
+            cmp.setText( l10n( "Period" ) + ": " + PERIODS[ this._period ].text );
 
             this.refresh();
         },
@@ -114,7 +114,7 @@ export default {
 
             this._period = menuItem.getValue();
 
-            button.setText( l10n( `Period` ) + ": " + PERIODS[ this._period ].text );
+            button.setText( l10n( "Period" ) + ": " + PERIODS[ this._period ].text );
 
             this.refresh();
         },
@@ -134,7 +134,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": l10n( `Total subscribed users` ),
+                "text": l10n( "Total subscribed users" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -167,13 +167,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": l10n( `Total subscribed users` ),
+                "name": l10n( "Total subscribed users" ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "total_subscribed_users",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `Subscribed users` ) + ": {valueY.formatNumber()}",
+                    "labelText": l10n( "Subscribed users" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -191,13 +191,13 @@ export default {
 
             // serie 2
             const series2 = chart.series.push( am5xy.StepLineSeries.new( root, {
-                "name": l10n( `Total unsubscribed users` ),
+                "name": l10n( "Total unsubscribed users" ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "total_unsubscribed_users",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `Unsubscribed users` ) + ": {valueY.formatNumber()}",
+                    "labelText": l10n( "Unsubscribed users" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "fill": am5.color( "#ff0000" ),
@@ -253,7 +253,7 @@ export default {
 
             // title
             chart.children.unshift( am5.Label.new( root, {
-                "text": l10n( `Subscribed users` ),
+                "text": l10n( "Subscribed users" ),
                 "fontSize": 12,
                 "x": am5.percent( 50 ),
                 "centerX": am5.percent( 50 ),
@@ -286,13 +286,13 @@ export default {
 
             // serie 1
             const series1 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": l10n( `Subscribed users` ),
+                "name": l10n( "Subscribed users" ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "total_subscribed_users_delta",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `Subscribed users` ) + ": {valueY.formatNumber()}",
+                    "labelText": l10n( "Subscribed users" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#00ff00" ),
                 "fill": am5.color( "#00ff00" ),
@@ -310,13 +310,13 @@ export default {
 
             // serie 2
             const series2 = chart.series.push( am5xy.ColumnSeries.new( root, {
-                "name": l10n( `Unsubscribed users` ),
+                "name": l10n( "Unsubscribed users" ),
                 xAxis,
                 "yAxis": yAxis1,
                 "valueXField": "date",
                 "valueYField": "total_unsubscribed_users_delta",
                 "tooltip": am5.Tooltip.new( root, {
-                    "labelText": l10n( `Unsubscribed users` ) + ": {valueY.formatNumber()}",
+                    "labelText": l10n( "Unsubscribed users" ) + ": {valueY.formatNumber()}",
                 } ),
                 "stroke": am5.color( "#ff0000" ),
                 "fill": am5.color( "#ff0000" ),

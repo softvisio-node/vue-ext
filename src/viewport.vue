@@ -156,7 +156,7 @@ export default {
 
         async routeTelegramWebApp () {
             if ( !this.$app.telegram ) {
-                this.$utils.alert( l10n( `Telegram web application initialized incorrectly` ) );
+                this.$utils.alert( l10n( "Telegram web application initialized incorrectly" ) );
 
                 return;
             }

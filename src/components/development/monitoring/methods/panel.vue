@@ -141,7 +141,7 @@ export default {
                     "dataIndex": "method_display_name",
                     "flex": 1,
                     "minWidth": 290,
-                    "text": l10n( `Method name` ),
+                    "text": l10n( "Method name" ),
                     "locked": "left",
                     "sorter": { "property": "method_name" },
                     "cell": { "encodeHtml": false, "height": 60 },
@@ -150,7 +150,7 @@ export default {
                     "align": "right",
                     "dataIndex": "calls_text",
                     "sorter": { "property": "calls" },
-                    "text": l10n( `Calls` ),
+                    "text": l10n( "Calls" ),
                     "width": 140,
                     "cell": { "height": 60 },
                 },
@@ -158,28 +158,28 @@ export default {
                     "align": "right",
                     "dataIndex": "duration_per_call_text",
                     "sorter": { "property": "duration_per_call" },
-                    "text": l10n( `Duration / call (ms)` ),
+                    "text": l10n( "Duration / call (ms)" ),
                     "width": 140,
                 },
                 {
                     "align": "right",
                     "dataIndex": "duration_text",
                     "sorter": { "property": "duration_share" },
-                    "text": l10n( `Duration (%)` ),
+                    "text": l10n( "Duration (%)" ),
                     "width": 140,
                 },
                 {
                     "align": "right",
                     "dataIndex": "exceptions_text",
                     "sorter": { "property": "exceptions" },
-                    "text": l10n( `Exceptions` ),
+                    "text": l10n( "Exceptions" ),
                     "width": 140,
                 },
                 {
                     "align": "right",
                     "dataIndex": "exceptions_per_call_text",
                     "sorter": { "property": "exceptions_per_call" },
-                    "text": l10n( `Exceptions / call (%)` ),
+                    "text": l10n( "Exceptions / call (%)" ),
                     "width": 140,
                 },
                 {
@@ -202,7 +202,7 @@ export default {
             for ( const period of periods ) {
                 const text = l10n( msgid`${ period } day`, msgid`${ period } days`, period );
 
-                if ( period === defaultPeriod ) cmp.setText( l10n( `Period` ) + ": " + text );
+                if ( period === defaultPeriod ) cmp.setText( l10n( "Period" ) + ": " + text );
 
                 menu.push( {
                     "xtype": "menuradioitem",
@@ -229,13 +229,13 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
-                            "tooltip": l10n( `Open charts` ),
+                            "tooltip": l10n( "Open charts" ),
                             "handler": this.showChartsDialog.bind( this, null ),
                         },
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-triangle-exclamation",
-                            "tooltip": l10n( `Exceptions log` ),
+                            "tooltip": l10n( "Exceptions log" ),
                             "handler": this.showExceptions.bind( this ),
                         },
                     ],
@@ -298,7 +298,7 @@ export default {
 
             this.period = period;
 
-            this.$refs.periodButton.ext.setText( l10n( `Period` ) + ": " + menuItem.getText() );
+            this.$refs.periodButton.ext.setText( l10n( "Period" ) + ": " + menuItem.getText() );
 
             this.refresh();
         },

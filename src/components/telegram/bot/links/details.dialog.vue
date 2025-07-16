@@ -25,7 +25,7 @@ export default {
 
     "computed": {
         title () {
-            return l10n( `Bot link` ) + ": " + this.telegramBotLinkRecord.get( "name" );
+            return l10n( "Bot link" ) + ": " + this.telegramBotLinkRecord.get( "name" );
         },
     },
 

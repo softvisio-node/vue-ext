@@ -46,7 +46,7 @@ export default {
             else {
                 this.$emit( "create" );
 
-                this.$toast( l10n( `Link created` ) );
+                this.$toast( l10n( "Link created" ) );
 
                 this.ext.close();
             }

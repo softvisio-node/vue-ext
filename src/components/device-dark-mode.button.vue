@@ -25,7 +25,7 @@ export default {
 
     "computed": {
         label () {
-            return l10n( `Use device dark mode` );
+            return l10n( "Use device dark mode" );
         },
 
         value () {

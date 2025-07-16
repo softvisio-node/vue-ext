@@ -189,7 +189,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$toast( l10n( `Bot deleted` ) );
+                this.$toast( l10n( "Bot deleted" ) );
 
                 telegramComponents.emit( "botDelete", this.telegramBotId );
             }

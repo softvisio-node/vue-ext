@@ -33,7 +33,7 @@ export default {
                 return "";
             }
             else {
-                return l10n( `Receive push notifications` );
+                return l10n( "Receive push notifications" );
             }
         },
 

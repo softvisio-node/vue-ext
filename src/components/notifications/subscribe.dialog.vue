@@ -26,8 +26,8 @@ export default {
                 {
                     "xtype": "button",
                     "iconCls": "fa-solid fa-cog",
-                    "text": l10n( `Settings` ),
-                    "tooltip": l10n( `Notifications settings` ),
+                    "text": l10n( "Settings" ),
+                    "tooltip": l10n( "Notifications settings" ),
                     "handler": this.showNotificationsSettingsDialog.bind( this ),
                 },
             ] );

@@ -129,7 +129,7 @@ export default {
                         {
                             "xtype": "button",
                             "iconCls": "fa-solid fa-chart-line",
-                            "tooltip": l10n( `Open charts` ),
+                            "tooltip": l10n( "Open charts" ),
                             "handler": this.showChartsDialog.bind( this, null ),
                         },
                     ],

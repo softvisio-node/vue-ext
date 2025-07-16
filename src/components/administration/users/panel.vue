@@ -258,8 +258,8 @@ export default {
                 record.commit();
 
                 this.$toast( enabled
-                    ? l10n( `Access enabled` )
-                    : l10n( `Access disabled` ) );
+                    ? l10n( "Access enabled" )
+                    : l10n( "Access disabled" ) );
             }
 
             button.enable();
@@ -348,7 +348,7 @@ export default {
 
             this.$utils.copyToClipboard( record.get( "email" ) );
 
-            this.$toast( l10n( `User email copied` ) );
+            this.$toast( l10n( "User email copied" ) );
         },
 
         _onChildDoubleTap ( e ) {

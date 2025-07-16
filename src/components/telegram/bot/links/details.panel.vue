@@ -162,7 +162,7 @@ export default {
 
                 this.cancelEditName();
 
-                this.$toast( l10n( `Link updated` ) );
+                this.$toast( l10n( "Link updated" ) );
             }
             else {
                 this.$toast( res );
@@ -195,7 +195,7 @@ export default {
 
                 this.cancelEditDescription();
 
-                this.$toast( l10n( `Link updated` ) );
+                this.$toast( l10n( "Link updated" ) );
             }
             else {
                 this.$toast( res );
@@ -214,7 +214,7 @@ export default {
             button.enable();
 
             if ( res.ok ) {
-                this.$toast( l10n( `Link deleted` ) );
+                this.$toast( l10n( "Link deleted" ) );
 
                 this.$refs.cardsPanel.showNoDataPanel();
 

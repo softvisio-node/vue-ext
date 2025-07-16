@@ -3,7 +3,7 @@ export * from "@softvisio/vue/utils";
 const ICON_SIZE = "2em";
 
 export async function alert ( message, { title, width = 350, height = 200, iconCls } = {} ) {
-    title ??= l10n( `Warning` );
+    title ??= l10n( "Warning" );
     iconCls ??= "fa-solid fa-triangle-exclamation";
 
     return new Promise( resolve => {

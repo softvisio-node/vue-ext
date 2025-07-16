@@ -56,7 +56,7 @@ export default {
             if ( res.ok ) {
                 form.setValues( values );
 
-                this.$toast( l10n( `Bot updated` ) );
+                this.$toast( l10n( "Bot updated" ) );
 
                 form.fillRecord( this.record );
 

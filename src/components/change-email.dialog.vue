@@ -16,7 +16,7 @@
 export default {
     "computed": {
         title () {
-            return l10n( `Email change` );
+            return l10n( "Email change" );
         },
     },
 

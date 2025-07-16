@@ -53,8 +53,8 @@ export default Ext.define( null, {
         { "name": "can_delete_link", "calculate": data => data.acl_user_permissions.has( "telegram/bot/links:delete" ) },
 
         { "name": "status_text", "calculate": data => ( data.started
-            ? l10n( `Bot started` )
-            : l10n( `Bot stopped` ) ) },
+            ? l10n( "Bot started" )
+            : l10n( "Bot stopped" ) ) },
 
         {
             "name": "last_user_created_text",

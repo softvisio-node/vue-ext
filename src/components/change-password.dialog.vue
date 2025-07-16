@@ -35,7 +35,7 @@ export default {
 
     "computed": {
         title () {
-            return l10n( `Password change` );
+            return l10n( "Password change" );
         },
     },
 
@@ -89,7 +89,7 @@ export default {
 
             this.$utils.copyToClipboard( password );
 
-            this.$toast( l10n( `Password copied to the clipboard` ) );
+            this.$toast( l10n( "Password copied to the clipboard" ) );
 
             this.$refs.form.ext.getFields( "password" ).setValue( password );
             this.$refs.form.ext.getFields( "confirmedPassword" ).setValue( password );
