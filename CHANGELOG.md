@@ -1,5 +1,13 @@
 # Changelog
 
+### v8.14.25 (2025-07-23)
+
+**Bug fixes:**
+
+- \[PATCH] fix: update editorconfig (● [ff05417](https://github.com/softvisio-node/vue-ext/commit/ff05417e); 👬 zdm)
+
+Compare with the previous release: [v8.14.24](https://github.com/softvisio-node/vue-ext/compare/v8.14.24...v8.14.25)
+
 ### v8.14.24 (2025-07-22)
 
 **Bug fixes:**
