@@ -1,5 +1,15 @@
 # Changelog
 
+### v8.14.26 (2025-07-23)
+
+**Other changes:**
+
+- build(deps): bump @fortawesome/fontawesome-free v7.0.0 (● [0dc329a](https://github.com/softvisio-node/vue-ext/commit/0dc329a5); 👬 zdm)
+
+- style: update .npmrc (● [3b8c833](https://github.com/softvisio-node/vue-ext/commit/3b8c8334); 👬 zdm)
+
+Compare with the previous release: [v8.14.25](https://github.com/softvisio-node/vue-ext/compare/v8.14.25...v8.14.26)
+
 ### v8.14.25 (2025-07-23)
 
 **Bug fixes:**
