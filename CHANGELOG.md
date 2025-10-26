@@ -1,5 +1,13 @@
 # Changelog
 
+### v8.14.27 (2025-10-26)
+
+**Other changes:**
+
+- style: lint (● [6ac0279](https://github.com/softvisio-node/vue-ext/commit/6ac02791); 👬 zdm)
+
+Compare with the previous release: [v8.14.26](https://github.com/softvisio-node/vue-ext/compare/v8.14.26...v8.14.27)
+
 ### v8.14.26 (2025-07-23)
 
 **Other changes:**
