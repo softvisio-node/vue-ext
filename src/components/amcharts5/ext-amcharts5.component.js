@@ -50,12 +50,12 @@ export default class EwcAmchrarts5 extends ExtContainer {
 }
 
 try {
-    if ( window.customElements.get( "ext-amcharts5" ) === undefined ) {
-        window.customElements.define( "ext-amcharts5", ElementParser.withParsedCallback( EwcAmchrarts5 ) );
+    if ( globalThis.customElements.get( "ext-amcharts5" ) === undefined ) {
+        globalThis.customElements.define( "ext-amcharts5", ElementParser.withParsedCallback( EwcAmchrarts5 ) );
     }
 }
 catch {
-    if ( window.customElements.get( "ext-amcharts5" ) === undefined ) {
-        window.customElements.define( "ext-amcharts5", EwcAmchrarts5 );
+    if ( globalThis.customElements.get( "ext-amcharts5" ) === undefined ) {
+        globalThis.customElements.define( "ext-amcharts5", EwcAmchrarts5 );
     }
 }
